@@ -425,6 +425,24 @@ def generate_html(d, city_list, hub_abbrs, all_states):
       </div>
     </section>''' if neighbor_html.strip() else ''
 
+    # Featured-city callout (striking-distance pages, GSC positions 10-30 as of 14 Apr 2026)
+    FEATURED_CITIES = {
+        "OR": [("Portland", "portland-or")],
+        "MO": [("St. Louis", "st-louis-mo")],
+        "CA": [("Sacramento", "sacramento-ca")],
+        "OK": [("Tulsa", "tulsa-ok")],
+    }
+    featured_callout = ""
+    if abbr in FEATURED_CITIES:
+        items = FEATURED_CITIES[abbr]
+        links = ", ".join(f'<a href="{slug}.html" style="color: var(--orange-dark); font-weight: 600;">{city}</a>' for city, slug in items)
+        featured_callout = f'''
+        <div class="callout-box callout-info" style="margin-bottom: 24px;">
+          <div>
+            <strong>Featured city:</strong> {links} &mdash; see detailed HVAC pricing, permit offices, utility rebates, and ZIP-level coverage.
+          </div>
+        </div>'''
+
     # Byline + Last reviewed (E-E-A-T)
     today = date.today()
     reviewed_iso = today.isoformat()
@@ -970,7 +988,7 @@ def generate_html(d, city_list, hub_abbrs, all_states):
         <div class="city-services" style="margin-bottom: 24px;">
           <h2>Service Areas in {name}</h2>
           <p style="font-size: 1.05rem; line-height: 1.85; color: var(--gray-700);">Cool Call Pro connects homeowners with HVAC professionals across {name}. Browse our local service pages for city-specific costs, permit offices, and contractor information.</p>
-        </div>
+        </div>{featured_callout}
         <div class="city-grid">
 {city_grid}
         </div>
