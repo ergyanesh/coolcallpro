@@ -1,0 +1,165 @@
+# Cool Call Pro — Project Instructions
+
+## What This Project Is
+
+CoolCallPro.com is a static HTML HVAC services referral site deployed on Cloudflare Pages. Revenue model: phone call referrals via MarketCall tracking (1-844-582-1795). Target: $10K/month within 9-12 months.
+
+**Live URL:** https://coolcallpro.com
+**Cloudflare Project:** `coolcallpro` (account `9a0a74ae39ad47742b662ea42c4716d0`)
+
+## Tech Stack
+
+- **Pure static HTML/CSS/JS** — no frameworks, no build tools, no npm
+- **CSS:** Single stylesheet `css/style.css` (minified → `css/style.min.css`)
+- **JS:** Single script `js/main.js` (minified → `js/main.min.js`)
+- **Python generators:** Programmatic page generation from Excel data
+- **Fonts:** Inter (body) + Outfit (display) via Google Fonts
+- **Deployment:** Cloudflare Pages via dashboard upload (NOT git-integrated, NOT wrangler CLI)
+
+## File Structure
+
+```
+/                               Root (working directory)
+├── index.html                  Homepage (CSS INLINED in <style> tag)
+├── locations.html              Directory hub (50-state grid + city grid)
+├── articles.html               Articles hub
+├── article-*.html              12 root-level articles
+├── about.html, contact.html, costs.html, emergency.html, safety.html
+├── author-gyanesh.html, privacy.html, terms.html, disclaimer.html
+├── advertising-disclosure.html, 404.html
+│
+├── locations/                  Location pages (134 files)
+│   ├── {state}.html            50 state hub pages (e.g., texas.html)
+│   └── {city-st}.html          84 city/metro pages (e.g., houston-tx.html)
+│
+├── articles/                   Deep-dive articles (4 files)
+│   └── {slug}.html
+│
+├── css/style.css               Main stylesheet (~2000 lines)
+├── css/style.min.css           Minified CSS
+├── js/main.js                  Main JS (~250 lines)
+├── js/main.min.js              Minified JS
+├── images/                     WebP assets (26 files)
+│
+├── cities_updated.xlsx         City data (130 rows, 16 columns)
+├── states.xlsx                 State data (50 rows)
+│
+├── generate_city_pages_v3.py   City page generator (PRODUCTION - use this one)
+├── generate_state_hubs.py      State hub page generator
+├── audit_script.py             QC audit tool
+├── serve.py                    Local dev server (port 8080)
+├── update_article_state_links.py  Article cross-linker
+│
+├── ACCESSIBILITY.md            WCAG 2.1 AA checklist
+├── robots.txt, sitemap.xml, favicon.ico, favicon.svg
+│
+├── deploy {date}/              Timestamped deploy snapshots (full copies)
+│
+├── .agents/SKILLS/             Reference skill documents (5 files)
+└── .claude/                    Claude Code configuration
+```
+
+## Critical Rules — READ BEFORE ANY CHANGE
+
+### CSS Rules
+- **Orange (`--orange: #d84315`)** is for CTAs ONLY — never for nav, text, or browse elements
+- **Navy text** for navigation and browse elements
+- Body links in text MUST have `text-decoration: underline` (WCAG 1.4.1)
+- After editing `css/style.css`, you MUST also update `css/style.min.css`
+- **index.html has CSS inlined in a `<style>` tag** — after any CSS change, the inline styles in index.html must also be updated manually
+
+### HTML Rules
+- `<meta charset="UTF-8">` MUST be the first child of `<head>` (before any script/link/meta)
+- Every page: unique `<title>` (max 60 chars) + unique `<meta name="description">` (max 155 chars)
+- Exactly one `<h1>` per page, headings never skip levels
+- Skip link as first element in `<body>`: `<a href="#main-content" class="skip-link">Skip to main content</a>`
+- `<main id="main-content">` wrapping primary content
+- Lighthouse target: **100/100 on all four scores** (already achieved)
+
+### Location Pages (Programmatic SEO)
+- All state/city pages MUST be **100% template-driven** from Excel data — no improvised prose
+- Only generate pages where "City Page Published" or "State Hub Published" = "Yes" in xlsx
+- All 15 content columns from xlsx must appear somewhere on the generated page
+- Metro consolidation: same-metro cities merge into one page (e.g., 7 DFW cities → 1 page)
+- After ANY batch of page generation:
+  1. Update `locations.html` to include new pages
+  2. Fix nearby-city links on affected pages
+  3. Cross-link related state hubs and city pages
+  4. Run QC audit before deploying
+
+### Accessibility (WCAG 2.1 AA)
+- See `ACCESSIBILITY.md` for full checklist
+- All images need descriptive `alt` (or `alt=""` for decorative)
+- Decorative SVGs/icons: `aria-hidden="true"`
+- Color contrast: minimum 4.5:1 for normal text, 3:1 for large text
+- All animations gated behind `prefers-reduced-motion`
+
+## Build Commands
+
+```bash
+# Generate city pages (production generator)
+python generate_city_pages_v3.py --batch 3          # Generate batch 3
+python generate_city_pages_v3.py --city "Austin"     # Single city
+python generate_city_pages_v3.py --batch 2 --dry-run # Preview only
+
+# Generate state hub pages
+python generate_state_hubs.py TX CA FL NY             # Specific states
+python generate_state_hubs.py                         # All states
+
+# Run QC audit
+python audit_script.py
+
+# Update article cross-links
+python update_article_state_links.py
+
+# Minify CSS and JS
+npx --yes clean-css-cli css/style.css -o css/style.min.css
+npx --yes terser js/main.js -o js/main.min.js --compress --mangle
+
+# Start local dev server
+python serve.py                                       # http://localhost:8080
+```
+
+## Deploy Workflow
+
+1. Make all changes in the working directory (root)
+2. Run QC: `python audit_script.py`
+3. Minify: CSS and JS (see commands above)
+4. Create deploy snapshot: `mkdir -p "deploy {DATE}"`
+5. Copy all publishable files into the deploy folder
+6. Test locally with `python serve.py`
+7. Upload via **Cloudflare Pages dashboard** (NOT wrangler CLI — it doesn't work for this project)
+8. After deploy: resubmit sitemap in Google Search Console
+
+## Design System (CSS Variables)
+
+```css
+--navy: #0a1628        --blue: #1a73e8       --orange: #d84315 (CTAs ONLY)
+--navy-deep: #060e1c   --blue-light: #4fa3ff --orange-light: #ff8a50
+--navy-mid: #112040    --ice: #a8d8ff        --orange-dark: #b53610
+--red: #c53030         --green: #38a169      --yellow: #f6c90e
+--white: #ffffff       --gray-50 to --gray-900 (7 shades)
+--font-main: 'Inter'   --font-display: 'Outfit'
+--radius: 16px         --shadow: 0 4px 24px rgba(10,22,40,0.14)
+```
+
+## Reference Documents
+
+| File | What It Covers |
+|------|----------------|
+| `.agents/SKILLS/hub-and-spoke-master-plan-19-march-2026.md` | Site architecture: state hubs, metro consolidation, URL structure |
+| `.agents/SKILLS/city-page-programmatic-seo-16-march-2026.md` | City page template: all 16 data columns, climate mapping, schema |
+| `.agents/SKILLS/content-scaling-strategy-16-march-2026.md` | Article planning, service pages, internal linking strategy |
+| `.agents/SKILLS/hvac-article-writer.md` | Article writing: tone, structure, auto-linking, 100-article roadmap |
+| `.agents/SKILLS/site-qc-checklist.md` | QC checklist: SEO, schema, content, linking, Core Web Vitals |
+| `ACCESSIBILITY.md` | WCAG 2.1 AA full checklist |
+
+## What NOT To Do
+
+- Do NOT use wrangler CLI for deployment — use dashboard upload
+- Do NOT improvise prose on location pages — everything is template-driven from xlsx
+- Do NOT use orange for anything other than CTA buttons
+- Do NOT skip the QC checklist after generating pages
+- Do NOT edit legacy generator files (`generate_city_pages.py`, `update_city_pages.py`) — use v3
+- Do NOT modify deploy folders — they are frozen snapshots
+- Do NOT add npm/node dependencies — this is a zero-dependency static site

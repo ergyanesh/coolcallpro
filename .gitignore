@@ -1,0 +1,47 @@
+# Deploy snapshots (one-off frozen copies — not source)
+deploy */
+deploy\ */
+
+# Search Console analytics exports (not source)
+Search\ Console_*/
+"Search Console_"*/
+
+# Cloudflare CLI cache
+.wrangler/
+
+# Local Claude config
+.claude/
+
+# One-off docx audits / screenshots in root
+*.docx
+/alabama-*.png
+/alabama-*.webp
+/locations-review.png
+/locations-review.webp
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+.pytest_cache/
+
+# Node (in case anything installs node_modules)
+node_modules/
+package-lock.json
+
+# Logs
+*.log
+
+# OS junk
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*~
