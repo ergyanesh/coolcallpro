@@ -48,3 +48,8 @@ desktop.ini
 .idea/
 *.swp
 *~
+
+# Excel lock files (created when xlsx is open)
+~$*.xlsx
+~$*.xls
+
