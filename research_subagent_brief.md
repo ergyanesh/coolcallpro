@@ -116,6 +116,13 @@ Return a single JSON object with exactly these keys. For each data point, either
 4. **Record the EXACT URL** of the page where the fact lives (deep link, not homepage).
 5. **If the fact isn't on the page, search again.** Do not fall back to a non-allowed source.
 
+## Typography rules
+
+- **Do not use the `§` / `&sect;` glyph** when citing ordinances or code sections. Write out the word "Section" — it renders cleanly in every browser and font. E.g. write "Minneapolis Code of Ordinances Section 244.430", not "MCO § 244.430".
+- Use `&mdash;` for em-dashes and `&ndash;` for en-dashes to avoid encoding issues.
+- Use `&rsquo;` / `&ldquo;` / `&rdquo;` for smart quotes/apostrophes.
+- Use `&deg;F` for degree symbols.
+
 ## When in doubt
 
 - **Doubt whether a source counts?** It doesn't. Omit.

@@ -445,12 +445,20 @@ def services_list(city, climate_type):
 def licensing_paragraph(c, state_info=None):
     """Generate the licensing/permits paragraph.
 
+    Handles two cases:
+    (1) State DOES issue an HVAC license — dumps the license name as-is.
+    (2) State does NOT issue a statewide HVAC license — detects ANY variant
+        beginning with "No " (e.g. "No state license; $25,000 surety bond
+        required") and parses the clause after `;` as an alternative
+        requirement ("Instead, contractors must carry a $25,000 surety bond.").
+
     state_info is a dict from states.xlsx with 'Licensing Body/Agency' and
     'License Lookup URL'. When present, appends a verified lookup link.
     """
     city = escape(c['city'])
     state_full = escape(STATE_FULL.get(c['state'], c['state']))
-    license_req = escape(c['license'])
+    license_req_raw = (c['license'] or '').strip()
+    license_req = escape(license_req_raw)
     permit = escape(c['permit'])
     state_s = state_slug(c['state'])
 
@@ -464,10 +472,28 @@ def licensing_paragraph(c, state_info=None):
                            f'<a href="{escape(url)}" target="_blank" rel="nofollow noopener" '
                            f'style="color: var(--orange-dark); font-weight: 600;">{escape(body)}</a>.')
 
-    if "no statewide" in license_req.lower() or "not require" in license_req.lower():
+    # Detect "no license" states — any string starting with "No " (case-insensitive).
+    # Covers: "No state license; ...", "No statewide license; ...", "No mandatory
+    # statewide license; ...", "No statewide HVAC contractor license", etc.
+    is_no_license = license_req_raw.lower().startswith('no ')
+
+    if is_no_license:
+        # Parse the alternative requirement after the first ';' if present.
+        # E.g. "No state license; $25,000 surety bond required" ->
+        # alternative = "$25,000 surety bond required"
+        alt_sentence = ""
+        if ';' in license_req_raw:
+            alt = license_req_raw.split(';', 1)[1].strip().rstrip('.')
+            if alt:
+                # Lowercase the leading character so it reads naturally after
+                # "Instead,"; preserve it if it's a proper-noun/acronym like EPA.
+                if alt[0].isupper() and not (len(alt) > 1 and alt[1].isupper()):
+                    alt = alt[0].lower() + alt[1:]
+                alt_sentence = f' Instead, {escape(alt)}.'
+
         return (
             f"HVAC Licensing &amp; Permits in {city}, {escape(c['state'])}",
-            f'{state_full} does not require a statewide HVAC license, but {city} enforces local permit requirements through <strong>{permit}</strong>.{lookup_html} Always verify your contractor carries liability insurance and workers\' compensation coverage. Any major installation or system replacement should have a permit on file&mdash;skipping permits can void manufacturer warranties and create problems when selling your home. See our <a href="../costs.html" style="color: var(--orange-dark); font-weight: 600;">HVAC cost guide</a> for detailed pricing breakdowns. For full statewide regulations, see our <a href="{state_s}.html" style="color: var(--orange-dark); font-weight: 600;">{state_full} HVAC guide</a>.'
+            f'{state_full} does not require a statewide HVAC contractor license.{alt_sentence} {city} enforces local permit requirements through <strong>{permit}</strong>.{lookup_html} Always verify your contractor carries liability insurance and workers\' compensation coverage. Any major installation or system replacement should have a permit on file&mdash;skipping permits can void manufacturer warranties and create problems when selling your home. See our <a href="../costs.html" style="color: var(--orange-dark); font-weight: 600;">HVAC cost guide</a> for detailed pricing breakdowns. For full statewide regulations, see our <a href="{state_s}.html" style="color: var(--orange-dark); font-weight: 600;">{state_full} HVAC guide</a>.'
         )
     else:
         return (
@@ -555,6 +581,9 @@ def local_context_section_html(c):
     raw = (c.get('local_context_html') or '').strip()
     if not raw:
         return ""
+    # Normalize legal-section symbol — some fonts render &sect; oddly.
+    # Spell out "Section" so it reads cleanly on every browser.
+    raw = raw.replace('&sect; ', 'Section ').replace('&sect;', 'Section ')
     city_e = escape(c['city'])
     st_e = escape(c['state'])
     return f'''
