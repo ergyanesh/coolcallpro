@@ -448,10 +448,11 @@ def generate_html(d, city_list, hub_abbrs, all_states):
     reviewed_iso = today.isoformat()
     reviewed_readable = today.strftime("%B %#d, %Y") if os.name == 'nt' else today.strftime("%B %-d, %Y")
     meta_block = (
-        f'<div class="page-meta">'
-        f'<span class="byline">By <a href="../author-gyanesh.html">Gyanesh Gulshan</a>, Founder &mdash; B.Tech Mechanical Engineering</span>'
-        f'<span class="reviewed">Last reviewed <time datetime="{reviewed_iso}">{reviewed_readable}</time></span>'
-        f'</div>'
+        f'<div class="article-meta-modern"><div class="meta-line meta-reviewed">Last reviewed <time datetime="{reviewed_iso}">{reviewed_readable}</time></div></div>\n'
+        f'        <div class="author-byline">\n'
+        f'          <img src="../images/author-gyane.webp" alt="Gyanesh Gulshan" class="author-avatar-sm" loading="lazy" width="48" height="48" />\n'
+        f'          <span>By <a href="../author-gyanesh">Gyanesh Gulshan</a> &mdash; Founder, Cool Call Pro</span>\n'
+        f'        </div>'
     )
 
     # Sources & References footer (E-E-A-T)
@@ -845,6 +846,7 @@ def generate_html(d, city_list, hub_abbrs, all_states):
         <span class="section-tag" style="background: rgba(255,255,255,0.1); color: #fff;">&#128205; {name}</span>
         <h1>HVAC Service &amp; Repair in {name}</h1>
         <p>Connect with independent local HVAC professionals across every city and ZIP code in {name}. {state_profile['hero_service']}</p>
+        {meta_block}
         <div style="margin-top: 28px;">
           <a href="tel:+18445821795" class="btn btn-primary btn-lg btn-vibrate"><span class="phone-icon">&#128222;</span> Call Now &#8212; (844) 582-1795</a>
         </div>
@@ -881,7 +883,6 @@ def generate_html(d, city_list, hub_abbrs, all_states):
     <section class="section" style="padding: 48px 0 0;">
       <div class="container">
         <div class="city-context">
-          {meta_block}
           <p>{name} is home to over <strong>{pop_long} residents</strong> with a <strong>{homeown}% homeownership rate</strong>. The state spans IECC <strong>{zones_fmt}</strong>, and {peak_desc} {sys_desc} Cool Call Pro connects you with independent local HVAC professionals serving every corner of the state.</p>
         </div>
 

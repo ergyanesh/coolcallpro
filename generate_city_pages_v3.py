@@ -490,12 +490,18 @@ def rebates_paragraph(c):
 
 
 def page_meta_html(reviewed_iso, reviewed_readable):
-    """Byline + Last reviewed line, placed below breadcrumb on city pages."""
+    """Hero byline pill + last-reviewed line, styled to match article pages.
+
+    Uses the existing `.article-meta-modern` (for the timestamp, white-on-dark)
+    and `.author-byline` + `.author-avatar-sm` pill used on article templates.
+    Rendered inside the dark hero section of each city/state page.
+    """
     return (
-        f'<div class="page-meta">'
-        f'<span class="byline">By <a href="../author-gyanesh.html">Gyanesh Gulshan</a>, Founder &mdash; B.Tech Mechanical Engineering</span>'
-        f'<span class="reviewed">Last reviewed <time datetime="{reviewed_iso}">{reviewed_readable}</time></span>'
-        f'</div>'
+        f'<div class="article-meta-modern"><div class="meta-line meta-reviewed">Last reviewed <time datetime="{reviewed_iso}">{reviewed_readable}</time></div></div>\n'
+        f'        <div class="author-byline">\n'
+        f'          <img src="../images/author-gyane.webp" alt="Gyanesh Gulshan" class="author-avatar-sm" loading="lazy" width="48" height="48" />\n'
+        f'          <span>By <a href="../author-gyanesh">Gyanesh Gulshan</a> &mdash; Founder, Cool Call Pro</span>\n'
+        f'        </div>'
     )
 
 
@@ -1074,6 +1080,7 @@ def generate_page(c, climate_type, nearby, absorbed_data, all_cities_lookup, sta
         <span class="section-tag" style="background: rgba(255,255,255,0.1); color: #fff;">&#128205; {e_city}, {e_st}</span>
         <h1>{profile['h1_service']} in {e_city}, {e_st}</h1>
         <p>Connect with independent local HVAC professionals in {e_city}, {e_state}. {profile['hero_service']}</p>
+        {meta_block}
         <div style="margin-top: 28px;">
           <a href="tel:+18445821795" class="btn btn-primary btn-lg btn-vibrate"><span class="phone-icon">&#128222;</span> Call Now &#8212; (844) 582-1795</a>
         </div>
@@ -1103,7 +1110,6 @@ def generate_page(c, climate_type, nearby, absorbed_data, all_cities_lookup, sta
     <section class="section" style="padding: 48px 0 0;">
       <div class="container">
         <div class="city-context" style="max-width: 760px; margin: 0 auto 40px;">
-          {meta_block}
           <p>Serving <strong>{pop_str}</strong> residents across <strong>{e_city}, {e_state}</strong>, Cool Call Pro connects homeowners in <strong>{e_neighborhoods}</strong> with independent 24/7 HVAC technicians. Our referral network covers <strong>{e_zips}</strong> and surrounding areas. {cost_sentence} Your contractor should pull mechanical permits through the <strong>{e_permit}</strong>.</p>
         </div>
 
