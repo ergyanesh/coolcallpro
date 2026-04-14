@@ -539,6 +539,27 @@ def neighborhoods_section_html(c):
 '''
 
 
+def local_context_section_html(c):
+    """Phase 6: render the researched factual block, if populated.
+
+    `local_context_html` from xlsx is pre-authored HTML (paragraphs with inline
+    citations). Returns empty string when the column is empty, so pages that
+    haven't been researched yet render unchanged.
+    """
+    raw = (c.get('local_context_html') or '').strip()
+    if not raw:
+        return ""
+    city_e = escape(c['city'])
+    st_e = escape(c['state'])
+    return f'''
+        <!-- Phase 6: Researched per-city factual block (primary-source citations) -->
+        <div class="city-services" id="local-data" style="margin-bottom: 40px;">
+          <h2>HVAC in {city_e}, {st_e}: Local Data &amp; Context</h2>
+          {raw}
+        </div>
+'''
+
+
 def sources_footer_html():
     """Sources & References block — authoritative federal sources only."""
     return '''
@@ -720,6 +741,7 @@ def generate_page(c, climate_type, nearby, absorbed_data, all_cities_lookup, sta
         reviewed_readable = today.strftime("%B %-d, %Y") if os.name != 'nt' else today.strftime("%B %#d, %Y")
     meta_block = page_meta_html(reviewed_iso, reviewed_readable)
     neighborhoods_block = neighborhoods_section_html(c)
+    local_context_block = local_context_section_html(c)
     sources_block = sources_footer_html()
 
     # Rebates
@@ -1090,7 +1112,7 @@ def generate_page(c, climate_type, nearby, absorbed_data, all_cities_lookup, sta
           <h2>{climate_h2}</h2>
           <p style="font-size: 1.05rem; line-height: 1.85; color: var(--gray-700);">{climate_para}</p>
         </div>
-{neighborhoods_block}
+{local_context_block}{neighborhoods_block}
         <!-- Services List -->
         <div class="city-services" id="services">
           <h2>HVAC Services in {e_city}, {e_st}</h2>
@@ -1328,6 +1350,10 @@ def load_cities():
             'seer': str(row[11] or ''), 'rebates': str(row[12] or ''),
             'license': str(row[13] or ''), 'climate': str(row[14] or ''),
             'published': row[15],
+            # Phase 6: researched per-city factual block (column index 17).
+            # Optional; empty string means generator renders no local-context
+            # section, so un-researched cities keep their Phase 3 template.
+            'local_context_html': str(row[17] or '') if len(row) > 17 else '',
         }
         all_cities.append(city)
         if row[0] not in cities:
