@@ -442,6 +442,35 @@ def services_list(city, climate_type):
     return lists.get(climate_type, lists["mixed-humid"])
 
 
+def license_faq_sentence(c, html=True):
+    """Return a clean single-sentence answer for the "What HVAC license is
+    required in {state}?" FAQ. Handles "no license" states gracefully —
+    never dumps raw xlsx into a sentence template that expects a license name.
+
+    Used in BOTH the visible FAQ accordion (html=True) and the FAQPage
+    JSON-LD schema (html=False, no tags).
+    """
+    state_full = STATE_FULL.get(c['state'], c['state'])
+    license_req_raw = (c['license'] or '').strip()
+    is_no_license = license_req_raw.lower().startswith('no ')
+
+    if is_no_license:
+        alt = ""
+        if ';' in license_req_raw:
+            part = license_req_raw.split(';', 1)[1].strip().rstrip('.')
+            if part:
+                if part[0].isupper() and not (len(part) > 1 and part[1].isupper()):
+                    part = part[0].lower() + part[1:]
+                alt = f" Instead, {part}."
+        if html:
+            return f"{escape(state_full)} does not require a statewide HVAC contractor license.{escape(alt)}"
+        return f"{state_full} does not require a statewide HVAC contractor license.{alt}"
+    else:
+        if html:
+            return f"In {escape(state_full)}, HVAC contractors should hold a <strong>{escape(license_req_raw)}</strong>."
+        return f"In {state_full}, HVAC contractors should hold a {license_req_raw}."
+
+
 def licensing_paragraph(c, state_info=None):
     """Generate the licensing/permits paragraph.
 
@@ -778,6 +807,8 @@ def generate_page(c, climate_type, nearby, absorbed_data, all_cities_lookup, sta
     neighborhoods_block = neighborhoods_section_html(c)
     local_context_block = local_context_section_html(c)
     sources_block = sources_footer_html()
+    license_faq_html = license_faq_sentence(c, html=True)
+    license_faq_plain = license_faq_sentence(c, html=False).replace('"', '\\"')
 
     # Rebates
     reb_h2, reb_para = rebates_paragraph(c)
@@ -963,7 +994,7 @@ def generate_page(c, climate_type, nearby, absorbed_data, all_cities_lookup, sta
             "name": "What HVAC license is required in {state_full}?",
             "acceptedAnswer": {{
               "@type": "Answer",
-              "text": "In {state_full}, HVAC contractors should hold a {license_req}. Always verify your contractor credentials before authorizing work."
+              "text": "{license_faq_plain} Always verify your contractor credentials before authorizing work."
             }}
           }}
         ]
@@ -1235,7 +1266,7 @@ def generate_page(c, climate_type, nearby, absorbed_data, all_cities_lookup, sta
               </button>
               <div class="faq-a">
                 <div class="faq-a-inner">
-                  <p>In {e_state}, HVAC contractors should hold a <strong>{e_license}</strong>. Always verify your contractor's credentials before authorizing work. For {e_city} residents, permits are filed through the <strong>{e_permit}</strong>.</p>
+                  <p>{license_faq_html} Always verify your contractor's credentials before authorizing work. For {e_city} residents, permits are filed through the <strong>{e_permit}</strong>.</p>
                 </div>
               </div>
             </div>
