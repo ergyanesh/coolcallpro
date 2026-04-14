@@ -12,6 +12,23 @@ You are gathering PRIMARY-SOURCE evidence for a single city's HVAC context. You 
 4. **If you cannot find a primary source for a data point, say so.** Return `"status": "not_found"` with a 1-line reason. Never invent, never estimate, never fall back to secondary sources.
 5. **Do not summarize beyond what is in the source.** If the source says "permit fee is $61 base + $14 per $1,000 of valuation," that's what you return. Don't round. Don't generalize.
 
+## CRITICAL: Use the raw JSON/CSV API endpoints, NOT the human-facing UIs
+
+Many `.gov` sites render their data via JavaScript single-page apps. Those UI URLs return empty HTML to any server-side fetch. Always use the backing REST APIs — they return structured JSON/CSV directly and require no browser.
+
+| Data need | **Use this API URL pattern, NOT the UI** | Example |
+|---|---|---|
+| NOAA Climate Normals 1991–2020 (station-level) | `https://www.ncei.noaa.gov/access/services/data/v1?dataset=normals-annualseasonal-1991-2020&stations={GHCND_ID}&format=json&dataTypes=ANN-TMAX-NORMAL,ANN-TMIN-NORMAL,ANN-TAVG-NORMAL,ANN-PRCP-NORMAL,ANN-SNOW-NORMAL,ANN-HTDD-NORMAL,ANN-CLDD-NORMAL` | Minneapolis KMSP = `USW00014922`; St. Louis KSTL = `USW00013994`; Portland KPDX = `USW00024229`; San Diego KSAN = `USW00023188`; Phoenix KPHX = `USW00023183` |
+| Census ACS 5-year — heating fuel (B25040) | `https://api.census.gov/data/2023/acs/acs5?get=NAME,B25040_001E,B25040_002E,B25040_003E,B25040_004E,B25040_005E,B25040_006E,B25040_007E,B25040_008E,B25040_009E,B25040_010E&for=place:{PLACE_FIPS}&in=state:{STATE_FIPS}` | Returns JSON array with verbatim counts |
+| Census ACS 5-year — median year built (B25035) | `https://api.census.gov/data/2023/acs/acs5?get=NAME,B25035_001E&for=place:{PLACE_FIPS}&in=state:{STATE_FIPS}` | State FIPS: CA=06, OR=41, AZ=04, MO=29, MN=27. Place FIPS must be looked up per city |
+| Census place FIPS lookup | Use the geocoder: `https://geocoding.geo.census.gov/geocoder/geographies/onelineaddress?address={city}+{state}&benchmark=Public_AR_Current&vintage=Census2020_Current&layers=Incorporated+Places&format=json` | Returns the place GEOID |
+
+**Never fetch `data.census.gov/table?...` or `ncei.noaa.gov/access/us-climate-normals/` UI pages** — they're JS-SPAs and always return empty shell HTML. Use the API URLs above.
+
+For **utility rebate pages** that block automated fetches (common — SDG&E, PG&E, etc. return 403): try the ENERGY STAR Rebate Finder (`energystar.gov/rebate-finder`) or DSIRE (`dsireusa.org`) as authoritative fallbacks. Both are allowed primary sources. Mark the specific utility amount `not_found` only after trying the utility site twice, then both fallback aggregators.
+
+For **municipal permit fee PDFs** that can't be parsed: mark `not_found` and note the PDF URL so the author can include honest fallback wording ("contact {permit office} for the current fee schedule"). Do not estimate.
+
 ## Source allowlist (use only these)
 
 | Data point | Allowed sources |
