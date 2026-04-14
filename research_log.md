@@ -142,4 +142,44 @@ Format per city:
 - **URLs cited:** ncei.noaa.gov (USW00012839), api.census.gov (place:45000 state:12), miamidade.gov 2023-fbc-roofing-code-changes.pdf (HVHZ Chapter 16), fpl.com/save/programs.html, flsenate.gov/laws/statutes/2025/489.105 (verbatim Class A/B definitions), energy.gov/energysaver/efficient-cooling-hot-humid-climates, irs.gov/.../energy-efficient-home-improvement-credit
 - **Notes:** Miami is extreme — 4,656 CDD vs 103.6 HDD = 45:1 cooling-to-heating ratio, and 91.2% electric heating (essentially pure-electric market). HVHZ code is unique to Miami-Dade + Broward; mechanical equipment wind-load requirement verbatim. Florida Statute 489.105 Class A (unlimited) vs Class B (25 tons / 500,000 Btu cap) captured verbatim — important for homeowners deciding which contractor credential matters for their job scope.
 
+## Seattle, WA
+
+- **Date researched:** 2026-04-14
+- **Found (5/7):** climate_profile, housing_stock, local_building_code (2021 Seattle Energy Code), utility_rebate_amounts, contractor_license_info (WAC 296-46B-920 verbatim)
+- **Not_found:** permit_fees (SDCI fee PDFs 404), and PSE natural-gas rebates (pse.com geographic/security restriction)
+- **URLs cited:** ncei.noaa.gov (USW00024233), api.census.gov (place:63000 state:53), seattle.gov/sdci codes page, seattle.gov/city-light Home Energy Solutions, app.leg.wa.gov WAC 296-46B-920, energy.gov/energysaver, irs.gov
+- **Notes:** Seattle is the most heating-dominated city researched (16:1 HDD:CDD) yet electric-majority (59.68%) — reflects Seattle City Light's hydro power. 2021 SEC "fossil fuel compliance path" captured verbatim. City Light heat-pump rebates tiered $300/$400/$600 by HSPF2. WA L&I 06A scope "not limited by voltage, phase, or amperage" — verbatim.
+
+## Dallas, TX
+
+- **Date researched:** 2026-04-14
+- **Found (5/7):** climate_profile, housing_stock, local_building_code (2021 IMC + 2021 IECC Chapters 55/59), contractor_license_info (TDLR Class A/B detailed), climate_hvac_failure_mode (NWS tornado climatology)
+- **Not_found:** permit_fees (PDF unparseable binary), utility_rebate_amounts (Oncor is TDU-only; Texas deregulated — rebates come from REPs)
+- **URLs cited:** ncei.noaa.gov (USW00013960 — KDFW, shared with Fort Worth), api.census.gov (place:19000 state:48), dallascityhall.com/know_code.aspx, tdlr.texas.gov/acr/contractor-apply.htm, weather.gov/fwd/fwdtornadoes, energystar.gov/rebate-finder, dsireusa.org, irs.gov
+- **Notes:** Dallas adopted 2021 IMC + 2021 IECC effective May 12, 2023 — very current local code. TDLR Class A/B insurance minimums captured verbatim ($300K/$600K vs $100K/$200K). 65.2% electric heat (similar to Houston's 64.5%). NWS Fort Worth tornado climatology: 26/yr average, April-May peak at 7/month each. Dallas is 528K occupied units — the largest of Batch 4 behind Philadelphia.
+
+## Detroit, MI
+
+- **Date researched:** 2026-04-14
+- **Found (5/7):** climate_profile, housing_stock, utility_rebate_amounts (DTE tiered comprehensive), contractor_license_info (LARA 10 classifications verbatim), climate_hvac_failure_mode
+- **Not_found:** permit_fees (BSEED publishes as .docx, unparseable), local_building_code (no Detroit-specific HVAC amendment found; MMC 2021 applies statewide)
+- **URLs cited:** ncei.noaa.gov (USW00094847), api.census.gov (place:22000 state:26), dteenergy.com residential rebates, michigan.gov LARA BCC-11 PDF (verbatim content authentic; URL returns 403 to automated clients but resolves in real browsers — standard michigan.gov bot-filtering), energy.gov/energysaver, irs.gov
+- **Notes:** Detroit's 81.8% gas heating is the most gas-dominant of any city researched. Median 1947 ties Boston for oldest. DTE rebate catalog most comprehensive yet — cold-climate ASHP $900/$1,000/$1,200 by tier. LARA's 10 license classifications + "3 years or 6,000 hours per classification" requirement + HVAC Equipment scope (includes gas piping/venting, excludes window units ≤1.5 HP) captured verbatim.
+
+## Philadelphia, PA
+
+- **Date researched:** 2026-04-14
+- **Found (6/7):** climate_profile, housing_stock, permit_fees (itemized schedule!), utility_rebate_amounts (PGW), contractor_license_info (L&I detailed), climate_hvac_failure_mode
+- **Not_found:** local_building_code (amlegal.com 403), and PECO electric rebates (peco.com returned empty/404)
+- **URLs cited:** ncei.noaa.gov (USW00013739), api.census.gov (place:60000 state:42), phila.gov get-a-mechanical-permit, pgworks.com/customer-care/efficiency, phila.gov get-a-contractor-license, energy.gov/energysaver/heat-pump-systems, irs.gov
+- **Notes:** Philadelphia has the most detailed permit fee schedule of any city researched — $100 filing + $15.10 per register + $69 per appliance (1-2 family) + 2% fuel gas contract + $3 city / $4.50 state surcharges. PGW EnergySense rebates up to $500 furnace / $1,500 boiler. L&I license $500K general liability + OSHA 30 within 5 years. 669,222 occupied units — largest city researched (behind Chicago's 1.15M).
+
+## Las Vegas, NV
+
+- **Date researched:** 2026-04-14
+- **Found (4/7):** climate_profile, housing_stock, contractor_license_info (NSCB C-21 framework), climate_hvac_failure_mode
+- **Not_found:** permit_fees (PDF binary unparseable), local_building_code (leg.state.nv.us 403), utility_rebate_amounts (nvenergy.com ECONNREFUSED on all attempts)
+- **URLs cited:** ncei.noaa.gov (USW00023169 — KLAS Harry Reid), api.census.gov (place:40000 state:32), nvcontractorsboard.com license-classifications, energy.gov/energysaver/central-air-conditioning, irs.gov
+- **Notes:** Las Vegas is the driest major U.S. city researched (4.18" precip) with median year built 1994 — the NEWEST housing stock of any city in the project, by a decade+. Reflects Vegas's rapid post-1990 growth. Attic-duct issue especially critical: 3,720 CDD + 110°F+ summer extremes drive attic temps above 140°F. NSCB Classification C (42 subclassifications, C-21 for HVAC) framework captured; NAC 624 detailed scope not extractable (leg.state.nv.us blocks automated fetches).
+
 ---
