@@ -62,4 +62,44 @@ Format per city:
 - **URLs cited:** ncei.noaa.gov, api.census.gov/data/2023/acs/acs5 (place 65000 state 29), library.municode.com/mo/st.louis/codes/code_of_ordinances (substituted during QC because stlouis-mo.gov deep-link was network-unreachable), energy.gov/energysaver/efficient-cooling-hot-humid-climates, energystar.gov/rebate-finder, dsireusa.org, irs.gov/credits-deductions/energy-efficient-home-improvement-credit
 - **Notes:** St. Louis median year built of 1938 is among the oldest for any major U.S. city — pre-WWII housing stock retrofit challenges are real and unique. stlouis-mo.gov was entirely unreachable during QC; municode substituted. Ordinance 70800 citation sourced from Google site-search snippet of the stlouis-mo.gov mechanical-permits page; primary-source content is authentic but deep-link URL is not live — author will re-verify once stlouis-mo.gov is reachable.
 
+## Atlanta, GA
+
+- **Date researched:** 2026-04-14
+- **Found (4/7):** climate_profile, housing_stock, utility_rebate_amounts, climate_hvac_failure_mode
+- **Not_found:** permit_fees (atlantaga.gov 403), local_building_code (municode shell only), contractor_license_info (sos.ga.gov 403)
+- **URLs cited:** ncei.noaa.gov, api.census.gov (place:04000 state:13), georgiapower.com/residential/save-money-and-energy.html, energy.gov/energysaver/efficient-cooling-hot-humid-climates, irs.gov/.../energy-efficient-home-improvement-credit, dsireusa.org, energystar.gov/rebate-finder
+- **Notes:** Georgia Power rebates captured verbatim — 5 line items including ASHP conversion 50% up to $1,000, GSHP $300, thermostat $75, duct sealing $400, tune-up $50. Atlanta's 58% electric heat is higher than typical southern metros — heat-pump market.
+
+## Chicago, IL
+
+- **Date researched:** 2026-04-14
+- **Found (3/7):** climate_profile, housing_stock, climate_hvac_failure_mode
+- **Not_found:** permit_fees, local_building_code, utility_rebate_amounts, contractor_license_info — chicago.gov, comed.com, and peoplesgasdelivery.com all block automated fetches (403/404). ICC code portal also blocked.
+- **URLs cited:** ncei.noaa.gov, api.census.gov (place:14000 state:17), energy.gov/energysaver/heat-pump-systems, energystar.gov/rebate-finder, irs.gov/.../energy-efficient-home-improvement-credit
+- **Notes:** Chicago is 1.15M occupied units — largest of any city in batch. Median 1952 (pre-WWII/mid-century dominant). 5,974 HDD + polar vortex events justify the dual-fuel specification recommendation. Block is thinner (~580 words) because of .gov blocks; honest fallback language used throughout.
+
+## Louisville, KY
+
+- **Date researched:** 2026-04-14
+- **Found (3/7):** climate_profile, housing_stock, climate_hvac_failure_mode
+- **Not_found:** permit_fees (louisvilleky.gov 403), local_building_code (municode blocked), utility_rebate_amounts (lge-ku.com 403/404), contractor_license_info (dhbc.ky.gov ECONNREFUSED — complete outage during research window)
+- **URLs cited:** ncei.noaa.gov, api.census.gov (place:48006 state:21), energy.gov/energysaver/efficient-cooling-hot-humid-climates, energystar.gov/rebate-finder, irs.gov/.../energy-efficient-home-improvement-credit
+- **Notes:** Agent discovered a FIPS correction — brief had 48003, correct place code is 48006 for Louisville/Jefferson County metro government balance. Block is thinnest of the batch (~500 words) — Kentucky state infrastructure (dhbc.ky.gov, legislature.ky.gov) was entirely offline during research window. KY Master HVAC Contractor license framework cited by name without verbatim quote.
+
+## Sacramento, CA
+
+- **Date researched:** 2026-04-14
+- **Found (6/7):** climate_profile, housing_stock, utility_rebate_amounts, contractor_license_info, climate_hvac_failure_mode, local_building_code (Title 24 Part 6 Climate Zone 12 context)
+- **Not_found:** permit_fees — City of Sacramento building fees page is a JS-SPA that returns no content server-side
+- **URLs cited:** ncei.noaa.gov (station USW00023232), api.census.gov (place:64000 state:06), smud.org Heating and Cooling Rebates, cslb.ca.gov C-20 classification, energy.gov/energysaver/cooling-whole-house-fan, irs.gov/.../energy-efficient-home-improvement-credit
+- **Notes:** SMUD rebates are exceptional — variable-stage HP $3,000 + $2,000 Go Electric Bonus = up to $5,000 per home on gas-to-electric conversion. Customer-owned municipal utility (not IOU) explains the generosity. Sacramento is California Title 24 Climate Zone 12; HERS CF3R verification is part of SMUD rebate eligibility.
+
+## Houston, TX
+
+- **Date researched:** 2026-04-14
+- **Found (4/7):** climate_profile, housing_stock, contractor_license_info (TDLR framework — governing statute + admin rules identified; Class A/B scope specifics not verbatim), climate_hvac_failure_mode
+- **Not_found:** permit_fees (houstonpermittingcenter.org fee-schedule paths 404), local_building_code (municode JS-SPA), utility_rebate_amounts (CenterPoint 404; Texas deregulated retail market means rebates administered per-REP, not per-TDU)
+- **URLs cited:** ncei.noaa.gov (station USW00012960), api.census.gov (place:35000 state:48), tdlr.texas.gov/acr/acr.htm, energy.gov/energysaver/central-air-conditioning, energystar.gov/rebate-finder, dsireusa.org, irs.gov/.../energy-efficient-home-improvement-credit
+- **Notes:** Houston is 64.5% electric-heated (not gas) — inverts the typical "Texas = gas country" assumption and is the strongest fact in the block. 3,287 CDD / 1,266 HDD makes Houston one of the most cooling-dominated major metros. TDLR ACR license citation includes Texas Occupations Code Chapter 1302 + 16 TAC Chapter 75 governing authorities.
+
 ---
