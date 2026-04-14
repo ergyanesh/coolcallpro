@@ -15,6 +15,7 @@ import openpyxl
 import os
 import sys
 import re
+from datetime import date
 from html import escape
 
 # ============================================================
@@ -22,6 +23,7 @@ from html import escape
 # ============================================================
 
 XLSX_FILE = "cities_updated.xlsx"
+STATES_XLSX = "states.xlsx"
 OUTPUT_DIR = "locations"
 
 # Already published — do NOT regenerate
@@ -440,36 +442,117 @@ def services_list(city, climate_type):
     return lists.get(climate_type, lists["mixed-humid"])
 
 
-def licensing_paragraph(c):
-    """Generate the licensing/permits paragraph."""
+def licensing_paragraph(c, state_info=None):
+    """Generate the licensing/permits paragraph.
+
+    state_info is a dict from states.xlsx with 'Licensing Body/Agency' and
+    'License Lookup URL'. When present, appends a verified lookup link.
+    """
     city = escape(c['city'])
     state_full = escape(STATE_FULL.get(c['state'], c['state']))
     license_req = escape(c['license'])
     permit = escape(c['permit'])
     state_s = state_slug(c['state'])
 
+    # Verified license lookup link (from states.xlsx)
+    lookup_html = ""
+    if state_info:
+        body = (state_info.get('Licensing Body/Agency') or '').strip()
+        url = (state_info.get('License Lookup URL') or '').strip()
+        if body and url and url.upper() != 'N/A':
+            lookup_html = (f' Verify any contractor\'s license at the '
+                           f'<a href="{escape(url)}" target="_blank" rel="nofollow noopener" '
+                           f'style="color: var(--orange-dark); font-weight: 600;">{escape(body)}</a>.')
+
     if "no statewide" in license_req.lower() or "not require" in license_req.lower():
         return (
             f"HVAC Licensing &amp; Permits in {city}, {escape(c['state'])}",
-            f'{state_full} does not require a statewide HVAC license, but {city} enforces local permit requirements through <strong>{permit}</strong>. Always verify your contractor carries liability insurance and workers\' compensation coverage. Any major installation or system replacement should have a permit on file&mdash;skipping permits can void manufacturer warranties and create problems when selling your home. See our <a href="../costs.html" style="color: var(--orange-dark); font-weight: 600;">HVAC cost guide</a> for detailed pricing breakdowns. For full statewide regulations, see our <a href="{state_s}.html" style="color: var(--orange-dark); font-weight: 600;">{state_full} HVAC guide</a>.'
+            f'{state_full} does not require a statewide HVAC license, but {city} enforces local permit requirements through <strong>{permit}</strong>.{lookup_html} Always verify your contractor carries liability insurance and workers\' compensation coverage. Any major installation or system replacement should have a permit on file&mdash;skipping permits can void manufacturer warranties and create problems when selling your home. See our <a href="../costs.html" style="color: var(--orange-dark); font-weight: 600;">HVAC cost guide</a> for detailed pricing breakdowns. For full statewide regulations, see our <a href="{state_s}.html" style="color: var(--orange-dark); font-weight: 600;">{state_full} HVAC guide</a>.'
         )
     else:
         return (
             f"HVAC Licensing &amp; Permits in {city}, {escape(c['state'])}",
-            f'Before hiring any HVAC contractor in {state_full}, verify they hold the proper <strong>{license_req}</strong>. Licensed contractors carry insurance, pull permits correctly, and stand behind their work. For {city} residents, your local permit office is <strong>{permit}</strong>&mdash;any major installation should have a permit on file. See our <a href="../costs.html" style="color: var(--orange-dark); font-weight: 600;">HVAC cost guide</a> for detailed pricing breakdowns. For full statewide licensing details, see our <a href="{state_s}.html" style="color: var(--orange-dark); font-weight: 600;">{state_full} HVAC guide</a>.'
+            f'Before hiring any HVAC contractor in {state_full}, verify they hold the proper <strong>{license_req}</strong>.{lookup_html} Licensed contractors carry insurance, pull permits correctly, and stand behind their work. For {city} residents, your local permit office is <strong>{permit}</strong>&mdash;any major installation should have a permit on file. See our <a href="../costs.html" style="color: var(--orange-dark); font-weight: 600;">HVAC cost guide</a> for detailed pricing breakdowns. For full statewide licensing details, see our <a href="{state_s}.html" style="color: var(--orange-dark); font-weight: 600;">{state_full} HVAC guide</a>.'
         )
 
 
 def rebates_paragraph(c):
-    """Generate the rebates/incentives paragraph."""
+    """Generate the rebates/incentives paragraph with DSIRE / ENERGY STAR / IRS §25C citations."""
     city = escape(c['city'])
     state_abbr = escape(c['state'])
+    state_full = escape(STATE_FULL.get(c['state'], c['state']))
     utility = escape(c['utility'])
     rebates = escape(c['rebates'])
     return (
         f"HVAC Rebates &amp; Incentives in {city}, {state_abbr}",
-        f'{city} homeowners served by <strong>{utility}</strong> may qualify for savings through <strong>{rebates}</strong> when installing qualifying high-efficiency equipment. Federal tax credits for ENERGY STAR certified systems may also apply. Contact your utility provider or HVAC contractor to confirm current eligibility and amounts. Learn about <a href="../article-hvac-financing.html" style="color: var(--orange-dark); font-weight: 600;">HVAC financing options</a>.'
+        f'{city} homeowners served by <strong>{utility}</strong> may qualify for savings through <strong>{rebates}</strong> when installing qualifying high-efficiency equipment. For all {state_full} incentives including state and federal programs, see the <a href="https://www.dsireusa.org/" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">DSIRE database (N.C. State University / U.S. DOE)</a> or the <a href="https://www.energystar.gov/rebate-finder" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">ENERGY STAR Rebate Finder (EPA)</a>. Qualifying HVAC systems may also receive up to $3,200/year via the <a href="https://www.irs.gov/credits-deductions/energy-efficient-home-improvement-credit" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">federal Energy Efficient Home Improvement Credit (IRS &sect;25C)</a>. Learn about <a href="../article-hvac-financing.html" style="color: var(--orange-dark); font-weight: 600;">HVAC financing options</a>.'
     )
+
+
+def page_meta_html(reviewed_iso, reviewed_readable):
+    """Byline + Last reviewed line, placed below breadcrumb on city pages."""
+    return (
+        f'<div class="page-meta">'
+        f'<span class="byline">By <a href="../author-gyanesh.html">Gyanesh Gulshan</a>, Founder &mdash; B.Tech Mechanical Engineering</span>'
+        f'<span class="reviewed">Last reviewed <time datetime="{reviewed_iso}">{reviewed_readable}</time></span>'
+        f'</div>'
+    )
+
+
+def neighborhoods_section_html(c):
+    """Surface neighborhoods + ZIPs from xlsx as a visible list.
+
+    Both neighborhoods and zips are comma-separated in xlsx. We pair them
+    positionally; when counts differ, we zip to the shorter length and show
+    any remaining ZIPs on a final line. Fully factual — no invented details.
+    """
+    city_e = escape(c['city'])
+    st_e = escape(c['state'])
+    raw_n = [n.strip() for n in str(c['neighborhoods']).split(',') if n.strip()]
+    raw_z = [z.strip() for z in str(c['zips']).split(',') if z.strip()]
+
+    if not raw_n and not raw_z:
+        return ""
+
+    items = []
+    pairs = min(len(raw_n), len(raw_z))
+    for i in range(pairs):
+        items.append(f'<li><strong>{escape(raw_n[i])}</strong> &mdash; ZIP {escape(raw_z[i])}</li>')
+    # Extra neighborhoods with no paired ZIP
+    for n in raw_n[pairs:]:
+        items.append(f'<li><strong>{escape(n)}</strong></li>')
+    # Extra ZIPs with no paired neighborhood
+    extra_z = raw_z[pairs:]
+    if extra_z:
+        items.append(f'<li>Additional ZIPs: {escape(", ".join(extra_z))}</li>')
+
+    list_html = "\n            ".join(items)
+    return f'''
+        <!-- ZIP Codes & Neighborhoods (surfaced from xlsx data) -->
+        <div class="city-services" id="neighborhoods" style="margin-bottom: 40px;">
+          <h2>ZIP Codes &amp; Neighborhoods Served in {city_e}, {st_e}</h2>
+          <p style="font-size: 1.05rem; line-height: 1.85; color: var(--gray-700);">Our referral network connects homeowners across {city_e}&rsquo;s neighborhoods with independent HVAC professionals. Service verification available via <a href="tel:+18445821795" style="color: var(--orange-dark); font-weight: 600;">(844) 582-1795</a>.</p>
+          <ul class="neighborhood-grid">
+            {list_html}
+          </ul>
+        </div>
+'''
+
+
+def sources_footer_html():
+    """Sources & References block — authoritative federal sources only."""
+    return '''
+        <!-- Sources & References (E-E-A-T) -->
+        <div class="city-sources">
+          <h3>Sources &amp; References</h3>
+          <ul>
+            <li><a href="https://www.energy.gov/energysaver/heat-and-cool" target="_blank" rel="nofollow noopener">U.S. Department of Energy &mdash; Home Heating &amp; Cooling</a></li>
+            <li><a href="https://www.energystar.gov/" target="_blank" rel="nofollow noopener">U.S. ENERGY STAR (EPA)</a></li>
+            <li><a href="https://www.dsireusa.org/" target="_blank" rel="nofollow noopener">DSIRE Database of State Incentives</a></li>
+            <li><a href="https://www.irs.gov/credits-deductions/energy-efficient-home-improvement-credit" target="_blank" rel="nofollow noopener">IRS &sect;25C Energy Efficient Home Improvement Credit</a></li>
+          </ul>
+        </div>
+'''
 
 
 def also_serving_section(anchor_city, absorbed_cities_data):
@@ -567,7 +650,7 @@ def faq_cost_answer_html(city_e, ac_e, furnace_e, seer_e, state_e, climate_type)
 # MAIN PAGE TEMPLATE
 # ============================================================
 
-def generate_page(c, climate_type, nearby, absorbed_data, all_cities_lookup):
+def generate_page(c, climate_type, nearby, absorbed_data, all_cities_lookup, state_info=None, reviewed_iso=None, reviewed_readable=None):
     """Generate complete HTML for a city page."""
     profile = CLIMATE_PROFILES[climate_type]
     city = c['city']
@@ -628,7 +711,16 @@ def generate_page(c, climate_type, nearby, absorbed_data, all_cities_lookup):
     cost_faq_q = profile['cost_faq_q']
 
     # Licensing
-    lic_h2, lic_para = licensing_paragraph(c)
+    lic_h2, lic_para = licensing_paragraph(c, state_info)
+
+    # Page meta (byline + last reviewed) — defaults to today if caller didn't pass
+    if not reviewed_iso or not reviewed_readable:
+        today = date.today()
+        reviewed_iso = today.isoformat()
+        reviewed_readable = today.strftime("%B %-d, %Y") if os.name != 'nt' else today.strftime("%B %#d, %Y")
+    meta_block = page_meta_html(reviewed_iso, reviewed_readable)
+    neighborhoods_block = neighborhoods_section_html(c)
+    sources_block = sources_footer_html()
 
     # Rebates
     reb_h2, reb_para = rebates_paragraph(c)
@@ -675,6 +767,28 @@ def generate_page(c, climate_type, nearby, absorbed_data, all_cities_lookup):
         # Just show first 5-7 representative ZIPs
         zip_list = [z.strip() for z in all_zips.split(",")]
         all_zips = ", ".join(zip_list[:7])
+
+    # Service schema — first 5 ZIPs as postalCode array (all from xlsx)
+    service_zip_list = [z.strip() for z in zips.split(",") if z.strip()][:5]
+    service_zip_json = ", ".join(f'"{z}"' for z in service_zip_list)
+    service_schema = f''',
+      {{
+        "@type": "Service",
+        "serviceType": "HVAC Repair and Installation Referral",
+        "provider": {{
+          "@type": "Organization",
+          "name": "Cool Call Pro",
+          "telephone": "+1-844-582-1795",
+          "url": "https://coolcallpro.com"
+        }},
+        "areaServed": {{
+          "@type": "City",
+          "name": "{city}",
+          "containedInPlace": {{ "@type": "State", "name": "{state_full}" }},
+          "postalCode": [{service_zip_json}]
+        }},
+        "audience": {{ "@type": "Audience", "audienceType": "Homeowners" }}
+      }}'''
 
     # ============================================================
     # HTML OUTPUT
@@ -809,7 +923,7 @@ def generate_page(c, climate_type, nearby, absorbed_data, all_cities_lookup):
           {area_served_schema},
           "availableLanguage": "English"
         }}
-      }}
+      }}{service_schema}
     ]
   }}
   </script>
@@ -966,7 +1080,8 @@ def generate_page(c, climate_type, nearby, absorbed_data, all_cities_lookup):
     <!-- Local Context Paragraph -->
     <section class="section" style="padding: 48px 0 0;">
       <div class="container">
-        <div class="city-context">
+        <div class="city-context" style="max-width: 760px; margin: 0 auto 40px;">
+          {meta_block}
           <p>Serving <strong>{pop_str}</strong> residents across <strong>{e_city}, {e_state}</strong>, Cool Call Pro connects homeowners in <strong>{e_neighborhoods}</strong> with independent 24/7 HVAC technicians. Our referral network covers <strong>{e_zips}</strong> and surrounding areas. {cost_sentence} Your contractor should pull mechanical permits through the <strong>{e_permit}</strong>.</p>
         </div>
 
@@ -975,7 +1090,7 @@ def generate_page(c, climate_type, nearby, absorbed_data, all_cities_lookup):
           <h2>{climate_h2}</h2>
           <p style="font-size: 1.05rem; line-height: 1.85; color: var(--gray-700);">{climate_para}</p>
         </div>
-
+{neighborhoods_block}
         <!-- Services List -->
         <div class="city-services" id="services">
           <h2>HVAC Services in {e_city}, {e_st}</h2>
@@ -1081,7 +1196,7 @@ def generate_page(c, climate_type, nearby, absorbed_data, all_cities_lookup):
           <ul>
 {nearby_html}          </ul>
         </div>
-      </div>
+{sources_block}      </div>
     </section>
 
   </main>
@@ -1166,12 +1281,33 @@ def generate_page(c, climate_type, nearby, absorbed_data, all_cities_lookup):
 # MAIN
 # ============================================================
 
+def load_states():
+    """Load state metadata (license body + URL + name) from states.xlsx, keyed by abbr."""
+    wb = openpyxl.load_workbook(STATES_XLSX)
+    ws = wb.active
+    headers = [cell.value for cell in ws[1]]
+    out = {}
+    for row in ws.iter_rows(min_row=2, values_only=True):
+        data = dict(zip(headers, row))
+        abbr = data.get('State Abbreviation')
+        if abbr:
+            out[abbr] = data
+    return out
+
+
 def load_cities():
-    """Load all cities from xlsx."""
+    """Load all cities from xlsx.
+
+    Returns (cities_by_name, all_cities_list). `cities_by_name` keys by city
+    name (first-loaded wins on duplicates like Portland OR vs Portland ME);
+    `all_cities_list` contains every row so --force can regenerate both
+    same-named cities.
+    """
     wb = openpyxl.load_workbook(XLSX_FILE)
     ws = wb.active
 
     cities = {}
+    all_cities = []
     for row in ws.iter_rows(min_row=2, values_only=True):
         pop = row[8]
         if isinstance(pop, str):
@@ -1193,9 +1329,11 @@ def load_cities():
             'license': str(row[13] or ''), 'climate': str(row[14] or ''),
             'published': row[15],
         }
-        cities[row[0]] = city
+        all_cities.append(city)
+        if row[0] not in cities:
+            cities[row[0]] = city
 
-    return cities
+    return cities, all_cities
 
 
 def main():
@@ -1204,30 +1342,40 @@ def main():
     parser.add_argument('--batch', type=int, help="Batch number (1=high priority)")
     parser.add_argument('--city', type=str, help="Generate single city by name")
     parser.add_argument('--dry-run', action='store_true', help="Preview without writing")
+    parser.add_argument('--force', action='store_true', help="Regenerate pages even if already published (used for template overhauls)")
     args = parser.parse_args()
 
-    cities = load_cities()
+    cities, all_cities = load_cities()
+    states_meta = load_states()
 
     # Group by state for nearby logic
     from collections import defaultdict
     by_state = defaultdict(list)
-    for c in cities.values():
+    for c in all_cities:
         if c['city'] not in REMOVED_CITIES and c['city'] not in ABSORBED:
             by_state[c['state']].append(c)
 
-    # Determine which cities to generate
+    # Determine which cities to generate. In --force mode we iterate the full
+    # all_cities list (covers same-named cities like Portland OR + Portland ME);
+    # otherwise we iterate city names against the first-wins dict.
+    force_targets = None  # list of city dicts when in --force mode
+
     if args.city:
         targets = [args.city]
     elif args.batch == 1:
         targets = BATCH_1
     elif args.batch == 2:
         targets = BATCH_2
+    elif args.force:
+        force_targets = [c for c in all_cities
+                         if c['city'] not in REMOVED_CITIES
+                         and c['city'] not in ABSORBED]
+        targets = []  # unused in force mode
     else:
-        # All unpublished, non-absorbed, non-removed
-        targets = [name for name, c in cities.items()
-                   if name not in PUBLISHED_CITIES
-                   and name not in REMOVED_CITIES
-                   and name not in ABSORBED]
+        targets = [c['city'] for c in all_cities
+                   if c['city'] not in PUBLISHED_CITIES
+                   and c['city'] not in REMOVED_CITIES
+                   and c['city'] not in ABSORBED]
 
     os.makedirs(OUTPUT_DIR, exist_ok=True)
 
@@ -1235,12 +1383,19 @@ def main():
     skipped = 0
     errors = []
 
-    for city_name in targets:
-        if city_name not in cities:
-            errors.append(f"City '{city_name}' not found in xlsx")
-            continue
+    # Build iteration list as (city_name, city_dict) pairs
+    if force_targets is not None:
+        iter_list = [(c['city'], c) for c in force_targets]
+    else:
+        iter_list = []
+        for city_name in targets:
+            if city_name not in cities:
+                errors.append(f"City '{city_name}' not found in xlsx")
+                continue
+            iter_list.append((city_name, cities[city_name]))
 
-        if city_name in PUBLISHED_CITIES:
+    for city_name, c in iter_list:
+        if city_name in PUBLISHED_CITIES and not args.force and not args.city:
             print(f"  SKIP (already published): {city_name}")
             skipped += 1
             continue
@@ -1255,7 +1410,6 @@ def main():
             skipped += 1
             continue
 
-        c = cities[city_name]
         climate_type = get_climate_type(city_name, c['climate'])
 
         # Get absorbed cities data for metro anchors
@@ -1269,7 +1423,8 @@ def main():
         nearby = get_nearby_cities(c, by_state, cities)
 
         # Generate HTML
-        html = generate_page(c, climate_type, nearby, absorbed_data, cities)
+        state_info = states_meta.get(c['state'])
+        html = generate_page(c, climate_type, nearby, absorbed_data, cities, state_info=state_info)
 
         # Write file
         slug = city_slug(city_name, c['state'])

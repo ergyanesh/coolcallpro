@@ -6,6 +6,7 @@ Every factual claim comes from the spreadsheet data. No improvised prose.
 
 import openpyxl
 from collections import defaultdict
+from datetime import date
 import os
 import sys
 
@@ -424,6 +425,34 @@ def generate_html(d, city_list, hub_abbrs, all_states):
       </div>
     </section>''' if neighbor_html.strip() else ''
 
+    # Byline + Last reviewed (E-E-A-T)
+    today = date.today()
+    reviewed_iso = today.isoformat()
+    reviewed_readable = today.strftime("%B %#d, %Y") if os.name == 'nt' else today.strftime("%B %-d, %Y")
+    meta_block = (
+        f'<div class="page-meta">'
+        f'<span class="byline">By <a href="../author-gyanesh.html">Gyanesh Gulshan</a>, Founder &mdash; B.Tech Mechanical Engineering</span>'
+        f'<span class="reviewed">Last reviewed <time datetime="{reviewed_iso}">{reviewed_readable}</time></span>'
+        f'</div>'
+    )
+
+    # Sources & References footer (E-E-A-T)
+    sources_block = '''
+    <!-- Sources & References -->
+    <section class="section" style="padding: 0 0 48px;">
+      <div class="container" style="max-width: 800px;">
+        <div class="city-sources">
+          <h3>Sources &amp; References</h3>
+          <ul>
+            <li><a href="https://www.energy.gov/energysaver/heat-and-cool" target="_blank" rel="nofollow noopener">U.S. Department of Energy &mdash; Home Heating &amp; Cooling</a></li>
+            <li><a href="https://www.energystar.gov/" target="_blank" rel="nofollow noopener">U.S. ENERGY STAR (EPA)</a></li>
+            <li><a href="https://www.dsireusa.org/" target="_blank" rel="nofollow noopener">DSIRE Database of State Incentives</a></li>
+            <li><a href="https://www.irs.gov/credits-deductions/energy-efficient-home-improvement-credit" target="_blank" rel="nofollow noopener">IRS &sect;25C Energy Efficient Home Improvement Credit</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>'''
+
     # Climate-aware cost and services strings
     cost_para = state_cost_text(name, ac_cost, furnace_cost, state_profile['cost_type'], html=True)
     cost_para += (f" Higher-efficiency units cost more upfront but lower monthly bills, "
@@ -834,6 +863,7 @@ def generate_html(d, city_list, hub_abbrs, all_states):
     <section class="section" style="padding: 48px 0 0;">
       <div class="container">
         <div class="city-context">
+          {meta_block}
           <p>{name} is home to over <strong>{pop_long} residents</strong> with a <strong>{homeown}% homeownership rate</strong>. The state spans IECC <strong>{zones_fmt}</strong>, and {peak_desc} {sys_desc} Cool Call Pro connects you with independent local HVAC professionals serving every corner of the state.</p>
         </div>
 
@@ -1064,6 +1094,7 @@ def generate_html(d, city_list, hub_abbrs, all_states):
     </section>
 
 {neighbor_section}
+{sources_block}
 
   </main>
 
