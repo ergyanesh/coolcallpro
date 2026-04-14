@@ -102,4 +102,44 @@ Format per city:
 - **URLs cited:** ncei.noaa.gov (station USW00012960), api.census.gov (place:35000 state:48), tdlr.texas.gov/acr/acr.htm, energy.gov/energysaver/central-air-conditioning, energystar.gov/rebate-finder, dsireusa.org, irs.gov/.../energy-efficient-home-improvement-credit
 - **Notes:** Houston is 64.5% electric-heated (not gas) — inverts the typical "Texas = gas country" assumption and is the strongest fact in the block. 3,287 CDD / 1,266 HDD makes Houston one of the most cooling-dominated major metros. TDLR ACR license citation includes Texas Occupations Code Chapter 1302 + 16 TAC Chapter 75 governing authorities.
 
+## Denver, CO
+
+- **Date researched:** 2026-04-14
+- **Found (5/7):** climate_profile, housing_stock, local_building_code, contractor_license_info, climate_hvac_failure_mode
+- **Not_found:** permit_fees (valuation-based, mechanical-specific breakout not extractable), utility_rebate_amounts (co.my.xcelenergy.com is a JS-SPA)
+- **URLs cited:** ncei.noaa.gov (USW00003017), api.census.gov (place:20000 state:08), denvergov.org building-codes page, denvergov.org contractor-licensing page, energy.gov/energysaver/heat-pump-systems, energystar.gov/rebate-finder, irs.gov/.../energy-efficient-home-improvement-credit
+- **Notes:** 2025 Denver Building and Fire Codes (2024 I-codes + 2021 IECC + 2023 NEC, effective Dec 31 2025) captured verbatim. Colorado has no statewide HVAC license — CPD handles municipally. NOAA published no annual snowfall for KDEN (station commissioned 1995, didn't meet 30-year completeness). Altitude derating context added for 5,280 ft elevation.
+
+## Tucson, AZ
+
+- **Date researched:** 2026-04-14
+- **Found (4/7):** climate_profile, housing_stock, utility_rebate_amounts, climate_hvac_failure_mode
+- **Not_found:** permit_fees (tucsonaz.gov 403), local_building_code (amlegal blocked), contractor_license_info (roc.az.gov 403 this session — reused Phoenix-verified R-39/CR-39 scope)
+- **URLs cited:** ncei.noaa.gov (USW00023160), api.census.gov (place:77000 state:04), tep.com smart-thermostat-rebate / efficient-home-water-heating / residential-insulation-program, energy.gov/energysaver/evaporative-coolers, irs.gov/.../energy-efficient-home-improvement-credit
+- **Notes:** TEP rebates captured verbatim: $35 thermostat, $400 HPWH, up to $800 attic insulation. Evaporative cooler angle unique to dry-climate cities — DOE guidance directly supports the "swamp cooler still makes sense in Tucson" case. Tucson 48.8% gas / 47.5% electric nearly 50/50 — different from Phoenix's 75% electric, reflecting higher elevation.
+
+## Tulsa, OK
+
+- **Date researched:** 2026-04-14
+- **Found (5/7):** climate_profile, housing_stock, utility_rebate_amounts, contractor_license_info, climate_hvac_failure_mode
+- **Not_found:** permit_fees (Title 49 TRO ordinance PDF unparseable), local_building_code (municode shell only)
+- **URLs cited:** ncei.noaa.gov (USW00013968), api.census.gov (place:75000 state:40), powerforwardwithpso.com/rebates, oklahoma.gov/cib/your-industry/mechanical.html, energy.gov/energysaver/central-air-conditioning, irs.gov/.../energy-efficient-home-improvement-credit
+- **Notes:** PSO rebates the most comprehensive of any city to date — ASHP tiered $600/$1,000/$1,400 by SEER2, central AC $200/$600/$800, geothermal $1,400, tune-up rebates. Oklahoma CIB statute 59 O.S. Section 1850.1 + OAC Title 158 Chapter 50 captured verbatim — journeyman/contractor/inactive-contractor license types.
+
+## Boston, MA
+
+- **Date researched:** 2026-04-14
+- **Found (3/7):** climate_profile, housing_stock, climate_hvac_failure_mode
+- **Not_found:** permit_fees (boston.gov ISD 404; fees live behind authenticated permit portal), local_building_code (mass.gov 780 CMR page 403), utility_rebate_amounts (masssave.com 403), contractor_license_info (mass.gov board pages 403)
+- **URLs cited:** ncei.noaa.gov (USW00014739), api.census.gov (place:07000 state:25), energy.gov/energysaver/heat-pump-systems, energystar.gov/rebate-finder, irs.gov/.../energy-efficient-home-improvement-credit
+- **Notes:** Boston's 7.2% fuel-oil heating (19,969 units) is an order of magnitude higher than most U.S. cities — New England heating-oil legacy. Median year 1947 — oldest of any city researched so far, dominated by pre-war triple-deckers and brownstones. DOE's 32%-of-cold-zone-homes-lack-ductwork statistic directly supports the ductless-mini-split case for Boston's historic stock.
+
+## Miami, FL
+
+- **Date researched:** 2026-04-14
+- **Found (6/7):** climate_profile, housing_stock, local_building_code (HVHZ), utility_rebate_amounts, contractor_license_info, climate_hvac_failure_mode
+- **Not_found:** permit_fees — City of Miami Building Department page 403 + Miami-Dade mechanical fee PDF binary-encoded
+- **URLs cited:** ncei.noaa.gov (USW00012839), api.census.gov (place:45000 state:12), miamidade.gov 2023-fbc-roofing-code-changes.pdf (HVHZ Chapter 16), fpl.com/save/programs.html, flsenate.gov/laws/statutes/2025/489.105 (verbatim Class A/B definitions), energy.gov/energysaver/efficient-cooling-hot-humid-climates, irs.gov/.../energy-efficient-home-improvement-credit
+- **Notes:** Miami is extreme — 4,656 CDD vs 103.6 HDD = 45:1 cooling-to-heating ratio, and 91.2% electric heating (essentially pure-electric market). HVHZ code is unique to Miami-Dade + Broward; mechanical equipment wind-load requirement verbatim. Florida Statute 489.105 Class A (unlimited) vs Class B (25 tons / 500,000 Btu cap) captured verbatim — important for homeowners deciding which contractor credential matters for their job scope.
+
 ---
