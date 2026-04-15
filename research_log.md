@@ -463,3 +463,43 @@ Format per city:
 - **Notes:** NJ is one of few states with DEDICATED HVACR-specific licensing board (separate from general contractors). Board headquartered in Newark. 70.7% gas / 19.9% electric / 2.9% fuel oil (Northeast legacy). Median 1966. 31.5" snow.
 
 ---
+
+## Boise, ID
+
+- **Date researched:** 2026-04-15
+- **Found (4/7):** climate (KBOI USW00024131), housing (place:08830 state:16), utility_rebate_amounts (Idaho Power Heating & Cooling Efficiency Program — $800 ducted ASHP / $400 ductless / $50 smart thermostat), climate_hvac_failure_mode (Zone 5B cool-dry, Sierra-shadow rain pattern)
+- **Not_found:** permit_fees (cityofboise.org JS-rendered fee portal), local_building_code (no Boise-specific amendment located), contractor_license (DOPL ECONNREFUSED)
+- **URLs cited:** ncei.noaa.gov, api.census.gov (place:08830 state:16), idahopower.com Heating & Cooling Efficiency Program, energy.gov/eere/buildings/building-america, irs.gov
+- **Notes:** Younger housing stock (median 1985) — post-1980 envelope standards already in place. 62.3% gas / 34.0% electric is a heat-pump-friendly mix. Snake River Plain inversion narrative tied to verbatim 17.6" snowfall.
+
+## Madison, WI
+
+- **Date researched:** 2026-04-15
+- **Found (5/7):** climate (KMSN USW00014837), housing (place:48000 state:55), utility_rebate_amounts (Focus on Energy 4-tier ASHP rebates $400-$900 + $1,000/$750 geothermal), contractor_license (DSPS HVAC registration requirement, owner-occupant exemption), climate_hvac_failure_mode (11x HDD:CDD + 51.8" snow)
+- **Not_found:** permit_fees (cityofmadison.com Building Inspection no inline schedule), local_building_code (municode shell only)
+- **URLs cited:** ncei.noaa.gov, api.census.gov (place:48000 state:55), focusonenergy.com/residential/heating-and-cooling, dsps.wi.gov/Pages/Professions/HVACContractor/Default.aspx, energystar.gov/products/heating_cooling/heat_pumps_air_source/key_product_criteria, irs.gov
+- **Notes:** Focus on Energy is the statewide rebate administrator serving MGE customers — MGE doesn't run its own residential rebates. 11:1 HDD:CDD makes Madison the most heating-dominated of any Batch 12 city. dsps.wi.gov/Pages/Professions/HVAC/Default.aspx 404s — corrected to /HVACContractor/.
+
+## Reno, NV
+
+- **Date researched:** 2026-04-15
+- **Found (4/7):** climate (KRNO USW00023185 — exceptionally dry 7.35" annual precip), housing (place:60600 state:32), contractor_license (NV C-21 reused from Las Vegas, NAC 624), climate_hvac_failure_mode (DOE evaporative-cooler guidance + Sierra rain shadow + diurnal swings)
+- **Not_found:** permit_fees (Reno Community Development JS portal), local_building_code, utility_rebate_amounts (NV Energy PowerShift northern-NV territory)
+- **URLs cited:** ncei.noaa.gov, api.census.gov (place:60600 state:32), nscb.nv.gov/contractors/license-classifications, energy.gov/energysaver/evaporative-coolers, irs.gov
+- **Notes:** **7.35" annual precipitation — driest of any project city to date.** Sierra rain-shadow + 4,500 ft elevation = textbook evaporative cooling territory. 37.4% electric heating share (high) reflects newer condo/multifamily stock. energy.gov/energysaver/whole-house-fans-and-evaporative-coolers 404'd — corrected to /evaporative-coolers.
+
+## Richmond, VA
+
+- **Date researched:** 2026-04-15
+- **Found (5/7 + bonus):** climate (KRIC USW00013740), housing (place:67000 state:51 — **electricity-majority Mid-Atlantic, 59.4% electric**), contractor_license (VA Code 54.1-1100 Class A/B/C verbatim thresholds + HVA), climate_hvac_failure_mode (Zone 4A mixed-humid latent load), municipal_gas_utility (City of Richmond Department of Public Utilities — 500,000+ customers — distinctive)
+- **Not_found:** permit_fees (rva.gov 404s), local_building_code, utility_rebate_amounts (dominionenergy.com 403)
+- **URLs cited:** ncei.noaa.gov, api.census.gov (place:67000 state:51), rva.gov/public-utilities, law.lis.virginia.gov/vacode/title54.1/chapter11/section54.1-1100, energy.gov/energysaver/heat-and-cool, irs.gov
+- **Notes:** **Distinctive: Richmond runs its OWN municipal natural gas utility** — one of few US cities. Heating mix is electricity-majority (59.4%) — unusual for Mid-Atlantic, supports heat-pump narrative. Median year 1959 = historic-district envelope retrofit territory.
+
+## Wichita, KS
+
+- **Date researched:** 2026-04-15
+- **Found (4/7):** climate (KICT USW00003928 — true dual-load 4,413.6 HDD vs 1,773.6 CDD), housing (place:79000 state:20), contractor_license (Kansas has NO statewide HVAC license — MABCD handles locally), climate_hvac_failure_mode (NWS Wichita EF5 tornadoes + ice storms climatology pages)
+- **Not_found:** permit_fees (sedgwickcounty.org/mabcd ECONNREFUSED), local_building_code (MABCD unreachable), utility_rebate_amounts (Evergy 404s, Kansas Gas Service 404/500)
+- **URLs cited:** ncei.noaa.gov, api.census.gov (place:79000 state:20), weather.gov/ict/Climate (NWS Wichita), irs.gov
+- **Notes:** True dual-load climate (2.5:1 HDD:CDD) — neither heating-dominant nor cooling-dominant. Tornado Alley + ice-storm narrative anchored to NWS Wichita primary climatology. Kansas no-statewide-license + MABCD joint city/county authority is structurally distinctive.
