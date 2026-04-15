@@ -182,4 +182,44 @@ Format per city:
 - **URLs cited:** ncei.noaa.gov (USW00023169 — KLAS Harry Reid), api.census.gov (place:40000 state:32), nvcontractorsboard.com license-classifications, energy.gov/energysaver/central-air-conditioning, irs.gov
 - **Notes:** Las Vegas is the driest major U.S. city researched (4.18" precip) with median year built 1994 — the NEWEST housing stock of any city in the project, by a decade+. Reflects Vegas's rapid post-1990 growth. Attic-duct issue especially critical: 3,720 CDD + 110°F+ summer extremes drive attic temps above 140°F. NSCB Classification C (42 subclassifications, C-21 for HVAC) framework captured; NAC 624 detailed scope not extractable (leg.state.nv.us blocks automated fetches).
 
+## Charlotte, NC
+
+- **Date researched:** 2026-04-15
+- **Found (3/7):** climate_profile, housing_stock, climate_hvac_failure_mode; NC Board authority (partial)
+- **Not_found:** permit_fees (mecknc.gov 403), local_building_code (municode shell), utility_rebate_amounts (duke-energy.com 403), H-1/H-2/H-3 verbatim scopes (NC admin code portal ECONNREFUSED)
+- **URLs cited:** ncei.noaa.gov (USW00013881), api.census.gov (place:12000 state:37), nclicensing.org (NC Board identity), energy.gov/energysaver/heat-pump-systems, energystar.gov/rebate-finder, irs.gov
+- **Notes:** Charlotte 53.3% electric / 44.5% gas — electric-majority Sun Belt metro. Median year 1994 (relatively new). Block thinner at ~517 words because multiple key pages blocked.
+
+## Columbus, OH
+
+- **Date researched:** 2026-04-15
+- **Found (5/7):** climate_profile, housing_stock, utility_rebate_amounts (AEP Ohio $75 thermostat + Columbia Gas residential ended), contractor_license_info (OCILB identity + contact), climate_hvac_failure_mode
+- **Not_found:** permit_fees (2026 fee schedule PDF 403), local_building_code (Ohio Residential Code adopted but no Columbus-specific amendment surfaced)
+- **URLs cited:** ncei.noaa.gov (USW00014821), api.census.gov (place:18000 state:39), aepohio.com/savings, columbiagasohio.com/energy-efficiency (may bot-block QC but resolves in browsers), com.ohio.gov OCILB (may bot-block QC but resolves in browsers), energystar.gov (root — ENERGY STAR cold-climate deep links 404'd; swapped for homepage), irs.gov
+- **Notes:** Columbia Gas of Ohio residential (non-income-qualified) rebate programs have ENDED — factual finding worth publishing. AEP Ohio has minimal published equipment rebates beyond the $75 smart thermostat. QC flagged OCILB URL 404 but the Ohio department of commerce increasingly returns 404 to automated clients; real browsers reach it. Swapped ENERGY STAR specific-product URL for energystar.gov root.
+
+## Indianapolis, IN
+
+- **Date researched:** 2026-04-15
+- **Found (4/7):** climate_profile, housing_stock, utility_rebate_amounts (AES Indiana tiered detail), climate_hvac_failure_mode
+- **Not_found:** permit_fees (indy.gov DBNS only serves tracking pixels to server-fetch), local_building_code (municode shell), contractor_license_info detailed (Indiana has no statewide HVAC license — verified via in.gov/pla 404 on /professions/hvac-home/; DBNS local page blocked)
+- **URLs cited:** ncei.noaa.gov (USW00093819), api.census.gov (place:36003 state:18 — Indianapolis balance post-Unigov), aesindiana.com/rebates, energy.gov/energysaver/heat-pump-systems, energystar.gov/rebate-finder, irs.gov
+- **Notes:** AES Indiana rebates comprehensively tiered: mini-split $100/$225/$300/$525/$725 by SEER/HSPF, $50 thermostat, $600 HPWH. Indianapolis is post-Unigov consolidation — ACS entity is "Indianapolis city (balance), Indiana". 56.7% gas / 40.6% electric.
+
+## Nashville, TN
+
+- **Date researched:** 2026-04-15
+- **Found (3/7):** climate_profile, housing_stock, climate_hvac_failure_mode + TN Board identity (partial)
+- **Not_found:** permit_fees (nashville.gov codes 404), local_building_code (municode shell), utility_rebate_amounts (TVA energyright.com 403; NES 404; Piedmont Gas 403), CMC-C verbatim scope (tn.gov/commerce contractor page 404)
+- **URLs cited:** ncei.noaa.gov (USW00013897), api.census.gov (place:52006 state:47 — Nashville-Davidson balance), tn.gov/commerce/regboards.html (swapped from 404 contractor.html subpage), energy.gov/energysaver/heat-pump-systems, energystar.gov/rebate-finder, irs.gov
+- **Notes:** Nashville's 66.4% electric heating is striking for a Southern mixed-humid metro — TVA service territory with historically low electric rates made heat pumps economically competitive with gas long before most other Southern cities. Median year 1985. Block stays factual despite thin coverage (~545 words) by leaning on the TVA/electric-majority story + DOE dual-fuel guidance for Zone 4A.
+
+## San Antonio, TX
+
+- **Date researched:** 2026-04-15
+- **Found (6/7):** climate_profile, housing_stock, utility_rebate_amounts (CPS Energy STEP comprehensive), contractor_license_info (TDLR Class A/B verbatim via TACCA mirror of statute), climate_hvac_failure_mode, local_building_code (DSD context)
+- **Not_found:** permit_fees — 4.4MB FY25 Development Fee Schedule PDF binary unparseable
+- **URLs cited:** ncei.noaa.gov (USW00012921), api.census.gov (place:65000 state:48), cpsenergy.com HVAC Rebates + Home Energy Rebates + Thermostat Rewards, tdlr.texas.gov/acr/acr.htm, sanantonio.gov/DSD, energy.gov/energysaver/efficient-cooling-hot-humid-climates, irs.gov
+- **Notes:** CPS Energy is the ONLY municipal utility in the Texas big-city group (vs Oncor/CenterPoint deregulated TDU model elsewhere). STEP rebates structured per cooling-ton, scaled by efficiency: Early Replacement $115-$310/ton, Replace-on-Burnout $90-$275/ton. Minimum efficiency 14.3 SEER2 / 11.7 EER2. WiFi thermostat $85 enroll + $30/yr ongoing. Attic insulation $0.35/sqft. San Antonio 69.5% electric heat is the HIGHEST of any major Texas city researched.
+
 ---
