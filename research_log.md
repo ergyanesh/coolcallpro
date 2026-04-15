@@ -422,4 +422,44 @@ Format per city:
 - **URLs cited:** ncei.noaa.gov (USW00094823 KPIT), api.census.gov (place:61000 state:42), energy.gov/energysaver/heat-pump-systems, irs.gov
 - **Notes:** **Median year 1942 — second-oldest housing stock in project** behind Cleveland's 1940. 75.4% gas heating. 44.1" snowfall + 5,572 HDD heavy cold-climate profile. PA HICPA $5K threshold (registration, not trade license) + Pittsburgh PLI local registration required.
 
+## Honolulu, HI
+
+- **Date researched:** 2026-04-15
+- **Found (5/7):** climate, housing, utility_rebate_amounts (Hawaii Energy verbatim), contractor_license (DCCA C-52), climate_hvac_mode
+- **Not_found:** permit_fees (DPP no public HTML fee schedule), local_building_code (municode chapter text not retrieved)
+- **URLs cited:** ncei.noaa.gov (USW00022521 KHNL), api.census.gov (place:71550 state:15 — Urban Honolulu CDP, **CORRECTED from brief's 17000 which doesn't exist**), hawaiienergy.com/for-homes/rebates/hvac, cca.hawaii.gov/pvl/boards/contractor, energy.gov/energysaver/efficient-cooling-hot-humid-climates (swapped from 404 hot-humid-climate URL)
+- **Notes:** **HDD literally 0.0** (only city in project with zero heating demand), **45% of occupied units report NO fuel used for heating** (61,258 of 136,228) — tropical extreme. Hawaii Energy rebates verbatim: central AC $1,250 instant, mini-split VRF up to $550/unit, AC tune-up $75, window AC up to $45, whole house fan $100, solar attic fan $75.
+
+## Anchorage, AK
+
+- **Date researched:** 2026-04-15
+- **Found (4/7):** climate, housing, contractor_license (AK Mechanical Administrator 3 classes: RHVC, UHVCS, HCPP), climate_hvac_mode
+- **Not_found:** permit_fees, local_building_code, utility_rebate_amounts (Chugach 404, Enstar has no amounts)
+- **URLs cited:** ncei.noaa.gov (USW00026451 KANC), api.census.gov (place:03000 state:02), commerce.alaska.gov Mechanical Administrators, energy.gov/energysaver/heat-pump-systems, irs.gov
+- **Notes:** **HDD 9,978.6 — HIGHEST of any city in project** (nearly 4× Denver). CDD only 7.6 (essentially zero). 77.9" snowfall. 79.3% gas (Enstar territory). Alaska Mechanical Administrator 3 classes captured verbatim.
+
+## Salt Lake City, UT
+
+- **Date researched:** 2026-04-15
+- **Found (5/7):** climate, housing, permit_fees (SLC Consolidated Fee Schedule 18.52.050 — 9 line items verbatim!), contractor_license (UT DOPL S350 by name), climate_hvac_mode (Wasatch inversions context)
+- **Not_found:** local_building_code (municode blocked), utility_rebate_amounts (Rocky Mountain Power + ThermWise blocked or PDF-only)
+- **URLs cited:** ncei.noaa.gov (USW00024127 KSLC), api.census.gov (place:67000 state:49), tools.slc.gov/feeschedule (UNUSUAL WIN — SLC publishes a live interactive fee schedule), energy.gov/energysaver, irs.gov
+- **Notes:** Most detailed municipal fee schedule captured yet — 9 verbatim line items ($57 base, furnace $29-$65 tiered by BTU/h, floor furnace $18, vent $18, boiler $29). 4,226 ft elevation. 5,154 HDD / 1,420 CDD. 73.3% gas / 23.1% electric. Median 1963. Wasatch Front inversions make heat pump air-quality case distinctive.
+
+## Buffalo, NY
+
+- **Date researched:** 2026-04-15
+- **Found (4/7):** climate, housing, contractor_license (NY no state license — Buffalo local Heating Contractor License), climate_hvac_mode
+- **Not_found:** permit_fees (Buffalo DPIS wrong slug), local_building_code (ecode360 403), utility_rebate_amounts (National Grid interactive + NYSERDA 403)
+- **URLs cited:** ncei.noaa.gov (USW00014733 KBUF), api.census.gov (place:11000 state:36), dos.ny.gov/business-licenses, energy.gov/energysaver/heat-pump-systems, irs.gov
+- **Notes:** **95.4" annual snowfall — HIGHEST of any city in project** (Lake Erie lake-effect). **85.97% utility gas — HIGHEST gas share in project**. Median year 1938 (tied with Detroit/Pittsburgh for oldest). 10.6:1 HDD:CDD ratio.
+
+## Newark, NJ
+
+- **Date researched:** 2026-04-15
+- **Found (5/7):** climate, housing, contractor_license (NJ HVACR Board — dedicated HVACR-specific board, 2-year renewal), climate_hvac_mode, local_building_code (NJ UCC statewide)
+- **Not_found:** permit_fees (newark UCC slug 404), utility_rebate_amounts (PSE&G 403, NJ Clean Energy blocked)
+- **URLs cited:** ncei.noaa.gov (USW00014734 KEWR Newark Liberty), api.census.gov (place:51000 state:34), njconsumeraffairs.gov/hvacr (verbatim: 2-year renewal, Board ensures educational requirements), njcleanenergy.com, energy.gov/energysaver, irs.gov
+- **Notes:** NJ is one of few states with DEDICATED HVACR-specific licensing board (separate from general contractors). Board headquartered in Newark. 70.7% gas / 19.9% electric / 2.9% fuel oil (Northeast legacy). Median 1966. 31.5" snow.
+
 ---
