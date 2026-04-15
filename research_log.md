@@ -222,4 +222,44 @@ Format per city:
 - **URLs cited:** ncei.noaa.gov (USW00012921), api.census.gov (place:65000 state:48), cpsenergy.com HVAC Rebates + Home Energy Rebates + Thermostat Rewards, tdlr.texas.gov/acr/acr.htm, sanantonio.gov/DSD, energy.gov/energysaver/efficient-cooling-hot-humid-climates, irs.gov
 - **Notes:** CPS Energy is the ONLY municipal utility in the Texas big-city group (vs Oncor/CenterPoint deregulated TDU model elsewhere). STEP rebates structured per cooling-ton, scaled by efficiency: Early Replacement $115-$310/ton, Replace-on-Burnout $90-$275/ton. Minimum efficiency 14.3 SEER2 / 11.7 EER2. WiFi thermostat $85 enroll + $30/yr ongoing. Attic insulation $0.35/sqft. San Antonio 69.5% electric heat is the HIGHEST of any major Texas city researched.
 
+## Jacksonville, FL
+
+- **Date researched:** 2026-04-15
+- **Found (6/7):** climate, housing, local_building_code (Chapter 320), utility_rebates (JEA), contractor_license (FL Statute 489.105), climate-HVAC mode
+- **Not_found:** permit_fees (coj.net ECONNREFUSED; municode Chapter 320 returned no fee table)
+- **URLs cited:** ncei.noaa.gov (USW00013889), api.census.gov (place:35000 state:12), jea.com residential rebates, leg.state.fl.us Statutes 489.105, energy.gov/energysaver, irs.gov
+- **Notes:** 94.5% electric heating (close to Miami's 91.2%) — near-pure electric tropical market. JEA rebates comprehensive ($200 AC / $50 thermo / $200 insulation / $350 HPWH). Atlantic coastal salt-air corrosion angle.
+
+## Fort Worth, TX
+
+- **Date researched:** 2026-04-15
+- **Found (4/7):** climate (own KFTW station), housing, contractor_license (TDLR — reused), climate-HVAC mode + tornado angle
+- **Not_found:** permit_fees (Fort Worth DS couldn't extract), local_building_code (municode shell), utility_rebate_amounts (Texas deregulated)
+- **URLs cited:** ncei.noaa.gov (USW00003927 — KFTW Meacham, own station not DFW), api.census.gov (place:27000 state:48), tdlr.texas.gov/acr/acr.htm, weather.gov/fwd/fwdtornadoes, energy.gov/energysaver/central-air-conditioning, irs.gov
+- **Notes:** Fort Worth has its own NOAA station separate from KDFW. 69.1% electric / 28.9% gas — higher electric share than Dallas (65.2%). Median 1992 — a decade newer than Dallas (1980). More balanced CDD:HDD than Dallas (1.3:1 vs Dallas 1.6:1).
+
+## Austin, TX
+
+- **Date researched:** 2026-04-15
+- **Found (5/7):** climate, housing, utility_rebate_amounts (Austin Energy AND Texas Gas Service — both sources found), contractor_license (TDLR — reused), climate-HVAC mode
+- **Not_found:** permit_fees (Widen PDF viewer SPA), local_building_code (Green Building landing exists but no verbatim amendment)
+- **URLs cited:** ncei.noaa.gov (USW00013904), api.census.gov (place:05000 state:48), savings.austinenergy.com/rebates/residential, texasgasservice.com rebates, tdlr.texas.gov/acr/acr.htm, energy.gov/energysaver, irs.gov
+- **Notes:** Austin Energy (municipal utility — one of only two in TX, with San Antonio's CPS). AE rebates: AC $800 avg, HPWH $800, Power Partner thermostat up to $75, solar $2,500. Texas Gas Service: furnace $675 at 92%+ AFUE, tankless WH $400-$650, solar WH $750. Median year 1993 — reflects post-tech-boom growth.
+
+## Baltimore, MD
+
+- **Date researched:** 2026-04-15
+- **Found (5/7):** climate, housing, utility_rebate_amounts (BGE detailed), contractor_license (MD HVACR Board — detailed master requirements), climate-HVAC mode
+- **Not_found:** permit_fees (DHCD 404), local_building_code (municode JS-SPA)
+- **URLs cited:** ncei.noaa.gov (USW00093721 KBWI), api.census.gov (place:04000 state:24 — Baltimore independent city), bgesmartenergy.com (3 subpages: heating-cooling, heat-pump-water-heater, smart-thermostats), dllr.state.md.us HVACR requirements, energy.gov/energysaver, irs.gov
+- **Notes:** Median 1948 — pre-war rowhouse stock, 3.2% fuel oil (mid-Atlantic legacy like Philadelphia's 3.0%). BGE: geothermal $3,000 grant, HPWH $1,600, smart thermostat $100, 0% financing via Maryland Clean Energy Advantage. MD HVACR Master requirements strict: 3 years journeyman + 1,875 hrs/yr + 70% exam — among most rigorous in country.
+
+## Milwaukee, WI
+
+- **Date researched:** 2026-04-15
+- **Found (5/7):** climate, housing, utility_rebate_amounts (Focus on Energy statewide), contractor_license (WI HVAC Qualifier optional — unique), climate-HVAC mode
+- **Not_found:** permit_fees (DNS 403), local_building_code (municode not verified)
+- **URLs cited:** ncei.noaa.gov (USW00014839), api.census.gov (place:53000 state:55), focusonenergy.com/residential/heating-and-cooling, dsps.wi.gov HVACQualifier, energy.gov/energysaver/heat-pump-systems, irs.gov
+- **Notes:** Wisconsin unique: no mandatory state HVAC license, Focus on Energy administers statewide rebates (not We Energies directly). Focus on Energy tiered + income-qualified: ASHP $400-$900, furnace $100-$400, boiler $350-$550, geothermal $750-$1,000. 79.3% gas heating (second only to Detroit's 81.8%). Median 1952 pre-WWII bungalows.
+
 ---
