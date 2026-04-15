@@ -342,4 +342,44 @@ Format per city:
 - **URLs cited:** ncei.noaa.gov (USW00023050 KABQ), api.census.gov (place:02000 state:35), srca.nm.gov/parts/title14/14.006.0006.html (NMAC 14.6.6), energy.gov/energysaver/evaporative-coolers, irs.gov
 - **Notes:** **IMPORTANT BRIEF CORRECTION**: brief referenced MM-4/MM-5 but correct NM HVAC classification is **MM-3**. Agent verified verbatim from NMAC 14.6.6: MM-2 natural gas fitting, MM-3 HVAC, MM-4 hydronic/process piping. MM-5 does not exist. 8.84" precip (second-driest after Las Vegas 4.18"). 5,312 ft elevation = altitude derating (like Denver). 76.6% gas heating + 1,444 wood-heated homes (Southwest kiva/pellet-stove tradition). Evap cooler angle strong for high-desert climate.
 
+## Oakland, CA
+
+- **Date researched:** 2026-04-15
+- **Found (4/7):** climate, housing, contractor_license (CSLB C-20 verbatim), climate_hvac_mode
+- **Not_found:** permit_fees, local_building_code, utility_rebate_amounts (Ava Community Energy routes through eligibility tool; PG&E blocked)
+- **URLs cited:** ncei.noaa.gov (USW00023230 KOAK), api.census.gov, cslb.ca.gov C-20, bayren.org/ease, energy.gov/energysaver, irs.gov
+- **Notes:** **15:1 HDD:CDD ratio** — most extreme heating-dominated marine yet (2,690 HDD vs 175 CDD). Median year 1953 pre-war. 3.9% no-fuel-used (6,705 units). Ava Community Energy formerly East Bay Community Energy.
+
+## Fresno, CA
+
+- **Date researched:** 2026-04-15
+- **Found (3/7):** climate, housing, climate_hvac_mode
+- **Not_found:** permit_fees (fresno.gov 404), local_building_code, utility_rebate_amounts (PG&E blocked), contractor_license_detail (CSLB deep link 404 — reused C-20 by name)
+- **URLs cited:** ncei.noaa.gov (USW00093193 KFAT), api.census.gov (place:27000 state:06), energy.gov/energysaver/cooling-whole-house-fan, energystar.gov/rebate-finder, irs.gov
+- **Notes:** **HDD 2,186 ≈ CDD 2,209 — nearly PERFECT 1:1 BALANCE** (unique among all cities). **5,038 solar-heated homes (2.8%) — highest solar share in project.** 10.99" precipitation. Central Valley hot-dry like Sacramento.
+
+## Mesa, AZ
+
+- **Date researched:** 2026-04-15
+- **Found (5/7):** climate (KIWA Gateway), housing, local_building_code (Mesa City Code Title 4 — IRC+IMC), contractor_license (AZ ROC R-39/C-39), climate_hvac_mode (DOE SEER2 14.3 Southern-region 2023 rule)
+- **Not_found:** permit_fees (PDF unparseable), utility_rebate_amounts (SRP SPA not parseable)
+- **URLs cited:** ncei.noaa.gov (USW00003192 KIWA), api.census.gov (place:46000 state:04), library.municode.com/az/mesa, roc.az.gov, energy.gov/energysaver/central-air-conditioning, irs.gov
+- **Notes:** Mesa 77.8% electric heat — HIGHER than Phoenix's 74.6%, reflecting SRP territory + newer post-1988 housing. Median 1988 a decade newer than Phoenix (1984). KIWA Gateway station slightly cooler than KPHX Sky Harbor (85.0°F vs 87.1°F max).
+
+## Raleigh, NC
+
+- **Date researched:** 2026-04-15
+- **Found (4/7):** climate, housing, contractor_license (NC Board identity), climate_hvac_mode
+- **Not_found:** permit_fees (FY26 Fee Guide URL not located), local_building_code, utility_rebate_amounts (Duke Progress Smart Saver 403), H-1/H-2/H-3 detailed scope
+- **URLs cited:** ncei.noaa.gov (USW00013722 KRDU), api.census.gov (place:55000 state:37), nclicensing.org, energy.gov/energysaver/heat-pump-systems, energystar.gov/rebate-finder, irs.gov
+- **Notes:** 58.7% electric heat — higher than Charlotte's 53.3%. Median 1996 — NEWEST yet among cold-climate cities, Research Triangle tech growth. Near-balanced Zone 4A (1.75:1 HDD:CDD).
+
+## Birmingham, AL
+
+- **Date researched:** 2026-04-15
+- **Found (5/7):** climate, housing, utility_rebate_amounts (Alabama Power detailed), contractor_license (HACR Board fees + bond detailed), climate_hvac_mode
+- **Not_found:** permit_fees (city directs to Online Permit Center only), local_building_code
+- **URLs cited:** ncei.noaa.gov (USW00013876 KBHM), api.census.gov (place:07000 state:01), alabamapower.com/residential high-seer-heat-pump-rebate, hacr.alabama.gov/how-to-get-licensed, energy.gov/energysaver, irs.gov
+- **Notes:** **Alabama Power $1,000 gas-to-heat-pump conversion rebate** + up to $200 smart thermostat. **Alabama HACR Board: exam $175, active $220/yr, inactive $110/yr, $20,000 performance bond required** — detailed + verbatim. 56.62" precip (among wettest). Smallest city in project at 88,527 occupied units.
+
 ---
