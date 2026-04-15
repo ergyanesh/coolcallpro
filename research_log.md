@@ -302,4 +302,44 @@ Format per city:
 - **URLs cited:** ncei.noaa.gov (USW00012842), api.census.gov (place:71000 state:12), tampaelectric.com/residential heating-cooling + thermostat, tampa.gov/construction-services/fees, leg.state.fl.us Section 489.105, energy.gov/energysaver, irs.gov
 - **Notes:** 92.1% electric heating (similar to Miami 91.2% and Jacksonville 94.5% — Florida pattern). Tampa NOT in HVHZ (only Miami-Dade + Broward) but still hurricane-prone FL wind-load zone. TECO rebates tiered $40 (baseline SEER2) vs $550 (one tier up) — notable step-up. 3,928 CDD vs only 433 HDD (9:1 cooling dominance, even more extreme than Miami's 45:1 but similar profile).
 
+## San Francisco, CA
+
+- **Date researched:** 2026-04-15
+- **Found (4/7):** climate, housing, utility_rebate_amounts (BayREN EASE 80% / $1K cap), contractor_license (C-20 by name), climate_hvac_mode
+- **Not_found:** permit_fees, local_building_code, detailed PG&E rebates (pge.com SPA 404s)
+- **URLs cited:** ncei.noaa.gov (USW00023234 SFO), api.census.gov, bayren.org/ease, energy.gov/energysaver, irs.gov
+- **Notes:** SF median year 1945 (tied with Detroit for oldest). **5.9% NO heating fuel (21,477 units)** — exceptional marine-climate pattern. HDD 2,475 vs only 200 CDD (12:1 heating-dominated, virtually zero cooling demand). Pre-war Victorian/Edwardian row-house stock.
+
+## San Jose, CA
+
+- **Date researched:** 2026-04-15
+- **Found (4/7):** climate, housing, contractor_license (CSLB C-20 verbatim), climate_hvac_mode
+- **Not_found:** permit_fees (sanjoseca.gov 403), local_building_code, utility_rebate_amounts (PG&E 404, SVCE page lacked HVAC amounts, BayREN EASE general only)
+- **URLs cited:** ncei.noaa.gov (USW00023293 Mineta), api.census.gov (place:68000 state:06), cslb.ca.gov C-20, bayren.org/ease, energy.gov/energysaver/heat-pump-systems, irs.gov
+- **Notes:** Interior Bay Area warmer than SF — 71.2°F TMAX vs SF 66.9°F. Housing: 326,767 units with **3,398 solar-heated homes** (among highest solar share in project). Median year 1975. Zone 3C ideal heat-pump climate. SVCE = CCA (Community Choice Aggregator) for electric generation; PG&E handles delivery.
+
+## New Orleans, LA
+
+- **Date researched:** 2026-04-15
+- **Found (6/7):** climate, housing, local_building_code (NOLA Dept Safety & Permits), utility_rebate_amounts (Energy Smart DETAILED), contractor_license (LA LSLBC Classification 6), climate_hvac_mode
+- **Not_found:** permit_fees (PDF binary unparseable)
+- **URLs cited:** ncei.noaa.gov (USW00012916 KMSY Armstrong), api.census.gov (place:55000 state:22), nola.gov/mechanical-permit, energysmartnola.info/a-c-solutions, lslbc.gov/exams-classifications, energy.gov/energysaver, irs.gov
+- **Notes:** **63.35" annual precipitation — wettest major city in project.** 61.9% electric heat (hot-humid gulf pattern). Energy Smart captured 7 verbatim rebate amounts: AC tune-up $150-$200 income-tiered, central AC $150/$175/$200 by SEER2, ASHP $200/$250, ductless replacing electric strip $500. LA LSLBC $10K license threshold + master plumber overlap. Post-Katrina flood elevation requirements referenced.
+
+## Cleveland, OH
+
+- **Date researched:** 2026-04-15
+- **Found (4/7):** climate, housing, contractor_license (OCILB reused from Columbus), climate_hvac_mode
+- **Not_found:** permit_fees, local_building_code, utility_rebate_amounts (FirstEnergy 404, Enbridge Gas Ohio transition complicated)
+- **URLs cited:** ncei.noaa.gov (USW00014820 KCLE), api.census.gov (place:16000 state:39), com.ohio.gov (OCILB reused), energy.gov/energysaver/heat-pump-systems, energystar.gov/rebate-finder, irs.gov
+- **Notes:** **63.8" annual snowfall — HIGHEST of any city in project** (Lake Erie lake-effect). **Median year built 1940 — OLDEST housing stock yet** (surpassing Boston/Detroit's 1947). 78.4% gas heating. Dominion Energy Ohio gas utility was acquired by Enbridge Gas in 2023-2024 — real regulatory transition worth noting for readers.
+
+## Albuquerque, NM
+
+- **Date researched:** 2026-04-15
+- **Found (4/7):** climate, housing, contractor_license (NM MM-3 HVAC verbatim from NMAC 14.6.6), climate_hvac_mode (DOE evap cooler)
+- **Not_found:** permit_fees, local_building_code, utility_rebate_amounts (PNM ECONNREFUSED all attempts)
+- **URLs cited:** ncei.noaa.gov (USW00023050 KABQ), api.census.gov (place:02000 state:35), srca.nm.gov/parts/title14/14.006.0006.html (NMAC 14.6.6), energy.gov/energysaver/evaporative-coolers, irs.gov
+- **Notes:** **IMPORTANT BRIEF CORRECTION**: brief referenced MM-4/MM-5 but correct NM HVAC classification is **MM-3**. Agent verified verbatim from NMAC 14.6.6: MM-2 natural gas fitting, MM-3 HVAC, MM-4 hydronic/process piping. MM-5 does not exist. 8.84" precip (second-driest after Las Vegas 4.18"). 5,312 ft elevation = altitude derating (like Denver). 76.6% gas heating + 1,444 wood-heated homes (Southwest kiva/pellet-stove tradition). Evap cooler angle strong for high-desert climate.
+
 ---
