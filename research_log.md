@@ -382,4 +382,44 @@ Format per city:
 - **URLs cited:** ncei.noaa.gov (USW00013876 KBHM), api.census.gov (place:07000 state:01), alabamapower.com/residential high-seer-heat-pump-rebate, hacr.alabama.gov/how-to-get-licensed, energy.gov/energysaver, irs.gov
 - **Notes:** **Alabama Power $1,000 gas-to-heat-pump conversion rebate** + up to $200 smart thermostat. **Alabama HACR Board: exam $175, active $220/yr, inactive $110/yr, $20,000 performance bond required** — detailed + verbatim. 56.62" precip (among wettest). Smallest city in project at 88,527 occupied units.
 
+## Omaha, NE
+
+- **Date researched:** 2026-04-15
+- **Found (3/7 + federal credit):** climate, housing, climate_hvac_mode, IRS §25C verbatim limits ($2,000 heat pump / $1,200 general / $600 per item)
+- **Not_found:** permit_fees (Akamai Access Denied on planning.cityofomaha.org), local_building_code (municode SPA), utility_rebate_amounts (OPPD timeout, Black Hills Energy TLS fail), contractor_license_detail (city permits blocked)
+- **URLs cited:** ncei.noaa.gov (USW00014942 KOMA Eppley), api.census.gov (place:37000 state:31), energy.gov/energysaver/heat-pump-systems, irs.gov/.../energy-efficient-home-improvement-credit
+- **Notes:** 5,833 HDD / 1,294 CDD, 27.1" snow. 73% gas heating. Median 1972. OPPD is municipal public power district (like SMUD, CPS, Austin Energy). Tornado Alley exposure.
+
+## Colorado Springs, CO
+
+- **Date researched:** 2026-04-15
+- **Found (4/7):** climate, housing, local_building_code (Pikes Peak Regional authority framework), contractor_license (PPRBD regional), climate_hvac_mode
+- **Not_found:** permit_fees (pprbd.org ECONNREFUSED), utility_rebate_amounts (csu.org unreachable), detailed license scope
+- **URLs cited:** ncei.noaa.gov (USW00093037 KCOS), api.census.gov (place:16000 state:08), pprbd.org, energy.gov/energysaver/heat-pump-systems, irs.gov
+- **Notes:** **6,035 ft — HIGHEST major U.S. city in project**, surpassing Denver's 5,280 ft. Altitude derating more severe than Denver. Pikes Peak Regional Building Department is a unique joint city/county/regional authority. **Colorado Springs Utilities is a rare FOUR-SERVICE municipal utility** (electric + gas + water + wastewater). 5,888 HDD / 608 CDD. 69.8% gas heating, median 1986.
+
+## El Paso, TX
+
+- **Date researched:** 2026-04-15
+- **Found (4/7):** climate, housing, utility_rebate_amounts (EPE 2025 program catalog by name), contractor_license (TDLR reused), climate_hvac_mode (DOE evap cooler)
+- **Not_found:** permit_fees (PDF binary), local_building_code, specific rebate dollar amounts (EPE individual rebate PDFs 403)
+- **URLs cited:** ncei.noaa.gov (USW00023044 KELP), api.census.gov (place:24000 state:48), epelectric.com Texas residential rebates, tdlr.texas.gov/acr/acr.htm, energy.gov/energysaver/evaporative-coolers, irs.gov
+- **Notes:** **71.2% gas heating — HIGHEST of any major TX city** (unusual; Dallas 33%, Houston 33%, Austin 42%, San Antonio 29% are all electric-majority). Chihuahuan Desert ~3,700 ft elevation. 8.78" precip tied with Albuquerque for 2nd-driest. Evap cooler capital of US.
+
+## Virginia Beach, VA
+
+- **Date researched:** 2026-04-15
+- **Found (5/7):** climate, housing, local_building_code (Code of Virginia 54.1-1100 verbatim Class A/B/C thresholds), contractor_license (DPOR HVA framework), climate_hvac_mode
+- **Not_found:** permit_fees (city permits ECONNREFUSED), utility_rebate_amounts (Dominion 403, VNG 404)
+- **URLs cited:** ncei.noaa.gov (USW00013737 KNGU Norfolk NAS), api.census.gov (place:82000 state:51), law.lis.virginia.gov/vacode Section 54.1-1100, dpor.virginia.gov/Boards/Contractors, energy.gov/energysaver, irs.gov
+- **Notes:** **VA Code 54.1-1100 Class A/B/C thresholds captured VERBATIM**: A ≥$150K single or $1M+ annual, B $30K-$150K / $250K-$1M, C $1K-$30K / <$250K. Distinctive dollar-based contractor classification structure. 62.4% electric heat, 1.4% fuel oil. Median 1984.
+
+## Pittsburgh, PA
+
+- **Date researched:** 2026-04-15
+- **Found (4/7):** climate, housing, contractor_license (PA HICPA + Pittsburgh PLI local), climate_hvac_mode
+- **Not_found:** permit_fees (pittsburghpa.gov/pli 403), local_building_code, utility_rebate_amounts (Duquesne Light + Peoples Gas 403/404)
+- **URLs cited:** ncei.noaa.gov (USW00094823 KPIT), api.census.gov (place:61000 state:42), energy.gov/energysaver/heat-pump-systems, irs.gov
+- **Notes:** **Median year 1942 — second-oldest housing stock in project** behind Cleveland's 1940. 75.4% gas heating. 44.1" snowfall + 5,572 HDD heavy cold-climate profile. PA HICPA $5K threshold (registration, not trade license) + Pittsburgh PLI local registration required.
+
 ---
