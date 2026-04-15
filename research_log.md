@@ -262,4 +262,44 @@ Format per city:
 - **URLs cited:** ncei.noaa.gov (USW00014839), api.census.gov (place:53000 state:55), focusonenergy.com/residential/heating-and-cooling, dsps.wi.gov HVACQualifier, energy.gov/energysaver/heat-pump-systems, irs.gov
 - **Notes:** Wisconsin unique: no mandatory state HVAC license, Focus on Energy administers statewide rebates (not We Energies directly). Focus on Energy tiered + income-qualified: ASHP $400-$900, furnace $100-$400, boiler $350-$550, geothermal $750-$1,000. 79.3% gas heating (second only to Detroit's 81.8%). Median 1952 pre-WWII bungalows.
 
+## New York City, NY
+
+- **Date researched:** 2026-04-15
+- **Found (4/7):** climate, housing, local_building_code (Title 28 + LL97 reference), contractor_license (DOB trade licenses), climate_hvac_mode
+- **Not_found:** permit_fees, utility_rebate_amounts (ConEd/NYSERDA Clean Heat not verbatim)
+- **URLs cited:** ncei.noaa.gov (USW00094728 Central Park), api.census.gov (place:51000 state:36), nyc.gov/site/buildings (swapped from dead subpage), energy.gov/energysaver/heat-pump-systems, irs.gov
+- **Notes:** NYC has the LARGEST municipal housing stock in the U.S. at 3,313,316 units. 12.5% fuel oil (414,650 units) is the highest in the country — legacy of pre-war steam systems. Local Law 97 emissions law referenced by name (page URL moved post-QC — kept text, dropped hyperlink). Median year 1952 reflects dominant pre-war/mid-century stock.
+
+## Oklahoma City, OK
+
+- **Date researched:** 2026-04-15
+- **Found (4/7):** climate, housing, contractor_license (CIB — 59 O.S. §1850.1 + OAC 158:50 + 6hrs CEU/36mo), climate_hvac_mode (NWS tornado climatology)
+- **Not_found:** permit_fees (okc.gov DS 403), local_building_code (municode shell), utility_rebate_amounts (OG&E 403, ONG 404)
+- **URLs cited:** ncei.noaa.gov (USW00013967), api.census.gov (place:55000 state:40), oklahoma.gov/cib/your-industry/mechanical.html, weather.gov/oun/tornadodata-okc, energystar.gov/rebate-finder, irs.gov
+- **Notes:** NWS Norman OKC tornado climatology is exceptional — 194 tornadoes since 1890, 13 violent F4/F5, peak May-April-June 4-5pm. 57.2% gas / 39.6% electric, median 1981.
+
+## Memphis, TN
+
+- **Date researched:** 2026-04-15
+- **Found (3/7):** climate, housing, climate_hvac_mode
+- **Not_found:** permit_fees (memphistn.gov 404), local_building_code (municode shell), utility_rebate_amounts (MLGW TLS errors, TVA EnergyRight 403), contractor_license_detail (tn.gov 404s — reused Nashville CMC-C reference)
+- **URLs cited:** ncei.noaa.gov (USW00013893), api.census.gov (place:48000 state:47), tn.gov/commerce/regboards.html, energy.gov/energysaver/efficient-cooling-hot-humid-climates, irs.gov
+- **Notes:** 54.94" annual precipitation — among wettest major U.S. cities. MLGW is rare TVA-territory MUNICIPAL combined utility (electric + gas + water). 55.1% electric (TVA dominance similar to Nashville 66.4%). Median year 1970.
+
+## Washington, DC
+
+- **Date researched:** 2026-04-15
+- **Found (4/7):** climate, housing, local_building_code (DCMR Title 12), climate_hvac_mode; partial license framework
+- **Not_found:** permit_fees (DOB 403), utility_rebate_amounts (Pepco/WashGas/DCSEU all 403), contractor_license_detail (DLCP 403)
+- **URLs cited:** ncei.noaa.gov (USW00013743 Reagan National), api.census.gov (place:50000 state:11), dob.dc.gov/page/dc-construction-codes (swapped from dead /construction-codes), basc.pnnl.gov/ (swapped from dead deep link), energy.gov/energysaver, irs.gov
+- **Notes:** DC near-balanced gas/electric 49.2%/45.6% — unusual among major cities. Median 1957 mid-century. DCSEU is the only city-mandated efficiency-utility of its kind in the project. DOB permit fees behind auth portal.
+
+## Tampa, FL
+
+- **Date researched:** 2026-04-15
+- **Found (5/7):** climate, housing, utility_rebate_amounts (TECO tiered), local_building_code (Tampa + FL surcharge 2.5%), contractor_license (FL Statute 489.105 Class A/B reused), climate_hvac_mode
+- **Not_found:** permit_fees (PDF unparseable — linked for reader), Peoples Gas rebates (404s)
+- **URLs cited:** ncei.noaa.gov (USW00012842), api.census.gov (place:71000 state:12), tampaelectric.com/residential heating-cooling + thermostat, tampa.gov/construction-services/fees, leg.state.fl.us Section 489.105, energy.gov/energysaver, irs.gov
+- **Notes:** 92.1% electric heating (similar to Miami 91.2% and Jacksonville 94.5% — Florida pattern). Tampa NOT in HVHZ (only Miami-Dade + Broward) but still hurricane-prone FL wind-load zone. TECO rebates tiered $40 (baseline SEER2) vs $550 (one tier up) — notable step-up. 3,928 CDD vs only 433 HDD (9:1 cooling dominance, even more extreme than Miami's 45:1 but similar profile).
+
 ---
