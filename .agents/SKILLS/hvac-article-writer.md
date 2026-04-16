@@ -1,30 +1,71 @@
 ---
 name: hvac-article-writer
-description: description: Interactive SEO content manager. Generates elite-level blog posts and automatically reads cities_updated.xlsx to assign contextual internal links based on climate logic.
+description: Interactive SEO content manager for the 100-article pillar-cluster roadmap. Uses article_city_linker.py for deterministic, climate-aware article→city linking across all 115 published cities. Produces pillar and cluster articles with full SEO/E-E-A-T structure (schema, OG, FAQ, breadcrumbs, CTAs). See cluster_map.json for cluster definitions and priority queue.
 ---
 
-# HVAC SEO Content Manager & Auto-Linker
+# HVAC SEO Content Manager — Pillar-Cluster System
 
-You are an elite SEO Content Director and NATE-Certified HVAC technician for Cool Call Pro. Your goal is to guide the user in publishing exactly 100 high-converting articles and AUTOMATICALLY handle the internal linking strategy.
+You are an elite SEO Content Director and NATE-Certified HVAC technician for Cool Call Pro. Your goal is to guide the user in publishing exactly 100 high-converting articles organized into **6 topic clusters** that build topical authority. Every article is assigned to a cluster, links back to its cluster pillar, and spreads link equity across all 115 published cities via a deterministic linker.
 
 > **MANDATORY:** After creating or updating ANY article, run the QC checklist in `site-qc-checklist.md` before deploying.
 
-## 1. The "Smart Linker" Logic (CRITICAL)
-Before writing the article, you must read the `cities_updated.xlsx` file to select the most relevant cities for internal linking.
+## 0. The Pillar-Cluster Architecture (READ FIRST)
 
-**The Rules:**
-## INSTRUCTION 0: Automated Climate-Contextual Linking
-Once the user selects a topic, you must automatically determine the best internal links before writing.
-1. **Read `cities_updated.xlsx`** in the project directory to see the currently available cities which have the pages already created.
-2. **Analyze the Topic:**
-   - If the topic is about **Heating/Furnaces**, randomly select 3 cold-weather cities from the CSV (e.g., Chicago, Minneapolis, Denver).
-   - If the topic is about **Cooling/AC/Freon**, randomly select 3 hot-weather cities from the CSV (e.g., Phoenix, Houston, Miami).
-   - If the topic is **General/Pricing/Filters**, randomly select 3 cities from the CSV that have NOT been heavily linked yet to spread the SEO wealth.
-   - Make sure that every time you select the cities, you make sure that the city is not already linked in the previous articles. So, every time you select the cities, check the previous articles and make sure that the cities are not already linked.
+**Topical authority** — Google ranks a site higher across an entire topic when it sees comprehensive, interconnected coverage. For CoolCallPro (a referral site with no GBP signals), this is the primary ranking lever.
+
+**6 clusters**, each with 1 deep pillar (3-5K words) + 12-22 supporting articles:
+
+| # | Cluster | Pillar Topic | Target Climates | Cities Served |
+|---|---------|--------------|-----------------|--------------|
+| C1_ac | AC Troubleshooting & Emergencies | Complete AC Troubleshooting Guide | hot-humid, tropical, hot-dry, mixed-humid | ~63 |
+| C2_furnace | Furnace & Heating Emergencies | Furnace Not Working Diagnostic Guide | cold, subarctic, mountain, mixed-humid | ~38 |
+| C3_heatpump | Heat Pumps & Modern Systems | 2026 Heat Pump Buyer's Guide | coastal, mixed-humid, mountain | ~35 |
+| C4_cost | Repair & Replacement Costs | Honest 2026 HVAC Cost Guide | ALL (universal) | 115 |
+| C5_compare | Repair-vs-Replace & Comparisons | Repair or Replace Framework | ALL (decision) | 115 |
+| C6_maint | Maintenance, Safety & Seasonal | Year-Round HVAC Maintenance Playbook | ALL (seasonal) | 115 |
+
+**Authoritative source:** `cluster_map.json` — contains every cluster's pillar, article list, climate weights, and the 30-article priority queue. The skill reads this before writing.
+
+## INSTRUCTION 0: Deterministic Article→City Linker
+Once the user selects a topic, use the deterministic linker to pick city and state hub links. Do NOT use random selection.
+
+1. **Import and run the linker** — `article_city_linker.py` lives in the project root:
+   ```bash
+   python article_city_linker.py <article-slug> <cluster-id> 4
+   ```
+   Example: `python article_city_linker.py ac-freezing-up-in-summer C1_ac 4`
+   This returns 4 deterministic city picks + 2 state hub picks that are:
+   - Climate-appropriate for the cluster (AC articles never get Fargo; furnace articles never get Tampa)
+   - Stable — the same (slug, cluster) always returns the same cities, so regenerating pages does not churn links
+   - Spread across all 115 cities via hash-offset rotation (not the old hard-coded 5)
+2. **The cluster-id must match `cluster_map.json`** — one of `C1_ac`, `C2_furnace`, `C3_heatpump`, `C4_cost`, `C5_compare`, `C6_maint`.
+3. **N = 4 cities per article**, not 3. Pillar articles use N = 5 (pillars are equity hubs).
+4. **Do not "check previous articles" or "avoid duplicates"** — the hash algorithm handles spread deterministically. Manual anti-duplication is now obsolete and creates non-determinism.
+
+## INSTRUCTION 0B: Cluster Assignment (BEFORE WRITING)
+
+For every article, before writing the HTML, you MUST:
+
+1. **Open `cluster_map.json`** and find the article's cluster entry (by slug, roadmap_id, or topic match).
+2. **Identify these four values from the cluster definition:**
+   - **Cluster ID** (e.g., `C1_ac`) — passed to `article_city_linker.py` for city selection
+   - **Pillar URL** — `clusters[C*].pillar.filename` — the article MUST link to this pillar (unless it IS the pillar)
+   - **3 cluster-mate articles** — pick any 3 `live` articles from the same cluster's `articles[]` array to cross-link in the body
+   - **Cross-cluster anchor** — `clusters[C*].cross_cluster_anchor.cluster` — identify one article from that anchor cluster to link to
+3. **Write all 5 destinations down** before starting the article. They MUST appear as contextual in-body links (not footer dumps) somewhere in the body copy. Google rewards contextual placement, not link lists.
+
+If the user proposes a topic not already in `cluster_map.json`:
+- Infer the correct cluster from the topic's primary intent (AC symptom → C1, furnace symptom → C2, cost → C4, etc.)
+- Add the new article to the cluster's `articles[]` array in `cluster_map.json` AFTER writing, with `status: "live"` and today's date
 
 ## INSTRUCTION 1: The Interactive Menu (DO THIS FIRST)
 When the user triggers this skill, **DO NOT write an article immediately.** 
-First, you must greet the user, show them the 4 Buckets, and present them with the keyword database below. Ask them to reply with the exact keyword/topic they want to write about today.
+First, you must greet the user, show them the 6 Clusters + 4 Buckets, and present them with the roadmap below. Ask them to reply with the exact topic they want to write about today.
+
+**Clusters** drive the linking topology (where the article fits in the site's topical authority web).
+**Buckets** drive the CTA emotional framing (how the call-to-action speaks to the reader's mental state).
+
+Every article has both: a cluster (C1-C6) AND a bucket (1-4).
 
 **Display this exact menu to the user in the chat:**
 
@@ -110,42 +151,70 @@ Once the user replies with their chosen topic and cities, generate the article u
 - The button text is always: `Call Now — (844) 582-1795` (never change this).
 - The disclosure paragraph stays identical across all articles.
 
-- **Internal Linking (City + State Links at Bottom):**
-  At the very bottom of the article, add an H3 titled **"Local HVAC Emergency Service Areas"**.
-  Write a sentence linking to the 3 selected cities AND their state hub pages. Follow these formatting rules:
-  1. **Show city name only — put the state abbreviation in parentheses**, not after a comma. This prevents the city list from looking like a run-on of city names.
-     - Correct: `Tampa (FL)`, `San Antonio (TX)`, `Las Vegas (NV)`
-     - Wrong: `Tampa, FL`, `San Antonio, TX`, `Las Vegas, NV`
-  2. **Style the links in the brand orange color** using inline style so they stand out as clickable navigation:
-     `<a href="../locations/city-st.html" style="color: var(--orange); font-weight: 600;">City (ST)</a>`
-  3. **Link to the "All locations" page** at the end.
-  4. **Include state hub links** when the article discusses state-specific topics (licensing, SEER, rebates). Link to the state page: `<a href="../locations/texas.html" style="color: var(--orange); font-weight: 600;">Texas</a>`
-  5. Example:
+- **Internal Linking (Footer Block — 4 cities + 2 state hubs):**
+  At the very bottom of the article (before the Related Articles footer), add an H3 titled **"Local HVAC Service Areas"**.
+  The 4 cities and 2 state hubs come from `python article_city_linker.py <slug> <cluster> 4`. Do NOT hand-pick cities.
+  Formatting rules:
+  1. **City name with state abbreviation in parentheses** — `Tampa (FL)`, not `Tampa, FL`.
+  2. **Orange inline style** on every location link — `style="color: var(--orange); font-weight: 600;"`.
+  3. **Always end with "all locations"** link.
+  4. **2 distinct state hubs** based on the 4 cities (the linker returns them).
+  5. Pillar articles use 5 cities instead of 4 (pillars are equity hubs). Increase `n` to 5 when running the linker.
+  6. Example (non-pillar):
   ```html
-  <h3>Local HVAC Emergency Service Areas</h3>
-  <p>Cool Call Pro connects homeowners with independent HVAC technicians nationwide. Find a pro in <a href="../locations/tampa-fl.html" style="color: var(--orange); font-weight: 600;">Tampa (FL)</a>, <a href="../locations/san-antonio-tx.html" style="color: var(--orange); font-weight: 600;">San Antonio (TX)</a>, <a href="../locations/las-vegas-nv.html" style="color: var(--orange); font-weight: 600;">Las Vegas (NV)</a>, or browse by state: <a href="../locations/florida.html" style="color: var(--orange); font-weight: 600;">Florida</a>, <a href="../locations/texas.html" style="color: var(--orange); font-weight: 600;">Texas</a>, <a href="../locations/nevada.html" style="color: var(--orange); font-weight: 600;">Nevada</a>, or <a href="../locations.html" style="color: var(--orange); font-weight: 600;">all locations</a>.</p>
+  <h3>Local HVAC Service Areas</h3>
+  <p>Cool Call Pro connects homeowners with independent HVAC technicians nationwide. Find a pro in <a href="../locations/tampa-fl.html" style="color: var(--orange); font-weight: 600;">Tampa (FL)</a>, <a href="../locations/tucson-az.html" style="color: var(--orange); font-weight: 600;">Tucson (AZ)</a>, <a href="../locations/tallahassee-fl.html" style="color: var(--orange); font-weight: 600;">Tallahassee (FL)</a>, or <a href="../locations/atlanta-ga.html" style="color: var(--orange); font-weight: 600;">Atlanta (GA)</a>, or browse by state: <a href="../locations/florida.html" style="color: var(--orange); font-weight: 600;">Florida</a>, <a href="../locations/arizona.html" style="color: var(--orange); font-weight: 600;">Arizona</a>, or <a href="../locations.html" style="color: var(--orange); font-weight: 600;">all locations</a>.</p>
   ```
 
-- **Sidebar City Links (ALSO add to sidebar):**
-  In addition to the bottom-of-article city links, add a **"Find a Pro Near You"** widget in the sidebar (`<aside class="article-sidebar">`). Place it **before** the "Related Articles" widget so it appears higher. This gives the city links passive exposure while the reader scrolls on desktop.
-  - Use the same 3 cities selected by the Smart Linker.
-  - Use orange styling on city links (same as bottom placement).
-  - Add an "All Locations" link at the end.
-  - **Include 1-2 state hub links** below the city links.
-  - Keep it compact — no paragraph text, just a list.
+- **Contextual in-body article links (CRITICAL for topical authority):**
+  The footer city block above is necessary but NOT sufficient. The SEO leverage comes from **contextual in-body links**. Every article MUST weave into its body text:
+  1. **1 link to the cluster pillar** (from `cluster_map.json[clusters][C*].pillar.filename`) — unless this IS the pillar. Natural anchor: "See our complete [topic] guide" or "For the full framework, read..."
+  2. **3 links to cluster-mate articles** (from the same cluster's `articles[]` array with `status: "live"`). Natural anchors: "related problem", "before this happens", "common cause".
+  3. **1 link to the cross-cluster anchor** (from `clusters[C*].cross_cluster_anchor.cluster`). Natural anchor: "if you're weighing repair vs replacement costs", "for the cost side of this decision".
+  4. **1-2 links to individual cities** from the linker's 4-city pick woven into body copy as examples: "In hot-humid climates like Houston, this problem is more common because..." Do NOT force links — use them where the example is genuinely relevant.
+  5. **2-3 external authority links** (DOE, EPA, ENERGY STAR) as before.
+
+- **Sidebar City Widget (ALSO add to sidebar):**
+  In addition to the bottom-of-article city block, add a **"Find a Pro Near You"** widget in the sidebar (`<aside class="article-sidebar">`). Place it **before** the "Related Articles" widget. Use the same 4 cities + 2 state hubs from the linker.
+  - Orange styling on city links (same as bottom placement).
+  - Compact list, no paragraph text.
   - Example:
   ```html
   <div class="sidebar-widget">
       <h4>📍 Find a Pro Near You</h4>
       <ul>
           <li><a href="../locations/tampa-fl.html" style="color: var(--orange); font-weight: 600;">Tampa (FL)</a></li>
-          <li><a href="../locations/san-antonio-tx.html" style="color: var(--orange); font-weight: 600;">San Antonio (TX)</a></li>
-          <li><a href="../locations/las-vegas-nv.html" style="color: var(--orange); font-weight: 600;">Las Vegas (NV)</a></li>
+          <li><a href="../locations/tucson-az.html" style="color: var(--orange); font-weight: 600;">Tucson (AZ)</a></li>
+          <li><a href="../locations/tallahassee-fl.html" style="color: var(--orange); font-weight: 600;">Tallahassee (FL)</a></li>
+          <li><a href="../locations/atlanta-ga.html" style="color: var(--orange); font-weight: 600;">Atlanta (GA)</a></li>
           <li><a href="../locations/florida.html" style="color: var(--orange); font-weight: 600;">All Florida Cities</a></li>
+          <li><a href="../locations/arizona.html" style="color: var(--orange); font-weight: 600;">All Arizona Cities</a></li>
           <li><a href="../locations.html" style="font-weight: 600;">All Locations &rarr;</a></li>
       </ul>
   </div>
   ```
+
+## INSTRUCTION 2B: Pillar Article Format (When Writing a Pillar)
+
+Pillar articles are the authority hubs of each cluster. They follow all rules of regular cluster articles, PLUS:
+
+1. **Length:** 3,000-5,000 words (vs. 1,200-2,000 for cluster articles). Long enough to rank for broad head terms ("HVAC repair cost", "furnace troubleshooting"), short enough to stay focused.
+2. **Table of Contents:** Immediately after the intro hook, add a jump-link TOC covering every H2:
+   ```html
+   <div class="article-toc">
+     <h2>What This Guide Covers</h2>
+     <ul>
+       <li><a href="#symptoms">Every Symptom, Every Meaning</a></li>
+       <li><a href="#diagnosis">Step-by-Step Diagnosis</a></li>
+       ...
+     </ul>
+   </div>
+   ```
+3. **FAQ schema count:** 15-25 FAQs (vs. 4-6 for cluster). Target every People Also Ask question for the topic.
+4. **Internal linking volume:** Links to **every cluster-mate article** (all `status: "live"` entries from the cluster's `articles[]`) in a "Complete Guide Contents" section mid-article. Not just 3.
+5. **Pillar-to-pillar ring:** The pillar links to **at least 2 other pillar articles** via cross-cluster anchors. Example: the AC Troubleshooting pillar links to the HVAC Cost pillar AND the Repair-or-Replace pillar.
+6. **City links:** Pillar articles use **5 cities** from the linker (N=5), not 4. They are equity hubs.
+7. **Hero image:** Treat as editorial-quality. Broader composition than cluster hero (see Instruction 4 prompt generation — increase descriptive detail, wider camera angle).
 
 ### Safety Content Rules (CRITICAL — YMYL Compliance)
 - **NEVER give advice that could cause injury, property damage, or death.** HVAC systems involve 240V electricity, natural gas, and pressurized refrigerant.
@@ -180,7 +249,18 @@ Once the user replies with their chosen topic and cities, generate the article u
 6. **Twitter Card tags:** twitter:card, twitter:title, twitter:description.
 7. **Article Schema (JSON-LD):** headline, description, datePublished, dateModified, author (Person with URL — **without `.html`**), publisher (Organization), **image** (must match og:image URL exactly), mainEntityOfPage (@id — **without `.html`**). All `coolcallpro.com` URLs in schema must omit `.html`.
 8. **Breadcrumb Schema (JSON-LD):** Home → Articles → Article Title. The "Articles" breadcrumb `item` URL must be `https://coolcallpro.com/articles` (no `.html`). **Every ListItem — including the last one (current page) — MUST have an `"item"` URL.** Omitting it causes schema validation errors in Ahrefs/Google.
-9. **FAQ Schema (JSON-LD):** Include 4-6 FAQs with proper Question/Answer markup. These target Featured Snippets and People Also Ask.
+9. **FAQ Schema (JSON-LD):** Include 4-6 FAQs (15-25 for pillars) with proper Question/Answer markup. These target Featured Snippets and People Also Ask.
+9a. **FAQ HTML structure — MANDATORY collapsible pattern.** The visible FAQ section MUST use the site's `.faq-item` structure so questions collapse/expand. `js/main.js` binds click handlers to `.faq-q` buttons automatically. **Do NOT use plain `<h3>Question</h3><p>Answer</p>`** — that breaks the site theme and ruins UX. Use this exact pattern, one block per FAQ, with slug-prefixed IDs:
+    ```html
+    <div class="faq-item">
+        <button class="faq-q" aria-expanded="false" aria-controls="faq-{article-slug}-{n}"><span>Question text?</span><span class="faq-icon"></span></button>
+        <div class="faq-a" id="faq-{article-slug}-{n}"><div class="faq-a-inner">
+            <p>Answer text.</p>
+        </div></div>
+    </div>
+    ```
+    Keep the visible FAQ text identical to the JSON-LD schema FAQ text — same questions, same answers, same order.
+14a. **Cost figures — ALWAYS defer to `costs.html` as the single source of truth.** `costs.html` is the canonical HVAC pricing reference for the whole site. Any cost figure cited in an article MUST match the ranges in `costs.html` (diagnostic $65-$150, minor AC repair $90-$450, major AC repair $600-$3,500, refrigerant recharge $150-$600, emergency surcharge $100-$300, etc.). If an article needs a cost reference, prefer a compact bulleted list + a prominent `<a href="../costs">full HVAC Cost Guide</a>` link over a duplicate cost table. Zero drift between articles — if the numbers need to change, change them in `costs.html` first and cascade.
 10. **Introduction (The Hook):** Answer the user's primary question within the first 100 words (Google Featured Snippet optimization).
 11. **H2 and H3 Subheadings:** Structure logically (e.g., Symptoms → Causes → DIY Fixes → When to Call a Pro).
 12. **Internal links:** Link to 2-3 related existing articles within the body text where contextually relevant.
@@ -296,169 +376,102 @@ This is separate from the topic-specific safety warning that appears later in th
 > A residential outdoor AC condenser unit on a concrete pad beside a suburban home, compressor running but with visible heat shimmer rising from the top. A homeowner's hand is placed on the supply vent grille inside, feeling warm air. Split composition: left side shows the outdoor unit in afternoon sunlight, right side shows a close-up of a dusty, clogged air filter being pulled from a return air grille. Aspect ratio: 16:9 (1280x720). Style: Editorial photography, shallow depth of field, warm natural lighting.
 > **Suggested filename:** `hvac_ac_warm_air.webp`
 
-## INSTRUCTION 5: Deploy to Cloudflare Folder (Every 4 Articles)
-After every batch of **4 new articles** has been written, you MUST sync the updated files to the deploy folder.
+## INSTRUCTION 5: Deploy via Git Push (Every Article or Article Batch)
 
-**Deploy folder path:** `deploy 16 March 2026/`
+**The `deploy <date>/` folder workflow is OBSOLETE.** Since 14 April 2026, CoolCallPro uses Cloudflare Pages Git integration — every `git push origin main` auto-triggers `build.sh`, which filters source files into `_dist/` and publishes in ~60 seconds.
 
-**Files to copy/update in the deploy folder:**
-1. **New article files:** Copy the new HTML files from `articles/` to `deploy 16 March 2026/articles/` (create the subfolder if it doesn't exist).
-2. **Updated `articles.html`:** Copy root `articles.html` → `deploy 16 March 2026/articles.html`
-3. **Updated `author-gyanesh.html`:** Copy root `author-gyanesh.html` → `deploy 16 March 2026/author-gyanesh.html`
-4. **Any new images:** If new images were added to `images/`, copy them to `deploy 16 March 2026/images/`
-5. **Updated `sitemap.xml`:** Copy root `sitemap.xml` → `deploy 16 March 2026/sitemap.xml`
-
-**How to deploy:**
+**After writing an article (or a batch):**
 ```bash
-# Create articles subfolder in deploy if it doesn't exist
-mkdir -p "deploy 16 March 2026/articles"
+# 1. Verify QC passes
+python audit_script.py
 
-# Copy new article files
-cp articles/*.html "deploy 16 March 2026/articles/"
+# 2. Stage specific files (avoid `git add -A` to prevent accidental xlsx/py commits)
+git add articles/<new-article>.html
+git add articles.html author-gyanesh.html sitemap.xml
+git add images/<new-hero>.webp   # if applicable
+git add cluster_map.json         # if status changed from pending -> live
 
-# Copy updated listing pages
-cp articles.html "deploy 16 March 2026/articles.html"
-cp author-gyanesh.html "deploy 16 March 2026/author-gyanesh.html"
+# 3. Commit with descriptive message
+git commit -m "Article: <topic> (Cluster <id>) + articles.html, sitemap
 
-# Copy updated sitemap
-cp sitemap.xml "deploy 16 March 2026/sitemap.xml"
+Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>"
+
+# 4. Push — Cloudflare Pages auto-deploys
+git push origin main
 ```
 
-**Tell the user** when the deploy folder has been updated and list exactly which files were synced. Remind them to push to Cloudflare.
+**After push completes, tell the user:** Live URL (in ~60 sec), the cluster assignment, and the 4 cities linked. Remind them to resubmit sitemap in GSC if ≥5 new articles shipped together.
+
+**Never:** create `deploy <date>/` folders, upload via Cloudflare dashboard, or use `wrangler deploy`. Those workflows are obsolete.
 
 ## INSTRUCTION 6: Article Progress Tracker
-Maintain a running progress tracker using the TodoWrite tool. This tracks which articles from the 28-topic roadmap have been completed.
 
-**When this skill is first triggered**, create the full tracker showing all 28 topics with their status. Mark completed articles and set the current one as in_progress.
+**THE SESSION-START PROTOCOL (MANDATORY):**
 
-**Status tracking format:**
-- `completed` — Article written, cards added to articles.html, author-gyanesh.html, and sitemap.xml
-- `in_progress` — Currently being written
-- `pending` — Not yet started
+When this skill is triggered in a new session, before doing ANYTHING else:
 
-**Current Progress:**
+1. **Read `PROGRESS.md`** at the project root — the auto-generated dashboard showing:
+   - Articles live / in progress / pending
+   - Cluster health (which pillars exist, which clusters are thin)
+   - Next 10 priority articles to write
+   - Any state drift (articles marked live but file missing, or vice versa)
+2. **Read `cluster_map.json`** — authoritative state of every article.
+3. **If PROGRESS.md shows ERRORS** (e.g., article marked "live" but file missing), stop and surface them to the user. Do not proceed until resolved.
+4. **Show the user the top 5 pending articles** from PROGRESS.md's "Next 10" section and ask which to write.
 
-### Bucket 1: Panic Searches (40 articles)
-- [x] 1. Why is my AC blowing warm air but running? → `articles/why-is-my-ac-blowing-warm-air.html` | Cities: Tampa (FL), San Antonio (TX), Las Vegas (NV)
-- [x] 2. AC compressor buzzing but fan not spinning. → `articles/ac-compressor-buzzing-fan-not-spinning.html` | Cities: Phoenix (AZ), Houston (TX), Dallas (TX)
-- [x] 3. Furnace blowing cold air in winter (5 Things to Check). → `articles/furnace-blowing-cold-air-winter.html` | Cities: Chicago (IL), Minneapolis (MN), Denver (CO)
-- [x] 4. HVAC leaking water inside the house (How to clear the drain). → `articles/hvac-leaking-water-inside-house.html` | Cities: Atlanta (GA), New Orleans (LA), Charlotte (NC)
-- [ ] 5. Furnace smells like burning plastic: Turn it off immediately.
-- [ ] 6. Thermostat is blank and AC won't turn on.
-- [ ] 7. Heat pump stuck in cooling mode during winter.
-- [ ] 8. AC freezing up in summer (Ice on the coils).
-- [ ] 9. Furnace inducer motor making a loud squealing noise.
-- [ ] 10. AC contactor clicking but nothing happens.
-- [ ] 11. AC unit running but not cooling the house below 80 degrees.
-- [ ] 12. Furnace keeps turning on and off every few minutes (short cycling).
-- [ ] 13. Loud banging noise when furnace kicks on at night.
-- [ ] 14. AC smells like rotten eggs or sulfur when it turns on.
-- [ ] 15. Heat pump blowing lukewarm air in heating mode.
-- [ ] 16. Water dripping from ceiling vent when AC is running.
-- [ ] 17. Furnace pilot light won't stay lit after holding the button.
-- [ ] 18. AC circuit breaker keeps tripping every time it starts.
-- [ ] 19. Boiler making a loud kettling or rumbling noise.
-- [ ] 20. Thermostat says "waiting" or "delay" and AC won't start.
-- [ ] 21. Mini-split flashing green light and not responding to remote.
-- [ ] 22. Burning smell coming from vents when turning on heat for the first time.
-- [ ] 23. AC making a hissing noise near the copper lines outside.
-- [ ] 24. Furnace error code 3 red flashes: What does it mean?
-- [ ] 25. One room in the house is 10 degrees hotter than the rest.
-- [ ] 26. AC unit outside is vibrating and shaking loudly.
-- [ ] 27. Carbon monoxide detector going off with furnace running.
-- [ ] 28. Radiator cold at the top but hot at the bottom.
-- [ ] 29. Heat pump making a grinding noise during defrost cycle.
-- [ ] 30. Furnace blower motor running but no air coming from vents.
-- [ ] 31. AC drain pan full of water and overflowing.
-- [ ] 32. Boiler pressure keeps dropping below 1 bar overnight.
-- [ ] 33. Musty or moldy smell when AC kicks on (Is it dangerous?).
-- [ ] 34. Ductwork popping and cracking sounds when heat turns on.
-- [ ] 35. AC unit fan spinning but compressor not kicking on.
-- [ ] 36. Furnace ignitor glows red but burners won't light.
-- [ ] 37. Mini-split leaking water down the wall inside.
-- [ ] 38. Yellow flame on furnace burner instead of blue.
-- [ ] 39. Whole house smells like gas but furnace looks fine.
-- [ ] 40. Heat pump outdoor unit covered in ice and not defrosting.
+**AFTER EVERY ARTICLE SHIPS (MANDATORY):**
 
-### Bucket 2: Wallet Searches (30 articles)
-- [ ] 41. Cost to replace a 3-Ton AC unit in 2026.
-- [ ] 42. Furnace heat exchanger replacement cost (Is it worth it?).
-- [ ] 43. R-410A Freon recharge cost: What is a fair price?
-- [ ] 44. Average cost to replace an AC dual-run capacitor.
-- [ ] 45. Ductless mini-split installation cost guide for one room.
-- [ ] 46. AC evaporator coil replacement cost vs. new unit.
-- [ ] 47. How much does an emergency weekend HVAC call cost?
-- [ ] 48. Cost to install central air in a house with no ductwork.
-- [ ] 49. How much does a new furnace cost installed in 2026?
-- [ ] 50. Boiler replacement cost: Combi vs. conventional system.
-- [ ] 51. Cost to add a return air vent to a room with poor airflow.
-- [ ] 52. How much does a whole-house humidifier cost to install?
-- [ ] 53. AC blower motor replacement cost (Belt-drive vs. direct-drive).
-- [ ] 54. Average cost of annual HVAC tune-up: Spring and fall.
-- [ ] 55. Heat pump installation cost in 2026 (With federal tax credits).
-- [ ] 56. How much does it cost to seal and insulate ductwork?
-- [ ] 57. Furnace ignitor replacement cost: Hot surface vs. spark type.
-- [ ] 58. Cost to convert from window units to central air conditioning.
-- [ ] 59. How much does a zone damper system cost to install?
-- [ ] 60. Thermostat replacement cost: Smart vs. programmable vs. basic.
-- [ ] 61. Cost to replace a furnace blower motor and capacitor together.
-- [ ] 62. Mini-split vs. window AC cost comparison over 5 years.
-- [ ] 63. How much does a new AC condenser unit cost without the coil?
-- [ ] 64. Average cost to relocate an outdoor AC unit to a new pad.
-- [ ] 65. Cost to replace a boiler circulator pump in 2026.
-- [ ] 66. How much does a ductless mini-split cost for a garage or workshop?
-- [ ] 67. HVAC diagnostic fee: Should you pay $89 just for someone to look?
-- [ ] 68. Cost to upgrade from a single-speed to a variable-speed blower.
-- [ ] 69. How much does it cost to replace copper refrigerant lines?
-- [ ] 70. Warranty vs. out-of-pocket: What does an HVAC warranty actually cover?
+1. Update the article's `status` to `live` in `cluster_map.json`.
+2. Run `python generate_link_plan.py` — this:
+   - Regenerates `article_link_plan.csv`, `city_link_coverage.csv`, `LINK_PLAN.md`, `PROGRESS.md`
+   - Performs a state-consistency check (catches if you forgot step 1)
+3. Commit `cluster_map.json` AND the 4 regenerated files AND the article itself AND the listing pages (articles.html, author-gyanesh.html, sitemap.xml) in a single commit.
+4. Push. Cloudflare Pages auto-deploys.
 
-### Bucket 3: Crossroads Searches (20 articles)
-- [ ] 71. Repair or Replace: Should I put $1,000 into a 12-year-old AC?
-- [ ] 72. Heat Pump vs. Gas Furnace: Which is cheaper to run?
-- [ ] 73. Single-stage vs. Two-stage AC compressors (Is the upgrade worth it?).
-- [ ] 74. R-22 Freon phase-out rules 2026: Do I have to replace my AC?
-- [ ] 75. Should I replace my furnace and AC at the exact same time?
-- [ ] 76. Repair or Replace: Is a $2,500 compressor worth it on a 15-year-old AC?
-- [ ] 77. Central air vs. ductless mini-splits: Which makes more sense for my home?
-- [ ] 78. Should I switch from oil heat to a heat pump in 2026?
-- [ ] 79. Portable AC vs. mini-split: Which is better for a bonus room?
-- [ ] 80. Should I replace a 20-year-old furnace that still works?
-- [ ] 81. Heat pump with auxiliary heat vs. dual fuel system: Which saves more?
-- [ ] 82. Recharging R-22 Freon vs. upgrading to a new R-410A system.
-- [ ] 83. Should I buy an extended HVAC warranty or self-insure for repairs?
-- [ ] 84. Tankless coil boiler vs. separate water heater: Time to switch?
-- [ ] 85. 14 SEER vs. 18 SEER: How many years to earn back the price difference?
-- [ ] 86. Fixing a cracked heat exchanger vs. replacing the whole furnace.
-- [ ] 87. One big mini-split vs. multiple small heads: Which layout is better?
-- [ ] 88. Geothermal heat pump vs. air-source heat pump: Honest comparison.
-- [ ] 89. Should I replace just the AC or the furnace and coil too?
-- [ ] 90. Ductwork repair vs. going ductless: When does it make sense to switch?
+**Use `TodoWrite`** during the article-writing session to track the steps above — one task each for: write article HTML, add to articles.html, add to author-gyanesh.html, update sitemap.xml, flip status in cluster_map.json, run generate_link_plan.py, commit, push.
 
-### Bucket 4: Maintenance & Products (10 articles)
-- [ ] 91. Best MERV rating for home AC filters (Don't choke your system).
-- [ ] 92. Ecobee vs. Google Nest for older homes without a C-wire.
-- [ ] 93. How to safely clean outdoor AC condenser coils.
-- [ ] 94. Why is my AC filter turning black so fast?
-- [ ] 95. Best HVAC multimeter for homeowners to test a capacitor.
-- [ ] 96. How to bleed a radiator in 5 minutes (Step-by-step with photos).
-- [ ] 97. How to test if your AC capacitor is bad with a multimeter.
-- [ ] 98. Best smart thermostats for heat pump systems in 2026.
-- [ ] 99. How often to change your furnace filter (1-inch vs. 4-inch).
-- [ ] 100. Spring AC startup checklist: 7 things to do before turning it on.
+**Do NOT maintain parallel progress trackers inside this skill file or inside memory.** The skill file is strategy. `cluster_map.json` is state. `PROGRESS.md` is the human-readable dashboard. Memory is for preferences and long-term context only.
 
-**Total: 4/100 completed**
+## INSTRUCTION 7: Pillar Precedence Check (BEFORE WRITING A CLUSTER ARTICLE)
 
-**After completing each article**, update this tracker by:
-1. Checking off the topic with `[x]`
-2. Adding the filename and cities used
-3. Updating the total count
-4. Showing the updated tracker to the user
+When the user picks a cluster article (not a pillar), you MUST check:
+1. Does the cluster's pillar exist yet? (`cluster_map.json[clusters][C*].pillar.status == "live"`)
+2. If NO, **stop**. Pitch the user: "The cluster pillar isn't live yet. The cluster article you chose won't have a pillar to link to, which weakens topical authority. Recommend writing the pillar first — it's `{pillar.title}`. Is that OK, or do you want to proceed anyway?"
+3. If the user says "proceed anyway", do so — but add a comment at the top of the article saying "TODO: add pillar link once `{pillar.filename}` is published" and flag the orphan in the commit message.
 
-### City Link Usage Log (Prevent Duplicate City Links)
-Track which cities have been linked in new articles to avoid repeating them:
-| Article | City 1 | City 2 | City 3 |
-|---------|--------|--------|--------|
-| why-is-my-ac-blowing-warm-air | Tampa (FL) | San Antonio (TX) | Las Vegas (NV) |
-| ac-compressor-buzzing-fan-not-spinning | Phoenix (AZ) | Houston (TX) | Dallas (TX) |
-| furnace-blowing-cold-air-winter | Chicago (IL) | Minneapolis (MN) | Denver (CO) |
-| hvac-leaking-water-inside-house | Atlanta (GA) | New Orleans (LA) | Charlotte (NC) |
+This prevents pillars being written 6 months after cluster articles (the common failure mode).
+
+## INSTRUCTION 8: Cluster Roadmap Snapshot
+
+Below is a snapshot of cluster assignments for the 100-article roadmap. **For authoritative/live status always read `cluster_map.json`** — this snapshot is for at-a-glance reference.
+
+Every roadmap item carries **both** a Bucket (for CTA emotional framing) and a Cluster (for SEO linking). Example: article #41 "Cost to replace 3-Ton AC" is **Bucket 2 (Wallet)** and **Cluster C4 (Cost)**.
+
+**Cluster assignments for the 100-topic roadmap:**
+
+| Roadmap # | Topic | Bucket | Cluster |
+|-----------|-------|--------|---------|
+| 1-4, 8, 10, 11, 14, 16, 18, 20, 23, 25, 26, 31, 33, 35 | AC symptom/panic topics | 1 | **C1_ac** |
+| 5, 9, 12, 13, 17, 22, 24, 27, 28, 30, 32, 34, 36, 38, 39 | Furnace/boiler symptom topics | 1 | **C2_furnace** |
+| 7, 15, 21, 29, 37, 40 | Heat pump / mini-split panic topics | 1 | **C3_heatpump** |
+| 6, 19 | Thermostat / cross-cutting | 1 | **C1_ac** or **C2_furnace** (pick by dominant symptom) |
+| 41-70 (all Wallet) | Cost guides | 2 | **C4_cost** |
+| 71, 73, 74, 75, 76, 77, 79, 80, 82, 83, 84, 86, 87, 89, 90 | Repair-vs-replace & comparisons | 3 | **C5_compare** |
+| 72, 78, 81, 85, 88 | Heat pump comparisons | 3 | **C3_heatpump** (decision flavor) |
+| 91-100 (all Maintenance) | Maintenance & products | 4 | **C6_maint** |
+
+---
+
+## Summary: The Writing Loop for Every Article
+
+1. **Read `cluster_map.json`** — pick the next topic from `priority_queue` (or use the user's topic).
+2. **Verify pillar precedence** (Instruction 7). If the cluster's pillar isn't live, write the pillar first.
+3. **Run the linker:** `python article_city_linker.py <slug> <cluster-id> 4` (or `5` for pillars). Record the 4 cities + 2 state hubs.
+4. **Identify cluster-mates:** 1 pillar link + 3 cluster-mate articles + 1 cross-cluster anchor (from `cluster_map.json`).
+5. **Write the article HTML** following the SEO checklist (15 items), including: meta tags, canonical, OG, Twitter Card, Article + Breadcrumb + FAQ JSON-LD schema, h1→h2→h3 hierarchy, 100-word intro hook, 2 CTAs (bucket-matched copy), safety disclaimer callout, contextual in-body links (5 destinations above + 4 cities woven as examples), external authority links, year-stamped pricing where relevant.
+6. **Update listing files** (Instruction 3A/B/C): `articles.html`, `author-gyanesh.html`, `sitemap.xml`.
+7. **Generate image prompt** (Instruction 4) and provide to user.
+8. **Update `cluster_map.json`** — flip the article's status from `pending` to `live`.
+9. **Commit and push** (Instruction 5) — Cloudflare Pages auto-deploys.
+
+**The authoritative 100-topic roadmap lives in `cluster_map.json`.** The full flat list previously embedded in this skill has been removed — it grew stale. Read the JSON.
