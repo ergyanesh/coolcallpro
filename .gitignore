@@ -53,3 +53,9 @@ desktop.ini
 ~$*.xlsx
 ~$*.xls
 
+# Local-only image fetch artifacts (logs and audit preview)
+images/_fetch_log.txt
+images/_states_fetch_log.txt
+images/_preview.html
+images/_failed.txt
+

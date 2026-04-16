@@ -4,11 +4,57 @@ Reads states.xlsx + cities.xlsx and generates template-driven HTML pages.
 Every factual claim comes from the spreadsheet data. No improvised prose.
 """
 
+import json
 import openpyxl
 from collections import defaultdict
 from datetime import date
+from html import escape as _html_escape
+from pathlib import Path
 import os
 import sys
+
+# ============================================================
+# IMAGE ATTRIBUTIONS (loaded once)
+# ============================================================
+_ATTRIBUTIONS_PATH = Path(__file__).parent / "images" / "_attributions.json"
+try:
+    _IMAGE_ATTRIBUTIONS = json.loads(_ATTRIBUTIONS_PATH.read_text(encoding="utf-8"))
+except (FileNotFoundError, json.JSONDecodeError):
+    _IMAGE_ATTRIBUTIONS = {}
+
+
+def state_figure_html(state_slug, state_name):
+    """Render attributed <figure> for a state image. Returns '' if missing."""
+    rec = _IMAGE_ATTRIBUTIONS.get(f"state/{state_slug}")
+    if not rec:
+        return ""
+    src = f"../{rec['file']}"
+    width = rec.get("width") or 1600
+    height = rec.get("height") or 900
+    artist = _html_escape(rec.get("artist") or "Unknown photographer")
+    license_short = _html_escape(rec.get("license") or "")
+    license_url = _html_escape(rec.get("license_url") or "")
+    commons_url = _html_escape(rec.get("commons_url") or rec.get("image_source_url") or "")
+    description = (rec.get("description") or "").strip()
+    if description and len(description) > 12:
+        alt_text = description.split(". ")[0].strip()[:140]
+        if not alt_text.endswith(('.', '!', '?')):
+            alt_text = alt_text + f" — {state_name}"
+    else:
+        alt_text = f"{state_name} — state landmark photo"
+    alt_text = _html_escape(alt_text)
+    license_html_inner = (
+        f'<a href="{license_url}" target="_blank" rel="nofollow noopener">{license_short}</a>'
+        if license_url and license_short else license_short
+    )
+    return f'''
+        <figure class="location-figure" style="margin: 0 auto 40px; max-width: 1100px;">
+          <img src="{src}" alt="{alt_text}" width="{width}" height="{height}" loading="lazy" decoding="async" style="width: 100%; height: auto; border-radius: var(--radius); display: block;" />
+          <figcaption style="display: inline-block; margin-top: 12px; padding: 8px 14px; background: var(--gray-50); border: 1px solid var(--gray-100); border-radius: 999px; font-size: 0.78rem; color: var(--gray-600); line-height: 1.5;">
+            <span aria-hidden="true" style="margin-right: 6px;">&#128247;</span>{artist} &middot; {license_html_inner} via <a href="{commons_url}" target="_blank" rel="nofollow noopener" style="color: var(--gray-700); text-decoration: underline;">Wikimedia Commons</a> &middot; <a href="../image-credits.html" style="color: var(--gray-700); text-decoration: underline;">credits</a>
+          </figcaption>
+        </figure>
+'''
 
 # Cities with generated pages (xlsx may not be updated yet if file was locked)
 GENERATED_CITIES = {
@@ -398,6 +444,7 @@ def generate_html(d, city_list, hub_abbrs, all_states):
     neighbors = d.get('Neighboring States', '')
 
     state_profile = get_state_climate_profile(peak, system, zones)
+    state_figure = state_figure_html(s, name)
     peak_desc = peak_description(peak, sh, wl)
     sys_desc = system_desc(system, name)
     art_url, art_text = article_link(system)
@@ -620,7 +667,7 @@ def generate_html(d, city_list, hub_abbrs, all_states):
 
   <style>
     .city-hero {{
-      background: linear-gradient(rgba(10, 22, 40, 0.88), rgba(10, 22, 40, 0.88)), url('../images/mixed-humid-climate-hvac-atlanta-hero.webp');
+      background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 50%, var(--navy-mid) 100%);
       background-size: cover;
       background-position: center;
       color: white;
@@ -885,6 +932,8 @@ def generate_html(d, city_list, hub_abbrs, all_states):
         <div class="city-context">
           <p>{name} is home to over <strong>{pop_long} residents</strong> with a <strong>{homeown}% homeownership rate</strong>. The state spans IECC <strong>{zones_fmt}</strong>, and {peak_desc} {sys_desc} Cool Call Pro connects you with independent local HVAC professionals serving every corner of the state.</p>
         </div>
+
+        {state_figure}
 
         <!-- State At-a-Glance -->
         <div class="state-info-grid">
@@ -1174,7 +1223,7 @@ def generate_html(d, city_list, hub_abbrs, all_states):
         <p>&copy; <span class="copyright-year">2026</span> Cool Call Pro. All rights reserved. &nbsp;&#183;&nbsp; <a href="../privacy.html">Privacy
             Policy</a> &nbsp;&#183;&nbsp; <a href="../terms.html">Terms of Use</a> &nbsp;&#183;&nbsp; <a
             href="../disclaimer.html">Disclaimer</a> &nbsp;&#183;&nbsp; <a href="../advertising-disclosure.html">Advertising
-            Disclosure</a></p>
+            Disclosure</a> &nbsp;&#183;&nbsp; <a href="../image-credits.html">Image Credits</a></p>
       </div>
     </div>
   </footer>

@@ -11,12 +11,71 @@ Usage:
     python generate_city_pages_v3.py --dry-run        # Preview without writing files
 """
 
+import json
 import openpyxl
 import os
 import sys
 import re
 from datetime import date
 from html import escape
+from pathlib import Path
+
+# ============================================================
+# IMAGE ATTRIBUTIONS (loaded once)
+# ============================================================
+_ATTRIBUTIONS_PATH = Path(__file__).parent / "images" / "_attributions.json"
+try:
+    _IMAGE_ATTRIBUTIONS = json.loads(_ATTRIBUTIONS_PATH.read_text(encoding="utf-8"))
+except (FileNotFoundError, json.JSONDecodeError):
+    _IMAGE_ATTRIBUTIONS = {}
+
+
+def get_location_image(kind, slug):
+    """Return attribution dict for a location image, or None if missing."""
+    return _IMAGE_ATTRIBUTIONS.get(f"{kind}/{slug}")
+
+
+def location_figure_html(kind, slug, label, in_subdir=True):
+    """Render an attributed <figure> block for a city or state image.
+
+    Returns empty string if no image is available — caller need not check.
+    `in_subdir` controls relative path: True for /locations/*.html (uses ../images/),
+    False for root-level pages (uses images/).
+    """
+    rec = get_location_image(kind, slug)
+    if not rec:
+        return ""
+    file_rel = rec["file"]  # e.g. "images/cities/austin-tx.webp"
+    src = f"../{file_rel}" if in_subdir else file_rel
+    width = rec.get("width") or 1600
+    height = rec.get("height") or 900
+    artist = escape(rec.get("artist") or "Unknown photographer")
+    license_short = escape(rec.get("license") or "")
+    license_url = escape(rec.get("license_url") or "")
+    commons_url = escape(rec.get("commons_url") or rec.get("image_source_url") or "")
+    description = (rec.get("description") or "").strip()
+    # Alt text: use Wikipedia description if meaningful, else fall back to label
+    if description and len(description) > 12:
+        # Truncate at first sentence boundary or 140 chars
+        alt_text = description.split(". ")[0].strip()[:140]
+        if not alt_text.endswith(('.', '!', '?')):
+            alt_text = alt_text + f" — {label}"
+    else:
+        alt_text = f"{label} — local landmark photo"
+    alt_text = escape(alt_text)
+    credits_href = "../image-credits.html" if in_subdir else "image-credits.html"
+    license_html = (
+        f'<a href="{license_url}" target="_blank" rel="nofollow noopener">{license_short}</a>'
+        if license_url and license_short else license_short
+    )
+    return f'''
+        <figure class="location-figure" style="margin: 0 auto 40px; max-width: 1100px;">
+          <img src="{src}" alt="{alt_text}" width="{width}" height="{height}" loading="lazy" decoding="async" style="width: 100%; height: auto; border-radius: var(--radius); display: block;" />
+          <figcaption style="display: inline-block; margin-top: 12px; padding: 8px 14px; background: var(--gray-50); border: 1px solid var(--gray-100); border-radius: 999px; font-size: 0.78rem; color: var(--gray-600); line-height: 1.5;">
+            <span aria-hidden="true" style="margin-right: 6px;">&#128247;</span>{artist} &middot; {license_html} via <a href="{commons_url}" target="_blank" rel="nofollow noopener" style="color: var(--gray-700); text-decoration: underline;">Wikimedia Commons</a> &middot; <a href="{credits_href}" style="color: var(--gray-700); text-decoration: underline;">credits</a>
+          </figcaption>
+        </figure>
+'''
 
 # ============================================================
 # CONFIGURATION
@@ -743,7 +802,6 @@ def generate_page(c, climate_type, nearby, absorbed_data, all_cities_lookup, sta
     state_full = STATE_FULL.get(st, st)
     slug = city_slug(city, st)
     s_slug = state_slug(st)
-    hero_img = HERO_IMAGES[climate_type]
     pop = c['pop']
     pop_str = f"{pop:,}"
     neighborhoods = c['neighborhoods']
@@ -812,6 +870,9 @@ def generate_page(c, climate_type, nearby, absorbed_data, all_cities_lookup, sta
 
     # Rebates
     reb_h2, reb_para = rebates_paragraph(c)
+
+    # Per-city Wikimedia photo + attribution caption (returns "" if missing)
+    figure_block = location_figure_html("city", slug, f"{city}, {st}", in_subdir=True)
 
     # Also Serving
     also_serving_html = also_serving_section(city, absorbed_data)
@@ -1018,7 +1079,7 @@ def generate_page(c, climate_type, nearby, absorbed_data, all_cities_lookup, sta
 
   <style>
     .city-hero {{
-      background: linear-gradient(rgba(10, 22, 40, 0.88), rgba(10, 22, 40, 0.88)), url('../images/{hero_img}');
+      background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 50%, var(--navy-mid) 100%);
       background-size: cover;
       background-position: center;
       color: white;
@@ -1178,7 +1239,7 @@ def generate_page(c, climate_type, nearby, absorbed_data, all_cities_lookup, sta
           <h2>{climate_h2}</h2>
           <p style="font-size: 1.05rem; line-height: 1.85; color: var(--gray-700);">{climate_para}</p>
         </div>
-{local_context_block}{neighborhoods_block}
+{figure_block}{local_context_block}{neighborhoods_block}
         <!-- Services List -->
         <div class="city-services" id="services">
           <h2>HVAC Services in {e_city}, {e_st}</h2>
@@ -1346,7 +1407,7 @@ def generate_page(c, climate_type, nearby, absorbed_data, all_cities_lookup, sta
         <p>&copy; <span class="copyright-year">2026</span> Cool Call Pro. All rights reserved. &nbsp;&#183;&nbsp; <a href="../privacy.html">Privacy
             Policy</a> &nbsp;&#183;&nbsp; <a href="../terms.html">Terms of Use</a> &nbsp;&#183;&nbsp; <a
             href="../disclaimer.html">Disclaimer</a> &nbsp;&#183;&nbsp; <a href="../advertising-disclosure.html">Advertising
-            Disclosure</a></p>
+            Disclosure</a> &nbsp;&#183;&nbsp; <a href="../image-credits.html">Image Credits</a></p>
       </div>
     </div>
   </footer>
