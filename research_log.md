@@ -823,3 +823,43 @@ Format per city:
 - **Not_found:** permit_fees, local_building_code, utility_rebate_amounts (Mississippi Power), contractor_license (MS Board)
 - **URLs cited:** ncei.noaa.gov, api.census.gov (place:29700 state:28), energy.gov/energysaver/heat-and-cool, irs.gov
 - **Notes:** 6.4:1 CDD:HDD (strongly cooling-dominant). 73.3% electric / 23.7% gas. Katrina 2005 impact — condenser tie-down/elevation critical. 49.63" precip. Median 1986.
+
+## Bangor, ME
+
+- **Date researched:** 2026-04-16
+- **Found (3/7):** climate (KBGR USW00014606), housing (place:02795 state:23), climate_hvac_failure_mode (Zone 6A extreme cold + oil heat dominance)
+- **Not_found:** permit_fees, local_building_code, utility_rebate_amounts (Versant Power / Efficiency Maine), contractor_license (ME Fuel Board)
+- **URLs cited:** ncei.noaa.gov, api.census.gov (place:02795 state:23), energy.gov/energysaver/heat-and-cool, irs.gov
+- **Notes:** **51.7% FUEL OIL — ABSOLUTE PROJECT RECORD. More than half the city heats with fuel oil.** Maine lacks gas pipeline infrastructure. 74.6" snow. 7,626 HDD. 20:1 HDD:CDD. Zone 6A. Median 1955. Only 20.9% gas / 14.8% electric.
+
+## Morgantown, WV
+
+- **Date researched:** 2026-04-16
+- **Found (3/7):** climate (KMGW USW00013736 — snowfall NOT returned), housing (place:55756 state:54), climate_hvac_failure_mode (Zone 5A Appalachian)
+- **Not_found:** permit_fees, local_building_code, utility_rebate_amounts (Mon Power/FirstEnergy), contractor_license (WV HVAC Tech Cert)
+- **URLs cited:** ncei.noaa.gov, api.census.gov (place:55756 state:54), energy.gov/energysaver/heat-and-cool, irs.gov
+- **Notes:** 62.6% gas / 35.4% electric. WVU college town. Compact 12,119-unit housing stock. Median 1966. Appalachian gas production region.
+
+## Billings, MT
+
+- **Date researched:** 2026-04-16
+- **Found (3/7):** climate (KBIL USW00024033), housing (place:06550 state:30), climate_hvac_failure_mode (Zone 6B cold-dry high plains)
+- **Not_found:** permit_fees, local_building_code, utility_rebate_amounts (NorthWestern Energy), contractor_license (MT no statewide)
+- **URLs cited:** ncei.noaa.gov, api.census.gov (place:06550 state:30), energy.gov/energysaver/heat-and-cool, irs.gov
+- **Notes:** 73.7% gas / 22.9% electric. 6,754 HDD. 57.4" dry powdery snow (only 14.31" precip). 10.2:1 HDD:CDD. MT no statewide license. Median 1979.
+
+## Missoula, MT
+
+- **Date researched:** 2026-04-16
+- **Found (3/7):** climate (KMSO USW00024153), housing (place:50200 state:30), climate_hvac_failure_mode (Zone 6B mountain valley cold-air pooling)
+- **Not_found:** permit_fees, local_building_code, utility_rebate_amounts (NorthWestern Energy), contractor_license (MT no statewide)
+- **URLs cited:** ncei.noaa.gov, api.census.gov (place:50200 state:30), energy.gov/energysaver/heat-and-cool, irs.gov
+- **Notes:** **24.5:1 HDD:CDD — MOST HEATING-SKEWED RATIO IN ENTIRE PROJECT (beats Eugene 15.8:1).** 7,514 HDD. Only 306 CDD (virtually no cooling needed). 58.7% gas / 38.5% electric (PNW hydro economics). Semi-arid 14.11" precip. Median 1981.
+
+## Fargo, ND
+
+- **Date researched:** 2026-04-16
+- **Found (3/7):** climate (KFAR USW00014914), housing (place:25700 state:38), climate_hvac_failure_mode (ZONE 7 Very Cold — most extreme in DOE system)
+- **Not_found:** permit_fees, local_building_code, utility_rebate_amounts (Xcel Energy), contractor_license (ND no statewide — Fargo municipal)
+- **URLs cited:** ncei.noaa.gov, api.census.gov (place:25700 state:38), energy.gov/energysaver/heat-and-cool, irs.gov
+- **Notes:** **8,806 HDD — HIGHEST HDD IN ENTIRE PROJECT. ZONE 7 (VERY COLD).** TAVG 42.2°F. 51.4" snow. **53% electric despite extreme cold** — reflects young housing (median 1991) + Great Plains wind/hydro economics. Only project city in Zone 7.
