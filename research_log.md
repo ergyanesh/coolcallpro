@@ -863,3 +863,84 @@ Format per city:
 - **Not_found:** permit_fees, local_building_code, utility_rebate_amounts (Xcel Energy), contractor_license (ND no statewide — Fargo municipal)
 - **URLs cited:** ncei.noaa.gov, api.census.gov (place:25700 state:38), energy.gov/energysaver/heat-and-cool, irs.gov
 - **Notes:** **8,806 HDD — HIGHEST HDD IN ENTIRE PROJECT. ZONE 7 (VERY COLD).** TAVG 42.2°F. 51.4" snow. **53% electric despite extreme cold** — reflects young housing (median 1991) + Great Plains wind/hydro economics. Only project city in Zone 7.
+
+## Bismarck, ND
+
+- **Date researched:** 2026-04-16
+- **Found (3/7):** climate (KBIS USW00024011), housing (place:07200 state:38), climate_hvac_failure_mode (8,471 HDD, Zone 6A)
+- **URLs cited:** ncei.noaa.gov, api.census.gov, energy.gov/energysaver/heat-and-cool, irs.gov
+- **Notes:** **8,471 HDD — 2nd highest in project (after Fargo 8,806).** 67.5% gas / 28.9% electric. MDU utility. 50.5" snow. Median 1984.
+
+## Sioux Falls, SD
+
+- **Date researched:** 2026-04-16
+- **Found (3/7):** climate (KFSD USW00014944), housing (place:59020 state:46), climate_hvac_failure_mode (7,249 HDD, Zone 6A)
+- **URLs cited:** ncei.noaa.gov, api.census.gov, energy.gov/energysaver/heat-and-cool, irs.gov
+- **Notes:** 66.9% gas / 29.3% electric. Xcel (electric) + MidAmerican (gas). 45.3" snow. Median 1992 (young). SD no statewide license.
+
+## Rapid City, SD
+
+- **Date researched:** 2026-04-16
+- **Found (3/7):** climate (KRAP USW00024090), housing (place:52980 state:46), climate_hvac_failure_mode (7,252 HDD, Zone 5B Black Hills)
+- **URLs cited:** ncei.noaa.gov, api.census.gov, energy.gov/energysaver/heat-and-cool, irs.gov
+- **Notes:** 63.6% gas / 31.8% electric. Black Hills Energy. 48.5" snow. Semi-arid 17.44" precip. 11.9:1 HDD:CDD. Median 1978.
+
+## Wilmington, DE
+
+- **Date researched:** 2026-04-16
+- **Found (3/7):** climate (KILG USW00013781), housing (place:77580 state:10), climate_hvac_failure_mode (Zone 4A Mid-Atlantic)
+- **URLs cited:** ncei.noaa.gov, api.census.gov, energy.gov/energysaver/heat-and-cool, irs.gov
+- **Notes:** 56.5% gas / 36.4% electric / 4.4% fuel oil. Median 1946 (pre-war). Delmarva Power. 20.2" snow. 4,647 HDD.
+
+## Burlington, VT
+
+- **Date researched:** 2026-04-16
+- **Found (3/7):** climate (KBTV USW00014742), housing (place:10675 state:50), climate_hvac_failure_mode (Zone 6A + 87.5" snow)
+- **URLs cited:** ncei.noaa.gov, api.census.gov, energy.gov/energysaver/heat-and-cool, irs.gov
+- **Notes:** **87.5" snow — 3rd highest in project (after Syracuse 127.8", Grand Rapids 77.6"). Burlington Electric Department = 100% RENEWABLE ELECTRICITY municipal utility.** 70.1% gas / 18.7% electric / 4.3% fuel oil. Median 1957. Lake Champlain lake-effect.
+
+## Cheyenne, WY
+
+- **Date researched:** 2026-04-16
+- **Found (3/7):** climate (KCYS USW00024018), housing (place:13900 state:56), climate_hvac_failure_mode (Zone 6B high-altitude wind)
+- **URLs cited:** ncei.noaa.gov, api.census.gov, energy.gov/energysaver/heat-and-cool, irs.gov
+- **Notes:** 72.7% gas / 24.0% electric. 6,959 HDD. 62.9" snow. **6,060 ft altitude — highest-elevation project city.** 17.5:1 HDD:CDD. Semi-arid 15.41" precip. WY gas production state. No statewide license.
+
+## Manchester, NH
+
+- **Date researched:** 2026-04-16
+- **Found (3/7):** climate (KMHT USW00014745), housing (place:45140 state:33), climate_hvac_failure_mode (6,980 HDD + fuel oil legacy)
+- **URLs cited:** ncei.noaa.gov, api.census.gov, energy.gov/energysaver/heat-and-cool, irs.gov
+- **Notes:** **25.9% fuel oil — 2nd highest in project (after Bangor 51.7%). ~13,000 homes on oil heat.** 50.1% gas / 16.3% electric. 67.7" snow. Median 1964. NH no statewide license.
+
+## Portland, ME
+
+- **Date researched:** 2026-04-16
+- **Found (3/7):** climate (KPWM USW00014764), housing (place:60545 state:23), climate_hvac_failure_mode (6,795 HDD + fuel oil market)
+- **URLs cited:** ncei.noaa.gov, api.census.gov, energy.gov/energysaver/heat-and-cool, irs.gov
+- **Notes:** **32.9% fuel oil — 3rd highest in project (after Bangor 51.7%, Manchester 25.9%). 10,666 homes on oil.** 39.4% gas / 19.3% electric / 5.3% LP. Efficiency Maine heat pump targeting fuel-oil homes. Median 1946. 68.7" snow.
+
+## Charleston, WV
+
+- **Date researched:** 2026-04-16
+- **Found (3/7):** climate (KCRW USW00013866), housing (place:14600 state:54), climate_hvac_failure_mode (Zone 4A Kanawha Valley)
+- **URLs cited:** ncei.noaa.gov, api.census.gov, energy.gov/energysaver/heat-and-cool, irs.gov
+- **Notes:** 58.4% gas / 40.0% electric. Appalachian Power (AEP). 31.5" snow. 4,353 HDD. Kanawha Valley. Median 1956.
+
+## Charleston, SC
+
+- **Date researched:** 2026-04-16
+- **Found (3/7):** climate (KCHS USW00013880), housing (place:13330 state:45), climate_hvac_failure_mode (Zone 3A Lowcountry coastal)
+- **URLs cited:** ncei.noaa.gov, api.census.gov, energy.gov/energysaver/heat-and-cool, irs.gov
+- **Notes:** 74.2% electric / 23.8% gas. Cooling-dominant 1.3:1 CDD:HDD. 52.51" precip. Lowcountry hurricane/salt-air exposure. Median 1994. Dominion Energy SC.
+
+---
+
+## PHASE 6 COMPLETE — ALL 115 CITIES DONE
+
+Phase 6 research and content deployment completed 16 April 2026.
+- Total cities: 115
+- Total batches: 23
+- Research dates: 14-16 April 2026
+- All claims sourced from NOAA NCEI, Census ACS, DOE/IRS primary sources
+- Zero dead URLs at time of final QC sweep
