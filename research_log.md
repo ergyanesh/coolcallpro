@@ -543,3 +543,43 @@ Format per city:
 - **Not_found:** permit_fees, local_building_code, utility_rebate_amounts (Brownsville PUB — municipal, no retrievable page), contractor_license (TX TDLR reuse)
 - **URLs cited:** ncei.noaa.gov, api.census.gov (place:10768 state:48), energy.gov/energysaver/heat-and-cool, irs.gov
 - **Notes:** **10.7:1 CDD:HDD ratio — MOST COOLING-DOMINANT IN PROJECT. 89.9% electric — HIGHEST ELECTRIC SHARE IN PROJECT. 0.0" snow. Municipal utility (Brownsville PUB).** Median 1993 — youngest stock in batch. Southernmost major TX city (Rio Grande Valley).
+
+## Chattanooga, TN
+
+- **Date researched:** 2026-04-16
+- **Found (3/7):** climate (KCHA USW00013882), housing (place:14000 state:47), climate_hvac_failure_mode (Zone 4A dual-load + 55" precip humidity)
+- **Not_found:** permit_fees, local_building_code, utility_rebate_amounts (EPB/TVA), contractor_license (TN Board)
+- **URLs cited:** ncei.noaa.gov, api.census.gov (place:14000 state:47), energy.gov/energysaver/heat-and-cool, irs.gov
+- **Notes:** EPB is municipal TVA distributor — smart-grid pioneer. 72.9% electric / 25.2% gas. 55" precip. Dual-load 1.6:1 HDD:CDD. Median 1975.
+
+## Dayton, OH
+
+- **Date researched:** 2026-04-16
+- **Found (3/7):** climate (KDAY USW00093815), housing (place:21000 state:39), climate_hvac_failure_mode (5,149 HDD + 25" snow + 1951 housing)
+- **Not_found:** permit_fees, local_building_code, utility_rebate_amounts (AES Ohio — no current HVAC program per xlsx), contractor_license (OCILB)
+- **URLs cited:** ncei.noaa.gov, api.census.gov (place:21000 state:39), energy.gov/energysaver/heat-and-cool, irs.gov
+- **Notes:** 69.2% gas (high), median 1951 (tied Allentown for oldest in batch). No current AES Ohio HVAC rebates per xlsx. 25" snow.
+
+## Des Moines, IA
+
+- **Date researched:** 2026-04-16
+- **Found (3/7):** climate (KDSM USW00014933), housing (place:21000 state:19), climate_hvac_failure_mode (6,178 HDD + 36.5" snow — cold-climate HP territory)
+- **Not_found:** permit_fees, local_building_code, utility_rebate_amounts (MidAmerican Energy), contractor_license (IA DIAL)
+- **URLs cited:** ncei.noaa.gov, api.census.gov (place:21000 state:19), energy.gov/energysaver/heat-and-cool, irs.gov
+- **Notes:** 6,177.7 HDD — heavily heating-dominant. 36.5" snow. 63.3% gas / 33.6% electric. Median 1960.
+
+## Eugene, OR
+
+- **Date researched:** 2026-04-16
+- **Found (3/7):** climate (KEUG USW00024221 — snowfall NOT returned by API), housing (place:23850 state:41), climate_hvac_failure_mode (Zone 4C marine, 15.8:1 HDD:CDD)
+- **Not_found:** permit_fees, local_building_code, utility_rebate_amounts (EWEB municipal), contractor_license (OR CCB)
+- **URLs cited:** ncei.noaa.gov, api.census.gov (place:23850 state:41), energy.gov/energysaver/heat-and-cool, irs.gov
+- **Notes:** **15.8:1 HDD:CDD — MOST HEATING-SKEWED RATIO IN PROJECT (292.8 CDD = almost no cooling needed). 74.8% electric — very high. 1.1% wood heating (Pacific NW). EWEB is municipal utility. Zone 4C mixed-marine is unique in project.**
+
+## Fayetteville, NC
+
+- **Date researched:** 2026-04-16
+- **Found (3/7):** climate (KFAY USW00013722 — initial 503, retry OK), housing (place:22920 state:37), climate_hvac_failure_mode (Zone 3A warm-humid + Sandhills)
+- **Not_found:** permit_fees, local_building_code, utility_rebate_amounts (Duke Energy Progress Smart $aver), contractor_license (NC Board H-1/H-2/H-3)
+- **URLs cited:** ncei.noaa.gov, api.census.gov (place:22920 state:37), energy.gov/energysaver/heat-and-cool, irs.gov
+- **Notes:** 72.8% electric / 22.9% gas. Fort Liberty (formerly Fort Bragg) military-affiliated housing drives demand patterns. Dual-load 1.7:1 HDD:CDD. 2.5% LP gas. Median 1983.
