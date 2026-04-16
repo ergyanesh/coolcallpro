@@ -583,3 +583,43 @@ Format per city:
 - **Not_found:** permit_fees, local_building_code, utility_rebate_amounts (Duke Energy Progress Smart $aver), contractor_license (NC Board H-1/H-2/H-3)
 - **URLs cited:** ncei.noaa.gov, api.census.gov (place:22920 state:37), energy.gov/energysaver/heat-and-cool, irs.gov
 - **Notes:** 72.8% electric / 22.9% gas. Fort Liberty (formerly Fort Bragg) military-affiliated housing drives demand patterns. Dual-load 1.7:1 HDD:CDD. 2.5% LP gas. Median 1983.
+
+## Fort Wayne, IN
+
+- **Date researched:** 2026-04-16
+- **Found (3/7):** climate (KFWA USW00014827), housing (place:25000 state:18), climate_hvac_failure_mode (Zone 5A, 5,968 HDD, 33.6" snow)
+- **Not_found:** permit_fees, local_building_code, utility_rebate_amounts (I&M/AEP), contractor_license (IN has no statewide license)
+- **URLs cited:** ncei.noaa.gov, api.census.gov (place:25000 state:18), energy.gov/energysaver/heat-and-cool, irs.gov
+- **Notes:** 70.7% gas / 26.9% electric. Median 1971. No statewide HVAC license — local permits required.
+
+## Glendale, AZ
+
+- **Date researched:** 2026-04-16
+- **Found (3/7):** climate (KPHX USW00023183 — shared with Phoenix metro), housing (place:27820 state:04), climate_hvac_failure_mode (Zone 2B hot-dry, 4,765 CDD)
+- **Not_found:** permit_fees, local_building_code, utility_rebate_amounts (APS), contractor_license (AZ ROC R-39/C-39)
+- **URLs cited:** ncei.noaa.gov, api.census.gov (place:27820 state:04), energy.gov/energysaver/heat-and-cool, irs.gov
+- **Notes:** 75.3% electric / 21.2% gas. 782 solar-heated homes (0.9%). 1,192 no-fuel homes (1.4%). Median 1986. 5.5:1 CDD:HDD.
+
+## Grand Rapids, MI
+
+- **Date researched:** 2026-04-16
+- **Found (3/7):** climate (KGRR USW00094860), housing (place:34000 state:26), climate_hvac_failure_mode (6,408 HDD + **77.6" LAKE-EFFECT SNOW**)
+- **Not_found:** permit_fees, local_building_code, utility_rebate_amounts (Consumers Energy), contractor_license (MI LARA)
+- **URLs cited:** ncei.noaa.gov, api.census.gov (place:34000 state:26), energy.gov/energysaver/heat-and-cool, irs.gov
+- **Notes:** **77.6" annual snowfall — second-highest in project after Buffalo (95.4"). 82.8% gas — second-highest gas share in project after Buffalo (86.0%).** Median 1953. Lake Michigan lake-effect driver.
+
+## Hartford, CT
+
+- **Date researched:** 2026-04-16
+- **Found (3/7):** climate (KBDL USW00014740), housing (place:37000 state:09), climate_hvac_failure_mode (5,883 HDD + 51.7" snow + 7% fuel oil)
+- **Not_found:** permit_fees, local_building_code, utility_rebate_amounts (Energize CT/Eversource), contractor_license (CT DCP S-1)
+- **URLs cited:** ncei.noaa.gov, api.census.gov (place:37000 state:09), energy.gov/energysaver/heat-and-cool, irs.gov
+- **Notes:** 65.8% gas / 23.3% electric / 7.0% fuel oil. Median 1953. 51.7" snow (Connecticut Valley). Inland vs. coastal Bridgeport.
+
+## Huntsville, AL
+
+- **Date researched:** 2026-04-16
+- **Found (3/7):** climate (KHSV USW00003856), housing (place:37000 state:01), climate_hvac_failure_mode (Zone 3A dual-load, 54.29" precip)
+- **Not_found:** permit_fees, local_building_code, utility_rebate_amounts (Huntsville Utilities/TVA), contractor_license (AL HACR Board)
+- **URLs cited:** ncei.noaa.gov, api.census.gov (place:37000 state:01), energy.gov/energysaver/heat-and-cool, irs.gov
+- **Notes:** 75.8% electric / 22.2% gas. Municipal TVA distributor (Huntsville Utilities). NASA/Redstone Arsenal economy. Balanced 1.3:1 HDD:CDD. Median 1984.
