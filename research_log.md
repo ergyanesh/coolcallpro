@@ -503,3 +503,43 @@ Format per city:
 - **Not_found:** permit_fees (sedgwickcounty.org/mabcd ECONNREFUSED), local_building_code (MABCD unreachable), utility_rebate_amounts (Evergy 404s, Kansas Gas Service 404/500)
 - **URLs cited:** ncei.noaa.gov, api.census.gov (place:79000 state:20), weather.gov/ict/Climate (NWS Wichita), irs.gov
 - **Notes:** True dual-load climate (2.5:1 HDD:CDD) — neither heating-dominant nor cooling-dominant. Tornado Alley + ice-storm narrative anchored to NWS Wichita primary climatology. Kansas no-statewide-license + MABCD joint city/county authority is structurally distinctive.
+
+## Allentown, PA
+
+- **Date researched:** 2026-04-15
+- **Found (3/7):** climate (KABE USW00014737), housing (place:02000 state:42), climate_hvac_failure_mode (Zone 5A fuel-oil conversion narrative)
+- **Not_found:** permit_fees, local_building_code, utility_rebate_amounts (PPL 404), contractor_license (PA PAHIC — no deep-link retrieved)
+- **URLs cited:** ncei.noaa.gov, api.census.gov (place:02000 state:42), energy.gov/energysaver/heat-and-cool, irs.gov
+- **Notes:** **14.0% fuel oil — tied with Bridgeport for highest project fuel-oil share.** Median 1951 — old Lehigh Valley industrial city. 44.4% gas / 39.4% electric / 14% fuel oil is an unusual 3-way split.
+
+## Augusta, GA
+
+- **Date researched:** 2026-04-15
+- **Found (3/7):** climate (KAGS USW00003820), housing (place:04204 state:13 — consolidated city-county), climate_hvac_failure_mode (Zone 3A warm-humid, CDD > HDD)
+- **Not_found:** permit_fees, local_building_code, utility_rebate_amounts (Georgia Power 403), contractor_license (GA SOS 403)
+- **URLs cited:** ncei.noaa.gov, api.census.gov (place:04204 state:13), energy.gov/energysaver/heat-and-cool, irs.gov
+- **Notes:** CDD 2,361 > HDD 2,182 — cooling-dominant. 58.1% electric / 39.3% gas. Consolidated Augusta-Richmond County government.
+
+## Baton Rouge, LA
+
+- **Date researched:** 2026-04-15
+- **Found (3/7):** climate (KBTR USW00013970), housing (place:05000 state:22), climate_hvac_failure_mode (Zone 2A hot-humid, 61.94" precip, hurricane exposure)
+- **Not_found:** permit_fees, local_building_code, utility_rebate_amounts (Entergy Louisiana — redirect, no amounts), contractor_license (LSLBC 404)
+- **URLs cited:** ncei.noaa.gov, api.census.gov (place:05000 state:22), energy.gov/energysaver/heat-and-cool, irs.gov
+- **Notes:** **61.94" annual precipitation — among wettest project cities.** 66.4% electric / 31.5% gas. 1.8:1 CDD:HDD. Near-zero snow (0.2").
+
+## Bridgeport, CT
+
+- **Date researched:** 2026-04-15
+- **Found (3/7):** climate (KBDR USW00014707 — NOTE: snowfall normal NOT returned by NOAA API for this station), housing (place:08000 state:09), climate_hvac_failure_mode (9:1 HDD:CDD, fuel-oil legacy, Long Island Sound coastal salt-air)
+- **Not_found:** permit_fees, local_building_code, utility_rebate_amounts (Energize CT 403), contractor_license (CT DCP 404)
+- **URLs cited:** ncei.noaa.gov, api.census.gov (place:08000 state:09), energy.gov/energysaver/heat-and-cool, irs.gov
+- **Notes:** **13.9% fuel oil + 4.2% LP gas = 18% non-electric non-gas legacy fuel.** Median 1954. 59.0% gas / 20.3% electric. NOAA station KBDR did not return ANN-SNOW-NORMAL (omitted from block). Coastal salt-air corrosion narrative.
+
+## Brownsville, TX
+
+- **Date researched:** 2026-04-15
+- **Found (3/7):** climate (KBRO USW00012919), housing (place:10768 state:48), climate_hvac_failure_mode (Zone 2A extreme cooling dominance + hurricane exposure)
+- **Not_found:** permit_fees, local_building_code, utility_rebate_amounts (Brownsville PUB — municipal, no retrievable page), contractor_license (TX TDLR reuse)
+- **URLs cited:** ncei.noaa.gov, api.census.gov (place:10768 state:48), energy.gov/energysaver/heat-and-cool, irs.gov
+- **Notes:** **10.7:1 CDD:HDD ratio — MOST COOLING-DOMINANT IN PROJECT. 89.9% electric — HIGHEST ELECTRIC SHARE IN PROJECT. 0.0" snow. Municipal utility (Brownsville PUB).** Median 1993 — youngest stock in batch. Southernmost major TX city (Rio Grande Valley).
