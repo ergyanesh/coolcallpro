@@ -22,7 +22,7 @@ cp -r css js images articles locations "$OUT/"
 cp -f \
   index.html about.html contact.html articles.html costs.html emergency.html safety.html \
   privacy.html terms.html disclaimer.html advertising-disclosure.html author-gyanesh.html \
-  404.html locations.html \
+  image-credits.html 404.html locations.html \
   "$OUT/"
 
 # All article-*.html pages at root
@@ -30,7 +30,7 @@ cp -f article-*.html "$OUT/"
 
 # Static assets and config
 cp -f favicon.ico favicon.svg "$OUT/"
-cp -f _redirects sitemap.xml robots.txt "$OUT/"
+cp -f _redirects sitemap.xml sitemap-images.xml robots.txt "$OUT/"
 
 # Summary
 echo ""
