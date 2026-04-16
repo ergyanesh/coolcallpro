@@ -783,3 +783,43 @@ Format per city:
 - **Not_found:** permit_fees, local_building_code, utility_rebate_amounts (Duke Energy Carolinas), contractor_license (NC Board H-1/H-2/H-3)
 - **URLs cited:** ncei.noaa.gov, api.census.gov (place:75000 state:37), energy.gov/energysaver/heat-and-cool, irs.gov
 - **Notes:** **4.4% fuel oil — unusually high for a Southern city (Moravian-era housing legacy).** 60.9% electric / 31.6% gas. 2.3:1 HDD:CDD. Median 1980.
+
+## Worcester, MA
+
+- **Date researched:** 2026-04-16
+- **Found (3/7):** climate (KORH USW00094746), housing (place:82000 state:25), climate_hvac_failure_mode (extreme cold + fuel oil + snow)
+- **Not_found:** permit_fees, local_building_code, utility_rebate_amounts (National Grid/Mass Save), contractor_license (MA no statewide)
+- **URLs cited:** ncei.noaa.gov, api.census.gov (place:82000 state:25), energy.gov/energysaver/heat-and-cool, irs.gov
+- **Notes:** **15.0% fuel oil — HIGHEST FUEL OIL SHARE IN ENTIRE PROJECT (~12,000 homes on oil heat).** 72.9" snow. 6,623 HDD. 13.2:1 HDD:CDD. Median 1951. Elevated inland position ~1,000 ft.
+
+## Columbia, SC
+
+- **Date researched:** 2026-04-16
+- **Found (3/7):** climate (KCAE USW00013883), housing (place:16000 state:45), climate_hvac_failure_mode (Zone 3A near-equal HDD:CDD)
+- **Not_found:** permit_fees, local_building_code, utility_rebate_amounts (Dominion Energy SC), contractor_license (SC LLR)
+- **URLs cited:** ncei.noaa.gov, api.census.gov (place:16000 state:45), energy.gov/energysaver/heat-and-cool, irs.gov
+- **Notes:** 71.0% electric / 27.0% gas. Near-equal HDD 2,473 vs CDD 2,237 (balanced dual-load). Median 1978. SC Midlands.
+
+## Greenville, SC
+
+- **Date researched:** 2026-04-16
+- **Found (3/7):** climate (KGSP USW00003870), housing (place:30850 state:45), climate_hvac_failure_mode (Blue Ridge foothills Zone 3A)
+- **Not_found:** permit_fees, local_building_code, utility_rebate_amounts (Duke Energy Carolinas), contractor_license (SC LLR)
+- **URLs cited:** ncei.noaa.gov, api.census.gov (place:30850 state:45), energy.gov/energysaver/heat-and-cool, irs.gov
+- **Notes:** 66.2% electric / 30.4% gas. Higher elevation = more heating than lowland Columbia (3,019 vs 2,473 HDD). Median 1987. 49.67" precip.
+
+## Jackson, MS
+
+- **Date researched:** 2026-04-16
+- **Found (3/7):** climate (KJAN USW00003940), housing (place:36000 state:28), climate_hvac_failure_mode (Zone 3A cooling-dominant, 57.35" precip)
+- **Not_found:** permit_fees, local_building_code, utility_rebate_amounts (Entergy Mississippi), contractor_license (MS Board)
+- **URLs cited:** ncei.noaa.gov, api.census.gov (place:36000 state:28), energy.gov/energysaver/heat-and-cool, irs.gov
+- **Notes:** CDD 2,402 > HDD 2,222 — cooling-dominant. 51.1% electric / 46.3% gas (near-even). 57.35" precip. Median 1969.
+
+## Gulfport, MS
+
+- **Date researched:** 2026-04-16
+- **Found (3/7):** climate (KGPT USW00012854 — snowfall NOT returned), housing (place:29700 state:28), climate_hvac_failure_mode (Zone 2A Gulf Coast hurricane + humidity)
+- **Not_found:** permit_fees, local_building_code, utility_rebate_amounts (Mississippi Power), contractor_license (MS Board)
+- **URLs cited:** ncei.noaa.gov, api.census.gov (place:29700 state:28), energy.gov/energysaver/heat-and-cool, irs.gov
+- **Notes:** 6.4:1 CDD:HDD (strongly cooling-dominant). 73.3% electric / 23.7% gas. Katrina 2005 impact — condenser tie-down/elevation critical. 49.63" precip. Median 1986.
