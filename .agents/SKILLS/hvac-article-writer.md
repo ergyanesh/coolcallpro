@@ -241,7 +241,7 @@ Pillar articles are the authority hubs of each cluster. They follow all rules of
   ```
 
 ### SEO Structure (Complete Checklist — Every Article Must Have ALL of These)
-1. **H1 Title:** Catchy, includes the primary keyword. Include year (2026) if relevant for pricing/rules.
+1. **H1 Title — QUESTION-FRAMED BY DEFAULT.** Every article on this site is phrased as a question homeowners actually type into Google, voice assistants, and ChatGPT. This matches how People Also Ask, voice search, and ChatGPT surface content, and it's how every other article on the site is written. Examples: "AC Blowing Warm Air but Running? Why", "Furnace Blowing Cold Air? What to Check", "Why Isn't My AC Working? The Complete 2026 Troubleshooting Guide". Do NOT write declarative titles ("Complete AC Troubleshooting Guide", "AC Repair Basics") even for pillars — rework them into the question form first. Include year (2026) only when directly relevant for pricing/rules/regulations. Primary keyword must appear in the question.
 2. **Meta Description:** Compelling, **max 155 characters** (hard limit — Ahrefs/Google truncate beyond this), includes primary keyword, ends with a call to action. Count characters before writing. The H1 can be longer and more descriptive than the title.
 3. **`<title>` tag:** Shorter version of H1 + " | Cool Call Pro" — **max 60 characters** (hard limit — Google truncates beyond this). The title does NOT have to be identical to the H1. Shorten it by dropping filler words while keeping the primary keyword.
 4. **Canonical URL:** `<link rel="canonical" href="https://coolcallpro.com/articles/FILENAME" />` — **NO `.html` extension.** Cloudflare serves both with and without `.html`, so canonicals must use the clean URL without the extension.
@@ -351,10 +351,23 @@ Each article needs a unique, high-quality hero image. Since we generate images e
 **Rules:**
 1. Output the prompt in a clearly labeled block so the user can copy-paste it directly.
 2. The prompt must describe a **photorealistic, editorial-quality image** — NOT cartoon, NOT illustration, NOT stock photo style.
-3. The image must visually represent the specific problem or topic of the article (e.g., an AC unit with ice on the coils, a homeowner looking at a thermostat showing no display).
+3. The image must visually represent the specific problem or topic of the article using ONE strong visual anchor (a condenser unit, a homeowner inspecting a vent, a coil with visible frost). Avoid split/two-panel compositions — they confuse image models.
 4. Include specific details: lighting (natural daylight or workshop lighting), camera angle (eye-level, close-up, wide), setting (suburban home exterior, utility closet, attic).
 5. **NEVER include text, logos, watermarks, or UI elements in the prompt.**
+5a. **FORBIDDEN subjects that image models consistently botch** — do NOT include any of these in prompts:
+    - Thermostats (render as generic boxes with fake UI text)
+    - Smart-home screens, displays, or control panels with readouts
+    - Digital meters, multimeters with visible readings
+    - Phones or tablets showing an app
+    - Laptops or monitors with visible content
+    - Any device with a text/number display in the frame
+    If the article's topic is about one of these (e.g., thermostat troubleshooting), anchor the image on the surrounding context (the wall, the homeowner's hand approaching the device, the HVAC components the device controls) and keep the device itself out of frame or heavily soft-focused.
 6. Specify aspect ratio: **16:9 (1280x720)**. The image is used both as a hero image at the top of the article (`lead-img` class, `width: 100%`) and as a card thumbnail (`article-img-wrap`, cropped via `object-fit: cover`). 16:9 works for both.
+6a. **WebP conversion workflow — the user provides a PNG/JPG; you convert to WebP before commit.** Images are always served as WebP for LCP/Core Web Vitals. Use this Python one-liner:
+    ```bash
+    python -c "from PIL import Image; img = Image.open('images/FILENAME.png'); img = img.resize((1280,720), Image.LANCZOS) if img.size != (1280,720) else img; img = img.convert('RGB') if img.mode != 'RGB' else img; img.save('images/FILENAME.webp', 'webp', quality=85, method=6)"
+    ```
+    Then delete the source PNG/JPG — we don't commit those.
 7. **Image placement rule:** The lead image (`<img class="lead-img">`) must ALWAYS appear FIRST inside `<article class="article-content">`, BEFORE the advertising disclosure. Order: image → disclosure → safety disclaimer → TOC → article body.
 8. **General safety disclaimer (MANDATORY):** Every article MUST include a general safety warning box between the advertising disclosure and the TOC. Use this exact HTML:
 ```html
@@ -419,6 +432,14 @@ When this skill is triggered in a new session, before doing ANYTHING else:
 3. **If PROGRESS.md shows ERRORS** (e.g., article marked "live" but file missing), stop and surface them to the user. Do not proceed until resolved.
 4. **Show the user the top 5 pending articles** from PROGRESS.md's "Next 10" section and ask which to write.
 
+**BEFORE CLAIMING AN ARTICLE IS DONE — MANDATORY SELF-AUDIT:**
+
+Never declare an article complete without running the full self-audit. The user has had to flag FAQ rendering, cost drift, and title framing issues after the fact — do not make them do that again. Before saying "done":
+
+1. **Run `python audit_article.py articles/<slug>.html`** — the script checks every SEO rule, every safety rule, and the FAQ collapsible structure in one pass. If any check fails, fix it before continuing.
+2. **Open the article in a local browser** at `localhost:8080/articles/<slug>.html` and visually confirm: (a) hero image renders correctly; (b) every FAQ question expands/collapses when clicked; (c) the TOC jump-links work; (d) cost figures match `costs.html` at a glance; (e) no broken article/city/state links.
+3. **Only then** update cluster_map.json status, run generate_link_plan.py, and commit.
+
 **AFTER EVERY ARTICLE SHIPS (MANDATORY):**
 
 1. Update the article's `status` to `live` in `cluster_map.json`.
@@ -428,7 +449,7 @@ When this skill is triggered in a new session, before doing ANYTHING else:
 3. Commit `cluster_map.json` AND the 4 regenerated files AND the article itself AND the listing pages (articles.html, author-gyanesh.html, sitemap.xml) in a single commit.
 4. Push. Cloudflare Pages auto-deploys.
 
-**Use `TodoWrite`** during the article-writing session to track the steps above — one task each for: write article HTML, add to articles.html, add to author-gyanesh.html, update sitemap.xml, flip status in cluster_map.json, run generate_link_plan.py, commit, push.
+**Use `TodoWrite`** during the article-writing session to track the steps above — one task each for: write article HTML, add to articles.html, add to author-gyanesh.html, update sitemap.xml, flip status in cluster_map.json, run audit_article.py, run generate_link_plan.py, commit, push.
 
 **Do NOT maintain parallel progress trackers inside this skill file or inside memory.** The skill file is strategy. `cluster_map.json` is state. `PROGRESS.md` is the human-readable dashboard. Memory is for preferences and long-term context only.
 
