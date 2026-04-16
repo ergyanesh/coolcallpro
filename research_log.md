@@ -703,3 +703,43 @@ Format per city:
 - **Not_found:** permit_fees, local_building_code, utility_rebate_amounts (Alabama Power), contractor_license (AL HACR Board)
 - **URLs cited:** ncei.noaa.gov, api.census.gov (place:50000 state:01), energy.gov/energysaver/heat-and-cool, irs.gov
 - **Notes:** **67.08" annual precipitation — WETTEST CITY IN ENTIRE PROJECT (beats Baton Rouge 61.94").** 55.9% electric / 42.1% gas. 2,599 CDD. Gulf Coast hurricane exposure. Median 1974.
+
+## Modesto, CA
+
+- **Date researched:** 2026-04-16
+- **Found (3/7):** climate (KMOD USW00023232 — snowfall NOT returned), housing (place:48354 state:06), climate_hvac_failure_mode (Zone 3B Central Valley hot-dry)
+- **Not_found:** permit_fees, local_building_code, utility_rebate_amounts (MID municipal), contractor_license (CA CSLB C-20)
+- **URLs cited:** ncei.noaa.gov, api.census.gov (place:48354 state:06), energy.gov/energysaver/heat-and-cool, irs.gov
+- **Notes:** 69.3% gas / 27.8% electric. MID = Modesto Irrigation District (municipal utility — serves both irrigation and electric). 362 solar homes. Central Valley tule fog winters. Median 1978.
+
+## Peoria, IL
+
+- **Date researched:** 2026-04-16
+- **Found (3/7):** climate (KPIA USW00014842), housing (place:59000 state:17), climate_hvac_failure_mode (Zone 5A, 5,614 HDD, 26.2" snow)
+- **Not_found:** permit_fees, local_building_code, utility_rebate_amounts (Ameren Illinois), contractor_license (IL no statewide)
+- **URLs cited:** ncei.noaa.gov, api.census.gov (place:59000 state:17), energy.gov/energysaver/heat-and-cool, irs.gov
+- **Notes:** 68.7% gas / 29.6% electric. IL no statewide license (like IN, NE, KS). Median 1966.
+
+## Providence, RI
+
+- **Date researched:** 2026-04-16
+- **Found (3/7):** climate (KPVD USW00014765), housing (place:59000 state:44), climate_hvac_failure_mode (pre-war housing + fuel oil + cold + coastal)
+- **Not_found:** permit_fees, local_building_code, utility_rebate_amounts (Rhode Island Energy), contractor_license (RI DLT)
+- **URLs cited:** ncei.noaa.gov, api.census.gov (place:59000 state:44), energy.gov/energysaver/heat-and-cool, irs.gov
+- **Notes:** **Median year built 1938 — OLDEST HOUSING STOCK IN ENTIRE PROJECT (beats Buffalo/Detroit/Pittsburgh 1938-1951 range). 8.3% fuel oil (high). 3.6% LP gas.** 71.2% gas / 15.6% electric. 36.6" snow. Narragansett Bay coastal salt-air.
+
+## Shreveport, LA
+
+- **Date researched:** 2026-04-16
+- **Found (3/7):** climate (KSHV USW00013957), housing (place:70000 state:22), climate_hvac_failure_mode (Zone 3A cooling-dominant, 51.43" precip)
+- **Not_found:** permit_fees, local_building_code, utility_rebate_amounts (SWEPCO), contractor_license (LA LSLBC)
+- **URLs cited:** ncei.noaa.gov, api.census.gov (place:70000 state:22), energy.gov/energysaver/heat-and-cool, irs.gov
+- **Notes:** 54.4% electric / 43.7% gas (near-even). 1.3:1 CDD:HDD cooling-dominant. SWEPCO (AEP subsidiary). Median 1973.
+
+## Spokane, WA
+
+- **Date researched:** 2026-04-16
+- **Found (3/7):** climate (KGEG USW00024157), housing (place:67000 state:53), climate_hvac_failure_mode (Zone 5B cold-dry Inland NW, 12.6:1 HDD:CDD)
+- **Not_found:** permit_fees, local_building_code, utility_rebate_amounts (Avista Utilities), contractor_license (WA L&I 06A)
+- **URLs cited:** ncei.noaa.gov, api.census.gov (place:67000 state:53), energy.gov/energysaver/heat-and-cool, irs.gov
+- **Notes:** 12.6:1 HDD:CDD — among most heating-dominant in project. 54.0% gas / 41.7% electric / 0.6% wood (Inland NW). 45.4" snow + only 16.45" precip = dry continental snowfall. Median 1961. 1.3% fuel oil legacy.
