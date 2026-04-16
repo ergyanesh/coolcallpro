@@ -663,3 +663,43 @@ Format per city:
 - **Not_found:** permit_fees, local_building_code, utility_rebate_amounts (KU/PPL), contractor_license (KY DHBC Master HVAC)
 - **URLs cited:** ncei.noaa.gov, api.census.gov (place:46027 state:21), energy.gov/energysaver/heat-and-cool, irs.gov
 - **Notes:** 57.2% electric / 40.8% gas. Merged Lexington-Fayette government. Historically affordable coal-generated power drove electric heating adoption. 49.84" precip. Median 1983.
+
+## Lincoln, NE
+
+- **Date researched:** 2026-04-16
+- **Found (3/7):** climate (KLNK USW00014939), housing (place:28000 state:31), climate_hvac_failure_mode (Zone 5A cold Plains, 5,856 HDD, 26" snow)
+- **Not_found:** permit_fees, local_building_code, utility_rebate_amounts (LES municipal), contractor_license (NE no statewide)
+- **URLs cited:** ncei.noaa.gov, api.census.gov (place:28000 state:31), energy.gov/energysaver/heat-and-cool, irs.gov
+- **Notes:** 63.6% gas / 34.5% electric. Lincoln Electric System = municipal utility. NE has no statewide license. Median 1981. 29.34" precip (drier than Midwest average).
+
+## Little Rock, AR
+
+- **Date researched:** 2026-04-16
+- **Found (3/7):** climate (KLIT USW00013963), housing (place:41000 state:05), climate_hvac_failure_mode (Zone 3A dual-load, 50.42" precip)
+- **Not_found:** permit_fees, local_building_code, utility_rebate_amounts (Entergy Arkansas), contractor_license (AR DLL)
+- **URLs cited:** ncei.noaa.gov, api.census.gov (place:41000 state:05), energy.gov/energysaver/heat-and-cool, irs.gov
+- **Notes:** **Near-even 50.7% gas / 47.4% electric split — most balanced in project.** Dual-load 1.6:1 HDD:CDD. 50.42" precip. Median 1978.
+
+## Los Angeles, CA
+
+- **Date researched:** 2026-04-16
+- **Found (3/7):** climate (KLAX USW00023174 — snowfall NOT returned), housing (place:44000 state:06), climate_hvac_failure_mode (mild Mediterranean, Zone 3B)
+- **Not_found:** permit_fees, local_building_code, utility_rebate_amounts (LADWP), contractor_license (CA CSLB C-20)
+- **URLs cited:** ncei.noaa.gov, api.census.gov (place:44000 state:06), energy.gov/energysaver/heat-and-cool, irs.gov
+- **Notes:** **1,419,663 occupied units — LARGEST HOUSING STOCK IN PROJECT by massive margin. 90,123 no-fuel homes (6.3%) — HIGHEST NO-FUEL SHARE. 6,550 solar homes. LADWP = largest municipal utility in US.** 57.7% gas / 33.6% electric. Median 1964.
+
+## Lubbock, TX
+
+- **Date researched:** 2026-04-16
+- **Found (3/7):** climate (KLBB USW00023042), housing (place:45000 state:48), climate_hvac_failure_mode (Zone 3B semi-arid High Plains, evap cooling)
+- **Not_found:** permit_fees, local_building_code, utility_rebate_amounts (LP&L municipal), contractor_license (TX TDLR ACR)
+- **URLs cited:** ncei.noaa.gov, api.census.gov (place:45000 state:48), energy.gov/energysaver/heat-and-cool, irs.gov
+- **Notes:** 53.3% electric / 44.9% gas (near-even). Lubbock Power & Light = municipal utility (transitioned SPP→ERCOT 2021). Semi-arid 18.33" precip. 27°F diurnal swing. Evap cooling territory. Median 1983.
+
+## Mobile, AL
+
+- **Date researched:** 2026-04-16
+- **Found (3/7):** climate (KMOB USW00013894), housing (place:50000 state:01), climate_hvac_failure_mode (Zone 2A extreme precipitation + hurricane)
+- **Not_found:** permit_fees, local_building_code, utility_rebate_amounts (Alabama Power), contractor_license (AL HACR Board)
+- **URLs cited:** ncei.noaa.gov, api.census.gov (place:50000 state:01), energy.gov/energysaver/heat-and-cool, irs.gov
+- **Notes:** **67.08" annual precipitation — WETTEST CITY IN ENTIRE PROJECT (beats Baton Rouge 61.94").** 55.9% electric / 42.1% gas. 2,599 CDD. Gulf Coast hurricane exposure. Median 1974.
