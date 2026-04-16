@@ -623,3 +623,43 @@ Format per city:
 - **Not_found:** permit_fees, local_building_code, utility_rebate_amounts (Huntsville Utilities/TVA), contractor_license (AL HACR Board)
 - **URLs cited:** ncei.noaa.gov, api.census.gov (place:37000 state:01), energy.gov/energysaver/heat-and-cool, irs.gov
 - **Notes:** 75.8% electric / 22.2% gas. Municipal TVA distributor (Huntsville Utilities). NASA/Redstone Arsenal economy. Balanced 1.3:1 HDD:CDD. Median 1984.
+
+## Irvine, CA
+
+- **Date researched:** 2026-04-16
+- **Found (3/7):** climate (KSNA USW00093134), housing (place:36770 state:06), climate_hvac_failure_mode (Zone 3B mild Mediterranean)
+- **Not_found:** permit_fees, local_building_code, utility_rebate_amounts (SCE), contractor_license (CA CSLB C-20)
+- **URLs cited:** ncei.noaa.gov, api.census.gov (place:36770 state:06), energy.gov/energysaver/heat-and-cool, irs.gov
+- **Notes:** **Median year built 2001 — NEWEST HOUSING STOCK IN PROJECT.** 60.1% gas / 35.6% electric. 859 solar homes (0.8%), 1,549 no-fuel (1.4%). 1.3:1 CDD:HDD — mild Mediterranean.
+
+## Kansas City, MO
+
+- **Date researched:** 2026-04-16
+- **Found (3/7):** climate (KMCI USW00013988), housing (place:38000 state:29), climate_hvac_failure_mode (Zone 4A dual-load)
+- **Not_found:** permit_fees, local_building_code, utility_rebate_amounts (Evergy), contractor_license (MO no statewide — KC municipal trade license)
+- **URLs cited:** ncei.noaa.gov, api.census.gov (place:38000 state:29), energy.gov/energysaver/heat-and-cool, irs.gov
+- **Notes:** 67.5% gas / 29.5% electric. 219,486 units (large housing stock). No statewide HVAC license — KC municipal trade license required. Dual-load 2.7:1 HDD:CDD. Median 1968.
+
+## Knoxville, TN
+
+- **Date researched:** 2026-04-16
+- **Found (3/7):** climate (KTYS USW00013891), housing (place:40000 state:47), climate_hvac_failure_mode (Zone 4A mixed-humid, 51.93" precip)
+- **Not_found:** permit_fees, local_building_code, utility_rebate_amounts (KUB/TVA), contractor_license (TN CMC-C)
+- **URLs cited:** ncei.noaa.gov, api.census.gov (place:40000 state:47), energy.gov/energysaver/heat-and-cool, irs.gov
+- **Notes:** 74.0% electric / 24.7% gas. KUB = 3rd TVA distributor in project (after Chattanooga EPB, Huntsville Utilities). 51.93" precip. Median 1974.
+
+## Laredo, TX
+
+- **Date researched:** 2026-04-16
+- **Found (3/7):** climate (KLRD USW00012959), housing (place:41464 state:48), climate_hvac_failure_mode (Zone 2B extreme cooling, semi-arid)
+- **Not_found:** permit_fees, local_building_code, utility_rebate_amounts (AEP Texas CoolSaver), contractor_license (TX TDLR ACR)
+- **URLs cited:** ncei.noaa.gov, api.census.gov (place:41464 state:48), energy.gov/energysaver/heat-and-cool, irs.gov
+- **Notes:** **4,989 CDD — HIGHEST CDD IN ENTIRE PROJECT (beats Brownsville 4,542). 11:1 CDD:HDD.** 83.9% electric / 13.6% gas. 589 solar homes. Semi-arid 22.16" precip. Inland Rio Grande hotter than coastal Brownsville. Median 1996.
+
+## Lexington, KY
+
+- **Date researched:** 2026-04-16
+- **Found (3/7):** climate (KLEX USW00093820), housing (place:46027 state:21 — Lexington-Fayette merged government), climate_hvac_failure_mode (Zone 4A mixed-humid, 49.84" precip)
+- **Not_found:** permit_fees, local_building_code, utility_rebate_amounts (KU/PPL), contractor_license (KY DHBC Master HVAC)
+- **URLs cited:** ncei.noaa.gov, api.census.gov (place:46027 state:21), energy.gov/energysaver/heat-and-cool, irs.gov
+- **Notes:** 57.2% electric / 40.8% gas. Merged Lexington-Fayette government. Historically affordable coal-generated power drove electric heating adoption. 49.84" precip. Median 1983.
