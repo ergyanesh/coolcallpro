@@ -208,6 +208,7 @@ CLIMATE_PROFILES = {
         "h1_service": "24/7 AC Repair &amp; Emergency Cooling Service",
         "hero_service": "Emergency AC repair, heat pump service, and system installation available 24/7.",
         "og_service": "Emergency AC and cooling service available 24/7.",
+        "meta_desc_service": "AC repair",
         "permit_faq_q": "Do I need a permit to replace my AC",
         "cost_faq_q": "How much does AC replacement cost",
         "furnace_label": "mini-split/heat pump installations",
@@ -218,6 +219,7 @@ CLIMATE_PROFILES = {
         "h1_service": "24/7 AC Repair &amp; Emergency HVAC Service",
         "hero_service": "Emergency AC repair, furnace service, and system installation available 24/7.",
         "og_service": "Emergency AC repair and HVAC service available 24/7.",
+        "meta_desc_service": "AC or HVAC repair",
         "permit_faq_q": "Do I need a permit to replace my AC",
         "cost_faq_q": "How much does HVAC replacement cost",
         "furnace_label": "furnace installations",
@@ -228,6 +230,7 @@ CLIMATE_PROFILES = {
         "h1_service": "24/7 AC Repair &amp; Emergency HVAC Service",
         "hero_service": "Emergency AC repair, furnace service, and system installation available 24/7.",
         "og_service": "Emergency AC repair and HVAC service available 24/7.",
+        "meta_desc_service": "AC repair",
         "permit_faq_q": "Do I need a permit to replace my AC",
         "cost_faq_q": "How much does HVAC replacement cost",
         "furnace_label": "furnace installations",
@@ -238,6 +241,7 @@ CLIMATE_PROFILES = {
         "h1_service": "24/7 AC Repair &amp; Emergency HVAC Service",
         "hero_service": "Emergency AC repair, furnace service, and system installation available 24/7.",
         "og_service": "Emergency AC and furnace service available 24/7.",
+        "meta_desc_service": "AC or furnace repair",
         "permit_faq_q": "Do I need a permit to replace my AC or furnace",
         "cost_faq_q": "How much does HVAC replacement cost",
         "furnace_label": "furnace installations",
@@ -248,6 +252,7 @@ CLIMATE_PROFILES = {
         "h1_service": "24/7 Furnace Repair &amp; Emergency HVAC Service",
         "hero_service": "Emergency furnace repair, AC service, and system installation available 24/7.",
         "og_service": "Emergency furnace repair and HVAC service available 24/7.",
+        "meta_desc_service": "furnace or HVAC repair",
         "permit_faq_q": "Do I need a permit to replace my furnace",
         "cost_faq_q": "How much does HVAC replacement cost",
         "furnace_label": "furnace installations",
@@ -258,6 +263,7 @@ CLIMATE_PROFILES = {
         "h1_service": "24/7 HVAC Repair &amp; Emergency Service",
         "hero_service": "Emergency furnace repair, AC service, and high-altitude HVAC installation available 24/7.",
         "og_service": "Emergency HVAC repair and high-altitude service available 24/7.",
+        "meta_desc_service": "HVAC repair",
         "permit_faq_q": "Do I need a permit to replace my HVAC system",
         "cost_faq_q": "How much does HVAC replacement cost",
         "furnace_label": "furnace installations",
@@ -268,6 +274,7 @@ CLIMATE_PROFILES = {
         "h1_service": "24/7 Heat Pump &amp; HVAC Service",
         "hero_service": "Emergency heat pump repair, AC service, and system installation available 24/7.",
         "og_service": "Emergency HVAC and heat pump service available 24/7.",
+        "meta_desc_service": "heat pump or HVAC repair",
         "permit_faq_q": "Do I need a permit to replace my HVAC system",
         "cost_faq_q": "How much does HVAC replacement cost",
         "furnace_label": "furnace installations",
@@ -278,6 +285,7 @@ CLIMATE_PROFILES = {
         "h1_service": "24/7 Furnace Repair &amp; Emergency Heating Service",
         "hero_service": "Emergency furnace repair, heating service, and system installation available 24/7.",
         "og_service": "Emergency furnace repair and heating service available 24/7.",
+        "meta_desc_service": "furnace repair",
         "permit_faq_q": "Do I need a permit to replace my furnace",
         "cost_faq_q": "How much does HVAC replacement cost",
         "furnace_label": "furnace installations",
@@ -837,8 +845,9 @@ def generate_page(c, climate_type, nearby, absorbed_data, all_cities_lookup, sta
     if len(title_text.replace("&amp;", "&")) > 65:
         title_text = f"HVAC Repair in {e_city}, {e_st} | Cool Call Pro"
 
-    # Meta description (max 155 chars)
-    meta_desc = f"Need HVAC repair in {e_city}, {e_state}? Cool Call Pro connects you to 24/7 local technicians covering {first_zip} and nearby areas. Call (844) 582-1795."
+    # Meta description (max 155 chars) — climate-adapted lead keyword
+    meta_svc = profile['meta_desc_service']
+    meta_desc = f"Need {meta_svc} in {e_city}, {e_state}? Cool Call Pro connects you with 24/7 technicians near {first_zip}. Call (844) 582-1795."
 
     # Climate H2 and paragraph
     climate_h2, climate_para = climate_h2_and_paragraph(c, climate_type)
