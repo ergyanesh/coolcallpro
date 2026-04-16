@@ -743,3 +743,43 @@ Format per city:
 - **Not_found:** permit_fees, local_building_code, utility_rebate_amounts (Avista Utilities), contractor_license (WA L&I 06A)
 - **URLs cited:** ncei.noaa.gov, api.census.gov (place:67000 state:53), energy.gov/energysaver/heat-and-cool, irs.gov
 - **Notes:** 12.6:1 HDD:CDD — among most heating-dominant in project. 54.0% gas / 41.7% electric / 0.6% wood (Inland NW). 45.4" snow + only 16.45" precip = dry continental snowfall. Median 1961. 1.3% fuel oil legacy.
+
+## Springfield, MA
+
+- **Date researched:** 2026-04-16
+- **Found (3/7):** climate (KCEF USW00014764), housing (place:67000 state:25), climate_hvac_failure_mode (extreme heating + fuel oil + snow)
+- **Not_found:** permit_fees, local_building_code, utility_rebate_amounts (Eversource/WMECO/Mass Save), contractor_license (MA no statewide)
+- **URLs cited:** ncei.noaa.gov, api.census.gov (place:67000 state:25), energy.gov/energysaver/heat-and-cool, irs.gov
+- **Notes:** 68.7" snow, 6,795 HDD, 15.2:1 HDD:CDD. 13.7% fuel oil (high). 58.6% gas / 20.2% electric. Median 1951. MA no statewide HVAC license. Connecticut River valley climate.
+
+## Syracuse, NY
+
+- **Date researched:** 2026-04-16
+- **Found (3/7):** climate (KSYR USW00014771), housing (place:73000 state:36), climate_hvac_failure_mode (extreme lake-effect snow)
+- **Not_found:** permit_fees, local_building_code, utility_rebate_amounts (National Grid), contractor_license (NY no statewide)
+- **URLs cited:** ncei.noaa.gov, api.census.gov (place:73000 state:36), energy.gov/energysaver/heat-and-cool, irs.gov
+- **Notes:** **127.8" ANNUAL SNOWFALL — ABSOLUTE PROJECT RECORD (was Buffalo 95.4"). SNOWIEST LARGE CITY IN THE US.** Lake Ontario lake-effect. 69.5% gas / 24.3% electric. Median 1947. 10.6:1 HDD:CDD.
+
+## Tallahassee, FL
+
+- **Date researched:** 2026-04-16
+- **Found (3/7):** climate (KTLH USW00093805 — snowfall NOT returned), housing (place:70600 state:12), climate_hvac_failure_mode (Zone 2A hot-humid, 58.81" precip)
+- **Not_found:** permit_fees, local_building_code, utility_rebate_amounts (City of Tallahassee Utilities municipal), contractor_license (FL DBPR/CILB)
+- **URLs cited:** ncei.noaa.gov, api.census.gov (place:70600 state:12), energy.gov/energysaver/heat-and-cool, irs.gov
+- **Notes:** 85.5% electric / 11.8% gas. City of Tallahassee Utilities = municipal. 58.81" precip. 1.9:1 CDD:HDD. Median 1987.
+
+## Toledo, OH
+
+- **Date researched:** 2026-04-16
+- **Found (3/7):** climate (KTOL USW00014848), housing (place:77000 state:39), climate_hvac_failure_mode (Lake Erie lake-effect, 64.5" snow)
+- **Not_found:** permit_fees, local_building_code, utility_rebate_amounts (Toledo Edison/FirstEnergy), contractor_license (OH OCILB)
+- **URLs cited:** ncei.noaa.gov, api.census.gov (place:77000 state:39), energy.gov/energysaver/heat-and-cool, irs.gov
+- **Notes:** 64.5" Lake Erie lake-effect snow. 73.9% gas. 8.9:1 HDD:CDD. Median 1955. 118K units (sizeable housing stock).
+
+## Winston-Salem, NC
+
+- **Date researched:** 2026-04-16
+- **Found (3/7):** climate (KINT USW00013723), housing (place:75000 state:37), climate_hvac_failure_mode (Zone 4A dual-load, Piedmont humidity)
+- **Not_found:** permit_fees, local_building_code, utility_rebate_amounts (Duke Energy Carolinas), contractor_license (NC Board H-1/H-2/H-3)
+- **URLs cited:** ncei.noaa.gov, api.census.gov (place:75000 state:37), energy.gov/energysaver/heat-and-cool, irs.gov
+- **Notes:** **4.4% fuel oil — unusually high for a Southern city (Moravian-era housing legacy).** 60.9% electric / 31.6% gas. 2.3:1 HDD:CDD. Median 1980.
