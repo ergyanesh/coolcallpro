@@ -107,10 +107,14 @@ def audit_seo(html: str) -> int:
 
     t, m, h, c = title.group(1), meta.group(1), h1.group(1), canonical.group(1)
 
-    # Rule 1: H1 must be question-framed
+    # Rule 1 (SOFT): H1 framing matches search intent.
+    # Question form is preferred for symptom/diagnostic/decision articles
+    # (how people type "why is my ac blowing warm air"). Declarative is
+    # preferred for head-term pillars, cost guides, comparisons, best-of lists
+    # (how people type "hvac cost guide 2026", "repair vs replace"). We no
+    # longer fail on form — writer picks the form that matches intent.
     is_question = h.rstrip().endswith("?") or "?" in h
-    if not check(f'H1 is question-framed (ends/contains "?"): "{h[:70]}..."', is_question):
-        fails += 1
+    print(f"  [INFO] H1 form: {'question' if is_question else 'declarative'} — \"{h[:70]}...\"")
 
     if not check(f"<title> <= 60 chars (actual: {len(t)})", len(t) <= 60):
         fails += 1

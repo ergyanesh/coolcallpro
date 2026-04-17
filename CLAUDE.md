@@ -111,7 +111,7 @@ The 100-article roadmap is organized into **6 topic clusters** (C1 AC Troublesho
 - `city_link_coverage.csv` — reverse view: each city → which articles link to it
 
 **Non-negotiable rules for every article:**
-1. **H1 must be question-framed.** Match how homeowners type into Google, voice assistants, ChatGPT. Example: "Why Isn't My AC Working?" — NOT "Complete AC Troubleshooting Guide".
+1. **H1 framing should match search intent — not a universal question-form rule.** Use **question form** for symptom/diagnostic/decision articles ("Why Isn't My AC Working?", "Furnace Blowing Cold Air?") — matches how homeowners type those queries. Use **declarative form** for head-term pillars, cost guides, comparisons, and best-of lists ("The Honest 2026 HVAC Cost Guide", "12-Month HVAC Maintenance Checklist", "HVAC Repair vs. Replace: Decision Guide") — matches how those queries are typed and scans better for CTR. Primary keyword must lead the H1 regardless of form. Forcing every title into a question makes them awkward and hurts click-through.
 2. **FAQs must use the collapsible `.faq-item` pattern.** `js/main.js` binds click handlers to `.faq-q` buttons. Plain `<h3>Question</h3><p>Answer</p>` is forbidden — it breaks the site theme.
 3. **Cost figures must match `costs.html`.** `costs.html` is the single source of truth for all pricing. No standalone duplicate cost tables in articles — link to `/costs` instead.
 4. **Image prompts must never include thermostats, screens, phones, or any UI display.** AI image models render them as generic boxes with fake text. Anchor the image on a condenser unit, a homeowner's hand, a coil with visible frost, etc.
@@ -222,7 +222,7 @@ python serve.py                                       # http://localhost:8080
 - Do NOT skip the QC checklist after generating pages
 
 ### Article writing (pillar-cluster rules)
-- Do NOT write declarative article H1s — every article uses a question form (e.g., "Why Isn't My AC Working?" not "Complete AC Guide")
+- Do NOT force every article H1 into a question — match the form to search intent (question for symptoms/diagnostics/decisions, declarative for head-term pillars, cost guides, comparisons, best-of)
 - Do NOT use plain `<h3>Question</h3><p>Answer</p>` for FAQs — use the `.faq-item` collapsible structure so questions expand/collapse
 - Do NOT create duplicate cost tables in articles — cost figures must match `costs.html` and articles should link to it rather than restate
 - Do NOT include thermostats, screens, phones, or any UI display in image prompts — AI models botch them every time

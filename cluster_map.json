@@ -87,7 +87,8 @@
         "title": "The Honest 2026 HVAC Cost Guide: Every Repair, Every Replacement, Every Hidden Fee",
         "slug": "2026-hvac-cost-guide",
         "filename": "articles/2026-hvac-cost-guide.html",
-        "status": "pending"
+        "status": "live",
+        "date_published": "2026-04-16"
       },
       "cross_cluster_anchor": {
         "cluster": "C5_compare",
