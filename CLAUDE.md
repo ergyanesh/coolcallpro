@@ -75,11 +75,15 @@ CoolCallPro.com is a static HTML HVAC services referral site deployed on Cloudfl
 ## Critical Rules — READ BEFORE ANY CHANGE
 
 ### CSS Rules
-- **Orange (`--orange: #d84315`)** is for CTAs ONLY — never for nav, text, or browse elements
-- **Navy text** for navigation and browse elements
-- Body links in text MUST have `text-decoration: underline` (WCAG 1.4.1)
-- After editing `css/style.css`, you MUST also update `css/style.min.css`
-- **index.html has CSS inlined in a `<style>` tag** — after any CSS change, the inline styles in index.html must also be updated manually
+- **Color convention for anchors — do not mix these up:**
+  - **CTA buttons** (`.btn .btn-primary`): orange background (`--orange #d84315`), white text, filled pill/rounded button. Applied to every "Call Now" CTA.
+  - **Body-text hyperlinks in content** (article prose, About sections, footer narrative): **orange-dark (`--orange-dark #b53610`) + underline**. This is the site convention (see About Our HVAC Network on index.html and `.article-content a:not(.btn)` rule in style.css). Hover brightens to `--orange`.
+  - **Top-nav links** (`.nav-link`): navy text, no underline.
+  - **Browse / filter buttons** (`.filter-btn` etc.): navy text — not orange.
+  - Never paint body hyperlinks blue — blue is not in the site palette for text links.
+- **Body links MUST have `text-decoration: underline`** (WCAG 1.4.1). The `.article-content a:not(.btn)` rule enforces this for article prose; `:not(.btn)` exists specifically to stop the underline/color from overriding CTA buttons that happen to sit inside `.article-content` (e.g., in-article CTAs).
+- After editing `css/style.css`, you MUST also update `css/style.min.css` (via `npx --yes clean-css-cli css/style.css -o css/style.min.css`).
+- **index.html has CSS inlined in a `<style>` tag** — after any CSS change affecting homepage elements, the inline styles in index.html must also be updated manually.
 
 ### HTML Rules
 - `<meta charset="UTF-8">` MUST be the first child of `<head>` (before any script/link/meta)

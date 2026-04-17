@@ -2130,17 +2130,19 @@ ul {
   color: var(--gray-900);
 }
 
-/* Body link affordance — WCAG 1.4.1 requires visible link distinction. */
-/* Applies to all anchors inside article prose. TOC (.toc a) and inline-styled */
-/* location links keep their specific styles because of higher specificity. */
-.article-content a {
-  color: var(--blue);
+/* Body link affordance — orange-dark + underline is the site design convention */
+/* for body-text hyperlinks in article content (see About Our HVAC Network on */
+/* index.html). :not(.btn) prevents this rule from overriding CTA button */
+/* styling when a CTA anchor sits inside .article-content. TOC links keep */
+/* their navy-no-underline style via later .toc a rule. WCAG 1.4.1 satisfied. */
+.article-content a:not(.btn) {
+  color: var(--orange-dark);
   text-decoration: underline;
   text-underline-offset: 2px;
   text-decoration-thickness: 1px;
 }
-.article-content a:hover,
-.article-content a:focus {
+.article-content a:not(.btn):hover,
+.article-content a:not(.btn):focus {
   color: var(--orange);
 }
 

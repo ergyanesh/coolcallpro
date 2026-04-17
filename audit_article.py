@@ -290,8 +290,31 @@ def audit_css_regression(strict: bool) -> int:
         return 0
 
     # WCAG 1.4.1 — body links must have a visible affordance in article prose.
-    has_rule = re.search(r"\.article-content\s+a\s*\{[^}]*text-decoration\s*:\s*underline", css, re.DOTALL)
-    if not check(".article-content a rule with text-decoration:underline exists in style.css", bool(has_rule)):
+    # The rule may use :not(.btn) or similar exclusions; accept any selector
+    # that targets .article-content descendants of type <a> and applies underline.
+    has_underline_rule = re.search(
+        r"\.article-content\s+a(?::not\([^)]+\))?\s*\{[^}]*text-decoration\s*:\s*underline",
+        css, re.DOTALL,
+    )
+    if not check(".article-content a rule with text-decoration:underline exists in style.css", bool(has_underline_rule)):
+        fails += 1
+
+    # Body link color must be orange-dark (site design convention), not blue.
+    # Using blue breaks visual consistency with existing body links in
+    # index.html's About Our HVAC Network section and other content sections.
+    has_orange_color = re.search(
+        r"\.article-content\s+a(?::not\([^)]+\))?\s*\{[^}]*color\s*:\s*var\(--orange",
+        css, re.DOTALL,
+    )
+    if not check(".article-content a color is --orange or --orange-dark (body link convention)", bool(has_orange_color)):
+        fails += 1
+
+    # Button protection: the selector must exclude .btn to avoid overriding
+    # CTA button styling when a button anchor is inside .article-content.
+    has_btn_exclusion = re.search(
+        r"\.article-content\s+a:not\(\.btn\)", css
+    )
+    if not check(".article-content a selector excludes .btn (CTA button protection)", bool(has_btn_exclusion)):
         fails += 1
 
     return fails
