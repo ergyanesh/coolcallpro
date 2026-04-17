@@ -1,15 +1,28 @@
 """
 Per-article pre-deploy audit.
 
-Runs every SEO, safety, and pillar-spec check in one pass. The hvac-article-writer
-skill MUST call this before claiming an article is done. Failures must be fixed
-before committing.
+Runs every SEO, safety, YMYL, and pillar-spec check in one pass. The
+hvac-article-writer skill MUST call this (in --strict mode) before claiming an
+article is done. Failures must be fixed before committing.
 
 Usage:
-    python audit_article.py articles/<slug>.html
-    python audit_article.py article-<slug>.html   # for root-level articles
+    python audit_article.py articles/<slug>.html                 # soft audit
+    python audit_article.py articles/<slug>.html --strict --browser-verified
 
-Exit code 0 = all checks pass. Exit code 1 = one or more failures.
+    --strict            Adds: Your-Money YMYL checks (tax caveat, APR caveat,
+                        brand-defamation warn), CSS regression check, and
+                        a blocking browser-verification gate.
+    --browser-verified  Required with --strict. Asserts you have opened the
+                        article at localhost:8080/articles/<slug> and visually
+                        confirmed: (1) body links render underlined/colored,
+                        (2) every FAQ expands/collapses on click, (3) TOC
+                        jump-links work, (4) hero image renders, (5) no
+                        obvious layout or text issues.
+
+Exit codes:
+    0 = all checks pass
+    1 = one or more checks failed
+    2 = --strict specified without --browser-verified (blocking gate)
 """
 
 import re
@@ -201,6 +214,89 @@ def audit_seo(html: str) -> int:
     return fails
 
 
+# --- YMYL "Your-Money" checks (--strict only) -------------------------------
+# Triggered by keywords in the article body. If the article makes tax/rebate
+# claims, we require a professional-consultation caveat nearby. Same for APR
+# claims. Brand-name defamation risk gets a warn, not a fail.
+
+YOUR_MONEY_TAX_TRIGGERS = r"\b(tax credit|25C|HEEHRA|IRA 25C|federal rebate|IRS Section 25C)\b"
+YOUR_MONEY_TAX_CAVEAT = r"(not tax.*advice|consult.*tax professional|qualified tax professional|tax professional.*(confirm|verify)|confirm.*tax professional)"
+
+YOUR_MONEY_APR_TRIGGERS = r"\b(APR|annual percentage rate|financing rate)\b"
+YOUR_MONEY_APR_CAVEAT = r"(rates vary|APR.*vary|confirm.*rate.*lender|rates change|rates are subject to change|confirm current rates)"
+
+# Brand names that, when within 120 chars of a negative/scam word, suggest
+# single-brand defamation risk. We warn (do not fail).
+BRAND_NAMES = [
+    "EasySeal", "Nu-Calgon", "Carrier", "Trane", "Lennox", "Goodman", "Rheem",
+    "York", "Daikin", "Mitsubishi", "Synchrony", "GreenSky", "Service Finance",
+    "HomeAdvisor", "Angi", "Thumbtack", "Yelp",
+]
+NEGATIVE_WORDS = r"\b(scam|upsell|avoid|never use|rip.?off|bait.?and.?switch|predatory|defaults|voids?)\b"
+
+
+def audit_your_money(html: str, strict: bool) -> int:
+    if not strict:
+        return 0
+    print("\nYOUR-MONEY YMYL (strict mode)")
+    fails = 0
+
+    tax_hit = re.search(YOUR_MONEY_TAX_TRIGGERS, html, re.I)
+    if tax_hit:
+        caveat = re.search(YOUR_MONEY_TAX_CAVEAT, html, re.I)
+        if not check("Tax-professional caveat present (article makes tax/rebate claims)", bool(caveat)):
+            fails += 1
+    else:
+        print("  [INFO] No tax/rebate claims detected — tax caveat not required.")
+
+    apr_hit = re.search(YOUR_MONEY_APR_TRIGGERS, html)
+    if apr_hit:
+        caveat = re.search(YOUR_MONEY_APR_CAVEAT, html, re.I)
+        if not check("APR-vary caveat present (article makes APR/financing-rate claims)", bool(caveat)):
+            fails += 1
+    else:
+        print("  [INFO] No APR/financing-rate claims detected — APR caveat not required.")
+
+    # Brand-defamation warn (no fail)
+    brand_risks = []
+    for brand in BRAND_NAMES:
+        for m in re.finditer(re.escape(brand), html):
+            ctx_start = max(0, m.start() - 120)
+            ctx_end = min(len(html), m.end() + 120)
+            ctx = html[ctx_start:ctx_end]
+            if re.search(NEGATIVE_WORDS, ctx, re.I):
+                brand_risks.append(brand)
+                break
+    if brand_risks:
+        print(f"  [WARN] Brand names appearing near negative language: {', '.join(sorted(set(brand_risks)))}")
+        print("         Review these passages. Prefer category language unless the claim is tied to")
+        print("         published manufacturer documentation (e.g., warranty terms).")
+
+    return fails
+
+
+def audit_css_regression(strict: bool) -> int:
+    """Checks that site-wide CSS rules required for articles are present.
+    Only runs in --strict mode since it reads files outside the article itself."""
+    if not strict:
+        return 0
+    print("\nCSS REGRESSION (strict mode)")
+    fails = 0
+
+    try:
+        css = Path("css/style.css").read_text(encoding="utf-8")
+    except FileNotFoundError:
+        print("  [SKIP] css/style.css not found (run from project root for this check).")
+        return 0
+
+    # WCAG 1.4.1 — body links must have a visible affordance in article prose.
+    has_rule = re.search(r"\.article-content\s+a\s*\{[^}]*text-decoration\s*:\s*underline", css, re.DOTALL)
+    if not check(".article-content a rule with text-decoration:underline exists in style.css", bool(has_rule)):
+        fails += 1
+
+    return fails
+
+
 def audit_pillar_spec(html: str, is_pillar: bool) -> int:
     if not is_pillar:
         return 0
@@ -222,25 +318,54 @@ def audit_pillar_spec(html: str, is_pillar: bool) -> int:
 
 
 def main():
-    if len(sys.argv) < 2:
-        print("Usage: python audit_article.py <path-to-article.html>")
+    args = sys.argv[1:]
+    if not args or args[0].startswith("--"):
+        print("Usage: python audit_article.py <path-to-article.html> [--strict] [--browser-verified]")
         sys.exit(2)
 
-    path = sys.argv[1]
+    path = args[0]
+    strict = "--strict" in args
+    browser_verified = "--browser-verified" in args
+
+    # Blocking gate: strict mode requires explicit browser-verification
+    # because the script cannot inspect CSS rendering. This codifies the
+    # "audit is a floor, not a ceiling" lesson from the 2026-04-17 C4-pillar
+    # link-rendering regression.
+    if strict and not browser_verified:
+        slug = Path(path).stem
+        print("=" * 70)
+        print("STRICT MODE requires --browser-verified. Before re-running:")
+        print()
+        print(f"  1. Start the dev server:  python serve.py")
+        print(f"  2. Open in browser:       http://localhost:8080/articles/{slug}")
+        print("  3. Visually confirm:")
+        print("     (a) Body links are UNDERLINED and BLUE (WCAG 1.4.1)")
+        print("     (b) Every FAQ expands/collapses on click")
+        print("     (c) TOC jump-links scroll to the correct H2")
+        print("     (d) Hero image renders correctly above the disclosure")
+        print("     (e) No obvious layout, font, or text issues")
+        print(f"  4. Re-run: python audit_article.py {path} --strict --browser-verified")
+        print("=" * 70)
+        sys.exit(2)
+
     html = read(path)
     is_pillar = "pillar" in Path(path).stem.lower() or "complete-" in Path(path).stem.lower() or "-guide" in Path(path).stem.lower()
 
     print(f"Auditing: {path}")
     print(f"Type: {'PILLAR' if is_pillar else 'CLUSTER'}")
+    print(f"Mode: {'STRICT (browser-verified)' if strict else 'soft'}")
 
     fails = 0
     fails += audit_safety(html)
     fails += audit_seo(html)
+    fails += audit_your_money(html, strict)
+    fails += audit_css_regression(strict)
     fails += audit_pillar_spec(html, is_pillar)
 
     print()
     if fails == 0:
-        print(f"OK — all checks passed. Article is safe to commit.")
+        mode = "strict" if strict else "soft"
+        print(f"OK — all {mode} checks passed. Article is safe to commit.")
         sys.exit(0)
     else:
         print(f"FAIL — {fails} check(s) failed. Fix before committing.")

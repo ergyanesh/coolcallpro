@@ -216,6 +216,15 @@ Pillar articles are the authority hubs of each cluster. They follow all rules of
 6. **City links:** Pillar articles use **5 cities** from the linker (N=5), not 4. They are equity hubs.
 7. **Hero image:** Treat as editorial-quality. Broader composition than cluster hero (see Instruction 4 prompt generation — increase descriptive detail, wider camera angle).
 
+### Your-Money YMYL Addendum (C4 Cost, C5 Compare, financing-adjacent articles)
+
+On top of the safety rules below, articles that make financial claims need specific caveats that `audit_article.py --strict` enforces:
+
+- **Tax credits / rebates (IRS 25C, HEEHRA, utility rebates):** include a short disclaimer box saying this is general guidance not tax advice, and that caps/eligibility/state HEEHRA rollout change — readers should confirm with a tax professional and their utility's DSIRE listing. Date-stamp the figures ("accurate as of {month} {year}").
+- **APR / financing rates:** add a line saying APR varies by lender, credit score, and promotional period, and changes frequently — readers should confirm directly with the lender.
+- **Brand names near negative language:** do NOT single out a specific product or brand (e.g., "EasySeal") in a scam/upsell section. Use category language ("aftermarket leak sealants"). If you assert warranty voiding, anchor to published manufacturer terms ("per published manufacturer warranty terms"), not your bare claim.
+- **Site-wide defamation floor:** never assert a specific contractor or chain is "a scam." Describe patterns and red flags instead.
+
 ### Safety Content Rules (CRITICAL — YMYL Compliance)
 - **NEVER give advice that could cause injury, property damage, or death.** HVAC systems involve 240V electricity, natural gas, and pressurized refrigerant.
 - **Always include a safety warning box** early in the article advising readers to kill the breaker before inspecting anything.
@@ -435,13 +444,28 @@ When this skill is triggered in a new session, before doing ANYTHING else:
 3. **If PROGRESS.md shows ERRORS** (e.g., article marked "live" but file missing), stop and surface them to the user. Do not proceed until resolved.
 4. **Show the user the top 5 pending articles** from PROGRESS.md's "Next 10" section and ask which to write.
 
-**BEFORE CLAIMING AN ARTICLE IS DONE — MANDATORY SELF-AUDIT:**
+**BEFORE CLAIMING AN ARTICLE IS DONE — MANDATORY SELF-AUDIT (STRICT MODE):**
 
-Never declare an article complete without running the full self-audit. The user has had to flag FAQ rendering, cost drift, and title framing issues after the fact — do not make them do that again. Before saying "done":
+Never declare an article complete without running the STRICT audit. The user has had to flag FAQ rendering, cost drift, title framing, link-affordance regressions, and YMYL gaps after the fact — do not make them do that again. `audit_article.py` is a **floor, not a ceiling**: the soft mode only catches what is text-inspectable. Strict mode adds YMYL checks, CSS regression checks, and a blocking browser-verification gate.
 
-1. **Run `python audit_article.py articles/<slug>.html`** — the script checks every SEO rule, every safety rule, and the FAQ collapsible structure in one pass. If any check fails, fix it before continuing.
-2. **Open the article in a local browser** at `localhost:8080/articles/<slug>.html` and visually confirm: (a) hero image renders correctly; (b) every FAQ question expands/collapses when clicked; (c) the TOC jump-links work; (d) cost figures match `costs.html` at a glance; (e) no broken article/city/state links.
-3. **Only then** update cluster_map.json status, run generate_link_plan.py, and commit.
+**The mandatory command before commit is:**
+```bash
+python audit_article.py articles/<slug>.html --strict --browser-verified
+```
+
+To legitimately pass `--browser-verified`, you MUST have opened the article at `localhost:8080/articles/<slug>` (via `python serve.py`) and visually confirmed all five:
+- (a) **Body links are underlined and colored** — if any external-authority link or in-body cross-link renders as plain text, the CSS is broken (`.article-content a` rule missing). Do NOT ship.
+- (b) Every FAQ question expands/collapses on click.
+- (c) TOC jump-links scroll to the correct H2.
+- (d) Hero image renders correctly above the disclosure.
+- (e) No obvious layout, font, or cost-figure drift (cost figures must match `/costs`).
+
+Strict mode also enforces:
+- **Your-Money YMYL:** if the article mentions tax credits/rebates (25C, HEEHRA), a tax-professional caveat must be present. If it mentions APR/financing rates, a "rates vary" caveat must be present.
+- **Brand-defamation warn:** specific brand names near negative/scam words trigger a warning — prefer category language unless the claim is tied to manufacturer documentation (e.g., "per published manufacturer warranty terms").
+- **CSS regression:** `.article-content a` with `text-decoration: underline` must exist in `css/style.css` (WCAG 1.4.1).
+
+**Only after strict audit passes:** update cluster_map.json status, run generate_link_plan.py, and commit.
 
 **AFTER EVERY ARTICLE SHIPS (MANDATORY):**
 

@@ -116,7 +116,7 @@ The 100-article roadmap is organized into **6 topic clusters** (C1 AC Troublesho
 3. **Cost figures must match `costs.html`.** `costs.html` is the single source of truth for all pricing. No standalone duplicate cost tables in articles — link to `/costs` instead.
 4. **Image prompts must never include thermostats, screens, phones, or any UI display.** AI image models render them as generic boxes with fake text. Anchor the image on a condenser unit, a homeowner's hand, a coil with visible frost, etc.
 5. **Hero images are always WebP at 1280×720 quality 85.** Convert from user-provided PNG/JPG using the PIL one-liner in Build Commands.
-6. **Run `python audit_article.py articles/<slug>.html` BEFORE claiming an article is done.** The audit enforces rules 1-4 automatically plus the full SEO/YMYL checklist.
+6. **Run `python audit_article.py articles/<slug>.html --strict --browser-verified` BEFORE claiming an article is done.** Soft mode (no flags) is a text-only linter. Strict mode adds Your-Money YMYL checks (tax caveat, APR caveat, brand-defamation warn), a CSS regression check (`.article-content a` underline rule present), and a blocking browser-verification gate — you must have opened the article at `localhost:8080/articles/<slug>` and visually confirmed body links are underlined, FAQs expand, TOC works, hero image renders, and no cost drift. The audit is a FLOOR, not a ceiling.
 7. **After every article ships:** flip its status to `live` in `cluster_map.json` → run `python generate_link_plan.py` → commit cluster_map.json + regenerated CSVs + PROGRESS.md + the article + articles.html + author-gyanesh.html + sitemap.xml in one commit.
 
 **Out of scope (explicitly):** programmatic city × topic pages like "AC Repair in Houston" — too close to doorway/spam territory. Cities link to topical articles via the deterministic linker; topical articles link to climate-appropriate cities. No zone-specific article titles.
@@ -143,9 +143,9 @@ python generate_state_hubs.py                         # All states
 # Site-wide QC audit (all pages)
 python audit_script.py
 
-# Per-article pre-deploy audit (MANDATORY before claiming any article is done)
-python audit_article.py articles/<slug>.html          # Cluster article
-python audit_article.py articles/complete-ac-troubleshooting-guide.html   # Pillar
+# Per-article pre-deploy audit — STRICT mode is MANDATORY before committing
+python audit_article.py articles/<slug>.html                               # soft linter (dev use)
+python audit_article.py articles/<slug>.html --strict --browser-verified   # required pre-commit
 
 # Deterministic city link picker (diagnostic — shows which 4 cities an article will link to)
 python article_city_linker.py <slug> <cluster-id> 4   # e.g., ac-freezing-up-in-summer C1_ac 4
@@ -228,7 +228,7 @@ python serve.py                                       # http://localhost:8080
 - Do NOT include thermostats, screens, phones, or any UI display in image prompts — AI models botch them every time
 - Do NOT commit PNG/JPG hero images — convert to WebP 1280×720 quality 85 first, then delete the source
 - Do NOT use the word "licensed" when referring to technicians — we're a referral service and cannot guarantee any specific license; use "technician", "HVAC professional", "independent technician" instead
-- Do NOT claim an article is done without running `python audit_article.py articles/<slug>.html` — the audit catches every rule automatically
+- Do NOT claim an article is done without running `python audit_article.py articles/<slug>.html --strict --browser-verified` — soft mode is a text linter only; strict mode adds YMYL checks, CSS regression check, and a blocking browser-verification gate. The audit is a FLOOR, not a ceiling.
 - Do NOT write cluster articles before their cluster's pillar exists — pillars go first, then 3-4 cluster articles, per the plan's orphan-pillar avoidance rule
 - Do NOT hand-pick cities for article footer links — use `python article_city_linker.py <slug> <cluster> 4`, the deterministic hash-based picker that spreads equity across all 115 cities
 - Do NOT create programmatic city × topic pages (e.g., "AC Repair in Houston") — out of scope, thin-content spam risk

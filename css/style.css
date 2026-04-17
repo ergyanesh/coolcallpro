@@ -2130,6 +2130,20 @@ ul {
   color: var(--gray-900);
 }
 
+/* Body link affordance — WCAG 1.4.1 requires visible link distinction. */
+/* Applies to all anchors inside article prose. TOC (.toc a) and inline-styled */
+/* location links keep their specific styles because of higher specificity. */
+.article-content a {
+  color: var(--blue);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 1px;
+}
+.article-content a:hover,
+.article-content a:focus {
+  color: var(--orange);
+}
+
 .article-content .lead-img {
   width: 100%;
   border-radius: var(--radius);
