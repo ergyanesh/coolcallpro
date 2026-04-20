@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google tag (gtag.js) - GA4 — deferred until first interaction for LCP -->
+    <script>
+        (function() {
+            var loaded = false;
+            function loadGA() {
+                if (loaded) return;
+                loaded = true;
+                var s = document.createElement('script');
+                s.src = 'https://www.googletagmanager.com/gtag/js?id=G-WD0ND0K60Q';
+                s.async = true;
+                document.head.appendChild(s);
+                s.onload = function() {
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){dataLayer.push(arguments);}
+                    window.gtag = gtag;
+                    gtag('js', new Date());
+                    gtag('config', 'G-WD0ND0K60Q');
+                };
+            }
+            ['click', 'scroll', 'touchstart', 'keydown'].forEach(function(evt) {
+                window.addEventListener(evt, loadGA, { once: true, passive: true });
+            });
+            setTimeout(loadGA, 4000);
+        })();
+    </script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index, follow" />
+    <title>AC Not Cooling Below 80&deg;? Why It's Stuck | Cool Call Pro</title>
+    <meta name="description"
+        content="AC running but won't cool below 80&deg;? The 5 real causes — dirty filter, low refrigerant, dirty coils, weak compressor — and when to call a pro." />
+    <link rel="canonical" href="https://coolcallpro.com/articles/ac-not-cooling-below-80" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="AC Running but Not Cooling Below 80&deg;? The 5 Real Causes" />
+    <meta property="og:description"
+        content="AC running but won't cool below 80&deg;? The 5 real causes — dirty filter, low refrigerant, dirty coils, weak compressor — and when to call a pro." />
+    <meta property="og:url" content="https://coolcallpro.com/articles/ac-not-cooling-below-80" />
+    <meta property="og:site_name" content="Cool Call Pro" />
+    <meta property="article:author" content="Gyanesh Gulshan" />
+    <meta property="article:published_time" content="2026-04-20T00:00:00Z" />
+    <meta property="article:modified_time" content="2026-04-20T00:00:00Z" />
+    <meta property="og:image" content="https://coolcallpro.com/images/hvac_ac_not_cooling_below_80.webp" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="AC Not Cooling Below 80&deg;? Why It's Stuck | Cool Call Pro" />
+    <meta name="twitter:description" content="AC running but the house won't drop below 80&deg;? The 5 real causes and what to check before you call." />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+    <link rel="stylesheet" href="../css/style.min.css" />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/outfit-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+    <!-- Article Schema -->
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "AC Running but Not Cooling Below 80&deg;? The 5 Real Causes",
+    "description": "AC running but won't cool below 80&deg;? The 5 real causes — dirty filter, low refrigerant, dirty coils, weak compressor — and when to call a pro.",
+    "datePublished": "2026-04-20",
+    "dateModified": "2026-04-20",
+    "author": {
+        "@type": "Person",
+        "name": "Gyanesh Gulshan",
+        "url": "https://coolcallpro.com/author-gyanesh",
+        "image": "https://coolcallpro.com/images/author-gyane.webp",
+        "sameAs": ["https://www.linkedin.com/in/gyaneshgulshan/"]
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Cool Call Pro",
+        "url": "https://coolcallpro.com",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://coolcallpro.com/favicon.svg"
+        }
+    },
+    "image": "https://coolcallpro.com/images/hvac_ac_not_cooling_below_80.webp",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://coolcallpro.com/articles/ac-not-cooling-below-80"
+    },
+    "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [".tldr-box", ".faq-q", ".faq-a-inner"]
+    },
+    "about": [
+        {"@type": "Thing", "name": "Temperature split (delta-T)"},
+        {"@type": "Thing", "name": "Evaporator coil"},
+        {"@type": "Thing", "name": "R-410A refrigerant", "sameAs": "https://en.wikipedia.org/wiki/R-410A"},
+        {"@type": "Thing", "name": "AC compressor", "sameAs": "https://en.wikipedia.org/wiki/Vapor-compression_refrigeration"}
+    ]
+}
+    </script>
+    <!-- HowTo Schema: the safe homeowner DIY procedure -->
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to Diagnose an AC That Won't Cool Below 80 Degrees (Homeowner-Safe Steps)",
+    "description": "Four homeowner-safe checks to run before calling a technician when a residential AC is running but cannot cool the house below 80 degrees. None of these steps require opening an electrical panel or touching a refrigerant component.",
+    "totalTime": "PT30M",
+    "tool": [
+        {"@type": "HowToTool", "name": "Replacement air filter (same nominal size and MERV rating)"},
+        {"@type": "HowToTool", "name": "Garden hose (for outdoor condenser rinse)"},
+        {"@type": "HowToTool", "name": "Distilled white vinegar (for drain line flush)"}
+    ],
+    "step": [
+        {
+            "@type": "HowToStep",
+            "position": 1,
+            "name": "Replace the air filter",
+            "text": "Slide the old filter out, note the airflow direction arrow printed on the frame, and insert a new filter of the same nominal size and MERV rating. A dirty filter is the single most common cause of lost cooling capacity."
+        },
+        {
+            "@type": "HowToStep",
+            "position": 2,
+            "name": "Open every supply register and return grille",
+            "text": "Walk the house and open every supply register and return grille. Closed or blocked registers create pressure imbalances that starve the evaporator coil of airflow."
+        },
+        {
+            "@type": "HowToStep",
+            "position": 3,
+            "name": "Clear the outdoor condenser",
+            "text": "Pull grass, leaves, seed fluff, dryer lint, and stored items away from the outdoor unit. It needs at least 2 feet of clearance on every side for heat rejection. Rinse the outside of the coil fins gently with a garden hose from the inside out. Never pressure wash."
+        },
+        {
+            "@type": "HowToStep",
+            "position": 4,
+            "name": "Flush the condensate drain line",
+            "text": "Find the PVC drain line exiting the air handler, remove the cleanout cap, and pour a cup of distilled white vinegar down the line to kill algae. For active clogs, a wet-vac on the outdoor end of the line usually clears the blockage."
+        }
+    ]
+}
+    </script>
+    <!-- Breadcrumb Schema -->
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://coolcallpro.com/"
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Articles",
+            "item": "https://coolcallpro.com/articles"
+        },
+        {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "AC Running but Not Cooling Below 80&deg;? Why",
+            "item": "https://coolcallpro.com/articles/ac-not-cooling-below-80"
+        }
+    ]
+}
+    </script>
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "Why is my AC running but not cooling below 80 degrees?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A residential AC in good condition should deliver a 15 to 20 degree temperature split between return air and supply air. If your house is stuck at 80 degrees while the system runs non-stop, the coil is not pulling enough heat out of the air. The five causes, in order of frequency: a clogged air filter, a dirty or partially iced evaporator coil, low refrigerant charge from a leak, a failing compressor or capacitor, and an undersized system being pushed past its design conditions during a heat wave."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "How many degrees below the outdoor temperature should my AC be able to cool?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A correctly sized residential AC is typically designed to hold indoor temperature roughly 20 degrees below the outdoor temperature on a peak design day. If the outdoor temperature is 95 degrees and the set point is 72 degrees, the system will run long cycles but should eventually reach set point. On a 110 degree afternoon, the same system may only hold the house at 80 to 85 degrees — that is a design limit, not a malfunction. Chronically missing set point on moderate days (outdoor temp below 95 degrees) is a real problem and warrants diagnosis."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Is it dangerous if my house stays at 80 degrees when the AC is on?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Indoor temperatures above 80 degrees can be genuinely dangerous for infants, adults over 65, people with cardiovascular or respiratory conditions, pets, and anyone taking medications that affect thermoregulation. The CDC treats prolonged indoor heat exposure above 80 degrees with high humidity as a heat-illness risk. If you have vulnerable people in the home and the AC cannot keep up, move them to a cooler location (a neighbor, a public cooling center, a mall) while a technician diagnoses the system. Do not wait it out."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Should I turn off the AC if it cannot cool below 80 degrees?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes — for a short period — if the coil is visibly frosting, the outdoor unit is making an unusual noise, or the refrigerant line feels unusually hot. Running a struggling compressor for days damages it and can turn a $400 capacitor repair into a $2,200 compressor replacement. Turn the system off, switch the fan to ON to circulate air, and book a technician same day. If the house is just warm but nothing is visibly wrong, replace the filter first before shutting the system off — a new filter often restores cooling within a few hours."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Can a dirty air filter really keep my AC from cooling below 80 degrees?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, and it is the single most common cause. A clogged filter cuts the volume of warm indoor air reaching the evaporator coil. With less heat to absorb, the coil temperature drops, condensation on the coil turns to frost, and the frost layer then insulates the coil from what little airflow remains. The system runs continuously but delivers weak, lukewarm supply air. Most filters should be replaced every 60 to 90 days — monthly if you have pets or run the system in heavy dust. Hold the filter up to a light source; if no light passes through, it is overdue."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "How much does it cost to fix an AC that will not cool below 80 degrees?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "If the cause is a dirty filter or clogged drain line, the fix is $15 to $250 and often no service call. If a technician is needed, expect a diagnostic fee of $65 to $150, a capacitor replacement at $150 to $400, a refrigerant recharge (when the issue is a leak) at $150 to $600, blower motor replacement at $300 to $1,000, evaporator coil replacement at $600 to $2,000, or compressor replacement at $1,200 to $3,500. See our full HVAC Cost Guide for the complete 2026 pricing breakdown."
+            }
+        }
+    ]
+}
+    </script>
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <div class="topbar">
+        <div class="container topbar-inner" style="justify-content: center; padding: 10px; font-weight: 600;">
+            <span class="topbar-text">24/7 Referral Service — Connecting Homeowners with Independent HVAC Professionals</span>
+        </div>
+    </div>
+    <header class="header" id="header">
+        <nav class="nav container" role="navigation" aria-label="Main navigation">
+            <a href="../" class="logo"><span class="logo-icon">&#10052;&#65039;</span><span class="logo-text">CoolCall<span class="logo-accent">Pro</span></span></a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../articles" class="nav-link active">Articles</a></li>
+                <li><a href="../emergency" class="nav-link emergency-link">&#128680; Emergency</a></li>
+                <li><a href="../costs" class="nav-link">Cost Guide</a></li>
+                <li><a href="../safety" class="nav-link">Safety Tips</a></li>
+                <li><a href="../locations" class="nav-link">&#128205; Locations</a></li>
+                <li><a href="../about" class="nav-link">About</a></li>
+                <li><a href="../contact" class="nav-link">Contact</a></li>
+            </ul>
+            <a href="tel:+18445821795" class="btn btn-cta nav-cta btn-vibrate" id="headerNavCta"
+                aria-hidden="true" tabindex="-1"
+                style="opacity: 0; pointer-events: none; transition: opacity 0.3s ease;">
+                <span class="phone-icon">&#128222;</span>
+                <span class="hide-on-mobile">(844) 582-1795</span>
+            </a>
+            <button class="hamburger" id="hamburger" aria-label="Menu">&#9776;</button>
+        </nav>
+    </header>
+
+    <main id="main-content">
+
+        <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+            <div class="container">
+                <ol class="breadcrumb-list">
+                    <li><a href="../">Home</a></li>
+                    <li><a href="../articles">Articles</a></li>
+                    <li>AC Running but Not Cooling Below 80&deg;? Why</li>
+                </ol>
+            </div>
+        </nav>
+
+        <div class="page-hero">
+            <div class="container">
+                <span class="article-tag tag-emergency" style="display:inline-block; margin-bottom:16px;">&#128680; Emergency Guide</span>
+                <h1>AC Running but Not Cooling Below 80&deg;? The 5 Real Causes</h1>
+                <p class="article-disclaimer">For informational purposes only — always consult a qualified HVAC professional for your specific situation.</p>
+                <div class="article-meta-modern"><div class="meta-line meta-published">Published <time datetime="2026-04-20">April 20, 2026</time></div></div>
+                <div class="author-byline">
+                    <img src="../images/author-gyane.webp" alt="Gyanesh Gulshan" class="author-avatar-sm" loading="lazy" width="48" height="48" />
+                    <span>By <a href="../author-gyanesh">Gyanesh Gulshan</a> &mdash; Founder, Cool Call Pro</span>
+                </div>
+            </div>
+        </div>
+
+        <section class="section">
+            <div class="container">
+                <div class="article-layout">
+                    <article class="article-content">
+                        <img src="../images/hvac_ac_not_cooling_below_80.webp" alt="Residential outdoor AC condenser unit running in heavy afternoon sun beside a suburban home, with visible heat haze rising from the unit and a homeowner's hand held up to a supply register inside feeling weak, lukewarm airflow" class="lead-img" fetchpriority="high" width="1280" height="720" />
+
+                        <p class="article-disclosure"><a href="../advertising-disclosure">Advertising Disclosure</a>: This site may receive compensation for service connections made through this page. Content is editorially independent.</p>
+
+                        <div class="callout-box callout-danger" style="margin-top: 24px;">
+                            <div class="callout-icon">&#9888;&#65039;</div>
+                            <div class="callout-text">
+                                <strong>HVAC systems involve high-voltage electricity, natural gas, and pressurized refrigerant. Always let a qualified HVAC technician handle diagnosis and repairs.</strong>
+                            </div>
+                        </div>
+
+                        <div class="tldr-box">
+                            <div class="tldr-label">The 30-Second Fix</div>
+                            <p>Your AC is running non-stop but the thermostat is stuck at 80&deg;. First: replace the filter, open every supply register, and clear leaves and grass off the outdoor condenser. Check for ice on the large copper refrigerant line or the indoor coil — if you see any, turn the system <strong>OFF</strong>, switch the fan to <strong>ON</strong>, and call a technician. If there is no ice but supply air still feels weak after the filter swap, the most likely causes are a failing dual-run capacitor ($150&ndash;$400 to replace) or a refrigerant leak that needs EPA-certified repair. Do not keep running a struggling system for days — a stressed compressor costs $1,200 to $3,500 to replace.</p>
+                        </div>
+
+                        <div class="callout-box callout-danger">
+                            <div class="callout-icon">&#9888;&#65039;</div>
+                            <div class="callout-text">
+                                <strong>Safety Warning: Kill the Power Before Inspecting Anything Electrical</strong>
+                                <p>Before you open any access panel on the indoor air handler or the outdoor condenser, <strong>switch the AC off at the thermostat AND flip the breakers</strong> for the indoor air handler and the outdoor unit at your electrical panel. Residential AC runs on 240 volts, and the dual-run capacitor inside the outdoor unit holds a dangerous charge for minutes after power is cut. If you are not comfortable around electrical components, skip the internal inspection entirely and call a technician. No DIY check is worth an injury.</p>
+                            </div>
+                        </div>
+
+                        <h2>The 20-Degree Rule: What "Cooling" Actually Means</h2>
+
+                        <p>A residential AC does not have a magic "keep my house at 72&deg;" button. What it actually does is remove a fixed amount of heat from indoor air every hour. That performance is measured by the <strong>temperature split</strong> — the difference between the warm return air going into the coil and the cold supply air coming out. A healthy system delivers a 15 to 20 degree split. If your return air is 80&deg; and your supply air is 62&deg;, the split is 18&deg; and the system is working correctly. It just cannot keep up with the heat coming in through the walls, roof, and windows.</p>
+
+                        <p>Here is the practical implication: on a 110&deg; afternoon in <a href="../locations/brownsville-tx">Brownsville</a> or <a href="../locations/los-angeles-ca">Los Angeles</a> during a heat wave, a correctly sized system may only hold the house at 80&deg; to 85&deg;. That is a design limit, not a broken AC. But if the house is stuck at 80&deg; on a 90&deg; day — or if the supply air feels only slightly cool — the system is genuinely failing to cool, and one of the five causes below applies.</p>
+
+                        <p>How to check your own temperature split in two minutes: hold a meat thermometer or an instant-read thermometer in the airflow at a supply register for 60 seconds, then at the return grille. If the difference is less than 15&deg;, you have a real problem. If the difference is 15&deg; or more and the house is still hot, the system is undersized for the current load.</p>
+
+                        <h2>The 5 Root Causes of an AC That Won't Cool Below 80&deg;</h2>
+
+                        <p>Every cause traces back to one of three underlying problems: <strong>airflow is too low</strong>, <strong>refrigerant charge or mechanical capacity is too low</strong>, or <strong>the heat load is too high for the system's design</strong>. Here they are in order of frequency.</p>
+
+                        <h3>1. Clogged Air Filter (Most Common)</h3>
+                        <p>A dirty filter cuts the volume of warm indoor air reaching the evaporator coil. With less heat arriving at the coil, the refrigerant cannot transfer enough heat out of the house, and the supply air temperature rises. In severe cases the coil drops below 32&deg; and frost forms, which then insulates the coil further — a feedback loop that ends in a complete ice-over. The fix is a $15 to $35 filter. Hold the old filter up to a bright light; if no light comes through, it is overdue. Replace every 60 to 90 days, monthly if you have shedding pets or a high-dust environment.</p>
+
+                        <h3>2. Dirty or Partially Frozen Evaporator Coil</h3>
+                        <p>Years of dust and biofilm on the indoor coil insulate it from the air passing across it. The surface gets too cold for the ambient humidity, and moisture condenses — then freezes. A partial ice layer looks subtle from the outside but cripples cooling capacity. If you suspect ice, see our guide on <a href="ac-freezing-up-in-summer">AC freezing up in summer</a> for the safe thaw procedure. Coil cleaning itself requires access to the sealed air handler and specialized coil cleaner, and is a technician task — not a DIY fix with a garden hose.</p>
+
+                        <h3>3. Low Refrigerant Charge (a Leak)</h3>
+                        <p>Refrigerant is not consumed in normal operation. A sealed residential AC holds its R-410A charge for the life of the equipment. If the charge is low, <strong>there is a leak</strong>. Low charge drops the evaporator pressure and temperature, cutting cooling capacity dramatically — supply air feels only slightly cool, and the house never reaches set point. Under <a href="https://www.epa.gov/section608" target="_blank" rel="noopener noreferrer">EPA Section 608</a>, only a certified technician can legally handle refrigerant. Any technician who tops off refrigerant without searching for and fixing the leak is applying a temporary patch that will fail again within weeks. For a deeper walkthrough of the symptom pattern that often shows up alongside low charge, see our guide on <a href="why-is-my-ac-blowing-warm-air">AC blowing warm air while running</a>.</p>
+
+                        <h3>4. Failing Compressor, Capacitor, or Contactor</h3>
+                        <p>The outdoor unit does the actual work of compressing refrigerant and rejecting heat to the outside air. If the dual-run capacitor is weak, the compressor and outdoor fan motor draw extra current, run hot, and lose efficiency — cooling capacity drops even though the system sounds like it is running normally. A failing compressor makes a more dramatic noise (a loud humming or buzzing without the fan spinning up) covered in our guide on <a href="ac-compressor-buzzing-fan-not-spinning">AC compressor buzzing, fan not spinning</a>. A burnt contactor causes intermittent operation that can look like partial cooling. All three are technician-replaceable components, in the $150 to $3,500 range depending on which part failed.</p>
+
+                        <h3>5. Undersized System or Extreme Outdoor Heat</h3>
+                        <p>If the house was resized (a finished basement, an addition, new large windows) after the original AC was installed, the system may simply be too small for the current load. Same story during a genuine heat wave that exceeds local design temperature. In hot-humid <a href="../locations/baton-rouge-la">Baton Rouge</a> and coastal Louisiana, the design day is about 93&deg; — the AC is sized for that, not for a 105&deg; July afternoon. In mixed-humid <a href="../locations/richmond-va">Richmond</a>, design day is around 92&deg;, and shoulder-season humidity spikes can push a healthy system past its capacity. If your AC holds the house at setpoint on 90&deg; days but drifts to 80&deg; on 100&deg;+ days, the system is working correctly and the fix is load reduction (insulation, shade, window film) rather than a new AC.</p>
+
+                        <!-- CTA 1 -->
+                        <div class="callout-box"
+                            style="background: var(--gray-900); color: white; border: none; padding: 24px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.15); display: flex; flex-direction: column; align-items: center; text-align: center; margin: 32px 0;">
+                            <div
+                                style="font-size: 1.25rem; font-weight: 700; font-family: var(--font-display); margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+                                <span>&#128680;</span> Need a Pro Right Now?
+                            </div>
+                            <p style="color: rgba(255,255,255,0.8); margin-bottom: 20px; font-size: 0.95rem;">
+                                Get connected with a technician in your ZIP code.
+                            </p>
+                            <a href="tel:+18445821795" class="btn btn-primary btn-lg btn-vibrate"><span class="phone-icon">&#128222;</span> Call Now — (844) 582-1795</a>
+                            <p style="color: rgba(255,255,255,0.6); font-size: 0.72rem; margin-top: 12px; max-width: 340px; line-height: 1.5;">Disclosure: We are a referral service and may receive compensation for qualified calls. Calls may be routed to an independent provider network and may be recorded. Pricing and availability vary by provider and location.</p>
+                        </div>
+
+                        <h2>What You Can Safely Check Yourself</h2>
+
+                        <p>These four checks are all safe for a homeowner and together resolve roughly half of "stuck at 80&deg;" calls before a technician is ever dispatched. None of them require opening an electrical panel or touching a refrigerant component.</p>
+
+                        <ol>
+                            <li><strong>Replace the air filter.</strong> Slide the old filter out, note the direction of the airflow arrow printed on the frame, and insert a new filter of the same nominal size and MERV rating. If you have not done this in more than 90 days, this is step one — nothing else matters until the filter is fresh.</li>
+                            <li><strong>Open every supply register and return grille in the house.</strong> Closed or blocked registers create pressure imbalances that starve the coil. A common failure mode: a kid's bedroom has a closed register, it creates a pressure bias, and the rest of the house pays for it in lost capacity.</li>
+                            <li><strong>Clear the outdoor condenser.</strong> Pull grass, leaves, seed fluff, dryer lint, and stored items away from the outdoor unit. It needs at least 2 feet of open space on every side for heat rejection. A choked condenser dumps heat back into itself and loses significant capacity in minutes. While you are there, rinse the outside of the coil fins gently with a garden hose from the inside out (never pressure wash).</li>
+                            <li><strong>Flush the condensate drain line.</strong> A clogged drain can trigger a float-switch shutdown that presents as intermittent cooling. Find the PVC drain line exiting the air handler, remove the cleanout cap, and pour a cup of distilled white vinegar down the line to kill algae. For active clogs, a wet-vac on the outdoor end of the line usually clears the blockage.</li>
+                        </ol>
+
+                        <p>That is the complete safe DIY list. Anything beyond this — checking refrigerant pressure, cleaning the indoor coil, testing the capacitor, opening the outdoor disconnect, working inside the outdoor unit — is a technician task. The most expensive mistake homeowners make at this stage is to keep the system running for days hoping it will catch up. A stressed compressor running against low refrigerant or a weak capacitor wears out fast, and that $400 capacitor call becomes a $2,200 compressor replacement.</p>
+
+                        <h2>When to Stop and Call a Technician</h2>
+
+                        <p>Stop DIY and call a professional when any of these conditions are true:</p>
+
+                        <ul>
+                            <li>Supply air still feels weak or lukewarm <strong>after a new filter and open registers</strong>.</li>
+                            <li>You see <strong>frost or ice on the large copper refrigerant line</strong> coming out of the outdoor unit, or on the indoor coil.</li>
+                            <li>The outdoor unit <strong>makes an unusual noise</strong> — a loud hum without the fan spinning, a high-pitched whine, or a rhythmic clicking every 30 seconds.</li>
+                            <li>You see <strong>oily residue</strong> on or near any copper line joint, inside the air handler, or at the outdoor unit. Refrigerant oil follows a leak.</li>
+                            <li>The temperature split at the register is <strong>less than 15 degrees</strong> below the return air.</li>
+                            <li>The outdoor unit <strong>trips the breaker</strong> when it tries to start, or <strong>short-cycles</strong> (kicks on and off every few minutes).</li>
+                            <li>The system is <strong>older than 12 years</strong> and is losing capacity for the second or third summer in a row.</li>
+                            <li>You have <strong>infants, elderly family members, or anyone with a heart or lung condition</strong> in the house and indoor temperature is above 80&deg;. Do not wait it out — relocate vulnerable people to a cooler space while you book a service call.</li>
+                        </ul>
+
+                        <p>For the full map of every AC failure mode and how they interconnect, see our <a href="complete-ac-troubleshooting-guide">complete AC troubleshooting guide</a>. If you are weighing whether to pay for repair or start shopping for a replacement, read our <a href="2026-hvac-cost-guide">honest 2026 HVAC cost guide</a> first — the numbers there tell the story.</p>
+
+                        <h2>What a Technician Will Actually Check</h2>
+
+                        <p>Knowing what a thorough diagnosis looks like helps you tell a careful technician apart from a hurried upsell.</p>
+
+                        <ul>
+                            <li><strong>Temperature split measurement.</strong> A probe thermometer in the supply and return air. Less than 15&deg; points to airflow or refrigerant problems; 15 to 20&deg; with a warm house points to undersizing or heavy load.</li>
+                            <li><strong>Refrigerant pressure readings.</strong> Gauges on the high-side and low-side service ports. Abnormal readings isolate the fault to leak, blockage, or metering device failure.</li>
+                            <li><strong>Superheat and subcooling measurements.</strong> These are the two numbers that actually confirm whether refrigerant charge is correct, rather than simply "adding refrigerant until the supply feels colder."</li>
+                            <li><strong>Capacitor microfarad test.</strong> A multimeter reads the capacitance of the dual-run capacitor. A capacitor reading more than 10% below its rated value is a hidden efficiency drain and a common cause of weak cooling.</li>
+                            <li><strong>Compressor amp draw.</strong> A clamp meter on the compressor leads shows whether it is drawing rated amps, elevated amps (mechanical wear), or locked-rotor amps (seized).</li>
+                            <li><strong>Static pressure test of the duct system.</strong> A manometer at the supply and return plenums tells whether the duct system is choking the blower. A common culprit the homeowner never sees.</li>
+                            <li><strong>Evaporator coil inspection.</strong> Visible dust and biofilm, fin bending from prior cleaning attempts, condensate pan condition.</li>
+                        </ul>
+
+                        <p>A technician who jumps straight to "you need a new compressor" or "you need a full system replacement" without showing you gauge readings, multimeter numbers, and a temperature split is waving a red flag. Ask to see the measurements. The data should match the diagnosis.</p>
+
+                        <h2>What Repairs Cost in 2026</h2>
+
+                        <p>Pricing on this site is anchored to our <a href="../costs">complete 2026 HVAC Cost Guide</a>, which is the single source of truth for every cost figure — no drift between articles.</p>
+
+                        <ul>
+                            <li><strong>Diagnostic / service call:</strong> $65&ndash;$150 (often credited toward the repair if approved)</li>
+                            <li><strong>Capacitor replacement:</strong> $150&ndash;$400</li>
+                            <li><strong>Contactor replacement:</strong> $100&ndash;$300</li>
+                            <li><strong>Refrigerant recharge (R-410A):</strong> $150&ndash;$600</li>
+                            <li><strong>Blower motor replacement:</strong> $300&ndash;$1,000</li>
+                            <li><strong>Evaporator coil replacement:</strong> $600&ndash;$2,000</li>
+                            <li><strong>Compressor replacement:</strong> $1,200&ndash;$3,500</li>
+                            <li><strong>Emergency / after-hours surcharge:</strong> $100&ndash;$300 added</li>
+                        </ul>
+
+                        <p style="color: var(--gray-600); font-size: 0.85rem; margin-top: 8px;">Estimated ranges based on publicly available industry data and in sync with our <a href="../costs">complete cost guide</a>. Actual costs vary by region, provider, and system.</p>
+
+                        <h2>Climate Matters: Where This Problem Shows Up Most</h2>
+
+                        <p><strong>Hot-humid climates (Baton Rouge, Brownsville, the Gulf Coast):</strong> The combination of high design temperatures and high humidity means a small drop in capacity shows up fast. A marginal system that held 72&deg; in 2024 may only hold 78&deg; in 2026 after a quiet refrigerant leak. Annual capacitor testing and refrigerant charge verification pay for themselves here.</p>
+
+                        <p><strong>Hot-dry climates (Los Angeles, Phoenix, Las Vegas):</strong> Outdoor temperatures during summer heat waves can exceed local design temperature by 10 to 15 degrees. Expect a healthy AC to hold the house only 20&deg; below outdoor on peak afternoons. The hidden failure here is dust-choked condenser coils — a simple rinse with a garden hose every spring restores significant capacity.</p>
+
+                        <p><strong>Mixed-humid climates (Richmond, Charlotte, Atlanta):</strong> The trickiest pattern — the AC runs fine all May, then stumbles during the first genuine heat wave in July. This almost always points to a marginal refrigerant charge or a weak capacitor that only shows up under load. Browse local service providers in <a href="../locations/louisiana">Louisiana</a>, <a href="../locations/texas">Texas</a>, or explore <a href="../locations">all service areas</a>.</p>
+
+                        <h3>Trusted Industry Sources</h3>
+                        <p>The guidance in this article is consistent with published recommendations from:</p>
+                        <ul>
+                            <li><a href="https://www.energy.gov/energysaver/central-air-conditioning" target="_blank" rel="noopener noreferrer">U.S. Department of Energy — Central Air Conditioning</a></li>
+                            <li><a href="https://www.epa.gov/section608" target="_blank" rel="noopener noreferrer">EPA Section 608 Refrigerant Handling Regulations</a></li>
+                            <li><a href="https://www.cdc.gov/disasters/extremeheat/warning.html" target="_blank" rel="noopener noreferrer">CDC — Warning Signs and Symptoms of Heat-Related Illness</a></li>
+                            <li><a href="https://www.energystar.gov/products/heating_cooling" target="_blank" rel="noopener noreferrer">ENERGY STAR Heating &amp; Cooling</a></li>
+                        </ul>
+
+                        <!-- CTA 2 -->
+                        <div class="callout-box"
+                            style="background: var(--gray-900); color: white; border: none; padding: 24px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.15); display: flex; flex-direction: column; align-items: center; text-align: center; margin: 32px 0;">
+                            <div
+                                style="font-size: 1.25rem; font-weight: 700; font-family: var(--font-display); margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+                                <span>&#128680;</span> Still Need Help?
+                            </div>
+                            <p style="color: rgba(255,255,255,0.8); margin-bottom: 20px; font-size: 0.95rem;">
+                                Don't wait — get a technician dispatched to your area.
+                            </p>
+                            <a href="tel:+18445821795" class="btn btn-primary btn-lg btn-vibrate"><span class="phone-icon">&#128222;</span> Call Now — (844) 582-1795</a>
+                            <p style="color: rgba(255,255,255,0.6); font-size: 0.72rem; margin-top: 12px; max-width: 340px; line-height: 1.5;">Disclosure: We are a referral service and may receive compensation for qualified calls. Calls may be routed to an independent provider network and may be recorded. Pricing and availability vary by provider and location.</p>
+                        </div>
+
+                        <h2 id="faqs">Frequently Asked Questions</h2>
+
+                        <div class="faq-item">
+                            <button class="faq-q" aria-expanded="false" aria-controls="faq-ac-not-cooling-below-80-1"><span>Why is my AC running but not cooling below 80 degrees?</span><span class="faq-icon"></span></button>
+                            <div class="faq-a" id="faq-ac-not-cooling-below-80-1"><div class="faq-a-inner">
+                                <p>A residential AC in good condition should deliver a 15 to 20 degree temperature split between return air and supply air. If your house is stuck at 80&deg; while the system runs non-stop, the coil is not pulling enough heat out of the air. The five causes, in order of frequency: a clogged air filter, a dirty or partially iced evaporator coil, low refrigerant charge from a leak, a failing compressor or capacitor, and an undersized system being pushed past its design conditions during a heat wave.</p>
+                            </div></div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-q" aria-expanded="false" aria-controls="faq-ac-not-cooling-below-80-2"><span>How many degrees below the outdoor temperature should my AC be able to cool?</span><span class="faq-icon"></span></button>
+                            <div class="faq-a" id="faq-ac-not-cooling-below-80-2"><div class="faq-a-inner">
+                                <p>A correctly sized residential AC is typically designed to hold indoor temperature roughly 20&deg; below the outdoor temperature on a peak design day. If the outdoor temperature is 95&deg; and the set point is 72&deg;, the system will run long cycles but should eventually reach set point. On a 110&deg; afternoon, the same system may only hold the house at 80&deg; to 85&deg; &mdash; that is a design limit, not a malfunction. Chronically missing set point on moderate days (outdoor temp below 95&deg;) is a real problem and warrants diagnosis.</p>
+                            </div></div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-q" aria-expanded="false" aria-controls="faq-ac-not-cooling-below-80-3"><span>Is it dangerous if my house stays at 80 degrees when the AC is on?</span><span class="faq-icon"></span></button>
+                            <div class="faq-a" id="faq-ac-not-cooling-below-80-3"><div class="faq-a-inner">
+                                <p>Indoor temperatures above 80&deg; can be genuinely dangerous for infants, adults over 65, people with cardiovascular or respiratory conditions, pets, and anyone taking medications that affect thermoregulation. The CDC treats prolonged indoor heat exposure above 80&deg; with high humidity as a heat-illness risk. If you have vulnerable people in the home and the AC cannot keep up, move them to a cooler location (a neighbor, a public cooling center, a mall) while a technician diagnoses the system. Do not wait it out.</p>
+                            </div></div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-q" aria-expanded="false" aria-controls="faq-ac-not-cooling-below-80-4"><span>Should I turn off the AC if it cannot cool below 80 degrees?</span><span class="faq-icon"></span></button>
+                            <div class="faq-a" id="faq-ac-not-cooling-below-80-4"><div class="faq-a-inner">
+                                <p>Yes &mdash; for a short period &mdash; if the coil is visibly frosting, the outdoor unit is making an unusual noise, or the refrigerant line feels unusually hot. Running a struggling compressor for days damages it and can turn a $400 capacitor repair into a $2,200 compressor replacement. Turn the system off, switch the fan to ON to circulate air, and book a technician same day. If the house is just warm but nothing is visibly wrong, replace the filter first before shutting the system off &mdash; a new filter often restores cooling within a few hours.</p>
+                            </div></div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-q" aria-expanded="false" aria-controls="faq-ac-not-cooling-below-80-5"><span>Can a dirty air filter really keep my AC from cooling below 80 degrees?</span><span class="faq-icon"></span></button>
+                            <div class="faq-a" id="faq-ac-not-cooling-below-80-5"><div class="faq-a-inner">
+                                <p>Yes, and it is the single most common cause. A clogged filter cuts the volume of warm indoor air reaching the evaporator coil. With less heat to absorb, the coil temperature drops, condensation on the coil turns to frost, and the frost layer then insulates the coil from what little airflow remains. The system runs continuously but delivers weak, lukewarm supply air. Most filters should be replaced every 60 to 90 days &mdash; monthly if you have pets or run the system in heavy dust. Hold the filter up to a light source; if no light passes through, it is overdue.</p>
+                            </div></div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-q" aria-expanded="false" aria-controls="faq-ac-not-cooling-below-80-6"><span>How much does it cost to fix an AC that will not cool below 80 degrees?</span><span class="faq-icon"></span></button>
+                            <div class="faq-a" id="faq-ac-not-cooling-below-80-6"><div class="faq-a-inner">
+                                <p>If the cause is a dirty filter or clogged drain line, the fix is $15 to $250 and often no service call. If a technician is needed, expect a diagnostic fee of $65 to $150, a capacitor replacement at $150 to $400, a refrigerant recharge (when the issue is a leak) at $150 to $600, blower motor replacement at $300 to $1,000, evaporator coil replacement at $600 to $2,000, or compressor replacement at $1,200 to $3,500. See our full HVAC Cost Guide for the complete 2026 pricing breakdown.</p>
+                            </div></div>
+                        </div>
+
+                        <h3>Local HVAC Service Areas</h3>
+                        <p>Cool Call Pro connects homeowners with independent HVAC technicians nationwide. Find a pro in <a href="../locations/baton-rouge-la" style="color: var(--orange-dark); font-weight: 600;">Baton Rouge (LA)</a>, <a href="../locations/brownsville-tx" style="color: var(--orange-dark); font-weight: 600;">Brownsville (TX)</a>, <a href="../locations/los-angeles-ca" style="color: var(--orange-dark); font-weight: 600;">Los Angeles (CA)</a>, or <a href="../locations/richmond-va" style="color: var(--orange-dark); font-weight: 600;">Richmond (VA)</a>, or browse by state: <a href="../locations/louisiana" style="color: var(--orange-dark); font-weight: 600;">Louisiana</a>, <a href="../locations/texas" style="color: var(--orange-dark); font-weight: 600;">Texas</a>, or <a href="../locations" style="color: var(--orange-dark); font-weight: 600;">all locations</a>.</p>
+
+                    </article>
+
+                    <aside class="article-sidebar">
+                        <div class="sidebar-widget">
+                            <h4>&#128205; Find a Pro Near You</h4>
+                            <ul>
+                                <li><a href="../locations/baton-rouge-la" style="color: var(--orange-dark); font-weight: 600;">Baton Rouge (LA)</a></li>
+                                <li><a href="../locations/brownsville-tx" style="color: var(--orange-dark); font-weight: 600;">Brownsville (TX)</a></li>
+                                <li><a href="../locations/los-angeles-ca" style="color: var(--orange-dark); font-weight: 600;">Los Angeles (CA)</a></li>
+                                <li><a href="../locations/richmond-va" style="color: var(--orange-dark); font-weight: 600;">Richmond (VA)</a></li>
+                                <li><a href="../locations/louisiana" style="color: var(--orange-dark); font-weight: 600;">All Louisiana Cities</a></li>
+                                <li><a href="../locations/texas" style="color: var(--orange-dark); font-weight: 600;">All Texas Cities</a></li>
+                                <li><a href="../locations" style="font-weight: 600;">All Locations &rarr;</a></li>
+                            </ul>
+                        </div>
+                        <div class="sidebar-widget">
+                            <h4>&#128218; Related Guides</h4>
+                            <ul>
+                                <li><a href="complete-ac-troubleshooting-guide">AC Troubleshooting Guide</a></li>
+                                <li><a href="ac-freezing-up-in-summer">AC Freezing Up in Summer</a></li>
+                                <li><a href="why-is-my-ac-blowing-warm-air">AC Blowing Warm Air</a></li>
+                                <li><a href="ac-compressor-buzzing-fan-not-spinning">Compressor Buzzing, Fan Not Spinning</a></li>
+                                <li><a href="2026-hvac-cost-guide">2026 HVAC Cost Guide</a></li>
+                                <li><a href="../article-ac-summer">Broken AC in July?</a></li>
+                            </ul>
+                        </div>
+                    </aside>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Brand -->
+                <div class="footer-brand">
+                    <a href="../" class="logo"><span class="logo-icon">&#10052;&#65039;</span><span class="logo-text">CoolCall<span class="logo-accent">Pro</span></span></a>
+                    <p>Connecting homeowners with independent HVAC professionals across the US. Available 24/7 in many areas.</p>
+                    <div class="footer-contact">
+                        <a href="tel:+18445821795" class="footer-phone">(844) 582-1795</a>
+                        <span>24/7 Service Line</span>
+                    </div>
+                </div>
+                <!-- Resources -->
+                <div class="footer-col">
+                    <h3 class="footer-heading">Resources</h3>
+                    <ul>
+                        <li><a href="../costs">Cost Guide</a></li>
+                        <li><a href="../emergency">Emergency Service</a></li>
+                        <li><a href="../safety">Safety Tips</a></li>
+                        <li><a href="../articles">All Articles</a></li>
+                        <li><a href="../locations">Locations</a></li>
+                    </ul>
+                </div>
+                <!-- Company -->
+                <div class="footer-col">
+                    <h3 class="footer-heading">Company</h3>
+                    <ul>
+                        <li><a href="../about">About Us</a></li>
+                        <li><a href="../contact">Contact</a></li>
+                        <li><a href="../author-gyanesh">Author</a></li>
+                        <li><a href="../privacy">Privacy Policy</a></li>
+                        <li><a href="../advertising-disclosure">Advertising Disclosure</a></li>
+                    </ul>
+                </div>
+                <!-- Service Areas -->
+                <div class="footer-col">
+                    <h3 class="footer-heading">Service Areas</h3>
+                    <ul class="service-areas">
+                        <li><a href="../locations/atlanta-ga">Atlanta, GA</a></li>
+                        <li><a href="../locations/chicago-il">Chicago, IL</a></li>
+                        <li><a href="../locations/dallas-tx">Dallas, TX</a></li>
+                        <li><a href="../locations/houston-tx">Houston, TX</a></li>
+                        <li><a href="../locations/phoenix-az">Phoenix, AZ</a></li>
+                        <li><a href="../locations">All 50 states &#8594;</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Legal Disclosure + Bottom Bar -->
+            <div class="footer-bottom">
+                <p><strong style="color: rgba(255,255,255,0.9);">How this site works:</strong> We publish HVAC cost and troubleshooting information and may connect callers to independent service providers. We do not perform HVAC services ourselves. Pricing, availability, and response times vary by provider and location.</p>
+                <p><strong style="color: rgba(255,255,255,0.9);">Editorial standards:</strong> Our content focuses on helpful troubleshooting tips and realistic pricing information. We avoid guarantees; actual pricing depends on the provider and situation. We clearly disclose compensation for referrals. We update content for clarity and accuracy when needed.</p>
+                <p><strong style="color: rgba(255,255,255,0.9);">Disclaimer:</strong> Cool Call Pro is a free service to assist homeowners in connecting with local service providers. All contractors/providers are independent and Cool Call Pro does not warrant or guarantee any work performed. It is the responsibility of the homeowner to verify that the hired contractor furnishes the necessary license and insurance required for the work being performed. All persons depicted in a photo or video are actors or models and not contractors listed on Cool Call Pro.</p>
+                <p>&copy; <span class="copyright-year">2026</span> Cool Call Pro. All rights reserved. &nbsp;&middot;&nbsp; <a href="../privacy">Privacy Policy</a> &nbsp;&middot;&nbsp; <a href="../terms">Terms of Use</a> &nbsp;&middot;&nbsp; <a href="../disclaimer">Disclaimer</a> &nbsp;&middot;&nbsp; <a href="../advertising-disclosure">Advertising Disclosure</a></p>
+            </div>
+        </div>
+    </footer>
+    <script>document.querySelectorAll('.copyright-year').forEach(function(el){el.textContent=new Date().getFullYear()});</script>
+
+    <script src="../js/main.min.js" defer></script>
+</body>
+
+</html>
