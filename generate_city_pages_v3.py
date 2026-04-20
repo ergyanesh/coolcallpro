@@ -814,7 +814,6 @@ def generate_page(c, climate_type, nearby, absorbed_data, all_cities_lookup, sta
     pop_str = f"{pop:,}"
     neighborhoods = c['neighborhoods']
     zips = c['zips']
-    first_zip = zips.split(",")[0].strip()
     ac_cost = c['ac_cost']
     furnace_cost = c['furnace_cost']
     permit = c['permit']
@@ -839,15 +838,18 @@ def generate_page(c, climate_type, nearby, absorbed_data, all_cities_lookup, sta
     e_license = escape(license_req)
     e_climate = escape(climate_zone)
 
-    # Title (max 60 chars) — climate-aware
+    # Title (max 60 chars — Google truncates beyond this) — climate-aware
+    # len check unescapes &amp; so it counts as 1 char (matches audit_page.py)
     title_svc = profile['title_service']
     title_text = f"24/7 {title_svc} in {e_city}, {e_st} | Cool Call Pro"
-    if len(title_text.replace("&amp;", "&")) > 65:
+    if len(title_text.replace("&amp;", "&")) > 60:
         title_text = f"HVAC Repair in {e_city}, {e_st} | Cool Call Pro"
 
-    # Meta description (max 155 chars) — climate-adapted lead keyword
+    # Meta description (max 155 chars — Google truncates beyond this).
+    # Template chosen so worst-case inputs still fit: longest meta_svc (~50 chars)
+    # + longest city (~20 chars) + 2-char state abbr + 68-char fixed = ~140 chars.
     meta_svc = profile['meta_desc_service']
-    meta_desc = f"Need {meta_svc} in {e_city}, {e_state}? Cool Call Pro connects you with 24/7 technicians near {first_zip}. Call (844) 582-1795."
+    meta_desc = f"Need {meta_svc} in {e_city}, {e_st}? Cool Call Pro connects you 24/7. Call (844) 582-1795."
 
     # Climate H2 and paragraph
     climate_h2, climate_para = climate_h2_and_paragraph(c, climate_type)

@@ -540,14 +540,14 @@ def generate_html(d, city_list, hub_abbrs, all_states):
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HVAC Service &amp; Repair in {name} | Cool Call Pro</title>
+  <title>HVAC Repair in {name} | Cool Call Pro</title>
   <meta name="description"
-    content="Looking for HVAC contractors in {name}? Cool Call Pro connects homeowners with 24/7 {state_profile['meta_service']} across {name}. Call (844) 582-1795." />
+    content="HVAC in {name}? Cool Call Pro connects homeowners with 24/7 {state_profile['meta_service']}. Call (844) 582-1795." />
   <link rel="canonical" href="https://coolcallpro.com/locations/{s}" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="HVAC Service &amp; Repair in {name} | Cool Call Pro" />
+  <meta property="og:title" content="HVAC Repair in {name} | Cool Call Pro" />
   <meta property="og:description" content="Connect with independent HVAC professionals across {name}. {state_profile['og_service']}" />
   <meta property="og:url" content="https://coolcallpro.com/locations/{s}" />
   <meta property="og:site_name" content="Cool Call Pro" />
@@ -555,7 +555,7 @@ def generate_html(d, city_list, hub_abbrs, all_states):
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="HVAC Service &amp; Repair in {name}" />
+  <meta name="twitter:title" content="HVAC Repair in {name}" />
   <meta name="twitter:description" content="Connect with independent HVAC professionals across {name}." />
   <meta name="twitter:image" content="https://coolcallpro.com/images/og-homepage.webp" />
 

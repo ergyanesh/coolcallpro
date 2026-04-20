@@ -51,6 +51,10 @@ def find_html_pages(root: Path):
             continue
         if p.name in skip_files:
             continue
+        # Convention: underscore-prefixed HTML files are dev previews / partials,
+        # not production pages (e.g. images/_preview.html). Skip the audit.
+        if p.name.startswith("_"):
+            continue
         pages.append(p)
     return sorted(pages)
 
