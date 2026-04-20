@@ -393,13 +393,16 @@ def main():
         sys.exit(2)
 
     path = args[0]
-    strict = "--strict" in args
-    browser_verified = "--browser-verified" in args
+    ci_mode = "--ci" in args
+    strict = "--strict" in args or ci_mode
+    browser_verified = "--browser-verified" in args or ci_mode
 
     # Blocking gate: strict mode requires explicit browser-verification
     # because the script cannot inspect CSS rendering. This codifies the
     # "audit is a floor, not a ceiling" lesson from the 2026-04-17 C4-pillar
     # link-rendering regression.
+    # --ci mode (used by the git pre-commit hook) runs all strict text checks
+    # unattended; the browser-verification gate stays as agent discipline.
     if strict and not browser_verified:
         slug = Path(path).stem
         print("=" * 70)
@@ -422,7 +425,13 @@ def main():
 
     print(f"Auditing: {path}")
     print(f"Type: {'PILLAR' if is_pillar else 'CLUSTER'}")
-    print(f"Mode: {'STRICT (browser-verified)' if strict else 'soft'}")
+    if ci_mode:
+        mode_label = "STRICT (ci / pre-commit — browser check is agent discipline)"
+    elif strict:
+        mode_label = "STRICT (browser-verified)"
+    else:
+        mode_label = "soft"
+    print(f"Mode: {mode_label}")
 
     fails = 0
     fails += audit_safety(html)

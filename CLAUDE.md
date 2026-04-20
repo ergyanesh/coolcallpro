@@ -168,12 +168,23 @@ npx --yes terser js/main.js -o js/main.min.js --compress --mangle
 python serve.py                                       # http://localhost:8080
 ```
 
+## Pre-Commit Audit Hook (since 20 April 2026)
+
+A git pre-commit hook at `.git/hooks/pre-commit` blocks any commit whose staged HTML fails YMYL/SEO/AEO/GEO/CSS-regression checks:
+
+- **Staged `articles/*.html`** → runs `python audit_article.py <file> --ci` (full strict mode: YMYL, GEO/AEO, HowTo, speakable, CSS regression, cost drift vs `costs.html`, FAQ pattern)
+- **Any other staged `*.html`** → runs `python audit_page.py <file>` (GA defer, no Google Fonts CDN, footer-col structure, MarketCall disclaimer lock, h1/meta/canonical)
+
+The hook source lives at [`scripts/pre-commit`](scripts/pre-commit) (version-controlled). After a fresh clone, install once with `bash scripts/install-hooks.sh`. Edits to the source must be followed by a re-install.
+
+Browser verification (link underline rendering, FAQ expand, hero render) is still agent discipline — the hook enforces every text-inspectable check. Bypass (rare, not recommended): `git commit --no-verify`.
+
 ## Deploy Workflow (Git-Integrated, since 14 April 2026)
 
 1. Make all changes in the working directory (root)
 2. Run QC if the change is substantial: `python audit_script.py`
 3. Minify if CSS/JS changed: `npx --yes clean-css-cli css/style.css -o css/style.min.css` (and terser for JS)
-4. `git add -A && git commit -m "<description>" && git push origin main`
+4. `git add -A && git commit -m "<description>" && git push origin main` — the pre-commit hook will block the commit if any staged HTML fails audit
 5. Cloudflare Pages auto-detects the push, runs `bash build.sh`, and deploys `_dist/` — live in ~60 seconds
 6. If new URLs were added: resubmit sitemap in Google Search Console
 

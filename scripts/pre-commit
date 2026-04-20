@@ -1,0 +1,78 @@
+#!/usr/bin/env bash
+# CoolCallPro pre-commit hook — enforces YMYL / SEO / AEO / GEO / CSS regression
+# checks on every staged HTML file. Blocks the commit on failure.
+#
+# Installed at: .git/hooks/pre-commit (via scripts/install-hooks.sh)
+# Source of truth (version-controlled): scripts/pre-commit
+#
+# Behavior:
+#   articles/*.html   -> python audit_article.py <file> --ci
+#                        (full strict mode: YMYL, GEO/AEO, HowTo, speakable,
+#                         CSS regression, cost drift vs costs.html, FAQ pattern)
+#   any other *.html  -> python audit_page.py <file>
+#                        (universal: GA defer, no Google Fonts CDN, footer-col
+#                         structure, MarketCall disclaimer lock, h1/meta/canonical)
+#
+# Browser verification (underline rendering, FAQ expand, hero render) remains
+# agent discipline — the hook enforces every text-inspectable check.
+#
+# Bypass (do NOT use without a reason): git commit --no-verify
+
+set -u
+
+# Collect staged HTML files (Added/Copied/Modified/Renamed)
+mapfile -t staged_html < <(git diff --cached --name-only --diff-filter=ACMR -- '*.html')
+
+if [ "${#staged_html[@]}" -eq 0 ]; then
+    exit 0
+fi
+
+fail_count=0
+article_count=0
+page_count=0
+
+echo "== CoolCallPro pre-commit audit =="
+echo "Staged HTML files: ${#staged_html[@]}"
+echo
+
+for file in "${staged_html[@]}"; do
+    # Skip files that were deleted (diff-filter should prevent this, but be safe)
+    if [ ! -f "$file" ]; then
+        continue
+    fi
+
+    case "$file" in
+        articles/*.html)
+            article_count=$((article_count + 1))
+            echo "-- audit_article.py --ci $file"
+            if ! python audit_article.py "$file" --ci; then
+                fail_count=$((fail_count + 1))
+                echo
+                echo "   ^^ FAILED: $file"
+                echo
+            fi
+            ;;
+        *.html)
+            page_count=$((page_count + 1))
+            echo "-- audit_page.py $file"
+            if ! python audit_page.py "$file"; then
+                fail_count=$((fail_count + 1))
+                echo
+                echo "   ^^ FAILED: $file"
+                echo
+            fi
+            ;;
+    esac
+done
+
+echo
+echo "== Summary: $article_count article(s), $page_count page(s), $fail_count failure(s) =="
+
+if [ "$fail_count" -gt 0 ]; then
+    echo
+    echo "COMMIT BLOCKED. Fix the failures above and re-stage."
+    echo "Bypass (not recommended): git commit --no-verify"
+    exit 1
+fi
+
+exit 0
