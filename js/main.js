@@ -72,12 +72,33 @@ async function handleContactSubmit(e) {
     }, 5000);
 }
 
-// FAQ accordion
+// FAQ accordion — one-open-at-a-time pattern. Opening a FAQ closes any
+// other open FAQ on the page. Clicking an already-open FAQ still collapses
+// it (users need an escape). Industry-standard for long FAQ lists (NYT,
+// Amazon Help, Apple Support). aria-expanded stays in sync for screen
+// readers on every affected button.
 document.querySelectorAll('.faq-q').forEach(btn => {
     btn.addEventListener('click', () => {
         const item = btn.closest('.faq-item');
-        const isOpen = item.classList.toggle('open');
-        btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        if (!item) return;
+        const wasOpen = item.classList.contains('open');
+
+        // Close every other open FAQ on the page
+        document.querySelectorAll('.faq-item.open').forEach(openItem => {
+            if (openItem === item) return;
+            openItem.classList.remove('open');
+            const openBtn = openItem.querySelector('.faq-q');
+            if (openBtn) openBtn.setAttribute('aria-expanded', 'false');
+        });
+
+        // Toggle the clicked one (expand if closed, collapse if open)
+        if (wasOpen) {
+            item.classList.remove('open');
+            btn.setAttribute('aria-expanded', 'false');
+        } else {
+            item.classList.add('open');
+            btn.setAttribute('aria-expanded', 'true');
+        }
     });
 });
 
