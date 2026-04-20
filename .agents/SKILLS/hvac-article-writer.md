@@ -133,7 +133,7 @@ Once the user replies with their chosen topic and cities, generate the article u
         CTA_SUBTEXT
     </p>
     <a href="tel:+18445821795" class="btn btn-primary btn-lg btn-vibrate"><span class="phone-icon">📞</span> Call Now — (844) 582-1795</a>
-    <p style="color: rgba(255,255,255,0.35); font-size: 0.72rem; margin-top: 12px; max-width: 340px; line-height: 1.5;">Disclosure: We are a referral service and may receive compensation for qualified calls. Calls may be routed to an independent provider network and may be recorded. Pricing and availability vary by provider and location.</p>
+    <p style="color: rgba(255,255,255,0.6); font-size: 0.72rem; margin-top: 12px; max-width: 340px; line-height: 1.5;">Disclosure: We are a referral service and may receive compensation for qualified calls. Calls may be routed to an independent provider network and may be recorded. Pricing and availability vary by provider and location.</p>
 </div>
 ```
 
@@ -156,14 +156,14 @@ Once the user replies with their chosen topic and cities, generate the article u
   The 4 cities and 2 state hubs come from `python article_city_linker.py <slug> <cluster> 4`. Do NOT hand-pick cities.
   Formatting rules:
   1. **City name with state abbreviation in parentheses** — `Tampa (FL)`, not `Tampa, FL`.
-  2. **Orange inline style** on every location link — `style="color: var(--orange); font-weight: 600;"`.
+  2. **Orange-dark inline style** on every location link — `style="color: var(--orange-dark); font-weight: 600;"`. Use `--orange-dark` (#b53610), NOT `--orange` (#d84315) — the latter fails WCAG AA contrast (4.43:1 on white, needs 4.5:1). Orange-dark passes at 6.8:1.
   3. **Always end with "all locations"** link.
   4. **2 distinct state hubs** based on the 4 cities (the linker returns them).
   5. Pillar articles use 5 cities instead of 4 (pillars are equity hubs). Increase `n` to 5 when running the linker.
   6. Example (non-pillar):
   ```html
   <h3>Local HVAC Service Areas</h3>
-  <p>Cool Call Pro connects homeowners with independent HVAC technicians nationwide. Find a pro in <a href="../locations/tampa-fl.html" style="color: var(--orange); font-weight: 600;">Tampa (FL)</a>, <a href="../locations/tucson-az.html" style="color: var(--orange); font-weight: 600;">Tucson (AZ)</a>, <a href="../locations/tallahassee-fl.html" style="color: var(--orange); font-weight: 600;">Tallahassee (FL)</a>, or <a href="../locations/atlanta-ga.html" style="color: var(--orange); font-weight: 600;">Atlanta (GA)</a>, or browse by state: <a href="../locations/florida.html" style="color: var(--orange); font-weight: 600;">Florida</a>, <a href="../locations/arizona.html" style="color: var(--orange); font-weight: 600;">Arizona</a>, or <a href="../locations.html" style="color: var(--orange); font-weight: 600;">all locations</a>.</p>
+  <p>Cool Call Pro connects homeowners with independent HVAC technicians nationwide. Find a pro in <a href="../locations/tampa-fl.html" style="color: var(--orange-dark); font-weight: 600;">Tampa (FL)</a>, <a href="../locations/tucson-az.html" style="color: var(--orange-dark); font-weight: 600;">Tucson (AZ)</a>, <a href="../locations/tallahassee-fl.html" style="color: var(--orange-dark); font-weight: 600;">Tallahassee (FL)</a>, or <a href="../locations/atlanta-ga.html" style="color: var(--orange-dark); font-weight: 600;">Atlanta (GA)</a>, or browse by state: <a href="../locations/florida.html" style="color: var(--orange-dark); font-weight: 600;">Florida</a>, <a href="../locations/arizona.html" style="color: var(--orange-dark); font-weight: 600;">Arizona</a>, or <a href="../locations.html" style="color: var(--orange-dark); font-weight: 600;">all locations</a>.</p>
   ```
 
 - **Contextual in-body article links (CRITICAL for topical authority):**
@@ -183,12 +183,12 @@ Once the user replies with their chosen topic and cities, generate the article u
   <div class="sidebar-widget">
       <h4>📍 Find a Pro Near You</h4>
       <ul>
-          <li><a href="../locations/tampa-fl.html" style="color: var(--orange); font-weight: 600;">Tampa (FL)</a></li>
-          <li><a href="../locations/tucson-az.html" style="color: var(--orange); font-weight: 600;">Tucson (AZ)</a></li>
-          <li><a href="../locations/tallahassee-fl.html" style="color: var(--orange); font-weight: 600;">Tallahassee (FL)</a></li>
-          <li><a href="../locations/atlanta-ga.html" style="color: var(--orange); font-weight: 600;">Atlanta (GA)</a></li>
-          <li><a href="../locations/florida.html" style="color: var(--orange); font-weight: 600;">All Florida Cities</a></li>
-          <li><a href="../locations/arizona.html" style="color: var(--orange); font-weight: 600;">All Arizona Cities</a></li>
+          <li><a href="../locations/tampa-fl.html" style="color: var(--orange-dark); font-weight: 600;">Tampa (FL)</a></li>
+          <li><a href="../locations/tucson-az.html" style="color: var(--orange-dark); font-weight: 600;">Tucson (AZ)</a></li>
+          <li><a href="../locations/tallahassee-fl.html" style="color: var(--orange-dark); font-weight: 600;">Tallahassee (FL)</a></li>
+          <li><a href="../locations/atlanta-ga.html" style="color: var(--orange-dark); font-weight: 600;">Atlanta (GA)</a></li>
+          <li><a href="../locations/florida.html" style="color: var(--orange-dark); font-weight: 600;">All Florida Cities</a></li>
+          <li><a href="../locations/arizona.html" style="color: var(--orange-dark); font-weight: 600;">All Arizona Cities</a></li>
           <li><a href="../locations.html" style="font-weight: 600;">All Locations &rarr;</a></li>
       </ul>
   </div>
