@@ -173,12 +173,16 @@
                         <h1 class="author-profile-name">Gyanesh Gulshan</h1>
                         <p class="author-profile-title">Founder, Cool Call Pro &mdash; Home Services Professional</p>
                         <p class="author-profile-bio">
-                            Gyanesh Gulshan is the founder of Cool Call Pro, a nationwide HVAC referral network
-                            connecting homeowners with independent service professionals across the United States.
-                            With a B.Tech in Mechanical Engineering and hands-on experience building and operating
-                            a home services referral platform, he brings a practical, consumer-first perspective to
-                            HVAC education — focused on helping homeowners understand what to do, who to call, and
-                            what to expect when their heating or cooling system fails.
+                            Gyanesh Gulshan is the founder and editorial lead of Cool Call Pro, a nationwide HVAC
+                            referral network that connects homeowners with independent service professionals. He holds
+                            a <strong>B.Tech in Mechanical Engineering</strong> — the academic discipline that
+                            underlies HVAC design itself: thermodynamics, heat transfer, the refrigeration cycle, and
+                            fluid mechanics. Every article on this site is informed by that foundation and by the
+                            service-request data flowing through Cool Call Pro's referral network across 50+ U.S.
+                            markets. He is <strong>not a licensed HVAC contractor</strong> and does not install,
+                            repair, or service equipment. His role is editorial: to explain, in plain language, what
+                            homeowners are actually looking at &mdash; so they can hire the right technician, ask the
+                            right questions, and avoid the wrong repair.
                         </p>
                         <div class="author-profile-tags">
                             <span class="author-tag">🎓 B.Tech Mechanical Engineering</span>
@@ -189,6 +193,21 @@
                         </div>
                         <p style="margin-top: 16px; font-size: 0.85rem; color: rgba(255,255,255,0.5);">Last Updated: April 2026 &nbsp;·&nbsp; 19 articles published</p>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Honest Limitations — explicit E-E-A-T disclosure -->
+        <section class="section" style="padding-top: 24px; padding-bottom: 32px;">
+            <div class="container" style="max-width: 900px;">
+                <div style="background: var(--gray-50); border-left: 4px solid var(--orange); border-radius: 8px; padding: 24px 28px;">
+                    <h2 style="font-family: var(--font-display); color: var(--navy); font-size: 1.2rem; margin: 0 0 12px;">Honest Limitations &mdash; What I Am Not</h2>
+                    <ul style="color: var(--gray-700); font-size: 0.95rem; line-height: 1.7; margin: 0; padding-left: 20px;">
+                        <li>I do not hold an HVAC contractor license in any U.S. state.</li>
+                        <li>I do not hold NATE certification or EPA Section 608 refrigerant-handling certification.</li>
+                        <li>I am not a substitute for a qualified technician for any specific diagnosis or repair decision. On-site inspection by a working professional always takes precedence over anything written here.</li>
+                        <li>I am the editorial voice behind this site, not a field technician. My articles explain how HVAC systems fail, what repairs typically cost, and what questions to ask &mdash; they do not tell you to touch refrigerant, open electrical panels, or work on gas equipment.</li>
+                    </ul>
                 </div>
             </div>
         </section>
@@ -238,7 +257,50 @@
                             <p style="font-weight: 700; color: var(--navy); margin-bottom: 6px;">✅ Transparent About What We Are</p>
                             <p style="font-size: 0.88rem; color: var(--gray-600); line-height: 1.6;">Cool Call Pro is a referral service, not a repair company. Every article discloses this clearly. Readers always know who is providing the information and why.</p>
                         </div>
+                        <div>
+                            <p style="font-weight: 700; color: var(--navy); margin-bottom: 6px;">🛡️ Audit-Enforced Fact Discipline</p>
+                            <p style="font-size: 0.88rem; color: var(--gray-600); line-height: 1.6;">Every article runs through an automated audit script (<code>audit_article.py --strict</code>) before publication. It enforces a safety-phrase blocklist (no dangerous DIY instructions), a cost-drift check against our canonical pricing page, YMYL caveats for tax and financing claims, and schema validation.</p>
+                        </div>
+                        <div>
+                            <p style="font-weight: 700; color: var(--navy); margin-bottom: 6px;">💵 Canonical Pricing Source</p>
+                            <p style="font-size: 0.88rem; color: var(--gray-600); line-height: 1.6;">All cost figures are defined on the <a href="costs">/costs page</a> first and then referenced by articles. One source, no drift. If market pricing shifts, we update <a href="costs">/costs</a> and every article is re-checked against it.</p>
+                        </div>
+                        <div>
+                            <p style="font-weight: 700; color: var(--navy); margin-bottom: 6px;">⛔ Safety Boundaries We Refuse to Cross</p>
+                            <p style="font-size: 0.88rem; color: var(--gray-600); line-height: 1.6;">We never tell a reader to handle refrigerant (federally regulated under EPA Section 608), open an electrical service panel, discharge a capacitor, bypass a safety switch, or work on gas connections. These are technician-only tasks, and our articles redirect to a professional for every one of them.</p>
+                        </div>
                     </div>
+                </div>
+
+                <!-- Why a referral site can give different advice than a contractor's blog -->
+                <div style="background: var(--navy); color: #fff; border-radius: var(--radius-lg); padding: 36px; margin-bottom: 56px;">
+                    <h2 style="font-family: var(--font-display); color: #fff; font-size: 1.3rem; margin-bottom: 16px;">Why a Referral Site Can Say Things a Contractor's Blog Cannot</h2>
+                    <p style="color: rgba(255,255,255,0.85); font-size: 0.95rem; line-height: 1.75; margin-bottom: 16px;">
+                        Most HVAC content online is written by contractors. That alignment has a specific bias: contractors make money when homeowners agree to the repair or replacement in front of them. Their blogs rarely flag red-flag pricing patterns, aftermarket leak-sealant upsells, or phantom refrigerant top-offs &mdash; because calling those out would cost them work.
+                    </p>
+                    <p style="color: rgba(255,255,255,0.85); font-size: 0.95rem; line-height: 1.75; margin-bottom: 16px;">
+                        Cool Call Pro is a referral service. We do not perform HVAC work. Our incentive is different: homeowners who feel well-informed return to the network and refer others. That is why this site can warn readers about the most common scam patterns, show them how to read a quote line-by-line, and tell them when a $1,000 repair on a 12-year-old system is the wrong call.
+                    </p>
+                    <p style="color: rgba(255,255,255,0.72); font-size: 0.85rem; line-height: 1.65; margin-bottom: 0;">
+                        Full disclosure: we are paid when a call results in a service connection. We are not paid by any individual contractor to promote their services. Our <a href="advertising-disclosure" style="color: var(--orange); text-decoration: underline;">advertising disclosure</a> appears on every article.
+                    </p>
+                </div>
+
+                <!-- How pricing data is sourced -->
+                <div style="background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: var(--radius-lg); padding: 32px; margin-bottom: 56px;">
+                    <h2 style="font-family: var(--font-display); color: var(--navy); font-size: 1.2rem; margin-bottom: 12px;">How Pricing Data Is Sourced</h2>
+                    <p style="color: var(--gray-700); font-size: 0.95rem; line-height: 1.7; margin-bottom: 12px;">
+                        Every cost range on this site is published on the <a href="costs">/costs page</a> first, then referenced by articles. The figures draw from:
+                    </p>
+                    <ul style="color: var(--gray-700); font-size: 0.9rem; line-height: 1.7; margin: 0 0 16px; padding-left: 20px;">
+                        <li>Aggregated service-request pricing from Cool Call Pro's referral network across 50+ U.S. metro areas.</li>
+                        <li>Published U.S. Bureau of Labor Statistics data on HVAC mechanic and installer wages (<a href="https://www.bls.gov/ooh/installation-maintenance-and-repair/heating-air-conditioning-and-refrigeration-mechanics-and-installers.htm" target="_blank" rel="noopener noreferrer">BLS OOH</a>).</li>
+                        <li>ENERGY STAR and U.S. Department of Energy published cost and rebate references (<a href="https://www.energystar.gov/about/federal-tax-credits" target="_blank" rel="noopener noreferrer">ENERGY STAR tax credits</a>, <a href="https://www.energy.gov/save/rebates" target="_blank" rel="noopener noreferrer">DOE rebates</a>).</li>
+                        <li>Contractor price surveys and publicly available pricing data.</li>
+                    </ul>
+                    <p style="color: var(--gray-600); font-size: 0.85rem; line-height: 1.6; margin: 0;">
+                        Pricing ranges are estimates. Actual costs vary by region, provider, system age, and local code requirements. Always confirm pricing directly with the technician who inspects your equipment.
+                    </p>
                 </div>
 
                 <h2 style="font-family: var(--font-display); color: var(--navy); margin-bottom: 32px;">Articles by
