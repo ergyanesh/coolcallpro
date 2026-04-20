@@ -25,7 +25,7 @@
         {"slug": "why-is-my-ac-blowing-warm-air", "path": "articles/why-is-my-ac-blowing-warm-air.html", "title": "AC Blowing Warm Air but Running? Why", "status": "live"},
         {"slug": "ac-compressor-buzzing-fan-not-spinning", "path": "articles/ac-compressor-buzzing-fan-not-spinning.html", "title": "AC Compressor Buzzing, Fan Not Spinning?", "status": "live"},
         {"slug": "hvac-leaking-water-inside-house", "path": "articles/hvac-leaking-water-inside-house.html", "title": "HVAC Leaking Water Inside? Stop Damage", "status": "live"},
-        {"slug": "ac-freezing-up-in-summer", "path": "articles/ac-freezing-up-in-summer.html", "title": "AC Freezing Up in Summer? Ice on Coils", "status": "pending", "priority": 3, "roadmap_id": 8},
+        {"slug": "ac-freezing-up-in-summer", "path": "articles/ac-freezing-up-in-summer.html", "title": "AC Freezing Up in Summer? Ice on Coils", "status": "live", "date_published": "2026-04-20", "priority": 3, "roadmap_id": 8},
         {"slug": "ac-not-cooling-below-80", "path": "articles/ac-not-cooling-below-80.html", "title": "AC Running but Not Cooling Below 80°? Why", "status": "pending", "priority": 4, "roadmap_id": 11},
         {"slug": "ac-circuit-breaker-trips", "path": "articles/ac-circuit-breaker-trips.html", "title": "AC Circuit Breaker Keeps Tripping? Causes", "status": "pending", "priority": 5, "roadmap_id": 18},
         {"slug": "thermostat-blank-ac-wont-start", "path": "articles/thermostat-blank-ac-wont-start.html", "title": "Thermostat Blank, AC Won't Turn On? Fixes", "status": "pending", "priority": 11, "roadmap_id": 6},
