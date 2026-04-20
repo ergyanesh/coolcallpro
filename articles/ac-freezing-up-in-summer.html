@@ -90,7 +90,54 @@
     "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": "https://coolcallpro.com/articles/ac-freezing-up-in-summer"
-    }
+    },
+    "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [".tldr-box", ".faq-q", ".faq-a-inner"]
+    },
+    "about": [
+        {"@type": "Thing", "name": "Evaporator coil"},
+        {"@type": "Thing", "name": "R-410A refrigerant", "sameAs": "https://en.wikipedia.org/wiki/R-410A"},
+        {"@type": "Thing", "name": "Thermostatic expansion valve", "sameAs": "https://en.wikipedia.org/wiki/Thermal_expansion_valve"},
+        {"@type": "Thing", "name": "EPA Section 608", "sameAs": "https://www.epa.gov/section608"}
+    ]
+}
+    </script>
+    <!-- HowTo Schema: the safe thaw procedure -->
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to Safely Thaw a Frozen AC Coil",
+    "description": "Three-step homeowner-safe procedure to thaw a frozen residential AC evaporator coil without damaging the refrigerant system or compressor.",
+    "totalTime": "PT4H",
+    "tool": [
+        {"@type": "HowToTool", "name": "Thermostat (already installed)"},
+        {"@type": "HowToTool", "name": "Old towel to catch meltwater"}
+    ],
+    "step": [
+        {
+            "@type": "HowToStep",
+            "position": 1,
+            "name": "Set the thermostat to OFF",
+            "text": "Set the thermostat completely off — not to a higher temperature. This stops the compressor from pumping refrigerant against a blocked coil and prevents compressor damage.",
+            "url": "https://coolcallpro.com/articles/ac-freezing-up-in-summer#step1"
+        },
+        {
+            "@type": "HowToStep",
+            "position": 2,
+            "name": "Switch the fan setting from AUTO to ON",
+            "text": "This keeps the blower running while the compressor is off, pushing warmer indoor air across the frozen coil to thaw it faster and more evenly.",
+            "url": "https://coolcallpro.com/articles/ac-freezing-up-in-summer#step2"
+        },
+        {
+            "@type": "HowToStep",
+            "position": 3,
+            "name": "Wait 2 to 4 hours for complete thawing",
+            "text": "A light ice layer thaws quickly. Severe ice that has been forming for days can take 12 to 24 hours. Place an old towel under the air handler to catch meltwater. Do not chip the ice, apply heat, or pour water — thermal shock can crack refrigerant lines.",
+            "url": "https://coolcallpro.com/articles/ac-freezing-up-in-summer#step3"
+        }
+    ]
 }
     </script>
     <!-- Breadcrumb Schema -->

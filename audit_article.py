@@ -25,6 +25,7 @@ Exit codes:
     2 = --strict specified without --browser-verified (blocking gate)
 """
 
+import html as html_mod
 import re
 import sys
 from pathlib import Path
@@ -129,9 +130,13 @@ def audit_seo(html: str) -> int:
     is_question = h.rstrip().endswith("?") or "?" in h
     print(f"  [INFO] H1 form: {'question' if is_question else 'declarative'} — \"{h[:70]}...\"")
 
-    if not check(f"<title> <= 60 chars (actual: {len(t)})", len(t) <= 60):
+    # Unescape HTML entities so &amp; counts as 1 char, not 5. Google indexes
+    # the displayed text, not the HTML-escaped source.
+    t_len = len(html_mod.unescape(t))
+    m_len = len(html_mod.unescape(m))
+    if not check(f"<title> <= 60 chars (actual: {t_len})", t_len <= 60):
         fails += 1
-    if not check(f"Meta description <= 155 chars (actual: {len(m)})", len(m) <= 155):
+    if not check(f"Meta description <= 155 chars (actual: {m_len})", m_len <= 155):
         fails += 1
     if not check(f"Canonical has no .html: {c}", ".html" not in c):
         fails += 1
@@ -275,6 +280,47 @@ def audit_your_money(html: str, strict: bool) -> int:
     return fails
 
 
+def audit_geo_aeo(html: str, strict: bool) -> int:
+    """Generative-engine + answer-engine optimization checks.
+    Enforces SEO/AEO/GEO schemas that Google and LLM citation engines reward:
+      - Speakable schema (voice search + accessibility)
+      - about[] with sameAs entity URIs (knowledge-graph linking for GEO)
+      - HowTo schema when the article has a clear numbered-step procedure
+        inside an H2 (detected by <ol> directly inside the first 3 H2 sections)
+    """
+    if not strict:
+        return 0
+    print("\nGEO / AEO (strict mode)")
+    fails = 0
+
+    # Speakable schema — any page with FAQ or TLDR should flag it for voice
+    has_speakable = '"@type": "SpeakableSpecification"' in html or '"SpeakableSpecification"' in html
+    if not check("Speakable schema present (voice search + AEO)", has_speakable):
+        fails += 1
+
+    # Entity linking via about[] with sameAs
+    has_entity = bool(re.search(r'"about"\s*:\s*\[[^\]]*"sameAs"', html, re.DOTALL))
+    if not check("Article 'about' array includes at least one sameAs entity URI (GEO)", has_entity):
+        fails += 1
+
+    # HowTo: detect step-procedure intent by finding a <ol> inside one of the
+    # first 3 H2 sections. If present, HowTo schema should be too.
+    first_sections = re.findall(r"<h2[^>]*>.*?(?=<h2|</article>)", html, re.DOTALL)[:3]
+    has_step_list = any(re.search(r"<ol\b", sec) for sec in first_sections)
+    has_howto = '"@type": "HowTo"' in html
+    if has_step_list:
+        if not check(
+            "HowTo schema present (article has a numbered-step procedure in an H2)",
+            has_howto,
+            "Detected <ol> in an early H2 — add HowTo JSON-LD for AEO + Google rich result",
+        ):
+            fails += 1
+    else:
+        print("  [INFO] No step-procedure detected in early H2s — HowTo schema not required.")
+
+    return fails
+
+
 def audit_css_regression(strict: bool) -> int:
     """Checks that site-wide CSS rules required for articles are present.
     Only runs in --strict mode since it reads files outside the article itself."""
@@ -382,6 +428,7 @@ def main():
     fails += audit_safety(html)
     fails += audit_seo(html)
     fails += audit_your_money(html, strict)
+    fails += audit_geo_aeo(html, strict)
     fails += audit_css_regression(strict)
     fails += audit_pillar_spec(html, is_pillar)
 
