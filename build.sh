@@ -16,7 +16,7 @@ rm -rf "$OUT"
 mkdir -p "$OUT"
 
 # Public folders
-cp -r css js images articles locations "$OUT/"
+cp -r css js fonts images articles locations "$OUT/"
 
 # Public root-level HTML pages
 cp -f \
