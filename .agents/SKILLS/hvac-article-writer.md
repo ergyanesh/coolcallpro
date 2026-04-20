@@ -225,6 +225,53 @@ On top of the safety rules below, articles that make financial claims need speci
 - **Brand names near negative language:** do NOT single out a specific product or brand (e.g., "EasySeal") in a scam/upsell section. Use category language ("aftermarket leak sealants"). If you assert warranty voiding, anchor to published manufacturer terms ("per published manufacturer warranty terms"), not your bare claim.
 - **Site-wide defamation floor:** never assert a specific contractor or chain is "a scam." Describe patterns and red flags instead.
 
+### Canonical Google Analytics Loader (MUST copy verbatim — interaction-deferred)
+
+Every HTML page MUST use the interaction-deferred GA loader shown below. The old `window.addEventListener('load', function() { ... gtag ... })` pattern is BANNED by `audit_page.py` because it pulls ~64 KB of gtag.js into the critical render path and drops mobile Lighthouse Performance by 17-21 points (verified 2026-04-20: mobile Performance jumped 74 → 93/98/100 across 3 URLs the moment this was fixed).
+
+The loader fires on first user interaction (`click`, `scroll`, `touchstart`, `keydown`) OR after a 4-second idle fallback — whichever comes first. Zero analytics loss for engaged users.
+
+```html
+<!-- Google tag (gtag.js) - GA4 — deferred until first interaction for LCP -->
+<script>
+    (function() {
+        var loaded = false;
+        function loadGA() {
+            if (loaded) return;
+            loaded = true;
+            var s = document.createElement('script');
+            s.src = 'https://www.googletagmanager.com/gtag/js?id=G-WD0ND0K60Q';
+            s.async = true;
+            document.head.appendChild(s);
+            s.onload = function() {
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                window.gtag = gtag;
+                gtag('js', new Date());
+                gtag('config', 'G-WD0ND0K60Q');
+            };
+        }
+        ['click', 'scroll', 'touchstart', 'keydown'].forEach(function(evt) {
+            window.addEventListener(evt, loadGA, { once: true, passive: true });
+        });
+        setTimeout(loadGA, 4000);
+    })();
+</script>
+```
+
+**Do NOT** replace with anything that fires GA on `window.load`, `DOMContentLoaded`, or inline. `audit_page.py` fails loudly on any variant.
+
+### Canonical Font Loading (MUST be self-hosted — NO Google Fonts CDN)
+
+Fonts are self-hosted under `/fonts/` (Inter + Outfit variable font files). The `@font-face` rules live in `css/style.css`. Every HTML `<head>` needs only these 2 preload tags:
+
+```html
+<link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/outfit-latin.woff2" as="font" type="font/woff2" crossorigin>
+```
+
+**Do NOT** add `<link>` to `fonts.googleapis.com` or `fonts.gstatic.com` — `audit_page.py` fails on any reference. The 2026-04-20 performance work self-hosted fonts; reverting would cost ~500 ms LCP site-wide.
+
 ### Canonical Footer Snippet (MUST copy verbatim — includes MarketCall disclaimer)
 
 Every article footer MUST use this exact structure. The 4 columns require `class="footer-brand"` + `class="footer-col"` — without those classes the CSS rules `.footer-col h4 / ul / li a` do not match and the footer text renders **invisible** on the dark navy background. This regression hit the 3 articles shipped 2026-04-20; `audit_page.py` now enforces the check.

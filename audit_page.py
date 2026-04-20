@@ -132,6 +132,56 @@ def audit_page_universal(html: str, path: str) -> int:
         ):
             fails += 1
 
+    # Google Fonts ban — we self-host fonts under /fonts/ for LCP performance.
+    # Allowing fonts.googleapis.com or fonts.gstatic.com back in regresses the
+    # 2026-04-20 performance work (mobile Performance jumped 74 -> 93+ after
+    # self-hosting). Any reference fails the audit.
+    if 'fonts.googleapis.com' in html or 'fonts.gstatic.com' in html:
+        if not check(
+            "No Google Fonts CDN references (site is self-hosted under /fonts/)",
+            False,
+            "Remove any <link> to fonts.googleapis.com or fonts.gstatic.com",
+        ):
+            fails += 1
+
+    # Google Analytics must be interaction-deferred, not fired on window.load.
+    # The window.load pattern pulled ~64 KB of gtag.js into the critical render
+    # path and dropped mobile Performance by 17-21 points. The deferred loader
+    # fires on first user interaction (click | scroll | touchstart | keydown)
+    # with a setTimeout idle fallback. Only check pages that include GA.
+    if 'G-WD0ND0K60Q' in html or 'googletagmanager.com/gtag' in html:
+        bad_load_pattern = re.search(
+            r"window\.addEventListener\(\s*['\"]load['\"]\s*,\s*function\s*\(\s*\)\s*\{[^}]*?gtag",
+            html,
+            re.DOTALL,
+        )
+        if not check(
+            "GA loader does NOT use window.addEventListener('load') pattern",
+            not bad_load_pattern,
+            "Old pattern loads gtag.js in the critical render path — use interaction defer",
+        ):
+            fails += 1
+
+        has_click = "'click'" in html
+        has_scroll = "'scroll'" in html
+        has_touchstart = "'touchstart'" in html
+        has_keydown = "'keydown'" in html
+        interaction_events_present = has_click and has_scroll and has_touchstart and has_keydown
+        if not check(
+            "GA loader listens for user interactions (click, scroll, touchstart, keydown)",
+            interaction_events_present,
+            "Deferred loader needs all 4 interaction events to fire GA on real engagement",
+        ):
+            fails += 1
+
+        has_fallback = bool(re.search(r"setTimeout\(\s*loadGA\s*,\s*\d+\s*\)", html))
+        if not check(
+            "GA loader has setTimeout idle fallback (loads after N seconds if no interaction)",
+            has_fallback,
+            "Without a fallback, non-interactive page views (some bots, pre-rendering) never track",
+        ):
+            fails += 1
+
     return fails
 
 
