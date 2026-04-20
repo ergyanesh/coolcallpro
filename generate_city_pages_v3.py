@@ -987,21 +987,30 @@ def generate_page(c, climate_type, nearby, absorbed_data, all_cities_lookup, sta
   <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/outfit-latin.woff2" as="font" type="font/woff2" crossorigin>
 
-  <!-- Google tag (gtag.js) - GA4 deferred for performance -->
+  <!-- Google tag (gtag.js) - GA4 — deferred until first interaction for LCP -->
   <script>
-    window.addEventListener('load', function() {{
-      var s = document.createElement('script');
-      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-WD0ND0K60Q';
-      s.async = true;
-      document.head.appendChild(s);
-      s.onload = function() {{
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){{dataLayer.push(arguments);}}
-        window.gtag = gtag;
-        gtag('js', new Date());
-        gtag('config', 'G-WD0ND0K60Q');
-      }};
-    }});
+    (function() {{
+      var loaded = false;
+      function loadGA() {{
+        if (loaded) return;
+        loaded = true;
+        var s = document.createElement('script');
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-WD0ND0K60Q';
+        s.async = true;
+        document.head.appendChild(s);
+        s.onload = function() {{
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){{dataLayer.push(arguments);}}
+          window.gtag = gtag;
+          gtag('js', new Date());
+          gtag('config', 'G-WD0ND0K60Q');
+        }};
+      }}
+      ['click', 'scroll', 'touchstart', 'keydown'].forEach(function(evt) {{
+        window.addEventListener(evt, loadGA, {{ once: true, passive: true }});
+      }});
+      setTimeout(loadGA, 4000);
+    }})();
   </script>
 
   <!-- Structured Data: BreadcrumbList + FAQPage + Organization -->
