@@ -119,6 +119,19 @@ def audit_page_universal(html: str, path: str) -> int:
             fails += 1
     # (If the signature is absent on this page, no check needed — not every page carries it.)
 
+    # Footer structure — if a <footer class="footer"> exists, its columns must
+    # use the .footer-col class. Without it the CSS rules (.footer-col h4,
+    # .footer-col li a) do not match and the footer text inherits dark
+    # colors on the dark navy background, rendering invisible. Exactly this
+    # regression hit the 3 recent articles on 2026-04-20.
+    if re.search(r'<footer\s+class="[^"]*\bfooter\b', html):
+        if not check(
+            "Footer columns use .footer-col class (CSS targets .footer-col for text color)",
+            'footer-col' in html,
+            "Plain <div> columns render invisible text on dark background",
+        ):
+            fails += 1
+
     return fails
 
 

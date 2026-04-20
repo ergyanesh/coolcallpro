@@ -225,6 +225,72 @@ On top of the safety rules below, articles that make financial claims need speci
 - **Brand names near negative language:** do NOT single out a specific product or brand (e.g., "EasySeal") in a scam/upsell section. Use category language ("aftermarket leak sealants"). If you assert warranty voiding, anchor to published manufacturer terms ("per published manufacturer warranty terms"), not your bare claim.
 - **Site-wide defamation floor:** never assert a specific contractor or chain is "a scam." Describe patterns and red flags instead.
 
+### Canonical Footer Snippet (MUST copy verbatim — includes MarketCall disclaimer)
+
+Every article footer MUST use this exact structure. The 4 columns require `class="footer-brand"` + `class="footer-col"` — without those classes the CSS rules `.footer-col h4 / ul / li a` do not match and the footer text renders **invisible** on the dark navy background. This regression hit the 3 articles shipped 2026-04-20; `audit_page.py` now enforces the check.
+
+```html
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <!-- Brand -->
+            <div class="footer-brand">
+                <a href="../" class="logo"><span class="logo-icon">&#10052;&#65039;</span><span class="logo-text">CoolCall<span class="logo-accent">Pro</span></span></a>
+                <p>Connecting homeowners with independent HVAC professionals across the US. Available 24/7 in many areas.</p>
+                <div class="footer-contact">
+                    <a href="tel:+18445821795" class="footer-phone">(844) 582-1795</a>
+                    <span>24/7 Service Line</span>
+                </div>
+            </div>
+            <!-- Resources -->
+            <div class="footer-col">
+                <h3 class="footer-heading">Resources</h3>
+                <ul>
+                    <li><a href="../costs">Cost Guide</a></li>
+                    <li><a href="../emergency">Emergency Service</a></li>
+                    <li><a href="../safety">Safety Tips</a></li>
+                    <li><a href="../articles">All Articles</a></li>
+                    <li><a href="../locations">Locations</a></li>
+                </ul>
+            </div>
+            <!-- Company -->
+            <div class="footer-col">
+                <h3 class="footer-heading">Company</h3>
+                <ul>
+                    <li><a href="../about">About Us</a></li>
+                    <li><a href="../contact">Contact</a></li>
+                    <li><a href="../author-gyanesh">Author</a></li>
+                    <li><a href="../privacy">Privacy Policy</a></li>
+                    <li><a href="../advertising-disclosure">Advertising Disclosure</a></li>
+                </ul>
+            </div>
+            <!-- Service Areas -->
+            <div class="footer-col">
+                <h3 class="footer-heading">Service Areas</h3>
+                <ul class="service-areas">
+                    <li><a href="../locations/atlanta-ga">Atlanta, GA</a></li>
+                    <li><a href="../locations/chicago-il">Chicago, IL</a></li>
+                    <li><a href="../locations/dallas-tx">Dallas, TX</a></li>
+                    <li><a href="../locations/houston-tx">Houston, TX</a></li>
+                    <li><a href="../locations/phoenix-az">Phoenix, AZ</a></li>
+                    <li><a href="../locations">All 50 states &#8594;</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- Legal Disclosure + Bottom Bar -->
+        <div class="footer-bottom">
+            <p><strong style="color: rgba(255,255,255,0.9);">How this site works:</strong> We publish HVAC cost and troubleshooting information and may connect callers to independent service providers. We do not perform HVAC services ourselves. Pricing, availability, and response times vary by provider and location.</p>
+            <p><strong style="color: rgba(255,255,255,0.9);">Editorial standards:</strong> Our content focuses on helpful troubleshooting tips and realistic pricing information. We avoid guarantees; actual pricing depends on the provider and situation. We clearly disclose compensation for referrals. We update content for clarity and accuracy when needed.</p>
+            <p><strong style="color: rgba(255,255,255,0.9);">Disclaimer:</strong> Cool Call Pro is a free service to assist homeowners in connecting with local service providers. All contractors/providers are independent and Cool Call Pro does not warrant or guarantee any work performed. It is the responsibility of the homeowner to verify that the hired contractor furnishes the necessary license and insurance required for the work being performed. All persons depicted in a photo or video are actors or models and not contractors listed on Cool Call Pro.</p>
+            <p>&copy; <span class="copyright-year">2026</span> Cool Call Pro. All rights reserved. &nbsp;&middot;&nbsp; <a href="../privacy">Privacy Policy</a> &nbsp;&middot;&nbsp; <a href="../terms">Terms of Use</a> &nbsp;&middot;&nbsp; <a href="../disclaimer">Disclaimer</a> &nbsp;&middot;&nbsp; <a href="../advertising-disclosure">Advertising Disclosure</a></p>
+        </div>
+    </div>
+</footer>
+<script>document.querySelectorAll('.copyright-year').forEach(function(el){el.textContent=new Date().getFullYear()});</script>
+```
+
+**Do NOT** substitute a shorter footer, rename `footer-col` to plain `<div>`, or rewrite the MarketCall disclaimer paragraph. Both are contract-locked or CSS-locked.
+
 ### Safety Content Rules (CRITICAL — YMYL Compliance)
 - **NEVER give advice that could cause injury, property damage, or death.** HVAC systems involve 240V electricity, natural gas, and pressurized refrigerant.
 - **Always include a safety warning box** early in the article advising readers to kill the breaker before inspecting anything.
