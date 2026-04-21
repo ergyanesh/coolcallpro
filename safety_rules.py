@@ -106,6 +106,69 @@ DIY_HAZARD_PATTERNS = [
      "adding refrigerant (EPA 608 forbids homeowner)"),
     (re.compile(r"\btop off (?:the )?refrigerant\b", re.I),
      "topping off refrigerant (EPA 608 forbids homeowner)"),
+
+    # --- Blind spots revealed by the 2026-04-20 QC -------------------------
+    # Short-form water instructions that escaped the "garden hose" pattern
+    (re.compile(r"\bhose (?:it|them) off\b", re.I),
+     "'hose it off' (short-form rinse — water near live-cabinet)"),
+    # Imperative panel operation (the pattern allows \"never flip the breaker\")
+    (re.compile(r"\bflip the breaker\b", re.I),
+     "'flip the breaker' (service-panel operation by homeowner)"),
+    (re.compile(r"\bflip(?:ping)? (?:off )?the breakers?\b", re.I),
+     "flipping breakers (service-panel operation by homeowner)"),
+    (re.compile(r"\bswitch off the breaker\b", re.I),
+     "'switch off the breaker' (service-panel operation by homeowner)"),
+    # Outdoor disconnect operation
+    (re.compile(r"\bcheck the disconnect\b", re.I),
+     "'check the disconnect' (outdoor disconnect operation by homeowner)"),
+    (re.compile(r"\bengage the disconnect\b", re.I),
+     "engaging the outdoor disconnect (homeowner task)"),
+    # Temperature-split / Delta-T measurements beyond the DIY cap
+    (re.compile(r"\bmeasure the (?:temperature|delta|temp)\b", re.I),
+     "measuring temperature differential (tool use beyond DIY cap)"),
+    (re.compile(r"\bmeasure the temperature differential\b", re.I),
+     "measuring Delta-T (tool use beyond DIY cap)"),
+    (re.compile(r"\bhold a thermometer\b(?=[^.!?]{0,80}(?:vent|grille|return|supply))", re.I),
+     "thermometer at vents (tool use beyond DIY cap)"),
+    # Gas flue / vent modification by homeowner
+    (re.compile(r"\binstall(?:ing)? (?:protective )?pipe caps\b", re.I),
+     "installing vent pipe caps (gas flue modification)"),
+    (re.compile(r"\binstall(?:ing)? .{0,40}(?:vent (?:cap|elbow|extension)|downward[- ]facing elbow)\b", re.I),
+     "installing vent terminations (gas flue modification)"),
+    # Foam / insulation work on refrigerant lines
+    (re.compile(r"\breplace .{0,40}(?:foam|insulation) .{0,40}(?:refrigerant|copper|line|lines|suction)\b", re.I),
+     "replacing refrigerant line insulation (pressurized line, technician job)"),
+    (re.compile(r"\bwrap the suction line\b", re.I),
+     "wrapping the suction line (pressurized refrigerant line work)"),
+    # Close-proximity instructions near the unit
+    (re.compile(r"\bstand near the (?:unit|condenser|outdoor|furnace)\b", re.I),
+     "'stand near the unit' (close proximity to malfunctioning equipment)"),
+    (re.compile(r"\bsniff near the (?:furnace|unit|gas|heater|boiler)\b", re.I),
+     "'sniff near the furnace' (close proximity to gas appliance)"),
+    (re.compile(r"\bwalk the length of the refrigerant lines?\b", re.I),
+     "walking along refrigerant lines (close inspection)"),
+    (re.compile(r"\bwalk around the (?:entire )?(?:unit|condenser|outdoor|furnace)\b", re.I),
+     "walk-around inspection (close range, homeowner-diagnostic)"),
+    # "Fix yourself" / DIY-endorsing framings
+    (re.compile(r"\bfix (?:it )?yourself\b", re.I),
+     "'fix yourself' (DIY-endorsing framing)"),
+    (re.compile(r"\bstraightforward DIY task\b", re.I),
+     "'straightforward DIY task' (DIY-endorsing framing)"),
+    (re.compile(r"\bbasic DIY (?:task|tune[- ]up|job)\b", re.I),
+     "'basic DIY' framing"),
+    # Pouring water on equipment (thermal shock, electrical risk)
+    (re.compile(r"\bpour(?:ing)? .{0,30}water (?:over|on|onto) (?:the )?(?:unit|coil|condenser|vent|pipe)\b", re.I),
+     "pouring water on equipment"),
+    # Chipping / scraping ice off equipment
+    (re.compile(r"\bchip(?:ping)? (?:the )?ice\b", re.I),
+     "chipping ice off equipment (fin damage + electrical risk)"),
+    (re.compile(r"\bscrape (?:the )?(?:ice|snow) (?:off|from)", re.I),
+     "scraping ice/snow off equipment"),
+    # Inspecting refrigerant lines / coil fins (close range)
+    (re.compile(r"\binspect the refrigerant line\b", re.I),
+     "inspecting refrigerant lines (close proximity to pressurized line)"),
+    (re.compile(r"\binspect(?:ion)? (?:the )?coil fins?\b", re.I),
+     "coil-fin inspection (close range, requires cabinet proximity)"),
 ]
 
 
