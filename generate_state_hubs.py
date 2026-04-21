@@ -332,7 +332,23 @@ def state_energy_office_section_html(state_name, abbr):
     if not office or not url:
         return ""
     display = _strip_scheme(url)
-    dsire_url = f"https://programs.dsireusa.org/system/program?state={abbr}"
+    # DSIRE's programs subdomain (programs.dsireusa.org/system/program?state=XX)
+    # blocks direct external-referer links intermittently ("Access denied").
+    # Linking to the dsireusa.org homepage is stable -- users enter their ZIP
+    # code in the homepage search to reach state-specific program listings.
+    dsire_url = "https://www.dsireusa.org/"
+    # Detect a federal-fallback URL (only for states whose own energy office
+    # is currently unreachable, e.g. Ohio -> energy.gov). Swap the description
+    # so we don't call DOE "the state-level energy agency".
+    is_federal_fallback = url.rstrip('/').endswith('energy.gov')
+    if is_federal_fallback:
+        office_desc = (f"The federal energy agency. {state_name}'s own state-level administrator "
+                       "is currently unreachable online; the DOE homepage links to national "
+                       "HVAC rebate programs, IRA administration resources, and weatherization "
+                       "assistance information.")
+    else:
+        office_desc = (f"The state-level energy agency that coordinates HVAC rebates, "
+                       f"weatherization assistance, and IRA program administration in {state_name}.")
     return (
         "    <!-- State Energy Office Resources -->\n"
         "    <section class=\"section\" style=\"padding: 0;\">\n"
@@ -341,8 +357,8 @@ def state_energy_office_section_html(state_name, abbr):
         f"          <h2>{state_name} Energy Office and HVAC Rebate Resources</h2>\n"
         f"          <p style=\"font-size: 1.05rem; line-height: 1.85; color: var(--gray-700);\">For current HVAC rebates, energy-efficiency incentives, and federal Inflation Reduction Act (IRA) program coordination in {state_name}, consult these authoritative sources:</p>\n"
         "          <ul>\n"
-        f"            <li><strong>{office}</strong> &mdash; <a href=\"{url}\" target=\"_blank\" rel=\"nofollow noopener\" style=\"color: var(--orange-dark); font-weight: 600;\">{display}</a>. The state-level energy agency that coordinates HVAC rebates, weatherization assistance, and IRA program administration in {state_name}.</li>\n"
-        f"            <li><strong>DSIRE {state_name} listing</strong> &mdash; <a href=\"{dsire_url}\" target=\"_blank\" rel=\"nofollow noopener\" style=\"color: var(--orange-dark); font-weight: 600;\">programs.dsireusa.org/system/program?state={abbr}</a>. N.C. State University's comprehensive database of every federal, state, local, and utility incentive program available to {state_name} homeowners.</li>\n"
+        f"            <li><strong>{office}</strong> &mdash; <a href=\"{url}\" target=\"_blank\" rel=\"nofollow noopener\" style=\"color: var(--orange-dark); font-weight: 600;\">{display}</a>. {office_desc}</li>\n"
+        f"            <li><strong>DSIRE {state_name} listing</strong> &mdash; <a href=\"{dsire_url}\" target=\"_blank\" rel=\"nofollow noopener\" style=\"color: var(--orange-dark); font-weight: 600;\">dsireusa.org</a>. N.C. State University's comprehensive database of every federal, state, local, and utility incentive program. Enter your ZIP code on the homepage to see programs available to {state_name} homeowners.</li>\n"
         "            <li><strong>ENERGY STAR federal tax credits</strong> &mdash; <a href=\"https://www.energystar.gov/about/federal-tax-credits\" target=\"_blank\" rel=\"nofollow noopener\" style=\"color: var(--orange-dark); font-weight: 600;\">energystar.gov/about/federal-tax-credits</a>. IRA Section 25C tax credit up to $2,000 for qualifying heat pumps and $600 for central AC, available nationwide and stackable with state and utility rebates.</li>\n"
         "          </ul>\n"
         "          <p style=\"font-size: 0.9rem; color: var(--gray-700); margin-top: 20px;\">Source: <a href=\"https://www.naseo.org/state-energy-offices\" target=\"_blank\" rel=\"nofollow noopener\" style=\"color: var(--orange-dark);\">NASEO State Energy Offices Directory</a> (National Association of State Energy Officials).</p>\n"

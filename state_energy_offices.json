@@ -14,7 +14,7 @@
   "_notes": {
     "GA": "NASEO listed https://www.gefa.georgia.gov/energy-resources (404 at verification). Substituted the verified-live GEFA domain root.",
     "MS": "NASEO listed https://mississippi.org/community-resources/office-energy/ (404). WebFetch research found the current path is /community-resources/office-of-energy/ (note the added 'of-'); substituted and verified live.",
-    "OH": "User spot-check on 2026-04-21 confirmed https://development.ohio.gov returns a Page Not Found error page in a real browser. Further Playwright probing: every ohio.gov, development.ohio.gov, energy.ohio.gov, puco.ohio.gov, occ.ohio.gov, and ofcc.ohio.gov path returned either 404 or connection timeouts -- Ohio's state web infrastructure is broadly non-functional. Swapped to the U.S. DOE State Energy Program overview (energy.gov/cmei/scep/about-state-energy-program) which Playwright verified live. Name updated to reflect that the link is to the DOE SEP program that Ohio's Department of Development administers on the state side."
+    "OH": "User spot-check on 2026-04-21 confirmed https://development.ohio.gov returns a Page Not Found error page in a real browser. Further Playwright probing: every ohio.gov, development.ohio.gov, energy.ohio.gov, puco.ohio.gov, occ.ohio.gov, and ofcc.ohio.gov path returned either 404 or connection timeouts -- Ohio's state web infrastructure is broadly non-functional. Also tried energy.gov/cmei/scep/about-state-energy-program and energy.gov/save/home-energy-rebates -- both 404. Landed on https://www.energy.gov/ (DOE homepage) as the stable fallback since DOE is the federal umbrella for state energy programs and is verified live from multiple independent Playwright sessions. Name simplified to 'U.S. Department of Energy' since the link target is now the DOE home, not a state-level resource."
   },
   "offices": {
     "AL": {
@@ -158,8 +158,8 @@
       "url": "https://www.commerce.nd.gov/"
     },
     "OH": {
-      "name": "U.S. DOE State Energy Program (Ohio administered by the Ohio Department of Development)",
-      "url": "https://www.energy.gov/cmei/scep/about-state-energy-program"
+      "name": "U.S. Department of Energy",
+      "url": "https://www.energy.gov/"
     },
     "OK": {
       "name": "Oklahoma Secretary of Energy and Environment",
