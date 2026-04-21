@@ -195,6 +195,55 @@ def climate_hazards_section_html(state_name, hazards_csv):
     )
 
 
+# State-energy-office vocabulary (agency name + URL per state abbreviation).
+# Sourced from NASEO State Energy Offices Directory (fetched 2026-04-21) and
+# stored in state_energy_offices.json for auditability. See that file's
+# _notes for the 3 URL substitutions vs NASEO's raw data.
+_ENERGY_OFFICES_PATH = Path(__file__).parent / "state_energy_offices.json"
+try:
+    _ENERGY_OFFICES = json.loads(_ENERGY_OFFICES_PATH.read_text(encoding="utf-8"))["offices"]
+except (FileNotFoundError, json.JSONDecodeError, KeyError):
+    _ENERGY_OFFICES = {}
+
+
+def _strip_scheme(url: str) -> str:
+    """User-friendly display form of a URL: drop https:// and trailing slash."""
+    import re as _re_local
+    return _re_local.sub(r"^https?://", "", url).rstrip("/")
+
+
+def state_energy_office_section_html(state_name, abbr):
+    """Render the State Energy Office and HVAC Rebate Resources section.
+    Returns '' when we have no data for the abbreviation (defensive; all 51
+    rows in states.xlsx should resolve via state_energy_offices.json)."""
+    entry = _ENERGY_OFFICES.get(abbr)
+    if not entry:
+        return ""
+    office = entry.get("name") or ""
+    url = entry.get("url") or ""
+    if not office or not url:
+        return ""
+    display = _strip_scheme(url)
+    dsire_url = f"https://programs.dsireusa.org/system/program?state={abbr}"
+    return (
+        "    <!-- State Energy Office Resources -->\n"
+        "    <section class=\"section\" style=\"padding: 0;\">\n"
+        "      <div class=\"container\">\n"
+        "        <div class=\"city-services\" style=\"margin-bottom: 40px;\">\n"
+        f"          <h2>{state_name} Energy Office and HVAC Rebate Resources</h2>\n"
+        f"          <p style=\"font-size: 1.05rem; line-height: 1.85; color: var(--gray-700);\">For current HVAC rebates, energy-efficiency incentives, and federal Inflation Reduction Act (IRA) program coordination in {state_name}, consult these authoritative sources:</p>\n"
+        "          <ul>\n"
+        f"            <li><strong>{office}</strong> &mdash; <a href=\"{url}\" rel=\"nofollow noopener\" style=\"color: var(--orange-dark); font-weight: 600;\">{display}</a>. The state-level energy agency that coordinates HVAC rebates, weatherization assistance, and IRA program administration in {state_name}.</li>\n"
+        f"            <li><strong>DSIRE {state_name} listing</strong> &mdash; <a href=\"{dsire_url}\" rel=\"nofollow noopener\" style=\"color: var(--orange-dark); font-weight: 600;\">programs.dsireusa.org/system/program?state={abbr}</a>. N.C. State University's comprehensive database of every federal, state, local, and utility incentive program available to {state_name} homeowners.</li>\n"
+        "            <li><strong>ENERGY STAR federal tax credits</strong> &mdash; <a href=\"https://www.energystar.gov/about/federal-tax-credits\" rel=\"nofollow noopener\" style=\"color: var(--orange-dark); font-weight: 600;\">energystar.gov/about/federal-tax-credits</a>. IRA Section 25C tax credit up to $2,000 for qualifying heat pumps and $600 for central AC, available nationwide and stackable with state and utility rebates.</li>\n"
+        "          </ul>\n"
+        "          <p style=\"font-size: 0.9rem; color: var(--gray-700); margin-top: 20px;\">Source: <a href=\"https://www.naseo.org/state-energy-offices\" rel=\"nofollow noopener\" style=\"color: var(--orange-dark);\">NASEO State Energy Offices Directory</a> (National Association of State Energy Officials).</p>\n"
+        "        </div>\n"
+        "      </div>\n"
+        "    </section>"
+    )
+
+
 def _compose_state_hub_extra_sections(*section_blocks):
     """Join non-empty section blocks between Cost Overview and Service Areas.
 
@@ -691,6 +740,7 @@ def generate_html(d, city_list, hub_abbrs, all_states, out_path=None, refresh_da
     state_hub_extra_sections = _compose_state_hub_extra_sections(
         common_hvac_issues_section_html(name, peak),
         climate_hazards_section_html(name, hazards_csv),
+        state_energy_office_section_html(name, abbr),
     )
     neighbor_section = f'''
     <!-- Neighboring States -->

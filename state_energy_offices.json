@@ -1,0 +1,225 @@
+{
+  "_comment": "Per-state energy office agency names and URLs. Sourced from the NASEO (National Association of State Energy Officials) directory at https://www.naseo.org/state-energy-offices. Every entry was fetched directly from the per-state NASEO page (https://www.naseo.org/state?State=<ABBR>) on 2026-04-21. URLs were then verified via HTTP probe. Redirect targets replace original URLs where the final destination differs. Three URLs (GA, MS, OH) required substitution because the NASEO-listed path returned 404 at verification time; see _notes below for each substitution.",
+  "sources": {
+    "naseo": {
+      "label": "NASEO State Energy Offices Directory",
+      "url": "https://www.naseo.org/state-energy-offices"
+    },
+    "dsire": {
+      "label": "DSIRE (NC State University Clean Energy Technology Center)",
+      "url": "https://www.dsireusa.org/"
+    }
+  },
+  "dsire_state_url_pattern": "https://programs.dsireusa.org/system/program?state={abbr}",
+  "_notes": {
+    "GA": "NASEO listed https://www.gefa.georgia.gov/energy-resources (404 at verification). Substituted the verified-live GEFA domain root.",
+    "MS": "NASEO listed https://mississippi.org/community-resources/office-energy/ (404). WebFetch research found the current path is /community-resources/office-of-energy/ (note the added 'of-'); substituted and verified live.",
+    "OH": "NASEO listed https://development.ohio.gov/bs/bs_renewenergy.htm (404, stale .htm). Substituted the NASEO-identified agency's base domain https://development.ohio.gov. This URL was NOT verifiable from the build environment (all development.ohio.gov and ohio.gov paths returned 404 to both urllib and WebFetch, which may be IP-based blocking). Flagged for manual spot-check in a real browser."
+  },
+  "offices": {
+    "AL": {
+      "name": "Alabama Department of Economic and Community Affairs",
+      "url": "https://adeca.alabama.gov/energy/"
+    },
+    "AK": {
+      "name": "Alaska Energy Authority",
+      "url": "https://www.akenergyauthority.org"
+    },
+    "AZ": {
+      "name": "Office of Resiliency, Arizona Executive Office of the Governor",
+      "url": "https://resilient.az.gov"
+    },
+    "AR": {
+      "name": "Energy Office, Arkansas Department of Energy and Environment",
+      "url": "https://www.adeq.state.ar.us"
+    },
+    "CA": {
+      "name": "California Energy Commission",
+      "url": "https://www.energy.ca.gov"
+    },
+    "CO": {
+      "name": "Colorado Energy Office",
+      "url": "https://energyoffice.colorado.gov"
+    },
+    "CT": {
+      "name": "Connecticut Department of Energy and Environmental Protection",
+      "url": "https://portal.ct.gov/DEEP"
+    },
+    "DE": {
+      "name": "Division of Climate, Coastal, and Energy, Delaware Department of Natural Resources and Environmental Control",
+      "url": "https://dnrec.alpha.delaware.gov/climate-coastal-energy/"
+    },
+    "DC": {
+      "name": "District Department of Energy and Environment",
+      "url": "https://doee.dc.gov"
+    },
+    "FL": {
+      "name": "Office of Energy, Florida Department of Agriculture and Consumer Services",
+      "url": "https://www.fdacs.gov/Divisions-Offices/Energy"
+    },
+    "GA": {
+      "name": "Energy Resources Division, Georgia Environmental Finance Authority",
+      "url": "https://gefa.georgia.gov"
+    },
+    "HI": {
+      "name": "Hawaii State Energy Office",
+      "url": "https://energy.hawaii.gov"
+    },
+    "ID": {
+      "name": "Idaho Governor's Office of Energy and Mineral Resources",
+      "url": "https://oemr.idaho.gov"
+    },
+    "IL": {
+      "name": "Illinois Environmental Protection Agency",
+      "url": "https://epa.illinois.gov"
+    },
+    "IN": {
+      "name": "Indiana Office of Energy Development",
+      "url": "https://www.in.gov/oed"
+    },
+    "IA": {
+      "name": "Iowa Economic Development Authority Energy Office",
+      "url": "https://opportunityiowa.gov/community/energy"
+    },
+    "KS": {
+      "name": "Kansas Energy Office, Kansas Corporation Commission",
+      "url": "https://kcc.ks.gov"
+    },
+    "KY": {
+      "name": "Kentucky Office of Energy Policy",
+      "url": "https://eec.ky.gov/Energy/Pages/default.aspx"
+    },
+    "LA": {
+      "name": "Louisiana Department of Conservation and Energy",
+      "url": "https://www.dce.louisiana.gov"
+    },
+    "ME": {
+      "name": "Maine Governor's Energy Office",
+      "url": "https://www.maine.gov/energy/"
+    },
+    "MD": {
+      "name": "Maryland Energy Administration",
+      "url": "https://energy.maryland.gov"
+    },
+    "MA": {
+      "name": "Massachusetts Department of Energy Resources",
+      "url": "https://www.mass.gov/doer/"
+    },
+    "MI": {
+      "name": "Michigan Department of Environment, Great Lakes, and Energy",
+      "url": "https://www.michigan.gov/egle/"
+    },
+    "MN": {
+      "name": "Energy Division, Minnesota Department of Commerce",
+      "url": "https://mn.gov/commerce/energy/"
+    },
+    "MS": {
+      "name": "Energy and Natural Resources Division, Mississippi Development Authority",
+      "url": "https://mississippi.org/community-resources/office-of-energy/"
+    },
+    "MO": {
+      "name": "Division of Energy, Missouri Department of Natural Resources",
+      "url": "https://dnr.mo.gov/energy"
+    },
+    "MT": {
+      "name": "Montana Department of Environmental Quality",
+      "url": "https://deq.mt.gov/energy/"
+    },
+    "NE": {
+      "name": "Nebraska Department of Water, Energy, and Environment",
+      "url": "https://dwee.nebraska.gov/"
+    },
+    "NV": {
+      "name": "Nevada Governor's Office of Energy",
+      "url": "https://www.energy.nv.gov/"
+    },
+    "NH": {
+      "name": "New Hampshire Department of Energy",
+      "url": "https://www.energy.nh.gov/"
+    },
+    "NJ": {
+      "name": "New Jersey Board of Public Utilities",
+      "url": "https://www.nj.gov/bpu/bpu/about/divisions/energy/"
+    },
+    "NM": {
+      "name": "Energy Conservation and Management Division, New Mexico Energy, Minerals and Natural Resources Department",
+      "url": "https://www.emnrd.nm.gov/ecmd/"
+    },
+    "NY": {
+      "name": "New York State Energy Research and Development Authority",
+      "url": "https://nyserda.ny.gov"
+    },
+    "NC": {
+      "name": "North Carolina Department of Environmental Quality State Energy Office",
+      "url": "https://www.deq.nc.gov/energy-climate/state-energy-office"
+    },
+    "ND": {
+      "name": "Division of Community Services, North Dakota Department of Commerce",
+      "url": "https://www.commerce.nd.gov/"
+    },
+    "OH": {
+      "name": "Ohio Department of Development",
+      "url": "https://development.ohio.gov"
+    },
+    "OK": {
+      "name": "Oklahoma Secretary of Energy and Environment",
+      "url": "https://ee.ok.gov/what-we-do/state-energy-office/"
+    },
+    "OR": {
+      "name": "Oregon Department of Energy",
+      "url": "https://www.oregon.gov/energy"
+    },
+    "PA": {
+      "name": "Energy Programs Office, Pennsylvania Department of Environmental Protection",
+      "url": "https://www.pa.gov/agencies/dep/programs-and-services/energy-programs-office"
+    },
+    "RI": {
+      "name": "Rhode Island Office of Energy Resources",
+      "url": "https://energy.ri.gov"
+    },
+    "SC": {
+      "name": "South Carolina Energy Office, Office of Regulatory Staff",
+      "url": "https://energy.sc.gov"
+    },
+    "SD": {
+      "name": "Energy Management Office, South Dakota Bureau of Administration",
+      "url": "https://boa.sd.gov/state-engineer/energy-management.aspx"
+    },
+    "TN": {
+      "name": "Office of Energy Programs, Tennessee Department of Environment and Conservation",
+      "url": "https://www.tn.gov/environment/program-areas/energy.html"
+    },
+    "TX": {
+      "name": "State Energy Conservation Office, Texas Comptroller of Public Accounts",
+      "url": "https://seco.cpa.texas.gov"
+    },
+    "UT": {
+      "name": "Utah Office of Energy Development",
+      "url": "https://energy.utah.gov"
+    },
+    "VT": {
+      "name": "Planning and Energy Resources Division, Vermont Department of Public Service",
+      "url": "https://publicservice.vermont.gov/about-us/divisions"
+    },
+    "VA": {
+      "name": "Virginia Department of Energy",
+      "url": "https://energy.virginia.gov"
+    },
+    "WA": {
+      "name": "Washington State Department of Commerce Energy Division",
+      "url": "https://www.commerce.wa.gov/energy/"
+    },
+    "WV": {
+      "name": "West Virginia Office of Energy",
+      "url": "https://www.energywv.org"
+    },
+    "WI": {
+      "name": "Office of Energy Innovation, Public Service Commission of Wisconsin",
+      "url": "https://psc.wi.gov/Pages/ServiceType/OfficeEnergyInnovation.aspx"
+    },
+    "WY": {
+      "name": "Wyoming Energy Authority",
+      "url": "https://www.wyoenergy.org/"
+    }
+  }
+}
