@@ -28,7 +28,7 @@
         {"slug": "ac-freezing-up-in-summer", "path": "articles/ac-freezing-up-in-summer.html", "title": "AC Freezing Up in Summer? Ice on Coils", "status": "live", "date_published": "2026-04-20", "priority": 3, "roadmap_id": 8},
         {"slug": "ac-not-cooling-below-80", "path": "articles/ac-not-cooling-below-80.html", "title": "AC Running but Not Cooling Below 80°? Why", "status": "live", "date_published": "2026-04-20", "priority": 4, "roadmap_id": 11},
         {"slug": "ac-circuit-breaker-trips", "path": "articles/ac-circuit-breaker-trips.html", "title": "AC Circuit Breaker Keeps Tripping? Causes", "status": "live", "date_published": "2026-04-20", "priority": 5, "roadmap_id": 18},
-        {"slug": "thermostat-blank-ac-wont-start", "path": "articles/thermostat-blank-ac-wont-start.html", "title": "Thermostat Blank, AC Won't Turn On? Fixes", "status": "pending", "priority": 11, "roadmap_id": 6},
+        {"slug": "thermostat-blank-ac-wont-start", "path": "articles/thermostat-blank-ac-wont-start.html", "title": "Thermostat Blank, AC Won't Turn On? Fixes", "status": "live", "date_published": "2026-04-20", "priority": 11, "roadmap_id": 6},
         {"slug": "ac-contactor-clicking", "path": "articles/ac-contactor-clicking.html", "title": "AC Contactor Clicking but Nothing Happens", "status": "pending", "priority": 20, "roadmap_id": 10},
         {"slug": "water-dripping-from-vent", "path": "articles/water-dripping-from-vent.html", "title": "Water Dripping from Ceiling Vent? Causes", "status": "pending", "priority": 21, "roadmap_id": 16}
       ]

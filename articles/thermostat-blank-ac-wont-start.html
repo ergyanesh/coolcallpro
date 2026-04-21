@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google tag (gtag.js) - GA4 — deferred until first interaction for LCP -->
+    <script>
+        (function() {
+            var loaded = false;
+            function loadGA() {
+                if (loaded) return;
+                loaded = true;
+                var s = document.createElement('script');
+                s.src = 'https://www.googletagmanager.com/gtag/js?id=G-WD0ND0K60Q';
+                s.async = true;
+                document.head.appendChild(s);
+                s.onload = function() {
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){dataLayer.push(arguments);}
+                    window.gtag = gtag;
+                    gtag('js', new Date());
+                    gtag('config', 'G-WD0ND0K60Q');
+                };
+            }
+            ['click', 'scroll', 'touchstart', 'keydown'].forEach(function(evt) {
+                window.addEventListener(evt, loadGA, { once: true, passive: true });
+            });
+            setTimeout(loadGA, 4000);
+        })();
+    </script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index, follow" />
+    <title>Thermostat Blank, AC Won't Start? Fixes | Cool Call Pro</title>
+    <meta name="description"
+        content="Thermostat blank and AC won't turn on? Replace the batteries first. If still blank, it's a safety cutoff or circuit fault — here's what to do." />
+    <link rel="canonical" href="https://coolcallpro.com/articles/thermostat-blank-ac-wont-start" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Thermostat Blank, AC Won't Turn On? The 5 Real Causes" />
+    <meta property="og:description"
+        content="Thermostat blank and AC won't turn on? Replace the batteries first. If still blank, it's a safety cutoff or circuit fault — here's what to do." />
+    <meta property="og:url" content="https://coolcallpro.com/articles/thermostat-blank-ac-wont-start" />
+    <meta property="og:site_name" content="Cool Call Pro" />
+    <meta property="article:author" content="Gyanesh Gulshan" />
+    <meta property="article:published_time" content="2026-04-20T00:00:00Z" />
+    <meta property="article:modified_time" content="2026-04-20T00:00:00Z" />
+    <meta property="og:image" content="https://coolcallpro.com/images/hvac_thermostat_blank.webp" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Thermostat Blank, AC Won't Start? Fixes | Cool Call Pro" />
+    <meta name="twitter:description" content="Blank thermostat + dead AC? Swap the batteries first. If still dark, it's a safety cutoff — call a technician." />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+    <link rel="stylesheet" href="../css/style.min.css" />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/outfit-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+    <!-- Article Schema -->
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Thermostat Blank, AC Won't Turn On? The 5 Real Causes",
+    "description": "Thermostat blank and AC won't turn on? Replace the batteries first. If still blank, it's a safety cutoff or circuit fault — here's what to do.",
+    "datePublished": "2026-04-20",
+    "dateModified": "2026-04-20",
+    "author": {
+        "@type": "Person",
+        "name": "Gyanesh Gulshan",
+        "url": "https://coolcallpro.com/author-gyanesh",
+        "image": "https://coolcallpro.com/images/author-gyane.webp",
+        "sameAs": ["https://www.linkedin.com/in/gyaneshgulshan/"]
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Cool Call Pro",
+        "url": "https://coolcallpro.com",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://coolcallpro.com/favicon.svg"
+        }
+    },
+    "image": "https://coolcallpro.com/images/hvac_thermostat_blank.webp",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://coolcallpro.com/articles/thermostat-blank-ac-wont-start"
+    },
+    "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [".tldr-box", ".faq-q", ".faq-a-inner"]
+    },
+    "about": [
+        {"@type": "Thing", "name": "Thermostat", "sameAs": "https://en.wikipedia.org/wiki/Thermostat"},
+        {"@type": "Thing", "name": "Float switch", "sameAs": "https://en.wikipedia.org/wiki/Float_switch"},
+        {"@type": "Thing", "name": "Condensate drain"},
+        {"@type": "Thing", "name": "EPA Section 608", "sameAs": "https://www.epa.gov/section608"}
+    ]
+}
+    </script>
+    <!-- HowTo Schema: the one safe homeowner procedure -->
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to Safely Check a Blank Thermostat (Homeowner Steps Before Calling)",
+    "description": "The narrow safe-homeowner response when a thermostat goes blank and the AC will not start. Battery replacement is the only interior-access step a homeowner should take — everything else is technician territory.",
+    "totalTime": "PT10M",
+    "tool": [
+        {"@type": "HowToTool", "name": "Fresh AA or AAA batteries (check the thermostat's own battery compartment for size)"}
+    ],
+    "step": [
+        {
+            "@type": "HowToStep",
+            "position": 1,
+            "name": "Confirm the display is truly blank (not just dimmed)",
+            "text": "Tap the thermostat screen or press any button. Some modern thermostats dim to save power and wake on touch. If the screen does not respond at all, it is genuinely unpowered — proceed to step 2."
+        },
+        {
+            "@type": "HowToStep",
+            "position": 2,
+            "name": "Replace the thermostat batteries",
+            "text": "Most residential thermostats take two AA or AAA batteries behind a sliding faceplate or a small battery door on the side. Slide the faceplate off the wall plate, swap in fresh batteries, and reinstall. This is the only interior-access step a homeowner should perform. If the display returns after a battery swap, you are done."
+        },
+        {
+            "@type": "HowToStep",
+            "position": 3,
+            "name": "If the display is still blank, stop and call a technician",
+            "text": "A blank screen after a fresh battery swap means the thermostat is not receiving its low-voltage signal from the HVAC system — which almost always traces to a safety cutoff (condensate float switch, blower-compartment door switch) or a blown low-voltage fuse on the control board. Do not open the furnace or air handler access panels, do not flip the breaker at your service panel to reset anything, and do not try to bypass any switch. Call a qualified HVAC technician."
+        }
+    ]
+}
+    </script>
+    <!-- Breadcrumb Schema -->
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://coolcallpro.com/"
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Articles",
+            "item": "https://coolcallpro.com/articles"
+        },
+        {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Thermostat Blank, AC Won't Start?",
+            "item": "https://coolcallpro.com/articles/thermostat-blank-ac-wont-start"
+        }
+    ]
+}
+    </script>
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "Why is my thermostat screen blank?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The most common cause is dead thermostat batteries — residential thermostats with LCD screens typically run on two AA or AAA cells that last 1 to 2 years. If a battery swap does not bring the display back, the thermostat is not receiving its 24-volt signal from the HVAC control board. That usually traces to one of four technician-diagnosed issues: a tripped condensate float switch (safety cutoff for a backed-up drain), a blown 3A or 5A low-voltage fuse on the furnace or air handler control board, a failed 24V transformer, or a tripped blower-compartment door safety switch. None of those are homeowner-fixable."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "How do I know if my thermostat batteries are dead?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Most thermostats show a battery-low warning icon for weeks before the batteries fully die, but after a power interruption or if you missed the warning, the screen simply goes blank. Open the thermostat's battery compartment (usually by sliding the faceplate off the wall plate) and swap in fresh AA or AAA batteries of whatever size the compartment holds. If the screen lights up within seconds, batteries were the cause. If the screen stays blank, it is a deeper issue and requires a technician."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Can a clogged condensate drain cause my thermostat to go blank?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, indirectly. Modern HVAC systems include a safety device called a float switch that shuts the entire system down when the condensate drain pan fills with water — which happens when the drain line is clogged. When the float switch trips, it interrupts the 24-volt signal to the thermostat, making the screen go blank on some thermostats (the ones that draw their power from the 24V transformer). A technician can reset the float switch, clear the drain, and restore power. Do not try to reset the float switch yourself — it sits in the drain pan area alongside high-voltage wiring inside the air handler."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "What is a float switch and how does it cut power to the thermostat?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A float switch is a small plastic float that sits in the HVAC condensate drain pan or drain line. When water backs up behind a clogged drain and rises above the trip level, the float lifts and opens the circuit that carries the 24-volt control signal between the thermostat and the control board. This is intentional safety behavior — it prevents the system from pumping more condensate into a pan that is already overflowing and causing water damage. On thermostats powered by the 24V circuit, the display goes blank when the float switch trips. A technician needs to clear the drain, reset the float, and confirm the condensate path is restored before the system is safe to restart."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Is it safe to keep trying to turn on the AC when the thermostat is blank?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "There is no way to force the AC on when the thermostat is blank — the thermostat is the only interface that sends the call-for-cool signal to the system. Do not try to jumper the thermostat terminals, do not flip the breaker at your service panel to cycle power, and do not open the furnace or air handler access panels to work around the safety chain. The blank screen is almost always a safety device doing its job. Replace the batteries, and if that does not bring it back, call a technician."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "How much does it cost to fix a blank thermostat?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "If the cause is dead batteries, the fix is $2 to $10 and no service call. If a technician is needed, expect a diagnostic fee of $65 to $150. Common repairs: condensate drain clearing and float switch reset ($75 to $250), low-voltage fuse replacement on the control board ($100 to $200 with service call), 24V transformer replacement ($150 to $350), thermostat replacement with a smart thermostat ($150 to $500), and control board replacement ($200 to $600). See our full HVAC Cost Guide for the complete 2026 pricing breakdown."
+            }
+        }
+    ]
+}
+    </script>
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <div class="topbar">
+        <div class="container topbar-inner" style="justify-content: center; padding: 10px; font-weight: 600;">
+            <span class="topbar-text">24/7 Referral Service — Connecting Homeowners with Independent HVAC Professionals</span>
+        </div>
+    </div>
+    <header class="header" id="header">
+        <nav class="nav container" role="navigation" aria-label="Main navigation">
+            <a href="../" class="logo"><span class="logo-icon">&#10052;&#65039;</span><span class="logo-text">CoolCall<span class="logo-accent">Pro</span></span></a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../articles" class="nav-link active">Articles</a></li>
+                <li><a href="../emergency" class="nav-link emergency-link">&#128680; Emergency</a></li>
+                <li><a href="../costs" class="nav-link">Cost Guide</a></li>
+                <li><a href="../safety" class="nav-link">Safety Tips</a></li>
+                <li><a href="../locations" class="nav-link">&#128205; Locations</a></li>
+                <li><a href="../about" class="nav-link">About</a></li>
+                <li><a href="../contact" class="nav-link">Contact</a></li>
+            </ul>
+            <a href="tel:+18445821795" class="btn btn-cta nav-cta btn-vibrate" id="headerNavCta"
+                aria-hidden="true" tabindex="-1"
+                style="opacity: 0; pointer-events: none; transition: opacity 0.3s ease;">
+                <span class="phone-icon">&#128222;</span>
+                <span class="hide-on-mobile">(844) 582-1795</span>
+            </a>
+            <button class="hamburger" id="hamburger" aria-label="Menu">&#9776;</button>
+        </nav>
+    </header>
+
+    <main id="main-content">
+
+        <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+            <div class="container">
+                <ol class="breadcrumb-list">
+                    <li><a href="../">Home</a></li>
+                    <li><a href="../articles">Articles</a></li>
+                    <li>Thermostat Blank, AC Won't Start?</li>
+                </ol>
+            </div>
+        </nav>
+
+        <div class="page-hero">
+            <div class="container">
+                <span class="article-tag tag-emergency" style="display:inline-block; margin-bottom:16px;">&#128680; Emergency Guide</span>
+                <h1>Thermostat Blank, AC Won't Turn On? The 5 Real Causes</h1>
+                <p class="article-disclaimer">For informational purposes only — always consult a qualified HVAC professional for your specific situation.</p>
+                <div class="article-meta-modern"><div class="meta-line meta-published">Published <time datetime="2026-04-20">April 20, 2026</time></div></div>
+                <div class="author-byline">
+                    <img src="../images/author-gyane.webp" alt="Gyanesh Gulshan" class="author-avatar-sm" loading="lazy" width="48" height="48" />
+                    <span>By <a href="../author-gyanesh">Gyanesh Gulshan</a> &mdash; Founder, Cool Call Pro</span>
+                </div>
+            </div>
+        </div>
+
+        <section class="section">
+            <div class="container">
+                <div class="article-layout">
+                    <article class="article-content">
+                        <img src="../images/hvac_thermostat_blank.webp" alt="Close-up of a wall-mounted residential thermostat with a completely dark LCD screen and a homeowner's hand approaching the sliding battery cover to replace the AA cells — beige interior wall, soft indoor lighting, no visible UI text on the blank display" class="lead-img" fetchpriority="high" width="1280" height="720" />
+
+                        <p class="article-disclosure"><a href="../advertising-disclosure">Advertising Disclosure</a>: This site may receive compensation for service connections made through this page. Content is editorially independent.</p>
+
+                        <div class="callout-box callout-danger" style="margin-top: 24px;">
+                            <div class="callout-icon">&#9888;&#65039;</div>
+                            <div class="callout-text">
+                                <strong>HVAC systems involve high-voltage electricity, natural gas, and pressurized refrigerant. Always let a qualified HVAC technician handle diagnosis and repairs.</strong>
+                            </div>
+                        </div>
+
+                        <div class="tldr-box">
+                            <div class="tldr-label">The 30-Second Fix</div>
+                            <p>Your thermostat screen is blank and the AC will not start. <strong>Replace the batteries first</strong> — that solves roughly 7 out of 10 cases. Slide the thermostat faceplate off the wall plate, swap in fresh AA or AAA cells, and reinstall. If the screen lights up, you are done. If it stays dark, the thermostat is not receiving its 24-volt signal from the HVAC system — which almost always means a condensate float switch has tripped (clogged drain), a low-voltage fuse has blown, or a transformer has failed. None of those are homeowner-fixable. Set any backup cooling you have (a window unit, fans) and call a qualified HVAC technician. Do not kill the power by going to your service panel to flip the breaker, do not open the furnace or air handler access panels, and do not try to reset any safety switch yourself.</p>
+                        </div>
+
+                        <div class="callout-box callout-danger">
+                            <div class="callout-icon">&#9888;&#65039;</div>
+                            <div class="callout-text">
+                                <strong>Safety Warning: Battery Swap Only — Everything Else Is Technician Work</strong>
+                                <p>The only interior-access step a homeowner should take on a blank thermostat is replacing the batteries. HVAC control circuits carry 24 volts AC, and the wiring runs directly to systems that operate at 240 volts — a short created by trying to bridge or bypass thermostat terminals can damage the control board, burn out the transformer, or create a fire hazard. <strong>Do not try to kill the power by going to your service panel to flip the breaker to "reset" anything</strong> — that is not how the system works, and it will not clear a tripped safety switch. Do not open the furnace or air handler access panels. Do not try to reset a float switch yourself; it sits alongside live high-voltage wiring inside the air handler. Refrigerant work (if a diagnosis reveals a sealed-system problem) is federally regulated under <a href="https://www.epa.gov/section608" target="_blank" rel="noopener noreferrer">EPA Section 608</a> — certification is legally required. When in doubt, call a technician.</p>
+                            </div>
+                        </div>
+
+                        <h2>Why the Screen Goes Blank in the First Place</h2>
+
+                        <p>A residential thermostat runs on one of two power sources: its own batteries (usually two AA or AAA cells behind the faceplate), or the HVAC system's 24-volt control circuit (often called the "R" and "C" wires running up from the furnace or air handler). Many thermostats use both — batteries as a primary source and the 24V as a backup, or vice versa. Smart thermostats almost always rely on the 24V with the batteries as a fallback for settings retention.</p>
+
+                        <p>When the screen goes dark, one of those two power paths has failed. If the batteries are dead and the thermostat is battery-first, the display drops instantly. If the batteries are fine but the 24V signal is interrupted, a 24V-dependent thermostat goes blank — and the interruption is almost always a safety device doing its job. Understanding which path failed tells you whether the fix is a $5 battery or a service call.</p>
+
+                        <h2>The 5 Causes of a Blank Thermostat (In Order of Frequency)</h2>
+
+                        <h3>1. Dead Batteries (Most Common — The Fix You Can Actually Make)</h3>
+                        <p>Most residential thermostats take two AA or two AAA batteries, and they typically last 1 to 2 years under normal use. Most thermostats show a low-battery warning icon for weeks before the cells fully die, but after a power interruption or if the warning was simply overlooked, the display just goes blank. Swap in fresh batteries; if the screen comes back within a few seconds, you are done.</p>
+
+                        <h3>2. Tripped Condensate Float Switch (Very Common in Humid Climates)</h3>
+                        <p>Modern HVAC systems include a float switch that shuts down the entire system when the condensate drain pan fills with water — which happens when the drain line clogs with algae, dirt, or sludge. A tripped float switch interrupts the 24-volt signal to the thermostat, which is why a thermostat that draws power from the 24V circuit goes blank when this happens. It is not a malfunction; it is the system protecting your ceiling and walls from water damage. A technician needs to clear the drain, reset the float switch, and confirm the condensate path is flowing freely. This is a common failure in hot-humid climates like <a href="../locations/gulfport-ms">Gulfport</a> and <a href="../locations/houston-tx">Houston</a> where the drain line runs algae-heavy all summer. For the full water-damage angle, see our guide on <a href="hvac-leaking-water-inside-house">how to stop HVAC water leaks before they ruin drywall and flooring</a>.</p>
+
+                        <h3>3. Blown Low-Voltage Fuse on the Control Board</h3>
+                        <p>Furnace and air handler control boards include a small automotive-style low-voltage fuse (usually 3 amp or 5 amp) that protects the 24-volt circuit. The fuse blows when a short occurs anywhere on the thermostat wire or in the control circuit — commonly from a chewed wire in an attic (rodents), a stapled thermostat cable where the insulation has been pinched, or a miswired replacement thermostat. A blown fuse cuts the 24V supply, and the thermostat goes blank. Replacement is a $2 fuse but requires opening the control board access panel — a technician job because the cabinet also contains high-voltage wiring. Until the short itself is found, a replacement fuse will blow again within seconds.</p>
+
+                        <h3>4. Failed 24V Transformer</h3>
+                        <p>The 24-volt transformer steps the 120V or 240V line voltage down to the 24V that runs the thermostat and the control-circuit safety chain. Transformers fail over time from heat, age, or voltage surges — a common failure mode after a nearby lightning strike or a utility brownout. When the transformer fails, the 24V signal is gone and the thermostat goes blank. Transformer replacement is a technician job ($150 to $350 including the service call).</p>
+
+                        <h3>5. Failed Thermostat or Tripped Door Safety Switch</h3>
+                        <p>Less commonly, the thermostat itself has reached end of life — the LCD driver can fail after 15 to 20 years. Or the blower compartment door safety switch (a small plunger that cuts the 24V circuit when the access panel is removed) is stuck or broken, producing the same blank-screen symptom without anyone having touched the panel. Both are technician diagnoses — the technician takes a voltage reading at the thermostat base to confirm whether 24V is present at the wires.</p>
+
+                        <!-- CTA 1 -->
+                        <div class="callout-box"
+                            style="background: var(--gray-900); color: white; border: none; padding: 24px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.15); display: flex; flex-direction: column; align-items: center; text-align: center; margin: 32px 0;">
+                            <div
+                                style="font-size: 1.25rem; font-weight: 700; font-family: var(--font-display); margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+                                <span>&#128680;</span> Need a Pro Right Now?
+                            </div>
+                            <p style="color: rgba(255,255,255,0.8); margin-bottom: 20px; font-size: 0.95rem;">
+                                Get connected with a technician in your ZIP code.
+                            </p>
+                            <a href="tel:+18445821795" class="btn btn-primary btn-lg btn-vibrate"><span class="phone-icon">&#128222;</span> Call Now — (844) 582-1795</a>
+                            <p style="color: rgba(255,255,255,0.6); font-size: 0.72rem; margin-top: 12px; max-width: 340px; line-height: 1.5;">Disclosure: We are a referral service and may receive compensation for qualified calls. Calls may be routed to an independent provider network and may be recorded. Pricing and availability vary by provider and location.</p>
+                        </div>
+
+                        <h2>What You Can Safely Do Before Calling</h2>
+
+                        <p>The safe homeowner list on this symptom is deliberately short — one action, really. The battery swap resolves the majority of cases, and everything else routes through a technician.</p>
+
+                        <ol>
+                            <li><strong>Confirm the display is truly blank.</strong> Tap the screen or press any button. Some modern thermostats dim their backlight to save power and wake on touch. If the screen does not respond, it is genuinely unpowered.</li>
+                            <li><strong>Replace the thermostat batteries.</strong> Slide the faceplate off the wall plate (gently — it is designed to come off) or remove the battery cover on the side, note the battery size (AA or AAA), and install two fresh cells. If the screen lights up in a few seconds, you are done.</li>
+                            <li><strong>Call a qualified HVAC technician if the screen is still blank.</strong> That is the entire list. Do not open the furnace or air handler access panels, do not try to reset a float switch, do not flip the breaker at your service panel trying to "reset" the system, do not jumper any thermostat terminals, and do not remove the thermostat base from the wall to inspect the wiring.</li>
+                        </ol>
+
+                        <p>If you want to stay comfortable while you wait for the technician, turn on any ceiling fans (they run on regular line voltage, independent of the HVAC system) and open windows if outdoor air is cooler than indoor. For short waits on a very hot day in <a href="../locations/laredo-tx">Laredo</a> or <a href="../locations/washington-dc">Washington</a>, a portable fan is your friend.</p>
+
+                        <h2>When to Stop and Call a Professional</h2>
+
+                        <p>Call a technician immediately if:</p>
+
+                        <ul>
+                            <li>The screen is <strong>still blank after a fresh battery swap</strong>. The 24V circuit is compromised — technician-only from here.</li>
+                            <li>You see <strong>any water around the indoor air handler or under the drain pan</strong>. The float switch almost certainly tripped for good reason. Water is the priority diagnosis.</li>
+                            <li>There is a <strong>burning smell</strong> anywhere near the furnace, air handler, or the thermostat. Leave the house, call the fire department, then call a technician.</li>
+                            <li>You see <strong>visible damage to the thermostat cable</strong> — chewed insulation, scorch marks at the baseboard, or the cable pulled from the wall. This is a likely short that blew the control-board fuse.</li>
+                            <li>The system was working fine <strong>until a lightning storm or utility power event</strong>. Transformer or control board damage is likely.</li>
+                            <li>You have infants, elderly family members, pets, or anyone with a heart or lung condition and indoor temperature is climbing into the 80s. Move them to a cooler location (a public cooling center, a neighbor, a mall) while a technician is dispatched.</li>
+                        </ul>
+
+                        <p>For the full map of every AC failure mode and how they connect, see our <a href="complete-ac-troubleshooting-guide">complete AC troubleshooting guide</a>. If your system is running but not cooling well after a battery swap, our guide on <a href="ac-not-cooling-below-80">AC running but not cooling below 80&deg;</a> covers the next-layer diagnosis. If you are weighing whether a 15-year-old system is worth repairing vs replacing, read our <a href="2026-hvac-cost-guide">honest 2026 HVAC cost guide</a> first.</p>
+
+                        <h2>What a Technician Will Actually Check</h2>
+
+                        <p>A thorough diagnosis on a blank thermostat covers the whole 24V control chain — the technician should not just swap the thermostat and hope. Measurements that confirm the real cause:</p>
+
+                        <ul>
+                            <li><strong>24V reading at the thermostat base (R to C terminals).</strong> A technician's multimeter at the thermostat base confirms whether the 24V is reaching the thermostat at all. If yes, the thermostat itself is the issue; if no, the break is upstream.</li>
+                            <li><strong>Float switch and drain inspection.</strong> The technician confirms the condensate drain is flowing, the float sits at the correct position, and the switch closes and opens as it should.</li>
+                            <li><strong>Low-voltage fuse on the control board.</strong> After opening the air handler or furnace access panel (a technician-only step because of the live 120V/240V wiring inside), the technician inspects the 3A or 5A fuse. A blown fuse indicates a short somewhere on the thermostat cable that must be located before the fuse is replaced.</li>
+                            <li><strong>24V transformer output.</strong> A voltmeter on the transformer secondary terminals confirms whether the transformer is producing 24V. If not, the transformer is the repair.</li>
+                            <li><strong>Door safety switch operation.</strong> The plunger on the blower-compartment access panel is verified to close when the panel is seated and open when it is removed.</li>
+                            <li><strong>Thermostat wire continuity.</strong> If the short is in the cable (common failure in attics with rodents), a continuity test between the thermostat and the control board identifies it.</li>
+                        </ul>
+
+                        <p>A technician who replaces the thermostat as the first move without measuring 24V at the base is guessing — ask for the voltage reading before approving any part swap.</p>
+
+                        <h2>What Repairs Cost in 2026</h2>
+
+                        <p>Pricing on this site is anchored to our <a href="../costs">complete 2026 HVAC Cost Guide</a>, which is the single source of truth for every cost figure — no drift between articles.</p>
+
+                        <ul>
+                            <li><strong>Diagnostic / service call:</strong> $65&ndash;$150 (often credited toward the repair if approved)</li>
+                            <li><strong>Condensate drain clearing + float switch reset:</strong> $75&ndash;$250</li>
+                            <li><strong>Low-voltage fuse replacement (plus locating the short):</strong> $100&ndash;$200 with service call</li>
+                            <li><strong>24V transformer replacement:</strong> $150&ndash;$350</li>
+                            <li><strong>Thermostat replacement (smart):</strong> $150&ndash;$500</li>
+                            <li><strong>Control board replacement:</strong> $200&ndash;$600</li>
+                            <li><strong>Emergency / after-hours surcharge:</strong> $100&ndash;$300 added</li>
+                        </ul>
+
+                        <p style="color: var(--gray-600); font-size: 0.85rem; margin-top: 8px;">Estimated ranges based on publicly available industry data and in sync with our <a href="../costs">complete cost guide</a>. Actual costs vary by region, provider, and system.</p>
+
+                        <h2>Climate Matters: Where This Problem Shows Up Most</h2>
+
+                        <p><strong>Hot-humid climates (Gulfport, Houston, the Gulf Coast):</strong> The dominant failure mode is a tripped float switch — heavy condensate output all summer combined with algae growth in the drain line means clogs are inevitable if the drain is not flushed annually. If your thermostat goes blank in July and you are in a humid climate, the drain is the first thing a technician will check. Preventive annual drain flushing (a technician tune-up task) almost eliminates this failure mode.</p>
+
+                        <p><strong>Hot-dry climates (Laredo, Phoenix, Las Vegas):</strong> Low condensate output means float-switch trips are rare. The more common cause here is a blown low-voltage fuse after a summer monsoon lightning event, or transformer failure from sustained heat loading. Whole-home surge protection at the service panel (a qualified electrician's job, $200-$500 installed) protects the control board from these events.</p>
+
+                        <p><strong>Mixed-humid climates (Washington DC, Atlanta, Charlotte):</strong> Both patterns show up — shoulder-season float-switch trips when the drain has been dormant all winter, and peak-summer transformer failures. Browse local service providers in <a href="../locations/mississippi">Mississippi</a>, <a href="../locations/texas">Texas</a>, or explore <a href="../locations">all service areas</a>.</p>
+
+                        <h3>Trusted Industry Sources</h3>
+                        <p>The guidance in this article is consistent with published recommendations from:</p>
+                        <ul>
+                            <li><a href="https://www.energy.gov/energysaver/thermostats" target="_blank" rel="noopener noreferrer">U.S. Department of Energy — Thermostats and Energy Savings</a></li>
+                            <li><a href="https://www.epa.gov/section608" target="_blank" rel="noopener noreferrer">EPA Section 608 — Refrigerant Handling Regulations</a></li>
+                            <li><a href="https://www.energystar.gov/products/heating_cooling" target="_blank" rel="noopener noreferrer">ENERGY STAR Heating &amp; Cooling</a></li>
+                            <li><a href="https://www.cpsc.gov/Safety-Education/Safety-Guides/Home" target="_blank" rel="noopener noreferrer">U.S. CPSC — Home Electrical Safety</a></li>
+                        </ul>
+
+                        <!-- CTA 2 -->
+                        <div class="callout-box"
+                            style="background: var(--gray-900); color: white; border: none; padding: 24px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.15); display: flex; flex-direction: column; align-items: center; text-align: center; margin: 32px 0;">
+                            <div
+                                style="font-size: 1.25rem; font-weight: 700; font-family: var(--font-display); margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+                                <span>&#128680;</span> Still Need Help?
+                            </div>
+                            <p style="color: rgba(255,255,255,0.8); margin-bottom: 20px; font-size: 0.95rem;">
+                                Don't wait — get a technician dispatched to your area.
+                            </p>
+                            <a href="tel:+18445821795" class="btn btn-primary btn-lg btn-vibrate"><span class="phone-icon">&#128222;</span> Call Now — (844) 582-1795</a>
+                            <p style="color: rgba(255,255,255,0.6); font-size: 0.72rem; margin-top: 12px; max-width: 340px; line-height: 1.5;">Disclosure: We are a referral service and may receive compensation for qualified calls. Calls may be routed to an independent provider network and may be recorded. Pricing and availability vary by provider and location.</p>
+                        </div>
+
+                        <h2 id="faqs">Frequently Asked Questions</h2>
+
+                        <div class="faq-item">
+                            <button class="faq-q" aria-expanded="false" aria-controls="faq-thermostat-blank-ac-wont-start-1"><span>Why is my thermostat screen blank?</span><span class="faq-icon"></span></button>
+                            <div class="faq-a" id="faq-thermostat-blank-ac-wont-start-1"><div class="faq-a-inner">
+                                <p>The most common cause is dead thermostat batteries &mdash; residential thermostats with LCD screens typically run on two AA or AAA cells that last 1 to 2 years. If a battery swap does not bring the display back, the thermostat is not receiving its 24-volt signal from the HVAC control board. That usually traces to one of four technician-diagnosed issues: a tripped condensate float switch (safety cutoff for a backed-up drain), a blown 3A or 5A low-voltage fuse on the furnace or air handler control board, a failed 24V transformer, or a tripped blower-compartment door safety switch. None of those are homeowner-fixable.</p>
+                            </div></div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-q" aria-expanded="false" aria-controls="faq-thermostat-blank-ac-wont-start-2"><span>How do I know if my thermostat batteries are dead?</span><span class="faq-icon"></span></button>
+                            <div class="faq-a" id="faq-thermostat-blank-ac-wont-start-2"><div class="faq-a-inner">
+                                <p>Most thermostats show a battery-low warning icon for weeks before the batteries fully die, but after a power interruption or if you missed the warning, the screen simply goes blank. Open the thermostat's battery compartment (usually by sliding the faceplate off the wall plate) and swap in fresh AA or AAA batteries of whatever size the compartment holds. If the screen lights up within seconds, batteries were the cause. If the screen stays blank, it is a deeper issue and requires a technician.</p>
+                            </div></div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-q" aria-expanded="false" aria-controls="faq-thermostat-blank-ac-wont-start-3"><span>Can a clogged condensate drain cause my thermostat to go blank?</span><span class="faq-icon"></span></button>
+                            <div class="faq-a" id="faq-thermostat-blank-ac-wont-start-3"><div class="faq-a-inner">
+                                <p>Yes, indirectly. Modern HVAC systems include a safety device called a float switch that shuts the entire system down when the condensate drain pan fills with water &mdash; which happens when the drain line is clogged. When the float switch trips, it interrupts the 24-volt signal to the thermostat, making the screen go blank on some thermostats (the ones that draw their power from the 24V transformer). A technician can reset the float switch, clear the drain, and restore power. Do not try to reset the float switch yourself &mdash; it sits in the drain pan area alongside high-voltage wiring inside the air handler.</p>
+                            </div></div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-q" aria-expanded="false" aria-controls="faq-thermostat-blank-ac-wont-start-4"><span>What is a float switch and how does it cut power to the thermostat?</span><span class="faq-icon"></span></button>
+                            <div class="faq-a" id="faq-thermostat-blank-ac-wont-start-4"><div class="faq-a-inner">
+                                <p>A float switch is a small plastic float that sits in the HVAC condensate drain pan or drain line. When water backs up behind a clogged drain and rises above the trip level, the float lifts and opens the circuit that carries the 24-volt control signal between the thermostat and the control board. This is intentional safety behavior &mdash; it prevents the system from pumping more condensate into a pan that is already overflowing and causing water damage. On thermostats powered by the 24V circuit, the display goes blank when the float switch trips. A technician needs to clear the drain, reset the float, and confirm the condensate path is restored before the system is safe to restart.</p>
+                            </div></div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-q" aria-expanded="false" aria-controls="faq-thermostat-blank-ac-wont-start-5"><span>Is it safe to keep trying to turn on the AC when the thermostat is blank?</span><span class="faq-icon"></span></button>
+                            <div class="faq-a" id="faq-thermostat-blank-ac-wont-start-5"><div class="faq-a-inner">
+                                <p>There is no way to force the AC on when the thermostat is blank &mdash; the thermostat is the only interface that sends the call-for-cool signal to the system. Do not try to jumper the thermostat terminals, do not flip the breaker at your service panel to cycle power, and do not open the furnace or air handler access panels to work around the safety chain. The blank screen is almost always a safety device doing its job. Replace the batteries, and if that does not bring it back, call a technician.</p>
+                            </div></div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-q" aria-expanded="false" aria-controls="faq-thermostat-blank-ac-wont-start-6"><span>How much does it cost to fix a blank thermostat?</span><span class="faq-icon"></span></button>
+                            <div class="faq-a" id="faq-thermostat-blank-ac-wont-start-6"><div class="faq-a-inner">
+                                <p>If the cause is dead batteries, the fix is $2 to $10 and no service call. If a technician is needed, expect a diagnostic fee of $65 to $150. Common repairs: condensate drain clearing and float switch reset ($75 to $250), low-voltage fuse replacement on the control board ($100 to $200 with service call), 24V transformer replacement ($150 to $350), thermostat replacement with a smart thermostat ($150 to $500), and control board replacement ($200 to $600). See our full HVAC Cost Guide for the complete 2026 pricing breakdown.</p>
+                            </div></div>
+                        </div>
+
+                        <h3>Local HVAC Service Areas</h3>
+                        <p>Cool Call Pro connects homeowners with independent HVAC technicians nationwide. Find a pro in <a href="../locations/gulfport-ms" style="color: var(--orange-dark); font-weight: 600;">Gulfport (MS)</a>, <a href="../locations/houston-tx" style="color: var(--orange-dark); font-weight: 600;">Houston (TX)</a>, <a href="../locations/laredo-tx" style="color: var(--orange-dark); font-weight: 600;">Laredo (TX)</a>, or <a href="../locations/washington-dc" style="color: var(--orange-dark); font-weight: 600;">Washington (DC)</a>, or browse by state: <a href="../locations/mississippi" style="color: var(--orange-dark); font-weight: 600;">Mississippi</a>, <a href="../locations/texas" style="color: var(--orange-dark); font-weight: 600;">Texas</a>, or <a href="../locations" style="color: var(--orange-dark); font-weight: 600;">all locations</a>.</p>
+
+                    </article>
+
+                    <aside class="article-sidebar">
+                        <div class="sidebar-widget">
+                            <h4>&#128205; Find a Pro Near You</h4>
+                            <ul>
+                                <li><a href="../locations/gulfport-ms" style="color: var(--orange-dark); font-weight: 600;">Gulfport (MS)</a></li>
+                                <li><a href="../locations/houston-tx" style="color: var(--orange-dark); font-weight: 600;">Houston (TX)</a></li>
+                                <li><a href="../locations/laredo-tx" style="color: var(--orange-dark); font-weight: 600;">Laredo (TX)</a></li>
+                                <li><a href="../locations/washington-dc" style="color: var(--orange-dark); font-weight: 600;">Washington (DC)</a></li>
+                                <li><a href="../locations/mississippi" style="color: var(--orange-dark); font-weight: 600;">All Mississippi Cities</a></li>
+                                <li><a href="../locations/texas" style="color: var(--orange-dark); font-weight: 600;">All Texas Cities</a></li>
+                                <li><a href="../locations" style="font-weight: 600;">All Locations &rarr;</a></li>
+                            </ul>
+                        </div>
+                        <div class="sidebar-widget">
+                            <h4>&#128218; Related Guides</h4>
+                            <ul>
+                                <li><a href="complete-ac-troubleshooting-guide">AC Troubleshooting Guide</a></li>
+                                <li><a href="ac-not-cooling-below-80">AC Not Cooling Below 80&deg;</a></li>
+                                <li><a href="hvac-leaking-water-inside-house">HVAC Water Leaks</a></li>
+                                <li><a href="ac-circuit-breaker-trips">AC Breaker Keeps Tripping</a></li>
+                                <li><a href="2026-hvac-cost-guide">2026 HVAC Cost Guide</a></li>
+                                <li><a href="../article-ac-summer">Broken AC in July?</a></li>
+                            </ul>
+                        </div>
+                    </aside>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Brand -->
+                <div class="footer-brand">
+                    <a href="../" class="logo"><span class="logo-icon">&#10052;&#65039;</span><span class="logo-text">CoolCall<span class="logo-accent">Pro</span></span></a>
+                    <p>Connecting homeowners with independent HVAC professionals across the US. Available 24/7 in many areas.</p>
+                    <div class="footer-contact">
+                        <a href="tel:+18445821795" class="footer-phone">(844) 582-1795</a>
+                        <span>24/7 Service Line</span>
+                    </div>
+                </div>
+                <!-- Resources -->
+                <div class="footer-col">
+                    <h3 class="footer-heading">Resources</h3>
+                    <ul>
+                        <li><a href="../costs">Cost Guide</a></li>
+                        <li><a href="../emergency">Emergency Service</a></li>
+                        <li><a href="../safety">Safety Tips</a></li>
+                        <li><a href="../articles">All Articles</a></li>
+                        <li><a href="../locations">Locations</a></li>
+                    </ul>
+                </div>
+                <!-- Company -->
+                <div class="footer-col">
+                    <h3 class="footer-heading">Company</h3>
+                    <ul>
+                        <li><a href="../about">About Us</a></li>
+                        <li><a href="../contact">Contact</a></li>
+                        <li><a href="../author-gyanesh">Author</a></li>
+                        <li><a href="../privacy">Privacy Policy</a></li>
+                        <li><a href="../advertising-disclosure">Advertising Disclosure</a></li>
+                    </ul>
+                </div>
+                <!-- Service Areas -->
+                <div class="footer-col">
+                    <h3 class="footer-heading">Service Areas</h3>
+                    <ul class="service-areas">
+                        <li><a href="../locations/atlanta-ga">Atlanta, GA</a></li>
+                        <li><a href="../locations/chicago-il">Chicago, IL</a></li>
+                        <li><a href="../locations/dallas-tx">Dallas, TX</a></li>
+                        <li><a href="../locations/houston-tx">Houston, TX</a></li>
+                        <li><a href="../locations/phoenix-az">Phoenix, AZ</a></li>
+                        <li><a href="../locations">All 50 states &#8594;</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Legal Disclosure + Bottom Bar -->
+            <div class="footer-bottom">
+                <p><strong style="color: rgba(255,255,255,0.9);">How this site works:</strong> We publish HVAC cost and troubleshooting information and may connect callers to independent service providers. We do not perform HVAC services ourselves. Pricing, availability, and response times vary by provider and location.</p>
+                <p><strong style="color: rgba(255,255,255,0.9);">Editorial standards:</strong> Our content focuses on helpful troubleshooting tips and realistic pricing information. We avoid guarantees; actual pricing depends on the provider and situation. We clearly disclose compensation for referrals. We update content for clarity and accuracy when needed.</p>
+                <p><strong style="color: rgba(255,255,255,0.9);">Disclaimer:</strong> Cool Call Pro is a free service to assist homeowners in connecting with local service providers. All contractors/providers are independent and Cool Call Pro does not warrant or guarantee any work performed. It is the responsibility of the homeowner to verify that the hired contractor furnishes the necessary license and insurance required for the work being performed. All persons depicted in a photo or video are actors or models and not contractors listed on Cool Call Pro.</p>
+                <p>&copy; <span class="copyright-year">2026</span> Cool Call Pro. All rights reserved. &nbsp;&middot;&nbsp; <a href="../privacy">Privacy Policy</a> &nbsp;&middot;&nbsp; <a href="../terms">Terms of Use</a> &nbsp;&middot;&nbsp; <a href="../disclaimer">Disclaimer</a> &nbsp;&middot;&nbsp; <a href="../advertising-disclosure">Advertising Disclosure</a></p>
+            </div>
+        </div>
+    </footer>
+    <script>document.querySelectorAll('.copyright-year').forEach(function(el){el.textContent=new Date().getFullYear()});</script>
+
+    <script src="../js/main.min.js" defer></script>
+</body>
+
+</html>
