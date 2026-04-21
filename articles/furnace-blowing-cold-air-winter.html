@@ -91,7 +91,17 @@
     "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": "https://coolcallpro.com/articles/furnace-blowing-cold-air-winter"
-    }
+    },
+    "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [".tldr-box", ".faq-q", ".faq-a-inner"]
+    },
+    "about": [
+        {"@type": "Thing", "name": "Furnace", "sameAs": "https://en.wikipedia.org/wiki/Furnace_(central_heating)"},
+        {"@type": "Thing", "name": "Pilot light", "sameAs": "https://en.wikipedia.org/wiki/Pilot_light"},
+        {"@type": "Thing", "name": "Flame sensor"},
+        {"@type": "Thing", "name": "Carbon monoxide", "sameAs": "https://en.wikipedia.org/wiki/Carbon_monoxide"}
+    ]
 }
     </script>
     <!-- Breadcrumb Schema -->
@@ -146,7 +156,7 @@
             "name": "How much does it cost to fix a furnace blowing cold air?",
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "It depends on the cause. A new air filter costs $5 to $30 and you can replace it yourself. A flame sensor cleaning runs $80 to $200 with a service call. An ignitor replacement costs $150 to $400. A gas valve replacement runs $200 to $600. A diagnostic service call typically costs $75 to $150, and many companies apply it toward the repair cost."
+                "text": "It depends on the cause. A new air filter costs $5 to $30 and you can replace it yourself. A flame sensor cleaning runs $80 to $200 with a service call. An ignitor replacement costs $150 to $400. A gas valve replacement runs $200 to $600. A diagnostic service call typically costs $65 to $150, and many companies apply it toward the repair cost."
             }
         },
         {
@@ -271,8 +281,8 @@
                         <div class="callout-box callout-danger">
                             <div class="callout-icon">&#9888;&#65039;</div>
                             <div class="callout-text">
-                                <strong>Safety Warning: Natural Gas and Carbon Monoxide</strong>
-                                <p>Furnaces burn natural gas or propane, producing carbon monoxide as a byproduct. <strong>If you smell gas (a rotten egg or sulfur odor), do not touch any switches or electrical devices.</strong> Turn off the gas shutoff valve if you can reach it safely, open windows, leave the house immediately, and call your gas utility from outside. Do not re-enter until the utility gives the all-clear.</p>
+                                <strong>Safety Warning: Natural Gas, Carbon Monoxide, and High Voltage</strong>
+                                <p>Furnaces burn natural gas or propane, producing carbon monoxide as a byproduct, and run blower motors on high-voltage electrical circuits. <strong>If you smell gas (a rotten egg or sulfur odor), do not touch any switches or electrical devices.</strong> Leave the house immediately, open windows on the way out if you can do so without delay, and call your gas utility from outside. Do not re-enter until the utility gives the all-clear. Separately: do not try to kill the power by going to your service panel to flip the breaker for the furnace yourself — the technician will handle the full power-down and combustion-safety check on arrival. If you happen to have a heat pump instead of a gas furnace, refrigerant-side diagnosis is federally regulated under <a href="https://www.epa.gov/section608" target="_blank" rel="noopener noreferrer">EPA Section 608</a>, certification is legally required, and refrigerant work is never a homeowner task.</p>
                             </div>
                         </div>
 
@@ -333,7 +343,7 @@
 
                         <p>If your furnace has a <strong>standing pilot light</strong> (common on older furnaces, pre-2000), look through the small observation window on the front of the furnace. You should see a small blue flame. If it is out, the burners have no ignition source and will not fire.</p>
 
-                        <p><strong>Do NOT attempt to relight the pilot light yourself.</strong> While relighting instructions are printed on the furnace, this involves working near an open gas line and flame. A technician can relight it safely and check why it went out — a pilot that keeps going out often indicates a failing thermocouple, which is a $100–$250 repair.</p>
+                        <p><strong>Do NOT try to re-ignite the pilot yourself.</strong> While some old furnaces have re-ignition instructions printed on the access panel, the procedure involves working next to an open gas line and an open flame — it is a technician task, full stop. A qualified technician can safely restart the pilot and diagnose why it went out in the first place. A pilot that keeps going out often indicates a failing thermocouple, which is a $100–$250 repair.</p>
 
                         <p>If your furnace has an <strong>electronic ignitor</strong> (most furnaces from 2000 onward), there is no pilot light. The ignitor is a small element that glows red-hot to ignite the gas. When it fails:</p>
                         <ul>
@@ -427,7 +437,7 @@
                                     </tr>
                                     <tr>
                                         <td>Diagnostic service call</td>
-                                        <td class="price-cell">$75–$150</td>
+                                        <td class="price-cell">$65–$150</td>
                                         <td>—</td>
                                     </tr>
                                 </tbody>
@@ -447,7 +457,7 @@
 
                         <ul>
                             <li><strong>Replace the filter every 1 to 3 months during heating season.</strong> In <a href="../locations/denver-co" style="color: var(--orange-dark); font-weight: 600;">Denver</a> and other cold-climate cities where furnaces run 5+ months per year, check it monthly. Set a phone reminder.</li>
-                            <li><strong>Schedule a fall tune-up.</strong> A professional maintenance visit in September or October includes testing the ignitor, cleaning the flame sensor, checking the gas valve, and inspecting the heat exchanger for cracks. Typical cost: $75–$150.</li>
+                            <li><strong>Schedule a fall tune-up.</strong> A professional maintenance visit in September or October includes testing the ignitor, cleaning the flame sensor, checking the gas valve, and inspecting the heat exchanger for cracks. Typical cost: $65–$150.</li>
                             <li><strong>Install a <a href="../article-carbon-monoxide">carbon monoxide detector</a></strong> near the furnace and on every floor of the home. A cracked heat exchanger can leak CO into the living space — you will not smell it, and it can be fatal.</li>
                             <li><strong>Know your furnace age.</strong> The average gas furnace lasts 15 to 20 years. If yours is 15+ years old and needing frequent repairs, start planning for <a href="../article-repair-vs-replace">replacement</a> before it fails during the coldest week of the year.</li>
                             <li><strong>Keep supply and return vents clear.</strong> Do not block vents with furniture, rugs, or curtains. Restricted airflow causes the same overheating problems as a dirty filter.</li>
@@ -472,7 +482,7 @@
                         <div class="faq-item">
                             <button class="faq-q" aria-expanded="false" aria-controls="faq-furnace-blowing-cold-air-winter-3"><span>How much does it cost to fix a furnace blowing cold air?</span><span class="faq-icon"></span></button>
                             <div class="faq-a" id="faq-furnace-blowing-cold-air-winter-3"><div class="faq-a-inner">
-                                <p>It depends on the cause. A new air filter costs $5 to $30 and you can replace it yourself. A flame sensor cleaning runs $80 to $200 with a service call. An ignitor replacement costs $150 to $400. A gas valve replacement runs $200 to $600. A diagnostic service call typically costs $75 to $150, and many companies apply it toward the repair cost.</p>
+                                <p>It depends on the cause. A new air filter costs $5 to $30 and you can replace it yourself. A flame sensor cleaning runs $80 to $200 with a service call. An ignitor replacement costs $150 to $400. A gas valve replacement runs $200 to $600. A diagnostic service call typically costs $65 to $150, and many companies apply it toward the repair cost.</p>
                             </div></div>
                         </div>
 
