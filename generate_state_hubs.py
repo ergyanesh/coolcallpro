@@ -196,14 +196,23 @@ def climate_hazards_section_html(state_name, hazards_csv):
 
 
 def _compose_state_hub_extra_sections(*section_blocks):
-    """Join non-empty section blocks with one blank line between each.
-    Returns '' when all blocks are empty so the template can inline the
-    result with uniform whitespace around the Cost Overview / Service Areas
-    boundary."""
+    """Join non-empty section blocks between Cost Overview and Service Areas.
+
+    Template uses: '    </section>{extra}    <!-- Service Areas -->'
+    Return value produces a single blank line before each section plus a
+    terminator so the last section's '</section>' flows directly into
+    '    <!-- Service Areas -->' with no trailing blank line.
+
+    Cases:
+      - No blocks:   return '\\n\\n' (preserves the pre-patch blank line
+                     between Cost Overview and Service Areas)
+      - Any blocks:  return '\\n\\n<b1>\\n\\n<b2>...\\n' (blank lines between
+                     each block, single newline before Service Areas anchor)
+    """
     non_empty = [s for s in section_blocks if s]
     if not non_empty:
-        return ""
-    return "\n\n" + "\n\n".join(non_empty)
+        return "\n\n"
+    return "\n\n" + "\n\n".join(non_empty) + "\n"
 
 
 def state_figure_html(state_slug, state_name):
@@ -601,8 +610,45 @@ def neighbor_links_html(neighbors_str, hub_abbrs, all_states):
 
 # ─── HTML Template ──────────────────────────────────────────────────────
 
-def generate_html(d, city_list, hub_abbrs, all_states):
-    """Generate complete state hub HTML from state data dict."""
+def _read_existing_reviewed_date(out_path):
+    """Parse the Last-reviewed <time datetime="YYYY-MM-DD"> value from an
+    existing state hub file. Returns a date or None if the file does not
+    exist or the tag can't be located.
+
+    Used to keep the reviewed date sticky across regenerations: a structural
+    or template-only regeneration should not bump the "Last reviewed" signal
+    that Google uses as a freshness marker. Pass --refresh-date to main()
+    to bypass this and force today's date on output."""
+    if not out_path:
+        return None
+    try:
+        path_obj = Path(out_path)
+        if not path_obj.exists():
+            return None
+        text = path_obj.read_text(encoding="utf-8")
+    except OSError:
+        return None
+    import re as _re_local
+    match = _re_local.search(
+        r'class="meta-line meta-reviewed">Last reviewed\s*<time datetime="(\d{4}-\d{2}-\d{2})">',
+        text,
+    )
+    if not match:
+        return None
+    try:
+        return date.fromisoformat(match.group(1))
+    except ValueError:
+        return None
+
+
+def generate_html(d, city_list, hub_abbrs, all_states, out_path=None, refresh_date=False):
+    """Generate complete state hub HTML from state data dict.
+
+    out_path / refresh_date control the "Last reviewed" date:
+      - refresh_date=True: always use today's date (use when content changed).
+      - refresh_date=False (default) + out_path exists: reuse the date
+        already in the file. Regeneration does not bump the freshness signal.
+      - refresh_date=False + no existing file: fall back to today's date."""
 
     name = d['State Name']
     abbr = d['State Abbreviation']
@@ -678,10 +724,13 @@ def generate_html(d, city_list, hub_abbrs, all_states):
           </div>
         </div>'''
 
-    # Byline + Last reviewed (E-E-A-T)
-    today = date.today()
-    reviewed_iso = today.isoformat()
-    reviewed_readable = today.strftime("%B %#d, %Y") if os.name == 'nt' else today.strftime("%B %-d, %Y")
+    # Byline + Last reviewed (E-E-A-T). Sticky by default across regens:
+    # reuse the date already in the file unless refresh_date is set.
+    reviewed_date = None if refresh_date else _read_existing_reviewed_date(out_path)
+    if reviewed_date is None:
+        reviewed_date = date.today()
+    reviewed_iso = reviewed_date.isoformat()
+    reviewed_readable = reviewed_date.strftime("%B %#d, %Y") if os.name == 'nt' else reviewed_date.strftime("%B %-d, %Y")
     meta_block = (
         f'<div class="article-meta-modern"><div class="meta-line meta-reviewed">Last reviewed <time datetime="{reviewed_iso}">{reviewed_readable}</time></div></div>\n'
         f'        <div class="author-byline">\n'
@@ -754,31 +803,30 @@ def generate_html(d, city_list, hub_abbrs, all_states):
   <link rel="stylesheet" href="../css/style.min.css" />
   <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/outfit-latin.woff2" as="font" type="font/woff2" crossorigin>
-
   <!-- Google tag (gtag.js) - GA4 — deferred until first interaction for LCP -->
   <script>
-    (function() {{
-      var loaded = false;
-      function loadGA() {{
-        if (loaded) return;
-        loaded = true;
-        var s = document.createElement('script');
-        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-WD0ND0K60Q';
-        s.async = true;
-        document.head.appendChild(s);
-        s.onload = function() {{
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){{dataLayer.push(arguments);}}
-          window.gtag = gtag;
-          gtag('js', new Date());
-          gtag('config', 'G-WD0ND0K60Q');
-        }};
-      }}
-      ['click', 'scroll', 'touchstart', 'keydown'].forEach(function(evt) {{
-        window.addEventListener(evt, loadGA, {{ once: true, passive: true }});
-      }});
-      setTimeout(loadGA, 4000);
-    }})();
+      (function() {{
+          var loaded = false;
+          function loadGA() {{
+              if (loaded) return;
+              loaded = true;
+              var s = document.createElement('script');
+              s.src = 'https://www.googletagmanager.com/gtag/js?id=G-WD0ND0K60Q';
+              s.async = true;
+              document.head.appendChild(s);
+              s.onload = function() {{
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){{dataLayer.push(arguments);}}
+                  window.gtag = gtag;
+                  gtag('js', new Date());
+                  gtag('config', 'G-WD0ND0K60Q');
+              }};
+          }}
+          ['click', 'scroll', 'touchstart', 'keydown'].forEach(function(evt) {{
+              window.addEventListener(evt, loadGA, {{ once: true, passive: true }});
+          }});
+          setTimeout(loadGA, 4000);
+      }})();
   </script>
 
   <!-- Structured Data: BreadcrumbList + FAQPage + Organization -->
@@ -1234,9 +1282,7 @@ def generate_html(d, city_list, hub_abbrs, all_states):
           <p style="font-size: 1.05rem; line-height: 1.85; color: var(--gray-700);">{cost_para}</p>
         </div>
       </div>
-    </section>{state_hub_extra_sections}
-
-    <!-- Service Areas -->
+    </section>{state_hub_extra_sections}    <!-- Service Areas -->
     <section class="section" style="padding: 0 0 48px;" id="cities">
       <div class="container">
         <div class="city-services" style="margin-bottom: 24px;">
@@ -1457,10 +1503,15 @@ def main():
                 hub_abbrs.add(abbr)
                 break
 
-    # Accept CLI args: specific state abbreviations, or 'all' for all hub states
-    targets = sys.argv[1:] if len(sys.argv) > 1 else []
+    # Accept CLI args: specific state abbreviations, or 'all' for all hub states.
+    # --refresh-date bumps the "Last reviewed" date to today; otherwise the
+    # existing date in the file is preserved (sticky default).
+    raw_args = sys.argv[1:]
+    refresh_date = '--refresh-date' in raw_args
+    targets = [a for a in raw_args if a != '--refresh-date']
     if not targets:
         print("Usage: python generate_state_hubs.py AL  (or: AL TX FL  or: all)")
+        print("       add --refresh-date to bump Last-reviewed to today")
         print(f"\nStates with published cities (eligible for hubs): {sorted(hub_abbrs)}")
         return
 
@@ -1481,10 +1532,11 @@ def main():
 
         d = states[abbr]
         city_list = cities.get(abbr, [])
-        html = generate_html(d, city_list, hub_abbrs, states)
-
         filename = slug(d['State Name']) + '.html'
         filepath = os.path.join(out_dir, filename)
+        html = generate_html(d, city_list, hub_abbrs, states,
+                             out_path=filepath, refresh_date=refresh_date)
+
         with open(filepath, 'w', encoding='utf-8') as f:
             f.write(html)
         print(f"  DONE: {filepath} ({d['State Name']})")
