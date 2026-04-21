@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google tag (gtag.js) - GA4 — deferred until first interaction for LCP -->
+    <script>
+        (function() {
+            var loaded = false;
+            function loadGA() {
+                if (loaded) return;
+                loaded = true;
+                var s = document.createElement('script');
+                s.src = 'https://www.googletagmanager.com/gtag/js?id=G-WD0ND0K60Q';
+                s.async = true;
+                document.head.appendChild(s);
+                s.onload = function() {
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){dataLayer.push(arguments);}
+                    window.gtag = gtag;
+                    gtag('js', new Date());
+                    gtag('config', 'G-WD0ND0K60Q');
+                };
+            }
+            ['click', 'scroll', 'touchstart', 'keydown'].forEach(function(evt) {
+                window.addEventListener(evt, loadGA, { once: true, passive: true });
+            });
+            setTimeout(loadGA, 4000);
+        })();
+    </script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index, follow" />
+    <title>AC Breaker Keeps Tripping? 6 Causes | Cool Call Pro</title>
+    <meta name="description"
+        content="AC keeps tripping the breaker? Stop resetting it — that's a fire risk. The 6 real causes, what to safely check, and when to call." />
+    <link rel="canonical" href="https://coolcallpro.com/articles/ac-circuit-breaker-trips" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="AC Circuit Breaker Keeps Tripping? 6 Causes (and Why You Shouldn't Keep Resetting It)" />
+    <meta property="og:description"
+        content="AC keeps tripping the breaker? Stop resetting it — that's a fire risk. The 6 real causes, what to safely check, and when to call." />
+    <meta property="og:url" content="https://coolcallpro.com/articles/ac-circuit-breaker-trips" />
+    <meta property="og:site_name" content="Cool Call Pro" />
+    <meta property="article:author" content="Gyanesh Gulshan" />
+    <meta property="article:published_time" content="2026-04-20T00:00:00Z" />
+    <meta property="article:modified_time" content="2026-04-20T00:00:00Z" />
+    <meta property="og:image" content="https://coolcallpro.com/images/hvac_ac_breaker_tripping.webp" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="AC Breaker Keeps Tripping? 6 Causes | Cool Call Pro" />
+    <meta name="twitter:description" content="AC tripping the breaker is a safety warning. Stop resetting, check the filter, call a pro. Here's why it happens." />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+    <link rel="stylesheet" href="../css/style.min.css" />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/outfit-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+    <!-- Article Schema -->
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "AC Circuit Breaker Keeps Tripping? 6 Causes (and Why You Shouldn't Keep Resetting It)",
+    "description": "AC keeps tripping the breaker? Stop resetting it — that's a fire risk. The 6 real causes, what to safely check, and when to call.",
+    "datePublished": "2026-04-20",
+    "dateModified": "2026-04-20",
+    "author": {
+        "@type": "Person",
+        "name": "Gyanesh Gulshan",
+        "url": "https://coolcallpro.com/author-gyanesh",
+        "image": "https://coolcallpro.com/images/author-gyane.webp",
+        "sameAs": ["https://www.linkedin.com/in/gyaneshgulshan/"]
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Cool Call Pro",
+        "url": "https://coolcallpro.com",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://coolcallpro.com/favicon.svg"
+        }
+    },
+    "image": "https://coolcallpro.com/images/hvac_ac_breaker_tripping.webp",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://coolcallpro.com/articles/ac-circuit-breaker-trips"
+    },
+    "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [".tldr-box", ".faq-q", ".faq-a-inner"]
+    },
+    "about": [
+        {"@type": "Thing", "name": "Circuit breaker", "sameAs": "https://en.wikipedia.org/wiki/Circuit_breaker"},
+        {"@type": "Thing", "name": "AC compressor", "sameAs": "https://en.wikipedia.org/wiki/Vapor-compression_refrigeration"},
+        {"@type": "Thing", "name": "Locked-rotor amperage"},
+        {"@type": "Thing", "name": "NFPA 70 (National Electrical Code)", "sameAs": "https://www.nfpa.org/codes-and-standards/nfpa-70-standard-development/70"}
+    ]
+}
+    </script>
+    <!-- HowTo Schema: the safe homeowner response before calling -->
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to Safely Respond to a Tripped AC Breaker (Homeowner Steps Before Calling)",
+    "description": "The narrow, safe set of actions a homeowner can take when an AC breaker has tripped. Everything beyond these steps is a technician or electrician job.",
+    "totalTime": "PT10M",
+    "tool": [
+        {"@type": "HowToTool", "name": "Replacement air filter (same nominal size and MERV rating)"}
+    ],
+    "step": [
+        {
+            "@type": "HowToStep",
+            "position": 1,
+            "name": "Do not reset the breaker more than once",
+            "text": "A breaker trips because something downstream is drawing dangerous current. Resetting it a second or third time in a row forces that dangerous current through wiring that has already been identified as overloaded, and creates a real fire risk. If the breaker trips again within minutes, stop."
+        },
+        {
+            "@type": "HowToStep",
+            "position": 2,
+            "name": "Turn the thermostat OFF",
+            "text": "Set the thermostat to off so the system will not try to start again if power is restored. This does not involve any electrical work. If the breaker is already tripped, the circuit is already open — you do not need to touch the breaker at all. A technician can handle the panel side when they arrive."
+        },
+        {
+            "@type": "HowToStep",
+            "position": 3,
+            "name": "Replace the air filter (only if comfortable doing so)",
+            "text": "A clogged filter forces the blower and compressor to work against restricted airflow, pushing the amp draw up on both. A fresh filter of the same nominal size and MERV rating is a no-tools, no-electricity task. Skip this step if you have any doubt — the technician can replace it during the service call."
+        },
+        {
+            "@type": "HowToStep",
+            "position": 4,
+            "name": "Clear debris away from the outdoor condenser (only if you can do it safely from outside the unit)",
+            "text": "Pull grass, leaves, seed fluff, dryer lint, and stored items at least 2 feet away from the outdoor unit on every side. Do NOT spray the unit with a garden hose, do NOT open the cabinet, and do NOT touch the outdoor disconnect — even with the breaker off, wiring inside those enclosures can still be live. If you are not comfortable approaching the unit, skip this step entirely and leave it for the technician."
+        },
+        {
+            "@type": "HowToStep",
+            "position": 5,
+            "name": "Call a qualified HVAC technician (and an electrician if the same breaker trips with the AC off)",
+            "text": "A breaker that trips repeatedly is a safety warning, not an inconvenience. The safest and most valuable action you can take is simply making the phone call. If the same breaker trips with the AC completely off at the thermostat, the problem is in the house wiring and you need a qualified electrician, not an HVAC technician. Do not open the service panel yourself."
+        }
+    ]
+}
+    </script>
+    <!-- Breadcrumb Schema -->
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://coolcallpro.com/"
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Articles",
+            "item": "https://coolcallpro.com/articles"
+        },
+        {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "AC Circuit Breaker Keeps Tripping? Causes",
+            "item": "https://coolcallpro.com/articles/ac-circuit-breaker-trips"
+        }
+    ]
+}
+    </script>
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "Why does my AC keep tripping the breaker?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A breaker trips because the circuit is drawing more current than it is rated to carry, which protects the wiring from overheating and catching fire. For a residential AC, the six common causes are a clogged air filter, a dirty outdoor condenser coil, a failing dual-run capacitor, a compressor struggling to start (high locked-rotor amps), a short or loose connection in the high-voltage wiring, and rarely the breaker itself aging out. All but the first two require a qualified technician."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Is it safe to keep resetting my AC's breaker?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. A breaker trips to protect you from a fire or an electrocution risk. Resetting it repeatedly forces dangerous current through wiring that the breaker has already identified as overloaded. The National Electrical Code (NFPA 70) exists specifically because breakers save lives when they are allowed to do their job. If a breaker trips once, reset it once. If it trips again within minutes, leave it off and call a technician."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "How many times can I reset a tripped AC breaker?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Once. A single reset after an isolated trip is reasonable — transient events happen (lightning, grid fluctuations, a one-time surge). If the breaker holds, monitor the system. If it trips again within the same day, do not reset it a third time. Set the thermostat off, leave the breaker alone, and book a service call. A breaker that trips three times in a row is telling you something is actively wrong in the circuit."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Can a dirty air filter really cause the breaker to trip?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. A severely clogged filter restricts airflow across the evaporator coil, which forces the blower motor to work harder, the compressor to run longer cycles, and both to draw higher amps. On a marginal system — one that was already running near breaker capacity — that extra load is enough to push the circuit over the trip threshold. Replace the filter every 60 to 90 days and monthly if you have pets or high dust, and this failure mode goes away."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Should I call an electrician or an HVAC technician?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Start with an HVAC technician. Most breaker trips on an AC circuit trace back to HVAC components — a failing capacitor, a dirty coil, a struggling compressor — not to the house wiring. A technician will measure amp draw, test the capacitor, check refrigerant charge, and inspect the outdoor disconnect. If the measurements point to a problem upstream of the AC (a damaged breaker, a loose neutral, aluminum wiring, a failing main panel), the technician will refer you to a qualified electrician. Do NOT open the service panel yourself."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "How much does it cost to fix an AC that keeps tripping the breaker?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "If the cause is a dirty filter, the fix is $15 to $35 and no service call. If a technician is needed, expect a diagnostic fee of $65 to $150, a capacitor replacement at $150 to $400, a contactor replacement at $100 to $300, a blower motor replacement at $300 to $1,000, or a compressor replacement at $1,200 to $3,500. A separate circuit breaker replacement is an electrician job, typically $150 to $400. See our full HVAC Cost Guide for the complete 2026 pricing breakdown."
+            }
+        }
+    ]
+}
+    </script>
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <div class="topbar">
+        <div class="container topbar-inner" style="justify-content: center; padding: 10px; font-weight: 600;">
+            <span class="topbar-text">24/7 Referral Service — Connecting Homeowners with Independent HVAC Professionals</span>
+        </div>
+    </div>
+    <header class="header" id="header">
+        <nav class="nav container" role="navigation" aria-label="Main navigation">
+            <a href="../" class="logo"><span class="logo-icon">&#10052;&#65039;</span><span class="logo-text">CoolCall<span class="logo-accent">Pro</span></span></a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../articles" class="nav-link active">Articles</a></li>
+                <li><a href="../emergency" class="nav-link emergency-link">&#128680; Emergency</a></li>
+                <li><a href="../costs" class="nav-link">Cost Guide</a></li>
+                <li><a href="../safety" class="nav-link">Safety Tips</a></li>
+                <li><a href="../locations" class="nav-link">&#128205; Locations</a></li>
+                <li><a href="../about" class="nav-link">About</a></li>
+                <li><a href="../contact" class="nav-link">Contact</a></li>
+            </ul>
+            <a href="tel:+18445821795" class="btn btn-cta nav-cta btn-vibrate" id="headerNavCta"
+                aria-hidden="true" tabindex="-1"
+                style="opacity: 0; pointer-events: none; transition: opacity 0.3s ease;">
+                <span class="phone-icon">&#128222;</span>
+                <span class="hide-on-mobile">(844) 582-1795</span>
+            </a>
+            <button class="hamburger" id="hamburger" aria-label="Menu">&#9776;</button>
+        </nav>
+    </header>
+
+    <main id="main-content">
+
+        <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+            <div class="container">
+                <ol class="breadcrumb-list">
+                    <li><a href="../">Home</a></li>
+                    <li><a href="../articles">Articles</a></li>
+                    <li>AC Circuit Breaker Keeps Tripping? Causes</li>
+                </ol>
+            </div>
+        </nav>
+
+        <div class="page-hero">
+            <div class="container">
+                <span class="article-tag tag-emergency" style="display:inline-block; margin-bottom:16px;">&#128680; Safety Guide</span>
+                <h1>AC Circuit Breaker Keeps Tripping? 6 Causes (and Why You Shouldn't Keep Resetting It)</h1>
+                <p class="article-disclaimer">For informational purposes only — always consult a qualified HVAC professional or qualified electrician for your specific situation.</p>
+                <div class="article-meta-modern"><div class="meta-line meta-published">Published <time datetime="2026-04-20">April 20, 2026</time></div></div>
+                <div class="author-byline">
+                    <img src="../images/author-gyane.webp" alt="Gyanesh Gulshan" class="author-avatar-sm" loading="lazy" width="48" height="48" />
+                    <span>By <a href="../author-gyanesh">Gyanesh Gulshan</a> &mdash; Founder, Cool Call Pro</span>
+                </div>
+            </div>
+        </div>
+
+        <section class="section">
+            <div class="container">
+                <div class="article-layout">
+                    <article class="article-content">
+                        <img src="../images/hvac_ac_breaker_tripping.webp" alt="Close-up of a residential electrical service panel with the door open, a row of standard breakers visible, and one 2-pole breaker labeled A/C in the clearly tripped middle position — a homeowner's hand hesitating near it but not touching" class="lead-img" fetchpriority="high" width="1280" height="720" />
+
+                        <p class="article-disclosure"><a href="../advertising-disclosure">Advertising Disclosure</a>: This site may receive compensation for service connections made through this page. Content is editorially independent.</p>
+
+                        <div class="callout-box callout-danger" style="margin-top: 24px;">
+                            <div class="callout-icon">&#9888;&#65039;</div>
+                            <div class="callout-text">
+                                <strong>HVAC systems involve high-voltage electricity, natural gas, and pressurized refrigerant. Always let a qualified HVAC technician handle diagnosis and repairs.</strong>
+                            </div>
+                        </div>
+
+                        <div class="tldr-box">
+                            <div class="tldr-label">The 30-Second Safety Answer</div>
+                            <p>A breaker trips because something is drawing dangerous current — <strong>it's protecting you from a fire</strong>. If your AC's breaker has tripped twice in a row, <strong>stop resetting it</strong>. Set the thermostat to off, leave the breaker alone, and call a qualified HVAC technician. Do not keep resetting. Do not open the service panel. Do not open the outdoor disconnect. Do not spray the outdoor unit with water. Repeated resets on a tripping circuit are how electrical fires start — the single most valuable action you can take is making the phone call.</p>
+                        </div>
+
+                        <div class="callout-box callout-danger">
+                            <div class="callout-icon">&#9888;&#65039;</div>
+                            <div class="callout-text">
+                                <strong>Safety Warning: Do Not Keep Resetting — Call a Professional</strong>
+                                <p>Circuit breakers exist because the <a href="https://www.nfpa.org/codes-and-standards/nfpa-70-standard-development/70" target="_blank" rel="noopener noreferrer">National Electrical Code (NFPA 70)</a> requires overcurrent protection on every residential branch circuit. When a breaker trips, it has detected a condition — sustained over-current, a short, a ground fault — that will eventually overheat the wiring and start a fire. <strong>The safest action for a homeowner is to set the thermostat to off and call a qualified HVAC technician.</strong> If the breaker has already tripped, the circuit is already open — you do not need to touch the breaker at all. Do NOT reset the breaker a third time hoping it will hold. Do NOT open the service panel to inspect anything; residential service panels carry 240V split-phase and the bus bars are live even when individual breakers are off. Do NOT open the outdoor disconnect or the outdoor unit's cabinet. If the breaker <strong>smells hot, is warm to the back of your hand, or looks scorched, or if you see smoke or burning smell anywhere</strong>, evacuate the area and call 911 or your fire department — then call a qualified electrician. Nothing about this problem is worth a risk to your safety.</p>
+                            </div>
+                        </div>
+
+                        <h2>Why a Breaker Trips in the First Place</h2>
+
+                        <p>A residential central AC runs on a dedicated 240-volt, two-pole breaker — typically 30 amps or 40 amps depending on system size. The breaker's job is simple: if the circuit pulls more current than it is rated for, for long enough, the breaker opens and cuts power. There are four conditions that cause a trip:</p>
+
+                        <ol>
+                            <li><strong>Sustained overload.</strong> The AC is drawing more current than rated for minutes at a time — the most common HVAC trigger.</li>
+                            <li><strong>Short circuit.</strong> Two conductors touch directly (hot-to-neutral or hot-to-hot), creating a near-zero resistance path and a massive inrush of current. The breaker trips in milliseconds.</li>
+                            <li><strong>Ground fault.</strong> Current is leaking to ground (often through a failed compressor winding that has shorted to the outdoor unit's metal cabinet). A GFCI or AFCI breaker catches this; a standard breaker may not.</li>
+                            <li><strong>Inrush on startup.</strong> A compressor's locked-rotor amps (LRA) at the instant of startup are 4 to 6 times the running amps. A weak capacitor or a worn compressor extends that inrush long enough to trip a standard breaker — even when the system looks fine once it gets going.</li>
+                        </ol>
+
+                        <p>Knowing which of those four is happening changes the diagnosis. That is why this is a measurement job, not a guess job.</p>
+
+                        <h2>The 6 Root Causes of a Tripping AC Breaker</h2>
+
+                        <p>In rough order of frequency, here are the six specific failure modes homeowners call us about.</p>
+
+                        <h3>1. Clogged Air Filter or Dirty Evaporator Coil (Most Fixable)</h3>
+                        <p>A restricted airflow path forces the blower motor to work harder and the compressor to run longer, warmer cycles. Both draw higher amps. On a system that was already running close to breaker capacity, that extra load is enough to trip. The two-minute DIY fix is a fresh filter every 60 to 90 days. If a filter change does not stop the trip, see our guide on <a href="ac-freezing-up-in-summer">AC freezing up in summer</a>, since a dirty coil often shows up as ice before it shows up as a breaker trip.</p>
+
+                        <h3>2. Dirty Outdoor Condenser Coil</h3>
+                        <p>The outdoor coil rejects all the heat the indoor coil absorbs. If the fins are packed with cottonwood fluff, grass clippings, dryer lint, or years of grime, the condenser cannot dump heat fast enough. Refrigerant pressure climbs, the compressor works harder against that pressure, and amp draw climbs with it. Annual professional coil cleaning is the standard fix — a technician will shut off power at the disconnect, inspect for pest damage, and use the right coil cleaner and water pressure. This is not a DIY task because the outdoor cabinet contains live high-voltage wiring even with the breaker off.</p>
+
+                        <h3>3. Failing Dual-Run Capacitor</h3>
+                        <p>The dual-run capacitor inside the outdoor unit gives the compressor and fan motor the extra push they need to start. A capacitor that has lost capacitance (microfarads) cannot supply that push, and the compressor sits in a locked-rotor condition for an extra second or two — long enough to trip the breaker. A failing capacitor is the single most common technician finding on a repeatedly-tripping AC. Related pattern covered in our guide on <a href="ac-compressor-buzzing-fan-not-spinning">AC compressor buzzing, fan not spinning</a>. <strong>Do not attempt to test or replace a capacitor yourself.</strong> Capacitors store a dangerous charge for minutes after the power is cut and must be discharged with an insulated tool.</p>
+
+                        <h3>4. Compressor Hard-Starting or Going Bad</h3>
+                        <p>Beyond a weak capacitor, the compressor motor itself can wear out. As the internal windings age, bearings degrade, or oil thins, the compressor takes longer to reach running speed — and each start pulls elevated inrush current for longer. A technician will measure locked-rotor amps and compare to the compressor's rated LRA stamped on the nameplate. If LRA is more than 10 to 15% above rated, the compressor is on borrowed time. A failing compressor that trips the breaker is almost always a replace-the-compressor or replace-the-system decision — $1,200 to $3,500 for the compressor alone, often pushing toward full replacement on older systems. For the cost-side of that decision, see our <a href="2026-hvac-cost-guide">honest 2026 HVAC cost guide</a>.</p>
+
+                        <h3>5. Loose Connection or Short in the High-Voltage Wiring</h3>
+                        <p>Terminal lugs inside the outdoor disconnect, the contactor, or the compressor terminal box can loosen over years of thermal cycling. A loose connection creates high resistance, heat, and eventually an arc — which trips the breaker as current spikes. A chewed or rodent-damaged wire between the disconnect and the unit creates the same pattern. This is strictly a technician job with a multimeter and an insulated driver — <strong>there is nothing a homeowner can safely check inside any of these enclosures</strong>.</p>
+
+                        <h3>6. The Breaker Itself Is Failing (Rare)</h3>
+                        <p>Breakers do wear out. After 20+ years, a breaker's thermal trip element can weaken and begin tripping at currents below the rating. If a technician measures normal amp draw across the AC and the breaker still trips, the next step is replacing the breaker — and that is a qualified electrician's job, not an HVAC technician's, because it involves work inside the live service panel. A breaker replacement typically runs $150 to $400 in 2026.</p>
+
+                        <!-- CTA 1 -->
+                        <div class="callout-box"
+                            style="background: var(--gray-900); color: white; border: none; padding: 24px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.15); display: flex; flex-direction: column; align-items: center; text-align: center; margin: 32px 0;">
+                            <div
+                                style="font-size: 1.25rem; font-weight: 700; font-family: var(--font-display); margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+                                <span>&#128680;</span> Need a Pro Right Now?
+                            </div>
+                            <p style="color: rgba(255,255,255,0.8); margin-bottom: 20px; font-size: 0.95rem;">
+                                Get connected with a technician in your ZIP code.
+                            </p>
+                            <a href="tel:+18445821795" class="btn btn-primary btn-lg btn-vibrate"><span class="phone-icon">&#128222;</span> Call Now — (844) 582-1795</a>
+                            <p style="color: rgba(255,255,255,0.6); font-size: 0.72rem; margin-top: 12px; max-width: 340px; line-height: 1.5;">Disclosure: We are a referral service and may receive compensation for qualified calls. Calls may be routed to an independent provider network and may be recorded. Pricing and availability vary by provider and location.</p>
+                        </div>
+
+                        <h2>What You Can Safely Do Before Calling</h2>
+
+                        <p>The safe homeowner response to a tripping AC breaker is deliberately short — shorter than most troubleshooting articles — because the risk of getting it wrong is measured in fires and electrocution, not inconvenience. <strong>If you only do one thing, make the phone call.</strong> Everything else below is optional and should be skipped if you have any doubt.</p>
+
+                        <ol>
+                            <li><strong>Do not reset the breaker more than once.</strong> If it trips and resets cleanly, monitor the system. If it trips a second time, leave it alone and do not keep trying to flip the breaker back on — forcing a tripping circuit to carry current is how electrical fires start.</li>
+                            <li><strong>Turn the thermostat OFF.</strong> This is the single safest action. It stops the system from attempting to restart and involves no electrical work. If the breaker is already in the tripped position, you do not need to touch the breaker at all — the circuit is already open.</li>
+                            <li><strong>Optional, only if comfortable: replace the air filter.</strong> A fresh filter of the same nominal size and MERV rating is a no-tools task and sometimes resolves a marginal tripping pattern once the technician has verified the rest of the system. If you have any doubt, skip this and let the technician do it.</li>
+                            <li><strong>Optional, only if you can do it from a safe distance: clear loose debris away from the outdoor unit.</strong> Pull grass, leaves, seed fluff, and stored items at least 2 feet away on every side. <strong>Do NOT spray the unit with a garden hose, do NOT touch the outdoor disconnect, and do NOT open the cabinet.</strong> Wiring inside both the disconnect and the cabinet can still be live even when the breaker is off. If you are not 100% comfortable approaching the unit from the outside, skip this step entirely.</li>
+                            <li><strong>Call a qualified HVAC technician.</strong> This is the most valuable action you can take. If the same breaker also trips with the AC completely off at the thermostat, the fault is in the house wiring and you need a qualified electrician, not an HVAC technician.</li>
+                        </ol>
+
+                        <p>That is the complete safe-DIY list. <strong>Do not</strong> open the service panel to inspect the breaker. <strong>Do not</strong> open the outdoor disconnect box. <strong>Do not</strong> open the outdoor unit's service panel to look at the capacitor or the contactor. <strong>Do not</strong> spray the outdoor unit with water. <strong>Do not</strong> try to measure amperage with a consumer-grade multimeter. <strong>Do not</strong> try to test or discharge a capacitor. Any of those steps puts you in direct contact with 240-volt wiring or a capacitor that can hold a lethal charge for several minutes after power is cut — and none of them speeds up the technician's diagnosis.</p>
+
+                        <h2>When to Stop and Call a Professional</h2>
+
+                        <p>Because the safety stakes are higher on this symptom than most AC issues, the "stop and call" list is longer. Call a technician if any of these are true:</p>
+
+                        <ul>
+                            <li>The breaker <strong>trips a second time within minutes</strong> of being reset.</li>
+                            <li>The breaker <strong>smells hot</strong>, is warm to the back of your hand, or looks scorched or discolored. Do not touch it — call an electrician, not HVAC.</li>
+                            <li>You see <strong>visible damage to wiring</strong> at the outdoor unit — chewed insulation, blackened terminals, or a wire pulled loose.</li>
+                            <li>The system <strong>makes a loud hum or buzz without the fan spinning up</strong> before tripping. That is the classic failing-capacitor pattern.</li>
+                            <li>The outdoor unit <strong>blows cold air briefly and then trips</strong>. That is the classic hard-start pattern — a compressor that pulls inrush for too long.</li>
+                            <li>The same breaker trips with the <strong>AC fully off</strong> at the thermostat and at the outdoor disconnect. That is a house-wiring problem and requires a qualified electrician.</li>
+                            <li>The system is <strong>older than 12 to 15 years</strong> and the breaker trips alongside weak cooling. Multiple failure modes are common at that age.</li>
+                            <li>You have <strong>infants, elderly family members, or anyone with a heart or lung condition</strong> in the house and you can no longer run the AC safely. Move them to a cooler space while the system is being diagnosed.</li>
+                        </ul>
+
+                        <p>For the full map of every AC failure mode and how they interconnect, see our <a href="complete-ac-troubleshooting-guide">complete AC troubleshooting guide</a>. If your system is cooling only weakly before it trips, our guide on <a href="ac-not-cooling-below-80">AC running but not cooling below 80&deg;</a> covers the underlying airflow and capacitor patterns. If water is now leaking from the indoor air handler as well, see <a href="hvac-leaking-water-inside-house">how to stop HVAC water leaks before they damage drywall and flooring</a>.</p>
+
+                        <h2>What a Technician Will Actually Check</h2>
+
+                        <p>A thorough diagnosis on a tripping AC circuit should include every one of these measurements. If a technician quotes you a repair without showing you the numbers, ask for them.</p>
+
+                        <ul>
+                            <li><strong>Clamp meter on the compressor and fan motor leads.</strong> Shows running amps and locked-rotor amps. The LRA reading compared to the compressor's nameplate LRA tells you whether the compressor is within spec or on its way out.</li>
+                            <li><strong>Capacitor microfarad test.</strong> A multimeter in capacitance mode reads the actual stored charge against the capacitor's rated value. Anything more than 10% below rated is a replace.</li>
+                            <li><strong>Contactor inspection.</strong> Pitted or welded contact points, burned coil, or chattering on pull-in. Any of those is a replace.</li>
+                            <li><strong>High- and low-side refrigerant pressures.</strong> High-side pressure well above normal points to a blocked condenser and explains elevated amp draw. Under <a href="https://www.epa.gov/section608" target="_blank" rel="noopener noreferrer">EPA Section 608</a>, refrigerant handling is federally regulated and certification is legally required — gauges and recovery are not a homeowner task.</li>
+                            <li><strong>Voltage at the disconnect.</strong> Confirms the service panel is delivering proper 240V split-phase to the outdoor unit. Low voltage under load (below ~208V) indicates upstream problems that belong to an electrician.</li>
+                            <li><strong>Visual inspection of wire terminations.</strong> At the contactor, the compressor terminal box, and the disconnect. Looking for scorch marks, loose lugs, and pest damage.</li>
+                        </ul>
+
+                        <p>A technician who skips straight to "you need a new compressor" without showing you capacitor microfarads and LRA readings is guessing. Ask for the numbers.</p>
+
+                        <h2>What Repairs Cost in 2026</h2>
+
+                        <p>Pricing on this site is anchored to our <a href="../costs">complete 2026 HVAC Cost Guide</a>, which is the single source of truth for every cost figure — no drift between articles.</p>
+
+                        <ul>
+                            <li><strong>Diagnostic / service call:</strong> $65&ndash;$150 (often credited toward the repair if approved)</li>
+                            <li><strong>Capacitor replacement:</strong> $150&ndash;$400</li>
+                            <li><strong>Contactor replacement:</strong> $100&ndash;$300</li>
+                            <li><strong>Hard-start kit installation:</strong> $150&ndash;$350 (extends the life of a marginal compressor)</li>
+                            <li><strong>Blower motor replacement:</strong> $300&ndash;$1,000</li>
+                            <li><strong>Compressor replacement:</strong> $1,200&ndash;$3,500</li>
+                            <li><strong>Circuit breaker replacement (qualified electrician):</strong> $150&ndash;$400</li>
+                            <li><strong>Emergency / after-hours surcharge:</strong> $100&ndash;$300 added</li>
+                        </ul>
+
+                        <p style="color: var(--gray-600); font-size: 0.85rem; margin-top: 8px;">Estimated ranges based on publicly available industry data and in sync with our <a href="../costs">complete cost guide</a>. Actual costs vary by region, provider, and system.</p>
+
+                        <h2>Climate Matters: Where Tripping Breakers Show Up Most</h2>
+
+                        <p><strong>Hot-humid climates (Baton Rouge, Brownsville, the Gulf Coast):</strong> Long run cycles at high outdoor temperatures push amp draw close to breaker rating for hours at a stretch. A marginal capacitor that survived the shoulder season will often fail during the first real heat wave. Annual capacitor microfarad testing before summer peak is high-value here.</p>
+
+                        <p><strong>Hot-dry climates (Irvine, Phoenix, Las Vegas):</strong> Dust-caked condenser coils are the dominant upstream cause. Fine desert dust bonds to coil fins and forms an insulating layer that drives head pressure up. Annual professional coil cleaning before summer pays for itself in amp reduction — ask the technician to include a coil rinse and fin inspection in the spring tune-up.</p>
+
+                        <p><strong>Mixed-humid climates (Charlotte, Atlanta, Nashville):</strong> The most variable pattern — trips can cluster on the first true heat wave in June or July, when a system that ran fine in May is suddenly asked for peak output. This almost always points to a marginal capacitor or a hard-starting compressor that only shows up under load. Browse local service providers in <a href="../locations/louisiana">Louisiana</a>, <a href="../locations/texas">Texas</a>, or explore <a href="../locations">all service areas</a>.</p>
+
+                        <h3>Trusted Industry Sources</h3>
+                        <p>The guidance in this article is consistent with published recommendations from:</p>
+                        <ul>
+                            <li><a href="https://www.energy.gov/energysaver/central-air-conditioning" target="_blank" rel="noopener noreferrer">U.S. Department of Energy — Central Air Conditioning</a></li>
+                            <li><a href="https://www.epa.gov/section608" target="_blank" rel="noopener noreferrer">EPA Section 608 — Refrigerant Handling Regulations</a></li>
+                            <li><a href="https://www.nfpa.org/codes-and-standards/nfpa-70-standard-development/70" target="_blank" rel="noopener noreferrer">NFPA 70 — National Electrical Code</a></li>
+                            <li><a href="https://www.cpsc.gov/Safety-Education/Safety-Guides/Home" target="_blank" rel="noopener noreferrer">U.S. CPSC — Home Electrical Safety</a></li>
+                            <li><a href="https://www.energystar.gov/products/heating_cooling" target="_blank" rel="noopener noreferrer">ENERGY STAR Heating &amp; Cooling</a></li>
+                        </ul>
+
+                        <!-- CTA 2 -->
+                        <div class="callout-box"
+                            style="background: var(--gray-900); color: white; border: none; padding: 24px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.15); display: flex; flex-direction: column; align-items: center; text-align: center; margin: 32px 0;">
+                            <div
+                                style="font-size: 1.25rem; font-weight: 700; font-family: var(--font-display); margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+                                <span>&#128680;</span> Still Need Help?
+                            </div>
+                            <p style="color: rgba(255,255,255,0.8); margin-bottom: 20px; font-size: 0.95rem;">
+                                Don't wait — get a technician dispatched to your area.
+                            </p>
+                            <a href="tel:+18445821795" class="btn btn-primary btn-lg btn-vibrate"><span class="phone-icon">&#128222;</span> Call Now — (844) 582-1795</a>
+                            <p style="color: rgba(255,255,255,0.6); font-size: 0.72rem; margin-top: 12px; max-width: 340px; line-height: 1.5;">Disclosure: We are a referral service and may receive compensation for qualified calls. Calls may be routed to an independent provider network and may be recorded. Pricing and availability vary by provider and location.</p>
+                        </div>
+
+                        <h2 id="faqs">Frequently Asked Questions</h2>
+
+                        <div class="faq-item">
+                            <button class="faq-q" aria-expanded="false" aria-controls="faq-ac-circuit-breaker-trips-1"><span>Why does my AC keep tripping the breaker?</span><span class="faq-icon"></span></button>
+                            <div class="faq-a" id="faq-ac-circuit-breaker-trips-1"><div class="faq-a-inner">
+                                <p>A breaker trips because the circuit is drawing more current than it is rated to carry, which protects the wiring from overheating and catching fire. For a residential AC, the six common causes are a clogged air filter, a dirty outdoor condenser coil, a failing dual-run capacitor, a compressor struggling to start (high locked-rotor amps), a short or loose connection in the high-voltage wiring, and rarely the breaker itself aging out. All but the first two require a qualified technician.</p>
+                            </div></div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-q" aria-expanded="false" aria-controls="faq-ac-circuit-breaker-trips-2"><span>Is it safe to keep resetting my AC's breaker?</span><span class="faq-icon"></span></button>
+                            <div class="faq-a" id="faq-ac-circuit-breaker-trips-2"><div class="faq-a-inner">
+                                <p>No. A breaker trips to protect you from a fire or an electrocution risk. Resetting it repeatedly forces dangerous current through wiring that the breaker has already identified as overloaded. The National Electrical Code (NFPA 70) exists specifically because breakers save lives when they are allowed to do their job. If a breaker trips once, reset it once. If it trips again within minutes, leave it off and call a technician.</p>
+                            </div></div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-q" aria-expanded="false" aria-controls="faq-ac-circuit-breaker-trips-3"><span>How many times can I reset a tripped AC breaker?</span><span class="faq-icon"></span></button>
+                            <div class="faq-a" id="faq-ac-circuit-breaker-trips-3"><div class="faq-a-inner">
+                                <p>Once. A single reset after an isolated trip is reasonable &mdash; transient events happen (lightning, grid fluctuations, a one-time surge). If the breaker holds, monitor the system. If it trips again within the same day, do not reset it a third time. Set the thermostat off, leave the breaker alone, and book a service call. A breaker that trips three times in a row is telling you something is actively wrong in the circuit.</p>
+                            </div></div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-q" aria-expanded="false" aria-controls="faq-ac-circuit-breaker-trips-4"><span>Can a dirty air filter really cause the breaker to trip?</span><span class="faq-icon"></span></button>
+                            <div class="faq-a" id="faq-ac-circuit-breaker-trips-4"><div class="faq-a-inner">
+                                <p>Yes. A severely clogged filter restricts airflow across the evaporator coil, which forces the blower motor to work harder, the compressor to run longer cycles, and both to draw higher amps. On a marginal system &mdash; one that was already running near breaker capacity &mdash; that extra load is enough to push the circuit over the trip threshold. Replace the filter every 60 to 90 days and monthly if you have pets or high dust, and this failure mode goes away.</p>
+                            </div></div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-q" aria-expanded="false" aria-controls="faq-ac-circuit-breaker-trips-5"><span>Should I call an electrician or an HVAC technician?</span><span class="faq-icon"></span></button>
+                            <div class="faq-a" id="faq-ac-circuit-breaker-trips-5"><div class="faq-a-inner">
+                                <p>Start with an HVAC technician. Most breaker trips on an AC circuit trace back to HVAC components &mdash; a failing capacitor, a dirty coil, a struggling compressor &mdash; not to the house wiring. A technician will measure amp draw, test the capacitor, check refrigerant charge, and inspect the outdoor disconnect. If the measurements point to a problem upstream of the AC (a damaged breaker, a loose neutral, aluminum wiring, a failing main panel), the technician will refer you to a qualified electrician. Do NOT open the service panel yourself.</p>
+                            </div></div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-q" aria-expanded="false" aria-controls="faq-ac-circuit-breaker-trips-6"><span>How much does it cost to fix an AC that keeps tripping the breaker?</span><span class="faq-icon"></span></button>
+                            <div class="faq-a" id="faq-ac-circuit-breaker-trips-6"><div class="faq-a-inner">
+                                <p>If the cause is a dirty filter, the fix is $15 to $35 and no service call. If a technician is needed, expect a diagnostic fee of $65 to $150, a capacitor replacement at $150 to $400, a contactor replacement at $100 to $300, a blower motor replacement at $300 to $1,000, or a compressor replacement at $1,200 to $3,500. A separate circuit breaker replacement is an electrician job, typically $150 to $400. See our full HVAC Cost Guide for the complete 2026 pricing breakdown.</p>
+                            </div></div>
+                        </div>
+
+                        <h3>Local HVAC Service Areas</h3>
+                        <p>Cool Call Pro connects homeowners with independent HVAC technicians nationwide. Find a pro in <a href="../locations/baton-rouge-la" style="color: var(--orange-dark); font-weight: 600;">Baton Rouge (LA)</a>, <a href="../locations/brownsville-tx" style="color: var(--orange-dark); font-weight: 600;">Brownsville (TX)</a>, <a href="../locations/irvine-ca" style="color: var(--orange-dark); font-weight: 600;">Irvine (CA)</a>, or <a href="../locations/charlotte-nc" style="color: var(--orange-dark); font-weight: 600;">Charlotte (NC)</a>, or browse by state: <a href="../locations/louisiana" style="color: var(--orange-dark); font-weight: 600;">Louisiana</a>, <a href="../locations/texas" style="color: var(--orange-dark); font-weight: 600;">Texas</a>, or <a href="../locations" style="color: var(--orange-dark); font-weight: 600;">all locations</a>.</p>
+
+                    </article>
+
+                    <aside class="article-sidebar">
+                        <div class="sidebar-widget">
+                            <h4>&#128205; Find a Pro Near You</h4>
+                            <ul>
+                                <li><a href="../locations/baton-rouge-la" style="color: var(--orange-dark); font-weight: 600;">Baton Rouge (LA)</a></li>
+                                <li><a href="../locations/brownsville-tx" style="color: var(--orange-dark); font-weight: 600;">Brownsville (TX)</a></li>
+                                <li><a href="../locations/irvine-ca" style="color: var(--orange-dark); font-weight: 600;">Irvine (CA)</a></li>
+                                <li><a href="../locations/charlotte-nc" style="color: var(--orange-dark); font-weight: 600;">Charlotte (NC)</a></li>
+                                <li><a href="../locations/louisiana" style="color: var(--orange-dark); font-weight: 600;">All Louisiana Cities</a></li>
+                                <li><a href="../locations/texas" style="color: var(--orange-dark); font-weight: 600;">All Texas Cities</a></li>
+                                <li><a href="../locations" style="font-weight: 600;">All Locations &rarr;</a></li>
+                            </ul>
+                        </div>
+                        <div class="sidebar-widget">
+                            <h4>&#128218; Related Guides</h4>
+                            <ul>
+                                <li><a href="complete-ac-troubleshooting-guide">AC Troubleshooting Guide</a></li>
+                                <li><a href="ac-not-cooling-below-80">AC Not Cooling Below 80&deg;</a></li>
+                                <li><a href="ac-compressor-buzzing-fan-not-spinning">Compressor Buzzing, Fan Not Spinning</a></li>
+                                <li><a href="ac-freezing-up-in-summer">AC Freezing Up in Summer</a></li>
+                                <li><a href="2026-hvac-cost-guide">2026 HVAC Cost Guide</a></li>
+                                <li><a href="../article-ac-summer">Broken AC in July?</a></li>
+                            </ul>
+                        </div>
+                    </aside>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Brand -->
+                <div class="footer-brand">
+                    <a href="../" class="logo"><span class="logo-icon">&#10052;&#65039;</span><span class="logo-text">CoolCall<span class="logo-accent">Pro</span></span></a>
+                    <p>Connecting homeowners with independent HVAC professionals across the US. Available 24/7 in many areas.</p>
+                    <div class="footer-contact">
+                        <a href="tel:+18445821795" class="footer-phone">(844) 582-1795</a>
+                        <span>24/7 Service Line</span>
+                    </div>
+                </div>
+                <!-- Resources -->
+                <div class="footer-col">
+                    <h3 class="footer-heading">Resources</h3>
+                    <ul>
+                        <li><a href="../costs">Cost Guide</a></li>
+                        <li><a href="../emergency">Emergency Service</a></li>
+                        <li><a href="../safety">Safety Tips</a></li>
+                        <li><a href="../articles">All Articles</a></li>
+                        <li><a href="../locations">Locations</a></li>
+                    </ul>
+                </div>
+                <!-- Company -->
+                <div class="footer-col">
+                    <h3 class="footer-heading">Company</h3>
+                    <ul>
+                        <li><a href="../about">About Us</a></li>
+                        <li><a href="../contact">Contact</a></li>
+                        <li><a href="../author-gyanesh">Author</a></li>
+                        <li><a href="../privacy">Privacy Policy</a></li>
+                        <li><a href="../advertising-disclosure">Advertising Disclosure</a></li>
+                    </ul>
+                </div>
+                <!-- Service Areas -->
+                <div class="footer-col">
+                    <h3 class="footer-heading">Service Areas</h3>
+                    <ul class="service-areas">
+                        <li><a href="../locations/atlanta-ga">Atlanta, GA</a></li>
+                        <li><a href="../locations/chicago-il">Chicago, IL</a></li>
+                        <li><a href="../locations/dallas-tx">Dallas, TX</a></li>
+                        <li><a href="../locations/houston-tx">Houston, TX</a></li>
+                        <li><a href="../locations/phoenix-az">Phoenix, AZ</a></li>
+                        <li><a href="../locations">All 50 states &#8594;</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Legal Disclosure + Bottom Bar -->
+            <div class="footer-bottom">
+                <p><strong style="color: rgba(255,255,255,0.9);">How this site works:</strong> We publish HVAC cost and troubleshooting information and may connect callers to independent service providers. We do not perform HVAC services ourselves. Pricing, availability, and response times vary by provider and location.</p>
+                <p><strong style="color: rgba(255,255,255,0.9);">Editorial standards:</strong> Our content focuses on helpful troubleshooting tips and realistic pricing information. We avoid guarantees; actual pricing depends on the provider and situation. We clearly disclose compensation for referrals. We update content for clarity and accuracy when needed.</p>
+                <p><strong style="color: rgba(255,255,255,0.9);">Disclaimer:</strong> Cool Call Pro is a free service to assist homeowners in connecting with local service providers. All contractors/providers are independent and Cool Call Pro does not warrant or guarantee any work performed. It is the responsibility of the homeowner to verify that the hired contractor furnishes the necessary license and insurance required for the work being performed. All persons depicted in a photo or video are actors or models and not contractors listed on Cool Call Pro.</p>
+                <p>&copy; <span class="copyright-year">2026</span> Cool Call Pro. All rights reserved. &nbsp;&middot;&nbsp; <a href="../privacy">Privacy Policy</a> &nbsp;&middot;&nbsp; <a href="../terms">Terms of Use</a> &nbsp;&middot;&nbsp; <a href="../disclaimer">Disclaimer</a> &nbsp;&middot;&nbsp; <a href="../advertising-disclosure">Advertising Disclosure</a></p>
+            </div>
+        </div>
+    </footer>
+    <script>document.querySelectorAll('.copyright-year').forEach(function(el){el.textContent=new Date().getFullYear()});</script>
+
+    <script src="../js/main.min.js" defer></script>
+</body>
+
+</html>
