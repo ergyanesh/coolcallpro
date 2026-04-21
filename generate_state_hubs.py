@@ -24,12 +24,125 @@ except (FileNotFoundError, json.JSONDecodeError):
 
 
 # ============================================================
-# CLIMATE HAZARDS (loaded once)
-# Hazard vocabulary (name -> impact + pro-action copy) used to render the
-# "Climate Hazards Affecting <State> HVAC Systems" section. Per-state hazard
-# lists live in states.xlsx "Climate Hazards" column.
-# Source: FEMA National Risk Index (https://hazards.fema.gov/nri/).
+# STATE-HUB EXTRA SECTIONS
+# Sections inserted between Cost Overview and Service Areas on every state
+# hub: Common HVAC Issues (climate-seasonal cluster links) + Climate Hazards
+# (FEMA NRI event-driven HVAC impacts). Each builder returns PURE content
+# ('    <!-- comment -->\\n    <section>...\\n    </section>', no leading or
+# trailing whitespace). The caller joins non-empty blocks with blank lines.
+# Mirrors scripts/add_state_hub_common_issues.py + add_state_hub_climate_hazards.py
+# so regenerated state hubs stay consistent with the live-patched files.
 # ============================================================
+
+_COMMON_ISSUES_SUMMER = [
+    ("../articles/complete-ac-troubleshooting-guide.html",
+     "Complete AC troubleshooting guide",
+     "the full diagnostic framework for every AC failure mode"),
+    ("../articles/ac-not-cooling-below-80.html",
+     "AC running but not cooling below 80&deg;?",
+     "low refrigerant, weak capacitor, dirty coil, or undersized system"),
+    ("../articles/ac-circuit-breaker-trips.html",
+     "AC circuit breaker keeps tripping",
+     "failing compressor, weak capacitor, or dirty condenser coil"),
+    ("../articles/ac-freezing-up-in-summer.html",
+     "AC freezing up in summer",
+     "airflow restriction or refrigerant problem"),
+    ("../articles/water-dripping-from-vent.html",
+     "Water dripping from ceiling vent",
+     "clogged condensate drain or frozen-coil thaw"),
+    ("../articles/ac-contactor-clicking.html",
+     "AC contactor clicking but nothing happens",
+     "electrical fault in the outdoor unit"),
+]
+
+_COMMON_ISSUES_WINTER = [
+    ("../article-furnace.html",
+     "Furnace not igniting?",
+     "ignition failure diagnosis and repair costs"),
+    ("../articles/furnace-blowing-cold-air-winter.html",
+     "Furnace blowing cold air in winter",
+     "filter, ignitor, flame sensor, or gas valve fault"),
+    ("../article-carbon-monoxide.html",
+     "Carbon monoxide: the invisible killer",
+     "CO detection, warning signs, and safety steps"),
+    ("../article-winter-storm.html",
+     "Protect your HVAC during a winter storm",
+     "freeze prep, power-outage safeguards, post-storm inspection"),
+    ("../article-heat-pump.html",
+     "Heat pump not working?",
+     "cold-weather performance, defrost cycle, common failures"),
+    ("../article-maintenance.html",
+     "12-month HVAC maintenance checklist",
+     "seasonal tune-up timing and pro-only tasks"),
+]
+
+_COMMON_ISSUES_BOTH = [
+    ("../articles/complete-ac-troubleshooting-guide.html",
+     "Complete AC troubleshooting guide",
+     "diagnosis for every AC failure mode"),
+    ("../article-furnace.html",
+     "Furnace not igniting?",
+     "ignition failure diagnosis and repair costs"),
+    ("../article-heat-pump.html",
+     "Heat pump not working?",
+     "year-round heat-pump performance and repairs"),
+    ("../articles/ac-circuit-breaker-trips.html",
+     "AC circuit breaker keeps tripping",
+     "electrical fault in the outdoor unit"),
+    ("../article-maintenance.html",
+     "12-month HVAC maintenance checklist",
+     "seasonal tune-ups for both cooling and heating"),
+    ("../articles/2026-hvac-cost-guide.html",
+     "Honest 2026 HVAC cost guide",
+     "diagnostic, repair, and replacement pricing"),
+]
+
+_COMMON_ISSUES_INTRO = {
+    "Summer": "Cooling is the dominant HVAC demand in {state}. The most common emergency and troubleshooting topics for a cooling-driven climate:",
+    "Winter": "{state}'s long heating season drives most HVAC calls. Common furnace and heating failures we see:",
+    "Both": "{state} sees both cooling and heating demand year-round. Common HVAC troubleshooting topics for a mixed-demand climate:",
+}
+
+
+def common_hvac_issues_section_html(state_name, peak):
+    """Render the Common HVAC Issues <section> for a state hub. Peak demand
+    season comes from states.xlsx. Returns '' for any peak value outside
+    Summer/Winter/Both (defensive; all 51 state rows should be one of the
+    three)."""
+    peak_key = str(peak or "").strip()
+    if peak_key == "Summer":
+        links = _COMMON_ISSUES_SUMMER
+    elif peak_key == "Winter":
+        links = _COMMON_ISSUES_WINTER
+    elif peak_key == "Both":
+        links = _COMMON_ISSUES_BOTH
+    else:
+        return ""
+    intro = _COMMON_ISSUES_INTRO[peak_key].format(state=state_name)
+    lis = "\n".join(
+        f'            <li><a href="{href}" style="color: var(--orange-dark); font-weight: 600;">{label}</a> &mdash; {desc}</li>'
+        for href, label, desc in links
+    )
+    return (
+        "    <!-- Common HVAC Issues -->\n"
+        "    <section class=\"section\" style=\"padding: 0;\">\n"
+        "      <div class=\"container\">\n"
+        "        <div class=\"city-services\" style=\"margin-bottom: 40px;\">\n"
+        f"          <h2>Common HVAC Issues in {state_name}</h2>\n"
+        f"          <p style=\"font-size: 1.05rem; line-height: 1.85; color: var(--gray-700);\">{intro}</p>\n"
+        "          <ul>\n"
+        f"{lis}\n"
+        "          </ul>\n"
+        "        </div>\n"
+        "      </div>\n"
+        "    </section>"
+    )
+
+
+# Hazard vocabulary (name -> impact + pro-action copy). Per-state hazard
+# lists live in states.xlsx "Climate Hazards" column. Sources:
+#   - https://hazards.fema.gov/nri/ (FEMA National Risk Index)
+#   - https://www.ncei.noaa.gov/access/billions/ (NOAA NCEI)
 _HAZARDS_PATH = Path(__file__).parent / "climate_hazards.json"
 try:
     _CLIMATE_HAZARD_VOCAB = json.loads(_HAZARDS_PATH.read_text(encoding="utf-8"))["hazards"]
@@ -56,16 +169,16 @@ def climate_hazards_section_html(state_name, hazards_csv):
     if not hazards:
         return ""
     intro_list = _format_hazard_list_prose(hazards)
-    lis = []
-    for hz in hazards:
-        info = _CLIMATE_HAZARD_VOCAB.get(hz)
-        if not info:
-            raise KeyError(f"Unknown climate hazard '{hz}' for state '{state_name}' "
-                           f"-- add it to climate_hazards.json")
-        lis.append(f'            <li><strong>{hz}:</strong> {info["impact"]} {info["action"]}</li>')
-    lis_html = "\n".join(lis)
+    lis = "\n".join(
+        f'            <li><strong>{hz}:</strong> {_CLIMATE_HAZARD_VOCAB[hz]["impact"]} {_CLIMATE_HAZARD_VOCAB[hz]["action"]}</li>'
+        for hz in hazards
+        if hz in _CLIMATE_HAZARD_VOCAB
+    )
+    unknown = [hz for hz in hazards if hz not in _CLIMATE_HAZARD_VOCAB]
+    if unknown:
+        raise KeyError(f"Unknown climate hazard(s) {unknown} for state '{state_name}' "
+                       f"-- add them to climate_hazards.json")
     return (
-        "\n"
         "    <!-- Climate Hazards -->\n"
         "    <section class=\"section\" style=\"padding: 0;\">\n"
         "      <div class=\"container\">\n"
@@ -73,13 +186,24 @@ def climate_hazards_section_html(state_name, hazards_csv):
         f"          <h2>Climate Hazards Affecting {state_name} HVAC Systems</h2>\n"
         f"          <p style=\"font-size: 1.05rem; line-height: 1.85; color: var(--gray-700);\">According to the FEMA National Risk Index and NOAA storm data, {state_name} faces elevated exposure to {intro_list}. Each event damages or stresses residential HVAC systems in specific ways that an HVAC professional should diagnose after the fact.</p>\n"
         "          <ul>\n"
-        f"{lis_html}\n"
+        f"{lis}\n"
         "          </ul>\n"
         "          <p style=\"font-size: 0.9rem; color: var(--gray-700); margin-top: 20px;\">Source: <a href=\"https://hazards.fema.gov/nri/\" rel=\"nofollow noopener\" style=\"color: var(--orange-dark);\">FEMA National Risk Index</a> and <a href=\"https://www.ncei.noaa.gov/access/billions/\" rel=\"nofollow noopener\" style=\"color: var(--orange-dark);\">NOAA National Centers for Environmental Information</a>.</p>\n"
         "        </div>\n"
         "      </div>\n"
         "    </section>"
     )
+
+
+def _compose_state_hub_extra_sections(*section_blocks):
+    """Join non-empty section blocks with one blank line between each.
+    Returns '' when all blocks are empty so the template can inline the
+    result with uniform whitespace around the Cost Overview / Service Areas
+    boundary."""
+    non_empty = [s for s in section_blocks if s]
+    if not non_empty:
+        return ""
+    return "\n\n" + "\n\n".join(non_empty)
 
 
 def state_figure_html(state_slug, state_name):
@@ -518,7 +642,10 @@ def generate_html(d, city_list, hub_abbrs, all_states):
     rebate_items = rebate_list_html(rebates)
     city_grid = cities_grid_html(city_list, abbr)
     neighbor_html = neighbor_links_html(neighbors, hub_abbrs, all_states)
-    climate_hazards_section = climate_hazards_section_html(name, hazards_csv)
+    state_hub_extra_sections = _compose_state_hub_extra_sections(
+        common_hvac_issues_section_html(name, peak),
+        climate_hazards_section_html(name, hazards_csv),
+    )
     neighbor_section = f'''
     <!-- Neighboring States -->
     <section class="section" style="padding: 32px 0 48px;">
@@ -1107,8 +1234,7 @@ def generate_html(d, city_list, hub_abbrs, all_states):
           <p style="font-size: 1.05rem; line-height: 1.85; color: var(--gray-700);">{cost_para}</p>
         </div>
       </div>
-    </section>
-{climate_hazards_section}
+    </section>{state_hub_extra_sections}
 
     <!-- Service Areas -->
     <section class="section" style="padding: 0 0 48px;" id="cities">
