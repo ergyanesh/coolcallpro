@@ -193,11 +193,31 @@ If a hazard phrase is required for educational context ("do not spray the coil")
 A git pre-commit hook at `.git/hooks/pre-commit` blocks any commit whose staged HTML fails YMYL/SEO/AEO/GEO/CSS-regression checks:
 
 - **Staged `articles/*.html`** → runs `python audit_article.py <file> --ci` (full strict mode: YMYL, GEO/AEO, HowTo, speakable, CSS regression, cost drift vs `costs.html`, FAQ pattern)
-- **Any other staged `*.html`** → runs `python audit_page.py <file>` (GA defer, no Google Fonts CDN, footer-col structure, MarketCall disclaimer lock, h1/meta/canonical)
+- **Any other staged `*.html`** → runs `python audit_page.py <file>` (GA defer, no Google Fonts CDN, footer-col structure, MarketCall disclaimer lock, h1/meta/canonical, **Lighthouse perf pattern enforcement**)
 
 The hook source lives at [`scripts/pre-commit`](scripts/pre-commit) (version-controlled). After a fresh clone, install once with `bash scripts/install-hooks.sh`. Edits to the source must be followed by a re-install.
 
 Browser verification (link underline rendering, FAQ expand, hero render) is still agent discipline — the hook enforces every text-inspectable check. Bypass (rare, not recommended): `git commit --no-verify`.
+
+## Lighthouse Performance Patterns (enforced since 21 April 2026)
+
+Three page-class patterns keep mobile Lighthouse Performance scores at 90+. `audit_page.py` enforces the right pattern for each page class — commits that break the pattern are blocked.
+
+| Page class | Required pattern | Why |
+|---|---|---|
+| `articles/*.html` **or** root `article-*.html` | Hero image with `loading="eager"` or `fetchpriority="high"` | The hero WebP becomes the LCP — loads in parallel with CSS, finishes fast. Articles already have this; new articles inherit it from the template. |
+| `locations/*.html` (state hubs + city pages) | Inline `<style>` block containing a `.city-hero` rule (~4KB critical CSS) | Location pages have no hero image — they rely on a navy gradient + H1 text rendering before `style.min.css` downloads. See [locations/texas.html](locations/texas.html) for the canonical block. |
+| Any non-location page using `class="page-hero"` | Inline `<style>` block containing a `.page-hero` rule (~2KB critical CSS) | Same reason as locations but for the generic page hero. See [about.html](about.html) for the canonical ~2KB block. Applied to about/contact/costs/author-gyanesh/safety/emergency/privacy/terms/disclaimer/404/articles/image-credits/locations/advertising-disclosure. |
+
+**How the audit enforces this:** `audit_page.py`'s `audit_perf_patterns()` classifies the page by path + content and verifies the right pattern. Pass = silent; miss = hard failure with a pointer to the canonical example.
+
+**When writing a new article:** Follow [.agents/SKILLS/hvac-article-writer.md](.agents/SKILLS/hvac-article-writer.md). The article template already specifies `loading="eager"` on the hero WebP — do NOT remove it. `fetchpriority="high"` is also acceptable.
+
+**When writing a new non-article, non-location page that uses `class="page-hero"`:** Copy the `<style>` block from about.html's `<head>` (sits just before `<link rel="stylesheet">`). ~2KB minified, covers above-the-fold.
+
+**When regenerating location pages:** The `generate_state_hubs.py` and `generate_city_pages_v3.py` templates already contain the inline `.city-hero` block. Do not remove.
+
+**Helper:** `scripts/inline_critical_css.py` is an idempotent one-off that re-applies the `.page-hero` critical CSS to any root page missing it. Safe to re-run if someone strips a `<style>` block.
 
 ## Deploy Workflow (Git-Integrated, since 14 April 2026)
 

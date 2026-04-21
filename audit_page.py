@@ -61,6 +61,15 @@ def audit_page_universal(html: str, path: str) -> int:
     print(f"\nUNIVERSAL PAGE AUDIT: {path}")
     fails = 0
 
+    # 404 / error pages legitimately skip canonical + OG + Twitter because
+    # they should not be indexed or shared. Detected by filename or by an
+    # explicit noindex meta tag.
+    is_error_page = (
+        path.replace("\\", "/").lower().endswith("/404.html")
+        or path.replace("\\", "/").lower() == "404.html"
+        or 'name="robots" content="noindex' in html.lower()
+    )
+
     # Head essentials
     title = re.search(r"<title>([^<]+)</title>", html)
     meta = re.search(r'<meta name="description"\s+content="([^"]+)"', html)
@@ -86,22 +95,26 @@ def audit_page_universal(html: str, path: str) -> int:
     if not check(f"Exactly one <h1> (actual: {len(h1_matches)})", len(h1_matches) == 1):
         fails += 1
 
-    if not canonical:
-        fails += 1 if not check("Canonical URL present", False) else 0
-    elif not check(f"Canonical has no .html: {canonical.group(1)}", ".html" not in canonical.group(1)):
-        fails += 1
+    if is_error_page:
+        check("Canonical + OG + Twitter skipped (error page / noindex)", True,
+              "404 and noindex pages should not be indexed or shared, so these tags are intentionally omitted")
+    else:
+        if not canonical:
+            fails += 1 if not check("Canonical URL present", False) else 0
+        elif not check(f"Canonical has no .html: {canonical.group(1)}", ".html" not in canonical.group(1)):
+            fails += 1
 
-    # Open Graph (6 required tags)
-    og_tags = ["type", "title", "description", "url", "site_name", "image"]
-    og_missing = [t for t in og_tags if not re.search(rf'property="og:{t}"', html)]
-    if not check(f"All 6 Open Graph tags present (missing: {og_missing or 'none'})", not og_missing):
-        fails += 1
+        # Open Graph (6 required tags)
+        og_tags = ["type", "title", "description", "url", "site_name", "image"]
+        og_missing = [t for t in og_tags if not re.search(rf'property="og:{t}"', html)]
+        if not check(f"All 6 Open Graph tags present (missing: {og_missing or 'none'})", not og_missing):
+            fails += 1
 
-    # Twitter Card
-    tw_tags = ["card", "title", "description"]
-    tw_missing = [t for t in tw_tags if not re.search(rf'name="twitter:{t}"', html)]
-    if not check(f"All 3 Twitter Card tags present (missing: {tw_missing or 'none'})", not tw_missing):
-        fails += 1
+        # Twitter Card
+        tw_tags = ["card", "title", "description"]
+        tw_missing = [t for t in tw_tags if not re.search(rf'name="twitter:{t}"', html)]
+        if not check(f"All 3 Twitter Card tags present (missing: {tw_missing or 'none'})", not tw_missing):
+            fails += 1
 
     # Semantic structure
     if not check("Skip link (.skip-link) present", bool(re.search(r'<a[^>]*class="[^"]*skip-link', html))):
@@ -187,6 +200,78 @@ def audit_page_universal(html: str, path: str) -> int:
     return fails
 
 
+def audit_perf_patterns(html: str, path: str) -> int:
+    """Page-class performance checks -- protect the patterns that keep
+    articles and location pages ranked 90+ on Lighthouse mobile.
+
+    Three conditional checks:
+      1. Article pages (articles/*.html OR root article-*.html):
+         Must include at least one hero <img> with loading="eager" or
+         fetchpriority="high" so the WebP hero is the LCP target.
+      2. Location pages (locations/*.html):
+         Must include an inline <style> block containing a .city-hero
+         rule so the hero gradient + H1 paint before style.min.css
+         downloads. ~4KB critical-CSS pattern; see locations/texas.html.
+      3. Any non-location page containing class="page-hero":
+         Must include an inline <style> block containing a .page-hero
+         rule (same critical-CSS pattern as #2 but for the generic
+         page hero). This protects about/contact/costs/author-gyanesh
+         and any future generic page that uses .page-hero.
+
+    These checks were added after a user spot-check on 2026-04-21 showed
+    that /about, /contact, /costs, /author-gyanesh all scored 60-80 on
+    mobile Lighthouse because they didn't inline critical CSS and had
+    no priority hero image. Articles (hero WebP) and locations (inline
+    .city-hero CSS) already score 90+."""
+    print(f"\nPERF PATTERNS (LCP protection)")
+    fails = 0
+    norm = path.replace("\\", "/").lower()
+
+    is_article = norm.startswith("articles/") or re.match(r"(^|/)article-[^/]+\.html$", norm) is not None
+    is_location = norm.startswith("locations/")
+
+    # Extract all inline <style> blocks' contents for pattern matching
+    style_blocks = re.findall(r"<style[^>]*>(.*?)</style>", html, re.DOTALL | re.IGNORECASE)
+    inline_css = "\n".join(style_blocks)
+
+    if is_article:
+        # Hero pattern: <img ... loading="eager" ...> or <img ... fetchpriority="high" ...>
+        has_priority_hero = bool(
+            re.search(r'<img[^>]*\bloading="eager"', html, re.IGNORECASE)
+            or re.search(r'<img[^>]*\bfetchpriority="high"', html, re.IGNORECASE)
+        )
+        if not check(
+            "Article has LCP-priority hero image (loading=eager or fetchpriority=high)",
+            has_priority_hero,
+            "Articles must designate a hero WebP as the LCP target -- this is the pattern that keeps them 90+ on mobile Lighthouse",
+        ):
+            fails += 1
+    elif is_location:
+        # Critical CSS pattern: inline <style> with a .city-hero rule
+        has_city_hero_critical = bool(re.search(r"\.city-hero\s*\{", inline_css))
+        if not check(
+            "Location page has inline critical CSS for .city-hero",
+            has_city_hero_critical,
+            "Location hubs must inline ~4KB of critical CSS covering .city-hero so the hero paints before style.min.css downloads. See locations/texas.html for the canonical block.",
+        ):
+            fails += 1
+    else:
+        # Generic page: if it uses .page-hero, require inline critical CSS for it
+        uses_page_hero = bool(re.search(r'class="[^"]*\bpage-hero\b', html))
+        if uses_page_hero:
+            has_page_hero_critical = bool(re.search(r"\.page-hero\s*\{", inline_css))
+            if not check(
+                "Page uses .page-hero -> inline critical CSS for .page-hero is required",
+                has_page_hero_critical,
+                "Pages with .page-hero must inline ~2KB of critical CSS covering .page-hero so the hero paints before style.min.css. See about.html for the canonical block.",
+            ):
+                fails += 1
+
+    if fails == 0:
+        print("  [PASS] Performance pattern appropriate for this page class")
+    return fails
+
+
 def audit_css_regression_site() -> int:
     """Checks the site-wide CSS rule that affects every article page."""
     print("\nCSS REGRESSION (site-wide)")
@@ -228,6 +313,7 @@ def main():
     path = args[0]
     html = read(path)
     fails = audit_page_universal(html, path)
+    fails += audit_perf_patterns(html, path)
     fails += check_diy_hazards(html, source_label=path)
 
     print()
