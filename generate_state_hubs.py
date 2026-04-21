@@ -588,6 +588,42 @@ def license_faq(d):
                 f"<strong>{body}</strong>. You can verify any contractor's credentials through "
                 f"the board's {link}.")
 
+def permits_faq(d, *, html=True):
+    """FAQ #6 answer -- "What HVAC permits are required in {state}?".
+
+    Two factual templates keyed off the "State HVAC License Requirement"
+    column (36 "Yes" states, 15 "Varies by jurisdiction"). The Yes-state
+    answer cites the "Licensing Body/Agency" column verbatim; the Varies
+    answer notes that licensing + permits are handled locally.
+
+    html=True returns visible-FAQ HTML (<strong>, &mdash;); html=False
+    returns schema-safe plain text with a literal em-dash (U+2014)."""
+    req = str(d.get('State HVAC License Requirement', '') or '').strip()
+    body = str(d.get('Licensing Body/Agency', '') or '').strip()
+    name = d['State Name']
+    dash = "&mdash;" if html else "—"
+    agency_rendered = f"<strong>{body}</strong>" if html else body
+
+    if req.lower().startswith('yes'):
+        return (
+            f"HVAC work in {name} typically requires a mechanical or building permit "
+            f"from your local city or county building department. Covered work includes central AC "
+            f"replacement, furnace installation, refrigerant-line modifications, and duct changes. "
+            f"The installer must also hold a state license issued by the {agency_rendered}, "
+            f"and in most jurisdictions your technician pulls the permit on your behalf. "
+            f"Permit fees, inspection requirements, and submittal rules vary by municipality {dash} "
+            f"confirm with your technician before work begins."
+        )
+    return (
+        f"{name} does not impose a statewide HVAC contractor license. Permit and "
+        f"licensing rules are set by the local city or county building department where the "
+        f"work occurs. Most jurisdictions require a mechanical or building permit for central "
+        f"AC replacement, furnace installation, gas-line connections, and duct modifications. "
+        f"Ask your HVAC technician to confirm the specific permit requirements for your address "
+        f"{dash} they typically pull the permit on your behalf."
+    )
+
+
 def system_faq(d):
     """FAQ answer for system type question."""
     system = d.get('Dominant HVAC System Type', '') or ''
@@ -730,6 +766,8 @@ def generate_html(d, city_list, hub_abbrs, all_states, out_path=None, refresh_da
     lic_html = license_html(d)
     lic_faq = license_faq(d)
     sys_faq = system_faq(d)
+    permits_faq_html_str = permits_faq(d, html=True)
+    permits_faq_schema = permits_faq(d, html=False).replace('"', '\\"')
     # Strip HTML for schema (JSON-LD can't have unescaped quotes from HTML tags)
     import re as _re
     lic_faq_schema = _re.sub(r'<[^>]+>', '', lic_faq).replace('"', '\\"')
@@ -933,6 +971,14 @@ def generate_html(d, city_list, hub_abbrs, all_states, out_path=None, refresh_da
             "acceptedAnswer": {{
               "@type": "Answer",
               "text": "{sys_faq_schema}"
+            }}
+          }},
+          {{
+            "@type": "Question",
+            "name": "What HVAC permits are required in {name}?",
+            "acceptedAnswer": {{
+              "@type": "Answer",
+              "text": "{permits_faq_schema}"
             }}
           }}
         ]
@@ -1449,6 +1495,17 @@ def generate_html(d, city_list, hub_abbrs, all_states, out_path=None, refresh_da
               <div class="faq-a">
                 <div class="faq-a-inner">
                   <p>{sys_faq}</p>
+                </div>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q" aria-expanded="false">
+                <span>What HVAC permits are required in {name}?</span>
+                <span class="faq-icon"></span>
+              </button>
+              <div class="faq-a">
+                <div class="faq-a-inner">
+                  <p>{permits_faq_html_str}</p>
                 </div>
               </div>
             </div>
