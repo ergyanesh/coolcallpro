@@ -113,6 +113,12 @@
 
   <!-- New Articles (articles/ subfolder) -->
   <url>
+    <loc>https://coolcallpro.com/articles/water-dripping-from-vent</loc>
+    <lastmod>2026-04-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://coolcallpro.com/articles/ac-contactor-clicking</loc>
     <lastmod>2026-04-20</lastmod>
     <changefreq>monthly</changefreq>
