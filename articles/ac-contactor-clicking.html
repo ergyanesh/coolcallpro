@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google tag (gtag.js) - GA4 — deferred until first interaction for LCP -->
+    <script>
+        (function() {
+            var loaded = false;
+            function loadGA() {
+                if (loaded) return;
+                loaded = true;
+                var s = document.createElement('script');
+                s.src = 'https://www.googletagmanager.com/gtag/js?id=G-WD0ND0K60Q';
+                s.async = true;
+                document.head.appendChild(s);
+                s.onload = function() {
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){dataLayer.push(arguments);}
+                    window.gtag = gtag;
+                    gtag('js', new Date());
+                    gtag('config', 'G-WD0ND0K60Q');
+                };
+            }
+            ['click', 'scroll', 'touchstart', 'keydown'].forEach(function(evt) {
+                window.addEventListener(evt, loadGA, { once: true, passive: true });
+            });
+            setTimeout(loadGA, 4000);
+        })();
+    </script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index, follow" />
+    <title>AC Contactor Clicks but Nothing? Causes | Cool Call Pro</title>
+    <meta name="description"
+        content="AC contactor clicking but nothing starts? The 5 causes — failed contactor, weak capacitor, seized compressor, low voltage, coil fault — and next steps." />
+    <link rel="canonical" href="https://coolcallpro.com/articles/ac-contactor-clicking" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="AC Contactor Clicking but Nothing Happens? The 5 Causes" />
+    <meta property="og:description"
+        content="AC contactor clicking but nothing starts? The 5 causes — failed contactor, weak capacitor, seized compressor, low voltage, coil fault — and next steps." />
+    <meta property="og:url" content="https://coolcallpro.com/articles/ac-contactor-clicking" />
+    <meta property="og:site_name" content="Cool Call Pro" />
+    <meta property="article:author" content="Gyanesh Gulshan" />
+    <meta property="article:published_time" content="2026-04-20T00:00:00Z" />
+    <meta property="article:modified_time" content="2026-04-20T00:00:00Z" />
+    <meta property="og:image" content="https://coolcallpro.com/images/hvac_ac_contactor_clicking.webp" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="AC Contactor Clicks but Nothing? Causes | Cool Call Pro" />
+    <meta name="twitter:description" content="Clicking from the outdoor unit but no compressor or fan? The 5 causes and why this is a technician-only job." />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+    <link rel="stylesheet" href="../css/style.min.css" />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/outfit-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+    <!-- Article Schema -->
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "AC Contactor Clicking but Nothing Happens? The 5 Causes",
+    "description": "AC contactor clicking but nothing starts? The 5 causes — failed contactor, weak capacitor, seized compressor, low voltage, coil fault — and next steps.",
+    "datePublished": "2026-04-20",
+    "dateModified": "2026-04-20",
+    "author": {
+        "@type": "Person",
+        "name": "Gyanesh Gulshan",
+        "url": "https://coolcallpro.com/author-gyanesh",
+        "image": "https://coolcallpro.com/images/author-gyane.webp",
+        "sameAs": ["https://www.linkedin.com/in/gyaneshgulshan/"]
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Cool Call Pro",
+        "url": "https://coolcallpro.com",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://coolcallpro.com/favicon.svg"
+        }
+    },
+    "image": "https://coolcallpro.com/images/hvac_ac_contactor_clicking.webp",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://coolcallpro.com/articles/ac-contactor-clicking"
+    },
+    "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [".tldr-box", ".faq-q", ".faq-a-inner"]
+    },
+    "about": [
+        {"@type": "Thing", "name": "Contactor (electric)", "sameAs": "https://en.wikipedia.org/wiki/Contactor"},
+        {"@type": "Thing", "name": "AC compressor", "sameAs": "https://en.wikipedia.org/wiki/Vapor-compression_refrigeration"},
+        {"@type": "Thing", "name": "Dual run capacitor", "sameAs": "https://en.wikipedia.org/wiki/Motor_capacitor"},
+        {"@type": "Thing", "name": "EPA Section 608", "sameAs": "https://www.epa.gov/section608"}
+    ]
+}
+    </script>
+    <!-- HowTo Schema: the narrow safe-homeowner response -->
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to Safely Respond to a Clicking AC Contactor (Homeowner Steps Before Calling)",
+    "description": "The narrow safe-homeowner response when an AC contactor is clicking but the system will not start. Stopping the clicking and calling a technician are the only safe actions — everything else is a technician task inside a live 240V cabinet.",
+    "totalTime": "PT5M",
+    "tool": [
+        {"@type": "HowToTool", "name": "Replacement air filter (same nominal size and MERV rating)"}
+    ],
+    "step": [
+        {
+            "@type": "HowToStep",
+            "position": 1,
+            "name": "Set the thermostat to OFF immediately",
+            "text": "This stops the contactor from closing and forcing the compressor into another doomed start attempt. No electrical work involved, no approach to the outdoor unit. It is the single most valuable action to protect the compressor while you wait for the technician."
+        },
+        {
+            "@type": "HowToStep",
+            "position": 2,
+            "name": "Confirm the air filter is not severely clogged",
+            "text": "A heavily restricted filter can keep the thermostat in a continuous call-for-cool state, which prolongs the clicking. A filter swap is the only inside-the-house action that is even tangentially relevant to this symptom."
+        },
+        {
+            "@type": "HowToStep",
+            "position": 3,
+            "name": "Note what you heard from a safe distance",
+            "text": "A rhythmic click-click-click every 30 seconds, a single loud click followed by silence, or a click-then-hum-then-silence — each sounds points to a different failure mode. Describe what you noticed from inside the house to the technician when you call. Do not approach the outdoor unit to listen more closely."
+        },
+        {
+            "@type": "HowToStep",
+            "position": 4,
+            "name": "Call a qualified HVAC technician",
+            "text": "This is the resolution step. The technician will safely shut off power at the outdoor disconnect, drain the capacitor, measure voltage at the contactor terminals, and identify whether the failure is the capacitor, the contactor, the compressor, or the supply wiring. Every part of that sequence requires training, tools, and access privileges a homeowner should not have."
+        }
+    ]
+}
+    </script>
+    <!-- Breadcrumb Schema -->
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://coolcallpro.com/"
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Articles",
+            "item": "https://coolcallpro.com/articles"
+        },
+        {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "AC Contactor Clicking but Nothing Happens?",
+            "item": "https://coolcallpro.com/articles/ac-contactor-clicking"
+        }
+    ]
+}
+    </script>
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "What is an AC contactor and what does it do?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The contactor is an electrically controlled switch (a relay) inside the outdoor condenser unit that bridges 240-volt line power to the compressor and fan motor when the thermostat calls for cooling. A small 24-volt signal from the thermostat energizes the contactor coil, which pulls a plunger closed and completes the high-voltage circuit. The click you hear is the plunger snapping into place. A contactor that clicks but does not close completely — or closes but does not deliver power — is the component at fault, or the components downstream (capacitor, compressor) have failed."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Why is my AC contactor clicking but nothing starts?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Five common causes, in order of frequency: a failed dual-run capacitor (the contactor closes but the compressor and fan cannot start without the capacitor's boost), pitted or burnt contactor contacts (the plunger closes but the electrical path is interrupted), a seized or thermally-overloaded compressor (the contactor supplies power but the compressor refuses to turn), low incoming voltage or a loose lug in the disconnect, and finally a failed contactor coil itself (the clicking you hear is the coil's last gasps). All five require a technician with a multimeter at the outdoor cabinet."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Is it safe to keep trying to run the AC when the contactor keeps clicking?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. Every time the contactor closes and the compressor tries to start under a weak capacitor or seized bearing, the compressor draws locked-rotor amps — 4 to 6 times its running current. Sustained locked-rotor conditions overheat the compressor windings and can destroy an otherwise-repairable system. Set the thermostat to OFF immediately and call a technician. A $200 capacitor repair becomes a $2,500 compressor replacement if you let the clicking continue for hours."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Can I replace the contactor myself?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. The contactor sits inside the outdoor condenser cabinet alongside the dual-run capacitor, which stores a lethal electrical charge for several minutes after the breaker is off. Line voltage in that cabinet is 240V, and a misaligned wire on a new contactor causes immediate short-circuit damage to the control board and the compressor. A technician discharges the capacitor safely, tests contactor voltage with a multimeter, and installs the correct replacement (they are not universal — amperage rating, pole count, and coil voltage all matter). This is firmly technician territory."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Can ants or bugs cause a contactor to fail?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, and it is a surprisingly common failure mode. Fire ants and small insects are attracted to the magnetic field around energized contactor coils and sometimes nest inside the contactor housing. Their bodies dry onto the contact points between closings, creating a resistance path that prevents the contactor from completing the circuit — the plunger closes, but no power flows. A technician finds this immediately on inspection. It is more common in the Gulf states and the Southeast. Annual outdoor-unit tune-ups catch the problem before it causes a failure."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "How much does it cost to fix an AC that clicks but won't start?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Expect a diagnostic fee of $65 to $150. If the cause is a failed capacitor, replacement runs $150 to $400 including the service call. Contactor replacement is $100 to $300. A hard-start kit to coax a marginal compressor into starting is $150 to $350. If the compressor itself has seized, replacement is $1,200 to $3,500 and on older systems can push the decision toward full system replacement. See our full HVAC Cost Guide for the complete 2026 pricing breakdown."
+            }
+        }
+    ]
+}
+    </script>
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <div class="topbar">
+        <div class="container topbar-inner" style="justify-content: center; padding: 10px; font-weight: 600;">
+            <span class="topbar-text">24/7 Referral Service — Connecting Homeowners with Independent HVAC Professionals</span>
+        </div>
+    </div>
+    <header class="header" id="header">
+        <nav class="nav container" role="navigation" aria-label="Main navigation">
+            <a href="../" class="logo"><span class="logo-icon">&#10052;&#65039;</span><span class="logo-text">CoolCall<span class="logo-accent">Pro</span></span></a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../articles" class="nav-link active">Articles</a></li>
+                <li><a href="../emergency" class="nav-link emergency-link">&#128680; Emergency</a></li>
+                <li><a href="../costs" class="nav-link">Cost Guide</a></li>
+                <li><a href="../safety" class="nav-link">Safety Tips</a></li>
+                <li><a href="../locations" class="nav-link">&#128205; Locations</a></li>
+                <li><a href="../about" class="nav-link">About</a></li>
+                <li><a href="../contact" class="nav-link">Contact</a></li>
+            </ul>
+            <a href="tel:+18445821795" class="btn btn-cta nav-cta btn-vibrate" id="headerNavCta"
+                aria-hidden="true" tabindex="-1"
+                style="opacity: 0; pointer-events: none; transition: opacity 0.3s ease;">
+                <span class="phone-icon">&#128222;</span>
+                <span class="hide-on-mobile">(844) 582-1795</span>
+            </a>
+            <button class="hamburger" id="hamburger" aria-label="Menu">&#9776;</button>
+        </nav>
+    </header>
+
+    <main id="main-content">
+
+        <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+            <div class="container">
+                <ol class="breadcrumb-list">
+                    <li><a href="../">Home</a></li>
+                    <li><a href="../articles">Articles</a></li>
+                    <li>AC Contactor Clicking but Nothing Happens?</li>
+                </ol>
+            </div>
+        </nav>
+
+        <div class="page-hero">
+            <div class="container">
+                <span class="article-tag tag-emergency" style="display:inline-block; margin-bottom:16px;">&#128680; Emergency Guide</span>
+                <h1>AC Contactor Clicking but Nothing Happens? The 5 Causes</h1>
+                <p class="article-disclaimer">For informational purposes only — always consult a qualified HVAC professional for your specific situation.</p>
+                <div class="article-meta-modern"><div class="meta-line meta-published">Published <time datetime="2026-04-20">April 20, 2026</time></div></div>
+                <div class="author-byline">
+                    <img src="../images/author-gyane.webp" alt="Gyanesh Gulshan" class="author-avatar-sm" loading="lazy" width="48" height="48" />
+                    <span>By <a href="../author-gyanesh">Gyanesh Gulshan</a> &mdash; Founder, Cool Call Pro</span>
+                </div>
+            </div>
+        </div>
+
+        <section class="section">
+            <div class="container">
+                <div class="article-layout">
+                    <article class="article-content">
+                        <img src="../images/hvac_ac_contactor_clicking.webp" alt="Residential outdoor AC condenser unit on a concrete pad beside a suburban home in summer afternoon light — the cabinet is closed and undisturbed while a homeowner stands back at a safe distance listening to a faint rhythmic clicking coming from inside, no hands touching the unit" class="lead-img" fetchpriority="high" width="1280" height="720" />
+
+                        <p class="article-disclosure"><a href="../advertising-disclosure">Advertising Disclosure</a>: This site may receive compensation for service connections made through this page. Content is editorially independent.</p>
+
+                        <div class="callout-box callout-danger" style="margin-top: 24px;">
+                            <div class="callout-icon">&#9888;&#65039;</div>
+                            <div class="callout-text">
+                                <strong>HVAC systems involve high-voltage electricity, natural gas, and pressurized refrigerant. Always let a qualified HVAC technician handle diagnosis and repairs.</strong>
+                            </div>
+                        </div>
+
+                        <div class="tldr-box">
+                            <div class="tldr-label">The 30-Second Safety Answer</div>
+                            <p>You hear a rhythmic clicking from the outdoor AC unit but the fan does not spin and no cold air comes through the vents. The click is the contactor — a 240-volt relay inside the cabinet — closing to call for power that is never delivered. <strong>Set the thermostat to OFF right now</strong>; every click cycle stresses a compressor that is already straining. The fix is one of: a failed dual-run capacitor, pitted contactor contacts, a seized compressor, loose wiring at the disconnect, or a failing contactor coil. Every one of those is a technician repair. Do not open the outdoor cabinet, do not touch the capacitor (it holds a lethal charge for minutes after the breaker is off), and do not try to kill the power by going to your service panel to flip the breaker to reset anything. Call a technician — the longer the clicking continues, the closer you get to a $2,500 compressor replacement.</p>
+                        </div>
+
+                        <div class="callout-box callout-danger">
+                            <div class="callout-icon">&#9888;&#65039;</div>
+                            <div class="callout-text">
+                                <strong>Safety Warning: This Is a Technician Job — Not a Homeowner One</strong>
+                                <p>The AC contactor sits inside the outdoor condenser cabinet next to the dual-run capacitor. Both operate at 240 volts, and the capacitor holds a lethal electrical charge for several minutes even after the breaker is off. A homeowner who opens the cabinet to "check" the contactor is one accidental touch away from a cardiac-arrest-grade shock. The safest action is to <strong>set the thermostat to OFF and call a qualified HVAC technician</strong>. Do not kill the power by going to your service panel to flip the breaker yourself, do not operate the outdoor disconnect, do not remove the access panel, and do not touch the contactor, capacitor, wiring, or fan blade. Refrigerant-side diagnosis (if the compressor turns out to be the failure point) is federally regulated under <a href="https://www.epa.gov/section608" target="_blank" rel="noopener noreferrer">EPA Section 608</a> and certification is legally required.</p>
+                            </div>
+                        </div>
+
+                        <h2>What the Clicking Sound Actually Means</h2>
+
+                        <p>When your thermostat calls for cooling, it sends a 24-volt signal down the control wire to the outdoor condenser. Inside the condenser cabinet, a small electromagnetic coil energizes and pulls a plunger closed. That plunger is the contactor, and the click you hear is the plunger snapping into its seated position. When the contactor closes, it is supposed to complete the 240-volt circuit that powers the compressor motor and the condenser fan motor.</p>
+
+                        <p>If you hear the click but the fan does not spin and the house does not cool, the contactor is closing but something downstream is refusing to run. The question is what. That answer determines whether the fix is a $200 capacitor or a $3,500 compressor — and only a technician with a multimeter at the outdoor cabinet can tell you which.</p>
+
+                        <h2>The 5 Causes of a Clicking Contactor with No Start</h2>
+
+                        <h3>1. Failed Dual-Run Capacitor (Most Common)</h3>
+                        <p>The dual-run capacitor is a small cylindrical component that stores and releases the burst of energy the compressor motor and the fan motor need to start. When the contactor closes, both motors demand that boost; without a healthy capacitor, neither can generate enough torque to turn. The contactor sits there closed, line voltage is present, but nothing spins. A failing capacitor is the single most common technician finding on this symptom — roughly half of "clicking but nothing happens" calls are a $150 to $400 capacitor repair. For the related pattern where the outdoor unit buzzes without spinning, see our guide on <a href="ac-compressor-buzzing-fan-not-spinning">AC compressor buzzing, fan not spinning</a>.</p>
+
+                        <h3>2. Pitted or Burnt Contactor Contacts</h3>
+                        <p>The physical contact points inside the contactor carry 40+ amps every time the AC starts. Over years, those contacts arc, pit, and oxidize — eventually to the point where the plunger closes but the electrical path is broken by the pitting. The click is loud because the coil is still pulling the plunger firmly down, but the contact points can no longer conduct current. Replacement contactors run $100 to $300 with the service call. Replacement is quick for a technician because they work with the capacitor safely drained and the disconnect pulled — not a homeowner task.</p>
+
+                        <h3>3. Seized or Thermally-Overloaded Compressor</h3>
+                        <p>If the contactor is closing and delivering line voltage but the compressor still does not start, the compressor itself may be seized or its thermal overload may have tripped. A thermally overloaded compressor has shut itself off internally to protect from damage; it will reset when it cools, but if the underlying cause (refrigerant, airflow, or mechanical) is not fixed, it trips again. A seized compressor draws locked-rotor amps every time the contactor closes — which you hear as the click, often followed by a brief hum as the compressor tries and fails to start. Each failed start damages the windings further. Compressor replacement is $1,200 to $3,500.</p>
+
+                        <h3>4. Low Incoming Voltage or Loose Disconnect</h3>
+                        <p>The 240V line power runs from your service panel, through the outdoor disconnect box mounted on the wall near the condenser, and into the cabinet. A loose lug at the disconnect, a failing utility transformer, or a brownout during a heat wave can drop the supply voltage below the threshold needed to start the compressor — the contactor closes, but the motors cannot pull in at reduced voltage. A technician measures voltage at the disconnect during a start attempt to catch this; the fix depends on whether the problem is in the house (loose lug, failing breaker) or on the utility side (voltage sag).</p>
+
+                        <h3>5. Failing Contactor Coil</h3>
+                        <p>The 24-volt coil that pulls the plunger closed can itself fail. As the coil winding degrades, it still pulls the plunger weakly — enough to produce a click but not enough to seat it firmly. The result: rapid, rhythmic clicking as the plunger bounces in and out of contact. This is a technician diagnosis with a 24V voltmeter at the contactor coil terminals. Replacement contactor with a new coil is the standard fix.</p>
+
+                        <!-- CTA 1 -->
+                        <div class="callout-box"
+                            style="background: var(--gray-900); color: white; border: none; padding: 24px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.15); display: flex; flex-direction: column; align-items: center; text-align: center; margin: 32px 0;">
+                            <div
+                                style="font-size: 1.25rem; font-weight: 700; font-family: var(--font-display); margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+                                <span>&#128680;</span> Need a Pro Right Now?
+                            </div>
+                            <p style="color: rgba(255,255,255,0.8); margin-bottom: 20px; font-size: 0.95rem;">
+                                Get connected with a technician in your ZIP code.
+                            </p>
+                            <a href="tel:+18445821795" class="btn btn-primary btn-lg btn-vibrate"><span class="phone-icon">&#128222;</span> Call Now — (844) 582-1795</a>
+                            <p style="color: rgba(255,255,255,0.6); font-size: 0.72rem; margin-top: 12px; max-width: 340px; line-height: 1.5;">Disclosure: We are a referral service and may receive compensation for qualified calls. Calls may be routed to an independent provider network and may be recorded. Pricing and availability vary by provider and location.</p>
+                        </div>
+
+                        <h2>What You Can Safely Do Before Calling</h2>
+
+                        <p>The safe-homeowner list on this symptom is essentially one item: <strong>stop the clicking by turning off the call-for-cool.</strong> Every click that leads to a failed start stresses the compressor windings.</p>
+
+                        <ol>
+                            <li><strong>Set the thermostat to OFF immediately.</strong> This stops the contactor from trying to energize a doomed start attempt. No electrical work involved, no approach to the outdoor unit. This is the single most valuable action you can take.</li>
+                            <li><strong>Confirm the air filter is not severely clogged.</strong> A filter swap is the only inside-the-house action that is even tangentially relevant to this symptom. A heavily restricted filter can cause the thermostat to stay in a continuous call-for-cool state, which prolongs the clicking.</li>
+                            <li><strong>Note what you heard and share it with the technician.</strong> A rhythmic click-click-click every 30 seconds? A single loud click followed by silence? A click-then-hum-then-silence? That detail helps the technician arrive with the right parts. Do not approach the outdoor unit to listen more closely — stand well back, ideally describe it from inside the house.</li>
+                            <li><strong>Call a qualified HVAC technician.</strong> This is the resolution step. The technician will shut off power at the outdoor disconnect, safely drain the capacitor, measure voltage at the contactor terminals, and identify whether the failure is the capacitor, the contactor, the compressor, or the supply wiring.</li>
+                        </ol>
+
+                        <p><strong>Do NOT attempt any of the following</strong> — every one carries an electrocution, fire, or compressor-damage risk:</p>
+                        <ul>
+                            <li>Open the service panel, or flip the AC breaker trying to reset the clicking</li>
+                            <li>Touch or operate the outdoor disconnect box</li>
+                            <li>Remove the access panel or top grille on the outdoor unit</li>
+                            <li>Approach the unit to listen up close while it is trying to start</li>
+                            <li>Push the contactor plunger closed with a screwdriver or stick (a genuinely dangerous "workaround" that still circulates in old YouTube videos)</li>
+                            <li>Handle the capacitor at all — capacitors hold a lethal charge for minutes after the breaker is off and must be drained with an insulated tool by a trained technician</li>
+                            <li>Use any electrical measurement tool on HVAC components yourself</li>
+                            <li>Bypass or jump any electrical component, contactor, or safety switch</li>
+                            <li>Spray water on the unit or try to clean the contactor</li>
+                        </ul>
+
+                        <h2>When to Stop and Call a Professional</h2>
+
+                        <p>The short answer: immediately. Any time you hear rhythmic clicking from the outdoor unit without a start, call a technician. Specific red flags that make this even more urgent:</p>
+
+                        <ul>
+                            <li>The clicking is <strong>accompanied by a brief hum</strong> each cycle. Classic failing-capacitor or seized-compressor pattern.</li>
+                            <li>The outdoor unit <strong>smells hot</strong> or there is a burning electrical smell. The contactor coil may be overheating.</li>
+                            <li>You see <strong>smoke or visible scorching</strong> on or around the outdoor cabinet. Shut off the AC at the thermostat, call 911 if there is smoke, and then call a technician.</li>
+                            <li>The clicking started <strong>after an ant or pest infestation</strong> near the outdoor unit. Insect invasion of the contactor is common in the Southeast — covered in the FAQ below.</li>
+                            <li>The system is <strong>older than 12 years</strong> and this is the second or third "clicking but not starting" event this summer. Compounding failures are common at that age.</li>
+                            <li>You have infants, elderly family members, or anyone with a heart or lung condition in the house and temperatures are climbing into the 80s. Relocate them to a cooler space while the technician is dispatched.</li>
+                        </ul>
+
+                        <p>For the full map of every AC failure mode and how they connect, see our <a href="complete-ac-troubleshooting-guide">complete AC troubleshooting guide</a>. If the AC stops clicking and instead the breaker trips, read <a href="ac-circuit-breaker-trips">AC breaker keeps tripping? Why you shouldn't keep resetting</a>. If the outdoor unit buzzes louder than a click and the fan stays still, see <a href="ac-compressor-buzzing-fan-not-spinning">AC compressor buzzing, fan not spinning</a>. For the cost-side of the decision (is this 12-year-old system worth fixing?), read our <a href="2026-hvac-cost-guide">honest 2026 HVAC cost guide</a>.</p>
+
+                        <h2>What a Technician Will Actually Check</h2>
+
+                        <p>A thorough diagnosis on a clicking contactor covers the entire electrical chain from the thermostat to the compressor. Ask the technician to confirm each step:</p>
+
+                        <ul>
+                            <li><strong>24V at the contactor coil terminals.</strong> Confirms the thermostat signal is reaching the coil and the coil is receiving the correct control voltage.</li>
+                            <li><strong>240V at the contactor line terminals.</strong> Confirms the disconnect and service panel are delivering line voltage on both legs.</li>
+                            <li><strong>240V at the contactor load terminals during a closed cycle.</strong> If voltage is present on the line side but not on the load side during a click, the contact points are burnt through — contactor replacement.</li>
+                            <li><strong>Capacitor microfarad reading.</strong> The technician's multimeter in capacitance mode reads the capacitor after it has been safely drained. More than 10% below rated capacitance is a replace.</li>
+                            <li><strong>Compressor amp draw on start attempt.</strong> A clamp meter on the compressor lead shows whether the compressor is pulling locked-rotor amps (seized or marginal) or refusing to draw at all (internal open).</li>
+                            <li><strong>Visual inspection inside the contactor housing.</strong> Ants, pitting, corrosion, and scorched wiring are all visible with the access panel removed and the capacitor drained.</li>
+                        </ul>
+
+                        <p>A technician who skips straight to "you need a new compressor" without showing you contactor voltage readings and capacitor microfarads is guessing. Ask for the measurements.</p>
+
+                        <h2>What Repairs Cost in 2026</h2>
+
+                        <p>Pricing on this site is anchored to our <a href="../costs">complete 2026 HVAC Cost Guide</a>, which is the single source of truth for every cost figure — no drift between articles.</p>
+
+                        <ul>
+                            <li><strong>Diagnostic / service call:</strong> $65&ndash;$150 (often credited toward the repair if approved)</li>
+                            <li><strong>Capacitor replacement:</strong> $150&ndash;$400</li>
+                            <li><strong>Contactor replacement:</strong> $100&ndash;$300</li>
+                            <li><strong>Hard-start kit installation:</strong> $150&ndash;$350 (extends life of a marginal compressor)</li>
+                            <li><strong>Loose disconnect / wiring repair:</strong> $100&ndash;$300</li>
+                            <li><strong>Compressor replacement:</strong> $1,200&ndash;$3,500</li>
+                            <li><strong>Emergency / after-hours surcharge:</strong> $100&ndash;$300 added</li>
+                        </ul>
+
+                        <p style="color: var(--gray-600); font-size: 0.85rem; margin-top: 8px;">Estimated ranges based on publicly available industry data and in sync with our <a href="../costs">complete cost guide</a>. Actual costs vary by region, provider, and system.</p>
+
+                        <h2>Climate Matters: Where This Shows Up Most</h2>
+
+                        <p><strong>Hot-humid climates (<a href="../locations/brownsville-tx">Brownsville</a>, <a href="../locations/gulfport-ms">Gulfport</a>, the Gulf Coast):</strong> Contactor failure is accelerated by fire-ant intrusion — small ants are attracted to the electromagnetic field of energized contactor coils and sometimes nest inside the contactor housing. Annual professional cabinet inspection (part of a standard tune-up) catches this before it causes a failure. Capacitor degradation is also faster in sustained heat, so annual capacitor microfarad testing pays off.</p>
+
+                        <p><strong>Hot-dry climates (<a href="../locations/laredo-tx">Laredo</a>, Phoenix, Las Vegas):</strong> Voltage sag during heat-wave afternoons is more common — utilities strained by maximum AC demand can deliver supply voltage slightly below 240V, which drops contactor performance into marginal territory. Whole-home surge protection at the service panel (a qualified electrician's job) helps protect the control board and contactor coil from voltage spikes when power returns after an outage.</p>
+
+                        <p><strong>Mixed-humid climates (<a href="../locations/charleston-sc">Charleston</a>, Atlanta, Nashville):</strong> The shoulder-season pattern shows up here — a system that ran fine in May develops the clicking on the first 92°F afternoon in June as the marginal capacitor or contactor is finally pushed past its limit. Pre-summer tune-ups are highest-value in these climates. Browse local service providers in <a href="../locations/texas">Texas</a>, <a href="../locations/mississippi">Mississippi</a>, or explore <a href="../locations">all service areas</a>.</p>
+
+                        <h3>Trusted Industry Sources</h3>
+                        <p>The guidance in this article is consistent with published recommendations from:</p>
+                        <ul>
+                            <li><a href="https://www.energy.gov/energysaver/central-air-conditioning" target="_blank" rel="noopener noreferrer">U.S. Department of Energy — Central Air Conditioning</a></li>
+                            <li><a href="https://www.epa.gov/section608" target="_blank" rel="noopener noreferrer">EPA Section 608 — Refrigerant Handling Regulations</a></li>
+                            <li><a href="https://www.nfpa.org/codes-and-standards/nfpa-70-standard-development/70" target="_blank" rel="noopener noreferrer">NFPA 70 — National Electrical Code</a></li>
+                            <li><a href="https://www.energystar.gov/products/heating_cooling" target="_blank" rel="noopener noreferrer">ENERGY STAR Heating &amp; Cooling</a></li>
+                        </ul>
+
+                        <!-- CTA 2 -->
+                        <div class="callout-box"
+                            style="background: var(--gray-900); color: white; border: none; padding: 24px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.15); display: flex; flex-direction: column; align-items: center; text-align: center; margin: 32px 0;">
+                            <div
+                                style="font-size: 1.25rem; font-weight: 700; font-family: var(--font-display); margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+                                <span>&#128680;</span> Still Need Help?
+                            </div>
+                            <p style="color: rgba(255,255,255,0.8); margin-bottom: 20px; font-size: 0.95rem;">
+                                Don't wait — get a technician dispatched to your area.
+                            </p>
+                            <a href="tel:+18445821795" class="btn btn-primary btn-lg btn-vibrate"><span class="phone-icon">&#128222;</span> Call Now — (844) 582-1795</a>
+                            <p style="color: rgba(255,255,255,0.6); font-size: 0.72rem; margin-top: 12px; max-width: 340px; line-height: 1.5;">Disclosure: We are a referral service and may receive compensation for qualified calls. Calls may be routed to an independent provider network and may be recorded. Pricing and availability vary by provider and location.</p>
+                        </div>
+
+                        <h2 id="faqs">Frequently Asked Questions</h2>
+
+                        <div class="faq-item">
+                            <button class="faq-q" aria-expanded="false" aria-controls="faq-ac-contactor-clicking-1"><span>What is an AC contactor and what does it do?</span><span class="faq-icon"></span></button>
+                            <div class="faq-a" id="faq-ac-contactor-clicking-1"><div class="faq-a-inner">
+                                <p>The contactor is an electrically controlled switch (a relay) inside the outdoor condenser unit that bridges 240-volt line power to the compressor and fan motor when the thermostat calls for cooling. A small 24-volt signal from the thermostat energizes the contactor coil, which pulls a plunger closed and completes the high-voltage circuit. The click you hear is the plunger snapping into place. A contactor that clicks but does not close completely &mdash; or closes but does not deliver power &mdash; is the component at fault, or the components downstream (capacitor, compressor) have failed.</p>
+                            </div></div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-q" aria-expanded="false" aria-controls="faq-ac-contactor-clicking-2"><span>Why is my AC contactor clicking but nothing starts?</span><span class="faq-icon"></span></button>
+                            <div class="faq-a" id="faq-ac-contactor-clicking-2"><div class="faq-a-inner">
+                                <p>Five common causes, in order of frequency: a failed dual-run capacitor (the contactor closes but the compressor and fan cannot start without the capacitor's boost), pitted or burnt contactor contacts (the plunger closes but the electrical path is interrupted), a seized or thermally-overloaded compressor (the contactor supplies power but the compressor refuses to turn), low incoming voltage or a loose lug in the disconnect, and finally a failed contactor coil itself (the clicking you hear is the coil's last gasps). All five require a technician with a multimeter at the outdoor cabinet.</p>
+                            </div></div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-q" aria-expanded="false" aria-controls="faq-ac-contactor-clicking-3"><span>Is it safe to keep trying to run the AC when the contactor keeps clicking?</span><span class="faq-icon"></span></button>
+                            <div class="faq-a" id="faq-ac-contactor-clicking-3"><div class="faq-a-inner">
+                                <p>No. Every time the contactor closes and the compressor tries to start under a weak capacitor or seized bearing, the compressor draws locked-rotor amps &mdash; 4 to 6 times its running current. Sustained locked-rotor conditions overheat the compressor windings and can destroy an otherwise-repairable system. Set the thermostat to OFF immediately and call a technician. A $200 capacitor repair becomes a $2,500 compressor replacement if you let the clicking continue for hours.</p>
+                            </div></div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-q" aria-expanded="false" aria-controls="faq-ac-contactor-clicking-4"><span>Can I replace the contactor myself?</span><span class="faq-icon"></span></button>
+                            <div class="faq-a" id="faq-ac-contactor-clicking-4"><div class="faq-a-inner">
+                                <p>No. The contactor sits inside the outdoor condenser cabinet alongside the dual-run capacitor, which stores a lethal electrical charge for several minutes after the breaker is off. Line voltage in that cabinet is 240V, and a misaligned wire on a new contactor causes immediate short-circuit damage to the control board and the compressor. A technician safely drains the capacitor, tests contactor voltage with a multimeter, and installs the correct replacement (they are not universal &mdash; amperage rating, pole count, and coil voltage all matter). This is firmly technician territory.</p>
+                            </div></div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-q" aria-expanded="false" aria-controls="faq-ac-contactor-clicking-5"><span>Can ants or bugs cause a contactor to fail?</span><span class="faq-icon"></span></button>
+                            <div class="faq-a" id="faq-ac-contactor-clicking-5"><div class="faq-a-inner">
+                                <p>Yes, and it is a surprisingly common failure mode. Fire ants and small insects are attracted to the magnetic field around energized contactor coils and sometimes nest inside the contactor housing. Their bodies dry onto the contact points between closings, creating a resistance path that prevents the contactor from completing the circuit &mdash; the plunger closes, but no power flows. A technician finds this immediately on inspection. It is more common in the Gulf states and the Southeast. Annual outdoor-unit tune-ups catch the problem before it causes a failure.</p>
+                            </div></div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-q" aria-expanded="false" aria-controls="faq-ac-contactor-clicking-6"><span>How much does it cost to fix an AC that clicks but won't start?</span><span class="faq-icon"></span></button>
+                            <div class="faq-a" id="faq-ac-contactor-clicking-6"><div class="faq-a-inner">
+                                <p>Expect a diagnostic fee of $65 to $150. If the cause is a failed capacitor, replacement runs $150 to $400 including the service call. Contactor replacement is $100 to $300. A hard-start kit to coax a marginal compressor into starting is $150 to $350. If the compressor itself has seized, replacement is $1,200 to $3,500 and on older systems can push the decision toward full system replacement. See our full HVAC Cost Guide for the complete 2026 pricing breakdown.</p>
+                            </div></div>
+                        </div>
+
+                        <h3>Local HVAC Service Areas</h3>
+                        <p>Cool Call Pro connects homeowners with independent HVAC technicians nationwide. Find a pro in <a href="../locations/brownsville-tx" style="color: var(--orange-dark); font-weight: 600;">Brownsville (TX)</a>, <a href="../locations/gulfport-ms" style="color: var(--orange-dark); font-weight: 600;">Gulfport (MS)</a>, <a href="../locations/laredo-tx" style="color: var(--orange-dark); font-weight: 600;">Laredo (TX)</a>, or <a href="../locations/charleston-sc" style="color: var(--orange-dark); font-weight: 600;">Charleston (SC)</a>, or browse by state: <a href="../locations/texas" style="color: var(--orange-dark); font-weight: 600;">Texas</a>, <a href="../locations/mississippi" style="color: var(--orange-dark); font-weight: 600;">Mississippi</a>, or <a href="../locations" style="color: var(--orange-dark); font-weight: 600;">all locations</a>.</p>
+
+                    </article>
+
+                    <aside class="article-sidebar">
+                        <div class="sidebar-widget">
+                            <h4>&#128205; Find a Pro Near You</h4>
+                            <ul>
+                                <li><a href="../locations/brownsville-tx" style="color: var(--orange-dark); font-weight: 600;">Brownsville (TX)</a></li>
+                                <li><a href="../locations/gulfport-ms" style="color: var(--orange-dark); font-weight: 600;">Gulfport (MS)</a></li>
+                                <li><a href="../locations/laredo-tx" style="color: var(--orange-dark); font-weight: 600;">Laredo (TX)</a></li>
+                                <li><a href="../locations/charleston-sc" style="color: var(--orange-dark); font-weight: 600;">Charleston (SC)</a></li>
+                                <li><a href="../locations/texas" style="color: var(--orange-dark); font-weight: 600;">All Texas Cities</a></li>
+                                <li><a href="../locations/mississippi" style="color: var(--orange-dark); font-weight: 600;">All Mississippi Cities</a></li>
+                                <li><a href="../locations" style="font-weight: 600;">All Locations &rarr;</a></li>
+                            </ul>
+                        </div>
+                        <div class="sidebar-widget">
+                            <h4>&#128218; Related Guides</h4>
+                            <ul>
+                                <li><a href="complete-ac-troubleshooting-guide">AC Troubleshooting Guide</a></li>
+                                <li><a href="ac-compressor-buzzing-fan-not-spinning">Compressor Buzzing, Fan Not Spinning</a></li>
+                                <li><a href="ac-circuit-breaker-trips">AC Breaker Keeps Tripping</a></li>
+                                <li><a href="ac-not-cooling-below-80">AC Not Cooling Below 80&deg;</a></li>
+                                <li><a href="2026-hvac-cost-guide">2026 HVAC Cost Guide</a></li>
+                                <li><a href="../article-ac-summer">Broken AC in July?</a></li>
+                            </ul>
+                        </div>
+                    </aside>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Brand -->
+                <div class="footer-brand">
+                    <a href="../" class="logo"><span class="logo-icon">&#10052;&#65039;</span><span class="logo-text">CoolCall<span class="logo-accent">Pro</span></span></a>
+                    <p>Connecting homeowners with independent HVAC professionals across the US. Available 24/7 in many areas.</p>
+                    <div class="footer-contact">
+                        <a href="tel:+18445821795" class="footer-phone">(844) 582-1795</a>
+                        <span>24/7 Service Line</span>
+                    </div>
+                </div>
+                <!-- Resources -->
+                <div class="footer-col">
+                    <h3 class="footer-heading">Resources</h3>
+                    <ul>
+                        <li><a href="../costs">Cost Guide</a></li>
+                        <li><a href="../emergency">Emergency Service</a></li>
+                        <li><a href="../safety">Safety Tips</a></li>
+                        <li><a href="../articles">All Articles</a></li>
+                        <li><a href="../locations">Locations</a></li>
+                    </ul>
+                </div>
+                <!-- Company -->
+                <div class="footer-col">
+                    <h3 class="footer-heading">Company</h3>
+                    <ul>
+                        <li><a href="../about">About Us</a></li>
+                        <li><a href="../contact">Contact</a></li>
+                        <li><a href="../author-gyanesh">Author</a></li>
+                        <li><a href="../privacy">Privacy Policy</a></li>
+                        <li><a href="../advertising-disclosure">Advertising Disclosure</a></li>
+                    </ul>
+                </div>
+                <!-- Service Areas -->
+                <div class="footer-col">
+                    <h3 class="footer-heading">Service Areas</h3>
+                    <ul class="service-areas">
+                        <li><a href="../locations/atlanta-ga">Atlanta, GA</a></li>
+                        <li><a href="../locations/chicago-il">Chicago, IL</a></li>
+                        <li><a href="../locations/dallas-tx">Dallas, TX</a></li>
+                        <li><a href="../locations/houston-tx">Houston, TX</a></li>
+                        <li><a href="../locations/phoenix-az">Phoenix, AZ</a></li>
+                        <li><a href="../locations">All 50 states &#8594;</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Legal Disclosure + Bottom Bar -->
+            <div class="footer-bottom">
+                <p><strong style="color: rgba(255,255,255,0.9);">How this site works:</strong> We publish HVAC cost and troubleshooting information and may connect callers to independent service providers. We do not perform HVAC services ourselves. Pricing, availability, and response times vary by provider and location.</p>
+                <p><strong style="color: rgba(255,255,255,0.9);">Editorial standards:</strong> Our content focuses on helpful troubleshooting tips and realistic pricing information. We avoid guarantees; actual pricing depends on the provider and situation. We clearly disclose compensation for referrals. We update content for clarity and accuracy when needed.</p>
+                <p><strong style="color: rgba(255,255,255,0.9);">Disclaimer:</strong> Cool Call Pro is a free service to assist homeowners in connecting with local service providers. All contractors/providers are independent and Cool Call Pro does not warrant or guarantee any work performed. It is the responsibility of the homeowner to verify that the hired contractor furnishes the necessary license and insurance required for the work being performed. All persons depicted in a photo or video are actors or models and not contractors listed on Cool Call Pro.</p>
+                <p>&copy; <span class="copyright-year">2026</span> Cool Call Pro. All rights reserved. &nbsp;&middot;&nbsp; <a href="../privacy">Privacy Policy</a> &nbsp;&middot;&nbsp; <a href="../terms">Terms of Use</a> &nbsp;&middot;&nbsp; <a href="../disclaimer">Disclaimer</a> &nbsp;&middot;&nbsp; <a href="../advertising-disclosure">Advertising Disclosure</a></p>
+            </div>
+        </div>
+    </footer>
+    <script>document.querySelectorAll('.copyright-year').forEach(function(el){el.textContent=new Date().getFullYear()});</script>
+
+    <script src="../js/main.min.js" defer></script>
+</body>
+
+</html>
