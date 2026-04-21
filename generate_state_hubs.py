@@ -661,6 +661,21 @@ def generate_html(d, city_list, hub_abbrs, all_states):
           "@type": "State",
           "name": "{name}"
         }}
+      }},
+      {{
+        "@type": "Service",
+        "serviceType": "HVAC Repair and Installation Referral",
+        "provider": {{
+          "@type": "Organization",
+          "name": "Cool Call Pro",
+          "telephone": "+1-844-582-1795",
+          "url": "https://coolcallpro.com"
+        }},
+        "areaServed": {{
+          "@type": "State",
+          "name": "{name}"
+        }},
+        "audience": {{ "@type": "Audience", "audienceType": "Homeowners" }}
       }}
     ]
   }}
