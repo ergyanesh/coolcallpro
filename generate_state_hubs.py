@@ -530,6 +530,31 @@ def article_link(system_type):
     return '../article-heat-pump.html', 'heat pump options'
 
 
+def hero_climate_lead(peak, system, zones):
+    """Return the noun-phrase lead clause for the hero subtext (without the
+    state possessive prefix). Derived from xlsx fields; no invented claims.
+
+    Subarctic is reserved for states containing IECC Climate Zone 8 in the
+    Climate Zones Present column (Alaska only in current data). Zone 7
+    alone ("Very Cold" per IECC) does not qualify because states like MI,
+    MN, WI have population centers in warmer zones and labeling their
+    entire climate "subarctic" would overreach the xlsx data."""
+    p = (peak or '').lower()
+    s = (system or '').lower()
+    z = str(zones or '').lower()
+    z_tokens = {t.strip() for t in z.replace(',', ' ').split() if t.strip()}
+
+    if 'mini-split' in s or ('1a' in z_tokens and '2a' not in z_tokens):
+        return 'year-round cooling climate'
+    if 'winter' in p and '8' in z_tokens:
+        return 'subarctic climate and extended heating season'
+    if 'winter' in p:
+        return 'long heating season'
+    if 'summer' in p:
+        return 'cooling-dominated climate'
+    return 'mixed cooling and heating demand'
+
+
 def get_state_climate_profile(peak, system, zones):
     """Determine state climate profile from data fields for conditional text."""
     p = (peak or '').lower()
@@ -867,6 +892,7 @@ def generate_html(d, city_list, hub_abbrs, all_states, out_path=None, refresh_da
     hazards_csv = d.get('Climate Hazards', '')
 
     state_profile = get_state_climate_profile(peak, system, zones)
+    hero_lead = hero_climate_lead(peak, system, zones)
     state_figure = state_figure_html(s, name)
     peak_desc = peak_description(peak, sh, wl)
     sys_desc = system_desc(system, name)
@@ -1349,7 +1375,7 @@ def generate_html(d, city_list, hub_abbrs, all_states, out_path=None, refresh_da
       <div class="container">
         <span class="section-tag" style="background: rgba(255,255,255,0.1); color: #fff;">&#128205; {name}</span>
         <h1>HVAC Service &amp; Repair in {name}</h1>
-        <p>Connect with independent local HVAC professionals across every city and ZIP code in {name}. {state_profile['hero_service']}</p>
+        <p>Independent local HVAC professionals serve every city and ZIP code across {name}&rsquo;s {hero_lead}. {state_profile['hero_service']}</p>
         {meta_block}
         <div style="margin-top: 28px;">
           <a href="tel:+18445821795" class="btn btn-primary btn-lg btn-vibrate"><span class="phone-icon">&#128222;</span> Call Now &#8212; (844) 582-1795</a>
