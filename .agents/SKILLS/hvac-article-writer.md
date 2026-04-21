@@ -338,6 +338,25 @@ Every article footer MUST use this exact structure. The 4 columns require `class
 
 **Do NOT** substitute a shorter footer, rename `footer-col` to plain `<div>`, or rewrite the MarketCall disclaimer paragraph. Both are contract-locked or CSS-locked.
 
+### Editorial Safety Policy — DIY ADVICE CAP (since 20 April 2026, NON-NEGOTIABLE)
+
+Cool Call Pro is a referral service — our revenue comes from phone calls to technicians. DIY content cannibalizes our business AND creates legal exposure (the competitor DIY publishers we'd be copying carry media-liability insurance and rely on disclaimers we don't carry). Every article, location page, emergency page, cost page, and root page must observe the following cap, without exception:
+
+**The homeowner-DIY list is permanently capped at:**
+1. Replace an air filter
+2. Turn a thermostat off
+3. Move physical debris away from (NOT touch) the outdoor unit
+4. Flush the condensate drain line with white vinegar
+5. Call a qualified HVAC technician
+
+**Never instruct a homeowner to:** rinse/spray/hose the condenser, clean any coil, straighten fins, pull a disconnect, open any cabinet/panel/cover, touch a capacitor/contactor/terminal, test/measure voltage or amperage, jumper/bypass anything, recharge/add/top-off refrigerant, relight a pilot, or operate a gas valve. This list is broader than the legal minimum because our business does not need DIY content.
+
+If you need to mention these actions for educational context ("here is why the coil needs cleaning"), frame it as a technician task: "a technician will shut off power, apply coil cleaner, inspect the fins." The phrase "do not X" in the preceding paragraph is also acceptable.
+
+**Enforcement:** `safety_rules.py` encodes the full DIY-hazard pattern list. Both `audit_article.py` and `audit_page.py` run it automatically. The pre-commit hook blocks any commit with an un-negated DIY-hazard phrase. You do not need to memorize the list — the audit will catch violations before commit.
+
+**What to do when the audit catches you:** do not bypass with `--no-verify`. Reroute the instruction to a technician, explain why it is unsafe for a homeowner, and re-stage. If the audit seems to be catching a legitimate descriptive use (e.g. "a technician's multimeter reads..."), place the word "technician" within ~500 chars of the hazard term — that satisfies the negation-aware detection.
+
 ### Safety Content Rules (CRITICAL — YMYL Compliance)
 - **NEVER give advice that could cause injury, property damage, or death.** HVAC systems involve 240V electricity, natural gas, and pressurized refrigerant.
 - **Always include a safety warning box** early in the article advising readers to kill the breaker before inspecting anything.

@@ -168,6 +168,26 @@ npx --yes terser js/main.js -o js/main.min.js --compress --mangle
 python serve.py                                       # http://localhost:8080
 ```
 
+## Editorial Safety Policy (since 20 April 2026 — NON-NEGOTIABLE)
+
+**Cool Call Pro is a referral service. We make zero revenue from DIY content. Telling a reader to do hazardous work themselves actively cannibalizes our business model AND creates legal risk that competitor DIY publishers mitigate with disclaimers + media-liability insurance we do not carry.**
+
+The homeowner-DIY list — across every article, location page, emergency page, cost page, and root page — is permanently capped at:
+
+1. Replace an air filter
+2. Turn a thermostat off
+3. Move physical debris away from (NOT touch) the outdoor unit
+4. Flush the condensate drain line with white vinegar
+5. Call a qualified HVAC technician
+
+**Everything else is a technician task in our voice — including things the wider industry considers "safe DIY."** Specifically *never* instruct a homeowner to: rinse/spray/hose the condenser, clean a coil, straighten fins, pull a disconnect, open any cabinet/panel/cover, touch a capacitor/contactor/terminal, test/measure voltage or amperage, jumper/bypass anything, recharge/add/top-off refrigerant, relight a pilot, or operate a gas valve. This list is broader than the legal minimum because our business does not need DIY content.
+
+Enforcement: `safety_rules.py` encodes ~25 DIY-hazard regex patterns with negation-aware detection. Both `audit_article.py` and `audit_page.py` import and run it on every audited file. The pre-commit hook therefore blocks any commit whose staged HTML contains an un-negated DIY-hazard phrase.
+
+If a hazard phrase is required for educational context ("do not spray the coil"), the negation in the preceding ~500 chars lets it pass. If it appears inside a `"name":` field of a FAQ Question schema (reader-asked question → answer negates), it also passes. Otherwise the commit is blocked.
+
+**This rule overrides any prior editorial instinct about what makes a helpful article.** Do not relitigate it. If you're tempted to add a step like "rinse the fins" — reroute to "ask the technician to include coil cleaning in the spring tune-up."
+
 ## Pre-Commit Audit Hook (since 20 April 2026)
 
 A git pre-commit hook at `.git/hooks/pre-commit` blocks any commit whose staged HTML fails YMYL/SEO/AEO/GEO/CSS-regression checks:

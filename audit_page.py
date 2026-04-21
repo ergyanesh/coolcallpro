@@ -28,6 +28,8 @@ import re
 import sys
 from pathlib import Path
 
+from safety_rules import check_diy_hazards
+
 
 # --- MarketCall disclaimer (verbatim — never edit) -------------------------
 # Required by MarketCall partner agreement. Page containing any portion of
@@ -226,6 +228,7 @@ def main():
     path = args[0]
     html = read(path)
     fails = audit_page_universal(html, path)
+    fails += check_diy_hazards(html, source_label=path)
 
     print()
     if fails == 0:

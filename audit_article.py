@@ -30,6 +30,8 @@ import re
 import sys
 from pathlib import Path
 
+from safety_rules import check_diy_hazards
+
 
 # --- Forbidden safety words (per skill's YMYL rules) -----------------------
 
@@ -435,6 +437,7 @@ def main():
 
     fails = 0
     fails += audit_safety(html)
+    fails += check_diy_hazards(html, source_label=path)
     fails += audit_seo(html)
     fails += audit_your_money(html, strict)
     fails += audit_geo_aeo(html, strict)
