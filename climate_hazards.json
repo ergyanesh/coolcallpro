@@ -3,11 +3,13 @@
   "sources": {
     "fema_nri": {
       "label": "FEMA National Risk Index",
-      "url": "https://hazards.fema.gov/nri/"
+      "url": "https://www.fema.gov/flood-maps/products-tools/national-risk-index",
+      "_note": "Switched from hazards.fema.gov/nri/ on 2026-04-21 after that subdomain started returning ERR_CONNECTION_CLOSED (SSL). This fema.gov path is the canonical alternative, Playwright-verified live."
     },
-    "noaa_ncei": {
-      "label": "NOAA National Centers for Environmental Information",
-      "url": "https://www.ncei.noaa.gov/access/billions/"
+    "noaa_climate": {
+      "label": "NOAA climate data",
+      "url": "https://www.noaa.gov/climate",
+      "_note": "Switched from www.ncei.noaa.gov/access/billions/ on 2026-04-21 after NCEI started timing out. noaa.gov/climate is the NOAA-wide climate landing page (redirect target from climate.gov), Playwright-verified live."
     }
   },
   "hazards": {
