@@ -23,6 +23,65 @@ except (FileNotFoundError, json.JSONDecodeError):
     _IMAGE_ATTRIBUTIONS = {}
 
 
+# ============================================================
+# CLIMATE HAZARDS (loaded once)
+# Hazard vocabulary (name -> impact + pro-action copy) used to render the
+# "Climate Hazards Affecting <State> HVAC Systems" section. Per-state hazard
+# lists live in states.xlsx "Climate Hazards" column.
+# Source: FEMA National Risk Index (https://hazards.fema.gov/nri/).
+# ============================================================
+_HAZARDS_PATH = Path(__file__).parent / "climate_hazards.json"
+try:
+    _CLIMATE_HAZARD_VOCAB = json.loads(_HAZARDS_PATH.read_text(encoding="utf-8"))["hazards"]
+except (FileNotFoundError, json.JSONDecodeError, KeyError):
+    _CLIMATE_HAZARD_VOCAB = {}
+
+
+def _format_hazard_list_prose(hazards):
+    strong = [f"<strong>{h}</strong>" for h in hazards]
+    if len(strong) == 1:
+        return strong[0]
+    if len(strong) == 2:
+        return f"{strong[0]} and {strong[1]}"
+    return ", ".join(strong[:-1]) + f", and {strong[-1]}"
+
+
+def climate_hazards_section_html(state_name, hazards_csv):
+    """Render the Climate Hazards <section> for a state hub. Returns '' if no
+    hazard data is present for the state, so generated pages degrade cleanly
+    when xlsx hasn't been updated yet."""
+    if not hazards_csv or str(hazards_csv).strip().lower() in ("", "nan"):
+        return ""
+    hazards = [h.strip() for h in str(hazards_csv).split(",") if h.strip()]
+    if not hazards:
+        return ""
+    intro_list = _format_hazard_list_prose(hazards)
+    lis = []
+    for hz in hazards:
+        info = _CLIMATE_HAZARD_VOCAB.get(hz)
+        if not info:
+            raise KeyError(f"Unknown climate hazard '{hz}' for state '{state_name}' "
+                           f"-- add it to climate_hazards.json")
+        lis.append(f'            <li><strong>{hz}:</strong> {info["impact"]} {info["action"]}</li>')
+    lis_html = "\n".join(lis)
+    return (
+        "\n"
+        "    <!-- Climate Hazards -->\n"
+        "    <section class=\"section\" style=\"padding: 0;\">\n"
+        "      <div class=\"container\">\n"
+        "        <div class=\"city-services\" style=\"margin-bottom: 40px;\">\n"
+        f"          <h2>Climate Hazards Affecting {state_name} HVAC Systems</h2>\n"
+        f"          <p style=\"font-size: 1.05rem; line-height: 1.85; color: var(--gray-700);\">According to the FEMA National Risk Index and NOAA storm data, {state_name} faces elevated exposure to {intro_list}. Each event damages or stresses residential HVAC systems in specific ways that an HVAC professional should diagnose after the fact.</p>\n"
+        "          <ul>\n"
+        f"{lis_html}\n"
+        "          </ul>\n"
+        "          <p style=\"font-size: 0.9rem; color: var(--gray-700); margin-top: 20px;\">Source: <a href=\"https://hazards.fema.gov/nri/\" rel=\"nofollow noopener\" style=\"color: var(--orange-dark);\">FEMA National Risk Index</a> and <a href=\"https://www.ncei.noaa.gov/access/billions/\" rel=\"nofollow noopener\" style=\"color: var(--orange-dark);\">NOAA National Centers for Environmental Information</a>.</p>\n"
+        "        </div>\n"
+        "      </div>\n"
+        "    </section>"
+    )
+
+
 def state_figure_html(state_slug, state_name):
     """Render attributed <figure> for a state image. Returns '' if missing."""
     rec = _IMAGE_ATTRIBUTIONS.get(f"state/{state_slug}")
@@ -442,6 +501,7 @@ def generate_html(d, city_list, hub_abbrs, all_states):
     system = d.get('Dominant HVAC System Type', '')
     peak = d.get('Peak HVAC Demand Season', '')
     neighbors = d.get('Neighboring States', '')
+    hazards_csv = d.get('Climate Hazards', '')
 
     state_profile = get_state_climate_profile(peak, system, zones)
     state_figure = state_figure_html(s, name)
@@ -458,6 +518,7 @@ def generate_html(d, city_list, hub_abbrs, all_states):
     rebate_items = rebate_list_html(rebates)
     city_grid = cities_grid_html(city_list, abbr)
     neighbor_html = neighbor_links_html(neighbors, hub_abbrs, all_states)
+    climate_hazards_section = climate_hazards_section_html(name, hazards_csv)
     neighbor_section = f'''
     <!-- Neighboring States -->
     <section class="section" style="padding: 32px 0 48px;">
@@ -1047,6 +1108,7 @@ def generate_html(d, city_list, hub_abbrs, all_states):
         </div>
       </div>
     </section>
+{climate_hazards_section}
 
     <!-- Service Areas -->
     <section class="section" style="padding: 0 0 48px;" id="cities">

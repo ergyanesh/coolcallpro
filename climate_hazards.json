@@ -1,0 +1,91 @@
+{
+  "_comment": "HVAC implications per climate hazard. Hazard categories are FEMA National Risk Index types (https://hazards.fema.gov/nri/). Per-hazard HVAC impact and pro-action copy is derived from standard industry post-event practice. All action sentences route to a technician or call-a-pro path per Cool Call Pro editorial policy (CLAUDE.md). Consumed by scripts/add_state_hub_climate_hazards.py and generate_state_hubs.py.",
+  "sources": {
+    "fema_nri": {
+      "label": "FEMA National Risk Index",
+      "url": "https://hazards.fema.gov/nri/"
+    },
+    "noaa_ncei": {
+      "label": "NOAA National Centers for Environmental Information",
+      "url": "https://www.ncei.noaa.gov/access/billions/"
+    }
+  },
+  "hazards": {
+    "Hurricane": {
+      "impact": "Wind-driven debris bends condenser coil fins and post-storm flooding contaminates compressor electricals.",
+      "action": "Schedule a technician inspection after any named-storm landfall before restart."
+    },
+    "Tornado": {
+      "impact": "Flying debris bends coil fins and fan blades on the outdoor unit.",
+      "action": "A technician assesses damage and determines whether the coil must be replaced."
+    },
+    "Severe Thunderstorm": {
+      "impact": "Lightning strikes and grid surges destroy contactors, capacitors, and control boards.",
+      "action": "A qualified electrician should install whole-home surge protection."
+    },
+    "Hail": {
+      "impact": "Large hail flattens condenser coil fins and restricts airflow.",
+      "action": "A technician assesses damage and determines whether repair or coil replacement is needed."
+    },
+    "Ice Storm": {
+      "impact": "Freezing rain coats the outdoor coil and blocks the heat pump defrost cycle.",
+      "action": "Call a technician &mdash; do not chip ice off the unit."
+    },
+    "Extreme Cold": {
+      "impact": "Single-digit temperatures stress gas furnace heat exchangers and drive heavy auxiliary heat strip usage on heat pumps.",
+      "action": "Schedule a pre-winter tune-up before the first hard freeze."
+    },
+    "Blizzard": {
+      "impact": "Deep snow drifts bury outdoor units and block furnace intake and exhaust vents.",
+      "action": "A technician should clear buried equipment and verify venting before restart."
+    },
+    "Extreme Heat": {
+      "impact": "Compressor failures rise sharply when outdoor temperatures sustain above 105&deg;F.",
+      "action": "A technician should verify refrigerant charge and capacitor health before heat waves."
+    },
+    "Wildfire": {
+      "impact": "Heavy smoke clogs standard filters within days and draws soot into the indoor coil.",
+      "action": "Replace your filter with a MERV 13 during active smoke events and schedule a technician coil inspection afterward."
+    },
+    "Flooding": {
+      "impact": "Floodwater above the electrical panel of the condenser or air handler destroys affected components.",
+      "action": "A technician must inspect any submerged equipment before restart &mdash; never power up a flooded unit."
+    },
+    "Earthquake": {
+      "impact": "Ground movement can shear refrigerant lines, condensate drains, and gas connections at joints.",
+      "action": "After any measurable quake, a technician should verify refrigerant and gas-line integrity before operation."
+    },
+    "Nor'easter": {
+      "impact": "Heavy wet snow combined with high winds damages outdoor equipment and blocks furnace venting.",
+      "action": "A technician should clear the unit and verify venting once the storm passes."
+    },
+    "Lake-Effect Snow": {
+      "impact": "Sustained heavy snow buries outdoor heat pumps and restricts intake vents.",
+      "action": "A technician should clear the unit and confirm the defrost cycle is completing."
+    },
+    "High Wind": {
+      "impact": "Sustained high winds topple poorly-anchored outdoor units and drive debris into coil fins.",
+      "action": "Inspect with a technician after any extreme wind event before restart."
+    },
+    "Winter Storm": {
+      "impact": "Sustained heavy snow and low temperatures strain furnaces and bury outdoor heat pumps.",
+      "action": "A technician should inspect outdoor equipment and verify the heat exchanger after prolonged cold events."
+    },
+    "Volcanic Activity": {
+      "impact": "Volcanic ash abrades coil fins and overwhelms standard filters.",
+      "action": "Replace your filter with a MERV 13 during ashfall and schedule a full technician coil cleaning once air quality returns to baseline."
+    },
+    "Dust Storm": {
+      "impact": "Wind-driven dust scours coil fins and clogs filters within hours.",
+      "action": "Replace filters more often during monsoon season and schedule a pro coil cleaning before cooling season ends."
+    },
+    "Tropical Storm": {
+      "impact": "Saturated ground, wind-driven rain, and lightning damage outdoor units even without a hurricane-level wind.",
+      "action": "Schedule a post-storm technician inspection before restart."
+    },
+    "Coastal Flooding": {
+      "impact": "Saltwater inundation accelerates electrical corrosion and destroys compressor windings.",
+      "action": "Assume any saltwater-submerged unit requires replacement &mdash; a technician must assess before any restart attempt."
+    }
+  }
+}
