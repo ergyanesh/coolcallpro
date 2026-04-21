@@ -14,7 +14,7 @@
   "_notes": {
     "GA": "NASEO listed https://www.gefa.georgia.gov/energy-resources (404 at verification). Substituted the verified-live GEFA domain root.",
     "MS": "NASEO listed https://mississippi.org/community-resources/office-energy/ (404). WebFetch research found the current path is /community-resources/office-of-energy/ (note the added 'of-'); substituted and verified live.",
-    "OH": "NASEO listed https://development.ohio.gov/bs/bs_renewenergy.htm (404, stale .htm). Substituted the NASEO-identified agency's base domain https://development.ohio.gov. This URL was NOT verifiable from the build environment (all development.ohio.gov and ohio.gov paths returned 404 to both urllib and WebFetch, which may be IP-based blocking). Flagged for manual spot-check in a real browser."
+    "OH": "User spot-check on 2026-04-21 confirmed https://development.ohio.gov returns a Page Not Found error page in a real browser. Further Playwright probing: every ohio.gov, development.ohio.gov, energy.ohio.gov, puco.ohio.gov, occ.ohio.gov, and ofcc.ohio.gov path returned either 404 or connection timeouts -- Ohio's state web infrastructure is broadly non-functional. Swapped to the U.S. DOE State Energy Program overview (energy.gov/cmei/scep/about-state-energy-program) which Playwright verified live. Name updated to reflect that the link is to the DOE SEP program that Ohio's Department of Development administers on the state side."
   },
   "offices": {
     "AL": {
@@ -158,8 +158,8 @@
       "url": "https://www.commerce.nd.gov/"
     },
     "OH": {
-      "name": "Ohio Department of Development",
-      "url": "https://development.ohio.gov"
+      "name": "U.S. DOE State Energy Program (Ohio administered by the Ohio Department of Development)",
+      "url": "https://www.energy.gov/cmei/scep/about-state-energy-program"
     },
     "OK": {
       "name": "Oklahoma Secretary of Energy and Environment",

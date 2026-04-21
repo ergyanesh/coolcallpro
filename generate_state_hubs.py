@@ -675,51 +675,107 @@ def state_cost_text(name, ac_cost, furnace_cost, cost_type, html=True):
                 f"{b(ac_cost)}, while furnace installations run "
                 f"{b(furnace_cost)}. {base}")
 
+def _url_is_real(url: str) -> bool:
+    """True when the License Lookup URL cell holds an actual http(s) link.
+    Some xlsx rows carry descriptive placeholders like
+    "N/A - check local jurisdictions" -- treat those as no-URL so we don't
+    emit an <a href="N/A ..."> that resolves to a 404 on coolcallpro.com."""
+    return bool(url) and str(url).lower().startswith(('http://', 'https://'))
+
+
 def license_html(d):
-    """Generate licensing section paragraph."""
-    req = str(d.get('State HVAC License Requirement', '') or '')
+    """Generate licensing section paragraph.
+
+    Three branches:
+      - Yes   : statewide licensing -> cite agency + link if URL is real.
+      - Varies: licensing handled locally -> no agency-as-regulator copy
+                (the xlsx agency cell for Varies states reads as a
+                description, not a name, and pasting it verbatim produces
+                garbled prose like "license issued by the No state-level
+                HVAC licensing...").
+      - No    : (legacy catch-all) -> "does not require ... However, {detail}"
+    """
+    req = str(d.get('State HVAC License Requirement', '') or '').strip()
     body = d.get('Licensing Body/Agency', '') or ''
     url = d.get('License Lookup URL', '') or ''
     name = d['State Name']
 
-    link_tag = (f'<a href="{url}" style="color: var(--orange-dark); font-weight: 600;" '
-                f'target="_blank" rel="noopener">license lookup tool</a>') if url and url != 'N/A' else 'their website'
-
     safety = (' See our <a href="../safety.html" style="color: var(--orange-dark); '
               'font-weight: 600;">safety tips</a> for more on what to verify before hiring.')
 
-    if req.lower().startswith('no'):
-        detail = req.replace('No state HVAC license; ', '').replace('No state HVAC license;', '').strip()
-        if detail and detail[0].isupper():
-            detail = detail[0].lower() + detail[1:]
-        return (f"{name} does not require a statewide HVAC license. However, {detail}. "
-                f"Always verify your contractor carries proper insurance and pulls necessary "
-                f"permits with your local building department.{safety}")
-    else:
+    req_l = req.lower()
+
+    if req_l.startswith('yes'):
+        link_tag = (f'<a href="{url}" style="color: var(--orange-dark); font-weight: 600;" '
+                    f'target="_blank" rel="noopener">license lookup tool</a>') \
+            if _url_is_real(url) else 'their website'
         return (f"{name} requires HVAC contractors to hold a license issued by the "
                 f"<strong>{body}</strong>. Before hiring, verify your contractor's credentials "
                 f"through the board's {link_tag}. Licensed contractors carry insurance, pull "
                 f"permits correctly, and stand behind their work.{safety}")
 
+    if req_l.startswith('varies'):
+        # Optional state-level portal link if xlsx provides a real URL
+        if _url_is_real(url):
+            portal = (f' For partial state-level information, see the '
+                      f'<a href="{url}" style="color: var(--orange-dark); font-weight: 600;" '
+                      f'target="_blank" rel="noopener">state licensing portal</a>.')
+        else:
+            portal = ''
+        return (f"{name} does not require a statewide HVAC contractor license. "
+                f"Licensing and permit rules are set at the city or county level by "
+                f"local jurisdictions.{portal} Before hiring, verify your contractor "
+                f"carries liability insurance, pulls permits with your local building "
+                f"department, and can provide local references.{safety}")
+
+    # Legacy 'No state HVAC license; ...' style (currently unused in xlsx but kept
+    # defensively in case future rows use that phrasing).
+    detail = req.replace('No state HVAC license; ', '').replace('No state HVAC license;', '').strip()
+    if detail and detail[0].isupper():
+        detail = detail[0].lower() + detail[1:]
+    return (f"{name} does not require a statewide HVAC license. However, {detail}. "
+            f"Always verify your contractor carries proper insurance and pulls necessary "
+            f"permits with your local building department.{safety}")
+
+
 def license_faq(d):
-    """FAQ answer for licensing question."""
-    req = str(d.get('State HVAC License Requirement', '') or '')
+    """FAQ answer for licensing question.
+
+    Same three branches as license_html. Content mirrors it but is tighter
+    (no safety-tips trailer, since the FAQ is Q+A scoped)."""
+    req = str(d.get('State HVAC License Requirement', '') or '').strip()
     body = d.get('Licensing Body/Agency', '') or ''
     url = d.get('License Lookup URL', '') or ''
     name = d['State Name']
 
-    if req.lower().startswith('no'):
-        detail = req.replace('No state HVAC license; ', '').replace('No state HVAC license;', '').strip()
-        if detail and detail[0].isupper():
-            detail = detail[0].lower() + detail[1:]
-        return (f"{name} does not require a statewide HVAC license. However, {detail}. "
-                f"Always verify your contractor carries proper insurance and pulls necessary permits.")
-    else:
+    req_l = req.lower()
+
+    if req_l.startswith('yes'):
         link = (f'<a href="{url}" style="color: var(--orange-dark); font-weight: 600;" '
-                f'target="_blank" rel="noopener">online license lookup</a>') if url and url != 'N/A' else 'their website'
+                f'target="_blank" rel="noopener">online license lookup</a>') \
+            if _url_is_real(url) else 'their website'
         return (f"{name} requires all HVAC contractors to hold a license issued by the "
                 f"<strong>{body}</strong>. You can verify any contractor's credentials through "
                 f"the board's {link}.")
+
+    if req_l.startswith('varies'):
+        portal = ''
+        if _url_is_real(url):
+            portal = (f' Some state-level information is available via the '
+                      f'<a href="{url}" style="color: var(--orange-dark); font-weight: 600;" '
+                      f'target="_blank" rel="noopener">state licensing portal</a>.')
+        return (f"{name} does not require a statewide HVAC contractor license; "
+                f"licensing and permit rules are set by local cities and counties.{portal} "
+                f"Before hiring, verify your contractor carries liability insurance, "
+                f"pulls permits with your local building department, and can provide "
+                f"local references.")
+
+    # Legacy 'No ...' branch
+    detail = req.replace('No state HVAC license; ', '').replace('No state HVAC license;', '').strip()
+    if detail and detail[0].isupper():
+        detail = detail[0].lower() + detail[1:]
+    return (f"{name} does not require a statewide HVAC license. However, {detail}. "
+            f"Always verify your contractor carries proper insurance and pulls necessary permits.")
 
 def permits_faq(d, *, html=True):
     """FAQ #6 answer -- "What HVAC permits are required in {state}?".
