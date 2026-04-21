@@ -195,6 +195,114 @@ def climate_hazards_section_html(state_name, hazards_csv):
     )
 
 
+def why_pro_section_html(d):
+    """Build the "Why Call a {State} HVAC Pro" section from xlsx row data.
+
+    All four bullet facts come from states.xlsx (Summer High, Winter Low,
+    CDD, HDD, SEER2 min+region, License Requirement, Licensing Body/Agency,
+    Climate Hazards). The FEMA NRI citation and the 2023-01-01 federal
+    efficiency-standard effective date are independently-verifiable public
+    facts. No invented data.
+
+    This function mirrors build_block() in
+    scripts/replace_state_hub_how_it_works.py so regenerated state hubs
+    stay byte-identical to the patched output."""
+    name = d["State Name"]
+    sh = d.get("Avg Summer High (F)")
+    wl = d.get("Avg Winter Low (F)")
+    cdd = d.get("Annual Cooling Degree Days")
+    hdd = d.get("Annual Heating Degree Days")
+    seer_min = d.get("SEER2 Minimum")
+    seer_region = str(d.get("SEER2 Region", "") or "").strip()
+    req = str(d.get("State HVAC License Requirement", "") or "").strip()
+    agency = str(d.get("Licensing Body/Agency", "") or "").strip()
+    hazards_csv = str(d.get("Climate Hazards", "") or "").strip()
+    hazards = [h.strip() for h in hazards_csv.split(",") if h.strip()]
+
+    def _n(v):
+        if v is None:
+            return ""
+        try:
+            return f"{int(float(v)):,}"
+        except (TypeError, ValueError):
+            return str(v)
+
+    if req.lower().startswith("yes"):
+        lic_p = (
+            f"{name} requires HVAC contractors to hold a state license from the "
+            f"<strong>{agency}</strong>. Unlicensed work can void manufacturer "
+            f"warranties and complicate insurance claims."
+        )
+    else:
+        lic_p = (
+            f"{name} does not issue a statewide HVAC contractor license; licensing "
+            f"and permits are handled by local cities and counties. Hire a contractor "
+            f"who carries liability insurance, pulls permits with your local building "
+            f"department, and can provide local references."
+        )
+
+    sh_s = _n(sh)
+    wl_s = _n(wl)
+    cdd_s = _n(cdd)
+    hdd_s = _n(hdd)
+    try:
+        seer_min_s = f"{float(seer_min):g}"
+    except (TypeError, ValueError):
+        seer_min_s = str(seer_min)
+    hz1, hz2, hz3 = (hazards + ["", "", ""])[:3]
+
+    return (
+        f"    <!-- Why Call a {name} Pro -->\n"
+        f"    <section class=\"section section-dark\" id=\"why-pro\">\n"
+        f"      <div class=\"container\">\n"
+        f"        <div class=\"section-header\">\n"
+        f"          <span class=\"section-tag\"\n"
+        f"            style=\"background: rgba(255,165,0,0.15); color: var(--orange-light); border-color: rgba(255,165,0,0.3);\">&#128205;\n"
+        f"            {name} HVAC Context</span>\n"
+        f"          <h2 class=\"section-title\">Why Call a {name} HVAC Pro</h2>\n"
+        f"          <p class=\"section-sub\">Four facts from climate and licensing data specific to <strong>{name}</strong>.</p>\n"
+        f"        </div>\n"
+        f"\n"
+        f"        <div class=\"steps-grid\">\n"
+        f"\n"
+        f"          <div class=\"step-card\">\n"
+        f"            <div class=\"step-number\">01</div>\n"
+        f"            <div class=\"step-icon\">&#127777;&#65039;</div>\n"
+        f"            <h3>Climate Load</h3>\n"
+        f"            <p>{name} averages <strong>{sh_s}&deg;F</strong> summer highs and <strong>{wl_s}&deg;F</strong> winter lows, with <strong>{cdd_s}</strong> annual cooling degree days and <strong>{hdd_s}</strong> heating degree days. A mis-sized or poorly-charged system fails early under that load.</p>\n"
+        f"          </div>\n"
+        f"\n"
+        f"          <div class=\"step-card\">\n"
+        f"            <div class=\"step-number\">02</div>\n"
+        f"            <div class=\"step-icon\">&#128221;</div>\n"
+        f"            <h3>Licensing</h3>\n"
+        f"            <p>{lic_p}</p>\n"
+        f"          </div>\n"
+        f"\n"
+        f"          <div class=\"step-card\">\n"
+        f"            <div class=\"step-number\">03</div>\n"
+        f"            <div class=\"step-icon\">&#128161;</div>\n"
+        f"            <h3>Efficiency Code</h3>\n"
+        f"            <p>New central AC units installed in {name} must meet <strong>SEER2 {seer_min_s}</strong> (<strong>{seer_region}</strong> SEER2 region) under the federal efficiency standard effective January 1, 2023. A pro ensures the installed system is compliant and sized correctly.</p>\n"
+        f"          </div>\n"
+        f"\n"
+        f"          <div class=\"step-card\">\n"
+        f"            <div class=\"step-number\">04</div>\n"
+        f"            <div class=\"step-icon\">&#127744;&#65039;</div>\n"
+        f"            <h3>Weather Risks</h3>\n"
+        f"            <p>FEMA's National Risk Index identifies <strong>{hz1}</strong>, <strong>{hz2}</strong>, and <strong>{hz3}</strong> as elevated hazards in {name}. A technician inspects outdoor equipment for damage after any major weather event before restart.</p>\n"
+        f"          </div>\n"
+        f"\n"
+        f"        </div>\n"
+        f"\n"
+        f"        <div style=\"text-align: center; margin-top: 48px;\">\n"
+        f"          <a href=\"tel:+18445821795\" class=\"btn btn-primary btn-lg btn-vibrate\"><span class=\"phone-icon\">&#128222;</span> Call Now &#8212; (844) 582-1795</a>\n"
+        f"        </div>\n"
+        f"      </div>\n"
+        f"    </section>"
+    )
+
+
 # State-energy-office vocabulary (agency name + URL per state abbreviation).
 # Sourced from NASEO State Energy Offices Directory (fetched 2026-04-21) and
 # stored in state_energy_offices.json for auditability. See that file's
@@ -768,6 +876,7 @@ def generate_html(d, city_list, hub_abbrs, all_states, out_path=None, refresh_da
     sys_faq = system_faq(d)
     permits_faq_html_str = permits_faq(d, html=True)
     permits_faq_schema = permits_faq(d, html=False).replace('"', '\\"')
+    why_pro_section = why_pro_section_html(d)
     # Strip HTML for schema (JSON-LD can't have unescaped quotes from HTML tags)
     import re as _re
     lic_faq_schema = _re.sub(r'<[^>]+>', '', lic_faq).replace('"', '\\"')
@@ -1391,47 +1500,7 @@ def generate_html(d, city_list, hub_abbrs, all_states, out_path=None, refresh_da
       </div>
     </section>
 
-    <!-- How It Works -->
-    <section class="section section-dark" id="how-it-works">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-tag"
-            style="background: rgba(255,165,0,0.15); color: var(--orange-light); border-color: rgba(255,165,0,0.3);">&#9889;
-            Simple Process</span>
-          <h2 class="section-title">How It Works</h2>
-          <p class="section-sub">From your first call to getting connected with an independent HVAC provider in <strong>{name}</strong> &#8212; here's exactly what happens.</p>
-        </div>
-
-        <div class="steps-grid">
-
-          <div class="step-card">
-            <div class="step-number">01</div>
-            <div class="step-icon"><span class="phone-icon">&#128222;</span></div>
-            <h3>Call and Tell Us Your Issue</h3>
-            <p>Call our 24/7 service line and tell us your HVAC issue. Your request will be routed to an independent professional serving your area in <strong>{name}</strong>.</p>
-          </div>
-
-          <div class="step-card">
-            <div class="step-number">02</div>
-            <div class="step-icon">&#128269;</div>
-            <h3>Connect with an HVAC Provider</h3>
-            <p>We connect you with an independent HVAC professional serving your ZIP code in <strong>{name}</strong>. Licensing, insurance, and availability vary by provider.</p>
-          </div>
-
-          <div class="step-card">
-            <div class="step-number">03</div>
-            <div class="step-icon">&#128736;&#65039;</div>
-            <h3>Review Options &amp; Schedule</h3>
-            <p>Your local provider will confirm availability and discuss options. Service options and dispatch times vary by area.</p>
-          </div>
-
-        </div>
-
-        <div style="text-align: center; margin-top: 48px;">
-          <a href="tel:+18445821795" class="btn btn-primary btn-lg btn-vibrate"><span class="phone-icon">&#128222;</span> Call Now &#8212; (844) 582-1795</a>
-        </div>
-      </div>
-    </section>
+{why_pro_section}
 
     <!-- FAQs -->
     <section class="section" id="faqs">
