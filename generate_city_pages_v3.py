@@ -63,7 +63,7 @@ def location_figure_html(kind, slug, label, in_subdir=True):
     else:
         alt_text = f"{label} — local landmark photo"
     alt_text = escape(alt_text)
-    credits_href = "../image-credits.html" if in_subdir else "image-credits.html"
+    credits_href = "../image-credits" if in_subdir else "image-credits.html"
     license_html = (
         f'<a href="{license_url}" target="_blank" rel="nofollow noopener">{license_short}</a>'
         if license_url and license_short else license_short
@@ -294,14 +294,14 @@ CLIMATE_PROFILES = {
 }
 
 CLIMATE_ARTICLE_LINKS = {
-    "hot-humid": ('../article-ac-summer.html', 'preparing your AC for summer'),
-    "hot-dry": ('../article-spring-ac.html', 'preparing your AC before the heat arrives'),
-    "mixed-humid": ('../article-heat-pump.html', 'heat pump guide'),
-    "cold": ('../article-furnace.html', 'what to do when your furnace fails during a cold snap'),
-    "mountain": ('../article-winter-storm.html', 'preparing for winter storms'),
-    "tropical": ('../article-ac-summer.html', 'keeping your AC running through peak summer heat'),
-    "coastal": ('../article-heat-pump.html', 'heat pump guide'),
-    "subarctic": ('../article-furnace.html', 'what to do when your furnace fails during a cold snap'),
+    "hot-humid": ('../article-ac-summer', 'preparing your AC for summer'),
+    "hot-dry": ('../article-spring-ac', 'preparing your AC before the heat arrives'),
+    "mixed-humid": ('../article-heat-pump', 'heat pump guide'),
+    "cold": ('../article-furnace', 'what to do when your furnace fails during a cold snap'),
+    "mountain": ('../article-winter-storm', 'preparing for winter storms'),
+    "tropical": ('../article-ac-summer', 'keeping your AC running through peak summer heat'),
+    "coastal": ('../article-heat-pump', 'heat pump guide'),
+    "subarctic": ('../article-furnace', 'what to do when your furnace fails during a cold snap'),
 }
 
 # ============================================================
@@ -589,12 +589,12 @@ def licensing_paragraph(c, state_info=None):
 
         return (
             f"HVAC Licensing &amp; Permits in {city}, {escape(c['state'])}",
-            f'{state_full} does not require a statewide HVAC contractor license.{alt_sentence} {city} enforces local permit requirements through <strong>{permit}</strong>.{lookup_html} Always verify your contractor carries liability insurance and workers\' compensation coverage. Any major installation or system replacement should have a permit on file&mdash;skipping permits can void manufacturer warranties and create problems when selling your home. See our <a href="../costs.html" style="color: var(--orange-dark); font-weight: 600;">HVAC cost guide</a> for detailed pricing breakdowns. For full statewide regulations, see our <a href="{state_s}.html" style="color: var(--orange-dark); font-weight: 600;">{state_full} HVAC guide</a>.'
+            f'{state_full} does not require a statewide HVAC contractor license.{alt_sentence} {city} enforces local permit requirements through <strong>{permit}</strong>.{lookup_html} Always verify your contractor carries liability insurance and workers\' compensation coverage. Any major installation or system replacement should have a permit on file&mdash;skipping permits can void manufacturer warranties and create problems when selling your home. See our <a href="../costs" style="color: var(--orange-dark); font-weight: 600;">HVAC cost guide</a> for detailed pricing breakdowns. For full statewide regulations, see our <a href="{state_s}" style="color: var(--orange-dark); font-weight: 600;">{state_full} HVAC guide</a>.'
         )
     else:
         return (
             f"HVAC Licensing &amp; Permits in {city}, {escape(c['state'])}",
-            f'Before hiring any HVAC contractor in {state_full}, verify they hold the proper <strong>{license_req}</strong>.{lookup_html} Licensed contractors carry insurance, pull permits correctly, and stand behind their work. For {city} residents, your local permit office is <strong>{permit}</strong>&mdash;any major installation should have a permit on file. See our <a href="../costs.html" style="color: var(--orange-dark); font-weight: 600;">HVAC cost guide</a> for detailed pricing breakdowns. For full statewide licensing details, see our <a href="{state_s}.html" style="color: var(--orange-dark); font-weight: 600;">{state_full} HVAC guide</a>.'
+            f'Before hiring any HVAC contractor in {state_full}, verify they hold the proper <strong>{license_req}</strong>.{lookup_html} Licensed contractors carry insurance, pull permits correctly, and stand behind their work. For {city} residents, your local permit office is <strong>{permit}</strong>&mdash;any major installation should have a permit on file. See our <a href="../costs" style="color: var(--orange-dark); font-weight: 600;">HVAC cost guide</a> for detailed pricing breakdowns. For full statewide licensing details, see our <a href="{state_s}" style="color: var(--orange-dark); font-weight: 600;">{state_full} HVAC guide</a>.'
         )
 
 
@@ -607,7 +607,7 @@ def rebates_paragraph(c):
     rebates = escape(c['rebates'])
     return (
         f"HVAC Rebates &amp; Incentives in {city}, {state_abbr}",
-        f'{city} homeowners served by <strong>{utility}</strong> may qualify for savings through <strong>{rebates}</strong> when installing qualifying high-efficiency equipment. For all {state_full} incentives including state and federal programs, see the <a href="https://www.dsireusa.org/" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">DSIRE database (N.C. State University / U.S. DOE)</a> or the <a href="https://www.energystar.gov/rebate-finder" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">ENERGY STAR Rebate Finder (EPA)</a>. Qualifying HVAC systems may also receive up to $3,200/year via the <a href="https://www.irs.gov/credits-deductions/energy-efficient-home-improvement-credit" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">federal Energy Efficient Home Improvement Credit (IRS Section 25C)</a>. Learn about <a href="../article-hvac-financing.html" style="color: var(--orange-dark); font-weight: 600;">HVAC financing options</a>.'
+        f'{city} homeowners served by <strong>{utility}</strong> may qualify for savings through <strong>{rebates}</strong> when installing qualifying high-efficiency equipment. For all {state_full} incentives including state and federal programs, see the <a href="https://www.dsireusa.org/" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">DSIRE database (N.C. State University / U.S. DOE)</a> or the <a href="https://www.energystar.gov/rebate-finder" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">ENERGY STAR Rebate Finder (EPA)</a>. Qualifying HVAC systems may also receive up to $3,200/year via the <a href="https://www.irs.gov/credits-deductions/energy-efficient-home-improvement-credit" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">federal Energy Efficient Home Improvement Credit (IRS Section 25C)</a>. Learn about <a href="../article-hvac-financing" style="color: var(--orange-dark); font-weight: 600;">HVAC financing options</a>.'
     )
 
 
@@ -891,9 +891,9 @@ def generate_page(c, climate_type, nearby, absorbed_data, all_cities_lookup, sta
     # Nearby cities
     nearby_html = ""
     for nc_name, nc_st, nc_slug in nearby:
-        nearby_html += f'            <li><a href="{nc_slug}.html">{escape(nc_name)}, {escape(nc_st)}</a></li>\n'
-    nearby_html += f'            <li><a href="{s_slug}.html">{e_state} HVAC Guide &#8594;</a></li>\n'
-    nearby_html += f'            <li><a href="../locations.html">View all HVAC service areas &#8594;</a></li>\n'
+        nearby_html += f'            <li><a href="{nc_slug}">{escape(nc_name)}, {escape(nc_st)}</a></li>\n'
+    nearby_html += f'            <li><a href="{s_slug}">{e_state} HVAC Guide &#8594;</a></li>\n'
+    nearby_html += f'            <li><a href="../locations">View all HVAC service areas &#8594;</a></li>\n'
 
     # Schema areaServed
     area_served_schema = f'''"areaServed": {{
@@ -1183,18 +1183,18 @@ def generate_page(c, climate_type, nearby, absorbed_data, all_cities_lookup, sta
   <!-- Header -->
   <header class="header" id="header">
     <nav class="nav container" role="navigation" aria-label="Main navigation">
-      <a href="../index.html" class="logo">
+      <a href="../index" class="logo">
         <span class="logo-icon">&#10052;&#65039;</span>
         <span class="logo-text">CoolCall<span class="logo-accent">Pro</span></span>
       </a>
       <ul class="nav-links" id="navLinks">
-        <li><a href="../emergency.html" class="nav-link emergency-link">&#128680; Emergency Service</a></li>
-        <li><a href="../costs.html" class="nav-link">Cost Guide</a></li>
-        <li><a href="../safety.html" class="nav-link">Safety Tips</a></li>
-        <li><a href="../locations.html" class="nav-link active">&#128205; Locations</a></li>
-        <li><a href="../articles.html" class="nav-link">Articles</a></li>
-        <li><a href="../about.html" class="nav-link">About</a></li>
-        <li><a href="../contact.html" class="nav-link">Contact</a></li>
+        <li><a href="../emergency" class="nav-link emergency-link">&#128680; Emergency Service</a></li>
+        <li><a href="../costs" class="nav-link">Cost Guide</a></li>
+        <li><a href="../safety" class="nav-link">Safety Tips</a></li>
+        <li><a href="../locations" class="nav-link active">&#128205; Locations</a></li>
+        <li><a href="../articles" class="nav-link">Articles</a></li>
+        <li><a href="../about" class="nav-link">About</a></li>
+        <li><a href="../contact" class="nav-link">Contact</a></li>
       </ul>
       <a href="tel:+18445821795" class="btn btn-cta nav-cta btn-vibrate" id="headerNavCta" aria-hidden="true"
         tabindex="-1" style="opacity: 0; pointer-events: none; transition: opacity 0.3s ease;"><span
@@ -1230,9 +1230,9 @@ def generate_page(c, climate_type, nearby, absorbed_data, all_cities_lookup, sta
       <div class="container">
         <nav aria-label="Breadcrumb">
           <ol class="breadcrumb-list">
-            <li><a href="../index.html">Home</a></li>
-            <li><a href="../locations.html">Locations</a></li>
-            <li><a href="{s_slug}.html">{e_state}</a></li>
+            <li><a href="../index">Home</a></li>
+            <li><a href="../locations">Locations</a></li>
+            <li><a href="{s_slug}">{e_state}</a></li>
             <li aria-current="page">{e_city}, {e_st}</li>
           </ol>
         </nav>
@@ -1367,7 +1367,7 @@ def generate_page(c, climate_type, nearby, absorbed_data, all_cities_lookup, sta
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <a href="../index.html" class="logo"><span class="logo-icon">&#10052;&#65039;</span><span
+          <a href="../index" class="logo"><span class="logo-icon">&#10052;&#65039;</span><span
               class="logo-text">CoolCall<span class="logo-accent">Pro</span></span></a>
           <p>Connecting homeowners with independent HVAC professionals across the US. Available 24/7 in many areas.</p>
           <div class="footer-contact">
@@ -1378,32 +1378,32 @@ def generate_page(c, climate_type, nearby, absorbed_data, all_cities_lookup, sta
         <div class="footer-col">
           <h3 class="footer-heading">Resources</h3>
           <ul>
-            <li><a href="../costs.html">Cost Guide</a></li>
-            <li><a href="../emergency.html">Emergency Service</a></li>
-            <li><a href="../safety.html">Safety Tips</a></li>
-            <li><a href="../articles.html">All Articles</a></li>
-            <li><a href="../locations.html">Locations</a></li>
+            <li><a href="../costs">Cost Guide</a></li>
+            <li><a href="../emergency">Emergency Service</a></li>
+            <li><a href="../safety">Safety Tips</a></li>
+            <li><a href="../articles">All Articles</a></li>
+            <li><a href="../locations">Locations</a></li>
           </ul>
         </div>
         <div class="footer-col">
           <h3 class="footer-heading">Company</h3>
           <ul>
-            <li><a href="../about.html">About Us</a></li>
-            <li><a href="../contact.html">Contact</a></li>
-            <li><a href="../author-gyanesh.html">Author</a></li>
-            <li><a href="../privacy.html">Privacy Policy</a></li>
-            <li><a href="../advertising-disclosure.html">Advertising Disclosure</a></li>
+            <li><a href="../about">About Us</a></li>
+            <li><a href="../contact">Contact</a></li>
+            <li><a href="../author-gyanesh">Author</a></li>
+            <li><a href="../privacy">Privacy Policy</a></li>
+            <li><a href="../advertising-disclosure">Advertising Disclosure</a></li>
           </ul>
         </div>
         <div class="footer-col">
           <h3 class="footer-heading">Service Areas</h3>
           <ul class="service-areas">
-            <li><a href="atlanta-ga.html">Atlanta, GA</a></li>
-            <li><a href="chicago-il.html">Chicago, IL</a></li>
-            <li><a href="dallas-tx.html">Dallas, TX</a></li>
-            <li><a href="houston-tx.html">Houston, TX</a></li>
-            <li><a href="phoenix-az.html">Phoenix, AZ</a></li>
-            <li><a href="../locations.html">All 50 states &#8594;</a></li>
+            <li><a href="atlanta-ga">Atlanta, GA</a></li>
+            <li><a href="chicago-il">Chicago, IL</a></li>
+            <li><a href="dallas-tx">Dallas, TX</a></li>
+            <li><a href="houston-tx">Houston, TX</a></li>
+            <li><a href="phoenix-az">Phoenix, AZ</a></li>
+            <li><a href="../locations">All 50 states &#8594;</a></li>
           </ul>
         </div>
       </div>
@@ -1416,10 +1416,10 @@ def generate_page(c, climate_type, nearby, absorbed_data, all_cities_lookup, sta
           provider and situation. We clearly disclose compensation for referrals. We update content for clarity and
           accuracy when needed.</p>
         <p><strong style="color: rgba(255,255,255,0.82);">Disclaimer:</strong> Cool Call Pro is a free service to assist homeowners in connecting with local service providers. All contractors/providers are independent and Cool Call Pro does not warrant or guarantee any work performed. It is the responsibility of the homeowner to verify that the hired contractor furnishes the necessary license and insurance required for the work being performed. All persons depicted in a photo or video are actors or models and not contractors listed on Cool Call Pro.</p>
-        <p>&copy; <span class="copyright-year">2026</span> Cool Call Pro. All rights reserved. &nbsp;&#183;&nbsp; <a href="../privacy.html">Privacy
-            Policy</a> &nbsp;&#183;&nbsp; <a href="../terms.html">Terms of Use</a> &nbsp;&#183;&nbsp; <a
-            href="../disclaimer.html">Disclaimer</a> &nbsp;&#183;&nbsp; <a href="../advertising-disclosure.html">Advertising
-            Disclosure</a> &nbsp;&#183;&nbsp; <a href="../image-credits.html">Image Credits</a></p>
+        <p>&copy; <span class="copyright-year">2026</span> Cool Call Pro. All rights reserved. &nbsp;&#183;&nbsp; <a href="../privacy">Privacy
+            Policy</a> &nbsp;&#183;&nbsp; <a href="../terms">Terms of Use</a> &nbsp;&#183;&nbsp; <a
+            href="../disclaimer">Disclaimer</a> &nbsp;&#183;&nbsp; <a href="../advertising-disclosure">Advertising
+            Disclosure</a> &nbsp;&#183;&nbsp; <a href="../image-credits">Image Credits</a></p>
       </div>
     </div>
   </footer>

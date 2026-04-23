@@ -35,64 +35,64 @@ except (FileNotFoundError, json.JSONDecodeError):
 # ============================================================
 
 _COMMON_ISSUES_SUMMER = [
-    ("../articles/complete-ac-troubleshooting-guide.html",
+    ("../articles/complete-ac-troubleshooting-guide",
      "Complete AC troubleshooting guide",
      "the full diagnostic framework for every AC failure mode"),
-    ("../articles/ac-not-cooling-below-80.html",
+    ("../articles/ac-not-cooling-below-80",
      "AC running but not cooling below 80&deg;?",
      "low refrigerant, weak capacitor, dirty coil, or undersized system"),
-    ("../articles/ac-circuit-breaker-trips.html",
+    ("../articles/ac-circuit-breaker-trips",
      "AC circuit breaker keeps tripping",
      "failing compressor, weak capacitor, or dirty condenser coil"),
-    ("../articles/ac-freezing-up-in-summer.html",
+    ("../articles/ac-freezing-up-in-summer",
      "AC freezing up in summer",
      "airflow restriction or refrigerant problem"),
-    ("../articles/water-dripping-from-vent.html",
+    ("../articles/water-dripping-from-vent",
      "Water dripping from ceiling vent",
      "clogged condensate drain or frozen-coil thaw"),
-    ("../articles/ac-contactor-clicking.html",
+    ("../articles/ac-contactor-clicking",
      "AC contactor clicking but nothing happens",
      "electrical fault in the outdoor unit"),
 ]
 
 _COMMON_ISSUES_WINTER = [
-    ("../article-furnace.html",
+    ("../article-furnace",
      "Furnace not igniting?",
      "ignition failure diagnosis and repair costs"),
-    ("../articles/furnace-blowing-cold-air-winter.html",
+    ("../articles/furnace-blowing-cold-air-winter",
      "Furnace blowing cold air in winter",
      "filter, ignitor, flame sensor, or gas valve fault"),
-    ("../article-carbon-monoxide.html",
+    ("../article-carbon-monoxide",
      "Carbon monoxide: the invisible killer",
      "CO detection, warning signs, and safety steps"),
-    ("../article-winter-storm.html",
+    ("../article-winter-storm",
      "Protect your HVAC during a winter storm",
      "freeze prep, power-outage safeguards, post-storm inspection"),
-    ("../article-heat-pump.html",
+    ("../article-heat-pump",
      "Heat pump not working?",
      "cold-weather performance, defrost cycle, common failures"),
-    ("../article-maintenance.html",
+    ("../article-maintenance",
      "12-month HVAC maintenance checklist",
      "seasonal tune-up timing and pro-only tasks"),
 ]
 
 _COMMON_ISSUES_BOTH = [
-    ("../articles/complete-ac-troubleshooting-guide.html",
+    ("../articles/complete-ac-troubleshooting-guide",
      "Complete AC troubleshooting guide",
      "diagnosis for every AC failure mode"),
-    ("../article-furnace.html",
+    ("../article-furnace",
      "Furnace not igniting?",
      "ignition failure diagnosis and repair costs"),
-    ("../article-heat-pump.html",
+    ("../article-heat-pump",
      "Heat pump not working?",
      "year-round heat-pump performance and repairs"),
-    ("../articles/ac-circuit-breaker-trips.html",
+    ("../articles/ac-circuit-breaker-trips",
      "AC circuit breaker keeps tripping",
      "electrical fault in the outdoor unit"),
-    ("../article-maintenance.html",
+    ("../article-maintenance",
      "12-month HVAC maintenance checklist",
      "seasonal tune-ups for both cooling and heating"),
-    ("../articles/2026-hvac-cost-guide.html",
+    ("../articles/2026-hvac-cost-guide",
      "Honest 2026 HVAC cost guide",
      "diagnostic, repair, and replacement pricing"),
 ]
@@ -416,7 +416,7 @@ def state_figure_html(state_slug, state_name):
         <figure class="location-figure" style="margin: 0 auto 40px; max-width: 1100px;">
           <img src="{src}" alt="{alt_text}" width="{width}" height="{height}" loading="lazy" decoding="async" style="width: 100%; height: auto; border-radius: var(--radius); display: block;" />
           <figcaption style="display: inline-block; margin-top: 12px; padding: 8px 14px; background: var(--gray-50); border: 1px solid var(--gray-100); border-radius: 999px; font-size: 0.78rem; color: var(--gray-600); line-height: 1.5;">
-            <span aria-hidden="true" style="margin-right: 6px;">&#128247;</span>{artist} &middot; {license_html_inner} via <a href="{commons_url}" target="_blank" rel="nofollow noopener" style="color: var(--gray-700); text-decoration: underline;">Wikimedia Commons</a> &middot; <a href="../image-credits.html" style="color: var(--gray-700); text-decoration: underline;">credits</a>
+            <span aria-hidden="true" style="margin-right: 6px;">&#128247;</span>{artist} &middot; {license_html_inner} via <a href="{commons_url}" target="_blank" rel="nofollow noopener" style="color: var(--gray-700); text-decoration: underline;">Wikimedia Commons</a> &middot; <a href="../image-credits" style="color: var(--gray-700); text-decoration: underline;">credits</a>
           </figcaption>
         </figure>
 '''
@@ -540,10 +540,10 @@ def article_link(system_type):
     """Pick relevant article link based on dominant system."""
     s = (system_type or '').lower()
     if 'heat pump' in s:
-        return '../article-heat-pump.html', 'heat pump options'
+        return '../article-heat-pump', 'heat pump options'
     if 'furnace' in s or 'gas' in s:
-        return '../article-furnace.html', 'furnace options'
-    return '../article-heat-pump.html', 'heat pump options'
+        return '../article-furnace', 'furnace options'
+    return '../article-heat-pump', 'heat pump options'
 
 
 def hero_climate_lead(peak, system, zones):
@@ -716,7 +716,7 @@ def license_html(d):
     url = d.get('License Lookup URL', '') or ''
     name = d['State Name']
 
-    safety = (' See our <a href="../safety.html" style="color: var(--orange-dark); '
+    safety = (' See our <a href="../safety" style="color: var(--orange-dark); '
               'font-weight: 600;">safety tips</a> for more on what to verify before hiring.')
 
     req_l = req.lower()
@@ -878,7 +878,7 @@ def cities_grid_html(city_list, abbr):
         name = city['City']
         cf = city_file(name, abbr)
         if city.get('City Page Published') == 'Yes' or name in GENERATED_CITIES:
-            parts.append(f'''          <a href="{cf}.html" class="city-grid-card">
+            parts.append(f'''          <a href="{cf}" class="city-grid-card">
             <span class="card-icon">&#128205;</span> {name}, {abbr}
           </a>''')
         # Skip absorbed/removed cities — no Coming Soon entries
@@ -895,7 +895,7 @@ def neighbor_links_html(neighbors_str, hub_abbrs, all_states):
         s = slug(name)
         abbr = name_to_abbr.get(name)
         cls = 'neighbor-link' if abbr in hub_abbrs else 'neighbor-link coming-soon'
-        parts.append(f'          <a href="{s}.html" class="{cls}">&#127758; {name}</a>')
+        parts.append(f'          <a href="{s}" class="{cls}">&#127758; {name}</a>')
     return '\n'.join(parts)
 
 # ─── HTML Template ──────────────────────────────────────────────────────
@@ -1011,7 +1011,7 @@ def generate_html(d, city_list, hub_abbrs, all_states, out_path=None, refresh_da
     featured_callout = ""
     if abbr in FEATURED_CITIES:
         items = FEATURED_CITIES[abbr]
-        links = ", ".join(f'<a href="{slug}.html" style="color: var(--orange-dark); font-weight: 600;">{city}</a>' for city, slug in items)
+        links = ", ".join(f'<a href="{slug}" style="color: var(--orange-dark); font-weight: 600;">{city}</a>' for city, slug in items)
         featured_callout = f'''
         <div class="callout-box callout-info" style="margin-bottom: 24px;">
           <div>
@@ -1055,7 +1055,7 @@ def generate_html(d, city_list, hub_abbrs, all_states, out_path=None, refresh_da
     cost_para = state_cost_text(name, ac_cost, furnace_cost, state_profile['cost_type'], html=True)
     cost_para += (f" Higher-efficiency units cost more upfront but lower monthly bills, "
                   f"especially given {name}'s electricity rates. See our "
-                  f'<a href="../costs.html" style="color: var(--orange-dark); font-weight: 600;">'
+                  f'<a href="../costs" style="color: var(--orange-dark); font-weight: 600;">'
                   f"full HVAC cost guide</a> for detailed pricing breakdowns.")
     schema_cost_plain = state_cost_text(name, ac_cost, furnace_cost, state_profile['cost_type'], html=False)
     faq_cost_para = state_cost_text(name, ac_cost, furnace_cost, state_profile['cost_type'], html=True)
@@ -1418,18 +1418,18 @@ def generate_html(d, city_list, hub_abbrs, all_states, out_path=None, refresh_da
   <!-- Header -->
   <header class="header" id="header">
     <nav class="nav container" role="navigation" aria-label="Main navigation">
-      <a href="../index.html" class="logo">
+      <a href="../index" class="logo">
         <span class="logo-icon">&#10052;&#65039;</span>
         <span class="logo-text">CoolCall<span class="logo-accent">Pro</span></span>
       </a>
       <ul class="nav-links" id="navLinks">
-        <li><a href="../emergency.html" class="nav-link emergency-link">&#128680; Emergency Service</a></li>
-        <li><a href="../costs.html" class="nav-link">Cost Guide</a></li>
-        <li><a href="../safety.html" class="nav-link">Safety Tips</a></li>
-        <li><a href="../locations.html" class="nav-link active">&#128205; Locations</a></li>
-        <li><a href="../articles.html" class="nav-link">Articles</a></li>
-        <li><a href="../about.html" class="nav-link">About</a></li>
-        <li><a href="../contact.html" class="nav-link">Contact</a></li>
+        <li><a href="../emergency" class="nav-link emergency-link">&#128680; Emergency Service</a></li>
+        <li><a href="../costs" class="nav-link">Cost Guide</a></li>
+        <li><a href="../safety" class="nav-link">Safety Tips</a></li>
+        <li><a href="../locations" class="nav-link active">&#128205; Locations</a></li>
+        <li><a href="../articles" class="nav-link">Articles</a></li>
+        <li><a href="../about" class="nav-link">About</a></li>
+        <li><a href="../contact" class="nav-link">Contact</a></li>
       </ul>
       <a href="tel:+18445821795" class="btn btn-cta nav-cta btn-vibrate" id="headerNavCta" aria-hidden="true"
         tabindex="-1" style="opacity: 0; pointer-events: none; transition: opacity 0.3s ease;"><span
@@ -1473,8 +1473,8 @@ def generate_html(d, city_list, hub_abbrs, all_states, out_path=None, refresh_da
       <div class="container">
         <nav aria-label="Breadcrumb">
           <ol class="breadcrumb-list">
-            <li><a href="../index.html">Home</a></li>
-            <li><a href="../locations.html">Locations</a></li>
+            <li><a href="../index">Home</a></li>
+            <li><a href="../locations">Locations</a></li>
             <li aria-current="page">{name}</li>
           </ol>
         </nav>
@@ -1535,7 +1535,7 @@ def generate_html(d, city_list, hub_abbrs, all_states, out_path=None, refresh_da
       <div class="container">
         <div class="city-services" style="margin-bottom: 40px;">
           <h2>SEER2 Efficiency Requirements in {name}</h2>
-          <p style="font-size: 1.05rem; line-height: 1.85; color: var(--gray-700);">{name} falls within the <strong>{seer_region} SEER2 region</strong>. As of January 2023, all new central air conditioning systems installed in {name} must meet a minimum <strong>SEER2 rating of {seer_min}</strong>. When replacing your AC or heat pump, ensure your contractor installs a unit that meets or exceeds this minimum &#8212; upgrading to a higher-efficiency system can significantly reduce your energy bills. See our <a href="../article-ac-summer.html" style="color: var(--orange-dark); font-weight: 600;">summer AC guide</a> for more on efficiency ratings.</p>
+          <p style="font-size: 1.05rem; line-height: 1.85; color: var(--gray-700);">{name} falls within the <strong>{seer_region} SEER2 region</strong>. As of January 2023, all new central air conditioning systems installed in {name} must meet a minimum <strong>SEER2 rating of {seer_min}</strong>. When replacing your AC or heat pump, ensure your contractor installs a unit that meets or exceeds this minimum &#8212; upgrading to a higher-efficiency system can significantly reduce your energy bills. See our <a href="../article-ac-summer" style="color: var(--orange-dark); font-weight: 600;">summer AC guide</a> for more on efficiency ratings.</p>
         </div>
       </div>
     </section>
@@ -1572,7 +1572,7 @@ def generate_html(d, city_list, hub_abbrs, all_states, out_path=None, refresh_da
           <ul>
 {rebate_items}
           </ul>
-          <p style="font-size: 1.05rem; line-height: 1.85; color: var(--gray-700); margin-top: 16px;">Contact your utility provider or HVAC contractor to confirm current eligibility and amounts. Learn about <a href="../article-hvac-financing.html" style="color: var(--orange-dark); font-weight: 600;">HVAC financing options</a>.</p>
+          <p style="font-size: 1.05rem; line-height: 1.85; color: var(--gray-700); margin-top: 16px;">Contact your utility provider or HVAC contractor to confirm current eligibility and amounts. Learn about <a href="../article-hvac-financing" style="color: var(--orange-dark); font-weight: 600;">HVAC financing options</a>.</p>
         </div>
       </div>
     </section>
@@ -1695,7 +1695,7 @@ def generate_html(d, city_list, hub_abbrs, all_states, out_path=None, refresh_da
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <a href="../index.html" class="logo"><span class="logo-icon">&#10052;&#65039;</span><span
+          <a href="../index" class="logo"><span class="logo-icon">&#10052;&#65039;</span><span
               class="logo-text">CoolCall<span class="logo-accent">Pro</span></span></a>
           <p>Connecting homeowners with independent HVAC professionals across the US. Available 24/7 in many areas.</p>
           <div class="footer-contact">
@@ -1706,32 +1706,32 @@ def generate_html(d, city_list, hub_abbrs, all_states, out_path=None, refresh_da
         <div class="footer-col">
           <h3 class="footer-heading">Resources</h3>
           <ul>
-            <li><a href="../costs.html">Cost Guide</a></li>
-            <li><a href="../emergency.html">Emergency Service</a></li>
-            <li><a href="../safety.html">Safety Tips</a></li>
-            <li><a href="../articles.html">All Articles</a></li>
-            <li><a href="../locations.html">Locations</a></li>
+            <li><a href="../costs">Cost Guide</a></li>
+            <li><a href="../emergency">Emergency Service</a></li>
+            <li><a href="../safety">Safety Tips</a></li>
+            <li><a href="../articles">All Articles</a></li>
+            <li><a href="../locations">Locations</a></li>
           </ul>
         </div>
         <div class="footer-col">
           <h3 class="footer-heading">Company</h3>
           <ul>
-            <li><a href="../about.html">About Us</a></li>
-            <li><a href="../contact.html">Contact</a></li>
-            <li><a href="../author-gyanesh.html">Author</a></li>
-            <li><a href="../privacy.html">Privacy Policy</a></li>
-            <li><a href="../advertising-disclosure.html">Advertising Disclosure</a></li>
+            <li><a href="../about">About Us</a></li>
+            <li><a href="../contact">Contact</a></li>
+            <li><a href="../author-gyanesh">Author</a></li>
+            <li><a href="../privacy">Privacy Policy</a></li>
+            <li><a href="../advertising-disclosure">Advertising Disclosure</a></li>
           </ul>
         </div>
         <div class="footer-col">
           <h3 class="footer-heading">Service Areas</h3>
           <ul class="service-areas">
-            <li><a href="atlanta-ga.html">Atlanta, GA</a></li>
-            <li><a href="chicago-il.html">Chicago, IL</a></li>
-            <li><a href="dallas-tx.html">Dallas, TX</a></li>
-            <li><a href="houston-tx.html">Houston, TX</a></li>
-            <li><a href="phoenix-az.html">Phoenix, AZ</a></li>
-            <li><a href="../locations.html">All 50 states &#8594;</a></li>
+            <li><a href="atlanta-ga">Atlanta, GA</a></li>
+            <li><a href="chicago-il">Chicago, IL</a></li>
+            <li><a href="dallas-tx">Dallas, TX</a></li>
+            <li><a href="houston-tx">Houston, TX</a></li>
+            <li><a href="phoenix-az">Phoenix, AZ</a></li>
+            <li><a href="../locations">All 50 states &#8594;</a></li>
           </ul>
         </div>
       </div>
@@ -1744,10 +1744,10 @@ def generate_html(d, city_list, hub_abbrs, all_states, out_path=None, refresh_da
           provider and situation. We clearly disclose compensation for referrals. We update content for clarity and
           accuracy when needed.</p>
         <p><strong style="color: rgba(255,255,255,0.82);">Disclaimer:</strong> Cool Call Pro is a free service to assist homeowners in connecting with local service providers. All contractors/providers are independent and Cool Call Pro does not warrant or guarantee any work performed. It is the responsibility of the homeowner to verify that the hired contractor furnishes the necessary license and insurance required for the work being performed. All persons depicted in a photo or video are actors or models and not contractors listed on Cool Call Pro.</p>
-        <p>&copy; <span class="copyright-year">2026</span> Cool Call Pro. All rights reserved. &nbsp;&#183;&nbsp; <a href="../privacy.html">Privacy
-            Policy</a> &nbsp;&#183;&nbsp; <a href="../terms.html">Terms of Use</a> &nbsp;&#183;&nbsp; <a
-            href="../disclaimer.html">Disclaimer</a> &nbsp;&#183;&nbsp; <a href="../advertising-disclosure.html">Advertising
-            Disclosure</a> &nbsp;&#183;&nbsp; <a href="../image-credits.html">Image Credits</a></p>
+        <p>&copy; <span class="copyright-year">2026</span> Cool Call Pro. All rights reserved. &nbsp;&#183;&nbsp; <a href="../privacy">Privacy
+            Policy</a> &nbsp;&#183;&nbsp; <a href="../terms">Terms of Use</a> &nbsp;&#183;&nbsp; <a
+            href="../disclaimer">Disclaimer</a> &nbsp;&#183;&nbsp; <a href="../advertising-disclosure">Advertising
+            Disclosure</a> &nbsp;&#183;&nbsp; <a href="../image-credits">Image Credits</a></p>
       </div>
     </div>
   </footer>
