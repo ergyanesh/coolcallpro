@@ -101,8 +101,34 @@ def audit_page_universal(html: str, path: str) -> int:
     else:
         if not canonical:
             fails += 1 if not check("Canonical URL present", False) else 0
-        elif not check(f"Canonical has no .html: {canonical.group(1)}", ".html" not in canonical.group(1)):
-            fails += 1
+        else:
+            canonical_url = canonical.group(1)
+            if not check(f"Canonical has no .html: {canonical_url}", ".html" not in canonical_url):
+                fails += 1
+            if not check(
+                f"Canonical points to https://coolcallpro.com (actual host: {canonical_url})",
+                canonical_url.startswith("https://coolcallpro.com"),
+                "Canonical must use the site's primary host + scheme, not http:// or a different domain",
+            ):
+                fails += 1
+
+    # DUPLICATE-URL PROTECTION (since 2026-04-23):
+    # Every internal hyperlink must use clean URLs -- no .html suffix. This
+    # prevents the GSC duplicate-indexing bug where Google saw both /about and
+    # /about.html as separate pages and split ranking signal. The existing
+    # _redirects file already 301s .html -> clean URL; this audit ensures no
+    # new pages re-introduce .html references that would tell Google the
+    # .html versions are still canonical.
+    internal_html_hrefs = re.findall(
+        r'href="(?!https?://|mailto:|tel:|javascript:|#)[^"]+\.html(?:#[^"]*)?"',
+        html,
+    )
+    if not check(
+        f"Zero internal .html hrefs (found: {len(internal_html_hrefs)})",
+        len(internal_html_hrefs) == 0,
+        f"Use clean URLs in every internal href (e.g. href=\"../about\" not href=\"../about.html\"). First offender: {internal_html_hrefs[0] if internal_html_hrefs else 'n/a'}",
+    ):
+        fails += 1
 
         # Open Graph (6 required tags)
         og_tags = ["type", "title", "description", "url", "site_name", "image"]
@@ -272,6 +298,30 @@ def audit_perf_patterns(html: str, path: str) -> int:
     return fails
 
 
+def audit_sitemap_no_html() -> int:
+    """Site-wide check: sitemap.xml must list only clean URLs, never .html.
+
+    Added 2026-04-23 after GSC showed 17 duplicate-pair listings where Google
+    indexed both /X and /X.html because earlier versions of the sitemap and
+    the internal link graph surfaced the .html versions. Sitemap already
+    listed only clean URLs as of that date; this check locks that in so
+    future regenerations can't silently regress."""
+    print("\nSITEMAP DUPLICATE-URL CHECK (site-wide)")
+    sitemap_path = Path("sitemap.xml")
+    if not sitemap_path.exists():
+        print("  [SKIP] sitemap.xml not found -- run from project root.")
+        return 0
+    text = sitemap_path.read_text(encoding="utf-8")
+    bad = re.findall(r"<loc>[^<]*\.html</loc>", text)
+    if not check(
+        f"sitemap.xml has zero .html URLs (found: {len(bad)})",
+        len(bad) == 0,
+        f"Sitemap must list only clean URLs. First offender: {bad[0] if bad else 'n/a'}",
+    ):
+        return 1
+    return 0
+
+
 def audit_css_regression_site() -> int:
     """Checks the site-wide CSS rule that affects every article page."""
     print("\nCSS REGRESSION (site-wide)")
@@ -314,6 +364,7 @@ def main():
     html = read(path)
     fails = audit_page_universal(html, path)
     fails += audit_perf_patterns(html, path)
+    fails += audit_sitemap_no_html()
     fails += check_diy_hazards(html, source_label=path)
 
     print()

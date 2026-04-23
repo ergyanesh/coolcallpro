@@ -219,6 +219,48 @@ Three page-class patterns keep mobile Lighthouse Performance scores at 90+. `aud
 
 **Helper:** `scripts/inline_critical_css.py` is an idempotent one-off that re-applies the `.page-hero` critical CSS to any root page missing it. Safe to re-run if someone strips a `<style>` block.
 
+## Duplicate-URL Protection (enforced since 23 April 2026)
+
+Cloudflare Pages serves every `.html` file on disk under BOTH URLs:
+`/about.html` and `/about` both return 200 OK. Google treats these as two
+separate pages. Historically that caused the site's ranking signal to split
+across the pair (GSC showed 17 duplicate listings as of 23 April 2026 — e.g.,
+`/locations/minneapolis-mn.html` with 2,416 impressions AND
+`/locations/minneapolis-mn` with 597 impressions for the same content).
+
+**The fix has two halves, both enforced by `audit_page.py`:**
+
+1. **Internal hrefs must use clean URLs (no `.html` suffix).** Every
+   `<a href="...X.html">` on the site was a signal to Google that the
+   `.html` URL is authoritative. 7,514 such links were cleaned up on
+   2026-04-23. The audit now fails any page with ≥1 internal `.html`
+   href so regression is caught at commit time.
+
+2. **`sitemap.xml` must contain zero `.html` URLs.** The audit reads
+   sitemap.xml on every page-audit run and fails if any `<loc>` entry
+   ends in `.html`.
+
+3. **`<link rel="canonical">` must start with `https://coolcallpro.com`**
+   and must not contain `.html`. Both are checked by `audit_page.py`.
+
+**When writing a new page by hand:** use `<a href="../about">` not
+`<a href="../about.html">`. The 301 redirect in `_redirects` makes both
+work for users, but only the clean URL is safe for SEO.
+
+**When editing a Python generator:** string literals that become hrefs
+(e.g., `'../article-heat-pump.html'` in a data tuple) must also use the
+clean form. `scripts/strip_html_from_internal_links.py` is the idempotent
+one-off fix that rewrites any `href=` or internal URL string literal
+from `.html` to clean form. Safe to re-run.
+
+**Note on existing GSC duplicate listings:** as of 2026-04-23, 17 duplicate
+pairs remain in Google's index. The `_redirects` file 301s every `.html`
+URL to its clean twin, and internal link signals now uniformly point at
+clean URLs, so Google should consolidate over the next 2-4 crawl cycles.
+For high-priority pages (e.g. Minneapolis which has the largest split),
+you can accelerate consolidation by using GSC's URL Inspection "Request
+Indexing" on the clean URL — but don't do it for all 17 at once (quota).
+
 ## Deploy Workflow (Git-Integrated, since 14 April 2026)
 
 1. Make all changes in the working directory (root)
