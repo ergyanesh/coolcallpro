@@ -74,6 +74,30 @@ CoolCallPro.com is a static HTML HVAC services referral site deployed on Cloudfl
 
 ## Critical Rules — READ BEFORE ANY CHANGE
 
+### Premium-Design-By-Default Rule (since 23 April 2026 — NON-NEGOTIABLE)
+
+CoolCallPro is a **card-driven premium site**. Every primary section on the homepage, emergency page, and location pages is rendered as a card grid — the 1-2-3 How It Works cards, the GAS LEAK / NO HEAT / NO AC emergency cards, the city service tiers, the FAQ accordions. **Any new mid-page section you add with 2+ parallel items MUST adopt this card vocabulary. Bare `<h2>` + `<p>` followed by repeated `<h3>` + `<p>` stacks are permanently out of spec as the final form of any section** — regardless of whether content-only audits pass.
+
+**Why this is a hard rule:** on 2026-04-23 I shipped a new `/emergency` section as three H3+P stacks wedged between two card grids. The user flagged it as "not clean, not premium" — it read as an SEO content dump that broke the visual rhythm of the page. The user should never need to ask for premium design. Matching the site's existing language is the baseline, not an extra.
+
+**Design-system anchors — reach for these first:**
+
+| Shape | Reusable class | Canonical example |
+|---|---|---|
+| 2-4 parallel service/feature tiers (with icon, title, description) | `.wh-steps > .wh-step` (put emoji in `.wh-step-num`) | [emergency.html "24/7, Same-Day, After-Hours" section](emergency.html) |
+| 3-6 hazard/warning/status cards | `.precaution-card` (+ `.precaution-danger` / `.precaution-warning`) | [emergency.html GAS LEAK / NO HEAT / NO AC grid](emergency.html) |
+| Numbered step sequence (1, 2, 3...) | `.wh-steps > .wh-step` with digit in `.wh-step-num` | [emergency.html How It Works section](emergency.html) |
+| FAQ questions + answers | `.faq-item > .faq-q / .faq-a` (already enforced by audit_article.py) | any [articles/*.html](articles/) |
+| Intro paragraph above a card grid | `text-align:center; max-width: 760px; margin: 0 auto 40px; color: var(--gray-700); line-height: 1.7;` | [emergency.html:329](emergency.html#L329) |
+
+**Enforcement pattern:** Before committing any new section, look at the section immediately above and below it on the page. If either is a card grid and your new section is H3+P stacks, you have regressed design quality — convert it to cards using one of the reusable classes above. If the content genuinely has no parallel structure (e.g., a single prose paragraph of intro text), an H2 + P is fine, but anything with 2+ sub-items must become cards.
+
+**Do NOT:**
+- Improvise new "card-looking" styling via inline `style=` attributes — reuse the existing class.
+- Skip this rule for SEO-driven sections ("but the queries need the keyword-rich H3s!") — the H3s can live inside the `.wh-step` card headers just as well.
+- Ship a H3+P section and defer prettification to a later pass. The later pass is now.
+- Claim a section is done without confirming visual harmony with adjacent sections. If there's a clear "text-dump island" between two card grids — the fix isn't done.
+
 ### CSS Rules
 - **Color convention for anchors — do not mix these up:**
   - **CTA buttons** (`.btn .btn-primary`): orange background (`--orange #d84315`), white text, filled pill/rounded button. Applied to every "Call Now" CTA.
