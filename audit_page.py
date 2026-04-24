@@ -28,6 +28,8 @@ import re
 import sys
 from pathlib import Path
 
+from bs4 import BeautifulSoup
+
 from safety_rules import check_diy_hazards
 
 
@@ -298,6 +300,144 @@ def audit_perf_patterns(html: str, path: str) -> int:
     return fails
 
 
+def audit_h3_islands(html: str, path: str) -> int:
+    """Premium-design discipline: block H3+P-island anti-pattern.
+
+    CoolCallPro is a card-driven premium site. Every primary mid-page
+    section on the homepage, emergency page, and location pages uses
+    a card grid -- the .wh-steps > .wh-step cards, the .precaution-card
+    emergency cards, the .faq-item accordions.
+
+    The anti-pattern this check blocks: any content container (<div>,
+    <section>, <article>, <main>) that has >=2 direct-child <h3>
+    elements without each H3 being wrapped in its own card container.
+    That shape is an H3+P text-dump island and must instead be a card
+    grid.
+
+    Canonical fix: wrap each H3+P pair in a .wh-step (or .precaution-card
+    / .faq-item / equivalent) inside a .wh-steps grid parent. See
+    emergency.html 24/7 and System-Type sections for the pattern.
+
+    Added 2026-04-23 after shipping two H3+P islands on /emergency in
+    a single day. A written CLAUDE.md rule is not enforcement -- this
+    check is. The pre-commit hook will now block any commit that
+    introduces the anti-pattern.
+
+    Exemptions:
+      - <footer>, <nav>, <header>, <aside> (site chrome)
+      - Elements with class containing one of: wh-steps, precaution-cards,
+        faq-section, footer-row, card-grid, services-grid (these are the
+        canonical card-grid PARENTS -- they legitimately hold multiple
+        card children, and if each card has its own H3 those are nested
+        one level deeper, not direct children of the grid parent).
+    """
+    print(f"\nPREMIUM-DESIGN DISCIPLINE (H3+P-island detection) — {path}")
+
+    soup = BeautifulSoup(html, "html.parser")
+
+    # Strip out site chrome + non-visible tags before analysis
+    for tag in soup.find_all(["footer", "nav", "header", "aside", "script", "style", "template"]):
+        tag.decompose()
+
+    # Classes whose DIRECT children are legitimate multi-card structures.
+    # If any of these classes is on a container, we DON'T flag it for having
+    # multiple H3 descendants -- because the H3s are inside individual cards,
+    # not loose siblings.
+    CARD_WRAPPER_CLASSES = {
+        "wh-steps",            # .wh-step card grid parent
+        "precaution-cards",    # .precaution-card grid parent
+        "faq-section",         # .faq-item accordion parent
+        "faq-list",
+        "footer-row",          # .footer-col grid parent
+        "card-grid",
+        "services-grid",
+        "emergency-split-grid",
+    }
+
+    # Long-form content containers: article bodies and city-page service sections.
+    # These legitimately have many H3 subsection headings (they're sequential
+    # article/reference sections, not parallel "should-be-cards" items). They have
+    # their own editorial standards governed by hvac-article-writer skill and
+    # city-page-programmatic-seo skill respectively. H3+P patterns are ALLOWED here.
+    LONG_FORM_EXEMPT_CLASSES = {
+        "article-content",     # <article class="article-content"> -- article body
+        "city-services",       # <div class="city-services"> -- location-page long-form
+    }
+
+    # Content containers we check: <div>, <section>, <article>, <main>
+    # Inline containers (<span>, <p>, etc.) don't legitimately hold multiple H3s.
+    CONTENT_CONTAINER_TAGS = {"div", "section", "article", "main"}
+
+    violations = []
+
+    for elem in soup.find_all(CONTENT_CONTAINER_TAGS):
+        # Get direct-child H3s (not nested deeper)
+        direct_h3s = [c for c in elem.children if getattr(c, "name", None) == "h3"]
+        if len(direct_h3s) < 2:
+            continue
+
+        # If this container is itself a known card-grid parent, skip
+        # (its direct children SHOULD be multiple cards, each containing its own H3)
+        elem_classes = set(elem.get("class", []))
+        if elem_classes & CARD_WRAPPER_CLASSES:
+            continue
+
+        # If this container is a long-form exempt class (article body, city
+        # services), skip -- those have their own editorial standards and
+        # legitimately use H3+P for sequential subsections.
+        if elem_classes & LONG_FORM_EXEMPT_CLASSES:
+            continue
+
+        # Also skip if ANY ancestor is a long-form exempt container. This
+        # catches inner <div> wrappers inside <article class="article-content">
+        # that group H3+P blocks but aren't themselves card grids.
+        if any(
+            set(ancestor.get("class", []) or []) & LONG_FORM_EXEMPT_CLASSES
+            for ancestor in elem.parents
+            if getattr(ancestor, "name", None) is not None
+        ):
+            continue
+
+        # Flag: >=2 loose H3 siblings in a non-card-grid container.
+        h3_titles = [h.get_text(strip=True)[:48] for h in direct_h3s]
+        violations.append(
+            {
+                "tag": elem.name,
+                "classes": " ".join(elem.get("class", [])) or "(no class)",
+                "h3_count": len(direct_h3s),
+                "titles": h3_titles,
+            }
+        )
+
+    if not violations:
+        if not check(
+            "No H3+P-island anti-patterns detected",
+            True,
+            "Every mid-page section with 2+ parallel items uses the card vocabulary",
+        ):
+            pass  # already handled by check()
+        return 0
+
+    # Build failure message
+    lines = []
+    for v in violations:
+        lines.append(
+            f"<{v['tag']} class=\"{v['classes']}\"> has {v['h3_count']} direct <h3> children: {v['titles']}"
+        )
+    detail = (
+        "Wrap each H3+P pair in its own card (.wh-step / .precaution-card / "
+        ".faq-item) inside a .wh-steps (or equivalent) grid parent. See CLAUDE.md "
+        "'Premium-Design-By-Default Rule' and emergency.html for the canonical "
+        "pattern. Violations:\n    " + "\n    ".join(lines)
+    )
+    check(
+        f"No H3+P-island anti-patterns detected (found: {len(violations)})",
+        False,
+        detail,
+    )
+    return len(violations)
+
+
 def audit_sitemap_no_html() -> int:
     """Site-wide check: sitemap.xml must list only clean URLs, never .html.
 
@@ -364,6 +504,7 @@ def main():
     html = read(path)
     fails = audit_page_universal(html, path)
     fails += audit_perf_patterns(html, path)
+    fails += audit_h3_islands(html, path)
     fails += audit_sitemap_no_html()
     fails += check_diy_hazards(html, source_label=path)
 
