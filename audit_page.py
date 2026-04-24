@@ -438,6 +438,103 @@ def audit_h3_islands(html: str, path: str) -> int:
     return len(violations)
 
 
+def audit_emoji_on_orange_circle(html: str, path: str) -> int:
+    """Premium-design discipline: block emoji characters inside .wh-step-num.
+
+    .wh-step-num is the orange gradient circle that holds the icon at the top
+    of every .wh-step card. CSS gives it `color: #fff`, which works for text
+    characters and digits (numbered steps like 1/2/3) but NOT for emoji --
+    emoji fonts are color fonts and ignore CSS `color`. Emoji characters with
+    any orange/red/brown tone (fire, red flag, clock, clipboard, hot springs,
+    etc.) render nearly invisible against the orange-on-orange background.
+
+    Rule: the contents of every .wh-step-num must be ONE of:
+      - purely digits + whitespace (numbered step card: "1", "2", "3")
+      - an inline <svg> element with stroke="currentColor" (icon card)
+
+    Anything else -- especially emoji pictographs -- is blocked. Inline SVGs
+    inherit `color: #fff` via `stroke="currentColor"`, so they render reliably
+    as white line icons on any background.
+
+    Added 2026-04-23 after user screenshotted the /locations cards and flagged
+    that a clipboard emoji and red-flag emoji were invisible against the
+    orange circle background. Pattern was then found on /emergency too.
+    Written rule alone cannot prevent this; this audit blocks regression.
+    """
+    print(f"\nICON-CONTRAST DISCIPLINE (no emoji inside orange .wh-step-num) — {path}")
+
+    soup = BeautifulSoup(html, "html.parser")
+
+    # Emoji character ranges. A .wh-step-num containing any of these is flagged.
+    # These cover the common pictograph blocks:
+    #   U+1F300-1F6FF  Misc Symbols & Pictographs, Transport, Emoticons
+    #   U+1F900-1F9FF  Supplemental Symbols & Pictographs
+    #   U+1FA70-1FAFF  Symbols & Pictographs Extended-A
+    #   U+2600-27BF    Dingbats, Misc Symbols (covers snowflake, checkmark variants)
+    # VS-16 (U+FE0F) flagged when adjacent to a base character in these ranges,
+    # since it's specifically the "emoji-style" variation selector.
+    EMOJI_RANGES = [
+        (0x1F300, 0x1F6FF),
+        (0x1F900, 0x1F9FF),
+        (0x1FA70, 0x1FAFF),
+        (0x2600,  0x27BF),
+    ]
+
+    def is_emoji(char: str) -> bool:
+        cp = ord(char)
+        return any(lo <= cp <= hi for lo, hi in EMOJI_RANGES)
+
+    violations = []
+    for num_elem in soup.select(".wh-step-num"):
+        # SVG present? fine (inherits currentColor -> white)
+        if num_elem.find("svg") is not None:
+            continue
+
+        text = num_elem.get_text()
+        offending_chars = [c for c in text if is_emoji(c)]
+        if not offending_chars:
+            continue
+
+        violations.append(
+            {
+                "text": text.strip()[:32],
+                "emoji_chars": offending_chars,
+                "codepoints": [f"U+{ord(c):04X}" for c in offending_chars],
+            }
+        )
+
+    if not violations:
+        check(
+            "No emoji characters inside orange .wh-step-num circles",
+            True,
+            "Icons in orange circles must be inline <svg stroke=\"currentColor\"> so they render white",
+        )
+        return 0
+
+    lines = []
+    for v in violations:
+        lines.append(
+            f".wh-step-num contains emoji {v['codepoints']} (text: {v['text']!r}) -- invisible on orange background"
+        )
+    detail = (
+        "Replace the emoji character with an inline <svg> element using "
+        "stroke=\"currentColor\" so it inherits the white color. Example from "
+        "emergency.html:\n    "
+        '<div class="wh-step-num" aria-hidden="true">\n      '
+        '<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" '
+        'fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" '
+        'stroke-linejoin="round"><circle cx="12" cy="12" r="10"/>'
+        '<polyline points="12 6 12 12 16 14"/></svg>\n    </div>\n'
+        "Violations:\n    " + "\n    ".join(lines)
+    )
+    check(
+        f"No emoji characters inside orange .wh-step-num circles (found: {len(violations)})",
+        False,
+        detail,
+    )
+    return len(violations)
+
+
 def audit_sitemap_no_html() -> int:
     """Site-wide check: sitemap.xml must list only clean URLs, never .html.
 
@@ -505,6 +602,7 @@ def main():
     fails = audit_page_universal(html, path)
     fails += audit_perf_patterns(html, path)
     fails += audit_h3_islands(html, path)
+    fails += audit_emoji_on_orange_circle(html, path)
     fails += audit_sitemap_no_html()
     fails += check_diy_hazards(html, source_label=path)
 
