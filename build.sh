@@ -30,7 +30,7 @@ cp -f article-*.html "$OUT/"
 
 # Static assets and config
 cp -f favicon.ico favicon.svg "$OUT/"
-cp -f _redirects sitemap.xml sitemap-images.xml robots.txt "$OUT/"
+cp -f _redirects _headers sitemap.xml sitemap-images.xml robots.txt "$OUT/"
 
 # Summary
 echo ""

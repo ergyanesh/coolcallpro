@@ -38,6 +38,9 @@ package-lock.json
 # Logs
 *.log
 
+# Auto-generated audit report (regenerates on every `python audit_site.py` run)
+SITE_AUDIT.md
+
 # OS junk
 .DS_Store
 Thumbs.db
@@ -52,6 +55,25 @@ desktop.ini
 # Excel lock files (created when xlsx is open)
 ~$*.xlsx
 ~$*.xls
+
+# Secrets / credentials — defense-in-depth.
+# None exist today and the audit on 24 Apr 2026 confirmed git history is clean.
+# These patterns prevent a future accidental commit if a tool ever auto-creates
+# one (.env from npm packages, .pem from openssl, etc.).
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+credentials.json
+secrets.json
+secrets.yaml
+secrets.toml
+*.crt
+.cloudflare-token
 
 # Local-only image fetch artifacts (logs and audit preview)
 images/_fetch_log.txt

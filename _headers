@@ -1,0 +1,25 @@
+# Cloudflare Pages security headers
+# Reference: https://developers.cloudflare.com/pages/configuration/headers/
+# Applies to every served file. Tested against the actual external origins
+# the site loads (Google Analytics gtag.js + Cloudflare Insights).
+
+/*
+  # Force HTTPS for one year on every subsequent visit. includeSubDomains is
+  # safe because every subdomain we serve (www, _dmarc, etc.) is HTTPS-only.
+  # `preload` is intentionally omitted — submit to hstspreload.org separately
+  # if/when you want it, since preload is hard to undo.
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+
+  # Prevent any other site from iframing coolcallpro.com (clickjacking defense)
+  X-Frame-Options: SAMEORIGIN
+
+  # Lock down powerful browser APIs the site never uses. interest-cohort=()
+  # opts out of Google's FLoC/Topics behavioral tracking.
+  Permissions-Policy: accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=(), interest-cohort=()
+
+  # Content-Security-Policy in REPORT-ONLY mode.
+  # Does NOT block anything — only logs violations to the browser console.
+  # Once we have ~1-2 weeks of clean console output across pages, switch the
+  # header name from `Content-Security-Policy-Report-Only` to `Content-Security-Policy`
+  # to start enforcing.
+  Content-Security-Policy-Report-Only: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://www.google-analytics.com https://www.googletagmanager.com; font-src 'self' data:; connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://*.analytics.google.com https://cloudflareinsights.com https://static.cloudflareinsights.com; frame-ancestors 'self'; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests
