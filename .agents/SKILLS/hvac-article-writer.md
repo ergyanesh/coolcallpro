@@ -261,14 +261,32 @@ The loader fires on first user interaction (`click`, `scroll`, `touchstart`, `ke
 
 **Do NOT** replace with anything that fires GA on `window.load`, `DOMContentLoaded`, or inline. `audit_page.py` fails loudly on any variant.
 
-### Canonical Font Loading (MUST be self-hosted — NO Google Fonts CDN)
+### Canonical Font Loading (REVISED 24 April 2026 — page-class-aware pattern)
 
-Fonts are self-hosted under `/fonts/` (Inter + Outfit variable font files). The `@font-face` rules live in `css/style.css`. Every HTML `<head>` needs only these 2 preload tags:
+Fonts are self-hosted under `/fonts/` (Inter + Outfit). The `@font-face` rules live in two places now: latin subsets are duplicated INLINE in non-article `<style>` blocks (so the woff2 preloads can match immediately), and full rules including latin-ext + unicode-range live in `css/style.css`. **Articles do NOT use preloads at all** — their LCP target is the hero WebP image, and preloading fonts steals bandwidth from the LCP.
 
-```html
-<link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/fonts/outfit-latin.woff2" as="font" type="font/woff2" crossorigin>
+**By page class:**
+
+| Page class | Font preload tags? | @font-face inline in `<style>`? |
+|---|---|---|
+| Articles (`articles/*.html`, root `article-*.html`) | ❌ **NO preloads** — LCP is the hero image, not text | N/A (articles don't use inline `<style>`) |
+| Root pages (about, contact, costs, emergency, etc. with `class="page-hero"`) | ✅ Yes | ✅ Yes |
+| Location pages (state hubs + city pages) | ✅ Yes | ✅ Yes |
+| 404, image-credits, etc. (with inline `<style>`) | ✅ Yes | ✅ Yes |
+
+**For articles** (when writing a new one): omit the `<link rel="preload" ... .woff2 ...>` tags entirely. Body text renders in the system fallback first, then swaps to Inter when `style.min.css`'s `@font-face` registers (font-display: swap). This is fine because the article LCP is the hero WebP image.
+
+**For non-articles** (location pages, root pages, etc.): the inline `<style>` block in `<head>` MUST start with these two `@font-face` declarations BEFORE any other rules:
+
+```css
+@font-face{font-family:'Inter';font-style:normal;font-weight:400 900;font-display:swap;src:url('/fonts/inter-latin.woff2') format('woff2')}@font-face{font-family:'Outfit';font-style:normal;font-weight:400 800;font-display:swap;src:url('/fonts/outfit-latin.woff2') format('woff2')}
 ```
+
+After `@charset "UTF-8";` if present. Then the original critical-CSS rules (`.city-hero`, `.page-hero`, etc.) follow. The `generate_state_hubs.py` and `generate_city_pages_v3.py` templates already emit this — do not remove.
+
+**Why this pattern exists:** prior to 24 April 2026, every page had font preloads but the matching `@font-face` lived only in `css/style.min.css`. By the time the browser parsed `style.min.css` and matched the preload, Chrome's "preloaded font not used within a few seconds" heuristic had already fired — every page emitted 4 yellow console warnings. Inlining `@font-face` on non-articles fixes the timing. Removing preloads from articles fixes the bandwidth-stealing-from-LCP problem at the same time. Lighthouse Performance and Best Practices both improved as a side effect. See `scripts/inline_fontface.py` for the idempotent migration script.
+
+**Enforcement:** `audit_page.py` (for non-articles + root `article-*.html`) and `audit_article.py` (for `articles/*.html`) both run `audit_font_loading()` on every audit. The pre-commit hook blocks any commit that adds a font preload to an article OR removes the inlined `@font-face` from a non-article page.
 
 **Do NOT** add `<link>` to `fonts.googleapis.com` or `fonts.gstatic.com` — `audit_page.py` fails on any reference. The 2026-04-20 performance work self-hosted fonts; reverting would cost ~500 ms LCP site-wide.
 

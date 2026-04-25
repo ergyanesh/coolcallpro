@@ -247,6 +247,48 @@ Three page-class patterns keep mobile Lighthouse Performance scores at 90+. `aud
 
 **Helper:** `scripts/inline_critical_css.py` is an idempotent one-off that re-applies the `.page-hero` critical CSS to any root page missing it. Safe to re-run if someone strips a `<style>` block.
 
+## Font Loading Patterns (enforced since 24 April 2026)
+
+The site uses self-hosted Inter + Outfit. Two distinct patterns apply per page class — both enforced by `audit_font_loading()` in `audit_page.py` (and a parallel check in `audit_article.py`). Pre-commit hook blocks regressions.
+
+| Page class | Font preload tags in `<head>` | `@font-face` inline in `<style>` |
+|---|---|---|
+| Articles (`articles/*.html`, root `article-*.html`) | ❌ **MUST be absent** | N/A (articles have no inline `<style>`) |
+| Locations + root pages with `<style>` (about, contact, costs, etc.) | ✅ Required | ✅ **Required** at top of inline `<style>` |
+
+**Why this split exists:** Chrome fires a "preloaded font not used within a few seconds" console warning if a `<link rel="preload" ... .woff2 ...>` tag isn't matched against an `@font-face` rule fast enough. Before 24 April 2026, every page preloaded fonts but the matching `@font-face` lived only in `css/style.min.css` — by the time that file parsed, the heuristic window had expired. Result: 4 yellow console warnings on every page.
+
+**Fix per class:**
+- **Articles** had the warning fixed by **removing the preloads entirely**. Articles' LCP target is the hero WebP, not text — the preloads were actively stealing bandwidth from the LCP. Body text renders in fallback first, swaps to Inter when `style.min.css`'s `@font-face` registers (font-display: swap).
+- **Non-articles** had the warning fixed by **inlining `@font-face` at the top of their existing `<style>` block** (right after `@charset "UTF-8";` if present, before `.page-hero` / `.city-hero` rules). Now the woff2 preload matches the inline `@font-face` immediately on inline-CSS parse.
+
+The canonical inline @font-face block to use (latin subsets only — full rules with unicode-range and latin-ext stay in style.min.css):
+
+```css
+@font-face{font-family:'Inter';font-style:normal;font-weight:400 900;font-display:swap;src:url('/fonts/inter-latin.woff2') format('woff2')}@font-face{font-family:'Outfit';font-style:normal;font-weight:400 800;font-display:swap;src:url('/fonts/outfit-latin.woff2') format('woff2')}
+```
+
+`generate_state_hubs.py` and `generate_city_pages_v3.py` already emit this in their inline `<style>` template. `scripts/inline_fontface.py` is the idempotent migration script — re-run if any HTML file ever loses the inline rules.
+
+**Side effect:** Lighthouse Performance and Best Practices both improved when this pattern shipped. The "preloaded font not used" warning was being scored against Performance.
+
+## Security Headers (enforced via `_headers` file, since 24 April 2026)
+
+Cloudflare Pages reads `_headers` at the root of `_dist/` (copied by `build.sh`) and applies the rules to every served file. Six security headers currently live:
+
+| Header | Mode |
+|---|---|
+| `Strict-Transport-Security: max-age=31536000; includeSubDomains` | Enforced |
+| `X-Frame-Options: SAMEORIGIN` | Enforced |
+| `Permissions-Policy: accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=(), interest-cohort=()` | Enforced |
+| `Referrer-Policy: strict-origin-when-cross-origin` | Enforced (set by Cloudflare upstream) |
+| `X-Content-Type-Options: nosniff` | Enforced (set by Cloudflare upstream) |
+| `Content-Security-Policy-Report-Only: ...` | **Report-Only** — flip to enforcing ~22 May 2026 after 1-2 weeks of clean console output |
+
+**When you flip CSP to enforcing:** rename the header from `Content-Security-Policy-Report-Only:` to `Content-Security-Policy:` AND append `; upgrade-insecure-requests` at the end (the directive is silently ignored in Report-Only mode and was removed from the policy on 24 April after Chrome warned about it).
+
+**Do NOT add hostname-based redirects (e.g., www → apex) to `_redirects`** — Cloudflare Pages explicitly does not support domain-level redirects in `_redirects` (per official docs). Those must be configured in the Cloudflare dashboard (DNS A record + Bulk Redirect Rule). The www → apex redirect is already in place there as of 24 April 2026.
+
 ## Duplicate-URL Protection (enforced since 23 April 2026)
 
 Cloudflare Pages serves every `.html` file on disk under BOTH URLs:

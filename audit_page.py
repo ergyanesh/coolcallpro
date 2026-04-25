@@ -300,6 +300,77 @@ def audit_perf_patterns(html: str, path: str) -> int:
     return fails
 
 
+def audit_font_loading(html: str, path: str) -> int:
+    """Enforce the font-loading pattern that eliminates Chrome's
+    'preloaded font not used' console warnings site-wide
+    (deployed 24 April 2026; affected all 205 pages).
+
+    Two rules per page class:
+
+    1. Article pages (articles/*.html OR root article-*.html) must NOT
+       have <link rel="preload" ... .woff2 ...> tags. Articles' LCP
+       target is the hero WebP image; preloading fonts there steals
+       bandwidth from the LCP and triggers Chrome's "preloaded font
+       not used within a few seconds" heuristic. Fonts still load via
+       style.min.css's @font-face with font-display: swap.
+
+    2. Non-article pages with an inline <style> block in <head> MUST
+       include @font-face declarations referencing inter-latin.woff2
+       inside that <style> block. Reason: when the matching @font-face
+       is parsed in the inline CSS (which the browser sees first), the
+       woff2 preload resolves immediately on inline-CSS parse, the
+       Chrome heuristic is satisfied, and CLS/LCP improve. Without it
+       the @font-face only registers when style.min.css arrives (often
+       too late for the heuristic window).
+
+    Migration script: scripts/inline_fontface.py (idempotent).
+    """
+    print(f"\nFONT LOADING (Chrome 'preloaded font not used' protection)")
+    fails = 0
+    norm = path.replace("\\", "/").lower()
+    is_article = (
+        norm.startswith("articles/")
+        or "/articles/" in norm
+        or re.match(r"(^|/)article-[^/]+\.html$", norm) is not None
+    )
+
+    if is_article:
+        # Rule 1: articles must not preload fonts
+        has_font_preload = bool(
+            re.search(
+                r'<link\s+rel=["\']preload["\'][^>]*\.woff2',
+                html,
+                re.IGNORECASE,
+            )
+        )
+        if not check(
+            "Article has NO font preload tags (LCP is hero image, not text)",
+            not has_font_preload,
+            "Remove <link rel=\"preload\" ... .woff2 ...>. Articles' LCP target is the hero WebP — preloading fonts steals bandwidth from the LCP and triggers Chrome's 'preloaded font not used' console warning. Fonts still load via style.min.css's @font-face with font-display: swap.",
+        ):
+            fails += 1
+    else:
+        # Rule 2: non-articles with inline <style> must have @font-face inlined
+        style_blocks = re.findall(
+            r"<style[^>]*>(.*?)</style>", html, re.DOTALL | re.IGNORECASE
+        )
+        if style_blocks:
+            inline_css = "\n".join(style_blocks)
+            has_font_face = (
+                "@font-face" in inline_css and "inter-latin.woff2" in inline_css
+            )
+            if not check(
+                "Non-article page with inline <style> has @font-face inlined (Inter + Outfit)",
+                has_font_face,
+                "Run `python scripts/inline_fontface.py` to inject the @font-face rules into the inline <style>. Without them, the woff2 preloads resolve too late (after style.min.css parses) and trigger Chrome's 'preloaded font not used' console warning across every visit.",
+            ):
+                fails += 1
+
+    if fails == 0:
+        print("  [PASS] Font-loading pattern appropriate for this page class")
+    return fails
+
+
 def audit_h3_islands(html: str, path: str) -> int:
     """Premium-design discipline: block H3+P-island anti-pattern.
 
@@ -601,6 +672,7 @@ def main():
     html = read(path)
     fails = audit_page_universal(html, path)
     fails += audit_perf_patterns(html, path)
+    fails += audit_font_loading(html, path)
     fails += audit_h3_islands(html, path)
     fails += audit_emoji_on_orange_circle(html, path)
     fails += audit_sitemap_no_html()

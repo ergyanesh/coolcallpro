@@ -368,6 +368,36 @@ def audit_css_regression(strict: bool) -> int:
     return fails
 
 
+def audit_font_loading(html: str) -> int:
+    """Articles must NOT have <link rel="preload" ... .woff2 ...> tags.
+
+    Articles' LCP target is the hero WebP image. Preloading fonts there
+    steals connection bandwidth from the LCP and triggers Chrome's
+    "preloaded font not used within a few seconds from the window's
+    load event" console warning. Fonts still load via style.min.css's
+    @font-face with font-display: swap — fast enough since the LCP
+    is image-driven, not text-driven.
+
+    Deployed 24 April 2026 across all 23 articles. Migration script:
+    scripts/inline_fontface.py (idempotent).
+    """
+    print("\nFONT LOADING (Chrome 'preloaded font not used' protection)")
+    has_font_preload = bool(
+        re.search(
+            r'<link\s+rel=["\']preload["\'][^>]*\.woff2',
+            html,
+            re.IGNORECASE,
+        )
+    )
+    if not check(
+        "Article has NO font preload tags (LCP is hero image, not text)",
+        not has_font_preload,
+        "Remove <link rel=\"preload\" ... .woff2 ...>. Articles' LCP target is the hero WebP — preloading fonts steals bandwidth from the LCP and triggers Chrome's 'preloaded font not used' console warning. Fonts still load via style.min.css's @font-face with font-display: swap.",
+    ):
+        return 1
+    return 0
+
+
 def audit_pillar_spec(html: str, is_pillar: bool) -> int:
     if not is_pillar:
         return 0
@@ -442,6 +472,7 @@ def main():
     fails += audit_your_money(html, strict)
     fails += audit_geo_aeo(html, strict)
     fails += audit_css_regression(strict)
+    fails += audit_font_loading(html)
     fails += audit_pillar_spec(html, is_pillar)
 
     print()
