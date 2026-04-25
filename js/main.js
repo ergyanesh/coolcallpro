@@ -221,3 +221,24 @@ filterBtns.forEach(btn => {
     window.addEventListener('resize', updateBottomCta);
     updateBottomCta();
 })();
+
+/* Mobile sticky-bar auto-hide (since 2026-04-25):
+   Hide .mobile-call-bar while any in-page .btn-primary.btn-lg is on screen,
+   fade it back in once they all leave the viewport. Mobile-only — desktop
+   has no .mobile-call-bar (display:none unless <=768px). */
+(function () {
+    if (!window.matchMedia || !window.matchMedia('(max-width: 768px)').matches) return;
+    if (!('IntersectionObserver' in window)) return;
+    var bar = document.querySelector('.mobile-call-bar');
+    var ctas = document.querySelectorAll('.btn-primary.btn-lg');
+    if (!bar || !ctas.length) return;
+    var visible = new Set();
+    var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+            if (e.isIntersecting) visible.add(e.target);
+            else visible.delete(e.target);
+        });
+        bar.classList.toggle('sticky-hidden', visible.size > 0);
+    }, { threshold: 0.5 });
+    ctas.forEach(function (c) { io.observe(c); });
+})();

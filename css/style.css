@@ -514,7 +514,12 @@ ul {
   padding: 6px 10px;
 }
 
-/* ===== MOBILE CALL BAR ===== */
+/* ===== MOBILE CALL BAR (slim utility-bar pattern, since 2026-04-25) =====
+   Pattern rules:
+   - Slim padding/weight so the bar reads as navigation furniture, not a duplicate CTA
+   - No vibrate animation (was competing with in-page btn-vibrate CTAs)
+   - opacity transition + .sticky-hidden modifier let JS auto-hide while an in-page
+     .btn-primary.btn-lg is in viewport (see js/main.js IntersectionObserver) */
 .mobile-call-bar {
   display: none;
   position: fixed;
@@ -523,12 +528,18 @@ ul {
   right: 0;
   z-index: 1001;
   background: #c33b11;
-  padding: 12px 20px;
+  padding: 9px 20px;
   align-items: center;
   justify-content: center;
   gap: 10px;
   box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
   overflow: hidden;
+  transition: opacity 0.2s ease;
+}
+
+.mobile-call-bar.sticky-hidden {
+  opacity: 0;
+  pointer-events: none;
 }
 
 .mobile-call-bar a {
@@ -538,12 +549,11 @@ ul {
   gap: 10px;
   color: var(--white);
   font-family: var(--font-display);
-  font-size: 1.15rem;
-  font-weight: 800;
+  font-size: 0.95rem;
+  font-weight: 700;
   letter-spacing: 0.02em;
   width: 100%;
   text-align: center;
-  animation: vibrate 2s infinite;
 }
 
 /* ===== BUTTONS ===== */

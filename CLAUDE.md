@@ -400,6 +400,28 @@ Every unique datapoint on a city/state page must appear in **EXACTLY ONE section
 
 **Concrete rule:** when adding a section, run a mental diff against every other section on the page. If any unique data string (neighborhood name, ZIP, license type, rebate dollar amount, climate stat) would appear twice, decide upfront which section owns it and remove it from the other. The "owning" section is usually the most data-dense one (Services & Coverage owns the neighborhood/ZIP master list; Local Data owns climate/rebate/license detail). Other sections cite by reference, not by repetition.
 
+### Mobile sticky call bar — slim utility pattern (since 25 April 2026)
+
+The `.mobile-call-bar` (fixed bottom-of-viewport Call Now bar, mobile-only via `@media (max-width: 768px)`) used to be a **full-weight orange button** with a 2-second vibrate animation, identical in size and color to the in-page hero CTA. On mobile this caused the in-page hero CTA + sticky bar to appear stacked on top of each other (sometimes literally touching), reading as a render glitch and inducing CTA banner blindness. The user flagged this on 2026-04-25: "when someone is on the phone they will see the numbers everywhere. Is this a problem?"
+
+**The pattern, now applied site-wide via `css/style.css` + `js/main.js`:**
+
+| Aspect | Before | After |
+|---|---|---|
+| Padding | `12px 20px` | `9px 20px` |
+| Font size | `1.15rem` | `0.95rem` |
+| Font weight | `800` | `700` |
+| Animation | `vibrate 2s infinite` | none |
+| Visibility | always shown on mobile | auto-hidden when an in-page `.btn-primary.btn-lg` is ≥50% in viewport |
+
+**The auto-hide is in `js/main.js`** — a small IntersectionObserver gated by `matchMedia('(max-width: 768px)')` that toggles `.sticky-hidden` (opacity 0 + pointer-events none) on `.mobile-call-bar` based on whether any large in-page CTA is currently on screen. CSS handles the 0.2s opacity transition.
+
+**Why this matters going forward:**
+- Every page that has `<div class="mobile-call-bar">` automatically inherits the pattern. **Do NOT re-introduce vibrate, larger padding, or heavier weight on the sticky bar.** That was tested in production and rejected.
+- New pages should keep the standard `.mobile-call-bar` markup at the end of `<body>` (just before `</body>`, after the footer). No body attribute is needed — the pattern is unconditional.
+- The auto-hide depends on the in-page CTAs using class `btn-primary btn-lg`. If you ever introduce a new "primary call" button with different classes, add it to the IntersectionObserver selector in main.js or it won't trigger the hide.
+- Desktop is unaffected — `.mobile-call-bar` is `display: none` outside the 768px breakpoint.
+
 ### Hard rule on what to do when design feels "clumsy"
 
 When the user gives feedback that something looks "clumsy", "not premium", "scattered", or similar — do NOT iterate per-issue. Apply the FULL design system above in one pass. The user explicitly flagged on 25 April 2026: "Why don't you design the whole page in one go and free me from coming up to you again and again?" — piecemeal fixes waste their time and create inconsistency.
