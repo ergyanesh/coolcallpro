@@ -216,6 +216,31 @@ If a hazard phrase is required for educational context ("do not spray the coil")
 
 **This rule overrides any prior editorial instinct about what makes a helpful article.** Do not relitigate it. If you're tempted to add a step like "rinse the fins" — reroute to "ask the technician to include coil cleaning in the spring tune-up."
 
+## YMYL Tax-Credit Currency (since 25 April 2026 — NON-NEGOTIABLE)
+
+The federal **Section 25C Energy Efficient Home Improvement Credit** was terminated for property placed in service after **December 31, 2025** by the One Big Beautiful Bill Act (Public Law 119-21, signed July 4, 2025). HVAC equipment installed in 2026 does not qualify for the federal credit. This is verified via IRS FAQ Fact Sheet 2025-05.
+
+**Hard rules for any article, location page, or generator template:**
+
+1. **Never claim the federal 25C credit is currently available** without leading with the OBBBA termination. Phrases banned outright:
+   - "Federal tax credits of up to $X for qualifying heat pumps... may also apply" (FAQ schema misuse — actively misleads homeowners)
+   - "Qualifying HVAC systems may also receive up to $3,200/year via the federal Energy Efficient Home Improvement Credit"
+   - "All local incentives stack with the federal IRS Section 25C credit"
+   - "Federal ENERGY STAR tax credits may also apply"
+   - The "Federal Tax Credits (IRS Section 25C)" H3 section quoting "$2,000/year for heat pumps + $600/year for ACs" without OBBBA reframing
+2. **The IRS 25C page itself is fine to link** (`https://www.irs.gov/credits-deductions/energy-efficient-home-improvement-credit` — still 200; relevant for homeowners filing 2025 returns), but always frame as historical: "If your HVAC was installed by Dec 31, 2025, you may still claim the credit on your 2025 tax return."
+3. **HEEHRA → HEAR.** The bill name was HEEHRA (proposed); the rolled-out program is **Home Electrification and Appliance Rebates (HEAR)**. Use HEAR with `(formerly proposed as HEEHRA)` only on first mention; subsequent references use HEAR alone. Never use HEEHRA standalone.
+4. **PACE: 3 states, not 35.** Residential PACE (R-PACE) is active only in **CA, FL, MO**. The 35-state figure is C-PACE (commercial). CFPB final rule effective March 1, 2026 imposes mortgage-style ability-to-repay standards on R-PACE. Do not list Ygrene as a current provider (suspended residential PACE operations in 2022).
+
+**Generators (`generate_city_pages_v3.py`, `generate_state_hubs.py`) emit OBBBA-aware copy as of 2026-04-25.** Any future template edit that touches the rebates paragraph, FAQ schema, or visible FAQ MUST preserve OBBBA-aware framing. If you regenerate pages, the templates already produce correct copy — but spot-check before committing.
+
+**Always `curl -sk -o /dev/null -w "%{http_code}" -L <url>` before linking any .gov URL.** .gov domains reorg frequently. Concrete examples that bit us on 2026-04-25:
+- IRS removed `/individuals/` from credit URLs → old `/credits-deductions/individuals/...` paths return 404
+- DOE moved its consumer rebate hub to `/save/home-upgrades`; `/save/rebates` is 404
+- ENERGY STAR `/products/heating_cooling` is 404; canonical is `/products/energy_star_home_upgrade/clean_heating_cooling`
+- CDC pages with no `.html` extension often 404 in 2026 (`/carbon-monoxide/about/index` is 404 but `/carbon-monoxide/about/index.html` is 200)
+A plan that specifies a URL is not a guarantee that URL is live — verify at write-time, not at plan-time.
+
 ## Pre-Commit Audit Hook (since 20 April 2026)
 
 A git pre-commit hook at `.git/hooks/pre-commit` blocks any commit whose staged HTML fails YMYL/SEO/AEO/GEO/CSS-regression checks:

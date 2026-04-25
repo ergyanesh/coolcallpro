@@ -1169,7 +1169,7 @@ def generate_html(d, city_list, hub_abbrs, all_states, out_path=None, refresh_da
             "name": "Are there HVAC rebates available in {name}?",
             "acceptedAnswer": {{
               "@type": "Answer",
-              "text": "Yes. Check with your local utility provider for current energy efficiency rebates. Federal tax credits may also apply for qualifying high-efficiency installations. Visit energystar.gov for current amounts and eligibility."
+              "text": "Yes. Check with your local utility provider for current energy efficiency rebates. The federal Section 25C tax credit was terminated for installations after Dec 31, 2025 (OBBBA, P.L. 119-21); check current state HEAR rebates and utility programs for 2026."
             }}
           }},
           {{
@@ -1650,7 +1650,7 @@ def generate_html(d, city_list, hub_abbrs, all_states, out_path=None, refresh_da
               </button>
               <div class="faq-a">
                 <div class="faq-a-inner">
-                  <p>Yes. Check with your local utility provider for current energy efficiency rebates on qualifying high-efficiency equipment. Federal tax credits may also apply for qualifying installations &#8212; visit <a href="https://www.energystar.gov/about/federal-tax-credits" style="color: var(--orange-dark); font-weight: 600;" target="_blank" rel="noopener">energystar.gov</a> for current amounts and eligibility.</p>
+                  <p>Yes. Check with your local utility provider for current energy efficiency rebates on qualifying high-efficiency equipment. The federal Section 25C tax credit was terminated for installations after Dec 31, 2025 (OBBBA, P.L. 119-21); check current state HEAR rebates and utility programs for 2026.</p>
                 </div>
               </div>
             </div>

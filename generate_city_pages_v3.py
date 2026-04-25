@@ -607,7 +607,7 @@ def rebates_paragraph(c):
     rebates = escape(c['rebates'])
     return (
         f"HVAC Rebates &amp; Incentives in {city}, {state_abbr}",
-        f'{city} homeowners served by <strong>{utility}</strong> may qualify for savings through <strong>{rebates}</strong> when installing qualifying high-efficiency equipment. For all {state_full} incentives including state and federal programs, see the <a href="https://www.dsireusa.org/" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">DSIRE database (N.C. State University / U.S. DOE)</a> or the <a href="https://www.energystar.gov/rebate-finder" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">ENERGY STAR Rebate Finder (EPA)</a>. Qualifying HVAC systems may also receive up to $3,200/year via the <a href="https://www.irs.gov/credits-deductions/energy-efficient-home-improvement-credit" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">federal Energy Efficient Home Improvement Credit (IRS Section 25C)</a>. Learn about <a href="../article-hvac-financing" style="color: var(--orange-dark); font-weight: 600;">HVAC financing options</a>.'
+        f'{city} homeowners served by <strong>{utility}</strong> may qualify for savings through <strong>{rebates}</strong> when installing qualifying high-efficiency equipment. For all {state_full} incentives including state and federal programs, see the <a href="https://www.dsireusa.org/" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">DSIRE database (N.C. State University / U.S. DOE)</a> or the <a href="https://www.energystar.gov/rebate-finder" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">ENERGY STAR Rebate Finder (EPA)</a>. The federal Section 25C credit (<a href="https://www.irs.gov/credits-deductions/energy-efficient-home-improvement-credit" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">Energy Efficient Home Improvement Credit</a>) was terminated for installations placed in service after Dec 31, 2025 by the One Big Beautiful Bill Act (P.L. 119-21); for 2026 installs focus on state HEAR rebates and utility programs. Learn about <a href="../article-hvac-financing" style="color: var(--orange-dark); font-weight: 600;">HVAC financing options</a>.'
     )
 
 
@@ -1043,7 +1043,7 @@ def generate_page(c, climate_type, nearby, absorbed_data, all_cities_lookup, sta
             "name": "Are there HVAC rebates in {city}?",
             "acceptedAnswer": {{
               "@type": "Answer",
-              "text": "{city} homeowners served by {utility} may qualify for rebates through {rebates}. Federal tax credits of up to $2,000 for qualifying heat pumps and high-efficiency systems may also apply."
+              "text": "{city} homeowners served by {utility} may qualify for rebates through {rebates}. The federal Section 25C tax credit was terminated for installations placed in service after Dec 31, 2025 (OBBBA, P.L. 119-21); check current state HEAR rebates and utility programs for what's still available in 2026."
             }}
           }},
           {{
@@ -1304,7 +1304,7 @@ def generate_page(c, climate_type, nearby, absorbed_data, all_cities_lookup, sta
               </button>
               <div class="faq-a">
                 <div class="faq-a-inner">
-                  <p>Homeowners may qualify for savings through <strong>{e_utility}</strong>. Check with <strong>{e_rebates}</strong> for current offers. Federal ENERGY STAR tax credits may also apply.</p>
+                  <p>Homeowners may qualify for savings through <strong>{e_utility}</strong>. Check with <strong>{e_rebates}</strong> for current offers. The federal Section 25C credit was terminated for installations after Dec 31, 2025 (OBBBA, P.L. 119-21); check current state and utility programs for 2026.</p>
                 </div>
               </div>
             </div>
