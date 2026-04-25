@@ -289,6 +289,104 @@ Cloudflare Pages reads `_headers` at the root of `_dist/` (copied by `build.sh`)
 
 **Do NOT add hostname-based redirects (e.g., www → apex) to `_redirects`** — Cloudflare Pages explicitly does not support domain-level redirects in `_redirects` (per official docs). Those must be configured in the Cloudflare dashboard (DNS A record + Bulk Redirect Rule). The www → apex redirect is already in place there as of 24 April 2026.
 
+## City Page Design System (since 25 April 2026 — pilot live on locations/houston-tx.html)
+
+The Houston-TX page is the **canonical card-driven layout** for all 115 city pages and 51 state hubs after generator port. Every city/state page must follow this layout discipline. Live reference: https://coolcallpro.com/locations/houston-tx
+
+### Section structure (top to bottom)
+
+| # | Section | Background | Content |
+|---|---|---|---|
+| 1 | Hero | navy gradient (existing `.city-hero`) | location badge · H1 · subhead · author byline · CTA · jump links |
+| 2 | Breadcrumb | light strip | Home › Locations › State › City |
+| 3 | **Emergency lane** | white | tag pill · H2 · ONE Call Now CTA · 3 climate-aware `.precaution-card` cards (no per-card buttons) |
+| 4 | **Trust strip** | `var(--gray-50)` | tag pill · H2 · 3 `.wh-step` cards (24/7 dispatch / N neighborhoods / state-license) |
+| 5 | **Climate Profile (combined with photo)** | white | tag pill · H2 · intro · 4 stat cards · landmark photo |
+| 6 | **Local Data 2×2** | `var(--gray-50)` | tag pill · H2 · info-blue intro callout · 4 white-box cards (climate / housing / state-license / local rebates) · yellow-orange warning callout |
+| 7 | **Services + Coverage** | white | tag pill · H2 · 2 white-box cards (services list + ZIPs/neighborhoods) |
+| 8 | **Mid-page CTA band** | `var(--gray-50)` | navy CTA box inside |
+| 9 | **FAQs** | white | tag pill · H2 · `.faq-item` accordion |
+| 10 | **Nearby Service Areas** | `var(--gray-50)` | sister cities + state hub link |
+
+**Visual rhythm rule (NON-NEGOTIABLE):** alternate section backgrounds white ↔ `var(--gray-50)`. No two consecutive sections share a background. This is what makes the page feel "easy to navigate" — same pattern as the homepage.
+
+**Section padding:** 72px top/bottom site-wide. Not 48px, not 32px — 72px for breathing room.
+
+### Section-tag pill (above every H2)
+
+```html
+<span style="display:inline-block; font-size:0.78rem; font-weight:800; letter-spacing:0.12em; text-transform:uppercase; color:[CONTEXT_COLOR]; padding:6px 14px; background:[TINT]; border:1px solid [TINT_BORDER]; border-radius:999px; margin-bottom:16px;">[ICON] [LABEL]</span>
+```
+
+| Section | Color | Tint background | Tint border |
+|---|---|---|---|
+| Emergency | `var(--red)` | `#fef2f2` | `#fed7d7` |
+| Climate / Local Data (info) | `var(--blue)` | `#ebf8ff` (or `#fff` on gray sections) | `#bee3f8` |
+| Trust / Services / FAQs (utility) | `var(--navy)` | `#fff` (or `var(--gray-50)` on white sections) | `var(--gray-200)` |
+
+### H2 treatment (consistent across ALL sections)
+
+```css
+font-size: 1.75rem;
+color: var(--navy);
+margin: 0;
+text-align: center;
+```
+
+### Card box treatment for plain `.precaution-card` (no color modifier)
+
+`.precaution-card.precaution-danger` and `.precaution-card.precaution-warning` already have colored backgrounds — keep as-is. **Plain `.precaution-card` MUST add this inline style** (otherwise cards appear "boxless" / loose):
+
+```html
+style="display:flex; flex-direction:column; background:#fff; border:1px solid var(--gray-200); box-shadow: 0 4px 16px rgba(10,22,40,0.04);"
+```
+
+For cards with CTAs at the bottom: add `style="margin-top: auto;"` to the CTA paragraph so it pins to the card bottom regardless of body content length. Combined with `align-items: stretch` on the grid container, all cards in a row stretch to equal heights.
+
+### Hero subhead max-width (avoid orphan-word wraps)
+
+```css
+.city-hero p { max-width: 720px; }
+```
+
+NOT 620px (the previous default) — 620px caused "nationwide." style orphan-word wraps when subhead text was just slightly too long. 720px gives the sentence room to fit on one line on desktop and wraps gracefully on mobile.
+
+### Climate-zone-aware emergency cards (codify in generator)
+
+Map `cities_updated.xlsx` `climate_descriptor` to the 3 emergency-lane cards:
+
+| Climate | Card 1 | Card 2 | Card 3 |
+|---|---|---|---|
+| hot-humid (2A, 3A — Houston, Atlanta, Tampa, NOLA) | NO AC | NO HEAT | **WATER LEAK** |
+| hot-dry (2B, 3B — Phoenix, Las Vegas, Tucson) | NO AC | STRANGE NOISES | NO HEAT |
+| cold (5, 6, 7 — Fargo, Minneapolis, Boston) | NO HEAT | **FROZEN PIPES** | NO AC |
+| mountain (5, 6 — Denver, SLC) | NO HEAT | NO AC | STRANGE NOISES |
+| mixed (4A — Nashville, KC, DC) | NO AC | NO HEAT | STRANGE NOISES |
+
+The hero subhead also has climate variants — use `summer_high_f` / `winter_low_f` columns for substitutions. Generator pending.
+
+### Two callout banner styles
+
+**Info banner** (intros, factual context — like "About these primary sources"):
+```css
+background: linear-gradient(135deg, #f7fafc, #edf2f7);
+border: 1px solid var(--gray-200);
+border-left: 5px solid var(--blue);
+```
+
+**Warning banner** (regulatory updates — like the Section 25C termination note):
+```css
+background: linear-gradient(135deg, #fffbeb, #fef3c7);
+border: 1px solid var(--yellow);
+border-left: 5px solid var(--orange-dark);
+```
+
+Both use the same internal structure: icon (1.6rem) + bold heading (display font, 1.05rem) + body paragraph.
+
+### Hard rule on what to do when design feels "clumsy"
+
+When the user gives feedback that something looks "clumsy", "not premium", "scattered", or similar — do NOT iterate per-issue. Apply the FULL design system above in one pass. The user explicitly flagged on 25 April 2026: "Why don't you design the whole page in one go and free me from coming up to you again and again?" — piecemeal fixes waste their time and create inconsistency.
+
 ## Duplicate-URL Protection (enforced since 23 April 2026)
 
 Cloudflare Pages serves every `.html` file on disk under BOTH URLs:
@@ -387,6 +485,14 @@ Indexing" on the clean URL — but don't do it for all 17 at once (quota).
 - Do NOT improvise prose on location pages — everything is template-driven from xlsx
 - Do NOT edit legacy generator files (`generate_city_pages.py`, `update_city_pages.py`) — use v3
 - Do NOT skip the QC checklist after generating pages
+
+### Schema / SEO (HARD rules)
+- Do NOT propose **LocalBusiness** or **LocalService** schema for city or state pages — Cool Call Pro is a pure referral service with no physical presence in any city or state. Adding LocalBusiness markup would be misrepresentation and Google penalty risk. The user explicitly rejected this on 25 April 2026.
+- Do NOT keyword-stuff. Zero tolerance for Google ranking penalties. If a phrase doesn't read naturally to a homeowner, leave it out.
+
+### Marketing copy (HARD rules)
+- Do NOT write specific time-based response promises like "Most calls answered in under 2 minutes" or "30-minute dispatch guaranteed". The site does not measure these and shouldn't promise them. Use verifiable value-prop copy only ("24/7 dispatch nationwide", "TDLR-licensed network", "Independent technicians"). FTC marketing-claims compliance.
+- Do NOT write any specific percentage, time, or count we cannot substantiate ("99% satisfied", "1 hour average", "200+ certified"). If you can't point to data that proves it, don't claim it.
 
 ### Article writing (pillar-cluster rules)
 - Do NOT force every article H1 into a question — match the form to search intent (question for symptoms/diagnostics/decisions, declarative for head-term pillars, cost guides, comparisons, best-of)
