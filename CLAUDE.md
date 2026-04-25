@@ -383,6 +383,23 @@ border-left: 5px solid var(--orange-dark);
 
 Both use the same internal structure: icon (1.6rem) + bold heading (display font, 1.05rem) + body paragraph.
 
+### Content-duplication check (NON-NEGOTIABLE — added 25 April 2026)
+
+Every unique datapoint on a city/state page must appear in **EXACTLY ONE section**. The card-driven layout makes overlap glaring: if "5 Phoenix Neighborhoods" lists The Heights / West University / Meyerland in the Trust Strip AND a "ZIPs & Neighborhoods" card in Services & Coverage lists the same neighborhoods, a homeowner reading top-to-bottom sees the same data twice and the page reads as filler. The user flagged this on 2026-04-25: "I mean is there any reason why these are there? Also can you check for the duplicity of content on the same page and make sure that it does not happen again?"
+
+**Before shipping any city/state page, scan for these specific overlap traps:**
+
+| Trap | Where it shows up | Fix |
+|---|---|---|
+| Neighborhood list duplicated | Trust Strip middle wh-step card AND Services & Coverage card | Trust Strip card becomes a one-line "Metro Coverage" summary that links to the `#services` anchor; the full neighborhood list lives ONLY in Services & Coverage |
+| ZIP codes duplicated | Hero subhead AND Services & Coverage card | ZIPs go in Services & Coverage card only; hero subhead names neighborhoods/region in prose |
+| Climate stats duplicated | Climate Profile stat cards AND Local Data 2×2 climate card | Stat cards show numbers (summer_high / winter_low / cooling_hours / heating_hours); Local Data climate card discusses load profile in prose — never restate the same numbers |
+| State licensing reference duplicated | Trust Strip wh-step AND Local Data state-license card AND a separate "Why Call a Pro" section | Reference once in Trust Strip (one-liner: "TDLR-licensed network"); detail (license number format, renewal cadence, scope) goes in Local Data only — do NOT add a "Why Call a [State] Pro" section duplicating these points |
+| Rebate/incentive figures duplicated | Local Data rebates card AND a callout banner AND a separate Federal Tax Credit section | Rebate figures live in the Local Data rebates card; the regulatory warning banner mentions termination/eligibility briefly. No third section. |
+| State-hub "Why Call a Pro" section | Old layout had a 4-step section (Climate Load / Licensing / Efficiency Code / Weather Risks) | DELETE on the new layout — every one of those four points is already covered in Climate & Compliance + Services & Licensing. Replace with a mid-page CTA banner. |
+
+**Concrete rule:** when adding a section, run a mental diff against every other section on the page. If any unique data string (neighborhood name, ZIP, license type, rebate dollar amount, climate stat) would appear twice, decide upfront which section owns it and remove it from the other. The "owning" section is usually the most data-dense one (Services & Coverage owns the neighborhood/ZIP master list; Local Data owns climate/rebate/license detail). Other sections cite by reference, not by repetition.
+
 ### Hard rule on what to do when design feels "clumsy"
 
 When the user gives feedback that something looks "clumsy", "not premium", "scattered", or similar — do NOT iterate per-issue. Apply the FULL design system above in one pass. The user explicitly flagged on 25 April 2026: "Why don't you design the whole page in one go and free me from coming up to you again and again?" — piecemeal fixes waste their time and create inconsistency.
