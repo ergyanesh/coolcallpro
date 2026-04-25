@@ -421,6 +421,7 @@ The `.mobile-call-bar` (fixed bottom-of-viewport Call Now bar, mobile-only via `
 - New pages should keep the standard `.mobile-call-bar` markup at the end of `<body>` (just before `</body>`, after the footer). No body attribute is needed — the pattern is unconditional.
 - The auto-hide depends on the in-page CTAs using class `btn-primary btn-lg`. If you ever introduce a new "primary call" button with different classes, add it to the IntersectionObserver selector in main.js or it won't trigger the hide.
 - Desktop is unaffected — `.mobile-call-bar` is `display: none` outside the 768px breakpoint.
+- **`index.html` has its own inlined copy** of the `.mobile-call-bar` rules in the `<style>` block (because the homepage inlines its full CSS to eliminate the render-blocking request). Any future change to the sticky-bar pattern MUST update both `css/style.css` AND `index.html`'s inline copy. Search `index.html` for `mobile-call-bar` to find the rules. The current canonical inline copy is: `.mobile-call-bar{...padding:9px 20px;...transition:opacity .2s ease}.mobile-call-bar.sticky-hidden{opacity:0;pointer-events:none}.mobile-call-bar a{...font-size:.95rem;font-weight:700;...}` (no `animation` on the anchor).
 
 ### Hard rule on what to do when design feels "clumsy"
 
