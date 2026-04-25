@@ -1090,6 +1090,7 @@ def generate_page(c, climate_type, nearby, absorbed_data, all_cities_lookup, sta
   </script>
 
   <style>
+    @font-face{{font-family:'Inter';font-style:normal;font-weight:400 900;font-display:swap;src:url('/fonts/inter-latin.woff2') format('woff2')}}@font-face{{font-family:'Outfit';font-style:normal;font-weight:400 800;font-display:swap;src:url('/fonts/outfit-latin.woff2') format('woff2')}}
     .city-hero {{
       background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 50%, var(--navy-mid) 100%);
       background-size: cover;
