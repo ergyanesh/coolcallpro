@@ -170,7 +170,7 @@
     }
     .city-hero p {
       font-size: 1.15rem;
-      max-width: 620px;
+      max-width: 720px;
       margin: 0 auto;
       opacity: 0.9;
       line-height: 1.7;
@@ -378,7 +378,7 @@
       <div class="container">
         <span class="section-tag" style="background: rgba(255,255,255,0.1); color: #fff;">&#128205; Texas</span>
         <h1>HVAC Service &amp; Repair in Texas</h1>
-        <p>Independent local HVAC professionals serve every city and ZIP code across Texas&rsquo;s cooling-dominated climate. Emergency AC repair, heat pump service, and HVAC installation available 24/7.</p>
+        <p>Connect with an independent local HVAC pro now &mdash; 24/7 dispatch across Texas.</p>
         <div class="article-meta-modern"><div class="meta-line meta-reviewed">Last reviewed <time datetime="2026-04-20">April 20, 2026</time></div></div>
         <div class="author-byline">
           <img src="../images/author-gyane.webp" alt="Gyanesh Gulshan" class="author-avatar-sm" loading="lazy" width="48" height="48" />
@@ -417,10 +417,12 @@
     </div>
 
     <!-- State Overview -->
-    <section class="section" style="padding: 48px 0 0;">
+    <section class="section" style="padding: 72px 0; background:#fff;">
       <div class="container">
-        <div class="city-context">
-          <p>Texas is home to over <strong>32.4 million residents</strong> with a <strong>65% homeownership rate</strong>. The state spans IECC <strong>Zones 2A, 2B, 3A, 3B, and 4B</strong>, and With summer highs averaging 95&deg;F, cooling is the primary demand on your HVAC system. Winter lows near 37&deg;F mean heating needs are moderate but still important. Most homes across Texas use a central AC and gas furnace combination to handle both cooling and heating demands. Cool Call Pro connects you with independent local HVAC professionals serving every corner of the state.</p>
+        <div style="text-align:center; margin-bottom: 36px;">
+          <span style="display:inline-block; font-size:0.78rem; font-weight:800; letter-spacing:0.12em; text-transform:uppercase; color:var(--blue); padding:6px 14px; background:#ebf8ff; border:1px solid #bee3f8; border-radius:999px; margin-bottom:16px;">&#128205; State at a Glance</span>
+          <h2 style="font-size: 1.75rem; color: var(--navy); margin: 0 0 14px;">HVAC across Texas</h2>
+          <p style="max-width: 720px; margin: 0 auto; font-size: 1.05rem; color: var(--gray-700); line-height: 1.7;">Texas is home to over <strong>32.4 million residents</strong> with a <strong>65% homeownership rate</strong>. The state spans IECC Zones 2A, 2B, 3A, 3B, and 4B &mdash; with summer highs averaging 95&deg;F and winter lows near 37&deg;F. Most homes use central AC paired with a gas furnace to handle both cooling and heating demands.</p>
         </div>
 
         
@@ -462,78 +464,139 @@
       </div>
     </section>
 
-    <!-- Climate & HVAC Demands -->
-    <section class="section" style="padding: 0;" id="climate">
+    <!-- Climate & Compliance (combined: Climate + SEER2 + Costs) -->
+    <section class="section" id="climate" style="padding: 72px 0; background: var(--gray-50);">
       <div class="container">
-        <div class="city-services" style="margin-bottom: 40px;">
-          <h2>Climate &amp; HVAC Demands in Texas</h2>
-          <p style="font-size: 1.05rem; line-height: 1.85; color: var(--gray-700);">Texas spans IECC Zones 2A, 2B, 3A, 3B, and 4B. With summer highs averaging 95&deg;F, cooling is the primary demand on your HVAC system. Winter lows near 37&deg;F mean heating needs are moderate but still important. Average electricity rates sit at <strong>16.18&cent;/kWh</strong>, making system efficiency an important factor in your monthly energy costs. Learn more about <a href="../article-furnace" style="color: var(--orange-dark); font-weight: 600;">furnace options</a> for your home.</p>
+        <div style="max-width: 1100px; margin: 0 auto;">
+          <div style="text-align:center; margin-bottom: 32px;">
+            <span style="display:inline-block; font-size:0.78rem; font-weight:800; letter-spacing:0.12em; text-transform:uppercase; color:var(--blue); padding:6px 14px; background:#fff; border:1px solid #bee3f8; border-radius:999px; margin-bottom:16px;">&#127777;&#65039; Climate &amp; Compliance</span>
+            <h2 style="font-size: 1.75rem; color: var(--navy); margin: 0;">Texas climate, efficiency code &amp; typical costs</h2>
+          </div>
+
+          <div class="precaution-cards" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; align-items: stretch;">
+
+            <div class="precaution-card" style="display:flex; flex-direction:column; background:#fff; border:1px solid var(--gray-200); box-shadow: 0 4px 16px rgba(10,22,40,0.04);">
+              <div class="precaution-icon" style="color: var(--blue);">&#127777;&#65039; Climate Demands</div>
+              <h3>Cooling-dominated, hot-humid to hot-dry</h3>
+              <p style="margin-bottom: 0;">Texas spans IECC Zones <strong>2A, 2B, 3A, 3B, 4B</strong>. Summer highs avg 95&deg;F, winter lows near 37&deg;F. Average electricity 16.18&cent;/kWh &mdash; system efficiency directly drives monthly costs. Learn more about <a href="../article-furnace" style="color: var(--orange-dark); font-weight: 600;">furnace options</a>.</p>
+            </div>
+
+            <div class="precaution-card" style="display:flex; flex-direction:column; background:#fff; border:1px solid var(--gray-200); box-shadow: 0 4px 16px rgba(10,22,40,0.04);">
+              <div class="precaution-icon" style="color: var(--blue);">&#128161; SEER2 Code</div>
+              <h3>Southeast region: SEER2 14.3 minimum</h3>
+              <p style="margin-bottom: 0;">As of January 2023, all new central AC systems in Texas must meet <strong>SEER2 14.3</strong>. Higher-efficiency systems cost more upfront but reduce monthly bills meaningfully given Texas electricity rates. See our <a href="../article-ac-summer" style="color: var(--orange-dark); font-weight: 600;">summer AC guide</a>.</p>
+            </div>
+
+            <div class="precaution-card" style="display:flex; flex-direction:column; background:#fff; border:1px solid var(--gray-200); box-shadow: 0 4px 16px rgba(10,22,40,0.04);">
+              <div class="precaution-icon" style="color: var(--blue);">&#128176; Typical Costs</div>
+              <h3>Texas HVAC installation costs</h3>
+              <p style="margin-bottom: 0;">Standard central AC replacement: <strong>$3,500&ndash;$8,000</strong>. Furnace installation: <strong>$2,500&ndash;$5,500</strong>. Costs vary by city, system size, and efficiency. See our <a href="../costs" style="color: var(--orange-dark); font-weight: 600;">full HVAC cost guide</a>.</p>
+            </div>
+
+            <div class="precaution-card" style="display:flex; flex-direction:column; background:#fff; border:1px solid var(--gray-200); box-shadow: 0 4px 16px rgba(10,22,40,0.04);">
+              <div class="precaution-icon" style="color: var(--blue);">&#127744;&#65039; Climate Hazards</div>
+              <h3>Hurricane, tornado, extreme heat</h3>
+              <p style="margin-bottom: 0;">Per FEMA's National Risk Index, Texas faces elevated <strong>hurricane, tornado, and extreme heat</strong> exposure. Each event stresses HVAC systems &mdash; schedule a technician inspection after major weather before restart.</p>
+            </div>
+
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- SEER2 & Efficiency -->
-    <section class="section" style="padding: 0;">
+    <!-- Services & Licensing -->
+    <section class="section" id="services" style="padding: 72px 0; background:#fff;">
       <div class="container">
-        <div class="city-services" style="margin-bottom: 40px;">
-          <h2>SEER2 Efficiency Requirements in Texas</h2>
-          <p style="font-size: 1.05rem; line-height: 1.85; color: var(--gray-700);">Texas falls within the <strong>Southeast SEER2 region</strong>. As of January 2023, all new central air conditioning systems installed in Texas must meet a minimum <strong>SEER2 rating of 14.3</strong>. When replacing your AC or heat pump, ensure your contractor installs a unit that meets or exceeds this minimum &#8212; upgrading to a higher-efficiency system can significantly reduce your energy bills. See our <a href="../article-ac-summer" style="color: var(--orange-dark); font-weight: 600;">summer AC guide</a> for more on efficiency ratings.</p>
+        <div style="text-align:center; margin-bottom: 36px;">
+          <span style="display:inline-block; font-size:0.78rem; font-weight:800; letter-spacing:0.12em; text-transform:uppercase; color:var(--navy); padding:6px 14px; background:var(--gray-50); border:1px solid var(--gray-200); border-radius:999px; margin-bottom:16px;">&#128295; Services &amp; Licensing</span>
+          <h2 style="font-size: 1.75rem; color: var(--navy); margin: 0;">What Texas HVAC contractors do &mdash; and what to verify</h2>
+        </div>
+
+        <div class="precaution-cards" style="max-width: 1100px; margin: 0 auto; display:grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 20px; align-items: stretch;">
+
+          <div class="precaution-card" style="display:flex; flex-direction:column; background:#fff; border:1px solid var(--gray-200); box-shadow: 0 4px 16px rgba(10,22,40,0.04);" id="licensing-card">
+            <div class="precaution-icon" style="color: var(--navy);">&#128295; HVAC Services in Texas</div>
+            <h3>What our network covers</h3>
+            <ul style="margin-top: 0; margin-bottom: 0;">
+              <li>Emergency AC Repair</li>
+              <li>Central AC Installation &amp; Replacement</li>
+              <li>Heat Pump Installation &amp; Service</li>
+              <li>Furnace Repair &amp; Heating Service</li>
+              <li>HVAC Maintenance &amp; Tune-Ups</li>
+              <li>Ductwork Inspection, Cleaning &amp; Sealing</li>
+              <li>Indoor Air Quality &amp; Ventilation</li>
+            </ul>
+          </div>
+
+          <div class="precaution-card" style="display:flex; flex-direction:column; background:#fff; border:1px solid var(--gray-200); box-shadow: 0 4px 16px rgba(10,22,40,0.04);" id="licensing">
+            <div class="precaution-icon" style="color: var(--navy);">&#128203; Licensing Requirements</div>
+            <h3>TDLR Class A/B ACR License</h3>
+            <p style="margin-bottom: 0;">Texas requires HVAC contractors to hold a license issued by the <strong>Texas Department of Licensing and Regulation (TDLR) &mdash; Class A/B ACR License</strong>. Before hiring, verify your contractor's credentials through the <a href="https://www.tdlr.texas.gov/verify.htm" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">TDLR license lookup tool</a>. Licensed contractors carry insurance, pull permits correctly, and stand behind their work.</p>
+          </div>
+
         </div>
       </div>
     </section>
 
-    <!-- Services List -->
-    <section class="section" style="padding: 0;" id="services">
+    <!-- Rebates & Programs -->
+    <section class="section" id="rebates" style="padding: 72px 0; background: var(--gray-50);">
       <div class="container">
-        <div class="city-services">
-          <h2>HVAC Services in Texas</h2>
-          <ul>
-            <li>Emergency AC Repair in Texas</li>
-            <li>Central Air Conditioning Installation &amp; Replacement</li>
-            <li>Heat Pump Installation &amp; Service</li>
-            <li>Furnace Repair &amp; Heating Service</li>
-            <li>HVAC System Maintenance &amp; Tune-Ups</li>
-            <li>Ductwork Inspection, Cleaning &amp; Sealing</li>
-            <li>Indoor Air Quality &amp; Ventilation Solutions</li>
-          </ul>
+        <div style="max-width: 1100px; margin: 0 auto;">
+          <div style="text-align:center; margin-bottom: 32px;">
+            <span style="display:inline-block; font-size:0.78rem; font-weight:800; letter-spacing:0.12em; text-transform:uppercase; color:var(--blue); padding:6px 14px; background:#fff; border:1px solid #bee3f8; border-radius:999px; margin-bottom:16px;">&#128176; Rebates &amp; Programs</span>
+            <h2 style="font-size: 1.75rem; color: var(--navy); margin: 0;">Texas utility rebates &amp; state programs</h2>
+          </div>
+
+          <div class="precaution-cards" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 20px; align-items: stretch;">
+
+            <div class="precaution-card" style="display:flex; flex-direction:column; background:#fff; border:1px solid var(--gray-200); box-shadow: 0 4px 16px rgba(10,22,40,0.04);">
+              <div class="precaution-icon" style="color: var(--blue);">&#9889; Major Utility Providers</div>
+              <h3>Statewide TDU/REP coverage</h3>
+              <p>Major utility providers in Texas include <strong>Oncor Electric</strong>, <strong>CenterPoint Energy</strong>, and <strong>AEP Texas</strong>. Texas has a deregulated retail electricity market &mdash; your retail provider is separate from the TDU. Available rebate programs include <strong>Austin Energy Rebates</strong>, <strong>CPS Energy Rebates</strong>, and the <strong>ENERGY STAR Tax Holiday</strong>.</p>
+              <p style="margin-top: auto; padding-top: 8px; margin-bottom: 0;"><a href="https://www.energystar.gov/products/heating_cooling" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">ENERGY STAR Heating &amp; Cooling &rarr;</a></p>
+            </div>
+
+            <div class="precaution-card" style="display:flex; flex-direction:column; background:#fff; border:1px solid var(--gray-200); box-shadow: 0 4px 16px rgba(10,22,40,0.04);">
+              <div class="precaution-icon" style="color: var(--blue);">&#127970; State Energy Office</div>
+              <h3>Texas SECO &amp; HEAR rollout</h3>
+              <p>The <strong>State Energy Conservation Office (SECO)</strong> at the Texas Comptroller of Public Accounts coordinates HVAC rebates, weatherization assistance, and Inflation Reduction Act program administration in Texas. The federal Section 25C tax credit was terminated for installations after Dec 31, 2025 by OBBBA &mdash; State HEAR rebates and utility programs remain.</p>
+              <p style="margin-top: auto; padding-top: 8px; margin-bottom: 0;"><a href="https://seco.cpa.texas.gov" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">SECO &rarr;</a> &middot; <a href="https://www.dsireusa.org/" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">DSIRE Texas &rarr;</a></p>
+            </div>
+
+          </div>
+
+          <div style="max-width: 1100px; margin: 32px auto 0; background: linear-gradient(135deg, #fffbeb, #fef3c7); border: 1px solid var(--yellow); border-left: 5px solid var(--orange-dark); border-radius: var(--radius); padding: 20px 24px;">
+            <div style="display: flex; align-items: flex-start; gap: 16px;">
+              <div style="font-size: 1.6rem; line-height: 1; flex-shrink: 0;" aria-hidden="true">&#128203;</div>
+              <div>
+                <div style="font-family: var(--font-display); font-weight: 800; font-size: 1.05rem; color: var(--navy); margin-bottom: 6px;">Federal tax credits &mdash; important update for 2026</div>
+                <p style="margin: 0; color: var(--gray-700); line-height: 1.65;">The federal <strong>Section 25C Energy Efficient Home Improvement Credit</strong> was terminated for installations placed in service after Dec 31, 2025 by the One Big Beautiful Bill Act (Public Law 119-21). <strong>State HEAR rebates and utility programs remain in effect.</strong> See our <a href="../article-hvac-financing" style="color: var(--orange-dark); font-weight: 600;">HVAC financing options</a> for what's still available.</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Licensing -->
-    <section class="section" style="padding: 0;" id="licensing">
+    <!-- Common HVAC Issues - links to articles -->
+    <section class="section" style="padding: 72px 0; background:#fff;">
       <div class="container">
-        <div class="city-services" style="margin-bottom: 40px;">
-          <h2>HVAC Licensing Requirements in Texas</h2>
-          <p style="font-size: 1.05rem; line-height: 1.85; color: var(--gray-700);">Texas requires HVAC contractors to hold a license issued by the <strong>Texas Dept. of Licensing and Regulation (TDLR) — Class A/B ACR License</strong>. Before hiring, verify your contractor's credentials through the board's <a href="https://www.tdlr.texas.gov/verify.htm" style="color: var(--orange-dark); font-weight: 600;" target="_blank" rel="noopener">license lookup tool</a>. Licensed contractors carry insurance, pull permits correctly, and stand behind their work. See our <a href="../safety" style="color: var(--orange-dark); font-weight: 600;">safety tips</a> for more on what to verify before hiring.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Utilities & Rebates -->
-    <section class="section" style="padding: 0;">
-      <div class="container">
-        <div class="city-services" style="margin-bottom: 40px;">
-          <h2>Utility Companies &amp; HVAC Rebates in Texas</h2>
-          <p style="font-size: 1.05rem; line-height: 1.85; color: var(--gray-700);">The major utility providers in Texas include <strong>Oncor Electric</strong>, <strong>CenterPoint Energy</strong>, <strong>AEP Texas</strong>.</p>
-          <p style="font-size: 1.05rem; line-height: 1.85; color: var(--gray-700); margin-top: 16px;"><strong>Available rebate programs:</strong></p>
-          <ul>
-            <li><strong>Austin Energy Rebates</strong></li>
-            <li><strong>CPS Energy Rebates</strong></li>
-            <li><strong>ENERGY STAR Tax Holiday</strong></li>
-            <li><strong>Federal Tax Credits</strong> &#8212; may apply for qualifying high-efficiency installations; check <a href="https://www.energystar.gov/products/heating_cooling" target="_blank" rel="noopener" style="color: var(--orange-dark); font-weight: 600;">energystar.gov</a> for current amounts and eligibility</li>
-          </ul>
-          <p style="font-size: 1.05rem; line-height: 1.85; color: var(--gray-700); margin-top: 16px;">Contact your utility provider or HVAC contractor to confirm current eligibility and amounts. Learn about <a href="../article-hvac-financing" style="color: var(--orange-dark); font-weight: 600;">HVAC financing options</a>.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Cost Overview -->
-    <section class="section" style="padding: 0;" id="costs">
-      <div class="container">
-        <div class="city-services" style="margin-bottom: 40px;">
-          <h2>HVAC Installation Costs in Texas</h2>
-          <p style="font-size: 1.05rem; line-height: 1.85; color: var(--gray-700);">A standard central AC replacement in Texas typically costs <strong>$3,500–$8,000</strong>, and furnace installations run <strong>$2,500–$5,500</strong>. Costs vary by city, system size, efficiency rating, and installation complexity. Higher-efficiency units cost more upfront but lower monthly bills, especially given Texas's electricity rates. See our <a href="../costs" style="color: var(--orange-dark); font-weight: 600;">full HVAC cost guide</a> for detailed pricing breakdowns.</p>
+        <div style="max-width: 1000px; margin: 0 auto;">
+          <div style="text-align:center; margin-bottom: 32px;">
+            <span style="display:inline-block; font-size:0.78rem; font-weight:800; letter-spacing:0.12em; text-transform:uppercase; color:var(--navy); padding:6px 14px; background:var(--gray-50); border:1px solid var(--gray-200); border-radius:999px; margin-bottom:16px;">&#128295; Common Issues</span>
+            <h2 style="font-size: 1.75rem; color: var(--navy); margin: 0 0 14px;">Common HVAC issues in Texas</h2>
+            <p style="max-width: 720px; margin: 0 auto; font-size: 1.05rem; color: var(--gray-700); line-height: 1.7;">Cooling is the dominant HVAC demand in Texas. The most common emergency and troubleshooting topics:</p>
+          </div>
+          <div class="precaution-card" style="background:#fff; border:1px solid var(--gray-200); box-shadow: 0 4px 16px rgba(10,22,40,0.04);">
+            <ul style="margin: 0;">
+              <li><a href="../articles/complete-ac-troubleshooting-guide" style="color: var(--orange-dark); font-weight: 600;">Complete AC troubleshooting guide</a> &mdash; the full diagnostic framework for every AC failure mode</li>
+              <li><a href="../articles/ac-not-cooling-below-80" style="color: var(--orange-dark); font-weight: 600;">AC running but not cooling below 80&deg;?</a> &mdash; low refrigerant, weak capacitor, dirty coil, or undersized system</li>
+              <li><a href="../articles/ac-circuit-breaker-trips" style="color: var(--orange-dark); font-weight: 600;">AC circuit breaker keeps tripping</a> &mdash; failing compressor, weak capacitor, or dirty condenser coil</li>
+              <li><a href="../articles/ac-freezing-up-in-summer" style="color: var(--orange-dark); font-weight: 600;">AC freezing up in summer</a> &mdash; airflow restriction or refrigerant problem</li>
+              <li><a href="../articles/water-dripping-from-vent" style="color: var(--orange-dark); font-weight: 600;">Water dripping from ceiling vent</a> &mdash; clogged condensate drain or frozen-coil thaw</li>
+              <li><a href="../articles/ac-contactor-clicking" style="color: var(--orange-dark); font-weight: 600;">AC contactor clicking but nothing happens</a> &mdash; electrical fault in the outdoor unit</li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
@@ -556,43 +619,13 @@
       </div>
     </section>
 
-    <!-- Climate Hazards -->
-    <section class="section" style="padding: 0;">
+    <!-- Service Areas (Cities in Texas) -->
+    <section class="section" id="cities" style="padding: 72px 0; background: var(--gray-50);">
       <div class="container">
-        <div class="city-services" style="margin-bottom: 40px;">
-          <h2>Climate Hazards Affecting Texas HVAC Systems</h2>
-          <p style="font-size: 1.05rem; line-height: 1.85; color: var(--gray-700);">According to the FEMA National Risk Index and NOAA storm data, Texas faces elevated exposure to <strong>Hurricane</strong>, <strong>Tornado</strong>, and <strong>Extreme Heat</strong>. Each event damages or stresses residential HVAC systems in specific ways that an HVAC professional should diagnose after the fact.</p>
-          <ul>
-            <li><strong>Hurricane:</strong> Wind-driven debris bends condenser coil fins and post-storm flooding contaminates compressor electricals. Schedule a technician inspection after any named-storm landfall before restart.</li>
-            <li><strong>Tornado:</strong> Flying debris bends coil fins and fan blades on the outdoor unit. A technician assesses damage and determines whether the coil must be replaced.</li>
-            <li><strong>Extreme Heat:</strong> Compressor failures rise sharply when outdoor temperatures sustain above 105&deg;F. A technician should verify refrigerant charge and capacitor health before heat waves.</li>
-          </ul>
-          <p style="font-size: 0.9rem; color: var(--gray-700); margin-top: 20px;">Source: <a href="https://www.fema.gov/flood-maps/products-tools/national-risk-index" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark);">FEMA National Risk Index</a> and <a href="https://www.noaa.gov/climate" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark);">NOAA climate data</a>.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- State Energy Office Resources -->
-    <section class="section" style="padding: 0;">
-      <div class="container">
-        <div class="city-services" style="margin-bottom: 40px;">
-          <h2>Texas Energy Office and HVAC Rebate Resources</h2>
-          <p style="font-size: 1.05rem; line-height: 1.85; color: var(--gray-700);">For current HVAC rebates, energy-efficiency incentives, and federal Inflation Reduction Act (IRA) program coordination in Texas, consult these authoritative sources:</p>
-          <ul>
-            <li><strong>State Energy Conservation Office, Texas Comptroller of Public Accounts</strong> &mdash; <a href="https://seco.cpa.texas.gov" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">seco.cpa.texas.gov</a>. The state-level energy agency that coordinates HVAC rebates, weatherization assistance, and IRA program administration in Texas.</li>
-            <li><strong>DSIRE Texas listing</strong> &mdash; <a href="https://www.dsireusa.org/" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">dsireusa.org</a>. N.C. State University's comprehensive database of every federal, state, local, and utility incentive program. Enter your ZIP code on the homepage to see programs available to Texas homeowners.</li>
-            <li><strong>ENERGY STAR Heating &amp; Cooling Products</strong> &mdash; <a href="https://www.energystar.gov/products/heating_cooling" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">energystar.gov/products/heating_cooling</a>. The federal Section 25C tax credit was terminated for installations after Dec 31, 2025 by the One Big Beautiful Bill Act (Public Law 119-21). State HEAR rebates (rolling out through 2026) and utility rebates remain the primary federal-funded incentives.</li>
-          </ul>
-          <p style="font-size: 0.9rem; color: var(--gray-700); margin-top: 20px;">Source: <a href="https://www.naseo.org/state-energy-offices" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark);">NASEO State Energy Offices Directory</a> (National Association of State Energy Officials).</p>
-        </div>
-      </div>
-    </section>
-    <!-- Service Areas -->
-    <section class="section" style="padding: 0 0 48px;" id="cities">
-      <div class="container">
-        <div class="city-services" style="margin-bottom: 24px;">
-          <h2>Service Areas in Texas</h2>
-          <p style="font-size: 1.05rem; line-height: 1.85; color: var(--gray-700);">Cool Call Pro connects homeowners with HVAC professionals across Texas. Browse our local service pages for city-specific costs, permit offices, and contractor information.</p>
+        <div style="text-align:center; margin-bottom: 36px;">
+          <span style="display:inline-block; font-size:0.78rem; font-weight:800; letter-spacing:0.12em; text-transform:uppercase; color:var(--navy); padding:6px 14px; background:#fff; border:1px solid var(--gray-200); border-radius:999px; margin-bottom:16px;">&#128205; Service Areas</span>
+          <h2 style="font-size: 1.75rem; color: var(--navy); margin: 0 0 14px;">HVAC service areas across Texas</h2>
+          <p style="max-width: 720px; margin: 0 auto; font-size: 1.05rem; color: var(--gray-700); line-height: 1.7;">Cool Call Pro connects homeowners with independent HVAC professionals across Texas. Browse city pages for local costs, permit offices, and licensing details.</p>
         </div>
         <div class="city-grid">
           <a href="austin-tx" class="city-grid-card">
@@ -676,10 +709,13 @@
     </section>
 
     <!-- FAQs -->
-    <section class="section" id="faqs">
+    <section class="section" id="faqs" style="padding: 72px 0; background: var(--gray-50);">
       <div class="container" style="max-width: 800px;">
+        <div class="city-faq" style="text-align:center; margin-bottom: 36px;">
+          <span style="display:inline-block; font-size:0.78rem; font-weight:800; letter-spacing:0.12em; text-transform:uppercase; color:var(--navy); padding:6px 14px; background:#fff; border:1px solid var(--gray-200); border-radius:999px; margin-bottom:16px;">&#10067; Common Questions</span>
+          <h2 style="font-size: 1.75rem; color: var(--navy); margin: 0;">Frequently Asked Questions &mdash; Texas HVAC</h2>
+        </div>
         <div class="city-faq">
-          <h2>Frequently Asked Questions &#8212; Texas HVAC</h2>
           <div class="faq-list" style="margin-top: 24px;">
             <div class="faq-item">
               <button class="faq-q" aria-expanded="false">
@@ -762,10 +798,10 @@
 
 
     <!-- Neighboring States -->
-    <section class="section" style="padding: 32px 0 48px;">
+    <section class="section" style="padding: 72px 0; background:#fff;">
       <div class="container" style="max-width: 800px;">
         <div class="city-services" style="margin-bottom: 16px;">
-          <h2>Neighboring State HVAC Guides</h2>
+          <h2 style="text-align:center;">Neighboring State HVAC Guides</h2>
           <p style="font-size: 1.05rem; line-height: 1.85; color: var(--gray-700);">Also serving homeowners in states bordering Texas. HVAC licensing, SEER2 requirements, and rebate programs differ by state.</p>
         </div>
         <div class="neighbor-links">
