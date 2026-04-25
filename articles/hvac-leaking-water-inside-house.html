@@ -59,9 +59,6 @@
 
     <link rel="stylesheet" href="../css/style.min.css" />
     <link rel="dns-prefetch" href="https://www.googletagmanager.com">
-    <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="/fonts/outfit-latin.woff2" as="font" type="font/woff2" crossorigin>
-
     <!-- Article Schema -->
     <script type="application/ld+json">
     {
@@ -91,7 +88,62 @@
     "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": "https://coolcallpro.com/articles/hvac-leaking-water-inside-house"
-    }
+    },
+    "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [".tldr-box", ".faq-q", ".faq-a-inner"]
+    },
+    "about": [
+        {"@type": "Thing", "name": "Air handler", "sameAs": "https://en.wikipedia.org/wiki/Air_handler"},
+        {"@type": "Thing", "name": "Condensate pump", "sameAs": "https://en.wikipedia.org/wiki/Condensate_pump"},
+        {"@type": "Thing", "name": "Evaporator coil"},
+        {"@type": "Thing", "name": "Indoor mold", "sameAs": "https://www.epa.gov/mold/brief-guide-mold-moisture-and-your-home"}
+    ]
+}
+    </script>
+    <!-- HowTo Schema: stop-the-damage procedure -->
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to Limit Damage from an HVAC Water Leak",
+    "description": "Four-step homeowner-safe procedure to stop ongoing water damage when your HVAC system is leaking water indoors. Does not include diagnosis or repair — those steps require a qualified HVAC technician.",
+    "totalTime": "PT15M",
+    "tool": [
+        {"@type": "HowToTool", "name": "Towels or mop"},
+        {"@type": "HowToTool", "name": "Wet/dry vacuum (optional)"},
+        {"@type": "HowToTool", "name": "Shallow pan or bucket"}
+    ],
+    "step": [
+        {
+            "@type": "HowToStep",
+            "position": 1,
+            "name": "Turn off the AC at the thermostat",
+            "text": "Switch your thermostat to OFF — not FAN ONLY. This stops the system from producing more condensation while you contain the leak.",
+            "url": "https://coolcallpro.com/articles/hvac-leaking-water-inside-house#first-steps"
+        },
+        {
+            "@type": "HowToStep",
+            "position": 2,
+            "name": "Mop up standing water immediately",
+            "text": "Use towels, a mop, or a wet/dry vacuum to remove standing water. Pay extra attention to water near electrical outlets, the furnace, or the air handler. Do not step in standing water near electrical components.",
+            "url": "https://coolcallpro.com/articles/hvac-leaking-water-inside-house#first-steps"
+        },
+        {
+            "@type": "HowToStep",
+            "position": 3,
+            "name": "Move furniture and electronics away from the wet area",
+            "text": "Relocate anything that could be damaged by water or that could amplify mold growth, including rugs, electronics, and books.",
+            "url": "https://coolcallpro.com/articles/hvac-leaking-water-inside-house#first-steps"
+        },
+        {
+            "@type": "HowToStep",
+            "position": 4,
+            "name": "Place towels or a shallow pan under the drip point",
+            "text": "Capture any remaining water until a technician arrives. Do not attempt to open the air handler, touch refrigerant lines, or clear the drain line yourself — those tasks require a qualified HVAC technician.",
+            "url": "https://coolcallpro.com/articles/hvac-leaking-water-inside-house#first-steps"
+        }
+    ]
 }
     </script>
     <!-- Breadcrumb Schema -->
@@ -146,7 +198,7 @@
             "name": "How much does it cost to fix an HVAC water leak?",
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "A condensate drain line clearing costs $75 to $250. Replacing a cracked drain pan runs $150 to $450. If the leak is caused by a frozen evaporator coil, the repair depends on the root cause — a refrigerant recharge costs $150 to $500, while a coil replacement can run $900 to $2,500. A diagnostic service call typically costs $75 to $150, and many companies apply it toward the repair."
+                "text": "A condensate drain line clearing costs $75 to $250. Replacing a cracked drain pan runs $150 to $450. If the leak is caused by a frozen evaporator coil, the repair depends on the root cause — a refrigerant recharge costs $150 to $500, while a coil replacement can run $900 to $2,500. A diagnostic service call typically costs $65 to $150, and many companies apply it toward the repair."
             }
         },
         {
@@ -282,8 +334,8 @@
                         <div class="callout-box callout-danger">
                             <div class="callout-icon">&#9888;&#65039;</div>
                             <div class="callout-text">
-                                <strong>Electrical Hazard Warning</strong>
-                                <p><strong>Do not step in standing water near your HVAC system.</strong> Indoor air handlers and furnaces operate on 240V circuits. If water has reached the electrical panel, the air handler, or any exposed wiring, do not touch anything — turn off the breaker for the HVAC system from your main panel (if you can reach it safely) and call a technician immediately.</p>
+                                <strong>Kill the Power Before You Approach</strong>
+                                <p><strong>Do not step in standing water near your HVAC system.</strong> Indoor air handlers and furnaces operate on 240V circuits. If water has reached the electrical panel, the air handler, or any exposed wiring, do not touch anything — flip the breaker for the HVAC system off at your main panel (only if you can reach it without standing in water) and call a technician immediately.</p>
                             </div>
                         </div>
 
@@ -335,7 +387,7 @@
 
                         <p>A frozen coil is not a standalone problem — it is a symptom of something else:</p>
                         <ul>
-                            <li><strong>Low refrigerant</strong> — a leak in the refrigerant lines drops the coil temperature below freezing. This is a professional repair requiring leak detection and a recharge.</li>
+                            <li><strong>Low refrigerant</strong> — a leak in the refrigerant lines drops the coil temperature below freezing. <strong>Refrigerant work is federally regulated under EPA Section 608</strong> — only a technician with current Section 608 certification can legally recover, recharge, or service refrigerant. Ask the technician on the call to confirm they hold a Section 608 certification before they arrive.</li>
                             <li><strong>Restricted airflow</strong> — a clogged air filter, closed supply vents, or a failing blower motor reduces the warm air flowing over the coil, causing it to freeze. This is the same mechanism described in our guide on <a href="why-is-my-ac-blowing-warm-air">AC blowing warm air</a>.</li>
                             <li><strong>Failing blower motor</strong> — if the blower is running at reduced speed, there is not enough airflow to keep the coil above freezing.</li>
                         </ul>
@@ -421,7 +473,7 @@
                                     </tr>
                                     <tr>
                                         <td>Diagnostic service call</td>
-                                        <td class="price-cell">$75–$150</td>
+                                        <td class="price-cell">$65–$150</td>
                                         <td>—</td>
                                     </tr>
                                 </tbody>
@@ -467,7 +519,7 @@
                         <div class="faq-item">
                             <button class="faq-q" aria-expanded="false" aria-controls="faq-hvac-leaking-water-inside-house-3"><span>How much does it cost to fix an HVAC water leak?</span><span class="faq-icon"></span></button>
                             <div class="faq-a" id="faq-hvac-leaking-water-inside-house-3"><div class="faq-a-inner">
-                                <p>It depends on the cause. A condensate drain line clearing costs $75 to $250. Replacing a cracked drain pan runs $150 to $450. If the leak is caused by a frozen evaporator coil, the repair depends on the root cause — a refrigerant recharge costs $150 to $500, while a coil replacement can run $900 to $2,500. A diagnostic service call typically costs $75 to $150, and many companies apply it toward the repair.</p>
+                                <p>It depends on the cause. A condensate drain line clearing costs $75 to $250. Replacing a cracked drain pan runs $150 to $450. If the leak is caused by a frozen evaporator coil, the repair depends on the root cause — a refrigerant recharge costs $150 to $500, while a coil replacement can run $900 to $2,500. A diagnostic service call typically costs $65 to $150, and many companies apply it toward the repair.</p>
                             </div></div>
                         </div>
 
