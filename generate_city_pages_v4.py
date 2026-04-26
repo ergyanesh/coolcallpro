@@ -74,18 +74,22 @@ def trust_pill(city_e):
 
 
 def climate_pill():
+    # Use #1557b0 (not var(--blue)) so the small bold pill text passes WCAG
+    # 1.4.3 contrast (4.5:1+) on the #ebf8ff tinted background. var(--blue)
+    # = #1a73e8 on #ebf8ff is only 4.16:1 -- WCAG fail.
     return tag_pill(
         "Climate Profile",
-        "var(--blue)", "#ebf8ff", "#bee3f8",
+        "#1557b0", "#ebf8ff", "#bee3f8",
         icon_html="&#127777;&#65039;",
     )
 
 
 def localdata_pill():
     # Local data sits on var(--gray-50) → use #fff bg for the pill.
+    # See climate_pill() for why text color is #1557b0, not var(--blue).
     return tag_pill(
         "Primary Sources",
-        "var(--blue)", "#fff", "#bee3f8",
+        "#1557b0", "#fff", "#bee3f8",
         icon_html="&#128202;",
     )
 
