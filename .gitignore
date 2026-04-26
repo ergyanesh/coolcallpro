@@ -82,3 +82,6 @@ images/_preview.html
 images/_failed.txt
 
 .playwright-mcp/
+
+# Brainstorming visual-companion mockups (local-only)
+.superpowers/
