@@ -30,30 +30,31 @@
   <link rel="stylesheet" href="../css/style.min.css" />
   <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/outfit-latin.woff2" as="font" type="font/woff2" crossorigin>
+
   <!-- Google tag (gtag.js) - GA4 — deferred until first interaction for LCP -->
   <script>
-      (function() {
-          var loaded = false;
-          function loadGA() {
-              if (loaded) return;
-              loaded = true;
-              var s = document.createElement('script');
-              s.src = 'https://www.googletagmanager.com/gtag/js?id=G-WD0ND0K60Q';
-              s.async = true;
-              document.head.appendChild(s);
-              s.onload = function() {
-                  window.dataLayer = window.dataLayer || [];
-                  function gtag(){dataLayer.push(arguments);}
-                  window.gtag = gtag;
-                  gtag('js', new Date());
-                  gtag('config', 'G-WD0ND0K60Q');
-              };
-          }
-          ['click', 'scroll', 'touchstart', 'keydown'].forEach(function(evt) {
-              window.addEventListener(evt, loadGA, { once: true, passive: true });
-          });
-          setTimeout(loadGA, 4000);
-      })();
+    (function() {
+      var loaded = false;
+      function loadGA() {
+        if (loaded) return;
+        loaded = true;
+        var s = document.createElement('script');
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-WD0ND0K60Q';
+        s.async = true;
+        document.head.appendChild(s);
+        s.onload = function() {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          window.gtag = gtag;
+          gtag('js', new Date());
+          gtag('config', 'G-WD0ND0K60Q');
+        };
+      }
+      ['click', 'scroll', 'touchstart', 'keydown'].forEach(function(evt) {
+        window.addEventListener(evt, loadGA, { once: true, passive: true });
+      });
+      setTimeout(loadGA, 4000);
+    })();
   </script>
 
   <!-- Structured Data: BreadcrumbList + FAQPage + Organization -->
@@ -156,7 +157,9 @@
   }
   </script>
 
-  <style>@font-face{font-family:'Inter';font-style:normal;font-weight:400 900;font-display:swap;src:url('/fonts/inter-latin.woff2') format('woff2')}@font-face{font-family:'Outfit';font-style:normal;font-weight:400 800;font-display:swap;src:url('/fonts/outfit-latin.woff2') format('woff2')}.city-hero {
+  <style>
+    @font-face{font-family:'Inter';font-style:normal;font-weight:400 900;font-display:swap;src:url('/fonts/inter-latin.woff2') format('woff2')}@font-face{font-family:'Outfit';font-style:normal;font-weight:400 800;font-display:swap;src:url('/fonts/outfit-latin.woff2') format('woff2')}
+    .city-hero {
       background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 50%, var(--navy-mid) 100%);
       background-size: cover;
       background-position: center;
@@ -178,13 +181,6 @@
       margin: 0 auto;
       opacity: 0.9;
       line-height: 1.7;
-    }
-    .city-context {
-      font-size: 1.1rem;
-      line-height: 1.85;
-      color: var(--gray-700);
-      max-width: 760px;
-      margin: 0 auto 40px;
     }
     .city-services {
       max-width: 760px;
@@ -278,8 +274,8 @@
       <div class="container">
         <span class="section-tag" style="background: rgba(255,255,255,0.1); color: #fff;">&#128205; Houston, TX</span>
         <h1>24/7 AC Repair &amp; Emergency HVAC Service in Houston, TX</h1>
-        <p>Connect with an independent local HVAC pro now &mdash; 24/7 dispatch nationwide.</p>
-        <div class="article-meta-modern"><div class="meta-line meta-reviewed">Last reviewed <time datetime="2026-04-20">April 20, 2026</time></div></div>
+        <p>When summer humidity hits and your AC quits, every hour matters. Connect with an independent local HVAC pro now &mdash; 24/7 dispatch nationwide.</p>
+        <div class="article-meta-modern"><div class="meta-line meta-reviewed">Last reviewed <time datetime="2026-04-25">April 25, 2026</time></div></div>
         <div class="author-byline">
           <img src="../images/author-gyane.webp" alt="Gyanesh Gulshan" class="author-avatar-sm" loading="lazy" width="48" height="48" />
           <span>By <a href="../author-gyanesh">Gyanesh Gulshan</a> &mdash; Founder, Cool Call Pro</span>
@@ -326,13 +322,11 @@
             <h3>AC out, blowing warm, or iced over</h3>
             <p style="margin-bottom: 0;">Outdoor unit silent &middot; indoor blower running but warm air &middot; ice on the refrigerant lines &middot; short-cycling on/off. The most common cause is electrical (capacitor, contactor) or refrigerant &mdash; both require a technician.</p>
           </div>
-
           <div class="precaution-card precaution-danger">
             <div class="precaution-icon">&#128293; NO HEAT</div>
             <h3>Furnace not igniting or blowing cold</h3>
             <p style="margin-bottom: 0;">Furnace won't ignite &middot; blowing cold air &middot; short-cycling &middot; burning smell on first startup. <strong>If you smell gas, leave the building immediately and call 911 first.</strong></p>
           </div>
-
           <div class="precaution-card precaution-warning">
             <div class="precaution-icon">&#128167; WATER LEAK</div>
             <h3>Water dripping from vent or air handler</h3>
@@ -373,8 +367,8 @@
             <div class="wh-step-num" aria-hidden="true">
               <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
             </div>
-            <h3>TDLR-Licensed Network</h3>
-            <p>All HVAC contractors in Texas must hold a current Air Conditioning &amp; Refrigeration license issued by the <a href="https://www.tdlr.texas.gov/acr/acr.htm" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">Texas Department of Licensing and Regulation</a>. Verify any contractor's license before you hire.</p>
+            <h3>TX TDLR Air Conditioning &amp;amp</h3>
+            <p>All HVAC contractors in Texas should hold a current <strong>TX TDLR Air Conditioning &amp; Refrigeration Contractor License</strong>. Verify any contractor at the <a href="https://www.tdlr.texas.gov/verify.htm" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">Texas Dept. of Licensing and Regulation (TDLR) — Class A/B ACR License</a> before you hire.</p>
           </div>
 
         </div>
@@ -388,7 +382,7 @@
           <div style="text-align:center; margin-bottom: 36px;">
             <span style="display:inline-block; font-size:0.78rem; font-weight:800; letter-spacing:0.12em; text-transform:uppercase; color:var(--blue); padding:6px 14px; background:#ebf8ff; border:1px solid #bee3f8; border-radius:999px; margin-bottom:16px;">&#127777;&#65039; Climate Profile</span>
             <h2 style="font-size: 1.75rem; color: var(--navy); margin: 0 0 14px;">Houston's hot-humid climate &amp; your HVAC</h2>
-            <p style="max-width: 720px; margin: 0 auto; font-size: 1.05rem; color: var(--gray-700); line-height: 1.7;">Houston is a strongly cooling-dominated Zone 2A climate &mdash; AC runs 8&ndash;10 months of the year and humidity management is a year-round design consideration. Federal SEER2 14.3 minimum applies to new equipment in the Southeast region.</p>
+            <p style="max-width: 720px; margin: 0 auto; font-size: 1.05rem; color: var(--gray-700); line-height: 1.7;">This is a strongly cooling-dominated Zone 2A (Hot-Humid) climate &mdash; AC runs 8&ndash;10 months of the year and humidity management is a year-round design consideration. Federal SEER2 14.3 (Southeast Region) minimum applies to new equipment.</p>
           </div>
 
           <div class="precaution-cards" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-bottom: 40px;">
@@ -401,21 +395,21 @@
               <p style="font-size: 0.95rem; color: var(--gray-700); margin: 8px 0 0;">IECC zone (hot-humid)</p>
             </div>
             <div class="precaution-card" style="text-align:center; padding: 24px 16px; background:#fff; border:1px solid var(--gray-200); box-shadow: 0 4px 16px rgba(10,22,40,0.04);">
-              <div style="font-size: 2.4rem; font-weight: 800; color: var(--orange-dark); line-height: 1; font-family: var(--font-display);">3,287</div>
-              <p style="font-size: 0.95rem; color: var(--gray-700); margin: 8px 0 0;">Cooling degree days/yr</p>
+              <div style="font-size: 2.4rem; font-weight: 800; color: var(--orange-dark); line-height: 1; font-family: var(--font-display);">43&deg;F</div>
+              <p style="font-size: 0.95rem; color: var(--gray-700); margin: 8px 0 0;">Avg winter low</p>
             </div>
             <div class="precaution-card" style="text-align:center; padding: 24px 16px; background:#fff; border:1px solid var(--gray-200); box-shadow: 0 4px 16px rgba(10,22,40,0.04);">
-              <div style="font-size: 2.4rem; font-weight: 800; color: var(--orange-dark); line-height: 1; font-family: var(--font-display);">64.5%</div>
-              <p style="font-size: 0.95rem; color: var(--gray-700); margin: 8px 0 0;">Homes on electric heat</p>
+              <div style="font-size: 2.4rem; font-weight: 800; color: var(--orange-dark); line-height: 1; font-family: var(--font-display);">14.3</div>
+              <p style="font-size: 0.95rem; color: var(--gray-700); margin: 8px 0 0;">Federal SEER2 minimum</p>
             </div>
           </div>
 
-          <figure class="location-figure" style="margin: 0 auto;">
-            <img src="../images/cities/houston-tx.webp" alt="Houston, TX &mdash; local landmark photo" width="1352" height="900" loading="lazy" decoding="async" style="width: 100%; height: auto; border-radius: var(--radius); display: block;" />
-            <figcaption style="display: inline-block; margin-top: 12px; padding: 8px 14px; background: var(--gray-50); border: 1px solid var(--gray-100); border-radius: 999px; font-size: 0.78rem; color: var(--gray-600); line-height: 1.5;">
-              <span aria-hidden="true" style="margin-right: 6px;">&#128247;</span>Katie Haugland Brown &middot; <a href="https://creativecommons.org/licenses/by/2.0" target="_blank" rel="nofollow noopener">CC BY 2.0</a> via <a href="https://commons.wikimedia.org/wiki/File:Texas_medical_center.jpg" target="_blank" rel="nofollow noopener" style="color: var(--gray-700); text-decoration: underline;">Wikimedia Commons</a> &middot; <a href="../image-credits" style="color: var(--gray-700); text-decoration: underline;">credits</a>
-            </figcaption>
-          </figure>
+          <figure class="location-figure" style="margin: 0 auto 40px; max-width: 1100px;">
+          <img src="../images/cities/houston-tx.webp" alt="Houston, TX — local landmark photo" width="1352" height="900" loading="lazy" decoding="async" style="width: 100%; height: auto; border-radius: var(--radius); display: block;" />
+          <figcaption style="display: inline-block; margin-top: 12px; padding: 8px 14px; background: var(--gray-50); border: 1px solid var(--gray-100); border-radius: 999px; font-size: 0.78rem; color: var(--gray-600); line-height: 1.5;">
+            <span aria-hidden="true" style="margin-right: 6px;">&#128247;</span>Katie Haugland Brown &middot; <a href="https://creativecommons.org/licenses/by/2.0" target="_blank" rel="nofollow noopener">CC BY 2.0</a> via <a href="https://commons.wikimedia.org/wiki/File:Texas_medical_center.jpg" target="_blank" rel="nofollow noopener" style="color: var(--gray-700); text-decoration: underline;">Wikimedia Commons</a> &middot; <a href="../image-credits" style="color: var(--gray-700); text-decoration: underline;">credits</a>
+          </figcaption>
+        </figure>
 
           <p style="text-align:center; font-size: 0.92rem; color: var(--gray-500); margin-top: 24px;">Read our guide on <a href="../article-ac-summer" style="color: var(--orange-dark); font-weight: 600;">preparing your AC for summer</a>.</p>
         </div>
@@ -431,13 +425,12 @@
             <h2 style="font-size: 1.75rem; color: var(--navy); margin: 0;">HVAC in Houston, TX: local data &amp; sources</h2>
           </div>
 
-          <!-- Section intro: styled callout box mirroring the Federal Tax Credit banner (info variant) -->
           <div style="margin: 0 auto 32px; background: linear-gradient(135deg, #f7fafc, #edf2f7); border: 1px solid var(--gray-200); border-left: 5px solid var(--blue); border-radius: var(--radius); padding: 20px 24px;">
             <div style="display: flex; align-items: flex-start; gap: 16px;">
               <div style="font-size: 1.6rem; line-height: 1; flex-shrink: 0;" aria-hidden="true">&#128202;</div>
               <div>
                 <div style="font-family: var(--font-display); font-weight: 800; font-size: 1.05rem; color: var(--navy); margin-bottom: 6px;">About these primary sources</div>
-                <p style="margin: 0; color: var(--gray-700); line-height: 1.65;">Every numerical claim below links to the federal or state primary source containing the underlying value &mdash; NOAA climate normals, U.S. Census ACS, the Texas Department of Licensing and Regulation, and CenterPoint Energy's published rebate program.</p>
+                <p style="margin: 0; color: var(--gray-700); line-height: 1.65;">Every numerical claim below references a federal, state, or municipal primary source &mdash; NOAA climate normals, U.S. Census ACS, the Texas licensing authority, and your local utility's published rebate program.</p>
               </div>
             </div>
           </div>
@@ -447,34 +440,30 @@
             <div class="precaution-card" style="display:flex; flex-direction:column; background:#fff; border:1px solid var(--gray-200); box-shadow: 0 4px 16px rgba(10,22,40,0.04);">
               <div class="precaution-icon" style="color: var(--blue);">&#127777;&#65039; Climate Profile</div>
               <h3>NOAA NCEI 1991&ndash;2020 Normals</h3>
-              <p>Houston George Bush Intercontinental (Station USW00012960) records mean temperature 70.5&deg;F &middot; 51.84&Prime; annual rainfall &middot; <strong>3,287.7 cooling degree days</strong> vs only 1,266.1 heating degree days. The 2.6:1 CDD-to-HDD ratio defines Houston as strongly cooling-dominated. Sub-inch annual snowfall makes dehumidification a year-round design consideration.</p>
+              <p>Houston George Bush Intercontinental Airport (KIAH) is the NOAA reference station for the city. Per the <a href="https://www.ncei.noaa.gov/access/us-climate-normals/" target="_blank" rel="nofollow noopener">NOAA NCEI U.S. Climate Normals 1991&ndash;2020</a> (station USW00012960), Houston records an <strong>annual mean temperature of 70.5&deg;F</strong>, approximately <strong>3,287.7 annual cooling degree days</strong> against only 1,266.1 heating degree days, and a striking <strong>51.84 inches of annual precipitation</strong>. The 2.6:1 CDD-to-HDD ratio and sub-inch annual snowfall define Houston as a strongly cooling-dominated Zone 2A hot-humid climate where the AC system runs 8&ndash;10 months of the year and high dew points make dehumidification a year-round design consideration rather than a summer-only concern.</p>
               <p style="margin-top: auto; padding-top: 8px; margin-bottom: 0;"><a href="https://www.ncei.noaa.gov/access/us-climate-normals/" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">NOAA NCEI Climate Normals &rarr;</a></p>
             </div>
-
             <div class="precaution-card" style="display:flex; flex-direction:column; background:#fff; border:1px solid var(--gray-200); box-shadow: 0 4px 16px rgba(10,22,40,0.04);">
               <div class="precaution-icon" style="color: var(--blue);">&#127968; Housing Stock</div>
-              <h3>U.S. Census ACS 2023 5-Year</h3>
-              <p><strong>916,536 occupied housing units</strong> (Tables B25040 + B25035 for Houston city, Texas). Median year built 1981. Heating-fuel distribution: <strong>64.5% electricity</strong> dominates over only 33.2% natural gas &mdash; reflecting Houston's short heating season and the prevalence of heat-pump systems serving both heating and cooling loads from a single piece of outdoor equipment.</p>
-              <p style="margin-top: auto; padding-top: 8px; margin-bottom: 0;"><a href="https://api.census.gov/data/2023/acs/acs5?get=NAME,B25040_001E,B25040_002E,B25040_003E,B25040_004E,B25040_005E,B25040_006E,B25040_007E,B25040_008E,B25040_009E,B25040_010E&amp;for=place:35000&amp;in=state:48" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">Census ACS 2023 Data &rarr;</a></p>
+              <h3>U.S. Census ACS 2022 5-Year</h3>
+              <p>The <a href="https://api.census.gov/data/2023/acs/acs5?get=NAME,B25040_001E,B25040_002E,B25040_003E,B25040_004E,B25040_005E,B25040_006E,B25040_007E,B25040_008E,B25040_009E,B25040_010E&amp;for=place:35000&amp;in=state:48" target="_blank" rel="nofollow noopener">U.S. Census Bureau ACS 2023 5-year estimates</a> (Tables B25040 and B25035 for Houston city, Texas) report <strong>916,536 occupied housing units</strong> &mdash; one of the largest municipal housing stocks in the country &mdash; with a <strong>median year built of 1981</strong>. Heating-fuel distribution contradicts the typical &ldquo;Texas means gas&rdquo; assumption: <strong>64.5% electricity</strong> (591,293 units) dominates, with only <strong>33.2% utility natural gas</strong> (304,650 units). The electric-heat dominance reflects Houston&rsquo;s short heating season (just 1,266 HDD per year) and the prevalence of heat-pump systems that serve both the heating and cooling loads from a single piece of outdoor equipment. For 600,000+ Houston homes, the heat pump isn&rsquo;t an upgrade &mdash; it&rsquo;s already the status quo.</p>
+              <p style="margin-top: auto; padding-top: 8px; margin-bottom: 0;"><a href="https://api.census.gov/data/2023/acs/acs5?get=NAME,B25040_001E,B25040_002E,B25040_003E,B25040_004E,B25040_005E,B25040_006E,B25040_007E,B25040_008E,B25040_009E,B25040_010E&amp;for=place:35000&amp;in=state:48" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">Census ACS Data &rarr;</a></p>
             </div>
-
             <div class="precaution-card" style="display:flex; flex-direction:column; background:#fff; border:1px solid var(--gray-200); box-shadow: 0 4px 16px rgba(10,22,40,0.04);">
-              <div class="precaution-icon" style="color: var(--blue);">&#128203; ACR Contractor License</div>
-              <h3>Texas TDLR &mdash; verify before hire</h3>
-              <p>Every HVAC contractor in Houston must hold a current Air Conditioning and Refrigeration (ACR) Contractor license under <strong>Texas Occupations Code Chapter 1302</strong> and <strong>Texas Administrative Code Title 16 Chapter 75</strong>. Two classes distinguished by permitted equipment size. <strong>Verify the license number before authorizing any work.</strong></p>
-              <p style="margin-top: auto; padding-top: 8px; margin-bottom: 0;"><a href="https://www.tdlr.texas.gov/verify.htm" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">TDLR License Lookup &rarr;</a></p>
+              <div class="precaution-icon" style="color: var(--blue);">&#128203; Texas License</div>
+              <h3>Texas Dept. of Licensing &amp; Regulation</h3>
+              <p>Every HVAC contractor working in Houston must hold a current Air Conditioning and Refrigeration (ACR) Contractor license issued by the <a href="https://www.tdlr.texas.gov/acr/acr.htm" target="_blank" rel="nofollow noopener">Texas Department of Licensing and Regulation (TDLR)</a>. The licensing program is governed by <strong>Texas Occupations Code Chapter 1302</strong> (the Air Conditioning and Refrigeration Contractors Law) and <strong>Texas Administrative Code Title 16 Chapter 75</strong> (the implementing administrative rules). Texas ACR licenses are issued in two classes distinguished by permitted equipment size &mdash; residential/light-commercial contractors typically hold one class and large-commercial contractors hold the other. Verifying a contractor&rsquo;s active TDLR license before authorizing work is the baseline due-diligence step for every Houston homeowner; TDLR publishes a public license-lookup tool at tdlr.texas.gov.</p>
+              <p style="margin-top: auto; padding-top: 8px; margin-bottom: 0;"><a href="https://www.tdlr.texas.gov/acr/acr.htm" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">Texas License Lookup &rarr;</a></p>
             </div>
-
             <div class="precaution-card" style="display:flex; flex-direction:column; background:#fff; border:1px solid var(--gray-200); box-shadow: 0 4px 16px rgba(10,22,40,0.04);">
               <div class="precaution-icon" style="color: var(--blue);">&#128176; Local Rebates &amp; Permits</div>
-              <h3>CenterPoint, DSIRE, Houston Permitting</h3>
-              <p>Houston electricity is distributed by <strong>CenterPoint Energy</strong> (TDU); retail service comes from your chosen Retail Electric Provider under the Texas deregulated market. The <strong>CenterPoint Standard Offer Program</strong> typically pays up to $500/unit for qualifying high-efficiency equipment. Permit fees set by Houston Permitting Center (Mechanical Section, 832.394.8850); contact for the current schedule.</p>
-              <p style="margin-top: auto; padding-top: 8px; margin-bottom: 0;"><a href="https://www.dsireusa.org/" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">DSIRE Texas &rarr;</a> &middot; <a href="https://www.energystar.gov/products/energy_star_home_upgrade/clean_heating_cooling" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">ENERGY STAR Heating &amp; Cooling &rarr;</a></p>
+              <h3>DSIRE Database (NCSU + DOE)</h3>
+              <p>Houston&rsquo;s electricity distribution is handled by <strong>CenterPoint Energy</strong> (the Transmission and Distribution Utility), but <em>retail</em> electricity service is provided by a Retail Electric Provider (REP) chosen by the consumer under the Texas deregulated market. That means residential HVAC rebates in Houston are typically administered by your chosen REP, not by CenterPoint directly. The most reliable way to see current rebate dollar amounts is the <a href="https://www.energystar.gov/rebate-finder" target="_blank" rel="nofollow noopener">ENERGY STAR Rebate Finder (EPA)</a> filtered to your Houston ZIP code, or the <a href="https://www.dsireusa.org/" target="_blank" rel="nofollow noopener">DSIRE database</a> for Texas residential incentives. Permit fees for residential mechanical work are set by the <strong>Houston Permitting Center</strong> (Mechanical Section, 832.394.8850); contact the center directly for the current fee schedule as amounts are updated periodically. The federal Section 25C tax credit was terminated for installations after Dec 31, 2025 (OBBBA, P.L. 119-21) &mdash; the local incentives above remain active for 2026.</p>
+              <p style="margin-top: auto; padding-top: 8px; margin-bottom: 0;"><a href="https://www.energystar.gov/rebate-finder" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">ENERGY STAR &rarr;</a></p>
             </div>
 
           </div>
 
-          <!-- Federal tax credit info banner - intentional, styled, not orphaned -->
           <div style="max-width: 1100px; margin: 32px auto 0; background: linear-gradient(135deg, #fffbeb, #fef3c7); border: 1px solid var(--yellow); border-left: 5px solid var(--orange-dark); border-radius: var(--radius); padding: 20px 24px;">
             <div style="display: flex; align-items: flex-start; gap: 16px;">
               <div style="font-size: 1.6rem; line-height: 1; flex-shrink: 0;" aria-hidden="true">&#128203;</div>
@@ -501,7 +490,7 @@
             <div class="precaution-icon" style="color: var(--navy);">&#128295; Services in Houston</div>
             <h3>What our network covers</h3>
             <ul style="margin-top: 0; margin-bottom: 0;">
-              <li>Emergency AC Repair</li>
+              <li>Emergency AC Repair in Houston</li>
               <li>Humidity Control &amp; Dehumidification</li>
               <li>Central AC Installation &amp; Replacement</li>
               <li>HVAC System Maintenance &amp; Tune-Ups</li>
@@ -530,7 +519,7 @@
       <div class="container">
         <div style="max-width: 760px; margin: 0 auto; background:linear-gradient(135deg, var(--navy-deep), var(--navy)); color:#fff; padding: 32px; border-radius: var(--radius-lg); text-align:center; box-shadow: 0 12px 40px rgba(10,22,40,0.18);">
           <p style="font-size: 1.4rem; font-weight: 700; font-family: var(--font-display); color:#fff; margin-bottom: 10px;">Ready to talk to a Houston HVAC pro?</p>
-          <p style="margin-bottom: 22px; opacity: 0.85; font-size: 1rem;">Independent technicians &middot; 24/7 dispatch &middot; TDLR-verified network</p>
+          <p style="margin-bottom: 22px; opacity: 0.85; font-size: 1rem;">Independent technicians &middot; 24/7 dispatch &middot; TX TDLR Air Conditioning &amp-verified network</p>
           <a href="tel:+18445821795" class="btn btn-primary btn-lg btn-vibrate"><span class="phone-icon">&#128222;</span> Call Now &mdash; (844) 582-1795</a>
           <p style="font-size: 0.72rem; color: rgba(255,255,255,0.5); margin: 16px auto 0; max-width: 460px; line-height: 1.5;">Disclosure: We are a referral service and may receive compensation for qualified calls. Calls may be routed to an independent provider network and may be recorded. Pricing and availability vary by provider and location.</p>
         </div>

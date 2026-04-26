@@ -414,7 +414,7 @@ The 3 cards in the Emergency Lane are determined **purely** by `cities_updated.x
 | Zone 3A (Warm-Humid) | mixed-humid |
 | Zone 3B (Warm-Dry) | hot-dry |
 | Zone 3C (Warm-Marine) | coastal |
-| Zone 4A (Mixed-Humid) | mixed-humid (manual override per city — see ZONE_4A_DECISIONS in generator) |
+| Zone 4A (Mixed-Humid) | per-city override (see ZONE_4A_OVERRIDES table below) |
 | Zone 4B (Mixed-Dry) | mountain |
 | Zone 4C (Mixed-Marine) | coastal |
 | Zone 5A (Cool-Humid) | cold |
@@ -423,6 +423,15 @@ The 3 cards in the Emergency Lane are determined **purely** by `cities_updated.x
 | Zone 6B (Cold-Dry) | mountain |
 | Zone 7 (Very Cold) | subarctic |
 | Zone 8 (Subarctic) | subarctic |
+
+**Step 1b — Zone 4A per-city override** (the only manual override layer; everything else is pure Zone-to-Type). Northern Zone 4A cities (Mid-Atlantic, upper Midwest, NY/NJ) function as cold-climate from an HVAC perspective (winter heating dominates), so emergency cards prioritize NO HEAT + FROZEN PIPES. Southern Zone 4A cities (Southeast, Tennessee Valley) function as mixed-humid. This table is mirrored in `generate_city_pages_v3.py:177` (`ZONE_4A_DECISIONS`) and `scripts/qc_city_pages.py` (`ZONE_4A_OVERRIDES`) — keep all three in sync.
+
+| Zone 4A city | Override → |
+|---|---|
+| Akron, Baltimore, Buffalo, Cleveland, Columbus, Dayton, Des Moines, Fort Wayne, Indianapolis, Kansas City, Lincoln, Newark, New York City, Omaha, Philadelphia, Rochester, Syracuse, Toledo, Wichita, Wilmington | cold |
+| Charleston, Charlotte, Chattanooga, Knoxville, Lexington, Louisville, Nashville, Raleigh, Richmond, St. Louis, Virginia Beach, Washington, Winston-Salem | mixed-humid |
+
+Cities NOT in this table that hit Zone 4A → fall back to mixed-humid (the safe default).
 
 **Step 2 — climate type → 3 emergency cards:**
 

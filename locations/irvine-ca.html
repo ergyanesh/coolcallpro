@@ -30,30 +30,31 @@
   <link rel="stylesheet" href="../css/style.min.css" />
   <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/outfit-latin.woff2" as="font" type="font/woff2" crossorigin>
+
   <!-- Google tag (gtag.js) - GA4 — deferred until first interaction for LCP -->
   <script>
-      (function() {
-          var loaded = false;
-          function loadGA() {
-              if (loaded) return;
-              loaded = true;
-              var s = document.createElement('script');
-              s.src = 'https://www.googletagmanager.com/gtag/js?id=G-WD0ND0K60Q';
-              s.async = true;
-              document.head.appendChild(s);
-              s.onload = function() {
-                  window.dataLayer = window.dataLayer || [];
-                  function gtag(){dataLayer.push(arguments);}
-                  window.gtag = gtag;
-                  gtag('js', new Date());
-                  gtag('config', 'G-WD0ND0K60Q');
-              };
-          }
-          ['click', 'scroll', 'touchstart', 'keydown'].forEach(function(evt) {
-              window.addEventListener(evt, loadGA, { once: true, passive: true });
-          });
-          setTimeout(loadGA, 4000);
-      })();
+    (function() {
+      var loaded = false;
+      function loadGA() {
+        if (loaded) return;
+        loaded = true;
+        var s = document.createElement('script');
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-WD0ND0K60Q';
+        s.async = true;
+        document.head.appendChild(s);
+        s.onload = function() {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          window.gtag = gtag;
+          gtag('js', new Date());
+          gtag('config', 'G-WD0ND0K60Q');
+        };
+      }
+      ['click', 'scroll', 'touchstart', 'keydown'].forEach(function(evt) {
+        window.addEventListener(evt, loadGA, { once: true, passive: true });
+      });
+      setTimeout(loadGA, 4000);
+    })();
   </script>
 
   <!-- Structured Data: BreadcrumbList + FAQPage + Organization -->
@@ -156,7 +157,9 @@
   }
   </script>
 
-  <style>@font-face{font-family:'Inter';font-style:normal;font-weight:400 900;font-display:swap;src:url('/fonts/inter-latin.woff2') format('woff2')}@font-face{font-family:'Outfit';font-style:normal;font-weight:400 800;font-display:swap;src:url('/fonts/outfit-latin.woff2') format('woff2')}.city-hero {
+  <style>
+    @font-face{font-family:'Inter';font-style:normal;font-weight:400 900;font-display:swap;src:url('/fonts/inter-latin.woff2') format('woff2')}@font-face{font-family:'Outfit';font-style:normal;font-weight:400 800;font-display:swap;src:url('/fonts/outfit-latin.woff2') format('woff2')}
+    .city-hero {
       background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 50%, var(--navy-mid) 100%);
       background-size: cover;
       background-position: center;
@@ -174,17 +177,10 @@
     }
     .city-hero p {
       font-size: 1.15rem;
-      max-width: 620px;
+      max-width: 720px;
       margin: 0 auto;
       opacity: 0.9;
       line-height: 1.7;
-    }
-    .city-context {
-      font-size: 1.1rem;
-      line-height: 1.85;
-      color: var(--gray-700);
-      max-width: 760px;
-      margin: 0 auto 40px;
     }
     .city-services {
       max-width: 760px;
@@ -278,8 +274,8 @@
       <div class="container">
         <span class="section-tag" style="background: rgba(255,255,255,0.1); color: #fff;">&#128205; Irvine, CA</span>
         <h1>24/7 AC Repair &amp; Emergency HVAC Service in Irvine, CA</h1>
-        <p>Connect with independent local HVAC professionals in Irvine, California. Emergency AC repair, furnace service, and system installation available 24/7.</p>
-        <div class="article-meta-modern"><div class="meta-line meta-reviewed">Last reviewed <time datetime="2026-04-20">April 20, 2026</time></div></div>
+        <p>When the desert heat surges past 82&deg;F, your AC can't afford downtime. Connect with an independent local HVAC pro now &mdash; 24/7 dispatch nationwide.</p>
+        <div class="article-meta-modern"><div class="meta-line meta-reviewed">Last reviewed <time datetime="2026-04-25">April 25, 2026</time></div></div>
         <div class="author-byline">
           <img src="../images/author-gyane.webp" alt="Gyanesh Gulshan" class="author-avatar-sm" loading="lazy" width="48" height="48" />
           <span>By <a href="../author-gyanesh">Gyanesh Gulshan</a> &mdash; Founder, Cool Call Pro</span>
@@ -309,104 +305,236 @@
       </div>
     </div>
 
-    <!-- Local Context Paragraph -->
-    <section class="section" style="padding: 48px 0 0;">
+    <!-- EMERGENCY LANE -->
+    <section class="section" style="padding: 72px 0 64px; background:#fff;" id="emergency-lane">
       <div class="container">
-        <div class="city-context" style="max-width: 760px; margin: 0 auto 40px;">
-          <p>Serving <strong>318,683</strong> residents across <strong>Irvine, California</strong>, Cool Call Pro connects homeowners in <strong>Northwood, Woodbridge, Turtle Rock, University Park, Westpark</strong> with independent 24/7 HVAC technicians. Our referral network covers <strong>92620, 92604, 92612, 92606, 92618</strong> and surrounding areas. If your system is beyond repair, a standard AC replacement in the Irvine area typically runs <strong>$5,500–$9,500</strong>, and furnace installations average <strong>$3,000–$7,000</strong>. Your contractor should pull mechanical permits through the <strong>Community Development Dept. – Building &amp; Safety Division</strong>.</p>
+        <div style="text-align:center; margin-bottom: 36px;">
+          <span style="display:inline-block; font-size:0.78rem; font-weight:800; letter-spacing:0.12em; text-transform:uppercase; color:var(--red); padding:6px 14px; background:#fef2f2; border:1px solid #fed7d7; border-radius:999px; margin-bottom:16px;">&#128680; What's wrong right now?</span>
+          <h2 style="font-size: 1.75rem; color: var(--navy); margin: 0 0 22px;">Common Irvine HVAC emergencies</h2>
+          <a href="tel:+18445821795" class="btn btn-primary btn-lg btn-vibrate"><span class="phone-icon">&#128222;</span> Call Now &mdash; (844) 582-1795</a>
+          <p style="font-size: 0.9rem; color: var(--gray-500); margin: 12px 0 0;">24/7 dispatch &middot; Irvine-area network</p>
         </div>
 
-        <!-- Climate Context -->
-        <div class="city-services" style="margin-bottom: 40px;">
-          <h2>Desert Heat and Your HVAC: What Irvine Homeowners Need to Know</h2>
-          <p style="font-size: 1.05rem; line-height: 1.85; color: var(--gray-700);">When Irvine summers push past 82&deg;F, your air conditioner works harder than almost anywhere else in the country. The desert climate means low humidity but extreme heat, making proper system sizing critical&mdash;an undersized unit will run nonstop and fail prematurely. Winter lows around 47&deg;F mean you still need reliable heating for a few months each year. Located in Zone 3B (Warm-Dry), all new installations must meet SEER2 14.3 (Southwest Region) efficiency standards. Learn more about <a href="../article-spring-ac" style="color: var(--orange-dark); font-weight: 600;">preparing your AC before the heat arrives</a>.</p>
+        <div class="precaution-cards" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; max-width: 1100px; margin: 0 auto; align-items: stretch;">
+
+          <div class="precaution-card precaution-danger">
+            <div class="precaution-icon">&#10052;&#65039; NO AC</div>
+            <h3>AC out, blowing warm, or iced over</h3>
+            <p style="margin-bottom: 0;">Outdoor unit silent &middot; indoor blower running but warm air &middot; system short-cycling on/off in 100&deg;F+ heat. In Irvine's extreme heat, an AC failure becomes a habitability issue within hours &mdash; the most common culprits are electrical (capacitor, contactor, low refrigerant) and require a technician.</p>
+          </div>
+          <div class="precaution-card precaution-warning">
+            <div class="precaution-icon">&#9888;&#65039; STRANGE NOISES</div>
+            <h3>Banging, screaming, or grinding outdoor unit</h3>
+            <p style="margin-bottom: 0;">Loud bangs &middot; metal-on-metal screaming &middot; grinding from the condenser. In Irvine summers your outdoor unit runs at near-100% capacity for hours &mdash; failing fan motors, compressor bearings, and warped fan blades are common. Turn the system off and call before damage spreads to the compressor itself.</p>
+          </div>
+          <div class="precaution-card precaution-danger">
+            <div class="precaution-icon">&#128293; NO HEAT</div>
+            <h3>Furnace not igniting or blowing cold</h3>
+            <p style="margin-bottom: 0;">Furnace won't ignite &middot; heat pump blowing cold air on a 47&deg;F desert night &middot; short-cycling. Irvine's heating season is short but cold snaps still happen. <strong>If you smell gas, leave the building immediately and call 911 first.</strong></p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- TRUST STRIP -->
+    <section class="section" style="padding: 72px 0; background: var(--gray-50);">
+      <div class="container">
+        <div style="text-align:center; margin-bottom: 36px;">
+          <span style="display:inline-block; font-size:0.78rem; font-weight:800; letter-spacing:0.12em; text-transform:uppercase; color:var(--navy); padding:6px 14px; background:#fff; border:1px solid var(--gray-200); border-radius:999px; margin-bottom:16px;">&#128205; The Irvine Network</span>
+          <h2 style="font-size: 1.75rem; color: var(--navy); margin: 0;">About the Cool Call Pro Irvine network</h2>
         </div>
 
-        <figure class="location-figure" style="margin: 0 auto 40px; max-width: 1100px;">
+        <div class="wh-steps" style="max-width: 1100px; margin: 0 auto;">
+
+          <div class="wh-step">
+            <div class="wh-step-num" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <h3>24/7 Irvine Dispatch</h3>
+            <p>Independent HVAC providers offering round-the-clock emergency response across the Irvine metro &mdash; including weekends and holidays. Overnight surcharges are set by the individual provider.</p>
+          </div>
+
+          <div class="wh-step">
+            <div class="wh-step-num" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <h3>Irvine Metro Coverage</h3>
+            <p>Independent providers across major Irvine neighborhoods, routed to your area by current availability. The full ZIP-level coverage detail is in the <a href="#services" style="color: var(--orange-dark); font-weight: 600;">Services &amp; service area</a> section below.</p>
+          </div>
+
+          <div class="wh-step">
+            <div class="wh-step-num" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h3>State License Required</h3>
+            <p>All HVAC contractors in California should hold a current <strong>State License Required (CA CSLB - C-20 HVAC License)</strong>. Verify any contractor at the <a href="https://www2.cslb.ca.gov/onlineservices/checklicenseII/checklicense.aspx" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">Contractors State License Board (CSLB) — C-20 License</a> before you hire.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CLIMATE + PHOTO (combined section, white background) -->
+    <section class="section" style="padding: 72px 0; background:#fff;">
+      <div class="container">
+        <div style="max-width: 1100px; margin: 0 auto;">
+          <div style="text-align:center; margin-bottom: 36px;">
+            <span style="display:inline-block; font-size:0.78rem; font-weight:800; letter-spacing:0.12em; text-transform:uppercase; color:var(--blue); padding:6px 14px; background:#ebf8ff; border:1px solid #bee3f8; border-radius:999px; margin-bottom:16px;">&#127777;&#65039; Climate Profile</span>
+            <h2 style="font-size: 1.75rem; color: var(--navy); margin: 0 0 14px;">Irvine's hot-dry desert climate &amp; your HVAC</h2>
+            <p style="max-width: 720px; margin: 0 auto; font-size: 1.05rem; color: var(--gray-700); line-height: 1.7;">This is among the most cooling-dominated U.S. climates &mdash; very high cooling-degree-day totals and many days at or above 100&deg;F. Federal SEER2 14.3 (Southwest Region) minimum applies. Proper sizing is critical &mdash; an undersized unit will run nonstop and fail prematurely.</p>
+          </div>
+
+          <div class="precaution-cards" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-bottom: 40px;">
+            <div class="precaution-card" style="text-align:center; padding: 24px 16px; background:#fff; border:1px solid var(--gray-200); box-shadow: 0 4px 16px rgba(10,22,40,0.04);">
+              <div style="font-size: 2.4rem; font-weight: 800; color: var(--orange-dark); line-height: 1; font-family: var(--font-display);">82&deg;F</div>
+              <p style="font-size: 0.95rem; color: var(--gray-700); margin: 8px 0 0;">Avg summer high</p>
+            </div>
+            <div class="precaution-card" style="text-align:center; padding: 24px 16px; background:#fff; border:1px solid var(--gray-200); box-shadow: 0 4px 16px rgba(10,22,40,0.04);">
+              <div style="font-size: 2.4rem; font-weight: 800; color: var(--orange-dark); line-height: 1; font-family: var(--font-display);">3B</div>
+              <p style="font-size: 0.95rem; color: var(--gray-700); margin: 8px 0 0;">IECC zone (hot-dry desert)</p>
+            </div>
+            <div class="precaution-card" style="text-align:center; padding: 24px 16px; background:#fff; border:1px solid var(--gray-200); box-shadow: 0 4px 16px rgba(10,22,40,0.04);">
+              <div style="font-size: 2.4rem; font-weight: 800; color: var(--orange-dark); line-height: 1; font-family: var(--font-display);">47&deg;F</div>
+              <p style="font-size: 0.95rem; color: var(--gray-700); margin: 8px 0 0;">Avg winter low</p>
+            </div>
+            <div class="precaution-card" style="text-align:center; padding: 24px 16px; background:#fff; border:1px solid var(--gray-200); box-shadow: 0 4px 16px rgba(10,22,40,0.04);">
+              <div style="font-size: 2.4rem; font-weight: 800; color: var(--orange-dark); line-height: 1; font-family: var(--font-display);">14.3</div>
+              <p style="font-size: 0.95rem; color: var(--gray-700); margin: 8px 0 0;">Federal SEER2 minimum</p>
+            </div>
+          </div>
+
+          <figure class="location-figure" style="margin: 0 auto 40px; max-width: 1100px;">
           <img src="../images/cities/irvine-ca.webp" alt="Irvine City Hall building displays American flag." width="1445" height="900" loading="lazy" decoding="async" style="width: 100%; height: auto; border-radius: var(--radius); display: block;" />
           <figcaption style="display: inline-block; margin-top: 12px; padding: 8px 14px; background: var(--gray-50); border: 1px solid var(--gray-100); border-radius: 999px; font-size: 0.78rem; color: var(--gray-600); line-height: 1.5;">
             <span aria-hidden="true" style="margin-right: 6px;">&#128247;</span>Azusa Tarn &middot; <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank" rel="nofollow noopener">CC BY-SA 4.0</a> via <a href="https://commons.wikimedia.org/wiki/File:Irvine_City_Hall.jpg" target="_blank" rel="nofollow noopener" style="color: var(--gray-700); text-decoration: underline;">Wikimedia Commons</a> &middot; <a href="../image-credits" style="color: var(--gray-700); text-decoration: underline;">credits</a>
           </figcaption>
         </figure>
 
-        <!-- Phase 6: Researched per-city factual block (primary-source citations) -->
-        <div class="city-services" id="local-data" style="margin-bottom: 40px;">
-          <h2>HVAC in Irvine, CA: Local Data &amp; Context</h2>
-          <p style="font-size: 1.05rem; line-height: 1.85; color: var(--gray-700);">The figures below come from federal and state primary sources &mdash; NOAA Climate Normals, U.S. Census ACS estimates, and IRS tax-credit guidance. Every claim links to the source document containing the underlying number or language.</p>
-
-<h3 style="font-size: 1.2rem; color: var(--navy); margin-top: 24px;">Climate Profile (NOAA Station KSNA)</h3>
-
-<p style="font-size: 1.05rem; line-height: 1.85; color: var(--gray-700);">John Wayne Airport (KSNA) is the nearest official NOAA reference station serving the Irvine area. Per the <a href="https://www.ncei.noaa.gov/access/us-climate-normals/" target="_blank" rel="nofollow noopener">NOAA NCEI U.S. Climate Normals 1991&ndash;2020</a> (station USW00093134), the area records an <strong>annual mean temperature of 65.8&deg;F</strong>, an <strong>average annual maximum of 74.8&deg;F</strong> against an annual minimum of 56.8&deg;F, approximately <strong>1,005.1 annual heating degree days</strong> against <strong>1,295.7 cooling degree days</strong>, and an annual precipitation normal of <strong>14.25 inches</strong>. The roughly 1.3:1 CDD-to-HDD ratio reflects a mild Mediterranean climate &mdash; both heating and cooling loads are moderate by national standards, and neither dominates the annual HVAC budget the way they do in extreme-climate cities.</p>
-
-<h3 style="font-size: 1.2rem; color: var(--navy); margin-top: 24px;">Housing Stock &amp; Heating-Fuel Distribution</h3>
-
-<p style="font-size: 1.05rem; line-height: 1.85; color: var(--gray-700);">The <a href="https://api.census.gov/data/2023/acs/acs5?get=NAME,B25040_001E,B25040_002E,B25040_003E,B25040_004E,B25040_005E,B25040_006E,B25040_007E,B25040_008E,B25040_009E,B25040_010E&amp;for=place:36770&amp;in=state:06" target="_blank" rel="nofollow noopener">U.S. Census Bureau ACS 2023 5-year estimates</a> (Tables B25040 and B25035 for Irvine city, California) report <strong>111,979 occupied housing units</strong> with a <strong>median year built of 2001</strong> &mdash; <strong>the newest housing stock of any project city</strong>. Heating-fuel distribution: <strong>60.1% utility natural gas</strong> (67,267 units), <strong>35.6% electricity</strong> (39,810 units), <strong>859 homes using solar energy</strong> (0.8%), and <strong>1,549 homes using no fuel at all</strong> (1.4%). The relatively high solar and no-fuel shares reflect both the mild climate and Irvine&rsquo;s master-planned community development with modern construction standards.</p>
-
-<h3 style="font-size: 1.2rem; color: var(--navy); margin-top: 24px;">Mild Climate &amp; Equipment Sizing (Zone 3B Warm-Dry)</h3>
-
-<p style="font-size: 1.05rem; line-height: 1.85; color: var(--gray-700);">Per <a href="https://www.energy.gov/energysaver/heat-and-cool" target="_blank" rel="nofollow noopener">U.S. Department of Energy Energy Saver guidance</a>, Zone 3B warm-dry climates like coastal Orange County produce moderate cooling loads with low humidity. The 14.25-inch annual precipitation and dry air mean latent (moisture) loads are minimal &mdash; sensible cooling capacity and SEER2 efficiency are the primary performance metrics. The moderate HDD/CDD profile also makes Irvine ideal heat-pump territory: standard air-source heat pumps operate near peak efficiency year-round without the extreme-temperature penalties seen in continental climates.</p>
-
-<h3 style="font-size: 1.2rem; color: var(--navy); margin-top: 24px;">California HVAC Contractor Licensing (CSLB C-20)</h3>
-
-<p style="font-size: 1.05rem; line-height: 1.85; color: var(--gray-700);">California requires HVAC contractors to hold a <strong>C-20 Warm-Air Heating, Ventilating and Air-Conditioning (HVAC) License</strong> issued by the California Contractors State License Board (CSLB). The CSLB administers examinations and issues licenses statewide. Verify a specific contractor&rsquo;s current CSLB C-20 license status before contracting.</p>
-
-<h3 style="font-size: 1.2rem; color: var(--navy); margin-top: 24px;">SCE Rebates &amp; TECH Clean California</h3>
-
-<p style="font-size: 1.05rem; line-height: 1.85; color: var(--gray-700);">Southern California Edison (SCE) administers the Home Performance Plus program and participates in the TECH Clean California initiative for residential HVAC electrification in its Irvine service territory. Contact SCE directly for the current heat pump, smart thermostat, and central AC rebate amounts. SCE rebates pair with the federal IRS Section 25C credit described below.</p>
-
-<h3 style="font-size: 1.2rem; color: var(--navy); margin-top: 24px;">Permit Fees</h3>
-
-<p style="font-size: 1.05rem; line-height: 1.85; color: var(--gray-700);">Mechanical/HVAC permit fees in Irvine are set by the Community Development Department, Building &amp; Safety Division. Contact the Division directly for the current mechanical permit fee schedule.</p>
-
-<h3 style="font-size: 1.2rem; color: var(--navy); margin-top: 24px;">Federal Tax Credits — Status After OBBBA (2026)</h3>
-
-<p style="font-size: 1.05rem; line-height: 1.85; color: var(--gray-700);">The federal <a href="https://www.irs.gov/credits-deductions/energy-efficient-home-improvement-credit" target="_blank" rel="nofollow noopener">Energy Efficient Home Improvement Credit (IRS Section 25C)</a> was <strong>terminated for property placed in service after Dec 31, 2025</strong> by the One Big Beautiful Bill Act (Public Law 119-21, signed July 4, 2025). HVAC equipment installed in 2026 does not qualify for the federal credit. If your HVAC was installed by Dec 31, 2025, you may still claim the credit on your 2025 tax return. For 2026 installations, focus on state Home Electrification and Appliance Rebates (HEAR) programs and your local utility&rsquo;s rebates &mdash; check the <a href="https://www.energystar.gov/rebate-finder" target="_blank" rel="nofollow noopener">ENERGY STAR Rebate Finder</a> for current programs in your ZIP.</p>
+          <p style="text-align:center; font-size: 0.92rem; color: var(--gray-500); margin-top: 24px;">Read our guide on <a href="../article-spring-ac" style="color: var(--orange-dark); font-weight: 600;">preparing your AC before the heat arrives</a>.</p>
         </div>
+      </div>
+    </section>
 
-        <!-- ZIP Codes & Neighborhoods (surfaced from xlsx data) -->
-        <div class="city-services" id="neighborhoods" style="margin-bottom: 40px;">
-          <h2>ZIP Codes &amp; Neighborhoods Served in Irvine, CA</h2>
-          <p style="font-size: 1.05rem; line-height: 1.85; color: var(--gray-700);">Our referral network connects homeowners across Irvine&rsquo;s neighborhoods with independent HVAC professionals. Service verification available via <a href="tel:+18445821795" style="color: var(--orange-dark); font-weight: 600;">(844) 582-1795</a>.</p>
-          <ul class="neighborhood-grid">
-            <li><strong>Northwood</strong> &mdash; ZIP 92620</li>
-            <li><strong>Woodbridge</strong> &mdash; ZIP 92604</li>
-            <li><strong>Turtle Rock</strong> &mdash; ZIP 92612</li>
-            <li><strong>University Park</strong> &mdash; ZIP 92606</li>
-            <li><strong>Westpark</strong> &mdash; ZIP 92618</li>
-          </ul>
+    <!-- LOCAL DATA 2x2 CARD GRID -->
+    <section class="section" id="local-data" style="padding: 72px 0; background: var(--gray-50);">
+      <div class="container">
+        <div style="max-width: 1100px; margin: 0 auto;">
+          <div style="text-align:center; margin-bottom: 32px;">
+            <span style="display:inline-block; font-size:0.78rem; font-weight:800; letter-spacing:0.12em; text-transform:uppercase; color:var(--blue); padding:6px 14px; background:#fff; border:1px solid #bee3f8; border-radius:999px; margin-bottom:16px;">&#128202; Primary Sources</span>
+            <h2 style="font-size: 1.75rem; color: var(--navy); margin: 0;">HVAC in Irvine, CA: local data &amp; sources</h2>
+          </div>
+
+          <div style="margin: 0 auto 32px; background: linear-gradient(135deg, #f7fafc, #edf2f7); border: 1px solid var(--gray-200); border-left: 5px solid var(--blue); border-radius: var(--radius); padding: 20px 24px;">
+            <div style="display: flex; align-items: flex-start; gap: 16px;">
+              <div style="font-size: 1.6rem; line-height: 1; flex-shrink: 0;" aria-hidden="true">&#128202;</div>
+              <div>
+                <div style="font-family: var(--font-display); font-weight: 800; font-size: 1.05rem; color: var(--navy); margin-bottom: 6px;">About these primary sources</div>
+                <p style="margin: 0; color: var(--gray-700); line-height: 1.65;">Every numerical claim below references a federal, state, or municipal primary source &mdash; NOAA climate normals, U.S. Census ACS, the California licensing authority, and your local utility's published rebate program.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="precaution-cards" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 20px; align-items: stretch;">
+
+            <div class="precaution-card" style="display:flex; flex-direction:column; background:#fff; border:1px solid var(--gray-200); box-shadow: 0 4px 16px rgba(10,22,40,0.04);">
+              <div class="precaution-icon" style="color: var(--blue);">&#127777;&#65039; Climate Profile</div>
+              <h3>NOAA NCEI 1991&ndash;2020 Normals</h3>
+              <p>John Wayne Airport (KSNA) is the nearest official NOAA reference station serving the Irvine area. Per the <a href="https://www.ncei.noaa.gov/access/us-climate-normals/" target="_blank" rel="nofollow noopener">NOAA NCEI U.S. Climate Normals 1991&ndash;2020</a> (station USW00093134), the area records an <strong>annual mean temperature of 65.8&deg;F</strong>, an <strong>average annual maximum of 74.8&deg;F</strong> against an annual minimum of 56.8&deg;F, approximately <strong>1,005.1 annual heating degree days</strong> against <strong>1,295.7 cooling degree days</strong>, and an annual precipitation normal of <strong>14.25 inches</strong>. The roughly 1.3:1 CDD-to-HDD ratio reflects a mild Mediterranean climate &mdash; both heating and cooling loads are moderate by national standards, and neither dominates the annual HVAC budget the way they do in extreme-climate cities.</p>
+              <p style="margin-top: auto; padding-top: 8px; margin-bottom: 0;"><a href="https://www.ncei.noaa.gov/access/us-climate-normals/" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">NOAA NCEI Climate Normals &rarr;</a></p>
+            </div>
+            <div class="precaution-card" style="display:flex; flex-direction:column; background:#fff; border:1px solid var(--gray-200); box-shadow: 0 4px 16px rgba(10,22,40,0.04);">
+              <div class="precaution-icon" style="color: var(--blue);">&#127968; Housing Stock</div>
+              <h3>U.S. Census ACS 2022 5-Year</h3>
+              <p>The <a href="https://api.census.gov/data/2023/acs/acs5?get=NAME,B25040_001E,B25040_002E,B25040_003E,B25040_004E,B25040_005E,B25040_006E,B25040_007E,B25040_008E,B25040_009E,B25040_010E&amp;for=place:36770&amp;in=state:06" target="_blank" rel="nofollow noopener">U.S. Census Bureau ACS 2023 5-year estimates</a> (Tables B25040 and B25035 for Irvine city, California) report <strong>111,979 occupied housing units</strong> with a <strong>median year built of 2001</strong> &mdash; <strong>the newest housing stock of any project city</strong>. Heating-fuel distribution: <strong>60.1% utility natural gas</strong> (67,267 units), <strong>35.6% electricity</strong> (39,810 units), <strong>859 homes using solar energy</strong> (0.8%), and <strong>1,549 homes using no fuel at all</strong> (1.4%). The relatively high solar and no-fuel shares reflect both the mild climate and Irvine&rsquo;s master-planned community development with modern construction standards.</p>
+              <p style="margin-top: auto; padding-top: 8px; margin-bottom: 0;"><a href="https://api.census.gov/data/2023/acs/acs5?get=NAME,B25040_001E,B25040_002E,B25040_003E,B25040_004E,B25040_005E,B25040_006E,B25040_007E,B25040_008E,B25040_009E,B25040_010E&amp;for=place:36770&amp;in=state:06" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">Census ACS Data &rarr;</a></p>
+            </div>
+            <div class="precaution-card" style="display:flex; flex-direction:column; background:#fff; border:1px solid var(--gray-200); box-shadow: 0 4px 16px rgba(10,22,40,0.04);">
+              <div class="precaution-icon" style="color: var(--blue);">&#128203; California License</div>
+              <h3>California Licensing Authority</h3>
+              <p>California requires HVAC contractors to hold a <strong>C-20 Warm-Air Heating, Ventilating and Air-Conditioning (HVAC) License</strong> issued by the California Contractors State License Board (CSLB). The CSLB administers examinations and issues licenses statewide. Verify a specific contractor&rsquo;s current CSLB C-20 license status before contracting. <strong>Primary source:</strong> <a href="https://www2.cslb.ca.gov/onlineservices/checklicenseII/checklicense.aspx" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">Contractors State License Board (CSLB) — C-20 License</a>.</p>
+              <p style="margin-top: auto; padding-top: 8px; margin-bottom: 0;"><a href="https://www2.cslb.ca.gov/onlineservices/checklicenseII/checklicense.aspx" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">Contractors State License Board (CSLB) — C-20 License &rarr;</a></p>
+            </div>
+            <div class="precaution-card" style="display:flex; flex-direction:column; background:#fff; border:1px solid var(--gray-200); box-shadow: 0 4px 16px rgba(10,22,40,0.04);">
+              <div class="precaution-icon" style="color: var(--blue);">&#128176; Local Rebates &amp; Permits</div>
+              <h3>Utility &amp; Permit Sources</h3>
+              <p>Southern California Edison (SCE) administers the Home Performance Plus program and participates in the TECH Clean California initiative for residential HVAC electrification in its Irvine service territory. Contact SCE directly for the current heat pump, smart thermostat, and central AC rebate amounts. <strong>Primary source:</strong> <a href="https://www.dsireusa.org/" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">DSIRE &mdash; California</a>.</p>
+              <p>Mechanical/HVAC permit fees in Irvine are set by the Community Development Department, Building &amp; Safety Division. Contact the Division directly for the current mechanical permit fee schedule.</p>
+              <p style="margin-top: auto; padding-top: 8px; margin-bottom: 0;"><a href="https://www.dsireusa.org/" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">DSIRE &mdash; California &rarr;</a></p>
+            </div>
+
+          </div>
+
+          <div style="max-width: 1100px; margin: 32px auto 0; background: linear-gradient(135deg, #fffbeb, #fef3c7); border: 1px solid var(--yellow); border-left: 5px solid var(--orange-dark); border-radius: var(--radius); padding: 20px 24px;">
+            <div style="display: flex; align-items: flex-start; gap: 16px;">
+              <div style="font-size: 1.6rem; line-height: 1; flex-shrink: 0;" aria-hidden="true">&#128203;</div>
+              <div>
+                <div style="font-family: var(--font-display); font-weight: 800; font-size: 1.05rem; color: var(--navy); margin-bottom: 6px;">Federal tax credits &mdash; important update for 2026</div>
+                <p style="margin: 0; color: var(--gray-700); line-height: 1.65;">The federal <strong>Section 25C Energy Efficient Home Improvement Credit</strong> was terminated for installations placed in service after Dec 31, 2025 by the One Big Beautiful Bill Act (Public Law 119-21). <strong>State HEAR rebates and utility programs remain in effect.</strong> See our <a href="../article-hvac-financing" style="color: var(--orange-dark); font-weight: 600;">HVAC financing options</a> for what's still available.</p>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
+    </section>
 
-        <!-- Services List -->
-        <div class="city-services" id="services">
-          <h2>HVAC Services in Irvine, CA</h2>
-          <ul>
+    <!-- SERVICES + ZIPS 2-COLUMN ROW -->
+    <section class="section" id="services" style="padding: 72px 0; background:#fff;">
+      <div class="container">
+        <div style="text-align:center; margin-bottom: 36px;">
+          <span style="display:inline-block; font-size:0.78rem; font-weight:800; letter-spacing:0.12em; text-transform:uppercase; color:var(--navy); padding:6px 14px; background:var(--gray-50); border:1px solid var(--gray-200); border-radius:999px; margin-bottom:16px;">&#128295; Coverage</span>
+          <h2 style="font-size: 1.75rem; color: var(--navy); margin: 0;">Services &amp; service area</h2>
+        </div>
+        <div class="precaution-cards" style="max-width: 1000px; margin: 0 auto; display:grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 20px; align-items: stretch;">
+
+          <div class="precaution-card" style="display:flex; flex-direction:column; background:#fff; border:1px solid var(--gray-200); box-shadow: 0 4px 16px rgba(10,22,40,0.04);">
+            <div class="precaution-icon" style="color: var(--navy);">&#128295; Services in Irvine</div>
+            <h3>What our network covers</h3>
+            <ul style="margin-top: 0; margin-bottom: 0;">
               <li>Emergency AC Repair in Irvine</li>
               <li>Desert-Climate AC Sizing &amp; Installation</li>
               <li>Evaporative-to-Refrigerated Cooling Conversion</li>
               <li>Furnace Repair &amp; Winter Heating Service in Irvine</li>
               <li>Ductwork Inspection, Cleaning &amp; Sealing</li>
-          </ul>
-        </div>
+            </ul>
+          </div>
 
-        <!-- Licensing & Trust -->
-        <div class="city-services" style="margin-bottom: 40px;">
-          <h2>HVAC Licensing &amp; Permits in Irvine, CA</h2>
-          <p style="font-size: 1.05rem; line-height: 1.85; color: var(--gray-700);">Before hiring any HVAC contractor in California, verify they hold the proper <strong>State License Required (CA CSLB - C-20 HVAC License)</strong>. Verify any contractor's license at the <a href="https://www2.cslb.ca.gov/onlineservices/checklicenseII/checklicense.aspx" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">Contractors State License Board (CSLB) — C-20 License</a>. Licensed contractors carry insurance, pull permits correctly, and stand behind their work. For Irvine residents, your local permit office is <strong>Community Development Dept. – Building &amp; Safety Division</strong>&mdash;any major installation should have a permit on file. See our <a href="../costs" style="color: var(--orange-dark); font-weight: 600;">HVAC cost guide</a> for detailed pricing breakdowns. For full statewide licensing details, see our <a href="california" style="color: var(--orange-dark); font-weight: 600;">California HVAC guide</a>.</p>
-        </div>
+          <div class="precaution-card" id="neighborhoods" style="display:flex; flex-direction:column; background:#fff; border:1px solid var(--gray-200); box-shadow: 0 4px 16px rgba(10,22,40,0.04);">
+            <div class="precaution-icon" style="color: var(--navy);">&#128205; ZIPs &amp; Neighborhoods</div>
+            <h3>Where we connect homeowners</h3>
+            <ul style="margin-top: 0; margin-bottom: 0;">
+              <li><strong>Northwood</strong> &mdash; ZIP 92620</li>
+              <li><strong>Woodbridge</strong> &mdash; ZIP 92604</li>
+              <li><strong>Turtle Rock</strong> &mdash; ZIP 92612</li>
+              <li><strong>University Park</strong> &mdash; ZIP 92606</li>
+              <li><strong>Westpark</strong> &mdash; ZIP 92618</li>
+            </ul>
+          </div>
 
-        <!-- Rebates & Incentives -->
-        <div class="city-services" style="margin-bottom: 48px;">
-          <h2>HVAC Rebates &amp; Incentives in Irvine, CA</h2>
-          <p style="font-size: 1.05rem; line-height: 1.85; color: var(--gray-700);">Irvine homeowners served by <strong>SCE (Southern California Edison)</strong> may qualify for savings through <strong>SCE Home Performance Plus / TECH Clean California</strong> when installing qualifying high-efficiency equipment. For all California incentives including state and federal programs, see the <a href="https://www.dsireusa.org/" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">DSIRE database (N.C. State University / U.S. DOE)</a> or the <a href="https://www.energystar.gov/rebate-finder" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">ENERGY STAR Rebate Finder (EPA)</a>. The federal Section 25C credit (<a href="https://www.irs.gov/credits-deductions/energy-efficient-home-improvement-credit" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">Energy Efficient Home Improvement Credit</a>) was terminated for installations placed in service after Dec 31, 2025 by the One Big Beautiful Bill Act (P.L. 119-21); for 2026 installs focus on state HEAR rebates and utility programs. Learn about <a href="../article-hvac-financing" style="color: var(--orange-dark); font-weight: 600;">HVAC financing options</a>.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- MID-PAGE CTA -->
+    <section style="padding: 64px 0; background: var(--gray-50);">
+      <div class="container">
+        <div style="max-width: 760px; margin: 0 auto; background:linear-gradient(135deg, var(--navy-deep), var(--navy)); color:#fff; padding: 32px; border-radius: var(--radius-lg); text-align:center; box-shadow: 0 12px 40px rgba(10,22,40,0.18);">
+          <p style="font-size: 1.4rem; font-weight: 700; font-family: var(--font-display); color:#fff; margin-bottom: 10px;">Ready to talk to a Irvine HVAC pro?</p>
+          <p style="margin-bottom: 22px; opacity: 0.85; font-size: 1rem;">Independent technicians &middot; 24/7 dispatch &middot; State License Required-verified network</p>
+          <a href="tel:+18445821795" class="btn btn-primary btn-lg btn-vibrate"><span class="phone-icon">&#128222;</span> Call Now &mdash; (844) 582-1795</a>
+          <p style="font-size: 0.72rem; color: rgba(255,255,255,0.5); margin: 16px auto 0; max-width: 460px; line-height: 1.5;">Disclosure: We are a referral service and may receive compensation for qualified calls. Calls may be routed to an independent provider network and may be recorded. Pricing and availability vary by provider and location.</p>
         </div>
       </div>
     </section>
 
     <!-- FAQs -->
-    <section class="section" id="faqs">
+    <section class="section" id="faqs" style="padding: 72px 0; background:#fff;">
       <div class="container" style="max-width: 800px;">
+        <div class="city-faq" style="text-align:center; margin-bottom: 36px;">
+          <span style="display:inline-block; font-size:0.78rem; font-weight:800; letter-spacing:0.12em; text-transform:uppercase; color:var(--navy); padding:6px 14px; background:var(--gray-50); border:1px solid var(--gray-200); border-radius:999px; margin-bottom:16px;">&#10067; Common Questions</span>
+          <h2 style="font-size: 1.75rem; color: var(--navy); margin: 0;">Frequently Asked Questions &mdash; Irvine, CA</h2>
+        </div>
         <div class="city-faq">
-          <h2>Frequently Asked Questions &#8212; Irvine, CA</h2>
           <div class="faq-list" style="margin-top: 24px;">
             <div class="faq-item">
               <button class="faq-q" aria-expanded="false">
@@ -474,10 +602,10 @@
     </section>
 
     <!-- Nearby Service Areas -->
-    <section class="section" style="padding: 32px 0 48px;">
+    <section class="section" style="padding: 72px 0; background: var(--gray-50);">
       <div class="container" style="max-width: 800px;">
         <div class="city-services">
-          <h2>Nearby HVAC Service Areas</h2>
+          <h2 style="text-align:center;">Nearby HVAC Service Areas</h2>
           <ul>
             <li><a href="los-angeles-ca">Los Angeles, CA</a></li>
             <li><a href="san-diego-ca">San Diego, CA</a></li>

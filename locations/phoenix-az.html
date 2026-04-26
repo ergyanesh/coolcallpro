@@ -30,30 +30,31 @@
   <link rel="stylesheet" href="../css/style.min.css" />
   <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/outfit-latin.woff2" as="font" type="font/woff2" crossorigin>
+
   <!-- Google tag (gtag.js) - GA4 — deferred until first interaction for LCP -->
   <script>
-      (function() {
-          var loaded = false;
-          function loadGA() {
-              if (loaded) return;
-              loaded = true;
-              var s = document.createElement('script');
-              s.src = 'https://www.googletagmanager.com/gtag/js?id=G-WD0ND0K60Q';
-              s.async = true;
-              document.head.appendChild(s);
-              s.onload = function() {
-                  window.dataLayer = window.dataLayer || [];
-                  function gtag(){dataLayer.push(arguments);}
-                  window.gtag = gtag;
-                  gtag('js', new Date());
-                  gtag('config', 'G-WD0ND0K60Q');
-              };
-          }
-          ['click', 'scroll', 'touchstart', 'keydown'].forEach(function(evt) {
-              window.addEventListener(evt, loadGA, { once: true, passive: true });
-          });
-          setTimeout(loadGA, 4000);
-      })();
+    (function() {
+      var loaded = false;
+      function loadGA() {
+        if (loaded) return;
+        loaded = true;
+        var s = document.createElement('script');
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-WD0ND0K60Q';
+        s.async = true;
+        document.head.appendChild(s);
+        s.onload = function() {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          window.gtag = gtag;
+          gtag('js', new Date());
+          gtag('config', 'G-WD0ND0K60Q');
+        };
+      }
+      ['click', 'scroll', 'touchstart', 'keydown'].forEach(function(evt) {
+        window.addEventListener(evt, loadGA, { once: true, passive: true });
+      });
+      setTimeout(loadGA, 4000);
+    })();
   </script>
 
   <!-- Structured Data: BreadcrumbList + FAQPage + Organization -->
@@ -160,7 +161,9 @@
   }
   </script>
 
-  <style>@font-face{font-family:'Inter';font-style:normal;font-weight:400 900;font-display:swap;src:url('/fonts/inter-latin.woff2') format('woff2')}@font-face{font-family:'Outfit';font-style:normal;font-weight:400 800;font-display:swap;src:url('/fonts/outfit-latin.woff2') format('woff2')}.city-hero {
+  <style>
+    @font-face{font-family:'Inter';font-style:normal;font-weight:400 900;font-display:swap;src:url('/fonts/inter-latin.woff2') format('woff2')}@font-face{font-family:'Outfit';font-style:normal;font-weight:400 800;font-display:swap;src:url('/fonts/outfit-latin.woff2') format('woff2')}
+    .city-hero {
       background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 50%, var(--navy-mid) 100%);
       background-size: cover;
       background-position: center;
@@ -182,13 +185,6 @@
       margin: 0 auto;
       opacity: 0.9;
       line-height: 1.7;
-    }
-    .city-context {
-      font-size: 1.1rem;
-      line-height: 1.85;
-      color: var(--gray-700);
-      max-width: 760px;
-      margin: 0 auto 40px;
     }
     .city-services {
       max-width: 760px;
@@ -282,8 +278,8 @@
       <div class="container">
         <span class="section-tag" style="background: rgba(255,255,255,0.1); color: #fff;">&#128205; Phoenix, AZ</span>
         <h1>24/7 AC Repair &amp; Emergency HVAC Service in Phoenix, AZ</h1>
-        <p>Connect with an independent local HVAC pro now &mdash; 24/7 dispatch nationwide.</p>
-        <div class="article-meta-modern"><div class="meta-line meta-reviewed">Last reviewed <time datetime="2026-04-20">April 20, 2026</time></div></div>
+        <p>When the desert heat surges past 107&deg;F, your AC can't afford downtime. Connect with an independent local HVAC pro now &mdash; 24/7 dispatch nationwide.</p>
+        <div class="article-meta-modern"><div class="meta-line meta-reviewed">Last reviewed <time datetime="2026-04-25">April 25, 2026</time></div></div>
         <div class="author-byline">
           <img src="../images/author-gyane.webp" alt="Gyanesh Gulshan" class="author-avatar-sm" loading="lazy" width="48" height="48" />
           <span>By <a href="../author-gyanesh">Gyanesh Gulshan</a> &mdash; Founder, Cool Call Pro</span>
@@ -313,7 +309,7 @@
       </div>
     </div>
 
-    <!-- EMERGENCY LANE (hot-dry variant: NO AC · STRANGE NOISES · NO HEAT) -->
+    <!-- EMERGENCY LANE -->
     <section class="section" style="padding: 72px 0 64px; background:#fff;" id="emergency-lane">
       <div class="container">
         <div style="text-align:center; margin-bottom: 36px;">
@@ -327,20 +323,18 @@
 
           <div class="precaution-card precaution-danger">
             <div class="precaution-icon">&#10052;&#65039; NO AC</div>
-            <h3>AC out, blowing warm, or short-cycling</h3>
-            <p style="margin-bottom: 0;">Outdoor unit silent &middot; indoor blower running but warm air &middot; system short-cycling on/off in 100&deg;F+ heat. In Phoenix's extreme heat, an AC failure becomes a habitability code issue (Phoenix City Code 39-5) within hours &mdash; the most common culprits are electrical (capacitor, contactor, low refrigerant) and require a technician.</p>
+            <h3>AC out, blowing warm, or iced over</h3>
+            <p style="margin-bottom: 0;">Outdoor unit silent &middot; indoor blower running but warm air &middot; system short-cycling on/off in 100&deg;F+ heat. In Phoenix's extreme heat, an AC failure becomes a habitability issue within hours &mdash; the most common culprits are electrical (capacitor, contactor, low refrigerant) and require a technician.</p>
           </div>
-
           <div class="precaution-card precaution-warning">
             <div class="precaution-icon">&#9888;&#65039; STRANGE NOISES</div>
             <h3>Banging, screaming, or grinding outdoor unit</h3>
             <p style="margin-bottom: 0;">Loud bangs &middot; metal-on-metal screaming &middot; grinding from the condenser. In Phoenix summers your outdoor unit runs at near-100% capacity for hours &mdash; failing fan motors, compressor bearings, and warped fan blades are common. Turn the system off and call before damage spreads to the compressor itself.</p>
           </div>
-
           <div class="precaution-card precaution-danger">
             <div class="precaution-icon">&#128293; NO HEAT</div>
-            <h3>Furnace or heat pump not heating</h3>
-            <p style="margin-bottom: 0;">Furnace won't ignite &middot; heat pump blowing cold air on a 40&deg;F desert night &middot; short-cycling. Phoenix's heating season is short (Dec&ndash;Feb) but cold snaps still happen. <strong>If you smell gas, leave the building immediately and call 911 first.</strong></p>
+            <h3>Furnace not igniting or blowing cold</h3>
+            <p style="margin-bottom: 0;">Furnace won't ignite &middot; heat pump blowing cold air on a 46&deg;F desert night &middot; short-cycling. Phoenix's heating season is short but cold snaps still happen. <strong>If you smell gas, leave the building immediately and call 911 first.</strong></p>
           </div>
 
         </div>
@@ -362,7 +356,7 @@
               <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
             </div>
             <h3>24/7 Phoenix Dispatch</h3>
-            <p>Independent HVAC providers offering round-the-clock emergency response across the Phoenix metro &mdash; including weekends, holidays, and the brutal summer overnight heat. Overnight surcharges are set by the individual provider.</p>
+            <p>Independent HVAC providers offering round-the-clock emergency response across the Phoenix metro &mdash; including weekends and holidays. Overnight surcharges are set by the individual provider.</p>
           </div>
 
           <div class="wh-step">
@@ -370,15 +364,15 @@
               <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
             </div>
             <h3>Phoenix Metro Coverage</h3>
-            <p>Independent providers across the Phoenix metro &mdash; from the central core to the Foothills &mdash; routed to your area by current availability. The full ZIP-level coverage detail is in the <a href="#services" style="color: var(--orange-dark); font-weight: 600;">Services &amp; service area</a> section below.</p>
+            <p>Independent providers across major Phoenix neighborhoods, routed to your area by current availability. The full ZIP-level coverage detail is in the <a href="#services" style="color: var(--orange-dark); font-weight: 600;">Services &amp; service area</a> section below.</p>
           </div>
 
           <div class="wh-step">
             <div class="wh-step-num" aria-hidden="true">
               <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
             </div>
-            <h3>AZ ROC R-39 Licensed</h3>
-            <p>All HVAC contractors in Arizona must hold a current R-39 (Air Conditioning &amp; Refrigeration) license issued by the <a href="https://roc.az.gov/license-classifications" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">Arizona Registrar of Contractors</a>. Verify any contractor's license before you hire.</p>
+            <h3>AZ ROC HVAC/R Contractor License</h3>
+            <p>All HVAC contractors in Arizona should hold a current <strong>AZ ROC HVAC/R Contractor License</strong>. Verify any contractor at the <a href="https://roc.az.gov/" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">Arizona Registrar of Contractors</a> before you hire.</p>
           </div>
 
         </div>
@@ -392,34 +386,34 @@
           <div style="text-align:center; margin-bottom: 36px;">
             <span style="display:inline-block; font-size:0.78rem; font-weight:800; letter-spacing:0.12em; text-transform:uppercase; color:var(--blue); padding:6px 14px; background:#ebf8ff; border:1px solid #bee3f8; border-radius:999px; margin-bottom:16px;">&#127777;&#65039; Climate Profile</span>
             <h2 style="font-size: 1.75rem; color: var(--navy); margin: 0 0 14px;">Phoenix's hot-dry desert climate &amp; your HVAC</h2>
-            <p style="max-width: 720px; margin: 0 auto; font-size: 1.05rem; color: var(--gray-700); line-height: 1.7;">Phoenix is among the most cooling-dominated U.S. cities &mdash; over 4,700 cooling degree days per year and 111+ days at or above 100&deg;F. Federal SEER2 14.3 + EER2 11.7 (Southwest Region) minimum applies. Proper sizing is critical &mdash; an undersized unit will run nonstop and fail prematurely.</p>
+            <p style="max-width: 720px; margin: 0 auto; font-size: 1.05rem; color: var(--gray-700); line-height: 1.7;">This is among the most cooling-dominated U.S. climates &mdash; very high cooling-degree-day totals and many days at or above 100&deg;F. Federal SEER2 14.3 + EER2 11.7 (Southwest Region) minimum applies. Proper sizing is critical &mdash; an undersized unit will run nonstop and fail prematurely.</p>
           </div>
 
           <div class="precaution-cards" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-bottom: 40px;">
             <div class="precaution-card" style="text-align:center; padding: 24px 16px; background:#fff; border:1px solid var(--gray-200); box-shadow: 0 4px 16px rgba(10,22,40,0.04);">
-              <div style="font-size: 2.4rem; font-weight: 800; color: var(--orange-dark); line-height: 1; font-family: var(--font-display);">106&deg;F</div>
-              <p style="font-size: 0.95rem; color: var(--gray-700); margin: 8px 0 0;">July avg daily high</p>
+              <div style="font-size: 2.4rem; font-weight: 800; color: var(--orange-dark); line-height: 1; font-family: var(--font-display);">107&deg;F</div>
+              <p style="font-size: 0.95rem; color: var(--gray-700); margin: 8px 0 0;">Avg summer high</p>
             </div>
             <div class="precaution-card" style="text-align:center; padding: 24px 16px; background:#fff; border:1px solid var(--gray-200); box-shadow: 0 4px 16px rgba(10,22,40,0.04);">
               <div style="font-size: 2.4rem; font-weight: 800; color: var(--orange-dark); line-height: 1; font-family: var(--font-display);">2B</div>
-              <p style="font-size: 0.95rem; color: var(--gray-700); margin: 8px 0 0;">IECC zone (hot-dry)</p>
+              <p style="font-size: 0.95rem; color: var(--gray-700); margin: 8px 0 0;">IECC zone (hot-dry desert)</p>
             </div>
             <div class="precaution-card" style="text-align:center; padding: 24px 16px; background:#fff; border:1px solid var(--gray-200); box-shadow: 0 4px 16px rgba(10,22,40,0.04);">
-              <div style="font-size: 2.4rem; font-weight: 800; color: var(--orange-dark); line-height: 1; font-family: var(--font-display);">4,765</div>
-              <p style="font-size: 0.95rem; color: var(--gray-700); margin: 8px 0 0;">Cooling degree days/yr</p>
+              <div style="font-size: 2.4rem; font-weight: 800; color: var(--orange-dark); line-height: 1; font-family: var(--font-display);">46&deg;F</div>
+              <p style="font-size: 0.95rem; color: var(--gray-700); margin: 8px 0 0;">Avg winter low</p>
             </div>
             <div class="precaution-card" style="text-align:center; padding: 24px 16px; background:#fff; border:1px solid var(--gray-200); box-shadow: 0 4px 16px rgba(10,22,40,0.04);">
-              <div style="font-size: 2.4rem; font-weight: 800; color: var(--orange-dark); line-height: 1; font-family: var(--font-display);">74.6%</div>
-              <p style="font-size: 0.95rem; color: var(--gray-700); margin: 8px 0 0;">Homes on electric heat</p>
+              <div style="font-size: 2.4rem; font-weight: 800; color: var(--orange-dark); line-height: 1; font-family: var(--font-display);">14.3</div>
+              <p style="font-size: 0.95rem; color: var(--gray-700); margin: 8px 0 0;">Federal SEER2 minimum</p>
             </div>
           </div>
 
-          <figure class="location-figure" style="margin: 0 auto;">
-            <img src="../images/cities/phoenix-az.webp" alt="Skyline view of Phoenix &mdash; looking northeast from a helicopter, from above the 4th Avenue Jail &mdash; Phoenix, AZ" width="1165" height="900" loading="lazy" decoding="async" style="width: 100%; height: auto; border-radius: var(--radius); display: block;" />
-            <figcaption style="display: inline-block; margin-top: 12px; padding: 8px 14px; background: var(--gray-50); border: 1px solid var(--gray-100); border-radius: 999px; font-size: 0.78rem; color: var(--gray-600); line-height: 1.5;">
-              <span aria-hidden="true" style="margin-right: 6px;">&#128247;</span>DPPed &middot; <a href="https://creativecommons.org/licenses/by-sa/3.0" target="_blank" rel="nofollow noopener">CC BY-SA 3.0</a> via <a href="https://commons.wikimedia.org/wiki/File:Downtown_Phoenix_Aerial_Looking_Northeast.jpg" target="_blank" rel="nofollow noopener" style="color: var(--gray-700); text-decoration: underline;">Wikimedia Commons</a> &middot; <a href="../image-credits" style="color: var(--gray-700); text-decoration: underline;">credits</a>
-            </figcaption>
-          </figure>
+          <figure class="location-figure" style="margin: 0 auto 40px; max-width: 1100px;">
+          <img src="../images/cities/phoenix-az.webp" alt="Skyline view of Phoenix — looking northeast from a helicopter, from above the 4th Avenue Jail — Phoenix, AZ" width="1165" height="900" loading="lazy" decoding="async" style="width: 100%; height: auto; border-radius: var(--radius); display: block;" />
+          <figcaption style="display: inline-block; margin-top: 12px; padding: 8px 14px; background: var(--gray-50); border: 1px solid var(--gray-100); border-radius: 999px; font-size: 0.78rem; color: var(--gray-600); line-height: 1.5;">
+            <span aria-hidden="true" style="margin-right: 6px;">&#128247;</span>DPPed &middot; <a href="https://creativecommons.org/licenses/by-sa/3.0" target="_blank" rel="nofollow noopener">CC BY-SA 3.0</a> via <a href="https://commons.wikimedia.org/wiki/File:Downtown_Phoenix_Aerial_Looking_Northeast.jpg" target="_blank" rel="nofollow noopener" style="color: var(--gray-700); text-decoration: underline;">Wikimedia Commons</a> &middot; <a href="../image-credits" style="color: var(--gray-700); text-decoration: underline;">credits</a>
+          </figcaption>
+        </figure>
 
           <p style="text-align:center; font-size: 0.92rem; color: var(--gray-500); margin-top: 24px;">Read our guide on <a href="../article-spring-ac" style="color: var(--orange-dark); font-weight: 600;">preparing your AC before the heat arrives</a>.</p>
         </div>
@@ -440,7 +434,7 @@
               <div style="font-size: 1.6rem; line-height: 1; flex-shrink: 0;" aria-hidden="true">&#128202;</div>
               <div>
                 <div style="font-family: var(--font-display); font-weight: 800; font-size: 1.05rem; color: var(--navy); margin-bottom: 6px;">About these primary sources</div>
-                <p style="margin: 0; color: var(--gray-700); line-height: 1.65;">Every numerical claim below links to the federal, state, or municipal primary source containing the underlying value &mdash; NOAA climate normals, U.S. Census ACS, the Arizona Registrar of Contractors, the Phoenix City Code (Cooling Ordinance), and the City of Phoenix Planning &amp; Development fee schedule.</p>
+                <p style="margin: 0; color: var(--gray-700); line-height: 1.65;">Every numerical claim below references a federal, state, or municipal primary source &mdash; NOAA climate normals, U.S. Census ACS, the Arizona licensing authority, and your local utility's published rebate program.</p>
               </div>
             </div>
           </div>
@@ -450,29 +444,26 @@
             <div class="precaution-card" style="display:flex; flex-direction:column; background:#fff; border:1px solid var(--gray-200); box-shadow: 0 4px 16px rgba(10,22,40,0.04);">
               <div class="precaution-icon" style="color: var(--blue);">&#127777;&#65039; Climate Profile</div>
               <h3>NOAA NCEI 1991&ndash;2020 Normals</h3>
-              <p>Phoenix Sky Harbor (Station USW00023183) records mean temperature 75.6&deg;F &middot; <strong>4,764.6 cooling degree days</strong> vs only 874.3 heating degree days &mdash; a 5.4:1 CDD-to-HDD ratio among the most cooling-dominated of any U.S. city. <strong>111.3 days/year at or above 100&deg;F</strong>; July average daily high 106.5&deg;F.</p>
+              <p>Phoenix Sky Harbor International Airport (KPHX) is the NOAA reference station for the city. Per the <a href="https://www.ncei.noaa.gov/access/us-climate-normals/" target="_blank" rel="nofollow noopener">NOAA NCEI U.S. Climate Normals 1991&ndash;2020</a> (station USW00023183), Phoenix records an <strong>annual mean temperature of 75.6&deg;F</strong>, approximately <strong>4,764.6 annual cooling degree days</strong> against only 874.3 heating degree days &mdash; a 5.4:1 CDD-to-HDD ratio that is among the most cooling-dominated of any U.S. city. The July average daily high is <strong>106.5&deg;F</strong>, the January average low is 46.0&deg;F, and Phoenix averages <strong>111.3 days per year with a maximum temperature at or above 100&deg;F</strong>. This extreme heat profile is the single most important factor in every HVAC specification decision for Phoenix homeowners.</p>
               <p style="margin-top: auto; padding-top: 8px; margin-bottom: 0;"><a href="https://www.ncei.noaa.gov/access/us-climate-normals/" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">NOAA NCEI Climate Normals &rarr;</a></p>
             </div>
-
             <div class="precaution-card" style="display:flex; flex-direction:column; background:#fff; border:1px solid var(--gray-200); box-shadow: 0 4px 16px rgba(10,22,40,0.04);">
               <div class="precaution-icon" style="color: var(--blue);">&#127968; Housing Stock</div>
               <h3>U.S. Census ACS 2022 5-Year</h3>
-              <p><strong>591,169 occupied housing units</strong> (Tables B25040 + B25035 for Phoenix city, Arizona). Median year built 1984. Heating-fuel distribution: <strong>74.6% electricity</strong> dominates &mdash; among the highest electric-heat shares of any major U.S. city &mdash; reflecting Phoenix's mild winters and the dominance of central cooling systems with electric/heat-pump heating as a secondary function.</p>
-              <p style="margin-top: auto; padding-top: 8px; margin-bottom: 0;"><a href="https://api.census.gov/data/2022/acs/acs5?get=NAME,B25040_001E,B25040_002E,B25040_003E,B25040_004E,B25040_005E,B25040_006E,B25040_007E,B25040_008E,B25040_009E,B25040_010E&amp;for=place:55000&amp;in=state:04" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">Census ACS 2022 Data &rarr;</a></p>
+              <p>The <a href="https://api.census.gov/data/2022/acs/acs5?get=NAME,B25040_001E,B25040_002E,B25040_003E,B25040_004E,B25040_005E,B25040_006E,B25040_007E,B25040_008E,B25040_009E,B25040_010E&amp;for=place:55000&amp;in=state:04" target="_blank" rel="nofollow noopener">U.S. Census Bureau ACS 2022 5-year estimates</a> (Tables B25040 and B25035 for Phoenix city, Arizona) report <strong>591,169 occupied housing units</strong> with a <strong>median year built of 1984</strong>. Heating-fuel distribution: <strong>74.6% electricity</strong> (440,939 units), <strong>22.3% utility natural gas</strong> (131,817 units), and <strong>3,821 units using solar energy</strong> for heating. The overwhelming electric-heat share &mdash; one of the highest among major U.S. cities &mdash; reflects Phoenix&rsquo;s mild winters (a standard heat pump&rsquo;s heating duty is modest) and the dominance of central cooling systems that happen to include electric resistance or heat-pump heating as a secondary function.</p>
+              <p style="margin-top: auto; padding-top: 8px; margin-bottom: 0;"><a href="https://api.census.gov/data/2022/acs/acs5?get=NAME,B25040_001E,B25040_002E,B25040_003E,B25040_004E,B25040_005E,B25040_006E,B25040_007E,B25040_008E,B25040_009E,B25040_010E&amp;for=place:55000&amp;in=state:04" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">Census ACS Data &rarr;</a></p>
             </div>
-
             <div class="precaution-card" style="display:flex; flex-direction:column; background:#fff; border:1px solid var(--gray-200); box-shadow: 0 4px 16px rgba(10,22,40,0.04);">
-              <div class="precaution-icon" style="color: var(--blue);">&#128203; ROC R-39 License</div>
+              <div class="precaution-icon" style="color: var(--blue);">&#128203; Arizona License</div>
               <h3>Arizona Registrar of Contractors</h3>
-              <p>Per the <strong>Arizona ROC License Classifications</strong>, the residential HVAC class is <strong>R-39 Air Conditioning and Refrigeration, Including Solar</strong> &mdash; covering installation and repair of comfort AC, refrigeration, evaporative cooling, ventilating, and heating with or without solar equipment. Dual-scope CR-39 covers commercial too. <strong>Verify the license number before authorizing any work.</strong></p>
-              <p style="margin-top: auto; padding-top: 8px; margin-bottom: 0;"><a href="https://roc.az.gov/" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">AZ ROC License Lookup &rarr;</a></p>
+              <p>Every HVAC contractor working in Phoenix must hold a current license from the <strong>Arizona Registrar of Contractors (ROC)</strong>. Per the <a href="https://roc.az.gov/license-classifications" target="_blank" rel="nofollow noopener">Arizona ROC License Classifications page</a>, the residential HVAC classification is <strong>R-39 Air Conditioning and Refrigeration, Including Solar</strong>: <em>&ldquo;This classification allows the licensee to install and repair comfort air conditioning systems, including refrigeration, evaporative cooling, ventilating, and heating with or without solar equipment.&rdquo;</em> A dual-scope CR-39 classification covers both residential and commercial work. For rebate amounts, APS and SRP programs have been subject to recent regulatory changes (Arizona Corporation Commission Decision No. 81584); verify current program status directly with your utility or via the <a href="https://www.energystar.gov/rebate-finder" target="_blank" rel="nofollow noopener">ENERGY STAR Rebate Finder</a> before planning around specific dollar amounts.</p>
+              <p style="margin-top: auto; padding-top: 8px; margin-bottom: 0;"><a href="https://roc.az.gov/license-classifications" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">Arizona License Lookup &rarr;</a></p>
             </div>
-
             <div class="precaution-card" style="display:flex; flex-direction:column; background:#fff; border:1px solid var(--gray-200); box-shadow: 0 4px 16px rgba(10,22,40,0.04);">
               <div class="precaution-icon" style="color: var(--blue);">&#128176; Local Rebates &amp; Permits</div>
-              <h3>APS, SRP, Phoenix Permitting</h3>
-              <p>Phoenix is served by either <strong>APS</strong> or <strong>Salt River Project (SRP)</strong> depending on territory. <strong>SRP HVAC rebates</strong> typically run $75&ndash;$1,125/ton for qualifying high-efficiency equipment (program details subject to ACC Decision No. 81584; verify before assuming amounts). Mechanical permit fees are valuation-based per the City of Phoenix Planning &amp; Development Fee Schedule (Appendix A.2).</p>
-              <p style="margin-top: auto; padding-top: 8px; margin-bottom: 0;"><a href="https://www.dsireusa.org/" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">DSIRE Arizona &rarr;</a> &middot; <a href="https://www.energystar.gov/products/energy_star_home_upgrade/clean_heating_cooling" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">ENERGY STAR &rarr;</a></p>
+              <h3>City of Phoenix Permitting</h3>
+              <p>The <a href="https://www.phoenix.gov/content/dam/phoenix/pddsite/documents/tools-resources/PDD-Fee-Schedule.pdf" target="_blank" rel="nofollow noopener">City of Phoenix Planning &amp; Development Fee Schedule, Appendix A.2 Table A</a> sets mechanical permit fees as valuation-based, not flat-rate: <strong>$195 base fee for projects valued $1 to $1,000</strong>, plus an additional <strong>$9 for each $1,000 increment from $1,001 to $10,000</strong>, then <strong>$276 for the first $10,000 plus $8 per additional $1,000</strong> up to $50,000. The valuation-based model means a typical residential furnace-plus-AC replacement (roughly $10,000&ndash;$18,000 installed) carries permit fees in the $280&ndash;$350 range, distinct from the equipment cost itself.</p>
+              <p style="margin-top: auto; padding-top: 8px; margin-bottom: 0;"><a href="https://www.phoenix.gov/content/dam/phoenix/pddsite/documents/tools-resources/PDD-Fee-Schedule.pdf" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">City Fee Schedule &rarr;</a></p>
             </div>
 
           </div>
@@ -503,10 +494,10 @@
             <div class="precaution-icon" style="color: var(--navy);">&#128295; Services in Phoenix</div>
             <h3>What our network covers</h3>
             <ul style="margin-top: 0; margin-bottom: 0;">
-              <li>Emergency AC Repair</li>
+              <li>Emergency AC Repair in Phoenix</li>
               <li>Desert-Climate AC Sizing &amp; Installation</li>
               <li>Evaporative-to-Refrigerated Cooling Conversion</li>
-              <li>Furnace Repair &amp; Winter Heating Service</li>
+              <li>Furnace Repair &amp; Winter Heating Service in Phoenix</li>
               <li>Ductwork Inspection, Cleaning &amp; Sealing</li>
             </ul>
           </div>
@@ -532,13 +523,12 @@
       <div class="container">
         <div style="max-width: 760px; margin: 0 auto; background:linear-gradient(135deg, var(--navy-deep), var(--navy)); color:#fff; padding: 32px; border-radius: var(--radius-lg); text-align:center; box-shadow: 0 12px 40px rgba(10,22,40,0.18);">
           <p style="font-size: 1.4rem; font-weight: 700; font-family: var(--font-display); color:#fff; margin-bottom: 10px;">Ready to talk to a Phoenix HVAC pro?</p>
-          <p style="margin-bottom: 22px; opacity: 0.85; font-size: 1rem;">Independent technicians &middot; 24/7 dispatch &middot; AZ ROC R-39-licensed network</p>
+          <p style="margin-bottom: 22px; opacity: 0.85; font-size: 1rem;">Independent technicians &middot; 24/7 dispatch &middot; AZ ROC HVAC/R Contractor License-verified network</p>
           <a href="tel:+18445821795" class="btn btn-primary btn-lg btn-vibrate"><span class="phone-icon">&#128222;</span> Call Now &mdash; (844) 582-1795</a>
           <p style="font-size: 0.72rem; color: rgba(255,255,255,0.5); margin: 16px auto 0; max-width: 460px; line-height: 1.5;">Disclosure: We are a referral service and may receive compensation for qualified calls. Calls may be routed to an independent provider network and may be recorded. Pricing and availability vary by provider and location.</p>
         </div>
       </div>
     </section>
-
 
     <!-- Also Serving Metro Area -->
     <section class="section" style="padding: 72px 0; background:#fff;">
@@ -559,10 +549,10 @@
     </section>
 
     <!-- FAQs -->
-    <section class="section" id="faqs" style="padding: 72px 0; background: var(--gray-50);">
+    <section class="section" id="faqs" style="padding: 72px 0; background:#fff;">
       <div class="container" style="max-width: 800px;">
         <div class="city-faq" style="text-align:center; margin-bottom: 36px;">
-          <span style="display:inline-block; font-size:0.78rem; font-weight:800; letter-spacing:0.12em; text-transform:uppercase; color:var(--navy); padding:6px 14px; background:#fff; border:1px solid var(--gray-200); border-radius:999px; margin-bottom:16px;">&#10067; Common Questions</span>
+          <span style="display:inline-block; font-size:0.78rem; font-weight:800; letter-spacing:0.12em; text-transform:uppercase; color:var(--navy); padding:6px 14px; background:var(--gray-50); border:1px solid var(--gray-200); border-radius:999px; margin-bottom:16px;">&#10067; Common Questions</span>
           <h2 style="font-size: 1.75rem; color: var(--navy); margin: 0;">Frequently Asked Questions &mdash; Phoenix, AZ</h2>
         </div>
         <div class="city-faq">
@@ -633,7 +623,7 @@
     </section>
 
     <!-- Nearby Service Areas -->
-    <section class="section" style="padding: 72px 0; background:#fff;">
+    <section class="section" style="padding: 72px 0; background: var(--gray-50);">
       <div class="container" style="max-width: 800px;">
         <div class="city-services">
           <h2 style="text-align:center;">Nearby HVAC Service Areas</h2>
