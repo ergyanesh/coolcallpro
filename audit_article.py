@@ -287,8 +287,12 @@ def audit_geo_aeo(html: str, strict: bool) -> int:
     Enforces SEO/AEO/GEO schemas that Google and LLM citation engines reward:
       - Speakable schema (voice search + accessibility)
       - about[] with sameAs entity URIs (knowledge-graph linking for GEO)
-      - HowTo schema when the article has a clear numbered-step procedure
-        inside an H2 (detected by <ol> directly inside the first 3 H2 sections)
+      - HowTo schema MUST BE ABSENT. Google deprecated HowTo rich results in
+        September 2023 — it no longer triggers rich snippets and some
+        crawlers treat it as a quality-regression signal. Per FULL-AUDIT-
+        REPORT.md finding C1 (2026-04-26), all 12 articles that previously
+        carried HowTo schema were stripped via scripts/remove_howto_schema.py.
+        This audit check now blocks any future commit that re-introduces it.
     """
     if not strict:
         return 0
@@ -305,20 +309,19 @@ def audit_geo_aeo(html: str, strict: bool) -> int:
     if not check("Article 'about' array includes at least one sameAs entity URI (GEO)", has_entity):
         fails += 1
 
-    # HowTo: detect step-procedure intent by finding a <ol> inside one of the
-    # first 3 H2 sections. If present, HowTo schema should be too.
-    first_sections = re.findall(r"<h2[^>]*>.*?(?=<h2|</article>)", html, re.DOTALL)[:3]
-    has_step_list = any(re.search(r"<ol\b", sec) for sec in first_sections)
-    has_howto = '"@type": "HowTo"' in html
-    if has_step_list:
-        if not check(
-            "HowTo schema present (article has a numbered-step procedure in an H2)",
-            has_howto,
-            "Detected <ol> in an early H2 — add HowTo JSON-LD for AEO + Google rich result",
-        ):
-            fails += 1
-    else:
-        print("  [INFO] No step-procedure detected in early H2s — HowTo schema not required.")
+    # HowTo schema must be ABSENT. Deprecated by Google September 2023.
+    # Numbered-step procedures still render fine as plain HTML <ol> — only
+    # the structured-data schema is forbidden. Replace HowTo's role with
+    # Article + FAQPage schema (which the rest of the site already uses).
+    has_howto = '"@type": "HowTo"' in html or '"@type":"HowTo"' in html
+    if not check(
+        "HowTo schema is ABSENT (Google deprecated rich results Sept 2023)",
+        not has_howto,
+        "Remove the <script type=\"application/ld+json\"> block whose @type is HowTo. "
+        "Run scripts/remove_howto_schema.py if the article still has it. "
+        "Visible step-by-step content stays as plain HTML — only the schema goes.",
+    ):
+        fails += 1
 
     return fails
 
