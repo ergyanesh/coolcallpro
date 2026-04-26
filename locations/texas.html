@@ -56,7 +56,7 @@
       })();
   </script>
 
-  <!-- Structured Data: BreadcrumbList + FAQPage + Organization -->
+  <!-- Structured Data: BreadcrumbList + FAQPage + Organization + Service -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -101,7 +101,7 @@
             "name": "Are there HVAC rebates available in Texas?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Yes. Check with your local utility provider for current energy efficiency rebates. The federal Section 25C tax credit was terminated for installations after Dec 31, 2025 (OBBBA, P.L. 119-21); check current state HEAR rebates and utility programs for 2026. Visit energystar.gov for current amounts and eligibility."
+              "text": "Yes. Check with your local utility provider for current energy efficiency rebates. The federal Section 25C tax credit was terminated for installations after Dec 31, 2025 (OBBBA, P.L. 119-21); check current state HEAR rebates and utility programs for 2026."
             }
           },
           {
@@ -152,7 +152,9 @@
   }
   </script>
 
-  <style>@font-face{font-family:'Inter';font-style:normal;font-weight:400 900;font-display:swap;src:url('/fonts/inter-latin.woff2') format('woff2')}@font-face{font-family:'Outfit';font-style:normal;font-weight:400 800;font-display:swap;src:url('/fonts/outfit-latin.woff2') format('woff2')}.city-hero {
+  <style>
+    @font-face{font-family:'Inter';font-style:normal;font-weight:400 900;font-display:swap;src:url('/fonts/inter-latin.woff2') format('woff2')}@font-face{font-family:'Outfit';font-style:normal;font-weight:400 800;font-display:swap;src:url('/fonts/outfit-latin.woff2') format('woff2')}
+    .city-hero {
       background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 50%, var(--navy-mid) 100%);
       background-size: cover;
       background-position: center;
@@ -175,77 +177,27 @@
       opacity: 0.9;
       line-height: 1.7;
     }
-    .city-context {
-      font-size: 1.1rem;
-      line-height: 1.85;
-      color: var(--gray-700);
-      max-width: 760px;
-      margin: 0 auto 40px;
-    }
-    .city-services {
-      max-width: 760px;
-      margin: 0 auto 48px;
-    }
-    .city-services h2 {
-      font-size: 1.6rem;
-      margin-bottom: 16px;
-      color: var(--navy);
-    }
-    .city-services ul {
-      list-style: none;
-      padding: 0;
-    }
-    .city-services ul li {
-      padding: 12px 0 12px 28px;
-      position: relative;
-      font-size: 1.05rem;
-      color: var(--gray-700);
-      border-bottom: 1px solid var(--gray-100);
-    }
-    .city-services ul li::before {
-      content: "\2714";
-      color: var(--orange-dark);
-      font-weight: 700;
-      position: absolute;
-      left: 0;
-      top: 12px;
-    }
-    .city-services ul li a {
-      color: var(--orange-dark);
-      font-weight: 600;
-      text-decoration: none;
-    }
-    .city-services ul li a:hover {
-      text-decoration: underline;
-    }
-    .city-faq {
-      max-width: 760px;
-      margin: 0 auto 48px;
-    }
-    .city-faq h2 {
-      font-size: 1.6rem;
-      margin-bottom: 20px;
-      color: var(--navy);
-    }
     .state-info-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 20px;
       max-width: 760px;
-      margin: 0 auto 48px;
+      margin: 0 auto 16px;
     }
     .state-info-card {
-      background: var(--gray-50, #f8f9fa);
+      background: #fff;
+      border: 1px solid var(--gray-200);
       border-radius: 12px;
       padding: 24px;
       text-align: center;
+      box-shadow: 0 4px 16px rgba(10,22,40,0.04);
     }
     .state-info-card .info-label {
       font-size: 0.85rem;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.05em;
-      color: var(--gray-500, #6b7280);
+      color: var(--gray-500);
       margin-bottom: 8px;
     }
     .state-info-card .info-value {
@@ -256,7 +208,7 @@
     .state-info-card .info-value small {
       font-size: 0.75rem;
       font-weight: 400;
-      color: var(--gray-500, #6b7280);
+      color: var(--gray-500);
       display: block;
       margin-top: 4px;
     }
@@ -264,12 +216,12 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 16px;
-      max-width: 760px;
+      max-width: 1100px;
       margin: 0 auto;
     }
     .city-grid-card {
-      background: var(--gray-50, #f8f9fa);
-      border: 1px solid var(--gray-100, #e5e7eb);
+      background: #fff;
+      border: 1px solid var(--gray-200);
       border-radius: 12px;
       padding: 20px 24px;
       text-decoration: none;
@@ -285,10 +237,6 @@
       border-color: var(--orange-dark);
       box-shadow: 0 2px 8px rgba(255, 165, 0, 0.15);
     }
-    .city-grid-card.coming-soon {
-      opacity: 0.72;
-      pointer-events: none;
-    }
     .city-grid-card .card-icon {
       font-size: 1.2rem;
     }
@@ -296,16 +244,17 @@
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
-      max-width: 760px;
+      max-width: 1100px;
       margin: 16px auto 0;
+      justify-content: center;
     }
     .neighbor-link {
       display: inline-flex;
       align-items: center;
       gap: 6px;
       padding: 10px 18px;
-      background: var(--gray-50, #f8f9fa);
-      border: 1px solid var(--gray-100, #e5e7eb);
+      background: #fff;
+      border: 1px solid var(--gray-200);
       border-radius: 8px;
       text-decoration: none;
       color: var(--navy);
@@ -378,8 +327,8 @@
       <div class="container">
         <span class="section-tag" style="background: rgba(255,255,255,0.1); color: #fff;">&#128205; Texas</span>
         <h1>HVAC Service &amp; Repair in Texas</h1>
-        <p>Connect with an independent local HVAC pro now &mdash; 24/7 dispatch across Texas.</p>
-        <div class="article-meta-modern"><div class="meta-line meta-reviewed">Last reviewed <time datetime="2026-04-20">April 20, 2026</time></div></div>
+        <p>Independent local HVAC professionals serve every city and ZIP code across Texas&rsquo;s cooling-dominated climate. Emergency AC repair, heat pump service, and HVAC installation available 24/7.</p>
+        <div class="article-meta-modern"><div class="meta-line meta-reviewed">Last reviewed <time datetime="2026-04-25">April 25, 2026</time></div></div>
         <div class="author-byline">
           <img src="../images/author-gyane.webp" alt="Gyanesh Gulshan" class="author-avatar-sm" loading="lazy" width="48" height="48" />
           <span>By <a href="../author-gyanesh">Gyanesh Gulshan</a> &mdash; Founder, Cool Call Pro</span>
@@ -388,13 +337,13 @@
           <a href="tel:+18445821795" class="btn btn-primary btn-lg btn-vibrate"><span class="phone-icon">&#128222;</span> Call Now &#8212; (844) 582-1795</a>
         </div>
         <div class="jump-links" style="margin-top: 16px;">
-          <a href="#services" class="jump-link" style="color: rgba(255,255,255,0.8);">Services</a>
+          <a href="#trust" class="jump-link" style="color: rgba(255,255,255,0.8);">At a Glance</a>
           <span class="jump-link-dot" style="color: rgba(255,255,255,0.5);">&#8226;</span>
           <a href="#climate" class="jump-link" style="color: rgba(255,255,255,0.8);">Climate</a>
           <span class="jump-link-dot" style="color: rgba(255,255,255,0.5);">&#8226;</span>
-          <a href="#licensing" class="jump-link" style="color: rgba(255,255,255,0.8);">Licensing</a>
+          <a href="#services" class="jump-link" style="color: rgba(255,255,255,0.8);">Services &amp; Licensing</a>
           <span class="jump-link-dot" style="color: rgba(255,255,255,0.5);">&#8226;</span>
-          <a href="#costs" class="jump-link" style="color: rgba(255,255,255,0.8);">Costs</a>
+          <a href="#rebates" class="jump-link" style="color: rgba(255,255,255,0.8);">Rebates</a>
           <span class="jump-link-dot" style="color: rgba(255,255,255,0.5);">&#8226;</span>
           <a href="#cities" class="jump-link" style="color: rgba(255,255,255,0.8);">Service Areas</a>
           <span class="jump-link-dot" style="color: rgba(255,255,255,0.5);">&#8226;</span>
@@ -416,13 +365,13 @@
       </div>
     </div>
 
-    <!-- State Overview -->
-    <section class="section" style="padding: 72px 0; background:#fff;">
+    <!-- STATE AT A GLANCE / TRUST STRIP -->
+    <section class="section" id="trust" style="padding: 72px 0; background: var(--gray-50);">
       <div class="container">
         <div style="text-align:center; margin-bottom: 36px;">
-          <span style="display:inline-block; font-size:0.78rem; font-weight:800; letter-spacing:0.12em; text-transform:uppercase; color:var(--blue); padding:6px 14px; background:#ebf8ff; border:1px solid #bee3f8; border-radius:999px; margin-bottom:16px;">&#128205; State at a Glance</span>
+          <span style="display:inline-block; font-size:0.78rem; font-weight:800; letter-spacing:0.12em; text-transform:uppercase; color:var(--navy); padding:6px 14px; background:#fff; border:1px solid var(--gray-200); border-radius:999px; margin-bottom:16px;">&#128205; State at a Glance</span>
           <h2 style="font-size: 1.75rem; color: var(--navy); margin: 0 0 14px;">HVAC across Texas</h2>
-          <p style="max-width: 720px; margin: 0 auto; font-size: 1.05rem; color: var(--gray-700); line-height: 1.7;">Texas is home to over <strong>32.4 million residents</strong> with a <strong>65% homeownership rate</strong>. The state spans IECC Zones 2A, 2B, 3A, 3B, and 4B &mdash; with summer highs averaging 95&deg;F and winter lows near 37&deg;F. Most homes use central AC paired with a gas furnace to handle both cooling and heating demands.</p>
+          <p style="max-width: 720px; margin: 0 auto; font-size: 1.05rem; color: var(--gray-700); line-height: 1.7;">Texas is home to over <strong>32.4 million residents</strong> with a <strong>65% homeownership rate</strong>. The state spans IECC <strong>Zones 2A, 2B, 3A, 3B, and 4B</strong>, with summer highs averaging 95&deg;F and winter lows near 37&deg;F.</p>
         </div>
 
         
@@ -434,7 +383,6 @@
         </figure>
 
 
-        <!-- State At-a-Glance -->
         <div class="state-info-grid">
           <div class="state-info-card">
             <div class="info-label">Population</div>
@@ -464,12 +412,12 @@
       </div>
     </section>
 
-    <!-- Climate & Compliance (combined: Climate + SEER2 + Costs) -->
-    <section class="section" id="climate" style="padding: 72px 0; background: var(--gray-50);">
+    <!-- CLIMATE & COMPLIANCE -->
+    <section class="section" id="climate" style="padding: 72px 0; background:#fff;">
       <div class="container">
         <div style="max-width: 1100px; margin: 0 auto;">
           <div style="text-align:center; margin-bottom: 32px;">
-            <span style="display:inline-block; font-size:0.78rem; font-weight:800; letter-spacing:0.12em; text-transform:uppercase; color:var(--blue); padding:6px 14px; background:#fff; border:1px solid #bee3f8; border-radius:999px; margin-bottom:16px;">&#127777;&#65039; Climate &amp; Compliance</span>
+            <span style="display:inline-block; font-size:0.78rem; font-weight:800; letter-spacing:0.12em; text-transform:uppercase; color:var(--blue); padding:6px 14px; background:#ebf8ff; border:1px solid #bee3f8; border-radius:999px; margin-bottom:16px;">&#127777;&#65039; Climate &amp; Compliance</span>
             <h2 style="font-size: 1.75rem; color: var(--navy); margin: 0;">Texas climate, efficiency code &amp; typical costs</h2>
           </div>
 
@@ -477,26 +425,26 @@
 
             <div class="precaution-card" style="display:flex; flex-direction:column; background:#fff; border:1px solid var(--gray-200); box-shadow: 0 4px 16px rgba(10,22,40,0.04);">
               <div class="precaution-icon" style="color: var(--blue);">&#127777;&#65039; Climate Demands</div>
-              <h3>Cooling-dominated, hot-humid to hot-dry</h3>
-              <p style="margin-bottom: 0;">Texas spans IECC Zones <strong>2A, 2B, 3A, 3B, 4B</strong>. Summer highs avg 95&deg;F, winter lows near 37&deg;F. Average electricity 16.18&cent;/kWh &mdash; system efficiency directly drives monthly costs. Learn more about <a href="../article-furnace" style="color: var(--orange-dark); font-weight: 600;">furnace options</a>.</p>
+              <h3>cooling-dominated, hot-humid to hot-dry</h3>
+              <p style="margin-bottom: 0;">Texas spans IECC <strong>2A, 2B, 3A, 3B, 4B</strong>. Summer highs avg 95&deg;F, winter lows near 37&deg;F. Average electricity 16.18&cent;/kWh &mdash; system efficiency directly drives monthly costs. Learn more about <a href="../article-furnace" style="color: var(--orange-dark); font-weight: 600;">furnace options</a>.</p>
             </div>
 
             <div class="precaution-card" style="display:flex; flex-direction:column; background:#fff; border:1px solid var(--gray-200); box-shadow: 0 4px 16px rgba(10,22,40,0.04);">
               <div class="precaution-icon" style="color: var(--blue);">&#128161; SEER2 Code</div>
               <h3>Southeast region: SEER2 14.3 minimum</h3>
-              <p style="margin-bottom: 0;">As of January 2023, all new central AC systems in Texas must meet <strong>SEER2 14.3</strong>. Higher-efficiency systems cost more upfront but reduce monthly bills meaningfully given Texas electricity rates. See our <a href="../article-ac-summer" style="color: var(--orange-dark); font-weight: 600;">summer AC guide</a>.</p>
+              <p style="margin-bottom: 0;">As of January 2023, all new central AC systems in Texas must meet <strong>SEER2 14.3</strong>. Higher-efficiency systems cost more upfront but reduce monthly bills. See our <a href="../article-ac-summer" style="color: var(--orange-dark); font-weight: 600;">summer AC guide</a>.</p>
             </div>
 
             <div class="precaution-card" style="display:flex; flex-direction:column; background:#fff; border:1px solid var(--gray-200); box-shadow: 0 4px 16px rgba(10,22,40,0.04);">
               <div class="precaution-icon" style="color: var(--blue);">&#128176; Typical Costs</div>
               <h3>Texas HVAC installation costs</h3>
-              <p style="margin-bottom: 0;">Standard central AC replacement: <strong>$3,500&ndash;$8,000</strong>. Furnace installation: <strong>$2,500&ndash;$5,500</strong>. Costs vary by city, system size, and efficiency. See our <a href="../costs" style="color: var(--orange-dark); font-weight: 600;">full HVAC cost guide</a>.</p>
+              <p style="margin-bottom: 0;">A standard central AC replacement in Texas typically costs <strong>$3,500–$8,000</strong>, and furnace installations run <strong>$2,500–$5,500</strong>. Costs vary by city, system size, efficiency rating, and installation complexity. See our <a href="../costs" style="color: var(--orange-dark); font-weight: 600;">full HVAC cost guide</a>.</p>
             </div>
 
             <div class="precaution-card" style="display:flex; flex-direction:column; background:#fff; border:1px solid var(--gray-200); box-shadow: 0 4px 16px rgba(10,22,40,0.04);">
               <div class="precaution-icon" style="color: var(--blue);">&#127744;&#65039; Climate Hazards</div>
-              <h3>Hurricane, tornado, extreme heat</h3>
-              <p style="margin-bottom: 0;">Per FEMA's National Risk Index, Texas faces elevated <strong>hurricane, tornado, and extreme heat</strong> exposure. Each event stresses HVAC systems &mdash; schedule a technician inspection after major weather before restart.</p>
+              <h3>FEMA-tracked exposure</h3>
+              <p style="margin-bottom: 0;">Per <a href="https://hazards.fema.gov/nri/" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">FEMA's National Risk Index</a>, Texas faces elevated <strong>Hurricane</strong>, <strong>Tornado</strong>, and <strong>Extreme Heat</strong> exposure. Each event stresses HVAC systems &mdash; schedule a technician inspection after major weather before restart.</p>
             </div>
 
           </div>
@@ -504,63 +452,77 @@
       </div>
     </section>
 
-    <!-- Services & Licensing -->
-    <section class="section" id="services" style="padding: 72px 0; background:#fff;">
+    <!-- SERVICES & LICENSING -->
+    <section class="section" id="services" style="padding: 72px 0; background: var(--gray-50);">
       <div class="container">
         <div style="text-align:center; margin-bottom: 36px;">
-          <span style="display:inline-block; font-size:0.78rem; font-weight:800; letter-spacing:0.12em; text-transform:uppercase; color:var(--navy); padding:6px 14px; background:var(--gray-50); border:1px solid var(--gray-200); border-radius:999px; margin-bottom:16px;">&#128295; Services &amp; Licensing</span>
+          <span style="display:inline-block; font-size:0.78rem; font-weight:800; letter-spacing:0.12em; text-transform:uppercase; color:var(--navy); padding:6px 14px; background:#fff; border:1px solid var(--gray-200); border-radius:999px; margin-bottom:16px;">&#128295; Services &amp; Licensing</span>
           <h2 style="font-size: 1.75rem; color: var(--navy); margin: 0;">What Texas HVAC contractors do &mdash; and what to verify</h2>
         </div>
 
         <div class="precaution-cards" style="max-width: 1100px; margin: 0 auto; display:grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 20px; align-items: stretch;">
 
-          <div class="precaution-card" style="display:flex; flex-direction:column; background:#fff; border:1px solid var(--gray-200); box-shadow: 0 4px 16px rgba(10,22,40,0.04);" id="licensing-card">
+          <div class="precaution-card" style="display:flex; flex-direction:column; background:#fff; border:1px solid var(--gray-200); box-shadow: 0 4px 16px rgba(10,22,40,0.04);" id="services-card">
             <div class="precaution-icon" style="color: var(--navy);">&#128295; HVAC Services in Texas</div>
             <h3>What our network covers</h3>
             <ul style="margin-top: 0; margin-bottom: 0;">
-              <li>Emergency AC Repair</li>
-              <li>Central AC Installation &amp; Replacement</li>
-              <li>Heat Pump Installation &amp; Service</li>
-              <li>Furnace Repair &amp; Heating Service</li>
-              <li>HVAC Maintenance &amp; Tune-Ups</li>
-              <li>Ductwork Inspection, Cleaning &amp; Sealing</li>
-              <li>Indoor Air Quality &amp; Ventilation</li>
+            <li>Emergency AC Repair in Texas</li>
+            <li>Central Air Conditioning Installation &amp; Replacement</li>
+            <li>Heat Pump Installation &amp; Service</li>
+            <li>Furnace Repair &amp; Heating Service</li>
+            <li>HVAC System Maintenance &amp; Tune-Ups</li>
+            <li>Ductwork Inspection, Cleaning &amp; Sealing</li>
+            <li>Indoor Air Quality &amp; Ventilation Solutions</li>
             </ul>
           </div>
 
           <div class="precaution-card" style="display:flex; flex-direction:column; background:#fff; border:1px solid var(--gray-200); box-shadow: 0 4px 16px rgba(10,22,40,0.04);" id="licensing">
             <div class="precaution-icon" style="color: var(--navy);">&#128203; Licensing Requirements</div>
-            <h3>TDLR Class A/B ACR License</h3>
-            <p style="margin-bottom: 0;">Texas requires HVAC contractors to hold a license issued by the <strong>Texas Department of Licensing and Regulation (TDLR) &mdash; Class A/B ACR License</strong>. Before hiring, verify your contractor's credentials through the <a href="https://www.tdlr.texas.gov/verify.htm" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">TDLR license lookup tool</a>. Licensed contractors carry insurance, pull permits correctly, and stand behind their work.</p>
+            <h3>Verify before you hire</h3>
+            <p style="margin-bottom: 0;">Texas requires HVAC contractors to hold a license issued by the <strong>Texas Dept. of Licensing and Regulation (TDLR) — Class A/B ACR License</strong>. Before hiring, verify your contractor's credentials through the board's <a href="https://www.tdlr.texas.gov/verify.htm" style="color: var(--orange-dark); font-weight: 600;" target="_blank" rel="noopener">license lookup tool</a>. Licensed contractors carry insurance, pull permits correctly, and stand behind their work. See our <a href="../safety" style="color: var(--orange-dark); font-weight: 600;">safety tips</a> for more on what to verify before hiring.</p>
           </div>
 
         </div>
       </div>
     </section>
 
-    <!-- Rebates & Programs -->
-    <section class="section" id="rebates" style="padding: 72px 0; background: var(--gray-50);">
+    <!-- REBATES & PROGRAMS -->
+    <section class="section" id="rebates" style="padding: 72px 0; background:#fff;">
       <div class="container">
         <div style="max-width: 1100px; margin: 0 auto;">
           <div style="text-align:center; margin-bottom: 32px;">
-            <span style="display:inline-block; font-size:0.78rem; font-weight:800; letter-spacing:0.12em; text-transform:uppercase; color:var(--blue); padding:6px 14px; background:#fff; border:1px solid #bee3f8; border-radius:999px; margin-bottom:16px;">&#128176; Rebates &amp; Programs</span>
+            <span style="display:inline-block; font-size:0.78rem; font-weight:800; letter-spacing:0.12em; text-transform:uppercase; color:var(--blue); padding:6px 14px; background:#ebf8ff; border:1px solid #bee3f8; border-radius:999px; margin-bottom:16px;">&#128176; Rebates &amp; Programs</span>
             <h2 style="font-size: 1.75rem; color: var(--navy); margin: 0;">Texas utility rebates &amp; state programs</h2>
           </div>
 
-          <div class="precaution-cards" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 20px; align-items: stretch;">
+          <div style="margin: 0 auto 28px; background: linear-gradient(135deg, #f7fafc, #edf2f7); border: 1px solid var(--gray-200); border-left: 5px solid var(--blue); border-radius: var(--radius); padding: 18px 22px;">
+            <div style="display: flex; align-items: flex-start; gap: 14px;">
+              <div style="font-size: 1.4rem; line-height: 1; flex-shrink: 0;" aria-hidden="true">&#9889;</div>
+              <p style="margin: 0; color: var(--gray-700); line-height: 1.65;">Major utility providers in Texas include <strong>Oncor Electric</strong>, <strong>CenterPoint Energy</strong>, <strong>AEP Texas</strong>. Available rebate programs are listed below. Always confirm current amounts with the provider before scheduling work.</p>
+            </div>
+          </div>
+
+          <div class="precaution-cards" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 20px; align-items: stretch;">
 
             <div class="precaution-card" style="display:flex; flex-direction:column; background:#fff; border:1px solid var(--gray-200); box-shadow: 0 4px 16px rgba(10,22,40,0.04);">
-              <div class="precaution-icon" style="color: var(--blue);">&#9889; Major Utility Providers</div>
-              <h3>Statewide TDU/REP coverage</h3>
-              <p>Major utility providers in Texas include <strong>Oncor Electric</strong>, <strong>CenterPoint Energy</strong>, and <strong>AEP Texas</strong>. Texas has a deregulated retail electricity market &mdash; your retail provider is separate from the TDU. Available rebate programs include <strong>Austin Energy Rebates</strong>, <strong>CPS Energy Rebates</strong>, and the <strong>ENERGY STAR Tax Holiday</strong>.</p>
+              <div class="precaution-icon" style="color: var(--blue);">&#9889; Utility Rebate Programs</div>
+              <h3>Through your local provider</h3>
+              <p style="margin-bottom: 0;">Active rebate programs include <strong>Austin Energy Rebates</strong>, <strong>CPS Energy Rebates</strong>, <strong>ENERGY STAR Tax Holiday</strong>. Programs change &mdash; verify current amounts and eligibility before scheduling work.</p>
               <p style="margin-top: auto; padding-top: 8px; margin-bottom: 0;"><a href="https://www.energystar.gov/products/energy_star_home_upgrade/clean_heating_cooling" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">ENERGY STAR Heating &amp; Cooling &rarr;</a></p>
             </div>
 
             <div class="precaution-card" style="display:flex; flex-direction:column; background:#fff; border:1px solid var(--gray-200); box-shadow: 0 4px 16px rgba(10,22,40,0.04);">
               <div class="precaution-icon" style="color: var(--blue);">&#127970; State Energy Office</div>
-              <h3>Texas SECO &amp; HEAR rollout</h3>
-              <p>The <strong>State Energy Conservation Office (SECO)</strong> at the Texas Comptroller of Public Accounts coordinates HVAC rebates, weatherization assistance, and Inflation Reduction Act program administration in Texas. The federal Section 25C tax credit was terminated for installations after Dec 31, 2025 by OBBBA &mdash; State HEAR rebates and utility programs remain.</p>
-              <p style="margin-top: auto; padding-top: 8px; margin-bottom: 0;"><a href="https://seco.cpa.texas.gov" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">SECO &rarr;</a> &middot; <a href="https://www.dsireusa.org/" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">DSIRE Texas &rarr;</a></p>
+              <h3>State Energy Conservation Office</h3>
+              <p style="margin-bottom: 0;">The <strong>State Energy Conservation Office, Texas Comptroller of Public Accounts</strong> coordinates HVAC rebates, weatherization assistance, and federal Inflation Reduction Act program administration in Texas.</p>
+              <p style="margin-top: auto; padding-top: 8px; margin-bottom: 0;"><a href="https://seco.cpa.texas.gov" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">seco.cpa.texas.gov &rarr;</a> &middot; <a href="https://www.dsireusa.org/" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">DSIRE Texas &rarr;</a></p>
+            </div>
+
+            <div class="precaution-card" style="display:flex; flex-direction:column; background:#fff; border:1px solid var(--gray-200); box-shadow: 0 4px 16px rgba(10,22,40,0.04);">
+              <div class="precaution-icon" style="color: var(--blue);">&#127970; Federal HEAR Allocation</div>
+              <h3>IRA-funded state rebate pool</h3>
+              <p style="margin-bottom: 0;">Texas was allocated <strong>$690,029,570</strong> for federally-funded Home Energy Rebates (HEAR) under the Inflation Reduction Act. The state is rolling out applications through 2026 &mdash; ask your installer if your project qualifies.</p>
+              <p style="margin-top: auto; padding-top: 8px; margin-bottom: 0;"><a href="https://www.energy.gov/scep/home-energy-rebates" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">DOE Home Energy Rebates &rarr;</a></p>
             </div>
 
           </div>
@@ -578,14 +540,26 @@
       </div>
     </section>
 
-    <!-- Common HVAC Issues - links to articles -->
+    <!-- MID-PAGE CTA -->
+    <section style="padding: 64px 0; background: var(--gray-50);">
+      <div class="container">
+        <div style="max-width: 760px; margin: 0 auto; background:linear-gradient(135deg, var(--navy-deep), var(--navy)); color:#fff; padding: 32px; border-radius: var(--radius-lg); text-align:center; box-shadow: 0 12px 40px rgba(10,22,40,0.18);">
+          <p style="font-size: 1.4rem; font-weight: 700; font-family: var(--font-display); color:#fff; margin-bottom: 10px;">Ready to talk to a Texas HVAC pro?</p>
+          <p style="margin-bottom: 22px; opacity: 0.85; font-size: 1rem;">Independent technicians &middot; 24/7 dispatch &middot; TDLR-licensed network</p>
+          <a href="tel:+18445821795" class="btn btn-primary btn-lg btn-vibrate"><span class="phone-icon">&#128222;</span> Call Now &mdash; (844) 582-1795</a>
+          <p style="font-size: 0.72rem; color: rgba(255,255,255,0.5); margin: 16px auto 0; max-width: 460px; line-height: 1.5;">Disclosure: We are a referral service and may receive compensation for qualified calls. Calls may be routed to an independent provider network and may be recorded. Pricing and availability vary by provider and location.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMMON HVAC ISSUES (climate-keyed cluster links) -->
     <section class="section" style="padding: 72px 0; background:#fff;">
       <div class="container">
         <div style="max-width: 1000px; margin: 0 auto;">
           <div style="text-align:center; margin-bottom: 32px;">
             <span style="display:inline-block; font-size:0.78rem; font-weight:800; letter-spacing:0.12em; text-transform:uppercase; color:var(--navy); padding:6px 14px; background:var(--gray-50); border:1px solid var(--gray-200); border-radius:999px; margin-bottom:16px;">&#128295; Common Issues</span>
             <h2 style="font-size: 1.75rem; color: var(--navy); margin: 0 0 14px;">Common HVAC issues in Texas</h2>
-            <p style="max-width: 720px; margin: 0 auto; font-size: 1.05rem; color: var(--gray-700); line-height: 1.7;">Cooling is the dominant HVAC demand in Texas. The most common emergency and troubleshooting topics:</p>
+            <p style="max-width: 720px; margin: 0 auto; font-size: 1.05rem; color: var(--gray-700); line-height: 1.7;">Cooling is the dominant HVAC demand in Texas. The most common emergency and troubleshooting topics for a cooling-driven climate:</p>
           </div>
           <div class="precaution-card" style="background:#fff; border:1px solid var(--gray-200); box-shadow: 0 4px 16px rgba(10,22,40,0.04);">
             <ul style="margin: 0;">
@@ -597,24 +571,6 @@
               <li><a href="../articles/ac-contactor-clicking" style="color: var(--orange-dark); font-weight: 600;">AC contactor clicking but nothing happens</a> &mdash; electrical fault in the outdoor unit</li>
             </ul>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Common HVAC Issues -->
-    <section class="section" style="padding: 0;">
-      <div class="container">
-        <div class="city-services" style="margin-bottom: 40px;">
-          <h2>Common HVAC Issues in Texas</h2>
-          <p style="font-size: 1.05rem; line-height: 1.85; color: var(--gray-700);">Cooling is the dominant HVAC demand in Texas. The most common emergency and troubleshooting topics for a cooling-driven climate:</p>
-          <ul>
-            <li><a href="../articles/complete-ac-troubleshooting-guide" style="color: var(--orange-dark); font-weight: 600;">Complete AC troubleshooting guide</a> &mdash; the full diagnostic framework for every AC failure mode</li>
-            <li><a href="../articles/ac-not-cooling-below-80" style="color: var(--orange-dark); font-weight: 600;">AC running but not cooling below 80&deg;?</a> &mdash; low refrigerant, weak capacitor, dirty coil, or undersized system</li>
-            <li><a href="../articles/ac-circuit-breaker-trips" style="color: var(--orange-dark); font-weight: 600;">AC circuit breaker keeps tripping</a> &mdash; failing compressor, weak capacitor, or dirty condenser coil</li>
-            <li><a href="../articles/ac-freezing-up-in-summer" style="color: var(--orange-dark); font-weight: 600;">AC freezing up in summer</a> &mdash; airflow restriction or refrigerant problem</li>
-            <li><a href="../articles/water-dripping-from-vent" style="color: var(--orange-dark); font-weight: 600;">Water dripping from ceiling vent</a> &mdash; clogged condensate drain or frozen-coil thaw</li>
-            <li><a href="../articles/ac-contactor-clicking" style="color: var(--orange-dark); font-weight: 600;">AC contactor clicking but nothing happens</a> &mdash; electrical fault in the outdoor unit</li>
-          </ul>
         </div>
       </div>
     </section>
@@ -659,28 +615,14 @@
       </div>
     </section>
 
-    <!-- Mid-page CTA (replaces the redundant "Why Call a Pro" section whose content
-         duplicates Climate & Compliance + Services & Licensing sections above) -->
-    <section style="padding: 64px 0; background: var(--gray-50);">
-      <div class="container">
-        <div style="max-width: 760px; margin: 0 auto; background:linear-gradient(135deg, var(--navy-deep), var(--navy)); color:#fff; padding: 32px; border-radius: var(--radius-lg); text-align:center; box-shadow: 0 12px 40px rgba(10,22,40,0.18);">
-          <p style="font-size: 1.4rem; font-weight: 700; font-family: var(--font-display); color:#fff; margin-bottom: 10px;">Ready to talk to a Texas HVAC pro?</p>
-          <p style="margin-bottom: 22px; opacity: 0.85; font-size: 1rem;">Independent technicians &middot; 24/7 dispatch &middot; TDLR-licensed network</p>
-          <a href="tel:+18445821795" class="btn btn-primary btn-lg btn-vibrate"><span class="phone-icon">&#128222;</span> Call Now &mdash; (844) 582-1795</a>
-          <p style="font-size: 0.72rem; color: rgba(255,255,255,0.5); margin: 16px auto 0; max-width: 460px; line-height: 1.5;">Disclosure: We are a referral service and may receive compensation for qualified calls. Calls may be routed to an independent provider network and may be recorded. Pricing and availability vary by provider and location.</p>
-        </div>
-      </div>
-    </section>
-
     <!-- FAQs -->
-    <section class="section" id="faqs" style="padding: 72px 0; background: var(--gray-50);">
+    <section class="section" id="faqs" style="padding: 72px 0; background:#fff;">
       <div class="container" style="max-width: 800px;">
-        <div class="city-faq" style="text-align:center; margin-bottom: 36px;">
-          <span style="display:inline-block; font-size:0.78rem; font-weight:800; letter-spacing:0.12em; text-transform:uppercase; color:var(--navy); padding:6px 14px; background:#fff; border:1px solid var(--gray-200); border-radius:999px; margin-bottom:16px;">&#10067; Common Questions</span>
-          <h2 style="font-size: 1.75rem; color: var(--navy); margin: 0;">Frequently Asked Questions &mdash; Texas HVAC</h2>
+        <div style="text-align:center; margin-bottom: 36px;">
+          <span style="display:inline-block; font-size:0.78rem; font-weight:800; letter-spacing:0.12em; text-transform:uppercase; color:var(--navy); padding:6px 14px; background:var(--gray-50); border:1px solid var(--gray-200); border-radius:999px; margin-bottom:16px;">&#10067; Frequently Asked Questions</span>
+          <h2 style="font-size: 1.75rem; color: var(--navy); margin: 0;">Texas HVAC &mdash; common questions</h2>
         </div>
-        <div class="city-faq">
-          <div class="faq-list" style="margin-top: 24px;">
+        <div class="faq-list" style="margin-top: 8px;">
             <div class="faq-item">
               <button class="faq-q" aria-expanded="false">
                 <span>What HVAC license is required in Texas?</span>
@@ -724,7 +666,7 @@
               </button>
               <div class="faq-a">
                 <div class="faq-a-inner">
-                  <p>Yes. Check with your local utility provider for current energy efficiency rebates on qualifying high-efficiency equipment. Federal tax credits may also apply for qualifying installations &#8212; visit <a href="https://www.energystar.gov/products/energy_star_home_upgrade/clean_heating_cooling" style="color: var(--orange-dark); font-weight: 600;" target="_blank" rel="noopener">energystar.gov</a> for current amounts and eligibility.</p>
+                  <p>Yes. Check with your local utility provider for current energy efficiency rebates on qualifying high-efficiency equipment. The federal Section 25C tax credit was terminated for installations after Dec 31, 2025 by the One Big Beautiful Bill Act (Public Law 119-21); state HEAR rebates and utility programs remain in effect for 2026.</p>
                 </div>
               </div>
             </div>
@@ -751,21 +693,20 @@
                 </div>
               </div>
             </div>
-          </div>
+        </div>
 
-          <div style="text-align: center; margin-top: 32px;">
-            <a href="tel:+18445821795" class="btn btn-primary btn-lg btn-vibrate"><span class="phone-icon">&#128222;</span> Call Now &#8212; (844) 582-1795</a>
-          </div>
+        <div style="text-align: center; margin-top: 32px;">
+          <a href="tel:+18445821795" class="btn btn-primary btn-lg btn-vibrate"><span class="phone-icon">&#128222;</span> Call Now &#8212; (844) 582-1795</a>
         </div>
       </div>
     </section>
 
 
     <!-- Neighboring States -->
-    <section class="section" style="padding: 72px 0; background:#fff;">
+    <section class="section" style="padding: 32px 0 48px;">
       <div class="container" style="max-width: 800px;">
         <div class="city-services" style="margin-bottom: 16px;">
-          <h2 style="text-align:center;">Neighboring State HVAC Guides</h2>
+          <h2>Neighboring State HVAC Guides</h2>
           <p style="font-size: 1.05rem; line-height: 1.85; color: var(--gray-700);">Also serving homeowners in states bordering Texas. HVAC licensing, SEER2 requirements, and rebate programs differ by state.</p>
         </div>
         <div class="neighbor-links">

@@ -56,7 +56,7 @@
       })();
   </script>
 
-  <!-- Structured Data: BreadcrumbList + FAQPage + Organization -->
+  <!-- Structured Data: BreadcrumbList + FAQPage + Organization + Service -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -101,7 +101,7 @@
             "name": "Are there HVAC rebates available in Alaska?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Yes. Check with your local utility provider for current energy efficiency rebates. The federal Section 25C tax credit was terminated for installations after Dec 31, 2025 (OBBBA, P.L. 119-21); check current state HEAR rebates and utility programs for 2026. Visit energystar.gov for current amounts and eligibility."
+              "text": "Yes. Check with your local utility provider for current energy efficiency rebates. The federal Section 25C tax credit was terminated for installations after Dec 31, 2025 (OBBBA, P.L. 119-21); check current state HEAR rebates and utility programs for 2026."
             }
           },
           {
@@ -152,7 +152,9 @@
   }
   </script>
 
-  <style>@font-face{font-family:'Inter';font-style:normal;font-weight:400 900;font-display:swap;src:url('/fonts/inter-latin.woff2') format('woff2')}@font-face{font-family:'Outfit';font-style:normal;font-weight:400 800;font-display:swap;src:url('/fonts/outfit-latin.woff2') format('woff2')}.city-hero {
+  <style>
+    @font-face{font-family:'Inter';font-style:normal;font-weight:400 900;font-display:swap;src:url('/fonts/inter-latin.woff2') format('woff2')}@font-face{font-family:'Outfit';font-style:normal;font-weight:400 800;font-display:swap;src:url('/fonts/outfit-latin.woff2') format('woff2')}
+    .city-hero {
       background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 50%, var(--navy-mid) 100%);
       background-size: cover;
       background-position: center;
@@ -170,82 +172,32 @@
     }
     .city-hero p {
       font-size: 1.15rem;
-      max-width: 620px;
+      max-width: 720px;
       margin: 0 auto;
       opacity: 0.9;
       line-height: 1.7;
-    }
-    .city-context {
-      font-size: 1.1rem;
-      line-height: 1.85;
-      color: var(--gray-700);
-      max-width: 760px;
-      margin: 0 auto 40px;
-    }
-    .city-services {
-      max-width: 760px;
-      margin: 0 auto 48px;
-    }
-    .city-services h2 {
-      font-size: 1.6rem;
-      margin-bottom: 16px;
-      color: var(--navy);
-    }
-    .city-services ul {
-      list-style: none;
-      padding: 0;
-    }
-    .city-services ul li {
-      padding: 12px 0 12px 28px;
-      position: relative;
-      font-size: 1.05rem;
-      color: var(--gray-700);
-      border-bottom: 1px solid var(--gray-100);
-    }
-    .city-services ul li::before {
-      content: "\2714";
-      color: var(--orange-dark);
-      font-weight: 700;
-      position: absolute;
-      left: 0;
-      top: 12px;
-    }
-    .city-services ul li a {
-      color: var(--orange-dark);
-      font-weight: 600;
-      text-decoration: none;
-    }
-    .city-services ul li a:hover {
-      text-decoration: underline;
-    }
-    .city-faq {
-      max-width: 760px;
-      margin: 0 auto 48px;
-    }
-    .city-faq h2 {
-      font-size: 1.6rem;
-      margin-bottom: 20px;
-      color: var(--navy);
     }
     .state-info-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 20px;
       max-width: 760px;
-      margin: 0 auto 48px;
+      margin: 0 auto 16px;
     }
     .state-info-card {
-      background: var(--gray-50, #f8f9fa);
+      background: #fff;
+      border: 1px solid var(--gray-200);
       border-radius: 12px;
       padding: 24px;
       text-align: center;
+      box-shadow: 0 4px 16px rgba(10,22,40,0.04);
     }
     .state-info-card .info-label {
       font-size: 0.85rem;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.05em;
-      color: var(--gray-500, #6b7280);
+      color: var(--gray-500);
       margin-bottom: 8px;
     }
     .state-info-card .info-value {
@@ -256,7 +208,7 @@
     .state-info-card .info-value small {
       font-size: 0.75rem;
       font-weight: 400;
-      color: var(--gray-500, #6b7280);
+      color: var(--gray-500);
       display: block;
       margin-top: 4px;
     }
@@ -264,12 +216,12 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 16px;
-      max-width: 760px;
+      max-width: 1100px;
       margin: 0 auto;
     }
     .city-grid-card {
-      background: var(--gray-50, #f8f9fa);
-      border: 1px solid var(--gray-100, #e5e7eb);
+      background: #fff;
+      border: 1px solid var(--gray-200);
       border-radius: 12px;
       padding: 20px 24px;
       text-decoration: none;
@@ -285,10 +237,6 @@
       border-color: var(--orange-dark);
       box-shadow: 0 2px 8px rgba(255, 165, 0, 0.15);
     }
-    .city-grid-card.coming-soon {
-      opacity: 0.72;
-      pointer-events: none;
-    }
     .city-grid-card .card-icon {
       font-size: 1.2rem;
     }
@@ -296,16 +244,17 @@
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
-      max-width: 760px;
+      max-width: 1100px;
       margin: 16px auto 0;
+      justify-content: center;
     }
     .neighbor-link {
       display: inline-flex;
       align-items: center;
       gap: 6px;
       padding: 10px 18px;
-      background: var(--gray-50, #f8f9fa);
-      border: 1px solid var(--gray-100, #e5e7eb);
+      background: #fff;
+      border: 1px solid var(--gray-200);
       border-radius: 8px;
       text-decoration: none;
       color: var(--navy);
@@ -379,7 +328,7 @@
         <span class="section-tag" style="background: rgba(255,255,255,0.1); color: #fff;">&#128205; Alaska</span>
         <h1>HVAC Service &amp; Repair in Alaska</h1>
         <p>Independent local HVAC professionals serve every city and ZIP code across Alaska&rsquo;s subarctic climate and extended heating season. Emergency furnace repair, heating service, and HVAC installation available 24/7.</p>
-        <div class="article-meta-modern"><div class="meta-line meta-reviewed">Last reviewed <time datetime="2026-04-20">April 20, 2026</time></div></div>
+        <div class="article-meta-modern"><div class="meta-line meta-reviewed">Last reviewed <time datetime="2026-04-25">April 25, 2026</time></div></div>
         <div class="author-byline">
           <img src="../images/author-gyane.webp" alt="Gyanesh Gulshan" class="author-avatar-sm" loading="lazy" width="48" height="48" />
           <span>By <a href="../author-gyanesh">Gyanesh Gulshan</a> &mdash; Founder, Cool Call Pro</span>
@@ -388,13 +337,13 @@
           <a href="tel:+18445821795" class="btn btn-primary btn-lg btn-vibrate"><span class="phone-icon">&#128222;</span> Call Now &#8212; (844) 582-1795</a>
         </div>
         <div class="jump-links" style="margin-top: 16px;">
-          <a href="#services" class="jump-link" style="color: rgba(255,255,255,0.8);">Services</a>
+          <a href="#trust" class="jump-link" style="color: rgba(255,255,255,0.8);">At a Glance</a>
           <span class="jump-link-dot" style="color: rgba(255,255,255,0.5);">&#8226;</span>
           <a href="#climate" class="jump-link" style="color: rgba(255,255,255,0.8);">Climate</a>
           <span class="jump-link-dot" style="color: rgba(255,255,255,0.5);">&#8226;</span>
-          <a href="#licensing" class="jump-link" style="color: rgba(255,255,255,0.8);">Licensing</a>
+          <a href="#services" class="jump-link" style="color: rgba(255,255,255,0.8);">Services &amp; Licensing</a>
           <span class="jump-link-dot" style="color: rgba(255,255,255,0.5);">&#8226;</span>
-          <a href="#costs" class="jump-link" style="color: rgba(255,255,255,0.8);">Costs</a>
+          <a href="#rebates" class="jump-link" style="color: rgba(255,255,255,0.8);">Rebates</a>
           <span class="jump-link-dot" style="color: rgba(255,255,255,0.5);">&#8226;</span>
           <a href="#cities" class="jump-link" style="color: rgba(255,255,255,0.8);">Service Areas</a>
           <span class="jump-link-dot" style="color: rgba(255,255,255,0.5);">&#8226;</span>
@@ -416,11 +365,13 @@
       </div>
     </div>
 
-    <!-- State Overview -->
-    <section class="section" style="padding: 48px 0 0;">
+    <!-- STATE AT A GLANCE / TRUST STRIP -->
+    <section class="section" id="trust" style="padding: 72px 0; background: var(--gray-50);">
       <div class="container">
-        <div class="city-context">
-          <p>Alaska is home to over <strong>0.7 million residents</strong> with a <strong>66% homeownership rate</strong>. The state spans IECC <strong>Zones 7 and 8</strong>, and With winter lows dropping to -7&deg;F, heating is the primary demand on your HVAC system. Summer highs near 62&deg;F still require reliable cooling. Most homes across Alaska use a central AC and gas furnace combination to handle both cooling and heating demands. Cool Call Pro connects you with independent local HVAC professionals serving every corner of the state.</p>
+        <div style="text-align:center; margin-bottom: 36px;">
+          <span style="display:inline-block; font-size:0.78rem; font-weight:800; letter-spacing:0.12em; text-transform:uppercase; color:var(--navy); padding:6px 14px; background:#fff; border:1px solid var(--gray-200); border-radius:999px; margin-bottom:16px;">&#128205; State at a Glance</span>
+          <h2 style="font-size: 1.75rem; color: var(--navy); margin: 0 0 14px;">HVAC across Alaska</h2>
+          <p style="max-width: 720px; margin: 0 auto; font-size: 1.05rem; color: var(--gray-700); line-height: 1.7;">Alaska is home to over <strong>0.7 million residents</strong> with a <strong>66% homeownership rate</strong>. The state spans IECC <strong>Zones 7 and 8</strong>, with summer highs averaging 62&deg;F and winter lows near -7&deg;F.</p>
         </div>
 
         
@@ -432,7 +383,6 @@
         </figure>
 
 
-        <!-- State At-a-Glance -->
         <div class="state-info-grid">
           <div class="state-info-card">
             <div class="info-label">Population</div>
@@ -462,135 +412,175 @@
       </div>
     </section>
 
-    <!-- Climate & HVAC Demands -->
-    <section class="section" style="padding: 0;" id="climate">
+    <!-- CLIMATE & COMPLIANCE -->
+    <section class="section" id="climate" style="padding: 72px 0; background:#fff;">
       <div class="container">
-        <div class="city-services" style="margin-bottom: 40px;">
-          <h2>Climate &amp; HVAC Demands in Alaska</h2>
-          <p style="font-size: 1.05rem; line-height: 1.85; color: var(--gray-700);">Alaska spans IECC Zones 7 and 8. With winter lows dropping to -7&deg;F, heating is the primary demand on your HVAC system. Summer highs near 62&deg;F still require reliable cooling. Average electricity rates sit at <strong>26.57&cent;/kWh</strong>, making system efficiency an important factor in your monthly energy costs. Learn more about <a href="../article-furnace" style="color: var(--orange-dark); font-weight: 600;">furnace options</a> for your home.</p>
+        <div style="max-width: 1100px; margin: 0 auto;">
+          <div style="text-align:center; margin-bottom: 32px;">
+            <span style="display:inline-block; font-size:0.78rem; font-weight:800; letter-spacing:0.12em; text-transform:uppercase; color:var(--blue); padding:6px 14px; background:#ebf8ff; border:1px solid #bee3f8; border-radius:999px; margin-bottom:16px;">&#127777;&#65039; Climate &amp; Compliance</span>
+            <h2 style="font-size: 1.75rem; color: var(--navy); margin: 0;">Alaska climate, efficiency code &amp; typical costs</h2>
+          </div>
+
+          <div class="precaution-cards" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; align-items: stretch;">
+
+            <div class="precaution-card" style="display:flex; flex-direction:column; background:#fff; border:1px solid var(--gray-200); box-shadow: 0 4px 16px rgba(10,22,40,0.04);">
+              <div class="precaution-icon" style="color: var(--blue);">&#127777;&#65039; Climate Demands</div>
+              <h3>heating-dominated, long winter season</h3>
+              <p style="margin-bottom: 0;">Alaska spans IECC <strong>7, 8</strong>. Summer highs avg 62&deg;F, winter lows near -7&deg;F. Average electricity 26.57&cent;/kWh &mdash; system efficiency directly drives monthly costs. Learn more about <a href="../article-furnace" style="color: var(--orange-dark); font-weight: 600;">furnace options</a>.</p>
+            </div>
+
+            <div class="precaution-card" style="display:flex; flex-direction:column; background:#fff; border:1px solid var(--gray-200); box-shadow: 0 4px 16px rgba(10,22,40,0.04);">
+              <div class="precaution-icon" style="color: var(--blue);">&#128161; SEER2 Code</div>
+              <h3>North region: SEER2 13.4 minimum</h3>
+              <p style="margin-bottom: 0;">As of January 2023, all new central AC systems in Alaska must meet <strong>SEER2 13.4</strong>. Higher-efficiency systems cost more upfront but reduce monthly bills. See our <a href="../article-ac-summer" style="color: var(--orange-dark); font-weight: 600;">summer AC guide</a>.</p>
+            </div>
+
+            <div class="precaution-card" style="display:flex; flex-direction:column; background:#fff; border:1px solid var(--gray-200); box-shadow: 0 4px 16px rgba(10,22,40,0.04);">
+              <div class="precaution-icon" style="color: var(--blue);">&#128176; Typical Costs</div>
+              <h3>Alaska HVAC installation costs</h3>
+              <p style="margin-bottom: 0;">A furnace replacement in Alaska typically costs <strong>$4,000–$9,000</strong>, and AC replacements run <strong>$4,500–$8,500</strong>. Costs vary by city, system size, efficiency rating, and installation complexity. See our <a href="../costs" style="color: var(--orange-dark); font-weight: 600;">full HVAC cost guide</a>.</p>
+            </div>
+
+            <div class="precaution-card" style="display:flex; flex-direction:column; background:#fff; border:1px solid var(--gray-200); box-shadow: 0 4px 16px rgba(10,22,40,0.04);">
+              <div class="precaution-icon" style="color: var(--blue);">&#127744;&#65039; Climate Hazards</div>
+              <h3>FEMA-tracked exposure</h3>
+              <p style="margin-bottom: 0;">Per <a href="https://hazards.fema.gov/nri/" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">FEMA's National Risk Index</a>, Alaska faces elevated <strong>Extreme Cold</strong>, <strong>Earthquake</strong>, and <strong>High Wind</strong> exposure. Each event stresses HVAC systems &mdash; schedule a technician inspection after major weather before restart.</p>
+            </div>
+
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- SEER2 & Efficiency -->
-    <section class="section" style="padding: 0;">
+    <!-- SERVICES & LICENSING -->
+    <section class="section" id="services" style="padding: 72px 0; background: var(--gray-50);">
       <div class="container">
-        <div class="city-services" style="margin-bottom: 40px;">
-          <h2>SEER2 Efficiency Requirements in Alaska</h2>
-          <p style="font-size: 1.05rem; line-height: 1.85; color: var(--gray-700);">Alaska falls within the <strong>North SEER2 region</strong>. As of January 2023, all new central air conditioning systems installed in Alaska must meet a minimum <strong>SEER2 rating of 13.4</strong>. When replacing your AC or heat pump, ensure your contractor installs a unit that meets or exceeds this minimum &#8212; upgrading to a higher-efficiency system can significantly reduce your energy bills. See our <a href="../article-ac-summer" style="color: var(--orange-dark); font-weight: 600;">summer AC guide</a> for more on efficiency ratings.</p>
+        <div style="text-align:center; margin-bottom: 36px;">
+          <span style="display:inline-block; font-size:0.78rem; font-weight:800; letter-spacing:0.12em; text-transform:uppercase; color:var(--navy); padding:6px 14px; background:#fff; border:1px solid var(--gray-200); border-radius:999px; margin-bottom:16px;">&#128295; Services &amp; Licensing</span>
+          <h2 style="font-size: 1.75rem; color: var(--navy); margin: 0;">What Alaska HVAC contractors do &mdash; and what to verify</h2>
         </div>
-      </div>
-    </section>
 
-    <!-- Services List -->
-    <section class="section" style="padding: 0;" id="services">
-      <div class="container">
-        <div class="city-services">
-          <h2>HVAC Services in Alaska</h2>
-          <ul>
+        <div class="precaution-cards" style="max-width: 1100px; margin: 0 auto; display:grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 20px; align-items: stretch;">
+
+          <div class="precaution-card" style="display:flex; flex-direction:column; background:#fff; border:1px solid var(--gray-200); box-shadow: 0 4px 16px rgba(10,22,40,0.04);" id="services-card">
+            <div class="precaution-icon" style="color: var(--navy);">&#128295; HVAC Services in Alaska</div>
+            <h3>What our network covers</h3>
+            <ul style="margin-top: 0; margin-bottom: 0;">
             <li>Emergency Furnace Repair in Alaska</li>
             <li>High-Efficiency Furnace Installation &amp; Replacement</li>
             <li>Boiler Service &amp; Radiant Heating Systems</li>
             <li>HVAC System Maintenance &amp; Tune-Ups</li>
             <li>Ductwork Inspection, Insulation &amp; Sealing</li>
             <li>Indoor Air Quality &amp; Ventilation Solutions</li>
-          </ul>
+            </ul>
+          </div>
+
+          <div class="precaution-card" style="display:flex; flex-direction:column; background:#fff; border:1px solid var(--gray-200); box-shadow: 0 4px 16px rgba(10,22,40,0.04);" id="licensing">
+            <div class="precaution-icon" style="color: var(--navy);">&#128203; Licensing Requirements</div>
+            <h3>Verify before you hire</h3>
+            <p style="margin-bottom: 0;">Alaska requires HVAC contractors to hold a license issued by the <strong>Division of Corporations, Business and Professional Licensing</strong>. Before hiring, verify your contractor's credentials through the board's <a href="https://www.commerce.alaska.gov/web/cbpl/professionallicensing/mechanicaladministrators.aspx" style="color: var(--orange-dark); font-weight: 600;" target="_blank" rel="noopener">license lookup tool</a>. Licensed contractors carry insurance, pull permits correctly, and stand behind their work. See our <a href="../safety" style="color: var(--orange-dark); font-weight: 600;">safety tips</a> for more on what to verify before hiring.</p>
+          </div>
+
         </div>
       </div>
     </section>
 
-    <!-- Licensing -->
-    <section class="section" style="padding: 0;" id="licensing">
+    <!-- REBATES & PROGRAMS -->
+    <section class="section" id="rebates" style="padding: 72px 0; background:#fff;">
       <div class="container">
-        <div class="city-services" style="margin-bottom: 40px;">
-          <h2>HVAC Licensing Requirements in Alaska</h2>
-          <p style="font-size: 1.05rem; line-height: 1.85; color: var(--gray-700);">Alaska requires HVAC contractors to hold a license issued by the <strong>Division of Corporations, Business and Professional Licensing</strong>. Before hiring, verify your contractor's credentials through the board's <a href="https://www.commerce.alaska.gov/web/cbpl/professionallicensing/mechanicaladministrators.aspx" style="color: var(--orange-dark); font-weight: 600;" target="_blank" rel="noopener">license lookup tool</a>. Licensed contractors carry insurance, pull permits correctly, and stand behind their work. See our <a href="../safety" style="color: var(--orange-dark); font-weight: 600;">safety tips</a> for more on what to verify before hiring.</p>
+        <div style="max-width: 1100px; margin: 0 auto;">
+          <div style="text-align:center; margin-bottom: 32px;">
+            <span style="display:inline-block; font-size:0.78rem; font-weight:800; letter-spacing:0.12em; text-transform:uppercase; color:var(--blue); padding:6px 14px; background:#ebf8ff; border:1px solid #bee3f8; border-radius:999px; margin-bottom:16px;">&#128176; Rebates &amp; Programs</span>
+            <h2 style="font-size: 1.75rem; color: var(--navy); margin: 0;">Alaska utility rebates &amp; state programs</h2>
+          </div>
+
+          <div style="margin: 0 auto 28px; background: linear-gradient(135deg, #f7fafc, #edf2f7); border: 1px solid var(--gray-200); border-left: 5px solid var(--blue); border-radius: var(--radius); padding: 18px 22px;">
+            <div style="display: flex; align-items: flex-start; gap: 14px;">
+              <div style="font-size: 1.4rem; line-height: 1; flex-shrink: 0;" aria-hidden="true">&#9889;</div>
+              <p style="margin: 0; color: var(--gray-700); line-height: 1.65;">Major utility providers in Alaska include <strong>Golden Valley Electric</strong>, <strong>Chugach Electric</strong>, <strong>Matanuska Electric</strong>. Available rebate programs are listed below. Always confirm current amounts with the provider before scheduling work.</p>
+            </div>
+          </div>
+
+          <div class="precaution-cards" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 20px; align-items: stretch;">
+
+            <div class="precaution-card" style="display:flex; flex-direction:column; background:#fff; border:1px solid var(--gray-200); box-shadow: 0 4px 16px rgba(10,22,40,0.04);">
+              <div class="precaution-icon" style="color: var(--blue);">&#9889; Utility Rebate Programs</div>
+              <h3>Through your local provider</h3>
+              <p style="margin-bottom: 0;">Active rebate programs include <strong>Alaska Housing Finance Corp. Energy Programs</strong>, <strong>Weatherization</strong>. Programs change &mdash; verify current amounts and eligibility before scheduling work.</p>
+              <p style="margin-top: auto; padding-top: 8px; margin-bottom: 0;"><a href="https://www.energystar.gov/products/energy_star_home_upgrade/clean_heating_cooling" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">ENERGY STAR Heating &amp; Cooling &rarr;</a></p>
+            </div>
+
+            <div class="precaution-card" style="display:flex; flex-direction:column; background:#fff; border:1px solid var(--gray-200); box-shadow: 0 4px 16px rgba(10,22,40,0.04);">
+              <div class="precaution-icon" style="color: var(--blue);">&#127970; State Energy Office</div>
+              <h3>Alaska Energy Authority</h3>
+              <p style="margin-bottom: 0;">The <strong>Alaska Energy Authority</strong> coordinates HVAC rebates, weatherization assistance, and federal Inflation Reduction Act program administration in Alaska.</p>
+              <p style="margin-top: auto; padding-top: 8px; margin-bottom: 0;"><a href="https://www.akenergyauthority.org" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">www.akenergyauthority.org &rarr;</a> &middot; <a href="https://www.dsireusa.org/" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">DSIRE Alaska &rarr;</a></p>
+            </div>
+
+            <div class="precaution-card" style="display:flex; flex-direction:column; background:#fff; border:1px solid var(--gray-200); box-shadow: 0 4px 16px rgba(10,22,40,0.04);">
+              <div class="precaution-icon" style="color: var(--blue);">&#127970; Federal HEAR Allocation</div>
+              <h3>IRA-funded state rebate pool</h3>
+              <p style="margin-bottom: 0;">Alaska was allocated <strong>$74,519,420</strong> for federally-funded Home Energy Rebates (HEAR) under the Inflation Reduction Act. The state is rolling out applications through 2026 &mdash; ask your installer if your project qualifies.</p>
+              <p style="margin-top: auto; padding-top: 8px; margin-bottom: 0;"><a href="https://www.energy.gov/scep/home-energy-rebates" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">DOE Home Energy Rebates &rarr;</a></p>
+            </div>
+
+          </div>
+
+          <div style="max-width: 1100px; margin: 32px auto 0; background: linear-gradient(135deg, #fffbeb, #fef3c7); border: 1px solid var(--yellow); border-left: 5px solid var(--orange-dark); border-radius: var(--radius); padding: 20px 24px;">
+            <div style="display: flex; align-items: flex-start; gap: 16px;">
+              <div style="font-size: 1.6rem; line-height: 1; flex-shrink: 0;" aria-hidden="true">&#128203;</div>
+              <div>
+                <div style="font-family: var(--font-display); font-weight: 800; font-size: 1.05rem; color: var(--navy); margin-bottom: 6px;">Federal tax credits &mdash; important update for 2026</div>
+                <p style="margin: 0; color: var(--gray-700); line-height: 1.65;">The federal <strong>Section 25C Energy Efficient Home Improvement Credit</strong> was terminated for installations placed in service after Dec 31, 2025 by the One Big Beautiful Bill Act (Public Law 119-21). <strong>State HEAR rebates and utility programs remain in effect.</strong> See our <a href="../article-hvac-financing" style="color: var(--orange-dark); font-weight: 600;">HVAC financing options</a> for what's still available.</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Utilities & Rebates -->
-    <section class="section" style="padding: 0;">
+    <!-- MID-PAGE CTA -->
+    <section style="padding: 64px 0; background: var(--gray-50);">
       <div class="container">
-        <div class="city-services" style="margin-bottom: 40px;">
-          <h2>Utility Companies &amp; HVAC Rebates in Alaska</h2>
-          <p style="font-size: 1.05rem; line-height: 1.85; color: var(--gray-700);">The major utility providers in Alaska include <strong>Golden Valley Electric</strong>, <strong>Chugach Electric</strong>, <strong>Matanuska Electric</strong>.</p>
-          <p style="font-size: 1.05rem; line-height: 1.85; color: var(--gray-700); margin-top: 16px;"><strong>Available rebate programs:</strong></p>
-          <ul>
-            <li><strong>Alaska Housing Finance Corp. Energy Programs</strong></li>
-            <li><strong>Weatherization</strong></li>
-            <li><strong>Federal Tax Credits</strong> &#8212; may apply for qualifying high-efficiency installations; check <a href="https://www.energystar.gov/products/energy_star_home_upgrade/clean_heating_cooling" target="_blank" rel="noopener" style="color: var(--orange-dark); font-weight: 600;">energystar.gov</a> for current amounts and eligibility</li>
-          </ul>
-          <p style="font-size: 1.05rem; line-height: 1.85; color: var(--gray-700); margin-top: 16px;">Contact your utility provider or HVAC contractor to confirm current eligibility and amounts. Learn about <a href="../article-hvac-financing" style="color: var(--orange-dark); font-weight: 600;">HVAC financing options</a>.</p>
+        <div style="max-width: 760px; margin: 0 auto; background:linear-gradient(135deg, var(--navy-deep), var(--navy)); color:#fff; padding: 32px; border-radius: var(--radius-lg); text-align:center; box-shadow: 0 12px 40px rgba(10,22,40,0.18);">
+          <p style="font-size: 1.4rem; font-weight: 700; font-family: var(--font-display); color:#fff; margin-bottom: 10px;">Ready to talk to a Alaska HVAC pro?</p>
+          <p style="margin-bottom: 22px; opacity: 0.85; font-size: 1rem;">Independent technicians &middot; 24/7 dispatch &middot; Division of Corporations-licensed network</p>
+          <a href="tel:+18445821795" class="btn btn-primary btn-lg btn-vibrate"><span class="phone-icon">&#128222;</span> Call Now &mdash; (844) 582-1795</a>
+          <p style="font-size: 0.72rem; color: rgba(255,255,255,0.5); margin: 16px auto 0; max-width: 460px; line-height: 1.5;">Disclosure: We are a referral service and may receive compensation for qualified calls. Calls may be routed to an independent provider network and may be recorded. Pricing and availability vary by provider and location.</p>
         </div>
       </div>
     </section>
 
-    <!-- Cost Overview -->
-    <section class="section" style="padding: 0;" id="costs">
+    <!-- COMMON HVAC ISSUES (climate-keyed cluster links) -->
+    <section class="section" style="padding: 72px 0; background:#fff;">
       <div class="container">
-        <div class="city-services" style="margin-bottom: 40px;">
-          <h2>HVAC Installation Costs in Alaska</h2>
-          <p style="font-size: 1.05rem; line-height: 1.85; color: var(--gray-700);">A furnace replacement in Alaska typically costs <strong>$4,000–$9,000</strong>, and AC replacements run <strong>$4,500–$8,500</strong>. Costs vary by city, system size, efficiency rating, and installation complexity. Higher-efficiency units cost more upfront but lower monthly bills, especially given Alaska's electricity rates. See our <a href="../costs" style="color: var(--orange-dark); font-weight: 600;">full HVAC cost guide</a> for detailed pricing breakdowns.</p>
+        <div style="max-width: 1000px; margin: 0 auto;">
+          <div style="text-align:center; margin-bottom: 32px;">
+            <span style="display:inline-block; font-size:0.78rem; font-weight:800; letter-spacing:0.12em; text-transform:uppercase; color:var(--navy); padding:6px 14px; background:var(--gray-50); border:1px solid var(--gray-200); border-radius:999px; margin-bottom:16px;">&#128295; Common Issues</span>
+            <h2 style="font-size: 1.75rem; color: var(--navy); margin: 0 0 14px;">Common HVAC issues in Alaska</h2>
+            <p style="max-width: 720px; margin: 0 auto; font-size: 1.05rem; color: var(--gray-700); line-height: 1.7;">Alaska's long heating season drives most HVAC calls. Common furnace and heating failures we see:</p>
+          </div>
+          <div class="precaution-card" style="background:#fff; border:1px solid var(--gray-200); box-shadow: 0 4px 16px rgba(10,22,40,0.04);">
+            <ul style="margin: 0;">
+              <li><a href="../article-furnace" style="color: var(--orange-dark); font-weight: 600;">Furnace not igniting?</a> &mdash; ignition failure diagnosis and repair costs</li>
+              <li><a href="../articles/furnace-blowing-cold-air-winter" style="color: var(--orange-dark); font-weight: 600;">Furnace blowing cold air in winter</a> &mdash; filter, ignitor, flame sensor, or gas valve fault</li>
+              <li><a href="../article-carbon-monoxide" style="color: var(--orange-dark); font-weight: 600;">Carbon monoxide: the invisible killer</a> &mdash; CO detection, warning signs, and safety steps</li>
+              <li><a href="../article-winter-storm" style="color: var(--orange-dark); font-weight: 600;">Protect your HVAC during a winter storm</a> &mdash; freeze prep, power-outage safeguards, post-storm inspection</li>
+              <li><a href="../article-heat-pump" style="color: var(--orange-dark); font-weight: 600;">Heat pump not working?</a> &mdash; cold-weather performance, defrost cycle, common failures</li>
+              <li><a href="../article-maintenance" style="color: var(--orange-dark); font-weight: 600;">12-month HVAC maintenance checklist</a> &mdash; seasonal tune-up timing and pro-only tasks</li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Common HVAC Issues -->
-    <section class="section" style="padding: 0;">
+    <!-- Service Areas (Cities in Alaska) -->
+    <section class="section" id="cities" style="padding: 72px 0; background: var(--gray-50);">
       <div class="container">
-        <div class="city-services" style="margin-bottom: 40px;">
-          <h2>Common HVAC Issues in Alaska</h2>
-          <p style="font-size: 1.05rem; line-height: 1.85; color: var(--gray-700);">Alaska's long heating season drives most HVAC calls. Common furnace and heating failures we see:</p>
-          <ul>
-            <li><a href="../article-furnace" style="color: var(--orange-dark); font-weight: 600;">Furnace not igniting?</a> &mdash; ignition failure diagnosis and repair costs</li>
-            <li><a href="../articles/furnace-blowing-cold-air-winter" style="color: var(--orange-dark); font-weight: 600;">Furnace blowing cold air in winter</a> &mdash; filter, ignitor, flame sensor, or gas valve fault</li>
-            <li><a href="../article-carbon-monoxide" style="color: var(--orange-dark); font-weight: 600;">Carbon monoxide: the invisible killer</a> &mdash; CO detection, warning signs, and safety steps</li>
-            <li><a href="../article-winter-storm" style="color: var(--orange-dark); font-weight: 600;">Protect your HVAC during a winter storm</a> &mdash; freeze prep, power-outage safeguards, post-storm inspection</li>
-            <li><a href="../article-heat-pump" style="color: var(--orange-dark); font-weight: 600;">Heat pump not working?</a> &mdash; cold-weather performance, defrost cycle, common failures</li>
-            <li><a href="../article-maintenance" style="color: var(--orange-dark); font-weight: 600;">12-month HVAC maintenance checklist</a> &mdash; seasonal tune-up timing and pro-only tasks</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- Climate Hazards -->
-    <section class="section" style="padding: 0;">
-      <div class="container">
-        <div class="city-services" style="margin-bottom: 40px;">
-          <h2>Climate Hazards Affecting Alaska HVAC Systems</h2>
-          <p style="font-size: 1.05rem; line-height: 1.85; color: var(--gray-700);">According to the FEMA National Risk Index and NOAA storm data, Alaska faces elevated exposure to <strong>Extreme Cold</strong>, <strong>Earthquake</strong>, and <strong>High Wind</strong>. Each event damages or stresses residential HVAC systems in specific ways that an HVAC professional should diagnose after the fact.</p>
-          <ul>
-            <li><strong>Extreme Cold:</strong> Single-digit temperatures stress gas furnace heat exchangers and drive heavy auxiliary heat strip usage on heat pumps. Schedule a pre-winter tune-up before the first hard freeze.</li>
-            <li><strong>Earthquake:</strong> Ground movement can shear refrigerant lines, condensate drains, and gas connections at joints. After any measurable quake, a technician should verify refrigerant and gas-line integrity before operation.</li>
-            <li><strong>High Wind:</strong> Sustained high winds topple poorly-anchored outdoor units and drive debris into coil fins. Inspect with a technician after any extreme wind event before restart.</li>
-          </ul>
-          <p style="font-size: 0.9rem; color: var(--gray-700); margin-top: 20px;">Source: <a href="https://www.fema.gov/flood-maps/products-tools/national-risk-index" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark);">FEMA National Risk Index</a> and <a href="https://www.noaa.gov/climate" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark);">NOAA climate data</a>.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- State Energy Office Resources -->
-    <section class="section" style="padding: 0;">
-      <div class="container">
-        <div class="city-services" style="margin-bottom: 40px;">
-          <h2>Alaska Energy Office and HVAC Rebate Resources</h2>
-          <p style="font-size: 1.05rem; line-height: 1.85; color: var(--gray-700);">For current HVAC rebates, energy-efficiency incentives, and federal Inflation Reduction Act (IRA) program coordination in Alaska, consult these authoritative sources:</p>
-          <ul>
-            <li><strong>Alaska Energy Authority</strong> &mdash; <a href="https://www.akenergyauthority.org" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">www.akenergyauthority.org</a>. The state-level energy agency that coordinates HVAC rebates, weatherization assistance, and IRA program administration in Alaska.</li>
-            <li><strong>DSIRE Alaska listing</strong> &mdash; <a href="https://www.dsireusa.org/" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">dsireusa.org</a>. N.C. State University's comprehensive database of every federal, state, local, and utility incentive program. Enter your ZIP code on the homepage to see programs available to Alaska homeowners.</li>
-            <li><strong>ENERGY STAR Heating &amp; Cooling Products</strong> &mdash; <a href="https://www.energystar.gov/products/energy_star_home_upgrade/clean_heating_cooling" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">energystar.gov/products/heating_cooling</a>. The federal Section 25C tax credit was terminated for installations after Dec 31, 2025 by the One Big Beautiful Bill Act (Public Law 119-21). State HEAR rebates (rolling out through 2026) and utility rebates remain the primary federal-funded incentives.</li>
-          </ul>
-          <p style="font-size: 0.9rem; color: var(--gray-700); margin-top: 20px;">Source: <a href="https://www.naseo.org/state-energy-offices" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark);">NASEO State Energy Offices Directory</a> (National Association of State Energy Officials).</p>
-        </div>
-      </div>
-    </section>
-    <!-- Service Areas -->
-    <section class="section" style="padding: 0 0 48px;" id="cities">
-      <div class="container">
-        <div class="city-services" style="margin-bottom: 24px;">
-          <h2>Service Areas in Alaska</h2>
-          <p style="font-size: 1.05rem; line-height: 1.85; color: var(--gray-700);">Cool Call Pro connects homeowners with HVAC professionals across Alaska. Browse our local service pages for city-specific costs, permit offices, and contractor information.</p>
+        <div style="text-align:center; margin-bottom: 36px;">
+          <span style="display:inline-block; font-size:0.78rem; font-weight:800; letter-spacing:0.12em; text-transform:uppercase; color:var(--navy); padding:6px 14px; background:#fff; border:1px solid var(--gray-200); border-radius:999px; margin-bottom:16px;">&#128205; Service Areas</span>
+          <h2 style="font-size: 1.75rem; color: var(--navy); margin: 0 0 14px;">HVAC service areas across Alaska</h2>
+          <p style="max-width: 720px; margin: 0 auto; font-size: 1.05rem; color: var(--gray-700); line-height: 1.7;">Cool Call Pro connects homeowners with independent HVAC professionals across Alaska. Browse city pages for local costs, permit offices, and licensing details.</p>
         </div>
         <div class="city-grid">
           <a href="anchorage-ak" class="city-grid-card">
@@ -600,61 +590,14 @@
       </div>
     </section>
 
-    <!-- Why Call a Alaska Pro -->
-    <section class="section section-dark" id="why-pro">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-tag"
-            style="background: rgba(255,165,0,0.15); color: var(--orange-light); border-color: rgba(255,165,0,0.3);">&#128205;
-            Alaska HVAC Context</span>
-          <h2 class="section-title">Why Call a Alaska HVAC Pro</h2>
-          <p class="section-sub">Four facts from climate and licensing data specific to <strong>Alaska</strong>.</p>
-        </div>
-
-        <div class="steps-grid">
-
-          <div class="step-card">
-            <div class="step-number">01</div>
-            <div class="step-icon">&#127777;&#65039;</div>
-            <h3>Climate Load</h3>
-            <p>Alaska averages <strong>62&deg;F</strong> summer highs and <strong>-7&deg;F</strong> winter lows, with <strong>0</strong> annual cooling degree days and <strong>10,800</strong> heating degree days. A mis-sized or poorly-charged system fails early under that load.</p>
-          </div>
-
-          <div class="step-card">
-            <div class="step-number">02</div>
-            <div class="step-icon">&#128221;</div>
-            <h3>Licensing</h3>
-            <p>Alaska requires HVAC contractors to hold a state license from the <strong>Division of Corporations, Business and Professional Licensing</strong>. Unlicensed work can void manufacturer warranties and complicate insurance claims.</p>
-          </div>
-
-          <div class="step-card">
-            <div class="step-number">03</div>
-            <div class="step-icon">&#128161;</div>
-            <h3>Efficiency Code</h3>
-            <p>New central AC units installed in Alaska must meet <strong>SEER2 13.4</strong> (<strong>North</strong> SEER2 region) under the federal efficiency standard effective January 1, 2023. A pro ensures the installed system is compliant and sized correctly.</p>
-          </div>
-
-          <div class="step-card">
-            <div class="step-number">04</div>
-            <div class="step-icon">&#127744;&#65039;</div>
-            <h3>Weather Risks</h3>
-            <p>FEMA's National Risk Index identifies <strong>Extreme Cold</strong>, <strong>Earthquake</strong>, and <strong>High Wind</strong> as elevated hazards in Alaska. A technician inspects outdoor equipment for damage after any major weather event before restart.</p>
-          </div>
-
-        </div>
-
-        <div style="text-align: center; margin-top: 48px;">
-          <a href="tel:+18445821795" class="btn btn-primary btn-lg btn-vibrate"><span class="phone-icon">&#128222;</span> Call Now &#8212; (844) 582-1795</a>
-        </div>
-      </div>
-    </section>
-
     <!-- FAQs -->
-    <section class="section" id="faqs">
+    <section class="section" id="faqs" style="padding: 72px 0; background:#fff;">
       <div class="container" style="max-width: 800px;">
-        <div class="city-faq">
-          <h2>Frequently Asked Questions &#8212; Alaska HVAC</h2>
-          <div class="faq-list" style="margin-top: 24px;">
+        <div style="text-align:center; margin-bottom: 36px;">
+          <span style="display:inline-block; font-size:0.78rem; font-weight:800; letter-spacing:0.12em; text-transform:uppercase; color:var(--navy); padding:6px 14px; background:var(--gray-50); border:1px solid var(--gray-200); border-radius:999px; margin-bottom:16px;">&#10067; Frequently Asked Questions</span>
+          <h2 style="font-size: 1.75rem; color: var(--navy); margin: 0;">Alaska HVAC &mdash; common questions</h2>
+        </div>
+        <div class="faq-list" style="margin-top: 8px;">
             <div class="faq-item">
               <button class="faq-q" aria-expanded="false">
                 <span>What HVAC license is required in Alaska?</span>
@@ -698,7 +641,7 @@
               </button>
               <div class="faq-a">
                 <div class="faq-a-inner">
-                  <p>Yes. Check with your local utility provider for current energy efficiency rebates on qualifying high-efficiency equipment. Federal tax credits may also apply for qualifying installations &#8212; visit <a href="https://www.energystar.gov/products/energy_star_home_upgrade/clean_heating_cooling" style="color: var(--orange-dark); font-weight: 600;" target="_blank" rel="noopener">energystar.gov</a> for current amounts and eligibility.</p>
+                  <p>Yes. Check with your local utility provider for current energy efficiency rebates on qualifying high-efficiency equipment. The federal Section 25C tax credit was terminated for installations after Dec 31, 2025 by the One Big Beautiful Bill Act (Public Law 119-21); state HEAR rebates and utility programs remain in effect for 2026.</p>
                 </div>
               </div>
             </div>
@@ -725,11 +668,10 @@
                 </div>
               </div>
             </div>
-          </div>
+        </div>
 
-          <div style="text-align: center; margin-top: 32px;">
-            <a href="tel:+18445821795" class="btn btn-primary btn-lg btn-vibrate"><span class="phone-icon">&#128222;</span> Call Now &#8212; (844) 582-1795</a>
-          </div>
+        <div style="text-align: center; margin-top: 32px;">
+          <a href="tel:+18445821795" class="btn btn-primary btn-lg btn-vibrate"><span class="phone-icon">&#128222;</span> Call Now &#8212; (844) 582-1795</a>
         </div>
       </div>
     </section>

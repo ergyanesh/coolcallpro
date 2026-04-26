@@ -1066,7 +1066,136 @@ def generate_html(d, city_list, hub_abbrs, all_states, out_path=None, refresh_da
     util_parts = [u.strip() for u in str(utilities).split(',')] if utilities else []
     util_bold = ', '.join(f'<strong>{u}</strong>' for u in util_parts)
 
-    return f'''<!DOCTYPE html>
+    # ---- New card-driven layout prep (25 April 2026) ----------------------
+    # Federal IRA Rebate Allocation: real, verifiable per-state HEAR figure
+    ira_alloc_raw = str(d.get('Federal IRA Rebate Allocation', '') or '').strip()
+    ira_alloc = ira_alloc_raw if ira_alloc_raw and ira_alloc_raw.startswith('$') else ''
+
+    # State Energy Office name + URL — column 28-29 in xlsx (preferred);
+    # fall back to state_energy_offices.json if column is empty.
+    seo_name = str(d.get('State Energy Office Name', '') or '').strip()
+    seo_url = str(d.get('State Energy Office URL', '') or '').strip()
+    if not (seo_name and seo_url):
+        entry = _ENERGY_OFFICES.get(abbr) or {}
+        seo_name = seo_name or entry.get('name', '')
+        seo_url = seo_url or entry.get('url', '')
+    seo_url_display = _strip_scheme(seo_url) if seo_url else ''
+
+    # Climate hazards prose — used in Climate Profile compliance card.
+    hazards_list = [h.strip() for h in str(hazards_csv or '').split(',') if h.strip()]
+    if hazards_list:
+        if len(hazards_list) == 1:
+            hazards_prose = f'<strong>{hazards_list[0]}</strong>'
+        elif len(hazards_list) == 2:
+            hazards_prose = f'<strong>{hazards_list[0]}</strong> and <strong>{hazards_list[1]}</strong>'
+        else:
+            hazards_prose = ', '.join(f'<strong>{h}</strong>' for h in hazards_list[:-1]) + f', and <strong>{hazards_list[-1]}</strong>'
+    else:
+        hazards_prose = ''
+
+    # Climate descriptor for cost-context language. Reuses cost_type from state_profile.
+    cost_type = state_profile['cost_type']
+    if cost_type == 'ac_tropical':
+        climate_descriptor = 'tropical, year-round cooling'
+    elif cost_type == 'ac_first':
+        climate_descriptor = 'cooling-dominated' if 'b' in str(zones).lower() and not 'a' in str(zones).lower() else 'cooling-dominated, hot-humid to hot-dry'
+    elif cost_type == 'furnace_first':
+        climate_descriptor = 'heating-dominated, long winter season'
+    else:
+        climate_descriptor = 'mixed cooling and heating demand'
+
+    # Top-of-card cost summary (compact)
+    cost_compact_para = state_cost_text(name, ac_cost, furnace_cost, cost_type, html=True)
+
+    # SEER2 region-specific notes — Southwest gets EER2 11.7 callout.
+    seer_region_str = str(seer_region or '').strip()
+    if seer_region_str.lower() == 'southwest':
+        seer_extra = ' with the additional <strong>EER2 11.7</strong> peak-load standard for the Southwest hot-dry region'
+    else:
+        seer_extra = ''
+
+    # License name short — used in mid-page CTA banner ("TDLR-licensed network").
+    body_short = str(d.get('Licensing Body/Agency', '') or '').strip()
+    req_yes = str(d.get('State HVAC License Requirement', '') or '').strip().lower().startswith('yes')
+    if req_yes and body_short:
+        # Pull the abbr inside parens, e.g. "(TDLR)" or use first token. Defensive defaults.
+        import re as _re_lic
+        m = _re_lic.search(r'\(([^)]+)\)', body_short)
+        if m:
+            lic_short = m.group(1).split('—')[0].split('-')[0].strip()
+        else:
+            lic_short = body_short.split(',')[0].strip()[:30]
+        cta_band_credential = f'{lic_short}-licensed network'
+    else:
+        cta_band_credential = 'Independent contractor network'
+
+    # Common HVAC issues card content (pulled from existing helper).
+    common_issues_links = (_COMMON_ISSUES_SUMMER if str(peak).strip() == 'Summer'
+                           else _COMMON_ISSUES_WINTER if str(peak).strip() == 'Winter'
+                           else _COMMON_ISSUES_BOTH)
+    common_issues_intro = _COMMON_ISSUES_INTRO.get(str(peak).strip(),
+                                                    _COMMON_ISSUES_INTRO['Both']).format(state=name)
+    common_issues_lis = '\n'.join(
+        f'              <li><a href="{href}" style="color: var(--orange-dark); font-weight: 600;">{label}</a> &mdash; {desc}</li>'
+        for href, label, desc in common_issues_links
+    )
+
+    # License lookup URL formatting + DSIRE state link
+    license_lookup_url = d.get('License Lookup URL', '') or ''
+    has_real_license_url = _url_is_real(license_lookup_url)
+    license_link_html = (
+        f'<a href="{license_lookup_url}" target="_blank" rel="nofollow noopener" '
+        f'style="color: var(--orange-dark); font-weight: 600;">{body_short} license lookup</a>'
+        if has_real_license_url and req_yes else
+        (f'<strong>{body_short}</strong>' if body_short else 'your local building department')
+    )
+
+    # Bold-rendered rebate program list ("<strong>X</strong>, <strong>Y</strong>")
+    rebate_progs = [r.strip() for r in str(rebates or '').split(',') if r.strip()]
+    if rebate_progs:
+        rebates_bold = ', '.join(f'<strong>{r}</strong>' for r in rebate_progs)
+    else:
+        rebates_bold = '<strong>local utility rebates</strong>'
+
+    # State Energy Office card content
+    if seo_name and seo_url:
+        seo_short_label = seo_name.split(',')[0].strip()[:60] or f'{name} Energy Office'
+        seo_paragraph = (
+            f'The <strong>{seo_name}</strong> coordinates HVAC rebates, weatherization '
+            f'assistance, and federal Inflation Reduction Act program administration in {name}.'
+        )
+        seo_link_html = (
+            f'<a href="{seo_url}" target="_blank" rel="nofollow noopener" '
+            f'style="color: var(--orange-dark); font-weight: 600;">{seo_url_display} &rarr;</a>'
+        )
+    else:
+        seo_short_label = f'{name} Energy Office'
+        seo_paragraph = (
+            f"{name}'s state energy office coordinates HVAC rebates, weatherization "
+            f"assistance, and federal Inflation Reduction Act program administration."
+        )
+        seo_link_html = (
+            '<a href="https://www.energy.gov/scep/wap/weatherization-assistance-program" '
+            'target="_blank" rel="nofollow noopener" '
+            'style="color: var(--orange-dark); font-weight: 600;">DOE WAP &rarr;</a>'
+        )
+
+    # IRA HEAR allocation paragraph
+    if ira_alloc:
+        ira_paragraph = (
+            f'{name} was allocated <strong>{ira_alloc}</strong> for federally-funded '
+            f'Home Energy Rebates (HEAR) under the Inflation Reduction Act. The state '
+            f'is rolling out applications through 2026 &mdash; ask your installer if '
+            f'your project qualifies.'
+        )
+    else:
+        ira_paragraph = (
+            f'The federal Inflation Reduction Act funds Home Energy Rebates (HEAR) for '
+            f'income-qualified households. {name} is administering its allocation through '
+            f'the state energy office &mdash; ask your installer if your project qualifies.'
+        )
+
+    return f"""<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -1124,7 +1253,7 @@ def generate_html(d, city_list, hub_abbrs, all_states, out_path=None, refresh_da
       }})();
   </script>
 
-  <!-- Structured Data: BreadcrumbList + FAQPage + Organization -->
+  <!-- Structured Data: BreadcrumbList + FAQPage + Organization + Service -->
   <script type="application/ld+json">
   {{
     "@context": "https://schema.org",
@@ -1240,82 +1369,32 @@ def generate_html(d, city_list, hub_abbrs, all_states, out_path=None, refresh_da
     }}
     .city-hero p {{
       font-size: 1.15rem;
-      max-width: 620px;
+      max-width: 720px;
       margin: 0 auto;
       opacity: 0.9;
       line-height: 1.7;
-    }}
-    .city-context {{
-      font-size: 1.1rem;
-      line-height: 1.85;
-      color: var(--gray-700);
-      max-width: 760px;
-      margin: 0 auto 40px;
-    }}
-    .city-services {{
-      max-width: 760px;
-      margin: 0 auto 48px;
-    }}
-    .city-services h2 {{
-      font-size: 1.6rem;
-      margin-bottom: 16px;
-      color: var(--navy);
-    }}
-    .city-services ul {{
-      list-style: none;
-      padding: 0;
-    }}
-    .city-services ul li {{
-      padding: 12px 0 12px 28px;
-      position: relative;
-      font-size: 1.05rem;
-      color: var(--gray-700);
-      border-bottom: 1px solid var(--gray-100);
-    }}
-    .city-services ul li::before {{
-      content: "\\2714";
-      color: var(--orange-dark);
-      font-weight: 700;
-      position: absolute;
-      left: 0;
-      top: 12px;
-    }}
-    .city-services ul li a {{
-      color: var(--orange-dark);
-      font-weight: 600;
-      text-decoration: none;
-    }}
-    .city-services ul li a:hover {{
-      text-decoration: underline;
-    }}
-    .city-faq {{
-      max-width: 760px;
-      margin: 0 auto 48px;
-    }}
-    .city-faq h2 {{
-      font-size: 1.6rem;
-      margin-bottom: 20px;
-      color: var(--navy);
     }}
     .state-info-grid {{
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 20px;
       max-width: 760px;
-      margin: 0 auto 48px;
+      margin: 0 auto 16px;
     }}
     .state-info-card {{
-      background: var(--gray-50, #f8f9fa);
+      background: #fff;
+      border: 1px solid var(--gray-200);
       border-radius: 12px;
       padding: 24px;
       text-align: center;
+      box-shadow: 0 4px 16px rgba(10,22,40,0.04);
     }}
     .state-info-card .info-label {{
       font-size: 0.85rem;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.05em;
-      color: var(--gray-500, #6b7280);
+      color: var(--gray-500);
       margin-bottom: 8px;
     }}
     .state-info-card .info-value {{
@@ -1326,7 +1405,7 @@ def generate_html(d, city_list, hub_abbrs, all_states, out_path=None, refresh_da
     .state-info-card .info-value small {{
       font-size: 0.75rem;
       font-weight: 400;
-      color: var(--gray-500, #6b7280);
+      color: var(--gray-500);
       display: block;
       margin-top: 4px;
     }}
@@ -1334,12 +1413,12 @@ def generate_html(d, city_list, hub_abbrs, all_states, out_path=None, refresh_da
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 16px;
-      max-width: 760px;
+      max-width: 1100px;
       margin: 0 auto;
     }}
     .city-grid-card {{
-      background: var(--gray-50, #f8f9fa);
-      border: 1px solid var(--gray-100, #e5e7eb);
+      background: #fff;
+      border: 1px solid var(--gray-200);
       border-radius: 12px;
       padding: 20px 24px;
       text-decoration: none;
@@ -1355,10 +1434,6 @@ def generate_html(d, city_list, hub_abbrs, all_states, out_path=None, refresh_da
       border-color: var(--orange-dark);
       box-shadow: 0 2px 8px rgba(255, 165, 0, 0.15);
     }}
-    .city-grid-card.coming-soon {{
-      opacity: 0.72;
-      pointer-events: none;
-    }}
     .city-grid-card .card-icon {{
       font-size: 1.2rem;
     }}
@@ -1366,16 +1441,17 @@ def generate_html(d, city_list, hub_abbrs, all_states, out_path=None, refresh_da
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
-      max-width: 760px;
+      max-width: 1100px;
       margin: 16px auto 0;
+      justify-content: center;
     }}
     .neighbor-link {{
       display: inline-flex;
       align-items: center;
       gap: 6px;
       padding: 10px 18px;
-      background: var(--gray-50, #f8f9fa);
-      border: 1px solid var(--gray-100, #e5e7eb);
+      background: #fff;
+      border: 1px solid var(--gray-200);
       border-radius: 8px;
       text-decoration: none;
       color: var(--navy);
@@ -1454,13 +1530,13 @@ def generate_html(d, city_list, hub_abbrs, all_states, out_path=None, refresh_da
           <a href="tel:+18445821795" class="btn btn-primary btn-lg btn-vibrate"><span class="phone-icon">&#128222;</span> Call Now &#8212; (844) 582-1795</a>
         </div>
         <div class="jump-links" style="margin-top: 16px;">
-          <a href="#services" class="jump-link" style="color: rgba(255,255,255,0.8);">Services</a>
+          <a href="#trust" class="jump-link" style="color: rgba(255,255,255,0.8);">At a Glance</a>
           <span class="jump-link-dot" style="color: rgba(255,255,255,0.5);">&#8226;</span>
           <a href="#climate" class="jump-link" style="color: rgba(255,255,255,0.8);">Climate</a>
           <span class="jump-link-dot" style="color: rgba(255,255,255,0.5);">&#8226;</span>
-          <a href="#licensing" class="jump-link" style="color: rgba(255,255,255,0.8);">Licensing</a>
+          <a href="#services" class="jump-link" style="color: rgba(255,255,255,0.8);">Services &amp; Licensing</a>
           <span class="jump-link-dot" style="color: rgba(255,255,255,0.5);">&#8226;</span>
-          <a href="#costs" class="jump-link" style="color: rgba(255,255,255,0.8);">Costs</a>
+          <a href="#rebates" class="jump-link" style="color: rgba(255,255,255,0.8);">Rebates</a>
           <span class="jump-link-dot" style="color: rgba(255,255,255,0.5);">&#8226;</span>
           <a href="#cities" class="jump-link" style="color: rgba(255,255,255,0.8);">Service Areas</a>
           <span class="jump-link-dot" style="color: rgba(255,255,255,0.5);">&#8226;</span>
@@ -1482,16 +1558,17 @@ def generate_html(d, city_list, hub_abbrs, all_states, out_path=None, refresh_da
       </div>
     </div>
 
-    <!-- State Overview -->
-    <section class="section" style="padding: 48px 0 0;">
+    <!-- STATE AT A GLANCE / TRUST STRIP -->
+    <section class="section" id="trust" style="padding: 72px 0; background: var(--gray-50);">
       <div class="container">
-        <div class="city-context">
-          <p>{name} is home to over <strong>{pop_long} residents</strong> with a <strong>{homeown}% homeownership rate</strong>. The state spans IECC <strong>{zones_fmt}</strong>, and {peak_desc} {sys_desc} Cool Call Pro connects you with independent local HVAC professionals serving every corner of the state.</p>
+        <div style="text-align:center; margin-bottom: 36px;">
+          <span style="display:inline-block; font-size:0.78rem; font-weight:800; letter-spacing:0.12em; text-transform:uppercase; color:var(--navy); padding:6px 14px; background:#fff; border:1px solid var(--gray-200); border-radius:999px; margin-bottom:16px;">&#128205; State at a Glance</span>
+          <h2 style="font-size: 1.75rem; color: var(--navy); margin: 0 0 14px;">HVAC across {name}</h2>
+          <p style="max-width: 720px; margin: 0 auto; font-size: 1.05rem; color: var(--gray-700); line-height: 1.7;">{name} is home to over <strong>{pop_long} residents</strong> with a <strong>{homeown}% homeownership rate</strong>. The state spans IECC <strong>{zones_fmt}</strong>, with summer highs averaging {sh}&deg;F and winter lows near {wl}&deg;F.</p>
         </div>
 
         {state_figure}
 
-        <!-- State At-a-Glance -->
         <div class="state-info-grid">
           <div class="state-info-card">
             <div class="info-label">Population</div>
@@ -1521,77 +1598,165 @@ def generate_html(d, city_list, hub_abbrs, all_states, out_path=None, refresh_da
       </div>
     </section>
 
-    <!-- Climate & HVAC Demands -->
-    <section class="section" style="padding: 0;" id="climate">
+    <!-- CLIMATE & COMPLIANCE -->
+    <section class="section" id="climate" style="padding: 72px 0; background:#fff;">
       <div class="container">
-        <div class="city-services" style="margin-bottom: 40px;">
-          <h2>Climate &amp; HVAC Demands in {name}</h2>
-          <p style="font-size: 1.05rem; line-height: 1.85; color: var(--gray-700);">{name} spans IECC {zones_fmt}. {peak_desc} Average electricity rates sit at <strong>{elec}&cent;/kWh</strong>, making system efficiency an important factor in your monthly energy costs. Learn more about <a href="{art_url}" style="color: var(--orange-dark); font-weight: 600;">{art_text}</a> for your home.</p>
+        <div style="max-width: 1100px; margin: 0 auto;">
+          <div style="text-align:center; margin-bottom: 32px;">
+            <span style="display:inline-block; font-size:0.78rem; font-weight:800; letter-spacing:0.12em; text-transform:uppercase; color:var(--blue); padding:6px 14px; background:#ebf8ff; border:1px solid #bee3f8; border-radius:999px; margin-bottom:16px;">&#127777;&#65039; Climate &amp; Compliance</span>
+            <h2 style="font-size: 1.75rem; color: var(--navy); margin: 0;">{name} climate, efficiency code &amp; typical costs</h2>
+          </div>
+
+          <div class="precaution-cards" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; align-items: stretch;">
+
+            <div class="precaution-card" style="display:flex; flex-direction:column; background:#fff; border:1px solid var(--gray-200); box-shadow: 0 4px 16px rgba(10,22,40,0.04);">
+              <div class="precaution-icon" style="color: var(--blue);">&#127777;&#65039; Climate Demands</div>
+              <h3>{climate_descriptor}</h3>
+              <p style="margin-bottom: 0;">{name} spans IECC <strong>{zones}</strong>. Summer highs avg {sh}&deg;F, winter lows near {wl}&deg;F. Average electricity {elec}&cent;/kWh &mdash; system efficiency directly drives monthly costs. Learn more about <a href="{art_url}" style="color: var(--orange-dark); font-weight: 600;">{art_text}</a>.</p>
+            </div>
+
+            <div class="precaution-card" style="display:flex; flex-direction:column; background:#fff; border:1px solid var(--gray-200); box-shadow: 0 4px 16px rgba(10,22,40,0.04);">
+              <div class="precaution-icon" style="color: var(--blue);">&#128161; SEER2 Code</div>
+              <h3>{seer_region} region: SEER2 {seer_min} minimum</h3>
+              <p style="margin-bottom: 0;">As of January 2023, all new central AC systems in {name} must meet <strong>SEER2 {seer_min}</strong>{seer_extra}. Higher-efficiency systems cost more upfront but reduce monthly bills. See our <a href="../article-ac-summer" style="color: var(--orange-dark); font-weight: 600;">summer AC guide</a>.</p>
+            </div>
+
+            <div class="precaution-card" style="display:flex; flex-direction:column; background:#fff; border:1px solid var(--gray-200); box-shadow: 0 4px 16px rgba(10,22,40,0.04);">
+              <div class="precaution-icon" style="color: var(--blue);">&#128176; Typical Costs</div>
+              <h3>{name} HVAC installation costs</h3>
+              <p style="margin-bottom: 0;">{cost_compact_para} See our <a href="../costs" style="color: var(--orange-dark); font-weight: 600;">full HVAC cost guide</a>.</p>
+            </div>
+
+            <div class="precaution-card" style="display:flex; flex-direction:column; background:#fff; border:1px solid var(--gray-200); box-shadow: 0 4px 16px rgba(10,22,40,0.04);">
+              <div class="precaution-icon" style="color: var(--blue);">&#127744;&#65039; Climate Hazards</div>
+              <h3>FEMA-tracked exposure</h3>
+              <p style="margin-bottom: 0;">Per <a href="https://hazards.fema.gov/nri/" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">FEMA's National Risk Index</a>, {name} faces elevated {hazards_prose} exposure. Each event stresses HVAC systems &mdash; schedule a technician inspection after major weather before restart.</p>
+            </div>
+
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- SEER2 & Efficiency -->
-    <section class="section" style="padding: 0;">
+    <!-- SERVICES & LICENSING -->
+    <section class="section" id="services" style="padding: 72px 0; background: var(--gray-50);">
       <div class="container">
-        <div class="city-services" style="margin-bottom: 40px;">
-          <h2>SEER2 Efficiency Requirements in {name}</h2>
-          <p style="font-size: 1.05rem; line-height: 1.85; color: var(--gray-700);">{name} falls within the <strong>{seer_region} SEER2 region</strong>. As of January 2023, all new central air conditioning systems installed in {name} must meet a minimum <strong>SEER2 rating of {seer_min}</strong>. When replacing your AC or heat pump, ensure your contractor installs a unit that meets or exceeds this minimum &#8212; upgrading to a higher-efficiency system can significantly reduce your energy bills. See our <a href="../article-ac-summer" style="color: var(--orange-dark); font-weight: 600;">summer AC guide</a> for more on efficiency ratings.</p>
+        <div style="text-align:center; margin-bottom: 36px;">
+          <span style="display:inline-block; font-size:0.78rem; font-weight:800; letter-spacing:0.12em; text-transform:uppercase; color:var(--navy); padding:6px 14px; background:#fff; border:1px solid var(--gray-200); border-radius:999px; margin-bottom:16px;">&#128295; Services &amp; Licensing</span>
+          <h2 style="font-size: 1.75rem; color: var(--navy); margin: 0;">What {name} HVAC contractors do &mdash; and what to verify</h2>
         </div>
-      </div>
-    </section>
 
-    <!-- Services List -->
-    <section class="section" style="padding: 0;" id="services">
-      <div class="container">
-        <div class="city-services">
-          <h2>HVAC Services in {name}</h2>
-          <ul>
+        <div class="precaution-cards" style="max-width: 1100px; margin: 0 auto; display:grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 20px; align-items: stretch;">
+
+          <div class="precaution-card" style="display:flex; flex-direction:column; background:#fff; border:1px solid var(--gray-200); box-shadow: 0 4px 16px rgba(10,22,40,0.04);" id="services-card">
+            <div class="precaution-icon" style="color: var(--navy);">&#128295; HVAC Services in {name}</div>
+            <h3>What our network covers</h3>
+            <ul style="margin-top: 0; margin-bottom: 0;">
 {svc_items}
-          </ul>
+            </ul>
+          </div>
+
+          <div class="precaution-card" style="display:flex; flex-direction:column; background:#fff; border:1px solid var(--gray-200); box-shadow: 0 4px 16px rgba(10,22,40,0.04);" id="licensing">
+            <div class="precaution-icon" style="color: var(--navy);">&#128203; Licensing Requirements</div>
+            <h3>Verify before you hire</h3>
+            <p style="margin-bottom: 0;">{lic_html}</p>
+          </div>
+
         </div>
       </div>
     </section>
 
-    <!-- Licensing -->
-    <section class="section" style="padding: 0;" id="licensing">
+    <!-- REBATES & PROGRAMS -->
+    <section class="section" id="rebates" style="padding: 72px 0; background:#fff;">
       <div class="container">
-        <div class="city-services" style="margin-bottom: 40px;">
-          <h2>HVAC Licensing Requirements in {name}</h2>
-          <p style="font-size: 1.05rem; line-height: 1.85; color: var(--gray-700);">{lic_html}</p>
+        <div style="max-width: 1100px; margin: 0 auto;">
+          <div style="text-align:center; margin-bottom: 32px;">
+            <span style="display:inline-block; font-size:0.78rem; font-weight:800; letter-spacing:0.12em; text-transform:uppercase; color:var(--blue); padding:6px 14px; background:#ebf8ff; border:1px solid #bee3f8; border-radius:999px; margin-bottom:16px;">&#128176; Rebates &amp; Programs</span>
+            <h2 style="font-size: 1.75rem; color: var(--navy); margin: 0;">{name} utility rebates &amp; state programs</h2>
+          </div>
+
+          <div style="margin: 0 auto 28px; background: linear-gradient(135deg, #f7fafc, #edf2f7); border: 1px solid var(--gray-200); border-left: 5px solid var(--blue); border-radius: var(--radius); padding: 18px 22px;">
+            <div style="display: flex; align-items: flex-start; gap: 14px;">
+              <div style="font-size: 1.4rem; line-height: 1; flex-shrink: 0;" aria-hidden="true">&#9889;</div>
+              <p style="margin: 0; color: var(--gray-700); line-height: 1.65;">Major utility providers in {name} include {util_bold}. Available rebate programs are listed below. Always confirm current amounts with the provider before scheduling work.</p>
+            </div>
+          </div>
+
+          <div class="precaution-cards" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 20px; align-items: stretch;">
+
+            <div class="precaution-card" style="display:flex; flex-direction:column; background:#fff; border:1px solid var(--gray-200); box-shadow: 0 4px 16px rgba(10,22,40,0.04);">
+              <div class="precaution-icon" style="color: var(--blue);">&#9889; Utility Rebate Programs</div>
+              <h3>Through your local provider</h3>
+              <p style="margin-bottom: 0;">Active rebate programs include {rebates_bold}. Programs change &mdash; verify current amounts and eligibility before scheduling work.</p>
+              <p style="margin-top: auto; padding-top: 8px; margin-bottom: 0;"><a href="https://www.energystar.gov/products/energy_star_home_upgrade/clean_heating_cooling" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">ENERGY STAR Heating &amp; Cooling &rarr;</a></p>
+            </div>
+
+            <div class="precaution-card" style="display:flex; flex-direction:column; background:#fff; border:1px solid var(--gray-200); box-shadow: 0 4px 16px rgba(10,22,40,0.04);">
+              <div class="precaution-icon" style="color: var(--blue);">&#127970; State Energy Office</div>
+              <h3>{seo_short_label}</h3>
+              <p style="margin-bottom: 0;">{seo_paragraph}</p>
+              <p style="margin-top: auto; padding-top: 8px; margin-bottom: 0;">{seo_link_html} &middot; <a href="https://www.dsireusa.org/" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">DSIRE {name} &rarr;</a></p>
+            </div>
+
+            <div class="precaution-card" style="display:flex; flex-direction:column; background:#fff; border:1px solid var(--gray-200); box-shadow: 0 4px 16px rgba(10,22,40,0.04);">
+              <div class="precaution-icon" style="color: var(--blue);">&#127970; Federal HEAR Allocation</div>
+              <h3>IRA-funded state rebate pool</h3>
+              <p style="margin-bottom: 0;">{ira_paragraph}</p>
+              <p style="margin-top: auto; padding-top: 8px; margin-bottom: 0;"><a href="https://www.energy.gov/scep/home-energy-rebates" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">DOE Home Energy Rebates &rarr;</a></p>
+            </div>
+
+          </div>
+
+          <div style="max-width: 1100px; margin: 32px auto 0; background: linear-gradient(135deg, #fffbeb, #fef3c7); border: 1px solid var(--yellow); border-left: 5px solid var(--orange-dark); border-radius: var(--radius); padding: 20px 24px;">
+            <div style="display: flex; align-items: flex-start; gap: 16px;">
+              <div style="font-size: 1.6rem; line-height: 1; flex-shrink: 0;" aria-hidden="true">&#128203;</div>
+              <div>
+                <div style="font-family: var(--font-display); font-weight: 800; font-size: 1.05rem; color: var(--navy); margin-bottom: 6px;">Federal tax credits &mdash; important update for 2026</div>
+                <p style="margin: 0; color: var(--gray-700); line-height: 1.65;">The federal <strong>Section 25C Energy Efficient Home Improvement Credit</strong> was terminated for installations placed in service after Dec 31, 2025 by the One Big Beautiful Bill Act (Public Law 119-21). <strong>State HEAR rebates and utility programs remain in effect.</strong> See our <a href="../article-hvac-financing" style="color: var(--orange-dark); font-weight: 600;">HVAC financing options</a> for what's still available.</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Utilities & Rebates -->
-    <section class="section" style="padding: 0;">
+    <!-- MID-PAGE CTA -->
+    <section style="padding: 64px 0; background: var(--gray-50);">
       <div class="container">
-        <div class="city-services" style="margin-bottom: 40px;">
-          <h2>Utility Companies &amp; HVAC Rebates in {name}</h2>
-          <p style="font-size: 1.05rem; line-height: 1.85; color: var(--gray-700);">The major utility providers in {name} include {util_bold}.</p>
-          <p style="font-size: 1.05rem; line-height: 1.85; color: var(--gray-700); margin-top: 16px;"><strong>Available rebate programs:</strong></p>
-          <ul>
-{rebate_items}
-          </ul>
-          <p style="font-size: 1.05rem; line-height: 1.85; color: var(--gray-700); margin-top: 16px;">Contact your utility provider or HVAC contractor to confirm current eligibility and amounts. Learn about <a href="../article-hvac-financing" style="color: var(--orange-dark); font-weight: 600;">HVAC financing options</a>.</p>
+        <div style="max-width: 760px; margin: 0 auto; background:linear-gradient(135deg, var(--navy-deep), var(--navy)); color:#fff; padding: 32px; border-radius: var(--radius-lg); text-align:center; box-shadow: 0 12px 40px rgba(10,22,40,0.18);">
+          <p style="font-size: 1.4rem; font-weight: 700; font-family: var(--font-display); color:#fff; margin-bottom: 10px;">Ready to talk to a {name} HVAC pro?</p>
+          <p style="margin-bottom: 22px; opacity: 0.85; font-size: 1rem;">Independent technicians &middot; 24/7 dispatch &middot; {cta_band_credential}</p>
+          <a href="tel:+18445821795" class="btn btn-primary btn-lg btn-vibrate"><span class="phone-icon">&#128222;</span> Call Now &mdash; (844) 582-1795</a>
+          <p style="font-size: 0.72rem; color: rgba(255,255,255,0.5); margin: 16px auto 0; max-width: 460px; line-height: 1.5;">Disclosure: We are a referral service and may receive compensation for qualified calls. Calls may be routed to an independent provider network and may be recorded. Pricing and availability vary by provider and location.</p>
         </div>
       </div>
     </section>
 
-    <!-- Cost Overview -->
-    <section class="section" style="padding: 0;" id="costs">
+    <!-- COMMON HVAC ISSUES (climate-keyed cluster links) -->
+    <section class="section" style="padding: 72px 0; background:#fff;">
       <div class="container">
-        <div class="city-services" style="margin-bottom: 40px;">
-          <h2>HVAC Installation Costs in {name}</h2>
-          <p style="font-size: 1.05rem; line-height: 1.85; color: var(--gray-700);">{cost_para}</p>
+        <div style="max-width: 1000px; margin: 0 auto;">
+          <div style="text-align:center; margin-bottom: 32px;">
+            <span style="display:inline-block; font-size:0.78rem; font-weight:800; letter-spacing:0.12em; text-transform:uppercase; color:var(--navy); padding:6px 14px; background:var(--gray-50); border:1px solid var(--gray-200); border-radius:999px; margin-bottom:16px;">&#128295; Common Issues</span>
+            <h2 style="font-size: 1.75rem; color: var(--navy); margin: 0 0 14px;">Common HVAC issues in {name}</h2>
+            <p style="max-width: 720px; margin: 0 auto; font-size: 1.05rem; color: var(--gray-700); line-height: 1.7;">{common_issues_intro}</p>
+          </div>
+          <div class="precaution-card" style="background:#fff; border:1px solid var(--gray-200); box-shadow: 0 4px 16px rgba(10,22,40,0.04);">
+            <ul style="margin: 0;">
+{common_issues_lis}
+            </ul>
+          </div>
         </div>
       </div>
-    </section>{state_hub_extra_sections}    <!-- Service Areas -->
-    <section class="section" style="padding: 0 0 48px;" id="cities">
+    </section>
+
+    <!-- Service Areas (Cities in {name}) -->
+    <section class="section" id="cities" style="padding: 72px 0; background: var(--gray-50);">
       <div class="container">
-        <div class="city-services" style="margin-bottom: 24px;">
-          <h2>Service Areas in {name}</h2>
-          <p style="font-size: 1.05rem; line-height: 1.85; color: var(--gray-700);">Cool Call Pro connects homeowners with HVAC professionals across {name}. Browse our local service pages for city-specific costs, permit offices, and contractor information.</p>
+        <div style="text-align:center; margin-bottom: 36px;">
+          <span style="display:inline-block; font-size:0.78rem; font-weight:800; letter-spacing:0.12em; text-transform:uppercase; color:var(--navy); padding:6px 14px; background:#fff; border:1px solid var(--gray-200); border-radius:999px; margin-bottom:16px;">&#128205; Service Areas</span>
+          <h2 style="font-size: 1.75rem; color: var(--navy); margin: 0 0 14px;">HVAC service areas across {name}</h2>
+          <p style="max-width: 720px; margin: 0 auto; font-size: 1.05rem; color: var(--gray-700); line-height: 1.7;">Cool Call Pro connects homeowners with independent HVAC professionals across {name}. Browse city pages for local costs, permit offices, and licensing details.</p>
         </div>{featured_callout}
         <div class="city-grid">
 {city_grid}
@@ -1599,14 +1764,14 @@ def generate_html(d, city_list, hub_abbrs, all_states, out_path=None, refresh_da
       </div>
     </section>
 
-{why_pro_section}
-
     <!-- FAQs -->
-    <section class="section" id="faqs">
+    <section class="section" id="faqs" style="padding: 72px 0; background:#fff;">
       <div class="container" style="max-width: 800px;">
-        <div class="city-faq">
-          <h2>Frequently Asked Questions &#8212; {name} HVAC</h2>
-          <div class="faq-list" style="margin-top: 24px;">
+        <div style="text-align:center; margin-bottom: 36px;">
+          <span style="display:inline-block; font-size:0.78rem; font-weight:800; letter-spacing:0.12em; text-transform:uppercase; color:var(--navy); padding:6px 14px; background:var(--gray-50); border:1px solid var(--gray-200); border-radius:999px; margin-bottom:16px;">&#10067; Frequently Asked Questions</span>
+          <h2 style="font-size: 1.75rem; color: var(--navy); margin: 0;">{name} HVAC &mdash; common questions</h2>
+        </div>
+        <div class="faq-list" style="margin-top: 8px;">
             <div class="faq-item">
               <button class="faq-q" aria-expanded="false">
                 <span>What HVAC license is required in {name}?</span>
@@ -1650,7 +1815,7 @@ def generate_html(d, city_list, hub_abbrs, all_states, out_path=None, refresh_da
               </button>
               <div class="faq-a">
                 <div class="faq-a-inner">
-                  <p>Yes. Check with your local utility provider for current energy efficiency rebates on qualifying high-efficiency equipment. The federal Section 25C tax credit was terminated for installations after Dec 31, 2025 (OBBBA, P.L. 119-21); check current state HEAR rebates and utility programs for 2026.</p>
+                  <p>Yes. Check with your local utility provider for current energy efficiency rebates on qualifying high-efficiency equipment. The federal Section 25C tax credit was terminated for installations after Dec 31, 2025 by the One Big Beautiful Bill Act (Public Law 119-21); state HEAR rebates and utility programs remain in effect for 2026.</p>
                 </div>
               </div>
             </div>
@@ -1677,11 +1842,10 @@ def generate_html(d, city_list, hub_abbrs, all_states, out_path=None, refresh_da
                 </div>
               </div>
             </div>
-          </div>
+        </div>
 
-          <div style="text-align: center; margin-top: 32px;">
-            <a href="tel:+18445821795" class="btn btn-primary btn-lg btn-vibrate"><span class="phone-icon">&#128222;</span> Call Now &#8212; (844) 582-1795</a>
-          </div>
+        <div style="text-align: center; margin-top: 32px;">
+          <a href="tel:+18445821795" class="btn btn-primary btn-lg btn-vibrate"><span class="phone-icon">&#128222;</span> Call Now &#8212; (844) 582-1795</a>
         </div>
       </div>
     </section>
@@ -1762,7 +1926,7 @@ def generate_html(d, city_list, hub_abbrs, all_states, out_path=None, refresh_da
 <script>document.querySelectorAll(".copyright-year").forEach(function(el){{el.textContent=new Date().getFullYear()}});</script>
 </body>
 
-</html>'''
+</html>"""
 
 # ─── Main ───────────────────────────────────────────────────────────────
 
@@ -1781,19 +1945,26 @@ def main():
     # Accept CLI args: specific state abbreviations, or 'all' for all hub states.
     # --refresh-date bumps the "Last reviewed" date to today; otherwise the
     # existing date in the file is preserved (sticky default).
+    # --out-dir <path> writes to a non-default directory (e.g. _pilot_test/states).
     raw_args = sys.argv[1:]
     refresh_date = '--refresh-date' in raw_args
+    out_dir = 'locations'
+    if '--out-dir' in raw_args:
+        idx = raw_args.index('--out-dir')
+        if idx + 1 < len(raw_args):
+            out_dir = raw_args[idx + 1]
+            raw_args = raw_args[:idx] + raw_args[idx + 2:]
     targets = [a for a in raw_args if a != '--refresh-date']
     if not targets:
         print("Usage: python generate_state_hubs.py AL  (or: AL TX FL  or: all)")
         print("       add --refresh-date to bump Last-reviewed to today")
+        print("       add --out-dir <path> to write to a different directory (default: locations)")
         print(f"\nStates with published cities (eligible for hubs): {sorted(hub_abbrs)}")
         return
 
     if targets == ['all']:
         targets = sorted(hub_abbrs)
 
-    out_dir = 'locations'
     os.makedirs(out_dir, exist_ok=True)
 
     for abbr in targets:
