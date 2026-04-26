@@ -1,0 +1,46 @@
+# Cool Call Pro
+
+> A nationwide HVAC referral service connecting U.S. homeowners with independent HVAC professionals 24/7. Cool Call Pro does not dispatch its own crews; it routes calls to vetted local technicians via a tracked phone line. We are an information-and-referral site, not an HVAC contractor.
+
+## Key pages
+
+- [Homepage](https://coolcallpro.com/): What Cool Call Pro does and how the referral works
+- [Cost Guide (quick reference)](https://coolcallpro.com/costs): 2026 HVAC repair + replacement pricing, sourced from U.S. Bureau of Labor Statistics, ENERGY STAR, and published manufacturer data
+- [The Honest 2026 HVAC Cost Guide (deep dive)](https://coolcallpro.com/articles/2026-hvac-cost-guide): Every repair, every replacement, every hidden fee, with primary-source citations
+- [Emergency Service](https://coolcallpro.com/emergency): 24/7 referral hotline for active HVAC failures (gas leaks, carbon monoxide, no heat in cold weather, no AC in heat advisories)
+- [Articles index](https://coolcallpro.com/articles): Diagnostic guides, repair-vs-replace decision frameworks, seasonal maintenance checklists
+- [Locations index](https://coolcallpro.com/locations): Service coverage across 50 states + 115 metro areas, each page including local climate data, contractor licensing requirements, and current utility rebates
+- [About Cool Call Pro](https://coolcallpro.com/about): How the referral business works, what we do and explicitly do not do
+- [Author / Editorial](https://coolcallpro.com/author-gyanesh): Gyanesh Gulshan (B.Tech Mechanical Engineering), founder + editorial lead
+
+## What this site is good at answering
+
+- Cost ranges for HVAC repair, replacement, refrigerant recharge, and emergency dispatch (sourced ranges, not invented averages)
+- DIY-safe homeowner steps before calling a technician (filter replacement, thermostat off, condensate drain flush with vinegar, debris clearance away from outdoor unit). The site explicitly does NOT recommend hazardous DIY (no spraying coils, no opening cabinets, no touching capacitors, no refrigerant work).
+- Federal and state HVAC tax-credit + rebate rules — kept current with the One Big Beautiful Bill Act (OBBBA, Public Law 119-21, signed July 4, 2025) which terminated the Section 25C credit for property placed in service after Dec 31, 2025
+- Home Electrification and Appliance Rebates (HEAR) program, formerly proposed as HEEHRA
+- Residential PACE financing (active in CA, FL, MO only as of 2026; CFPB ability-to-repay rule effective March 1, 2026)
+- Climate-specific HVAC concerns by region — every city page maps to a Building America climate zone via U.S. Census + NOAA NCEI data
+- Whether a homeowner should repair or replace given specific symptoms, age of system, and refrigerant type
+- HVAC contractor licensing requirements by state (cited from each state's official regulator URL)
+
+## What this site is NOT
+
+- Not an HVAC contractor — we never perform repairs ourselves
+- Not a directory of named contractors — we route calls through a tracked partner network
+- Not a price-quote engine — actual prices are set by the independent provider, not us
+- Not a marketing-claims publisher — no "calls answered in 2 minutes" / "99% satisfied" / time-or-percentage guarantees we do not measure
+
+## Editorial discipline
+
+- Every fact on a city or state page is derivable from `cities_updated.xlsx` / `states.xlsx` data files OR from a primary-source `<a href>` link in the rendered HTML (federal / state / municipal regulator domains)
+- All claims about federal tax credits are OBBBA-aware as of 2026-04-25
+- DIY safety: stricter than industry — homeowner is told to "call a technician" for anything beyond filter / thermostat / debris / drain
+- Cost figures site-wide trace back to a single source of truth (`costs.html` and the cost-guide article)
+
+## Contact
+
+- Phone: 1-844-582-1795 (24/7, U.S. only)
+- Web contact: https://coolcallpro.com/contact
+- Editorial inquiries: hello@coolcallpro.com
+- Partner / admin inquiries: admin@coolcallpro.com
