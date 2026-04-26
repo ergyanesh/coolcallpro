@@ -132,6 +132,30 @@ CoolCallPro is a **card-driven premium site**. Every primary section on the home
   3. Cross-link related state hubs and city pages
   4. Run QC audit before deploying
 
+### Verifiability Guarantee for Location Pages (NON-NEGOTIABLE — added 25 April 2026)
+
+Every fact a homeowner sees on a city or state page MUST be derivable from one of three sources:
+
+1. **`cities_updated.xlsx` / `states.xlsx`** — the city/state data files (climate zone, temps, neighborhoods, ZIPs, license requirement, utility, rebates, local context HTML)
+2. **A primary-source `<a href>` link in the rendered HTML** — every numerical claim must link to its underlying federal/state/municipal source (NOAA NCEI, U.S. Census ACS, state contractor regulator, city permit office, DOE / EPA / CDC / IRS, etc.)
+3. **An algorithmic rule documented in CLAUDE.md** — e.g., the climate-zone → emergency-cards mapping above. If an agent or human cannot reproduce a page's content by re-running the generator against current xlsx, the content is broken.
+
+**Why:** the user explicitly said on 2026-04-25: "if people see that the things that I presented are not facts, they will be pissed off." This site's revenue model is a homeowner trust gate — one stale or fabricated number on a 50,000-impression page poisons the conversion. We do not optimize for SEO at the cost of verifiability.
+
+**What this rules out:**
+- Improvised city-specific prose ("Houston's hottest neighborhood is X" without an xlsx source)
+- Cherry-picked emergency-card combinations that contradict the climate-zone algorithm
+- Statistics quoted without a `<a href>` to a primary source
+- Marketing copy that implies measurements we don't take ("Most calls answered in 2 minutes")
+- "Stale-snapshot" claims that were true at write-time but aren't checked for currency (e.g., the 25C tax credit pre-OBBBA — see "YMYL Tax-Credit Currency" rule above)
+
+**Verification protocol before any commit that touches location-page content:**
+1. **Re-run the generator** for any city you edited. The output must match the production HTML byte-for-byte (or the only differences must be from updated xlsx values). If the output differs without a corresponding xlsx update, you've introduced unverifiable content.
+2. **Curl-verify any new `<a href>`** to a .gov / .edu / regulator domain (`.gov` URLs reorg often — see "YMYL Tax-Credit Currency" for the curl pattern).
+3. **For any new data column** in xlsx, document what primary source it cites in the `Research Done` column.
+
+The 4 hand-edited pilot pages (Houston-TX, Phoenix-AZ city pilots; Texas, Arizona state hub pilots) were the only legitimate exception to this rule — they were the design pilot, hand-tuned to define the layout. After Option A (the generator port that ports the new design system), the 4 pilots will be replaced by generator output that produces the same design + same xlsx-sourced content. **No further hand-edits to location pages are permitted** without an xlsx column update or a CLAUDE.md algorithmic rule update first.
+
 ### Article Writing (Pillar-Cluster Topical Authority System — since 16 April 2026)
 
 The 100-article roadmap is organized into **6 topic clusters** (C1 AC Troubleshooting, C2 Furnace, C3 Heat Pumps, C4 Costs, C5 Repair-vs-Replace, C6 Maintenance). Each cluster has one pillar article + 12-22 supporting articles. Authoritative strategy and rules live in `.agents/SKILLS/hvac-article-writer.md`.
@@ -376,19 +400,54 @@ For cards with CTAs at the bottom: add `style="margin-top: auto;"` to the CTA pa
 
 NOT 620px (the previous default) — 620px caused "nationwide." style orphan-word wraps when subhead text was just slightly too long. 720px gives the sentence room to fit on one line on desktop and wraps gracefully on mobile.
 
-### Climate-zone-aware emergency cards (codify in generator)
+### Climate-zone-aware emergency cards (algorithmic — verifiable from xlsx alone)
 
-Map `cities_updated.xlsx` `climate_descriptor` to the 3 emergency-lane cards:
+The 3 cards in the Emergency Lane are determined **purely** by `cities_updated.xlsx` column 15 (`Climate Zone`). No city-name overrides, no editorial judgment per city. The mapping below is the canonical truth — `generate_city_pages_v3.py:157` (`CLIMATE_MAP`) and the v4 generator implement exactly this.
 
-| Climate | Card 1 | Card 2 | Card 3 |
+**Step 1 — zone → climate type** (Building America climate zones):
+
+| xlsx Climate Zone | Climate type |
+|---|---|
+| Zone 1A (Very Hot-Humid) | tropical |
+| Zone 2A (Hot-Humid) | hot-humid |
+| Zone 2B (Hot-Dry) | hot-dry |
+| Zone 3A (Warm-Humid) | mixed-humid |
+| Zone 3B (Warm-Dry) | hot-dry |
+| Zone 3C (Warm-Marine) | coastal |
+| Zone 4A (Mixed-Humid) | mixed-humid (manual override per city — see ZONE_4A_DECISIONS in generator) |
+| Zone 4B (Mixed-Dry) | mountain |
+| Zone 4C (Mixed-Marine) | coastal |
+| Zone 5A (Cool-Humid) | cold |
+| Zone 5B (Cold-Dry / Cool-Dry) | mountain |
+| Zone 6A (Cold-Humid) | cold |
+| Zone 6B (Cold-Dry) | mountain |
+| Zone 7 (Very Cold) | subarctic |
+| Zone 8 (Subarctic) | subarctic |
+
+**Step 2 — climate type → 3 emergency cards:**
+
+| Climate type | Card 1 | Card 2 | Card 3 |
 |---|---|---|---|
-| hot-humid (2A, 3A — Houston, Atlanta, Tampa, NOLA) | NO AC | NO HEAT | **WATER LEAK** |
-| hot-dry (2B, 3B — Phoenix, Las Vegas, Tucson) | NO AC | STRANGE NOISES | NO HEAT |
-| cold (5, 6, 7 — Fargo, Minneapolis, Boston) | NO HEAT | **FROZEN PIPES** | NO AC |
-| mountain (5, 6 — Denver, SLC) | NO HEAT | NO AC | STRANGE NOISES |
-| mixed (4A — Nashville, KC, DC) | NO AC | NO HEAT | STRANGE NOISES |
+| tropical, hot-humid | NO AC | NO HEAT | **WATER LEAK** (use `.precaution-warning`) |
+| hot-dry | NO AC | STRANGE NOISES | NO HEAT |
+| mixed-humid | NO AC | NO HEAT | STRANGE NOISES |
+| coastal | NO AC | NO HEAT | STRANGE NOISES |
+| mountain | NO HEAT | NO AC | STRANGE NOISES |
+| cold | NO HEAT | **FROZEN PIPES** (use `.precaution-warning`) | NO AC |
+| subarctic | NO HEAT | **FROZEN PIPES** (use `.precaution-warning`) | NO AC |
 
-The hero subhead also has climate variants — use `summer_high_f` / `winter_low_f` columns for substitutions. Generator pending.
+**Why this matters:** earlier drafts of this section gave city-name examples that conflicted with the technical zone mapping (e.g., "Atlanta" listed under hot-humid even though Atlanta is Zone 3A → mixed-humid). That created a verifiability problem: a homeowner could not check what cards they should see without knowing both the technical zone AND a hand-curated city list. The current rule is **strictly algorithmic from xlsx column 15** — a homeowner (or auditor, or future agent) can verify any city's cards in 30 seconds:
+
+```bash
+# 1. Look up the city's zone in xlsx column 15
+# 2. Apply Step 1 → climate type
+# 3. Apply Step 2 → expected cards
+# 4. Open the live page and confirm the 3 Emergency Lane cards match
+```
+
+If you want a city's emergency cards to differ from what its zone produces, **update the zone mapping or add a manual override (ZONE_4A_DECISIONS pattern), not a one-off in the city's HTML.** The page must always be reproducible by re-running the generator from xlsx alone — that's the verifiability guarantee that keeps the site factual.
+
+**Hero subhead climate variants:** the generator produces a climate-specific subhead using xlsx columns `Avg Summer High Temp (°F)` (col 10) and `Avg Winter Low Temp (°F)` (col 11). Templates live in v4 `_HERO_SUBHEAD_TEMPLATES`. Same algorithmic rule — no per-city overrides.
 
 ### Two callout banner styles
 
