@@ -32,5 +32,15 @@ Allow: /
 User-agent: GPTBot
 Allow: /
 
+# Modern AI search/citation crawlers (explicit Allow > implicit default)
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
 Sitemap: https://coolcallpro.com/sitemap.xml
 Sitemap: https://coolcallpro.com/sitemap-images.xml

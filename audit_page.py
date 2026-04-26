@@ -606,6 +606,124 @@ def audit_emoji_on_orange_circle(html: str, path: str) -> int:
     return len(violations)
 
 
+def audit_no_localbusiness_schema(html: str, path: str) -> int:
+    """Block LocalBusiness (or any subtype) JSON-LD schema.
+
+    CoolCallPro is a referral aggregator with no physical presence in any
+    city or state. Tagging any page with LocalBusiness — or any of its ~50
+    subtypes including EmergencyService, HVACBusiness, Plumber, Electrician,
+    HousePainter, etc. — is misrepresentation and a Google penalty risk.
+
+    The CLAUDE.md hard rule predates this check (added 2026-04-25). On
+    2026-04-26 the C2 audit finding revealed emergency.html had been
+    shipping with `@type: EmergencyService` since the initial commit
+    (2026-04-13) — the written rule alone could not catch what was already
+    on disk. This audit closes the loop: any future commit that introduces
+    a LocalBusiness-family @type is blocked at the pre-commit hook.
+
+    Implementation: regex-scan all <script type="application/ld+json">
+    blocks for "@type": "<TYPE>" where TYPE is in the denylist below.
+    """
+    print(f"\nLOCALBUSINESS SCHEMA DENYLIST (referral aggregator -- no local presence) -- {path}")
+
+    # Schema.org LocalBusiness type and its subtypes (per schema.org as of 2026).
+    # Keep this list explicit -- it's safer to over-list than to miss a subtype
+    # like EmergencyService that's two hops down the inheritance chain.
+    DENIED_TYPES = {
+        # Direct
+        "LocalBusiness",
+        # Direct subtypes
+        "AnimalShelter", "ArchiveOrganization", "AutomotiveBusiness",
+        "ChildCare", "Dentist", "DryCleaningOrLaundry", "EmergencyService",
+        "EmploymentAgency", "EntertainmentBusiness", "FinancialService",
+        "FoodEstablishment", "GovernmentOffice", "HealthAndBeautyBusiness",
+        "HomeAndConstructionBusiness", "InternetCafe", "LegalService",
+        "Library", "LodgingBusiness", "MedicalBusiness", "ProfessionalService",
+        "RadioStation", "RealEstateAgent", "RecyclingCenter", "SelfStorage",
+        "ShoppingCenter", "SportsActivityLocation", "Store", "TelevisionStation",
+        "TouristInformationCenter", "TravelAgency",
+        # AutomotiveBusiness subtypes
+        "AutoBodyShop", "AutoDealer", "AutoPartsStore", "AutoRental",
+        "AutoRepair", "AutoWash", "GasStation", "MotorcycleDealer",
+        "MotorcycleRepair",
+        # EmergencyService subtypes
+        "FireStation", "Hospital", "PoliceStation",
+        # FoodEstablishment subtypes
+        "Bakery", "BarOrPub", "Brewery", "CafeOrCoffeeShop", "Distillery",
+        "FastFoodRestaurant", "IceCreamShop", "Restaurant", "Winery",
+        # HealthAndBeautyBusiness subtypes
+        "BeautySalon", "DaySpa", "HairSalon", "HealthClub", "NailSalon",
+        "TattooParlor",
+        # HomeAndConstructionBusiness subtypes (the dangerous-for-us ones)
+        "Electrician", "GeneralContractor", "HVACBusiness", "HousePainter",
+        "Locksmith", "MovingCompany", "Plumber", "RoofingContractor",
+        # LegalService
+        "Attorney", "Notary",
+        # LodgingBusiness subtypes
+        "BedAndBreakfast", "Campground", "Hostel", "Hotel", "Motel", "Resort",
+        # MedicalBusiness / health
+        "CommunityHealth", "Dermatology", "DietNutrition", "Emergency",
+        "Geriatric", "Gynecologic", "MedicalClinic", "Midwifery", "Nursing",
+        "Obstetric", "Oncologic", "Optician", "Optometric", "Otolaryngologic",
+        "Pediatric", "Pharmacy", "Physiotherapy", "PlasticSurgery", "Podiatric",
+        "PrimaryCare", "Psychiatric", "PublicHealth",
+        # ProfessionalService (very broad; we never use any of these)
+        "AccountingService", "Notary",
+        # SportsActivityLocation subtypes
+        "BowlingAlley", "ExerciseGym", "GolfCourse", "HealthClub", "PublicSwimmingPool",
+        "SkiResort", "SportsClub", "StadiumOrArena", "TennisComplex",
+        # Store subtypes
+        "AutoPartsStore", "BikeStore", "BookStore", "ClothingStore",
+        "ComputerStore", "ConvenienceStore", "DepartmentStore", "ElectronicsStore",
+        "Florist", "FurnitureStore", "GardenStore", "GroceryStore",
+        "HardwareStore", "HobbyShop", "HomeGoodsStore", "JewelryStore",
+        "LiquorStore", "MensClothingStore", "MobilePhoneStore", "MovieRentalStore",
+        "MusicStore", "OfficeEquipmentStore", "OutletStore", "PawnShop",
+        "PetStore", "ShoeStore", "SportingGoodsStore", "TireShop", "ToyStore",
+        "WholesaleStore",
+    }
+
+    # Find all <script type="application/ld+json">...</script> blocks
+    jsonld_blocks = re.findall(
+        r'<script[^>]*type="application/ld\+json"[^>]*>(.*?)</script>',
+        html,
+        re.DOTALL | re.IGNORECASE,
+    )
+
+    violations = []
+    for block in jsonld_blocks:
+        # Find every "@type": "X" pair (handles both "@type" and '@type')
+        type_matches = re.findall(r'"@type"\s*:\s*"([A-Za-z]+)"', block)
+        for t in type_matches:
+            if t in DENIED_TYPES:
+                violations.append(t)
+
+    if not violations:
+        check(
+            "No LocalBusiness-family @type in any JSON-LD block",
+            True,
+            "Cool Call Pro is a referral aggregator -- never use LocalBusiness or any of its ~50 subtypes (EmergencyService, HVACBusiness, Plumber, etc.)",
+        )
+        return 0
+
+    # Dedupe while preserving order so the message is readable
+    seen = []
+    for v in violations:
+        if v not in seen:
+            seen.append(v)
+    detail = (
+        f"Found denied @type values in JSON-LD: {seen}. "
+        f"Replace with generic 'Service' (or 'Organization' / 'WebPage' as appropriate). "
+        f"See CLAUDE.md hard rule and the C2 fix on emergency.html for the canonical replacement."
+    )
+    check(
+        f"No LocalBusiness-family @type in any JSON-LD block (found: {seen})",
+        False,
+        detail,
+    )
+    return len(seen)
+
+
 def audit_sitemap_no_html() -> int:
     """Site-wide check: sitemap.xml must list only clean URLs, never .html.
 
@@ -675,6 +793,7 @@ def main():
     fails += audit_font_loading(html, path)
     fails += audit_h3_islands(html, path)
     fails += audit_emoji_on_orange_circle(html, path)
+    fails += audit_no_localbusiness_schema(html, path)
     fails += audit_sitemap_no_html()
     fails += check_diy_hazards(html, source_label=path)
 

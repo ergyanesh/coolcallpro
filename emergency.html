@@ -181,22 +181,21 @@
     }
     </script>
 
-    <!-- EmergencyService schema -->
+    <!-- Service schema (generic Service, NOT a LocalBusiness subclass — Cool Call Pro
+         is a referral aggregator with no physical presence in any city or state) -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "EmergencyService",
-        "name": "Cool Call Pro Emergency HVAC Service",
-        "url": "https://coolcallpro.com/emergency",
-        "telephone": "+1-844-582-1795",
-        "description": "24/7 referral service connecting homeowners with independent HVAC professionals for emergency AC, furnace, and heat pump repair across the United States.",
-        "areaServed": { "@type": "Country", "name": "United States" },
-        "hoursAvailable": {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
-            "opens": "00:00",
-            "closes": "23:59"
+        "@type": "Service",
+        "name": "Cool Call Pro 24/7 HVAC Referral Hotline",
+        "description": "24/7 referral service connecting U.S. homeowners with independent HVAC professionals for emergency AC, furnace, and heat pump repair.",
+        "provider": {
+            "@type": "Organization",
+            "name": "Cool Call Pro",
+            "url": "https://coolcallpro.com"
         },
+        "serviceType": "HVAC Emergency Referral",
+        "areaServed": { "@type": "Country", "name": "United States" },
         "audience": { "@type": "Audience", "audienceType": "Homeowners" }
     }
     </script>
