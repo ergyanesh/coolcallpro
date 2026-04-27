@@ -1524,7 +1524,7 @@ def generate_html(d, city_list, hub_abbrs, all_states, out_path=None, refresh_da
       <div class="container">
         <span class="section-tag" style="background: rgba(255,255,255,0.1); color: #fff;">&#128205; {name}</span>
         <h1>HVAC Service &amp; Repair in {name}</h1>
-        <p>Independent local HVAC professionals serve every city and ZIP code across {name}&rsquo;s {hero_lead}. {state_profile['hero_service']}</p>
+        <p>Independent HVAC professionals across {name}&rsquo;s {hero_lead}. {state_profile['hero_service']}</p>
         {meta_block}
         <div style="margin-top: 28px;">
           <a href="tel:+18445821795" class="btn btn-primary btn-lg btn-vibrate"><span class="phone-icon">&#128222;</span> Call Now &#8212; (844) 582-1795</a>
