@@ -89,7 +89,17 @@
     "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": "https://coolcallpro.com/article-emergency"
-    }
+    },
+    "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [".tldr-box", ".faq-q", ".faq-a-inner"]
+    },
+    "about": [
+        {"@type": "Thing", "name": "HVAC", "sameAs": "https://en.wikipedia.org/wiki/Heating,_ventilation,_and_air_conditioning"},
+        {"@type": "Thing", "name": "Air conditioning", "sameAs": "https://en.wikipedia.org/wiki/Air_conditioning"},
+        {"@type": "Thing", "name": "Compressor", "sameAs": "https://en.wikipedia.org/wiki/Vapor-compression_refrigeration"},
+        {"@type": "Thing", "name": "EPA Section 608", "sameAs": "https://www.epa.gov/section608"}
+    ]
 }
     </script>
     <!-- Breadcrumb Schema -->
@@ -136,7 +146,7 @@
             "name": "Can a short-cycling AC damage other parts of the system?",
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes — short-cycling is one of the most destructive operating conditions for an HVAC system. Each startup cycle puts significant electrical and mechanical stress on the compressor. A compressor that starts and stops dozens of times per hour experiences wear equivalent to hours of normal operation. Over days or weeks, this accelerates compressor failure. Since the compressor is the most expensive component in the system ($1,200–$2,800 to replace), catching and fixing the root cause of short-cycling early is critical to avoiding a much larger bill."
+                "text": "Yes — short-cycling is one of the most destructive operating conditions for an HVAC system. Each startup cycle puts significant electrical and mechanical stress on the compressor. A compressor that starts and stops dozens of times per hour experiences wear equivalent to hours of normal operation. Over days or weeks, this accelerates compressor failure. Since the compressor is the most expensive component in the system ($900–$2,800 to replace), catching and fixing the root cause of short-cycling early is critical to avoiding a much larger bill."
             }
         },
         {
@@ -152,7 +162,7 @@
             "name": "How much does emergency HVAC service typically cost?",
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Emergency or after-hours HVAC service calls typically carry a premium over standard service fees. A standard diagnostic visit may run $75–$150; after-hours or weekend emergency calls can range from $150–$300 for the service call alone, before any parts or repairs. The total cost depends on what's found: a capacitor replacement might add $150–$400, while a refrigerant recharge or electrical repair could run $200–$600. Major component failures like a compressor or heat exchanger replacement are $1,200–$3,500 or more. Acting on early warning signs during normal business hours is almost always less expensive than waiting for a complete failure."
+                "text": "Emergency or after-hours HVAC service calls typically carry a premium over standard service fees. A standard diagnostic visit may run $65–$150; after-hours or weekend emergency calls can range from $150–$300 for the service call alone, before any parts or repairs. The total cost depends on what's found: a capacitor replacement might add $150–$400, while a refrigerant recharge or electrical repair could run $200–$600. Major component failures like a compressor or heat exchanger replacement are $1,200–$3,500 or more. Acting on early warning signs during normal business hours is almost always less expensive than waiting for a complete failure."
             }
         },
         {
@@ -245,12 +255,13 @@
                             <div class="callout-icon">&#9888;&#65039;</div>
                             <div class="callout-text">
                                 <strong>HVAC systems involve high-voltage electricity, natural gas, and pressurized refrigerant. Always let a qualified HVAC technician handle diagnosis and repairs.</strong>
+                                <p style="margin-top:8px;">Before opening any panel or cabinet, a technician will kill the breaker at the disconnect to de-energize the system &mdash; this is not a homeowner step. Refrigerant work is federally regulated under EPA <a href="https://www.epa.gov/section608" target="_blank" rel="nofollow noopener">Section 608</a>; certification is legally required to recover, recharge, or repair sealed refrigerant lines.</p>
                             </div>
                         </div>
 
                         <div class="tldr-box">
                             <div class="tldr-label">Key Takeaway</div>
-                            <p>The 7 warning signs your HVAC is failing: strange noises, burning smells, weak airflow, short-cycling, spiking energy bills, ice on the unit, and system age over 15 years. Short-cycling is the most destructive &mdash; it can burn out a compressor ($1,200&ndash;$2,800 to replace). If you hear banging, clanking, or screaming sounds, turn the system off immediately and call a professional.</p>
+                            <p>The 7 warning signs your HVAC is failing: strange noises, burning smells, weak airflow, short-cycling, spiking energy bills, ice on the unit, and system age over 15 years. Short-cycling is the most destructive &mdash; it can burn out a compressor ($900&ndash;$2,800 to replace). If you hear banging, clanking, or screaming sounds, turn the system off immediately and call a professional.</p>
                         </div>
 
                         <nav class="toc" aria-label="Table of contents">
@@ -609,7 +620,7 @@
                                 <p>Yes — significantly. Each startup cycle places the highest electrical and mechanical
                                 stress on the compressor. A compressor starting and stopping dozens of times per
                                 hour experiences wear equivalent to many hours of normal operation, in a single day.
-                                Since the compressor is the most expensive component ($1,200–$2,800 to replace),
+                                Since the compressor is the most expensive component ($900–$2,800 to replace),
                                 diagnosing and fixing the root cause of short-cycling early is one of the highest-ROI
                                 service calls a homeowner can make.</p>
                             </div></div>
@@ -631,7 +642,7 @@
                             <button class="faq-q" aria-expanded="false" aria-controls="faq-article-emergency-4"><span>How much does emergency HVAC service typically cost?</span><span class="faq-icon"></span></button>
                             <div class="faq-a" id="faq-article-emergency-4"><div class="faq-a-inner">
                                 <p>Emergency or after-hours service calls carry a premium over standard rates. A standard
-                                diagnostic visit may run $75–$150; after-hours or weekend emergency calls can range
+                                diagnostic visit may run $65–$150; after-hours or weekend emergency calls can range
                                 from $150–$300 for the service call alone, before parts and labor. Total cost depends
                                 on what is found: a capacitor replacement might add $150–$400, a refrigerant recharge
                                 $200–$600. Major failures like a compressor run $1,500–$2,800. Acting on warning signs
@@ -709,7 +720,7 @@
                             <p style="font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--gray-500);margin-bottom:14px;">Share this article</p>
                             <div style="display:flex;gap:10px;flex-wrap:wrap;">
                                 <a href="#" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'fb','width=600,height=400');return false;" style="display:inline-flex;align-items:center;gap:6px;padding:8px 18px;background:#1877F2;color:#fff;border-radius:100px;font-size:0.8rem;font-weight:700;text-decoration:none;transition:opacity 0.2s ease;box-shadow:0 2px 8px rgba(24,119,242,0.25);" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'" aria-label="Share on Facebook"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>Facebook</a>
-                                <a href="#" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(location.href)+'&text='+encodeURIComponent(document.title),'tw','width=600,height=400');return false;" style="display:inline-flex;align-items:center;gap:6px;padding:8px 18px;background:#000;color:#fff;border-radius:100px;font-size:0.8rem;font-weight:700;text-decoration:none;transition:opacity 0.2s ease;box-shadow:0 2px 8px rgba(0,0,0,0.15);" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'" aria-label="Share on X"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>Post on X</a>
+                                <a href="#" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(location.href)+'&text='+encodeURIComponent(document.title),'tw','width=600,height=400');return false;" style="display:inline-flex;align-items:center;gap:6px;padding:8px 18px;background:#000;color:#fff;border-radius:100px;font-size:0.8rem;font-weight:700;text-decoration:none;transition:opacity 0.2s ease;box-shadow:0 2px 8px rgba(0,0,0,0.15);" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'" aria-label="Post on X"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>Post on X</a>
                                 <a href="#" onclick="navigator.clipboard.writeText(location.href).then(function(){var b=event.target.closest('a');b.dataset.orig=b.innerHTML;b.innerHTML='<svg width=15 height=15 viewBox=&quot;0 0 24 24&quot; fill=&quot;currentColor&quot;><path d=&quot;M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z&quot;/></svg>Copied!';setTimeout(function(){b.innerHTML=b.dataset.orig},2000)});return false;" style="display:inline-flex;align-items:center;gap:6px;padding:8px 18px;background:var(--navy);color:#fff;border-radius:100px;font-size:0.8rem;font-weight:700;text-decoration:none;transition:opacity 0.2s ease;box-shadow:0 2px 8px rgba(10,22,40,0.2);" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'" aria-label="Copy link"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg>Copy Link</a>
                                 <a href="#" onclick="location.href='mailto:?subject='+encodeURIComponent(document.title)+'&body='+encodeURIComponent('Check out this article: '+location.href);return false;" style="display:inline-flex;align-items:center;gap:6px;padding:8px 18px;background:var(--gray-700);color:#fff;border-radius:100px;font-size:0.8rem;font-weight:700;text-decoration:none;transition:opacity 0.2s ease;box-shadow:0 2px 8px rgba(0,0,0,0.1);" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'" aria-label="Share via Email"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>Email</a>
                             </div>

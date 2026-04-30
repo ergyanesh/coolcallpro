@@ -24,25 +24,23 @@ Then re-run `python generate_link_plan.py` and commit the new CSVs.
 ## Coverage Summary
 
 - **Total published cities:** 115
-- **Cities receiving ≥1 article link:** 89 (77%)
-- **Orphan cities (0 planned article links):** 26
+- **Cities receiving ≥1 article link:** 97 (84%)
+- **Orphan cities (0 planned article links):** 18
 - **Average article links per city:** 1.7
-- **Max article links to any one city:** 7
+- **Max article links to any one city:** 6
 
 ### Cities with 4+ planned article links (watch for crowding)
 
 | City slug | Article links |
 |-----------|---------------|
-| `tucson-az` | 7 |
-| `little-rock-ar` | 6 |
-| `brownsville-tx` | 6 |
-| `jackson-ms` | 5 |
-| `tallahassee-fl` | 4 |
-| `baton-rouge-la` | 4 |
+| `san-antonio-tx` | 6 |
+| `tucson-az` | 5 |
+| `cheyenne-wy` | 5 |
+| `mobile-al` | 4 |
+| `san-diego-ca` | 4 |
+| `louisville-ky` | 4 |
 | `el-paso-tx` | 4 |
-| `glendale-az` | 4 |
-| `charlotte-nc` | 4 |
-| `laredo-tx` | 4 |
+| `grand-rapids-mi` | 4 |
 
 ## Clusters (from cluster_map.json)
 

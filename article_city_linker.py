@@ -165,15 +165,27 @@ def _allocate(weights: dict, n: int) -> dict:
     return floors
 
 
+def _city_hash_score(article_slug: str, cluster: str, climate: str, city_slug: str) -> str:
+    """Stable per-(article, climate, city) hash. Sorting a pool by this score
+    gives each article a different deterministic ordering of the same cities,
+    which spreads link equity across the whole pool over many articles."""
+    return hashlib.md5(f"{article_slug}|{cluster}|{climate}|{city_slug}".encode()).hexdigest()
+
+
 def pick_cities(article_slug: str, cluster: str, n: int = 4,
                 xlsx_path: str = "cities_updated.xlsx") -> list:
     """Deterministic city selection for an article.
 
     Returns a list of n dicts: [{'city', 'state', 'slug', 'climate_type'}, ...].
     Same (article_slug, cluster) always returns the same cities.
+
+    Selection is per-climate hash-shuffle: each article gets its own deterministic
+    ordering of every climate pool, then takes the top `count` for that climate.
+    This avoids the contiguous-window picking pattern that caused the previous
+    algorithm to repeatedly favor cities at certain pool indices (Tucson at 7
+    inbound while NYC/Columbus/Buffalo sat at 0 — see M6 in ACTION-PLAN).
     """
     pools = load_city_pools(xlsx_path)
-    seed = _seed(f"{article_slug}|{cluster}")
 
     weights = CLUSTER_CLIMATE_WEIGHTS.get(cluster, "all_rotated")
     if weights in ("all_rotated", "seasonal"):
@@ -187,24 +199,24 @@ def pick_cities(article_slug: str, cluster: str, n: int = 4,
         pool = pools.get(climate, [])
         if not pool or count == 0:
             continue
-        # Pool-size-aware offset: divide seed by pool size so small pools rotate
-        # through their limited options less frequently between articles.
-        offset = (seed // max(1, len(pool))) % len(pool)
-        for i in range(count):
-            picks.append(pool[(offset + i) % len(pool)])
+        ordered = sorted(
+            pool,
+            key=lambda c: _city_hash_score(article_slug, cluster, climate, c['slug']),
+        )
+        picks.extend(ordered[:count])
 
-    # Backfill from largest pool if a small pool couldn't deliver its share
+    # Backfill: if a small pool couldn't deliver its allocated share, pull from
+    # the union of remaining cities, again hash-shuffled deterministically.
     if len(picks) < n:
-        fallback = sorted(pools.values(), key=len, reverse=True)[0]
-        offset = seed % len(fallback)
         picked_slugs = {p['slug'] for p in picks}
-        for i in range(len(fallback)):
-            candidate = fallback[(offset + i) % len(fallback)]
-            if candidate['slug'] not in picked_slugs:
-                picks.append(candidate)
-                picked_slugs.add(candidate['slug'])
-                if len(picks) >= n:
-                    break
+        remaining = [c for pool in pools.values() for c in pool if c['slug'] not in picked_slugs]
+        remaining.sort(
+            key=lambda c: _city_hash_score(article_slug, cluster, 'backfill', c['slug']),
+        )
+        for c in remaining:
+            picks.append(c)
+            if len(picks) >= n:
+                break
 
     return picks[:n]
 

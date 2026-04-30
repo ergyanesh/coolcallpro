@@ -3920,13 +3920,14 @@ a.location-item-link:hover {
 }
 
 .toc-box li a {
-  color: #1a73e8;
+  color: #1557b0;
   font-size: 0.92rem;
   font-weight: 500;
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 .toc-box li a:hover {
+  color: #0a4488;
   text-decoration: underline;
 }
 

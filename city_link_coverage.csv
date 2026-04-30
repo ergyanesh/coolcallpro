@@ -1,115 +1,115 @@
 city_slug,city,state,climate_type,n_planned_article_links,article_slugs_linking_here
-eugene-or,Eugene,OR,coastal,0,
-oakland-ca,Oakland,CA,coastal,1,heat-pump-defrost-grinding
-portland-or,Portland,OR,coastal,0,
-san-francisco-ca,San Francisco,CA,coastal,2,heat-pump-stuck-in-cooling; heat-pump-lukewarm-air
-san-jose-ca,San Jose,CA,coastal,1,2026-heat-pump-buyers-guide
-seattle-wa,Seattle,WA,coastal,2,2026-heat-pump-buyers-guide; article-heat-pump
-allentown-pa,Allentown,PA,cold,1,article-fall-prep
-baltimore-md,Baltimore,MD,cold,2,cost-replace-3-ton-ac; article-emergency
-bangor-me,Bangor,ME,cold,2,cost-replace-3-ton-ac; article-emergency
-bismarck-nd,Bismarck,ND,cold,2,furnace-burning-plastic-smell; dual-run-capacitor-cost
-boston-ma,Boston,MA,cold,4,furnace-burning-plastic-smell; dual-run-capacitor-cost; new-furnace-installed-cost; 1000-into-12yo-ac
-bridgeport-ct,Bridgeport,CT,cold,2,new-furnace-installed-cost; 1000-into-12yo-ac
-buffalo-ny,Buffalo,NY,cold,0,
-burlington-vt,Burlington,VT,cold,1,co-detector-furnace-running
-chicago-il,Chicago,IL,cold,3,co-detector-furnace-running; article-hvac-financing; year-round-hvac-maintenance-playbook
-cleveland-oh,Cleveland,OH,cold,2,article-hvac-financing; year-round-hvac-maintenance-playbook
-columbus-oh,Columbus,OH,cold,0,
-dayton-oh,Dayton,OH,cold,1,article-carbon-monoxide
-des-moines-ia,Des Moines,IA,cold,3,article-carbon-monoxide; emergency-weekend-hvac-cost; best-merv-rating
-detroit-mi,Detroit,MI,cold,4,furnace-short-cycling; emergency-weekend-hvac-cost; repair-or-replace-framework; best-merv-rating
-fort-wayne-in,Fort Wayne,IN,cold,2,furnace-short-cycling; repair-or-replace-framework
-grand-rapids-mi,Grand Rapids,MI,cold,1,article-winter-storm
-hartford-ct,Hartford,CT,cold,2,article-winter-storm; r410a-recharge-cost
-indianapolis-in,Indianapolis,IN,cold,2,r410a-recharge-cost; mini-split-installation-cost
-kansas-city-mo,Kansas City,MO,cold,2,furnace-ignitor-wont-light; mini-split-installation-cost
-lincoln-ne,Lincoln,NE,cold,1,furnace-ignitor-wont-light
+eugene-or,Eugene,OR,coastal,1,2026-heat-pump-buyers-guide
+oakland-ca,Oakland,CA,coastal,0,
+portland-or,Portland,OR,coastal,2,2026-heat-pump-buyers-guide; heat-pump-lukewarm-air
+san-francisco-ca,San Francisco,CA,coastal,2,heat-pump-stuck-in-cooling; heat-pump-defrost-grinding
+san-jose-ca,San Jose,CA,coastal,1,article-heat-pump
+seattle-wa,Seattle,WA,coastal,0,
+allentown-pa,Allentown,PA,cold,0,
+baltimore-md,Baltimore,MD,cold,3,furnace-blowing-cold-air-winter; 2026-hvac-cost-guide; article-repair-vs-replace
+bangor-me,Bangor,ME,cold,2,heat-pump-vs-gas-furnace; article-maintenance
+bismarck-nd,Bismarck,ND,cold,2,seer-14-vs-18-payback; best-merv-rating
+boston-ma,Boston,MA,cold,2,furnace-burning-plastic-smell; article-maintenance
+bridgeport-ct,Bridgeport,CT,cold,2,furnace-burning-plastic-smell; new-furnace-installed-cost
+buffalo-ny,Buffalo,NY,cold,1,furnace-not-working-diagnostic-guide
+burlington-vt,Burlington,VT,cold,1,central-air-no-ductwork-cost
+chicago-il,Chicago,IL,cold,1,year-round-hvac-maintenance-playbook
+cleveland-oh,Cleveland,OH,cold,1,article-furnace
+columbus-oh,Columbus,OH,cold,1,article-carbon-monoxide
+dayton-oh,Dayton,OH,cold,1,dual-run-capacitor-cost
+des-moines-ia,Des Moines,IA,cold,1,1000-into-12yo-ac
+detroit-mi,Detroit,MI,cold,3,cost-replace-3-ton-ac; article-fall-prep; article-emergency
+fort-wayne-in,Fort Wayne,IN,cold,0,
+grand-rapids-mi,Grand Rapids,MI,cold,4,furnace-blowing-cold-air-winter; furnace-short-cycling; heat-pump-vs-gas-furnace; article-emergency
+hartford-ct,Hartford,CT,cold,1,furnace-short-cycling
+indianapolis-in,Indianapolis,IN,cold,2,cost-replace-3-ton-ac; repair-or-replace-framework
+kansas-city-mo,Kansas City,MO,cold,1,mini-split-installation-cost
+lincoln-ne,Lincoln,NE,cold,3,article-furnace; article-winter-storm; best-merv-rating
 madison-wi,Madison,WI,cold,0,
-manchester-nh,Manchester,NH,cold,0,
-milwaukee-wi,Milwaukee,WI,cold,1,heat-pump-vs-gas-furnace
-minneapolis-mn,Minneapolis,MN,cold,2,heat-pump-vs-gas-furnace; seer-14-vs-18-payback
-morgantown-wv,Morgantown,WV,cold,1,seer-14-vs-18-payback
-new-york-city-ny,New York City,NY,cold,0,
-newark-nj,Newark,NJ,cold,0,
-omaha-ne,Omaha,NE,cold,1,2026-hvac-cost-guide
-peoria-il,Peoria,IL,cold,1,2026-hvac-cost-guide
-philadelphia-pa,Philadelphia,PA,cold,2,furnace-not-working-diagnostic-guide; article-maintenance
-pittsburgh-pa,Pittsburgh,PA,cold,2,furnace-not-working-diagnostic-guide; article-maintenance
-portland-me,Portland,ME,cold,1,furnace-not-working-diagnostic-guide
+manchester-nh,Manchester,NH,cold,1,r410a-recharge-cost
+milwaukee-wi,Milwaukee,WI,cold,1,mini-split-installation-cost
+minneapolis-mn,Minneapolis,MN,cold,3,furnace-ignitor-wont-light; article-hvac-financing; article-fall-prep
+morgantown-wv,Morgantown,WV,cold,1,co-detector-furnace-running
+new-york-city-ny,New York City,NY,cold,1,article-hvac-financing
+newark-nj,Newark,NJ,cold,2,emergency-weekend-hvac-cost; 1000-into-12yo-ac
+omaha-ne,Omaha,NE,cold,3,furnace-not-working-diagnostic-guide; furnace-ignitor-wont-light; emergency-weekend-hvac-cost
+peoria-il,Peoria,IL,cold,0,
+philadelphia-pa,Philadelphia,PA,cold,0,
+pittsburgh-pa,Pittsburgh,PA,cold,2,furnace-not-working-diagnostic-guide; r410a-recharge-cost
+portland-me,Portland,ME,cold,1,dual-run-capacitor-cost
 providence-ri,Providence,RI,cold,0,
-sioux-falls-sd,Sioux Falls,SD,cold,1,article-furnace
-springfield-ma,Springfield,MA,cold,2,article-furnace; central-air-no-ductwork-cost
-syracuse-ny,Syracuse,NY,cold,2,central-air-no-ductwork-cost; article-repair-vs-replace
-toledo-oh,Toledo,OH,cold,2,furnace-blowing-cold-air-winter; article-repair-vs-replace
-wichita-ks,Wichita,KS,cold,1,furnace-blowing-cold-air-winter
-wilmington-de,Wilmington,DE,cold,0,
-worcester-ma,Worcester,MA,cold,1,article-fall-prep
-el-paso-tx,El Paso,TX,hot-dry,4,article-refrigerant; water-dripping-from-vent; dual-run-capacitor-cost; mini-split-installation-cost
-fresno-ca,Fresno,CA,hot-dry,0,
-glendale-az,Glendale,AZ,hot-dry,4,why-is-my-ac-blowing-warm-air; article-repair-vs-replace; article-fall-prep; best-merv-rating
-irvine-ca,Irvine,CA,hot-dry,1,ac-circuit-breaker-trips
-laredo-tx,Laredo,TX,hot-dry,4,hvac-leaking-water-inside-house; thermostat-blank-ac-wont-start; ac-contactor-clicking; central-air-no-ductwork-cost
-las-vegas-nv,Las Vegas,NV,hot-dry,4,2026-hvac-cost-guide; cost-replace-3-ton-ac; emergency-weekend-hvac-cost; heat-pump-vs-gas-furnace
-los-angeles-ca,Los Angeles,CA,hot-dry,2,ac-not-cooling-below-80; article-maintenance
-lubbock-tx,Lubbock,TX,hot-dry,1,seer-14-vs-18-payback
-mesa-az,Mesa,AZ,hot-dry,1,article-spring-ac
-modesto-ca,Modesto,CA,hot-dry,1,r410a-recharge-cost
-phoenix-az,Phoenix,AZ,hot-dry,1,complete-ac-troubleshooting-guide
-sacramento-ca,Sacramento,CA,hot-dry,2,ac-compressor-buzzing-fan-not-spinning; article-emergency
-san-diego-ca,San Diego,CA,hot-dry,0,
-tucson-az,Tucson,AZ,hot-dry,7,article-ac-summer; ac-freezing-up-in-summer; article-hvac-financing; new-furnace-installed-cost; repair-or-replace-framework; 1000-into-12yo-ac; year-round-hvac-maintenance-playbook
-austin-tx,Austin,TX,hot-humid,1,why-is-my-ac-blowing-warm-air
-baton-rouge-la,Baton Rouge,LA,hot-humid,4,article-refrigerant; ac-compressor-buzzing-fan-not-spinning; ac-not-cooling-below-80; ac-circuit-breaker-trips
-brownsville-tx,Brownsville,TX,hot-humid,6,article-refrigerant; ac-compressor-buzzing-fan-not-spinning; hvac-leaking-water-inside-house; ac-not-cooling-below-80; ac-circuit-breaker-trips; ac-contactor-clicking
-gulfport-ms,Gulfport,MS,hot-humid,3,hvac-leaking-water-inside-house; thermostat-blank-ac-wont-start; ac-contactor-clicking
-houston-tx,Houston,TX,hot-humid,2,article-ac-summer; thermostat-blank-ac-wont-start
-jacksonville-fl,Jacksonville,FL,hot-humid,1,article-ac-summer
-mobile-al,Mobile,AL,hot-humid,0,
-new-orleans-la,New Orleans,LA,hot-humid,0,
-san-antonio-tx,San Antonio,TX,hot-humid,3,complete-ac-troubleshooting-guide; article-spring-ac; water-dripping-from-vent
-tallahassee-fl,Tallahassee,FL,hot-humid,4,complete-ac-troubleshooting-guide; article-spring-ac; ac-freezing-up-in-summer; water-dripping-from-vent
-tampa-fl,Tampa,FL,hot-humid,2,why-is-my-ac-blowing-warm-air; ac-freezing-up-in-summer
-atlanta-ga,Atlanta,GA,mixed-humid,4,ac-freezing-up-in-summer; article-winter-storm; heat-pump-stuck-in-cooling; heat-pump-lukewarm-air
-augusta-ga,Augusta,GA,mixed-humid,3,heat-pump-stuck-in-cooling; heat-pump-lukewarm-air; cost-replace-3-ton-ac
-birmingham-al,Birmingham,AL,mixed-humid,0,
-charleston-sc,Charleston,SC,mixed-humid,1,ac-contactor-clicking
-charleston-wv,Charleston,WV,mixed-humid,3,ac-compressor-buzzing-fan-not-spinning; water-dripping-from-vent; 2026-hvac-cost-guide
-charlotte-nc,Charlotte,NC,mixed-humid,4,why-is-my-ac-blowing-warm-air; ac-circuit-breaker-trips; article-furnace; furnace-short-cycling
-chattanooga-tn,Chattanooga,TN,mixed-humid,1,emergency-weekend-hvac-cost
-columbia-sc,Columbia,SC,mixed-humid,3,furnace-blowing-cold-air-winter; co-detector-furnace-running; seer-14-vs-18-payback
-dallas-tx,Dallas,TX,mixed-humid,1,article-maintenance
-fayetteville-nc,Fayetteville,NC,mixed-humid,1,complete-ac-troubleshooting-guide
-fort-worth-tx,Fort Worth,TX,mixed-humid,1,article-ac-summer
-greenville-sc,Greenville,SC,mixed-humid,1,furnace-burning-plastic-smell
-huntsville-al,Huntsville,AL,mixed-humid,1,heat-pump-defrost-grinding
-jackson-ms,Jackson,MS,mixed-humid,5,heat-pump-defrost-grinding; r410a-recharge-cost; mini-split-installation-cost; new-furnace-installed-cost; 1000-into-12yo-ac
-knoxville-tn,Knoxville,TN,mixed-humid,1,article-repair-vs-replace
-lexington-ky,Lexington,KY,mixed-humid,1,furnace-ignitor-wont-light
-little-rock-ar,Little Rock,AR,mixed-humid,6,article-spring-ac; hvac-leaking-water-inside-house; 2026-heat-pump-buyers-guide; article-heat-pump; article-fall-prep; article-emergency
-louisville-ky,Louisville,KY,mixed-humid,2,2026-heat-pump-buyers-guide; article-heat-pump
-memphis-tn,Memphis,TN,mixed-humid,1,article-hvac-financing
-nashville-tn,Nashville,TN,mixed-humid,1,best-merv-rating
-oklahoma-city-ok,Oklahoma City,OK,mixed-humid,0,
+sioux-falls-sd,Sioux Falls,SD,cold,2,co-detector-furnace-running; article-repair-vs-replace
+springfield-ma,Springfield,MA,cold,1,2026-hvac-cost-guide
+syracuse-ny,Syracuse,NY,cold,1,year-round-hvac-maintenance-playbook
+toledo-oh,Toledo,OH,cold,2,central-air-no-ductwork-cost; new-furnace-installed-cost
+wichita-ks,Wichita,KS,cold,1,article-carbon-monoxide
+wilmington-de,Wilmington,DE,cold,3,article-winter-storm; repair-or-replace-framework; seer-14-vs-18-payback
+worcester-ma,Worcester,MA,cold,0,
+el-paso-tx,El Paso,TX,hot-dry,4,article-refrigerant; thermostat-blank-ac-wont-start; new-furnace-installed-cost; best-merv-rating
+fresno-ca,Fresno,CA,hot-dry,3,cost-replace-3-ton-ac; repair-or-replace-framework; 1000-into-12yo-ac
+glendale-az,Glendale,AZ,hot-dry,1,article-repair-vs-replace
+irvine-ca,Irvine,CA,hot-dry,2,ac-compressor-buzzing-fan-not-spinning; ac-contactor-clicking
+laredo-tx,Laredo,TX,hot-dry,2,hvac-leaking-water-inside-house; article-emergency
+las-vegas-nv,Las Vegas,NV,hot-dry,1,article-hvac-financing
+los-angeles-ca,Los Angeles,CA,hot-dry,1,r410a-recharge-cost
+lubbock-tx,Lubbock,TX,hot-dry,3,ac-freezing-up-in-summer; ac-circuit-breaker-trips; 2026-hvac-cost-guide
+mesa-az,Mesa,AZ,hot-dry,2,why-is-my-ac-blowing-warm-air; emergency-weekend-hvac-cost
+modesto-ca,Modesto,CA,hot-dry,0,
+phoenix-az,Phoenix,AZ,hot-dry,3,ac-not-cooling-below-80; mini-split-installation-cost; heat-pump-vs-gas-furnace
+sacramento-ca,Sacramento,CA,hot-dry,1,central-air-no-ductwork-cost
+san-diego-ca,San Diego,CA,hot-dry,4,complete-ac-troubleshooting-guide; article-ac-summer; water-dripping-from-vent; seer-14-vs-18-payback
+tucson-az,Tucson,AZ,hot-dry,5,article-spring-ac; dual-run-capacitor-cost; year-round-hvac-maintenance-playbook; article-maintenance; article-fall-prep
+austin-tx,Austin,TX,hot-humid,3,article-refrigerant; hvac-leaking-water-inside-house; ac-not-cooling-below-80
+baton-rouge-la,Baton Rouge,LA,hot-humid,1,article-spring-ac
+brownsville-tx,Brownsville,TX,hot-humid,1,water-dripping-from-vent
+gulfport-ms,Gulfport,MS,hot-humid,1,ac-contactor-clicking
+houston-tx,Houston,TX,hot-humid,2,article-refrigerant; ac-freezing-up-in-summer
+jacksonville-fl,Jacksonville,FL,hot-humid,3,article-spring-ac; ac-compressor-buzzing-fan-not-spinning; ac-not-cooling-below-80
+mobile-al,Mobile,AL,hot-humid,4,complete-ac-troubleshooting-guide; ac-freezing-up-in-summer; ac-circuit-breaker-trips; water-dripping-from-vent
+new-orleans-la,New Orleans,LA,hot-humid,2,article-ac-summer; why-is-my-ac-blowing-warm-air
+san-antonio-tx,San Antonio,TX,hot-humid,6,article-ac-summer; why-is-my-ac-blowing-warm-air; hvac-leaking-water-inside-house; ac-circuit-breaker-trips; thermostat-blank-ac-wont-start; ac-contactor-clicking
+tallahassee-fl,Tallahassee,FL,hot-humid,1,thermostat-blank-ac-wont-start
+tampa-fl,Tampa,FL,hot-humid,2,complete-ac-troubleshooting-guide; ac-compressor-buzzing-fan-not-spinning
+atlanta-ga,Atlanta,GA,mixed-humid,2,article-refrigerant; ac-circuit-breaker-trips
+augusta-ga,Augusta,GA,mixed-humid,2,article-hvac-financing; new-furnace-installed-cost
+birmingham-al,Birmingham,AL,mixed-humid,1,heat-pump-defrost-grinding
+charleston-sc,Charleston,SC,mixed-humid,3,furnace-not-working-diagnostic-guide; article-carbon-monoxide; best-merv-rating
+charleston-wv,Charleston,WV,mixed-humid,1,heat-pump-vs-gas-furnace
+charlotte-nc,Charlotte,NC,mixed-humid,3,article-winter-storm; furnace-blowing-cold-air-winter; mini-split-installation-cost
+chattanooga-tn,Chattanooga,TN,mixed-humid,1,thermostat-blank-ac-wont-start
+columbia-sc,Columbia,SC,mixed-humid,1,article-repair-vs-replace
+dallas-tx,Dallas,TX,mixed-humid,1,article-heat-pump
+fayetteville-nc,Fayetteville,NC,mixed-humid,3,why-is-my-ac-blowing-warm-air; central-air-no-ductwork-cost; 1000-into-12yo-ac
+fort-worth-tx,Fort Worth,TX,mixed-humid,1,2026-hvac-cost-guide
+greenville-sc,Greenville,SC,mixed-humid,2,article-ac-summer; cost-replace-3-ton-ac
+huntsville-al,Huntsville,AL,mixed-humid,2,heat-pump-lukewarm-air; r410a-recharge-cost
+jackson-ms,Jackson,MS,mixed-humid,2,ac-not-cooling-below-80; article-maintenance
+knoxville-tn,Knoxville,TN,mixed-humid,3,furnace-short-cycling; heat-pump-stuck-in-cooling; repair-or-replace-framework
+lexington-ky,Lexington,KY,mixed-humid,0,
+little-rock-ar,Little Rock,AR,mixed-humid,1,heat-pump-lukewarm-air
+louisville-ky,Louisville,KY,mixed-humid,4,article-spring-ac; water-dripping-from-vent; furnace-ignitor-wont-light; co-detector-furnace-running
+memphis-tn,Memphis,TN,mixed-humid,2,dual-run-capacitor-cost; article-fall-prep
+nashville-tn,Nashville,TN,mixed-humid,2,hvac-leaking-water-inside-house; ac-freezing-up-in-summer
+oklahoma-city-ok,Oklahoma City,OK,mixed-humid,3,complete-ac-troubleshooting-guide; 2026-heat-pump-buyers-guide; article-heat-pump
 raleigh-nc,Raleigh,NC,mixed-humid,0,
-richmond-va,Richmond,VA,mixed-humid,3,ac-not-cooling-below-80; heat-pump-vs-gas-furnace; year-round-hvac-maintenance-playbook
-shreveport-la,Shreveport,LA,mixed-humid,0,
+richmond-va,Richmond,VA,mixed-humid,3,ac-contactor-clicking; year-round-hvac-maintenance-playbook; article-emergency
+shreveport-la,Shreveport,LA,mixed-humid,3,heat-pump-stuck-in-cooling; heat-pump-defrost-grinding; seer-14-vs-18-payback
 st-louis-mo,St. Louis,MO,mixed-humid,0,
-tulsa-ok,Tulsa,OK,mixed-humid,2,article-refrigerant; repair-or-replace-framework
-virginia-beach-va,Virginia Beach,VA,mixed-humid,3,article-carbon-monoxide; dual-run-capacitor-cost; central-air-no-ductwork-cost
-washington-dc,Washington,DC,mixed-humid,2,thermostat-blank-ac-wont-start; furnace-not-working-diagnostic-guide
-winston-salem-nc,Winston-Salem,NC,mixed-humid,0,
-albuquerque-nm,Albuquerque,NM,mountain,3,article-winter-storm; co-detector-furnace-running; repair-or-replace-framework
-billings-mt,Billings,MT,mountain,2,article-carbon-monoxide; year-round-hvac-maintenance-playbook
-boise-id,Boise,ID,mountain,2,furnace-not-working-diagnostic-guide; article-furnace
-cheyenne-wy,Cheyenne,WY,mountain,1,heat-pump-lukewarm-air
-colorado-springs-co,Colorado Springs,CO,mountain,0,
-denver-co,Denver,CO,mountain,2,furnace-blowing-cold-air-winter; heat-pump-stuck-in-cooling
-missoula-mt,Missoula,MT,mountain,0,
-rapid-city-sd,Rapid City,SD,mountain,2,furnace-ignitor-wont-light; article-heat-pump
-reno-nv,Reno,NV,mountain,0,
-salt-lake-city-ut,Salt Lake City,UT,mountain,1,2026-heat-pump-buyers-guide
-spokane-wa,Spokane,WA,mountain,4,furnace-short-cycling; furnace-burning-plastic-smell; heat-pump-defrost-grinding; 2026-hvac-cost-guide
+tulsa-ok,Tulsa,OK,mixed-humid,2,ac-compressor-buzzing-fan-not-spinning; furnace-burning-plastic-smell
+virginia-beach-va,Virginia Beach,VA,mixed-humid,1,emergency-weekend-hvac-cost
+washington-dc,Washington,DC,mixed-humid,0,
+winston-salem-nc,Winston-Salem,NC,mixed-humid,2,article-furnace; 2026-heat-pump-buyers-guide
+albuquerque-nm,Albuquerque,NM,mountain,2,article-winter-storm; 2026-hvac-cost-guide
+billings-mt,Billings,MT,mountain,1,heat-pump-stuck-in-cooling
+boise-id,Boise,ID,mountain,1,furnace-burning-plastic-smell
+cheyenne-wy,Cheyenne,WY,mountain,5,article-carbon-monoxide; furnace-blowing-cold-air-winter; 2026-heat-pump-buyers-guide; article-heat-pump; repair-or-replace-framework
+colorado-springs-co,Colorado Springs,CO,mountain,1,article-furnace
+denver-co,Denver,CO,mountain,2,furnace-short-cycling; furnace-ignitor-wont-light
+missoula-mt,Missoula,MT,mountain,1,furnace-not-working-diagnostic-guide
+rapid-city-sd,Rapid City,SD,mountain,1,heat-pump-lukewarm-air
+reno-nv,Reno,NV,mountain,2,co-detector-furnace-running; year-round-hvac-maintenance-playbook
+salt-lake-city-ut,Salt Lake City,UT,mountain,0,
+spokane-wa,Spokane,WA,mountain,1,heat-pump-defrost-grinding
 anchorage-ak,Anchorage,AK,subarctic,0,
 fargo-nd,Fargo,ND,subarctic,0,
 honolulu-hi,Honolulu,HI,tropical,0,
