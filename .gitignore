@@ -1,3 +1,6 @@
+# Local audit working files (PSI JSON, QC exports — regenerated on every audit run)
+_audit/
+
 # Deploy snapshots (one-off frozen copies — not source)
 deploy */
 deploy\ */
