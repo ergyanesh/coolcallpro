@@ -4,7 +4,7 @@
   <!-- Homepage -->
   <url>
     <loc>https://coolcallpro.com/</loc>
-    <lastmod>2026-04-26</lastmod>
+    <lastmod>2026-05-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -32,7 +32,7 @@
   <!-- Articles Hub -->
   <url>
     <loc>https://coolcallpro.com/articles</loc>
-    <lastmod>2026-04-24</lastmod>
+    <lastmod>2026-05-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -114,13 +114,13 @@
   <!-- New Articles (articles/ subfolder) -->
   <url>
     <loc>https://coolcallpro.com/articles/year-round-hvac-maintenance-playbook</loc>
-    <lastmod>2026-04-30</lastmod>
+    <lastmod>2026-05-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://coolcallpro.com/articles/furnace-not-working-diagnostic-guide</loc>
-    <lastmod>2026-04-30</lastmod>
+    <lastmod>2026-05-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -200,7 +200,7 @@
   <!-- Author Page -->
   <url>
     <loc>https://coolcallpro.com/author-gyanesh</loc>
-    <lastmod>2026-04-25</lastmod>
+    <lastmod>2026-05-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -529,7 +529,7 @@
   </url>
   <url>
     <loc>https://coolcallpro.com/locations/tampa-fl</loc>
-    <lastmod>2026-04-26</lastmod>
+    <lastmod>2026-05-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -567,7 +567,7 @@
   </url>
   <url>
     <loc>https://coolcallpro.com/locations/jacksonville-fl</loc>
-    <lastmod>2026-04-26</lastmod>
+    <lastmod>2026-05-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -585,7 +585,7 @@
   </url>
   <url>
     <loc>https://coolcallpro.com/locations/nashville-tn</loc>
-    <lastmod>2026-04-26</lastmod>
+    <lastmod>2026-05-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -870,7 +870,7 @@
   </url>
   <url>
     <loc>https://coolcallpro.com/locations/chattanooga-tn</loc>
-    <lastmod>2026-04-26</lastmod>
+    <lastmod>2026-05-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -978,7 +978,7 @@
   </url>
   <url>
     <loc>https://coolcallpro.com/locations/mobile-al</loc>
-    <lastmod>2026-04-26</lastmod>
+    <lastmod>2026-05-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
