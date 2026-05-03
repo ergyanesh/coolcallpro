@@ -51,7 +51,7 @@ Then re-run `python generate_link_plan.py` and commit the new CSVs.
 | C3_heatpump | Heat Pumps & Modern Systems | pending | 1 | 3 | coastal:0.3, mixed-humid:0.4, mountain:0.3 |
 | C4_cost | Repair & Replacement Costs | live | 1 | 7 | all_rotated |
 | C5_compare | Repair-vs-Replace & Comparisons | pending | 1 | 3 | all_rotated |
-| C6_maint | Maintenance, Safety & Seasonal | pending | 3 | 1 | all_rotated |
+| C6_maint | Maintenance, Safety & Seasonal | live | 3 | 1 | all_rotated |
 
 ## How to use
 

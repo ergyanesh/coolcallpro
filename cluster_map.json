@@ -373,7 +373,8 @@
         "title": "The Year-Round HVAC Maintenance Playbook",
         "slug": "year-round-hvac-maintenance-playbook",
         "filename": "articles/year-round-hvac-maintenance-playbook.html",
-        "status": "pending"
+        "status": "live",
+        "date_published": "2026-04-30"
       },
       "cross_cluster_anchor": {
         "cluster": "C1_ac",
