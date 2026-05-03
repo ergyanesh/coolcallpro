@@ -16,21 +16,102 @@
         "reason": "Every AC troubleshooting article should link to the cost pillar so readers evaluating repair can pivot to replacement pricing."
       },
       "climate_weights": {
-        "hot-humid": 0.40, "tropical": 0.10, "hot-dry": 0.25, "mixed-humid": 0.25
+        "hot-humid": 0.4,
+        "tropical": 0.1,
+        "hot-dry": 0.25,
+        "mixed-humid": 0.25
       },
       "articles": [
-        {"slug": "article-ac-summer", "path": "article-ac-summer.html", "title": "AC Broke in July? Cost & Emergency Help", "status": "live"},
-        {"slug": "article-spring-ac", "path": "article-spring-ac.html", "title": "Spring AC Tune-Up Checklist: Beat the Heat", "status": "live"},
-        {"slug": "article-refrigerant", "path": "article-refrigerant.html", "title": "Refrigerant Leaks: Why AC Ice Is a Problem", "status": "live"},
-        {"slug": "why-is-my-ac-blowing-warm-air", "path": "articles/why-is-my-ac-blowing-warm-air.html", "title": "AC Blowing Warm Air but Running? Why", "status": "live"},
-        {"slug": "ac-compressor-buzzing-fan-not-spinning", "path": "articles/ac-compressor-buzzing-fan-not-spinning.html", "title": "AC Compressor Buzzing, Fan Not Spinning?", "status": "live"},
-        {"slug": "hvac-leaking-water-inside-house", "path": "articles/hvac-leaking-water-inside-house.html", "title": "HVAC Leaking Water Inside? Stop Damage", "status": "live"},
-        {"slug": "ac-freezing-up-in-summer", "path": "articles/ac-freezing-up-in-summer.html", "title": "AC Freezing Up in Summer? Ice on Coils", "status": "live", "date_published": "2026-04-20", "priority": 3, "roadmap_id": 8},
-        {"slug": "ac-not-cooling-below-80", "path": "articles/ac-not-cooling-below-80.html", "title": "AC Running but Not Cooling Below 80°? Why", "status": "live", "date_published": "2026-04-20", "priority": 4, "roadmap_id": 11},
-        {"slug": "ac-circuit-breaker-trips", "path": "articles/ac-circuit-breaker-trips.html", "title": "AC Circuit Breaker Keeps Tripping? Causes", "status": "live", "date_published": "2026-04-20", "priority": 5, "roadmap_id": 18},
-        {"slug": "thermostat-blank-ac-wont-start", "path": "articles/thermostat-blank-ac-wont-start.html", "title": "Thermostat Blank, AC Won't Turn On? Fixes", "status": "live", "date_published": "2026-04-20", "priority": 11, "roadmap_id": 6},
-        {"slug": "ac-contactor-clicking", "path": "articles/ac-contactor-clicking.html", "title": "AC Contactor Clicking but Nothing Happens", "status": "live", "date_published": "2026-04-20", "priority": 20, "roadmap_id": 10},
-        {"slug": "water-dripping-from-vent", "path": "articles/water-dripping-from-vent.html", "title": "Water Dripping from Ceiling Vent? Causes", "status": "live", "date_published": "2026-04-21", "priority": 21, "roadmap_id": 16}
+        {
+          "slug": "article-ac-summer",
+          "path": "article-ac-summer.html",
+          "title": "AC Broke in July? Cost & Emergency Help",
+          "status": "live"
+        },
+        {
+          "slug": "article-spring-ac",
+          "path": "article-spring-ac.html",
+          "title": "Spring AC Tune-Up Checklist: Beat the Heat",
+          "status": "live"
+        },
+        {
+          "slug": "article-refrigerant",
+          "path": "article-refrigerant.html",
+          "title": "Refrigerant Leaks: Why AC Ice Is a Problem",
+          "status": "live"
+        },
+        {
+          "slug": "why-is-my-ac-blowing-warm-air",
+          "path": "articles/why-is-my-ac-blowing-warm-air.html",
+          "title": "AC Blowing Warm Air but Running? Why",
+          "status": "live"
+        },
+        {
+          "slug": "ac-compressor-buzzing-fan-not-spinning",
+          "path": "articles/ac-compressor-buzzing-fan-not-spinning.html",
+          "title": "AC Compressor Buzzing, Fan Not Spinning?",
+          "status": "live"
+        },
+        {
+          "slug": "hvac-leaking-water-inside-house",
+          "path": "articles/hvac-leaking-water-inside-house.html",
+          "title": "HVAC Leaking Water Inside? Stop Damage",
+          "status": "live"
+        },
+        {
+          "slug": "ac-freezing-up-in-summer",
+          "path": "articles/ac-freezing-up-in-summer.html",
+          "title": "AC Freezing Up in Summer? Ice on Coils",
+          "status": "live",
+          "date_published": "2026-04-20",
+          "priority": 3,
+          "roadmap_id": 8
+        },
+        {
+          "slug": "ac-not-cooling-below-80",
+          "path": "articles/ac-not-cooling-below-80.html",
+          "title": "AC Running but Not Cooling Below 80\u00c2\u00b0? Why",
+          "status": "live",
+          "date_published": "2026-04-20",
+          "priority": 4,
+          "roadmap_id": 11
+        },
+        {
+          "slug": "ac-circuit-breaker-trips",
+          "path": "articles/ac-circuit-breaker-trips.html",
+          "title": "AC Circuit Breaker Keeps Tripping? Causes",
+          "status": "live",
+          "date_published": "2026-04-20",
+          "priority": 5,
+          "roadmap_id": 18
+        },
+        {
+          "slug": "thermostat-blank-ac-wont-start",
+          "path": "articles/thermostat-blank-ac-wont-start.html",
+          "title": "Thermostat Blank, AC Won't Turn On? Fixes",
+          "status": "live",
+          "date_published": "2026-04-20",
+          "priority": 11,
+          "roadmap_id": 6
+        },
+        {
+          "slug": "ac-contactor-clicking",
+          "path": "articles/ac-contactor-clicking.html",
+          "title": "AC Contactor Clicking but Nothing Happens",
+          "status": "live",
+          "date_published": "2026-04-20",
+          "priority": 20,
+          "roadmap_id": 10
+        },
+        {
+          "slug": "water-dripping-from-vent",
+          "path": "articles/water-dripping-from-vent.html",
+          "title": "Water Dripping from Ceiling Vent? Causes",
+          "status": "live",
+          "date_published": "2026-04-21",
+          "priority": 21,
+          "roadmap_id": 16
+        }
       ]
     },
     "C2_furnace": {
@@ -39,24 +120,76 @@
         "title": "Furnace Not Working? The Complete Diagnostic Guide for Every Symptom",
         "slug": "furnace-not-working-diagnostic-guide",
         "filename": "articles/furnace-not-working-diagnostic-guide.html",
-        "status": "pending"
+        "status": "live",
+        "date_published": "2026-04-30"
       },
       "cross_cluster_anchor": {
         "cluster": "C4_cost",
         "reason": "Furnace troubleshooting leads naturally to replacement cost questions."
       },
       "climate_weights": {
-        "cold": 0.50, "subarctic": 0.10, "mountain": 0.25, "mixed-humid": 0.15
+        "cold": 0.5,
+        "subarctic": 0.1,
+        "mountain": 0.25,
+        "mixed-humid": 0.15
       },
       "articles": [
-        {"slug": "article-furnace", "path": "article-furnace.html", "title": "Furnace Not Igniting? What It Means", "status": "live"},
-        {"slug": "article-winter-storm", "path": "article-winter-storm.html", "title": "Protect Your HVAC During a Winter Storm", "status": "live"},
-        {"slug": "article-carbon-monoxide", "path": "article-carbon-monoxide.html", "title": "Carbon Monoxide: The Invisible Killer", "status": "live"},
-        {"slug": "furnace-blowing-cold-air-winter", "path": "articles/furnace-blowing-cold-air-winter.html", "title": "Furnace Blowing Cold Air? What to Check", "status": "live"},
-        {"slug": "furnace-short-cycling", "path": "articles/furnace-short-cycling.html", "title": "Furnace Short Cycling? Turns On & Off", "status": "pending", "priority": 9, "roadmap_id": 12},
-        {"slug": "furnace-burning-plastic-smell", "path": "articles/furnace-burning-plastic-smell.html", "title": "Furnace Burning Plastic Smell? Shut It Off", "status": "pending", "priority": 10, "roadmap_id": 5},
-        {"slug": "furnace-ignitor-wont-light", "path": "articles/furnace-ignitor-wont-light.html", "title": "Furnace Ignitor Glows Red but Won't Light", "status": "pending", "priority": 24, "roadmap_id": 36},
-        {"slug": "co-detector-furnace-running", "path": "articles/co-detector-furnace-running.html", "title": "CO Detector Going Off with Furnace? Critical", "status": "pending", "priority": 25, "roadmap_id": 27}
+        {
+          "slug": "article-furnace",
+          "path": "article-furnace.html",
+          "title": "Furnace Not Igniting? What It Means",
+          "status": "live"
+        },
+        {
+          "slug": "article-winter-storm",
+          "path": "article-winter-storm.html",
+          "title": "Protect Your HVAC During a Winter Storm",
+          "status": "live"
+        },
+        {
+          "slug": "article-carbon-monoxide",
+          "path": "article-carbon-monoxide.html",
+          "title": "Carbon Monoxide: The Invisible Killer",
+          "status": "live"
+        },
+        {
+          "slug": "furnace-blowing-cold-air-winter",
+          "path": "articles/furnace-blowing-cold-air-winter.html",
+          "title": "Furnace Blowing Cold Air? What to Check",
+          "status": "live"
+        },
+        {
+          "slug": "furnace-short-cycling",
+          "path": "articles/furnace-short-cycling.html",
+          "title": "Furnace Short Cycling? Turns On & Off",
+          "status": "pending",
+          "priority": 9,
+          "roadmap_id": 12
+        },
+        {
+          "slug": "furnace-burning-plastic-smell",
+          "path": "articles/furnace-burning-plastic-smell.html",
+          "title": "Furnace Burning Plastic Smell? Shut It Off",
+          "status": "pending",
+          "priority": 10,
+          "roadmap_id": 5
+        },
+        {
+          "slug": "furnace-ignitor-wont-light",
+          "path": "articles/furnace-ignitor-wont-light.html",
+          "title": "Furnace Ignitor Glows Red but Won't Light",
+          "status": "pending",
+          "priority": 24,
+          "roadmap_id": 36
+        },
+        {
+          "slug": "co-detector-furnace-running",
+          "path": "articles/co-detector-furnace-running.html",
+          "title": "CO Detector Going Off with Furnace? Critical",
+          "status": "pending",
+          "priority": 25,
+          "roadmap_id": 27
+        }
       ]
     },
     "C3_heatpump": {
@@ -69,16 +202,44 @@
       },
       "cross_cluster_anchor": {
         "cluster": "C5_compare",
-        "reason": "Heat pump questions are decision-heavy — pivot readers to the comparison cluster."
+        "reason": "Heat pump questions are decision-heavy \u00e2\u20ac\u201d pivot readers to the comparison cluster."
       },
       "climate_weights": {
-        "coastal": 0.30, "mixed-humid": 0.40, "mountain": 0.30
+        "coastal": 0.3,
+        "mixed-humid": 0.4,
+        "mountain": 0.3
       },
       "articles": [
-        {"slug": "article-heat-pump", "path": "article-heat-pump.html", "title": "Heat Pump Not Working? Repair Costs & Fixes", "status": "live"},
-        {"slug": "heat-pump-stuck-in-cooling", "path": "articles/heat-pump-stuck-in-cooling.html", "title": "Heat Pump Stuck in Cooling Mode in Winter", "status": "pending", "priority": 15, "roadmap_id": 7},
-        {"slug": "heat-pump-lukewarm-air", "path": "articles/heat-pump-lukewarm-air.html", "title": "Heat Pump Blowing Lukewarm Air? Why", "status": "pending", "priority": 16, "roadmap_id": 15},
-        {"slug": "heat-pump-defrost-grinding", "path": "articles/heat-pump-defrost-grinding.html", "title": "Heat Pump Grinding During Defrost Cycle?", "status": "pending", "priority": 29, "roadmap_id": 29}
+        {
+          "slug": "article-heat-pump",
+          "path": "article-heat-pump.html",
+          "title": "Heat Pump Not Working? Repair Costs & Fixes",
+          "status": "live"
+        },
+        {
+          "slug": "heat-pump-stuck-in-cooling",
+          "path": "articles/heat-pump-stuck-in-cooling.html",
+          "title": "Heat Pump Stuck in Cooling Mode in Winter",
+          "status": "pending",
+          "priority": 15,
+          "roadmap_id": 7
+        },
+        {
+          "slug": "heat-pump-lukewarm-air",
+          "path": "articles/heat-pump-lukewarm-air.html",
+          "title": "Heat Pump Blowing Lukewarm Air? Why",
+          "status": "pending",
+          "priority": 16,
+          "roadmap_id": 15
+        },
+        {
+          "slug": "heat-pump-defrost-grinding",
+          "path": "articles/heat-pump-defrost-grinding.html",
+          "title": "Heat Pump Grinding During Defrost Cycle?",
+          "status": "pending",
+          "priority": 29,
+          "roadmap_id": 29
+        }
       ]
     },
     "C4_cost": {
@@ -96,14 +257,68 @@
       },
       "climate_weights": "all_rotated",
       "articles": [
-        {"slug": "article-hvac-financing", "path": "article-hvac-financing.html", "title": "Finance an HVAC Replacement: 6 Options", "status": "live"},
-        {"slug": "cost-replace-3-ton-ac", "path": "articles/cost-replace-3-ton-ac.html", "title": "Cost to Replace a 3-Ton AC Unit in 2026", "status": "pending", "priority": 6, "roadmap_id": 41},
-        {"slug": "r410a-recharge-cost", "path": "articles/r410a-recharge-cost.html", "title": "R-410A Freon Recharge Cost: What's Fair?", "status": "pending", "priority": 7, "roadmap_id": 43},
-        {"slug": "dual-run-capacitor-cost", "path": "articles/dual-run-capacitor-cost.html", "title": "AC Dual-Run Capacitor Replacement Cost", "status": "pending", "priority": 12, "roadmap_id": 44},
-        {"slug": "emergency-weekend-hvac-cost", "path": "articles/emergency-weekend-hvac-cost.html", "title": "Emergency Weekend HVAC Call Cost: Fair Rates", "status": "pending", "priority": 13, "roadmap_id": 47},
-        {"slug": "mini-split-installation-cost", "path": "articles/mini-split-installation-cost.html", "title": "Ductless Mini-Split Installation Cost (1 Room)", "status": "pending", "priority": 22, "roadmap_id": 45},
-        {"slug": "central-air-no-ductwork-cost", "path": "articles/central-air-no-ductwork-cost.html", "title": "Central Air Install Cost with No Ductwork", "status": "pending", "priority": 23, "roadmap_id": 48},
-        {"slug": "new-furnace-installed-cost", "path": "articles/new-furnace-installed-cost.html", "title": "New Furnace Installed Cost in 2026", "status": "pending", "priority": 30, "roadmap_id": 49}
+        {
+          "slug": "article-hvac-financing",
+          "path": "article-hvac-financing.html",
+          "title": "Finance an HVAC Replacement: 6 Options",
+          "status": "live"
+        },
+        {
+          "slug": "cost-replace-3-ton-ac",
+          "path": "articles/cost-replace-3-ton-ac.html",
+          "title": "Cost to Replace a 3-Ton AC Unit in 2026",
+          "status": "pending",
+          "priority": 6,
+          "roadmap_id": 41
+        },
+        {
+          "slug": "r410a-recharge-cost",
+          "path": "articles/r410a-recharge-cost.html",
+          "title": "R-410A Freon Recharge Cost: What's Fair?",
+          "status": "pending",
+          "priority": 7,
+          "roadmap_id": 43
+        },
+        {
+          "slug": "dual-run-capacitor-cost",
+          "path": "articles/dual-run-capacitor-cost.html",
+          "title": "AC Dual-Run Capacitor Replacement Cost",
+          "status": "pending",
+          "priority": 12,
+          "roadmap_id": 44
+        },
+        {
+          "slug": "emergency-weekend-hvac-cost",
+          "path": "articles/emergency-weekend-hvac-cost.html",
+          "title": "Emergency Weekend HVAC Call Cost: Fair Rates",
+          "status": "pending",
+          "priority": 13,
+          "roadmap_id": 47
+        },
+        {
+          "slug": "mini-split-installation-cost",
+          "path": "articles/mini-split-installation-cost.html",
+          "title": "Ductless Mini-Split Installation Cost (1 Room)",
+          "status": "pending",
+          "priority": 22,
+          "roadmap_id": 45
+        },
+        {
+          "slug": "central-air-no-ductwork-cost",
+          "path": "articles/central-air-no-ductwork-cost.html",
+          "title": "Central Air Install Cost with No Ductwork",
+          "status": "pending",
+          "priority": 23,
+          "roadmap_id": 48
+        },
+        {
+          "slug": "new-furnace-installed-cost",
+          "path": "articles/new-furnace-installed-cost.html",
+          "title": "New Furnace Installed Cost in 2026",
+          "status": "pending",
+          "priority": 30,
+          "roadmap_id": 49
+        }
       ]
     },
     "C5_compare": {
@@ -116,14 +331,40 @@
       },
       "cross_cluster_anchor": {
         "cluster": "C4_cost",
-        "reason": "Comparisons require cost context — readers need both sides of the decision."
+        "reason": "Comparisons require cost context \u00e2\u20ac\u201d readers need both sides of the decision."
       },
       "climate_weights": "all_rotated",
       "articles": [
-        {"slug": "article-repair-vs-replace", "path": "article-repair-vs-replace.html", "title": "HVAC Repair vs. Replace: Decision Guide", "status": "live"},
-        {"slug": "1000-into-12yo-ac", "path": "articles/1000-into-12yo-ac.html", "title": "Should I Put $1,000 into a 12-Year-Old AC?", "status": "pending", "priority": 18, "roadmap_id": 71},
-        {"slug": "heat-pump-vs-gas-furnace", "path": "articles/heat-pump-vs-gas-furnace.html", "title": "Heat Pump vs. Gas Furnace: Cheaper to Run?", "status": "pending", "priority": 19, "roadmap_id": 72},
-        {"slug": "seer-14-vs-18-payback", "path": "articles/seer-14-vs-18-payback.html", "title": "14 SEER vs. 18 SEER: Years to Payback?", "status": "pending", "priority": 28, "roadmap_id": 85}
+        {
+          "slug": "article-repair-vs-replace",
+          "path": "article-repair-vs-replace.html",
+          "title": "HVAC Repair vs. Replace: Decision Guide",
+          "status": "live"
+        },
+        {
+          "slug": "1000-into-12yo-ac",
+          "path": "articles/1000-into-12yo-ac.html",
+          "title": "Should I Put $1,000 into a 12-Year-Old AC?",
+          "status": "pending",
+          "priority": 18,
+          "roadmap_id": 71
+        },
+        {
+          "slug": "heat-pump-vs-gas-furnace",
+          "path": "articles/heat-pump-vs-gas-furnace.html",
+          "title": "Heat Pump vs. Gas Furnace: Cheaper to Run?",
+          "status": "pending",
+          "priority": 19,
+          "roadmap_id": 72
+        },
+        {
+          "slug": "seer-14-vs-18-payback",
+          "path": "articles/seer-14-vs-18-payback.html",
+          "title": "14 SEER vs. 18 SEER: Years to Payback?",
+          "status": "pending",
+          "priority": 28,
+          "roadmap_id": 85
+        }
       ]
     },
     "C6_maint": {
@@ -136,47 +377,219 @@
       },
       "cross_cluster_anchor": {
         "cluster": "C1_ac",
-        "reason": "Maintenance prevents AC emergencies — cross-link to the AC pillar."
+        "reason": "Maintenance prevents AC emergencies \u00e2\u20ac\u201d cross-link to the AC pillar."
       },
       "climate_weights": "all_rotated",
       "articles": [
-        {"slug": "article-maintenance", "path": "article-maintenance.html", "title": "12-Month HVAC Maintenance Checklist", "status": "live"},
-        {"slug": "article-fall-prep", "path": "article-fall-prep.html", "title": "Fall HVAC Prep: 9 Steps Before First Freeze", "status": "live"},
-        {"slug": "article-emergency", "path": "article-emergency.html", "title": "7 Warning Signs Your HVAC Is About to Fail", "status": "live"},
-        {"slug": "best-merv-rating", "path": "articles/best-merv-rating.html", "title": "Best MERV Rating for Home AC Filters", "status": "pending", "priority": 27, "roadmap_id": 91}
+        {
+          "slug": "article-maintenance",
+          "path": "article-maintenance.html",
+          "title": "12-Month HVAC Maintenance Checklist",
+          "status": "live"
+        },
+        {
+          "slug": "article-fall-prep",
+          "path": "article-fall-prep.html",
+          "title": "Fall HVAC Prep: 9 Steps Before First Freeze",
+          "status": "live"
+        },
+        {
+          "slug": "article-emergency",
+          "path": "article-emergency.html",
+          "title": "7 Warning Signs Your HVAC Is About to Fail",
+          "status": "live"
+        },
+        {
+          "slug": "best-merv-rating",
+          "path": "articles/best-merv-rating.html",
+          "title": "Best MERV Rating for Home AC Filters",
+          "status": "pending",
+          "priority": 27,
+          "roadmap_id": 91
+        }
       ]
     }
   },
   "priority_queue": [
-    {"position": 1,  "cluster": "C1_ac",       "slug": "complete-ac-troubleshooting-guide", "type": "pillar"},
-    {"position": 2,  "cluster": "C4_cost",     "slug": "2026-hvac-cost-guide",              "type": "pillar"},
-    {"position": 3,  "cluster": "C1_ac",       "slug": "ac-freezing-up-in-summer",          "type": "cluster"},
-    {"position": 4,  "cluster": "C1_ac",       "slug": "ac-not-cooling-below-80",           "type": "cluster"},
-    {"position": 5,  "cluster": "C1_ac",       "slug": "ac-circuit-breaker-trips",          "type": "cluster"},
-    {"position": 6,  "cluster": "C4_cost",     "slug": "cost-replace-3-ton-ac",             "type": "cluster"},
-    {"position": 7,  "cluster": "C4_cost",     "slug": "r410a-recharge-cost",               "type": "cluster"},
-    {"position": 8,  "cluster": "C2_furnace",  "slug": "furnace-not-working-diagnostic-guide", "type": "pillar"},
-    {"position": 9,  "cluster": "C2_furnace",  "slug": "furnace-short-cycling",             "type": "cluster"},
-    {"position": 10, "cluster": "C2_furnace",  "slug": "furnace-burning-plastic-smell",     "type": "cluster"},
-    {"position": 11, "cluster": "C1_ac",       "slug": "thermostat-blank-ac-wont-start",    "type": "cluster"},
-    {"position": 12, "cluster": "C4_cost",     "slug": "dual-run-capacitor-cost",           "type": "cluster"},
-    {"position": 13, "cluster": "C4_cost",     "slug": "emergency-weekend-hvac-cost",       "type": "cluster"},
-    {"position": 14, "cluster": "C3_heatpump", "slug": "2026-heat-pump-buyers-guide",       "type": "pillar"},
-    {"position": 15, "cluster": "C3_heatpump", "slug": "heat-pump-stuck-in-cooling",        "type": "cluster"},
-    {"position": 16, "cluster": "C3_heatpump", "slug": "heat-pump-lukewarm-air",            "type": "cluster"},
-    {"position": 17, "cluster": "C5_compare", "slug": "repair-or-replace-framework",        "type": "pillar"},
-    {"position": 18, "cluster": "C5_compare", "slug": "1000-into-12yo-ac",                  "type": "cluster"},
-    {"position": 19, "cluster": "C5_compare", "slug": "heat-pump-vs-gas-furnace",           "type": "cluster"},
-    {"position": 20, "cluster": "C1_ac",       "slug": "ac-contactor-clicking",             "type": "cluster"},
-    {"position": 21, "cluster": "C1_ac",       "slug": "water-dripping-from-vent",          "type": "cluster"},
-    {"position": 22, "cluster": "C4_cost",     "slug": "mini-split-installation-cost",      "type": "cluster"},
-    {"position": 23, "cluster": "C4_cost",     "slug": "central-air-no-ductwork-cost",      "type": "cluster"},
-    {"position": 24, "cluster": "C2_furnace",  "slug": "furnace-ignitor-wont-light",        "type": "cluster"},
-    {"position": 25, "cluster": "C2_furnace",  "slug": "co-detector-furnace-running",       "type": "cluster"},
-    {"position": 26, "cluster": "C6_maint",    "slug": "year-round-hvac-maintenance-playbook", "type": "pillar"},
-    {"position": 27, "cluster": "C6_maint",    "slug": "best-merv-rating",                  "type": "cluster"},
-    {"position": 28, "cluster": "C5_compare", "slug": "seer-14-vs-18-payback",              "type": "cluster"},
-    {"position": 29, "cluster": "C3_heatpump", "slug": "heat-pump-defrost-grinding",        "type": "cluster"},
-    {"position": 30, "cluster": "C4_cost",     "slug": "new-furnace-installed-cost",        "type": "cluster"}
+    {
+      "position": 1,
+      "cluster": "C1_ac",
+      "slug": "complete-ac-troubleshooting-guide",
+      "type": "pillar"
+    },
+    {
+      "position": 2,
+      "cluster": "C4_cost",
+      "slug": "2026-hvac-cost-guide",
+      "type": "pillar"
+    },
+    {
+      "position": 3,
+      "cluster": "C1_ac",
+      "slug": "ac-freezing-up-in-summer",
+      "type": "cluster"
+    },
+    {
+      "position": 4,
+      "cluster": "C1_ac",
+      "slug": "ac-not-cooling-below-80",
+      "type": "cluster"
+    },
+    {
+      "position": 5,
+      "cluster": "C1_ac",
+      "slug": "ac-circuit-breaker-trips",
+      "type": "cluster"
+    },
+    {
+      "position": 6,
+      "cluster": "C4_cost",
+      "slug": "cost-replace-3-ton-ac",
+      "type": "cluster"
+    },
+    {
+      "position": 7,
+      "cluster": "C4_cost",
+      "slug": "r410a-recharge-cost",
+      "type": "cluster"
+    },
+    {
+      "position": 8,
+      "cluster": "C2_furnace",
+      "slug": "furnace-not-working-diagnostic-guide",
+      "type": "pillar"
+    },
+    {
+      "position": 9,
+      "cluster": "C2_furnace",
+      "slug": "furnace-short-cycling",
+      "type": "cluster"
+    },
+    {
+      "position": 10,
+      "cluster": "C2_furnace",
+      "slug": "furnace-burning-plastic-smell",
+      "type": "cluster"
+    },
+    {
+      "position": 11,
+      "cluster": "C1_ac",
+      "slug": "thermostat-blank-ac-wont-start",
+      "type": "cluster"
+    },
+    {
+      "position": 12,
+      "cluster": "C4_cost",
+      "slug": "dual-run-capacitor-cost",
+      "type": "cluster"
+    },
+    {
+      "position": 13,
+      "cluster": "C4_cost",
+      "slug": "emergency-weekend-hvac-cost",
+      "type": "cluster"
+    },
+    {
+      "position": 14,
+      "cluster": "C3_heatpump",
+      "slug": "2026-heat-pump-buyers-guide",
+      "type": "pillar"
+    },
+    {
+      "position": 15,
+      "cluster": "C3_heatpump",
+      "slug": "heat-pump-stuck-in-cooling",
+      "type": "cluster"
+    },
+    {
+      "position": 16,
+      "cluster": "C3_heatpump",
+      "slug": "heat-pump-lukewarm-air",
+      "type": "cluster"
+    },
+    {
+      "position": 17,
+      "cluster": "C5_compare",
+      "slug": "repair-or-replace-framework",
+      "type": "pillar"
+    },
+    {
+      "position": 18,
+      "cluster": "C5_compare",
+      "slug": "1000-into-12yo-ac",
+      "type": "cluster"
+    },
+    {
+      "position": 19,
+      "cluster": "C5_compare",
+      "slug": "heat-pump-vs-gas-furnace",
+      "type": "cluster"
+    },
+    {
+      "position": 20,
+      "cluster": "C1_ac",
+      "slug": "ac-contactor-clicking",
+      "type": "cluster"
+    },
+    {
+      "position": 21,
+      "cluster": "C1_ac",
+      "slug": "water-dripping-from-vent",
+      "type": "cluster"
+    },
+    {
+      "position": 22,
+      "cluster": "C4_cost",
+      "slug": "mini-split-installation-cost",
+      "type": "cluster"
+    },
+    {
+      "position": 23,
+      "cluster": "C4_cost",
+      "slug": "central-air-no-ductwork-cost",
+      "type": "cluster"
+    },
+    {
+      "position": 24,
+      "cluster": "C2_furnace",
+      "slug": "furnace-ignitor-wont-light",
+      "type": "cluster"
+    },
+    {
+      "position": 25,
+      "cluster": "C2_furnace",
+      "slug": "co-detector-furnace-running",
+      "type": "cluster"
+    },
+    {
+      "position": 26,
+      "cluster": "C6_maint",
+      "slug": "year-round-hvac-maintenance-playbook",
+      "type": "pillar"
+    },
+    {
+      "position": 27,
+      "cluster": "C6_maint",
+      "slug": "best-merv-rating",
+      "type": "cluster"
+    },
+    {
+      "position": 28,
+      "cluster": "C5_compare",
+      "slug": "seer-14-vs-18-payback",
+      "type": "cluster"
+    },
+    {
+      "position": 29,
+      "cluster": "C3_heatpump",
+      "slug": "heat-pump-defrost-grinding",
+      "type": "cluster"
+    },
+    {
+      "position": 30,
+      "cluster": "C4_cost",
+      "slug": "new-furnace-installed-cost",
+      "type": "cluster"
+    }
   ]
 }
