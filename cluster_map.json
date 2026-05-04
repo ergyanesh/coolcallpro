@@ -353,9 +353,10 @@
           "slug": "heat-pump-vs-gas-furnace",
           "path": "articles/heat-pump-vs-gas-furnace.html",
           "title": "Heat Pump vs. Gas Furnace: Cheaper to Run?",
-          "status": "pending",
+          "status": "live",
           "priority": 19,
-          "roadmap_id": 72
+          "roadmap_id": 72,
+          "date_published": "2026-05-04"
         },
         {
           "slug": "seer-14-vs-18-payback",

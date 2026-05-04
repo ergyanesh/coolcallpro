@@ -113,6 +113,12 @@
 
   <!-- New Articles (articles/ subfolder) -->
   <url>
+    <loc>https://coolcallpro.com/articles/heat-pump-vs-gas-furnace</loc>
+    <lastmod>2026-05-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://coolcallpro.com/articles/year-round-hvac-maintenance-playbook</loc>
     <lastmod>2026-05-03</lastmod>
     <changefreq>monthly</changefreq>
