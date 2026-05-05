@@ -254,7 +254,7 @@ The federal **Section 25C Energy Efficient Home Improvement Credit** was termina
    - The "Federal Tax Credits (IRS Section 25C)" H3 section quoting "$2,000/year for heat pumps + $600/year for ACs" without OBBBA reframing
 2. **The IRS 25C page itself is fine to link** (`https://www.irs.gov/credits-deductions/energy-efficient-home-improvement-credit` — still 200; relevant for homeowners filing 2025 returns), but always frame as historical: "If your HVAC was installed by Dec 31, 2025, you may still claim the credit on your 2025 tax return."
 3. **HEEHRA → HEAR.** The bill name was HEEHRA (proposed); the rolled-out program is **Home Electrification and Appliance Rebates (HEAR)**. Use HEAR with `(formerly proposed as HEEHRA)` only on first mention; subsequent references use HEAR alone. Never use HEEHRA standalone.
-4. **PACE: 3 states, not 35.** Residential PACE (R-PACE) is active only in **CA, FL, MO**. The 35-state figure is C-PACE (commercial). CFPB final rule effective March 1, 2026 imposes mortgage-style ability-to-repay standards on R-PACE. Do not list Ygrene as a current provider (suspended residential PACE operations in 2022).
+4. **PACE: 2 states accepting NEW applications, not 35.** Residential PACE (R-PACE) currently accepts new applications only in **CA and FL**. **Missouri SB736 prohibits new R-PACE projects after Aug 28, 2024** — existing MO contracts (St. Louis County, Kansas City) remain in force, but no new applications are accepted. The 35-state figure is C-PACE (commercial). CFPB final rule effective March 1, 2026 imposes mortgage-style ability-to-repay standards on R-PACE. Do not list Ygrene as a current provider (suspended residential PACE operations in 2022). **(Corrected 2026-05-04 from prior "3 states CA, FL, MO" claim — Missouri's status changed in 2024 and CLAUDE.md was stale.)**
 
 **Generators (`generate_city_pages_v3.py`, `generate_state_hubs.py`) emit OBBBA-aware copy as of 2026-04-25.** Any future template edit that touches the rebates paragraph, FAQ schema, or visible FAQ MUST preserve OBBBA-aware framing. If you regenerate pages, the templates already produce correct copy — but spot-check before committing.
 
@@ -264,6 +264,47 @@ The federal **Section 25C Energy Efficient Home Improvement Credit** was termina
 - ENERGY STAR `/products/heating_cooling` is 404; canonical is `/products/energy_star_home_upgrade/clean_heating_cooling`
 - CDC pages with no `.html` extension often 404 in 2026 (`/carbon-monoxide/about/index` is 404 but `/carbon-monoxide/about/index.html` is 200)
 A plan that specifies a URL is not a guarantee that URL is live — verify at write-time, not at plan-time.
+
+## Live Verification Discipline (since 4 May 2026 — NON-NEGOTIABLE)
+
+**Every YMYL factual claim in every new article requires WebFetch primary-source verification at write-time, not just CLAUDE.md trust.** The audit script (`audit_article.py`, `safety_rules.py`, `--ci` hook) catches phrasing patterns and URL liveness — it does NOT catch whether the underlying claim is currently true.
+
+This rule was added 4 May 2026 after a real failure mode: I had propagated the OBBBA / 25C termination claim across H4 / H5 / M8 / C5 pillar / financing article without ever WebFetching IRS.gov to verify the claim was current. CLAUDE.md happened to be correct (verified 2026-05-04 against IRS FS-2025-05). But CLAUDE.md was wrong about Missouri R-PACE — the "3 states" claim included Missouri which had closed to new R-PACE applications on Aug 28, 2024 via state SB736. The error sat undetected because no Claude session had re-verified the underlying fact since CLAUDE.md was first written.
+
+**The required workflow for any YMYL claim in a new article:**
+
+1. **Identify every YMYL factual claim** — not just the "legal-sounding" ones. Examples that count:
+   - Tax credit dollar caps, effective dates, eligibility windows
+   - Regulatory rules (EPA Section 608, CFPB residential PACE, etc.)
+   - State-rolling programs (HEAR active in N states, R-PACE active states)
+   - Refrigerant rules (R-22 phaseout, R-410A cost)
+   - AFUE / SEER thresholds tied to credits
+   - Manufacturer warranty requirements claimed as fact
+2. **WebFetch the primary source** for each claim — IRS.gov / EPA.gov / DOE.gov / CFPB.gov / DSIRE / state energy office. Not a third-party blog.
+3. **Add an inline HTML comment verification log** at the top of the article's `<head>`, capturing each claim + source URL + verification date + a quote where possible. Example format:
+   ```html
+   <!--
+   YMYL VERIFICATION LOG — last verified YYYY-MM-DD, next due YYYY-MM-DD (90 days)
+   CLAIM 1: [the claim as it appears in body]
+       VERIFIED via [source name + last-updated date]
+       URL: [primary source URL]
+       Quote: "..."
+   ...
+   -->
+   ```
+4. **If WebFetch contradicts CLAUDE.md → STOP.** Do not publish. Surface the discrepancy. CLAUDE.md may need updating, or the WebFetch source may itself be stale.
+5. **If WebFetch confirms CLAUDE.md → continue,** and the verification log is now in place for the next session to audit.
+
+**Re-verification cadence:** every 90 days from the verification date, OR before any significant edit, whichever comes first. The "next due" date in the verification log is the trigger.
+
+**What this does NOT mean:**
+- Re-verify every fact every session (overkill for stable facts like Wikipedia entity URIs)
+- Block on minor uncertainties (a marginal "energy bills creep up 1-3% per year" claim does not need WebFetch)
+- Add verification to non-YMYL topics (a maintenance article's "$15 filter" doesn't need verification)
+
+The trigger is: would getting this wrong materially harm a homeowner's financial decision or expose the site to legal/factual misinformation claims? If yes, WebFetch verify and log inline.
+
+**The 5 articles shipped between 2026-04-30 and 2026-05-04 already have verification logs in place** (H4, H5, M8, C5 pillar, financing) covering OBBBA / 25C / 25D / HEAR / PACE / CFPB rule / EPA Section 608. Next due 2026-08-04.
 
 ## Pre-Commit Audit Hook (since 20 April 2026)
 
