@@ -327,7 +327,8 @@
         "title": "Repair or Replace? The Framework for Every HVAC Decision",
         "slug": "repair-or-replace-framework",
         "filename": "articles/repair-or-replace-framework.html",
-        "status": "pending"
+        "status": "live",
+        "date_published": "2026-05-04"
       },
       "cross_cluster_anchor": {
         "cluster": "C4_cost",
