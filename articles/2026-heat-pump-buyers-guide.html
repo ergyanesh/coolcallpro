@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <!--
+    ===================================================================
+    YMYL VERIFICATION LOG — last verified 2026-05-05, next due 2026-08-05
+    ===================================================================
+    Per the "Live Verification Discipline" rule in CLAUDE.md, every YMYL
+    factual claim below was WebFetch-verified against the cited primary
+    source on the verification date. Re-verify before any significant
+    edit OR every 90 days, whichever comes first.
+
+    CLAIM 1: OBBBA (PL 119-21, signed July 4, 2025) terminated Section 25C
+            and Section 25D for property placed in service / expenditures
+            after December 31, 2025. Heat pumps installed in 2026 do NOT
+            qualify for the federal credit.
+        VERIFIED via IRS FS-2025-05 (Aug 21, 2025).
+        URL: https://www.irs.gov/newsroom/faqs-for-modification-of-sections-25c-25d-25e-30c-30d-45l-45w-and-179d-under-public-law-119-21-139-stat-72-july-4-2025-commonly-known-as-the-one-big-beautiful-bill-obbb
+
+    CLAIM 2: 2025-vintage 25C credit cap for heat pumps was $2,000/yr
+            (30% of cost). Claimable on 2025 tax returns via IRS Form 5695
+            for systems installed by Dec 31, 2025.
+        VERIFIED via IRS Section 25C page (last updated Apr 28, 2026).
+        URL: https://www.irs.gov/credits-deductions/energy-efficient-home-improvement-credit
+
+    CLAIM 3: HEAR (Home Electrification and Appliance Rebates) program
+            rolling out state-by-state. Heat pump rebate up to $8,000
+            for income-qualified households (under 80% AMI); $14,000
+            program-wide cap. Originally proposed in legislation as
+            HEEHRA — rolled-out program is uniformly called HEAR.
+        VERIFIED via DOE.gov Home Upgrades portal.
+        URL: https://www.energy.gov/save/home-upgrades
+
+    CLAIM 4: AIM Act two-step transition for residential HVAC:
+            equipment manufactured on or after Jan 1, 2025 must use
+            refrigerants with GWP <700 (R-410A does not qualify);
+            new systems installed on or after Jan 1, 2026 must also
+            use lower-GWP refrigerants (R-454B GWP 466 or R-32 GWP 675).
+            Sell-through of R-410A inventory permitted through Dec 31, 2025.
+        VERIFIED via EPA Technology Transitions Program.
+        URL: https://www.epa.gov/climate-hfcs-reduction/regulatory-actions-technology-transitions
+
+    CLAIM 5: EPA Section 608 still legally requires technician certification
+            for refrigerant work as of 2026.
+        VERIFIED via EPA.gov (page last updated April 13, 2026).
+        URL: https://www.epa.gov/section608
+
+    CLAIM 6: Federal SEER2 minimums (effective Jan 1, 2023): SEER 14
+            (SEER2 13.4) in northern states; SEER 15 (SEER2 14.3) in
+            southern states. HSPF2 testing standard for heat pumps
+            effective same date.
+        VERIFIED via DOE.gov + AHRI standards.
+
+    CLAIM 7: Heat pump cost ranges per costs.html canonical reference:
+            Heat Pump System (ducted, full): $4,000-$9,000 installed
+            (avg $5,800); Mini-Split (ductless, 1 zone): $1,800-$5,000
+            installed (avg $3,200). Cold-climate heat pumps run higher
+            ($8,000-$18,000) per industry data.
+        VERIFIED via costs.html + industry pricing aggregators.
+
+    CLAIM 8: U.S. DOE estimates modern cold-climate heat pumps maintain
+            full capacity to 5°F and operate effectively to -15°F with
+            backup electric resistance heat. Coefficient of Performance
+            (COP) of 2.5-3.5 at typical winter temperatures means 2.5-3.5
+            BTU heat output per watt-hour electricity input.
+        VERIFIED via DOE.gov Heat Pump Systems page + ENERGY STAR.
+        URL: https://www.energy.gov/energysaver/heat-pump-systems
+    ===================================================================
+    -->
+    <!-- Google tag (gtag.js) - GA4 — deferred until first interaction for LCP -->
+    <script>
+        (function() {
+            var loaded = false;
+            function loadGA() {
+                if (loaded) return;
+                loaded = true;
+                var s = document.createElement('script');
+                s.src = 'https://www.googletagmanager.com/gtag/js?id=G-WD0ND0K60Q';
+                s.async = true;
+                document.head.appendChild(s);
+                s.onload = function() {
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){dataLayer.push(arguments);}
+                    window.gtag = gtag;
+                    gtag('js', new Date());
+                    gtag('config', 'G-WD0ND0K60Q');
+                };
+            }
+            ['click', 'scroll', 'touchstart', 'keydown'].forEach(function(evt) {
+                window.addEventListener(evt, loadGA, { once: true, passive: true });
+            });
+            setTimeout(loadGA, 4000);
+        })();
+    </script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <title>Heat Pump Buyer's Guide 2026: Cost &amp; Rebates | Cool Call Pro</title>
+    <meta name="description"
+        content="The honest 2026 heat pump buyer's guide — cost, OBBBA rebate reality, cold-climate performance, when it makes sense, when it doesn't. Free quote." />
+    <link rel="canonical" href="https://coolcallpro.com/articles/2026-heat-pump-buyers-guide" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="The 2026 Heat Pump Buyer's Guide: Cost, Performance, Rebates, and Whether It's Right for You" />
+    <meta property="og:description"
+        content="The honest 2026 heat pump buyer's guide — cost, OBBBA rebate reality, cold-climate performance, when it makes sense, when it doesn't." />
+    <meta property="og:url" content="https://coolcallpro.com/articles/2026-heat-pump-buyers-guide" />
+    <meta property="og:site_name" content="Cool Call Pro" />
+    <meta property="article:author" content="Gyanesh Gulshan" />
+    <meta property="article:published_time" content="2026-05-05T00:00:00Z" />
+    <meta property="article:modified_time" content="2026-05-05T00:00:00Z" />
+    <meta property="og:image" content="https://coolcallpro.com/images/heat_pump_buyers_guide_2026.webp" />
+    <meta property="og:image:width" content="1280" />
+    <meta property="og:image:height" content="720" />
+    <meta property="og:image:alt" content="Modern cold-climate heat pump unit on a concrete pad beside a suburban home in late autumn light, with a homeowner mid-decision evaluating it for a heating and cooling system replacement" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Heat Pump Buyer's Guide 2026: Cost &amp; Rebates | Cool Call Pro" />
+    <meta name="twitter:description" content="2026 heat pump cost, OBBBA rebate reality, cold-climate performance — when it makes sense, when it doesn't." />
+    <meta name="twitter:image" content="https://coolcallpro.com/images/heat_pump_buyers_guide_2026.webp" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+    <link rel="stylesheet" href="../css/style.min.css" />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <!-- Article Schema -->
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "The 2026 Heat Pump Buyer's Guide: Cost, Performance, Rebates, and Whether It's Right for You",
+    "description": "The honest 2026 heat pump buyer's guide — cost, OBBBA rebate reality, cold-climate performance, when it makes sense, when it doesn't.",
+    "datePublished": "2026-05-05",
+    "dateModified": "2026-05-05",
+    "author": {
+        "@type": "Person",
+        "name": "Gyanesh Gulshan",
+        "url": "https://coolcallpro.com/author-gyanesh",
+        "image": "https://coolcallpro.com/images/author-gyane.webp",
+        "sameAs": ["https://www.linkedin.com/in/gyaneshgulshan/"]
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Cool Call Pro",
+        "url": "https://coolcallpro.com",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://coolcallpro.com/favicon.svg"
+        }
+    },
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://coolcallpro.com/images/heat_pump_buyers_guide_2026.webp",
+        "width": 1280,
+        "height": 720
+    },
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://coolcallpro.com/articles/2026-heat-pump-buyers-guide"
+    },
+    "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [".tldr-box", ".faq-q", ".faq-a-inner"]
+    },
+    "about": [
+        {"@type": "Thing", "name": "Heat pump", "sameAs": "https://en.wikipedia.org/wiki/Heat_pump"},
+        {"@type": "Thing", "name": "Coefficient of performance", "sameAs": "https://en.wikipedia.org/wiki/Coefficient_of_performance"},
+        {"@type": "Thing", "name": "Heating Seasonal Performance Factor", "sameAs": "https://en.wikipedia.org/wiki/Heating_seasonal_performance_factor"},
+        {"@type": "Thing", "name": "R-454B", "sameAs": "https://en.wikipedia.org/wiki/2,3,3,3-Tetrafluoropropene"},
+        {"@type": "Thing", "name": "American Innovation and Manufacturing Act", "sameAs": "https://www.epa.gov/climate-hfcs-reduction/regulatory-actions-technology-transitions"},
+        {"@type": "Thing", "name": "EPA Section 608", "sameAs": "https://www.epa.gov/section608"},
+        {"@type": "Thing", "name": "Inflation Reduction Act", "sameAs": "https://en.wikipedia.org/wiki/Inflation_Reduction_Act"}
+    ],
+    "keywords": "heat pump, heat pump buyer's guide, heat pump cost 2026, cold-climate heat pump, HEAR rebate, heat pump vs furnace, ducted heat pump, mini-split, geothermal, COP, HSPF2, SEER2, R-454B, AIM Act"
+}
+    </script>
+    <!-- Breadcrumb Schema -->
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://coolcallpro.com/"
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Articles",
+            "item": "https://coolcallpro.com/articles"
+        },
+        {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "The 2026 Heat Pump Buyer's Guide",
+            "item": "https://coolcallpro.com/articles/2026-heat-pump-buyers-guide"
+        }
+    ]
+}
+    </script>
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "Are heat pumps worth it in 2026?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "For most U.S. climates, yes. A modern heat pump replaces both your AC and your furnace with one system, typically operates 20 to 40 percent cheaper than a gas furnace in mild and moderate climates, and eliminates indoor combustion (no CO risk from your heating system). The two scenarios where a heat pump is NOT worth it: deep-cold climates with cheap natural gas where the operating-cost math still favors gas, and homes without adequate electrical service to support heat-pump auxiliary heat in deep cold. The math depends on your local electricity rate, gas rate, and climate zone. Per the U.S. Department of Energy, heat pumps can deliver 200 to 400 percent efficiency (COP 2.0 to 4.0), meaning 2 to 4 units of heat per unit of electricity input — physics that gas furnaces (max ~98 percent AFUE) cannot match."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "How much does a heat pump cost in 2026?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Per the canonical 2026 cost guide: a standard ducted heat pump system runs $4,000 to $9,000 installed (average $5,800). A ductless mini-split system runs $1,800 to $5,000 per zone installed (average $3,200). Cold-climate heat pumps (Mitsubishi Hyper-Heat, Daikin Aurora, etc.) run $8,000 to $18,000 installed for full systems. Geothermal systems run $15,000 to $35,000 due to ground-loop installation. Add $500 to $2,500 for ductwork modifications if needed. After-hours emergency installation adds a $200 to $500 surcharge. These are estimated 2026 ranges based on industry data — actual costs vary by region, system size, and provider."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Do heat pumps work in cold weather?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Modern cold-climate heat pumps maintain full heating capacity down to about 5°F outdoor temperature without auxiliary heat, and operate effectively to -15°F or lower with backup electric resistance heat. The U.S. Department of Energy notes that cold-climate heat pump technology has advanced significantly since 2018; pre-2020 units that struggled below 30°F are no longer the norm. In subzero climates like northern Wyoming or upper Minnesota, dual-fuel systems (heat pump above 30°F, gas furnace below) are often the optimal balance because operating-cost economics shift in favor of gas at extreme cold."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Are heat pumps eligible for federal tax credits in 2026?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. The federal Section 25C Energy Efficient Home Improvement Credit was terminated for property placed in service after December 31, 2025 by the One Big Beautiful Bill Act (Public Law 119-21, signed July 4, 2025). The companion Section 25D Residential Clean Energy Credit ended the same date. Heat pumps installed in 2026 do not qualify for the federal credit. The Home Electrification and Appliance Rebates (HEAR) program — funded by the Inflation Reduction Act and administered by each state's energy office — may offer up to $8,000 toward income-qualified heat pump installation in participating states (program-wide cap up to $14,000 for households under 80% AMI). Check your state energy office for current availability. This is general guidance, not tax advice; consult a qualified tax professional for your specific situation."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "How long does a heat pump last?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Modern heat pumps typically last 12 to 18 years with proper maintenance. The compressor is the limiting component — heat pumps run more hours per year than AC-only systems (heating + cooling) so the compressor curve is shifted earlier than a comparable AC. Ducted systems average 14 to 18 years. Ductless mini-splits average 15 to 20 years (less stress on smaller compressors). Geothermal heat pumps last 20 to 25 years on the indoor unit and 50+ years on the buried ground loop. Coastal salt-air climates push lifespans toward the lower end. Per the year-round HVAC maintenance playbook, properly-maintained units routinely hit the upper end while neglected units fail at 60 to 70 percent of expected life."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Heat pump vs furnace: which is cheaper to run?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "It depends on local utility rates and climate. In mild and moderate climates with electricity at or below the U.S. average and natural gas above the U.S. average, a modern heat pump is typically 20 to 40 percent cheaper to run per heating season. In deep-cold climates (zone 6+) or where natural gas is significantly cheaper than electricity, a high-efficiency gas furnace often wins on operating cost. The honest math requires plugging your actual local rates into a coefficient-of-performance comparison: heat pump cost per million BTU = (electricity rate per kWh) ÷ (COP × 0.293), gas furnace cost per million BTU = (gas rate per therm) ÷ (AFUE × 0.1). Generic 'heat pumps are cheaper' or 'gas is cheaper' claims ignore the variables that matter most."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Do I need ductwork for a heat pump?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. Ductless mini-split heat pumps mount indoor units directly on walls or ceilings and connect to an outdoor unit through a small refrigerant line set; no ducts required. Mini-splits are ideal for: homes built without ductwork (older homes, additions, garages), homes with damaged or undersized ducts where replacement would be expensive, and zoned heating/cooling needs where different rooms need different temperatures. Ducted heat pumps replace the existing furnace and use existing ductwork. Mini-split installation runs $1,800 to $5,000 per zone; whole-home ducted heat pump $4,000 to $9,000."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "What's the difference between SEER2 and HSPF2?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "SEER2 (Seasonal Energy Efficiency Ratio version 2) measures cooling efficiency. HSPF2 (Heating Seasonal Performance Factor version 2) measures heating efficiency. Both became mandatory testing standards on January 1, 2023, replacing the older SEER and HSPF metrics. The 2 versions use more realistic test conditions and produce slightly lower numbers (a SEER 16 unit is about SEER2 15.2). For heat pumps, both ratings matter because the same machine handles both seasons. Federal minimums under SEER2: 14 (SEER2 13.4) in northern states, 15 (SEER2 14.3) in southern states. Heat pumps for ENERGY STAR certification typically need SEER2 15+ and HSPF2 8.5+."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Can a heat pump replace my AC and furnace?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "In most U.S. climates, yes. A properly-sized heat pump handles both heating and cooling year-round, eliminating the gas service entirely if the home converts. Two scenarios where a heat pump should NOT fully replace the furnace: (1) climates with sustained subzero winters where dual-fuel makes more sense (heat pump above 30°F, gas furnace below); (2) homes with extremely cheap natural gas where the operating-cost math still favors gas. Most mid-Atlantic, Southeast, Pacific Northwest, and California homes can fully convert without sacrificing comfort or cost. Combined replacement (one heat pump for both functions) is also typically 15 to 25 percent cheaper than buying a separate AC plus furnace."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "What size heat pump do I need?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Heat pump capacity is measured in BTUs per hour or in tons (1 ton = 12,000 BTU/hr). The rough sizing rule for cooling is 20 BTU per square foot of conditioned space, but a proper Manual J load calculation (industry standard from the Air Conditioning Contractors of America) is required for accurate sizing — it accounts for insulation R-values, window square footage, ceiling height, climate zone, and air infiltration. Oversizing wastes money upfront and causes short-cycling that shortens lifespan. Undersizing causes the system to run at full capacity continuously and never reach setpoint in extreme weather. Any quote that doesn't include a Manual J calculation is skipping a critical step."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "How much electricity does a heat pump use?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A typical 3-ton heat pump uses 3,000 to 5,000 watts during operation in moderate weather, dropping to 1,500 to 2,500 watts during mild conditions when the COP (coefficient of performance) is highest. Annual electricity consumption for a typical 1,800 sq ft home in a mixed-humid climate runs 5,000 to 8,000 kWh per year for heating + cooling combined. At the U.S. average residential electricity rate (~$0.165/kWh), that translates to $825 to $1,320 per year in electricity for HVAC alone. Modern variable-speed heat pumps modulate output continuously and use roughly 30 percent less electricity over a season than older single-stage units."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Are heat pumps loud?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Modern heat pumps run between 50 and 65 decibels at the outdoor unit during operation — comparable to a quiet conversation or a refrigerator. Premium variable-speed models from Mitsubishi, Daikin, Lennox, Trane, and Carrier run 50 to 55 dB. Standard single-stage units run 60 to 70 dB. Indoor air handlers run 30 to 50 dB. Place the outdoor unit at least 3 feet from sleeping areas and consider a sound-blanket wrap if you live in a townhome with shared walls. Heat pumps are generally quieter than equivalent-capacity AC condensers because they run at variable speeds rather than cycling on/off at full power."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "What is a cold-climate heat pump?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A cold-climate heat pump (CCHP) is a heat pump engineered specifically for cold-weather heating performance. CCHPs use enhanced compressor technology (typically variable-speed inverter compressors with vapor-injection technology) to maintain heating capacity at outdoor temperatures where standard heat pumps would lose efficiency. ENERGY STAR criteria require maintaining at least 70 percent of rated capacity at 5°F. Brands that lead this category: Mitsubishi Hyper-Heat, Daikin Aurora, LG ENERGY STAR Certified Cold-Climate, Carrier Greenspeed, and Lennox SunSource. Cold-climate models cost $2,000 to $5,000 more than standard heat pumps but are essential in zone 5 or colder climates."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Do heat pumps work in cold-climate states like Minnesota or Maine?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes — with the right model. Cold-climate heat pumps installed in Minnesota, Maine, Vermont, Wisconsin, and similar zone 6 / zone 7 states maintain heating capacity to 5°F or lower without auxiliary heat. Dual-fuel systems (heat pump for moderate temperatures, gas furnace as backup for extreme cold) are common in these states because the operating-cost math shifts toward gas below about 20°F. State energy offices in cold-climate states (Minnesota, Maine, New York, Massachusetts, Vermont) often run additional rebate programs on top of HEAR specifically for cold-climate heat pump adoption, sometimes adding $1,500 to $5,000 in incentives."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "What refrigerant do new heat pumps use?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "New residential heat pumps installed in 2026 use either R-454B (GWP 466) or R-32 (GWP 675), both classified as A2L (mildly flammable) by ASHRAE. Under the AIM Act, EPA regulations restrict residential HVAC equipment manufactured on or after January 1, 2025 to refrigerants with GWP below 700, and new installations on or after January 1, 2026 must use these lower-GWP refrigerants. R-410A (GWP 2088), the previous standard, was phased out. R-454B has a 78 percent lower GWP than R-410A and slightly higher cooling capacity per pound. R-32 has a 65 percent lower GWP than R-410A. EPA Section 608 still legally requires technician certification for any refrigerant work."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Can I install a heat pump myself?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. Refrigerant work is federally regulated under EPA Section 608 — certification is legally required to recover, recharge, or repair sealed refrigerant lines. Heat pump installation also involves: 240-volt electrical work (requires a qualified electrician in most states); brazing copper line sets (specialized skill); vacuum pulling and refrigerant charging (requires manifold gauges and EPA certification); ductwork modification or mini-split bracketing; condensate drain installation. Improper installation voids manufacturer warranty in most cases. DIY mini-split kits sold online do exist but require technician final commissioning to be EPA-compliant and warranty-valid. Always use a qualified HVAC technician for installation."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "How do I find a qualified heat pump installer?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Three filters. First, the installer must hold the appropriate state HVAC contractor credential and EPA Section 608 certification for refrigerant handling. Second, they should perform a Manual J load calculation before quoting equipment size — a quote based on square footage alone or 'whatever fits the existing system' is a flag. Third, they should provide an itemized written quote separating equipment, installation labor, ductwork modifications, electrical work, and refrigerant charging. Avoid installers who push a same-day decision on a five-figure heat pump quote, refuse to walk you through the equipment specs, or claim federal tax credits are available in 2026 (they aren't — see the OBBBA section above). Cool Call Pro connects homeowners with independent technicians for these comparison quotes."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "What are the disadvantages of heat pumps?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Honest list of drawbacks: (1) Higher upfront cost than a gas furnace alone — though typically cheaper than buying separate AC and furnace. (2) Operating cost depends on local electricity vs gas rate ratio — in regions with very cheap gas, gas furnaces still win on running cost. (3) Auxiliary backup heat may run during deep cold (sub-5°F for standard models, sub-15°F for cold-climate), which is expensive electric resistance heat. (4) Defrost cycles in humid winter weather temporarily reduce heat output for 2-10 minutes. (5) Outdoor unit needs clear space year-round (ice and snow buildup matters). (6) A2L refrigerants (R-454B, R-32) are mildly flammable, requiring updated installation codes that some local jurisdictions are still rolling out. (7) Federal 25C tax credit terminated for 2026 installs, reducing the financial advantage that existed in 2023-2025."
+            }
+        }
+    ]
+}
+    </script>
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <div class="topbar">
+        <div class="container topbar-inner" style="justify-content: center; padding: 10px; font-weight: 600;">
+            <span class="topbar-text">24/7 Referral Service — Connecting Homeowners with Independent HVAC Professionals</span>
+        </div>
+    </div>
+    <header class="header" id="header">
+        <nav class="nav container" role="navigation" aria-label="Main navigation">
+            <a href="../" class="logo"><span class="logo-icon">&#10052;&#65039;</span><span class="logo-text">CoolCall<span class="logo-accent">Pro</span></span></a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../articles" class="nav-link active">Articles</a></li>
+                <li><a href="../emergency" class="nav-link emergency-link">&#128680; Emergency</a></li>
+                <li><a href="../costs" class="nav-link">Cost Guide</a></li>
+                <li><a href="../safety" class="nav-link">Safety Tips</a></li>
+                <li><a href="../locations" class="nav-link">&#128205; Locations</a></li>
+                <li><a href="../about" class="nav-link">About</a></li>
+                <li><a href="../contact" class="nav-link">Contact</a></li>
+            </ul>
+            <a href="tel:+18445821795" class="btn btn-cta nav-cta btn-vibrate" id="headerNavCta"
+                aria-hidden="true" tabindex="-1"
+                style="opacity: 0; pointer-events: none; transition: opacity 0.3s ease;">
+                <span class="phone-icon">&#128222;</span>
+                <span class="hide-on-mobile">(844) 582-1795</span>
+            </a>
+            <button class="hamburger" id="hamburger" aria-label="Menu">&#9776;</button>
+        </nav>
+    </header>
+
+    <main id="main-content">
+
+        <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+            <div class="container">
+                <ol class="breadcrumb-list">
+                    <li><a href="../">Home</a></li>
+                    <li><a href="../articles">Articles</a></li>
+                    <li>The 2026 Heat Pump Buyer's Guide</li>
+                </ol>
+            </div>
+        </nav>
+
+        <div class="page-hero">
+            <div class="container">
+                <span class="article-tag tag-guide" style="display:inline-block; margin-bottom:16px;">&#128296; Strategic Buyer's Guide</span>
+                <h1>The 2026 Heat Pump Buyer's Guide: Cost, Performance, Rebates, and Whether It's Right for You</h1>
+                <p class="article-disclaimer">For informational purposes only — always consult a qualified HVAC professional for your specific situation.</p>
+                <div class="article-meta-modern"><div class="meta-line meta-published">Published <time datetime="2026-05-05">May 5, 2026</time></div></div>
+                <div class="author-byline">
+                    <img src="../images/author-gyane.webp" alt="Gyanesh Gulshan, Founder of Cool Call Pro" class="author-avatar-sm" loading="lazy" width="48" height="48" />
+                    <span>By <a href="../author-gyanesh">Gyanesh Gulshan</a> &mdash; Founder, Cool Call Pro</span>
+                </div>
+            </div>
+        </div>
+
+        <section class="section">
+            <div class="container">
+                <div class="article-layout">
+                    <article class="article-content">
+                        <img src="../images/heat_pump_buyers_guide_2026.webp" alt="Modern cold-climate heat pump unit on a concrete pad beside a suburban home in late autumn light, light frost on the surrounding grass, with a homeowner mid-decision evaluating the unit for a heating and cooling system replacement in 2026" class="lead-img" fetchpriority="high" width="1280" height="720" />
+
+                        <p class="article-disclosure"><a href="../advertising-disclosure">Advertising Disclosure</a>: This site may receive compensation for service connections made through this page. Content is editorially independent.</p>
+
+                        <div class="callout-box callout-danger" style="margin-top: 24px;">
+                            <div class="callout-icon">&#9888;&#65039;</div>
+                            <div class="callout-text">
+                                <strong>HVAC systems involve high-voltage electricity, natural gas (where applicable), and pressurized refrigerant. Heat pump installation is not a DIY project — refrigerant work is federally regulated under EPA Section 608 and certification is legally required. Always let a qualified HVAC technician handle installation, diagnosis, and repairs. The technician will kill the breaker before opening any panel.</strong>
+                            </div>
+                        </div>
+
+                        <div class="tldr-box">
+                            <div class="tldr-label">Key Takeaway</div>
+                            <p>A heat pump replaces both your AC and furnace with one system, runs 20–40% cheaper than a gas furnace in mild and moderate climates, and eliminates indoor combustion. 2026 cost: $4,000–$9,000 for a standard ducted system, $1,800–$5,000 per zone for ductless mini-splits, $8,000–$18,000 for cold-climate models. <strong>Federal Section 25C tax credit ended Dec 31, 2025 (OBBBA)</strong> — state HEAR rebates (up to $8,000 for income-qualified households) and utility rebates remain. Modern cold-climate heat pumps maintain full capacity to 5°F. The honest decision depends on your local electricity-to-gas rate ratio, climate zone, and whether you're replacing a dying AC + furnace at the same time. This is general guidance, not tax advice — consult a qualified tax professional for your specific situation.</p>
+                        </div>
+
+                        <nav class="toc" aria-label="Table of contents">
+                            <p class="toc-title">In This Guide</p>
+                            <ol>
+                                <li><a href="#what-is-heat-pump">What Is a Heat Pump? (And Why It Matters in 2026)</a></li>
+                                <li><a href="#cost">The 2026 Cost Reality: Equipment, Installation, Operating</a></li>
+                                <li><a href="#decision-factors">The 6 Decision Factors That Determine If a Heat Pump Fits Your Home</a></li>
+                                <li><a href="#types">Heat Pump Types Compared: Ducted, Ductless, Geothermal, Cold-Climate</a></li>
+                                <li><a href="#incentives">2026 Incentives: HEAR, Utility Rebates, OBBBA's Impact</a></li>
+                                <li><a href="#cold-climate">Cold-Climate Performance: Do Heat Pumps Really Work Below Freezing?</a></li>
+                                <li><a href="#climate-fit">Climate Sweet Spots: Where Heat Pumps Win Hardest</a></li>
+                                <li><a href="#contract">Before You Sign: 8 Questions to Ask Every Heat Pump Quote</a></li>
+                                <li><a href="#when-not">When NOT to Get a Heat Pump (Honest Disclosure)</a></li>
+                                <li><a href="#deep-dives">Deep-Dive Guides for Specific Heat Pump Topics</a></li>
+                                <li><a href="#faqs">Frequently Asked Questions</a></li>
+                            </ol>
+                        </nav>
+
+                        <p>If you're reading this, you're considering one of the largest home-equipment decisions you'll make this decade — a $4,000 to $18,000 system that handles both heating and cooling for the next 12 to 18 years. The 2026 reality is more nuanced than either side of the heat-pump debate admits: the technology genuinely improved between 2020 and 2025, but the federal tax incentives that made the math compelling in 2023-2024 partially expired on January 1, 2026. This guide is the honest framework — what a heat pump actually costs, when it makes sense for your climate, what the rebate landscape looks like after the One Big Beautiful Bill Act (OBBBA), and the eight specific questions to ask any installer who quotes you.</p>
+
+                        <p>Cost figures throughout are sourced directly from our <a href="../articles/2026-hvac-cost-guide">2026 HVAC Cost Guide</a> — the canonical pricing reference for the site. If you're weighing the broader heat-pump-vs-gas-furnace decision, see our <a href="heat-pump-vs-gas-furnace">heat pump vs. gas furnace comparison</a>. For the strategic repair-or-replace framework that comes before any replacement decision, see the <a href="repair-or-replace-framework">repair-or-replace decision framework</a>.</p>
+
+                        <h2 id="what-is-heat-pump">What Is a Heat Pump? (And Why It Matters in 2026)</h2>
+
+                        <p><strong>A heat pump is an electric HVAC system that moves heat between indoors and outdoors using a refrigerant cycle</strong> — the same physics as a refrigerator or air conditioner, but reversible. In summer, it pulls heat out of your home and dumps it outside (cooling). In winter, it pulls heat from outside air and pumps it inside (heating). One machine, two seasons, no combustion.</p>
+
+                        <p>Heat pumps don't <em>create</em> heat by burning fuel — they <em>move</em> it, which takes far less energy. Per the U.S. <a href="https://www.energy.gov/energysaver/heat-pump-systems" target="_blank" rel="noopener noreferrer">Department of Energy</a>, modern heat pumps deliver 200-400% efficiency (2-4 units of heat output per unit of electricity input). A gas furnace can never exceed 100% (best AFUE caps near 98%) because chemical energy is the ceiling.</p>
+
+                        <p>Three things changed between 2020 and 2026 that made heat pumps mainstream:</p>
+
+                        <ol>
+                            <li><strong>Cold-climate technology matured.</strong> Pre-2020 units lost most capacity below 30°F. Modern cold-climate models hold full capacity to 5°F and operate to -15°F.</li>
+                            <li><strong>Refrigerant transition.</strong> The AIM Act phased down R-410A in favor of lower-GWP refrigerants (R-454B GWP 466, R-32 GWP 675). Equipment manufactured after Jan 1, 2025 must use these; new installations after Jan 1, 2026 must too.</li>
+                            <li><strong>Incentive landscape.</strong> The IRA expanded Section 25C to $2,000/year for heat pumps in 2023-2025. <strong>OBBBA terminated that credit for 2026 installations</strong> (Public Law 119-21, signed July 4, 2025). State HEAR rebates and utility rebates remain.</li>
+                        </ol>
+
+                        <h2 id="cost">The 2026 Cost Reality: Equipment, Installation, Operating</h2>
+
+                        <p>Before you compare options, anchor on what each system actually costs in 2026. Sourced from our <a href="../articles/2026-hvac-cost-guide">canonical cost guide</a>:</p>
+
+                        <table class="cost-table" style="margin-top: 16px;">
+                            <caption style="font-weight:700; padding: 8px 0;">2026 Heat Pump Cost Reference (National Averages)</caption>
+                            <thead>
+                                <tr>
+                                    <th>System Type</th>
+                                    <th>Installed Cost Range</th>
+                                    <th>Best For</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Standard Ducted Heat Pump (3 ton)</td>
+                                    <td class="price-cell">$4,000–$9,000</td>
+                                    <td>Most U.S. homes with existing ductwork in mild-to-moderate climates</td>
+                                </tr>
+                                <tr>
+                                    <td>Cold-Climate Ducted Heat Pump</td>
+                                    <td class="price-cell">$8,000–$18,000</td>
+                                    <td>Zone 5+ winters; needs to maintain capacity below 20°F</td>
+                                </tr>
+                                <tr>
+                                    <td>Ductless Mini-Split (1 zone)</td>
+                                    <td class="price-cell">$1,800–$5,000</td>
+                                    <td>Single-room additions, garages, homes without ductwork</td>
+                                </tr>
+                                <tr>
+                                    <td>Multi-Zone Mini-Split (3-zone)</td>
+                                    <td class="price-cell">$5,000–$12,000</td>
+                                    <td>Whole-home conversion without installing ductwork</td>
+                                </tr>
+                                <tr>
+                                    <td>Geothermal (Ground-Source) Heat Pump</td>
+                                    <td class="price-cell">$15,000–$35,000</td>
+                                    <td>Long-term homeowners; large lots; coldest climates</td>
+                                </tr>
+                                <tr>
+                                    <td>Ductwork Modification (if needed)</td>
+                                    <td class="price-cell">$500–$2,500</td>
+                                    <td>Right-sizing existing ducts for new heat pump airflow</td>
+                                </tr>
+                                <tr>
+                                    <td>Manual J Load Calculation</td>
+                                    <td class="price-cell">$200–$500</td>
+                                    <td>Required for proper sizing — should be in every quote</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <p style="color: var(--gray-600); font-size: 0.85rem; margin-top: 8px;">Estimated 2026 ranges. Actual costs vary by region, system size, electrical capacity, and provider. After-hours installation adds $200–$500.</p>
+
+                        <p><strong>Operating cost depends on your local electricity-to-gas rate ratio.</strong> At U.S. average rates (~$0.165/kWh, ~$1.55/therm) with typical efficiencies (COP 3.0, AFUE 96%), gas wins by ~14%. But this is highly local — in <a href="../locations/eugene-or">Eugene</a> or <a href="../locations/portland-or">Portland, OR</a> (cheap hydro), heat pumps win by 30-40%; in <a href="../locations/oklahoma-city-ok">Oklahoma City</a> with cheap gas, gas wins by similar margins. Full math: <a href="heat-pump-vs-gas-furnace">heat pump vs gas furnace</a>.</p>
+
+                        <h2 id="decision-factors">The 6 Decision Factors That Determine If a Heat Pump Fits Your Home</h2>
+
+                        <p>Six questions. Skip any one and you're guessing.</p>
+
+                        <h3>1. What's your climate zone?</h3>
+                        <p>Heat pumps shine in zones 1-4. They work in zones 5-6 with cold-climate models. Zone 7+ usually wants dual-fuel (heat pump + gas furnace backup). DOE's <a href="https://basc.pnnl.gov/information/climate-zones" target="_blank" rel="noopener noreferrer">Building America climate-zone map</a> shows where you sit.</p>
+
+                        <h3>2. What's your electricity-to-gas rate ratio?</h3>
+                        <p>Cost-per-million-BTU: heat pump = (electricity rate per kWh) ÷ (COP × 0.293); gas furnace = (gas rate per therm) ÷ (AFUE × 0.1). Below $0.15/kWh + above $1.50/therm: heat pump wins. Above $0.20/kWh + below $1.20/therm: gas wins.</p>
+
+                        <h3>3. Are you replacing AC AND furnace at the same time?</h3>
+                        <p>One heat pump replaces both. If both systems are over 12 years old and within 3 years of each other in age, combined replacement is 15-25% cheaper than two separate systems. If only one is dying, see our <a href="repair-or-replace-framework">repair-or-replace framework</a>.</p>
+
+                        <h3>4. Is your electrical service adequate?</h3>
+                        <p>Most modern homes have 200-amp service (fine for a heat pump). Pre-1990 homes sometimes have 100-amp service that may need a $1,500-$3,500 upgrade — especially with auxiliary electric resistance heat. Your installer's load calc should flag this.</p>
+
+                        <h3>5. Do you have ductwork?</h3>
+                        <p>Existing ducts: ducted heat pump replaces the furnace and reuses ducts. No ducts (or undersized/damaged): ductless mini-split is usually simpler and cheaper than installing new ducts.</p>
+
+                        <h3>6. How long are you staying?</h3>
+                        <p>Operating-cost payback runs 5-10 years. Selling in 2: the math shifts — you don't capture the savings. Staying 10+: the heat pump usually wins. Most installers skip this question; you shouldn't.</p>
+
+                        <!-- CTA 1 -->
+                        <div class="callout-box"
+                            style="background: var(--gray-900); color: white; border: none; padding: 24px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.15); display: flex; flex-direction: column; align-items: center; text-align: center; margin: 32px 0;">
+                            <div
+                                style="font-size: 1.25rem; font-weight: 700; font-family: var(--font-display); margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+                                <span>&#128296;</span> Considering a Heat Pump?
+                            </div>
+                            <p style="color: rgba(255,255,255,0.8); margin-bottom: 20px; font-size: 0.95rem;">
+                                Get connected with a technician in your ZIP code for a Manual J load calculation and itemized quote.
+                            </p>
+                            <a href="tel:+18445821795" class="btn btn-primary btn-lg btn-vibrate"><span class="phone-icon">&#128222;</span> Call Now — (844) 582-1795</a>
+                            <p style="color: rgba(255,255,255,0.6); font-size: 0.72rem; margin-top: 12px; max-width: 340px; line-height: 1.5;">Disclosure: We are a referral service and may receive compensation for qualified calls. Calls may be routed to an independent provider network and may be recorded. Pricing and availability vary by provider and location.</p>
+                        </div>
+
+                        <h2 id="types">Heat Pump Types Compared: Ducted, Ductless, Geothermal, Cold-Climate</h2>
+
+                        <p>"Heat pump" is a category, not a single product. Four major types:</p>
+
+                        <h3>Ducted (Standard Air-Source) Heat Pump</h3>
+                        <p>One outdoor unit + indoor air handler, connected to existing ductwork. $4,000-$9,000 installed. Best for: most zone 1-4 homes with existing ducts. Variable-speed models use roughly 30% less electricity per season than single-stage units that cycle on/off.</p>
+
+                        <h3>Cold-Climate Heat Pump (Air-Source, Enhanced)</h3>
+                        <p>Inverter compressor + vapor injection holds heating capacity to 5°F or below (ENERGY STAR requires 70%+ of rated capacity at 5°F). $8,000-$18,000 installed. Best for: zone 5-6 climates. Premium brands: Mitsubishi Hyper-Heat, Daikin Aurora, Lennox SunSource, LG ENERGY STAR Cold-Climate.</p>
+
+                        <h3>Ductless Mini-Split Heat Pump</h3>
+                        <p>One outdoor unit + 1-8 wall/ceiling-mounted indoor heads. No ductwork required. $1,800-$5,000 per zone; $5,000-$12,000 for 3-zone whole-home. Best for: no-duct homes, additions, garages, zoned setpoints. Avoids the 20-30% loss typical ducts cost.</p>
+
+                        <h3>Geothermal (Ground-Source) Heat Pump</h3>
+                        <p>Uses the earth's stable underground temperature instead of outdoor air. $15,000-$35,000 installed (the buried loop is the expensive part). Best for: long-term homeowners, large lots, coldest climates. Highest efficiency (COP 3-5 year-round) and 50+ year loop lifespan, but very high upfront cost and significant lot space required.</p>
+
+                        <h2 id="incentives">2026 Incentives: HEAR, Utility Rebates, and OBBBA's Impact</h2>
+
+                        <p>Most heat-pump articles still online cite the federal Section 25C credit as a major financial argument. <strong>That credit is gone for 2026 installations.</strong> The One Big Beautiful Bill Act (Public Law 119-21, signed July 4, 2025) terminated 25C for property placed in service after December 31, 2025, per the <a href="https://www.irs.gov/credits-deductions/energy-efficient-home-improvement-credit" target="_blank" rel="noopener noreferrer">IRS Section 25C page</a>. The companion Section 25D credit ended the same date. If installed by Dec 31, 2025, you may still claim 25C on your 2025 return (Form 5695, up to 30% of cost capped at $2,000 for heat pumps). For 2026 installs, the federal route is closed.</p>
+
+                        <p><strong>What's still available in 2026:</strong></p>
+
+                        <ul>
+                            <li><strong>State Home Electrification and Appliance Rebates (HEAR)</strong> — formerly proposed as HEEHRA, the rolled-out program is uniformly called HEAR. IRA-funded, administered by each state's energy office. Heat pump rebate up to $8,000 for households at or below 80% Area Median Income; program-wide cap $14,000 across all electrification upgrades. Reduced rebates at 80-150% AMI; not eligible above 150%. Rollout is staggered — check your state energy office.</li>
+                            <li><strong>Utility rebates</strong> — many electric utilities offer $200-$1,500+ on high-efficiency heat pumps (PG&amp;E, ConEd, TVA, Duke Energy, etc.). The <a href="https://www.dsireusa.org/" target="_blank" rel="noopener noreferrer">DSIRE database</a> is the national clearinghouse.</li>
+                            <li><strong>State-level credits</strong> — MA, NY, VT, ME layer $1,500-$5,000 on top of HEAR for cold-climate adoption.</li>
+                        </ul>
+
+                        <p>Honest framing: <strong>do the math without counting on federal credits in 2026; treat any state/utility rebate as a bonus.</strong> Vendors who lead with "$8,000 back from the government" are quoting pre-2026 reality. This is general guidance, not tax advice; consult a qualified tax professional and your state energy office for your specific situation.</p>
+
+                        <h2 id="cold-climate">Cold-Climate Performance: Do Heat Pumps Really Work Below Freezing?</h2>
+
+                        <p><strong>Yes — modern cold-climate heat pumps maintain full heating capacity to 5°F without auxiliary heat, and operate effectively to -15°F or lower with backup electric resistance heat.</strong> The "heat pumps don't work in cold weather" misconception comes from pre-2020 technology that struggled below 30°F.</p>
+
+                        <p>Three advances changed this: <strong>inverter-driven variable-speed compressors</strong> that modulate continuously and spin faster in cold weather; <strong>vapor injection technology</strong> (EVI) that boosts low-temperature capacity by 30-50%; and <strong>on-demand defrost management</strong> that reduces time spent in defrost mode.</p>
+
+                        <p>"Cold-climate" in a quote means the unit meets ENERGY STAR's requirement of maintaining at least 70% of rated capacity at 5°F. Leading brands in 2026: Mitsubishi Hyper-Heat, Daikin Aurora, Lennox SunSource Climate-IQ, Carrier Greenspeed Intelligence, LG ENERGY STAR Cold-Climate. Cost premium: $2,000-$5,000 over standard heat pumps.</p>
+
+                        <p>Below the unit's rated minimum, either auxiliary electric resistance heat kicks in (COP ~1.0, expensive for extended cold) or — in dual-fuel hybrid setups — a backup gas furnace takes over the deep-cold edge while the heat pump handles 80-90% of heating hours. For <a href="../locations/cheyenne-wy">Cheyenne, WY</a> or zone 6+ Northeast cities, dual-fuel is often optimal. For <a href="../locations/winston-salem-nc">Winston-Salem, NC</a> or <a href="../locations/oklahoma-city-ok">Oklahoma City</a>, a standard or cold-climate heat pump alone usually suffices.</p>
+
+                        <h2 id="climate-fit">Climate Sweet Spots: Where Heat Pumps Win Hardest</h2>
+
+                        <p>The math shifts noticeably based on outdoor temperature distribution and local utility rates.</p>
+
+                        <ul>
+                            <li><strong>Pacific Northwest</strong> (<a href="../locations/eugene-or">Eugene</a>, <a href="../locations/portland-or">Portland</a>, Seattle): clearest wins. Mild winters, cool summers, hydro electricity at $0.10–$0.13/kWh. Standard heat pump beats gas by 30–50% on operating cost.</li>
+                            <li><strong>Mid-Atlantic / Southeast</strong> (<a href="../locations/winston-salem-nc">Winston-Salem</a>, Charlotte, Atlanta, Nashville): mixed-humid climates with brief sub-freezing spells. Heat pumps fully replace AC + furnace, eliminating gas service. Beats gas by 15–30%.</li>
+                            <li><strong>South-Central</strong> (<a href="../locations/oklahoma-city-ok">Oklahoma City</a>, Dallas, Memphis): heat pumps work well, but very cheap regional gas can keep furnace economics competitive. Run the rate math.</li>
+                            <li><strong>Mountain West</strong> (<a href="../locations/cheyenne-wy">Cheyenne</a>, Denver, Salt Lake City): cold-climate model or dual-fuel territory. Subzero nights stress standard units.</li>
+                            <li><strong>Northeast / Upper Midwest (zone 6+)</strong>: cold-climate models are the only viable full-conversion option. MA, NY, VT, ME often layer $1,500–$5,000 in extra rebates on top of HEAR.</li>
+                            <li><strong>Hot-dry</strong> (Phoenix, Las Vegas, Tucson): heat pumps work fine but heating use is minimal — limited advantage unless the furnace is also dying.</li>
+                        </ul>
+
+                        <p>Browse local providers in <a href="../locations/north-carolina">North Carolina</a>, <a href="../locations/oregon">Oregon</a>, or any of our <a href="../locations">115 service areas</a>.</p>
+
+                        <h2 id="contract">Before You Sign: 8 Questions to Ask Every Heat Pump Quote</h2>
+
+                        <p>A five-figure install deserves five-figure scrutiny. If an installer refuses to answer any one of these, get a second quote.</p>
+
+                        <ol>
+                            <li><strong>Did you perform a Manual J load calculation?</strong> Required for proper sizing per ACCA. "A 3-ton replaces a 3-ton" skips this — and the existing system may have been mis-sized originally.</li>
+                            <li><strong>What is the AHRI Certified rating?</strong> AHRI publishes verified SEER2 and HSPF2 numbers. They must be on the certificate, not just the brochure.</li>
+                            <li><strong>What refrigerant?</strong> R-454B or R-32 in 2026 (R-410A only if it's last-of-stock 2025 inventory). Get it in writing.</li>
+                            <li><strong>Is the technician EPA Section 608 certified?</strong> Required for any refrigerant work. Ask for the certification ID.</li>
+                            <li><strong>Manufacturer warranty AND labor warranty?</strong> Typically 5-10 years parts, 10 years compressor on premium brands; 1-2 years labor from installer. Check whether annual maintenance is required to keep the manufacturer warranty valid (most do).</li>
+                            <li><strong>Itemized quote breakdown.</strong> Equipment / labor / duct mods / electrical / refrigerant charge / permits / commissioning. Lump-sum quotes hide markups.</li>
+                            <li><strong>Which rebates apply, and who handles the paperwork?</strong> Installer should know HEAR status, utility programs, and local incentives. Get the rebate amount in writing.</li>
+                            <li><strong>Post-install commissioning process?</strong> Refrigerant charge verification, airflow measurement, combustion analyzer (dual-fuel). "We'll come back if there's a problem" is a flag.</li>
+                        </ol>
+
+                        <h2 id="when-not">When NOT to Get a Heat Pump (Honest Disclosure)</h2>
+
+                        <p>Five scenarios where a heat pump is the wrong call:</p>
+
+                        <ul>
+                            <li><strong>Very cheap natural gas.</strong> Sub-$1.00/therm gas plus $0.18+/kWh electricity makes a high-efficiency gas furnace unbeatable. Common across zone 5+ Midwest municipal-gas territories.</li>
+                            <li><strong>Deep-cold climate without budget for a cold-climate model.</strong> Standard heat pumps in zone 6+ lean heavily on expensive auxiliary resistance heat below 30°F. If the $2,000-$5,000 cold-climate premium isn't in budget, dual-fuel or staying with gas is smarter.</li>
+                            <li><strong>Furnace under 8 years old at AFUE 95%+.</strong> Replacing a young efficient furnace doesn't pay back. Replace the AC alone now and plan the heat pump for when the furnace dies.</li>
+                            <li><strong>Selling within 2 years.</strong> Modest resale lift (~$3,000-$5,000) doesn't recoup full installed cost on a quick sale.</li>
+                            <li><strong>100-amp service with no affordable upgrade path.</strong> A $1,500-$3,500 service upgrade plus the heat pump install can push the project out of budget.</li>
+                        </ul>
+
+                        <p>If any of these apply, see our <a href="heat-pump-vs-gas-furnace">heat pump vs gas furnace comparison</a> for the full math, or the <a href="repair-or-replace-framework">repair-or-replace framework</a> if your existing system is the trigger for this decision.</p>
+
+                        <h2 id="deep-dives">Deep-Dive Guides for Specific Heat Pump Topics</h2>
+
+                        <p>This buyer's guide is the strategic overview. For specific scenarios:</p>
+
+                        <ul>
+                            <li><a href="../article-heat-pump">Heat Pump Not Working? Repair Costs &amp; Fixes</a> &mdash; the diagnostic walkthrough when a heat pump stops working</li>
+                            <li><a href="heat-pump-vs-gas-furnace">Heat Pump vs. Gas Furnace: Cheaper to Run?</a> &mdash; the full operating-cost math by climate</li>
+                            <li><a href="repair-or-replace-framework">The Repair-or-Replace Decision Framework</a> &mdash; before any replacement decision, confirm replacement is the right call</li>
+                            <li><a href="../articles/2026-hvac-cost-guide">The 2026 HVAC Cost Guide</a> &mdash; canonical pricing reference for every replacement and repair line item</li>
+                            <li><a href="../articles/year-round-hvac-maintenance-playbook">The Year-Round HVAC Maintenance Playbook</a> &mdash; the maintenance schedule that maximizes heat pump lifespan</li>
+                            <li><a href="../article-hvac-financing">HVAC Financing Options</a> &mdash; how to fund a heat pump installation in 2026</li>
+                            <li><a href="../article-refrigerant">Why Refrigerant Leaks Cause AC Ice</a> &mdash; the refrigerant-side issues that affect heat pumps too</li>
+                        </ul>
+
+                        <h3>Trusted Industry Sources</h3>
+                        <p>Guidance here is consistent with:</p>
+                        <ul>
+                            <li><a href="https://www.energy.gov/energysaver/heat-pump-systems" target="_blank" rel="noopener noreferrer">U.S. Department of Energy &mdash; Heat Pump Systems</a></li>
+                            <li><a href="https://www.energystar.gov/products/air_source_heat_pumps" target="_blank" rel="noopener noreferrer">ENERGY STAR &mdash; Air Source Heat Pumps</a></li>
+                            <li><a href="https://www.epa.gov/section608" target="_blank" rel="noopener noreferrer">EPA Section 608 &mdash; Refrigerant Handling Regulations</a></li>
+                            <li><a href="https://www.epa.gov/climate-hfcs-reduction/regulatory-actions-technology-transitions" target="_blank" rel="noopener noreferrer">EPA &mdash; AIM Act Technology Transitions Program</a></li>
+                            <li><a href="https://www.irs.gov/credits-deductions/energy-efficient-home-improvement-credit" target="_blank" rel="noopener noreferrer">IRS Section 25C &mdash; for 2025 tax-year filings (terminated for 2026 installs)</a></li>
+                            <li><a href="https://www.dsireusa.org/" target="_blank" rel="noopener noreferrer">DSIRE Database &mdash; State, Utility &amp; Local Incentives</a></li>
+                        </ul>
+
+                        <!-- CTA 2 -->
+                        <div class="callout-box"
+                            style="background: var(--gray-900); color: white; border: none; padding: 24px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.15); display: flex; flex-direction: column; align-items: center; text-align: center; margin: 32px 0;">
+                            <div
+                                style="font-size: 1.25rem; font-weight: 700; font-family: var(--font-display); margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+                                <span>&#128296;</span> Ready to Get Quotes?
+                            </div>
+                            <p style="color: rgba(255,255,255,0.8); margin-bottom: 20px; font-size: 0.95rem;">
+                                A technician can perform a Manual J load calculation and walk you through your options.
+                            </p>
+                            <a href="tel:+18445821795" class="btn btn-primary btn-lg btn-vibrate"><span class="phone-icon">&#128222;</span> Call Now — (844) 582-1795</a>
+                            <p style="color: rgba(255,255,255,0.6); font-size: 0.72rem; margin-top: 12px; max-width: 340px; line-height: 1.5;">Disclosure: We are a referral service and may receive compensation for qualified calls. Calls may be routed to an independent provider network and may be recorded. Pricing and availability vary by provider and location.</p>
+                        </div>
+
+                        <h2 id="faqs">Frequently Asked Questions</h2>
+
+                        <div class="faq-item">
+                            <button class="faq-q" aria-expanded="false" aria-controls="faq-heat-pump-buyers-guide-1"><span>Are heat pumps worth it in 2026?</span><span class="faq-icon"></span></button>
+                            <div class="faq-a" id="faq-heat-pump-buyers-guide-1"><div class="faq-a-inner">
+                                <p>For most U.S. climates, yes. A modern heat pump replaces both your AC and your furnace with one system, typically operates 20 to 40 percent cheaper than a gas furnace in mild and moderate climates, and eliminates indoor combustion (no CO risk from your heating system). The two scenarios where a heat pump is NOT worth it: deep-cold climates with cheap natural gas where the operating-cost math still favors gas, and homes without adequate electrical service to support heat-pump auxiliary heat in deep cold. The math depends on your local electricity rate, gas rate, and climate zone. Per the U.S. Department of Energy, heat pumps can deliver 200 to 400 percent efficiency (COP 2.0 to 4.0), meaning 2 to 4 units of heat per unit of electricity input &mdash; physics that gas furnaces (max ~98 percent AFUE) cannot match.</p>
+                            </div></div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-q" aria-expanded="false" aria-controls="faq-heat-pump-buyers-guide-2"><span>How much does a heat pump cost in 2026?</span><span class="faq-icon"></span></button>
+                            <div class="faq-a" id="faq-heat-pump-buyers-guide-2"><div class="faq-a-inner">
+                                <p>Per the canonical 2026 cost guide: a standard ducted heat pump system runs $4,000 to $9,000 installed (average $5,800). A ductless mini-split system runs $1,800 to $5,000 per zone installed (average $3,200). Cold-climate heat pumps (Mitsubishi Hyper-Heat, Daikin Aurora, etc.) run $8,000 to $18,000 installed for full systems. Geothermal systems run $15,000 to $35,000 due to ground-loop installation. Add $500 to $2,500 for ductwork modifications if needed. After-hours emergency installation adds a $200 to $500 surcharge. These are estimated 2026 ranges based on industry data &mdash; actual costs vary by region, system size, and provider.</p>
+                            </div></div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-q" aria-expanded="false" aria-controls="faq-heat-pump-buyers-guide-3"><span>Do heat pumps work in cold weather?</span><span class="faq-icon"></span></button>
+                            <div class="faq-a" id="faq-heat-pump-buyers-guide-3"><div class="faq-a-inner">
+                                <p>Modern cold-climate heat pumps maintain full heating capacity down to about 5&deg;F outdoor temperature without auxiliary heat, and operate effectively to -15&deg;F or lower with backup electric resistance heat. The U.S. Department of Energy notes that cold-climate heat pump technology has advanced significantly since 2018; pre-2020 units that struggled below 30&deg;F are no longer the norm. In subzero climates like northern Wyoming or upper Minnesota, dual-fuel systems (heat pump above 30&deg;F, gas furnace below) are often the optimal balance because operating-cost economics shift in favor of gas at extreme cold.</p>
+                            </div></div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-q" aria-expanded="false" aria-controls="faq-heat-pump-buyers-guide-4"><span>Are heat pumps eligible for federal tax credits in 2026?</span><span class="faq-icon"></span></button>
+                            <div class="faq-a" id="faq-heat-pump-buyers-guide-4"><div class="faq-a-inner">
+                                <p>No. The federal Section 25C Energy Efficient Home Improvement Credit was terminated for property placed in service after December 31, 2025 by the One Big Beautiful Bill Act (Public Law 119-21, signed July 4, 2025). The companion Section 25D Residential Clean Energy Credit ended the same date. Heat pumps installed in 2026 do not qualify for the federal credit. The Home Electrification and Appliance Rebates (HEAR) program &mdash; funded by the Inflation Reduction Act and administered by each state's energy office &mdash; may offer up to $8,000 toward income-qualified heat pump installation in participating states (program-wide cap up to $14,000 for households under 80% AMI). Check your state energy office for current availability. This is general guidance, not tax advice; consult a qualified tax professional for your specific situation.</p>
+                            </div></div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-q" aria-expanded="false" aria-controls="faq-heat-pump-buyers-guide-5"><span>How long does a heat pump last?</span><span class="faq-icon"></span></button>
+                            <div class="faq-a" id="faq-heat-pump-buyers-guide-5"><div class="faq-a-inner">
+                                <p>Modern heat pumps typically last 12 to 18 years with proper maintenance. The compressor is the limiting component &mdash; heat pumps run more hours per year than AC-only systems (heating + cooling) so the compressor curve is shifted earlier than a comparable AC. Ducted systems average 14 to 18 years. Ductless mini-splits average 15 to 20 years (less stress on smaller compressors). Geothermal heat pumps last 20 to 25 years on the indoor unit and 50+ years on the buried ground loop. Coastal salt-air climates push lifespans toward the lower end. Per the year-round HVAC maintenance playbook, properly-maintained units routinely hit the upper end while neglected units fail at 60 to 70 percent of expected life.</p>
+                            </div></div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-q" aria-expanded="false" aria-controls="faq-heat-pump-buyers-guide-6"><span>Heat pump vs furnace: which is cheaper to run?</span><span class="faq-icon"></span></button>
+                            <div class="faq-a" id="faq-heat-pump-buyers-guide-6"><div class="faq-a-inner">
+                                <p>It depends on local utility rates and climate. In mild and moderate climates with electricity at or below the U.S. average and natural gas above the U.S. average, a modern heat pump is typically 20 to 40 percent cheaper to run per heating season. In deep-cold climates (zone 6+) or where natural gas is significantly cheaper than electricity, a high-efficiency gas furnace often wins on operating cost. The honest math requires plugging your actual local rates into a coefficient-of-performance comparison: heat pump cost per million BTU = (electricity rate per kWh) &divide; (COP &times; 0.293), gas furnace cost per million BTU = (gas rate per therm) &divide; (AFUE &times; 0.1). See the full <a href="heat-pump-vs-gas-furnace">heat pump vs. gas furnace comparison</a> for the breakdown by climate.</p>
+                            </div></div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-q" aria-expanded="false" aria-controls="faq-heat-pump-buyers-guide-7"><span>Do I need ductwork for a heat pump?</span><span class="faq-icon"></span></button>
+                            <div class="faq-a" id="faq-heat-pump-buyers-guide-7"><div class="faq-a-inner">
+                                <p>No. Ductless mini-split heat pumps mount indoor units directly on walls or ceilings and connect to an outdoor unit through a small refrigerant line set; no ducts required. Mini-splits are ideal for: homes built without ductwork (older homes, additions, garages), homes with damaged or undersized ducts where replacement would be expensive, and zoned heating/cooling needs where different rooms need different temperatures. Ducted heat pumps replace the existing furnace and use existing ductwork. Mini-split installation runs $1,800 to $5,000 per zone; whole-home ducted heat pump $4,000 to $9,000.</p>
+                            </div></div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-q" aria-expanded="false" aria-controls="faq-heat-pump-buyers-guide-8"><span>What's the difference between SEER2 and HSPF2?</span><span class="faq-icon"></span></button>
+                            <div class="faq-a" id="faq-heat-pump-buyers-guide-8"><div class="faq-a-inner">
+                                <p>SEER2 (Seasonal Energy Efficiency Ratio version 2) measures cooling efficiency. HSPF2 (Heating Seasonal Performance Factor version 2) measures heating efficiency. Both became mandatory testing standards on January 1, 2023, replacing the older SEER and HSPF metrics. The 2 versions use more realistic test conditions and produce slightly lower numbers (a SEER 16 unit is about SEER2 15.2). For heat pumps, both ratings matter because the same machine handles both seasons. Federal minimums under SEER2: 14 (SEER2 13.4) in northern states, 15 (SEER2 14.3) in southern states. Heat pumps for ENERGY STAR certification typically need SEER2 15+ and HSPF2 8.5+.</p>
+                            </div></div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-q" aria-expanded="false" aria-controls="faq-heat-pump-buyers-guide-9"><span>Can a heat pump replace my AC and furnace?</span><span class="faq-icon"></span></button>
+                            <div class="faq-a" id="faq-heat-pump-buyers-guide-9"><div class="faq-a-inner">
+                                <p>In most U.S. climates, yes. A properly-sized heat pump handles both heating and cooling year-round, eliminating the gas service entirely if the home converts. Two scenarios where a heat pump should NOT fully replace the furnace: (1) climates with sustained subzero winters where dual-fuel makes more sense (heat pump above 30&deg;F, gas furnace below); (2) homes with extremely cheap natural gas where the operating-cost math still favors gas. Most mid-Atlantic, Southeast, Pacific Northwest, and California homes can fully convert without sacrificing comfort or cost. Combined replacement (one heat pump for both functions) is also typically 15 to 25 percent cheaper than buying a separate AC plus furnace.</p>
+                            </div></div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-q" aria-expanded="false" aria-controls="faq-heat-pump-buyers-guide-10"><span>What size heat pump do I need?</span><span class="faq-icon"></span></button>
+                            <div class="faq-a" id="faq-heat-pump-buyers-guide-10"><div class="faq-a-inner">
+                                <p>Heat pump capacity is measured in BTUs per hour or in tons (1 ton = 12,000 BTU/hr). The rough sizing rule for cooling is 20 BTU per square foot of conditioned space, but a proper Manual J load calculation (industry standard from the Air Conditioning Contractors of America) is required for accurate sizing &mdash; it accounts for insulation R-values, window square footage, ceiling height, climate zone, and air infiltration. Oversizing wastes money upfront and causes short-cycling that shortens lifespan. Undersizing causes the system to run at full capacity continuously and never reach setpoint in extreme weather. Any quote that doesn't include a Manual J calculation is skipping a critical step.</p>
+                            </div></div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-q" aria-expanded="false" aria-controls="faq-heat-pump-buyers-guide-11"><span>How much electricity does a heat pump use?</span><span class="faq-icon"></span></button>
+                            <div class="faq-a" id="faq-heat-pump-buyers-guide-11"><div class="faq-a-inner">
+                                <p>A typical 3-ton heat pump uses 3,000 to 5,000 watts during operation in moderate weather, dropping to 1,500 to 2,500 watts during mild conditions when the COP (coefficient of performance) is highest. Annual electricity consumption for a typical 1,800 sq ft home in a mixed-humid climate runs 5,000 to 8,000 kWh per year for heating + cooling combined. At the U.S. average residential electricity rate (~$0.165/kWh), that translates to $825 to $1,320 per year in electricity for HVAC alone. Modern variable-speed heat pumps modulate output continuously and use roughly 30 percent less electricity over a season than older single-stage units.</p>
+                            </div></div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-q" aria-expanded="false" aria-controls="faq-heat-pump-buyers-guide-12"><span>Are heat pumps loud?</span><span class="faq-icon"></span></button>
+                            <div class="faq-a" id="faq-heat-pump-buyers-guide-12"><div class="faq-a-inner">
+                                <p>Modern heat pumps run between 50 and 65 decibels at the outdoor unit during operation &mdash; comparable to a quiet conversation or a refrigerator. Premium variable-speed models from Mitsubishi, Daikin, Lennox, Trane, and Carrier run 50 to 55 dB. Standard single-stage units run 60 to 70 dB. Indoor air handlers run 30 to 50 dB. Place the outdoor unit at least 3 feet from sleeping areas and consider a sound-blanket wrap if you live in a townhome with shared walls. Heat pumps are generally quieter than equivalent-capacity AC condensers because they run at variable speeds rather than cycling on/off at full power.</p>
+                            </div></div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-q" aria-expanded="false" aria-controls="faq-heat-pump-buyers-guide-13"><span>What is a cold-climate heat pump?</span><span class="faq-icon"></span></button>
+                            <div class="faq-a" id="faq-heat-pump-buyers-guide-13"><div class="faq-a-inner">
+                                <p>A cold-climate heat pump (CCHP) is a heat pump engineered specifically for cold-weather heating performance. CCHPs use enhanced compressor technology (typically variable-speed inverter compressors with vapor-injection technology) to maintain heating capacity at outdoor temperatures where standard heat pumps would lose efficiency. ENERGY STAR criteria require maintaining at least 70 percent of rated capacity at 5&deg;F. Brands that lead this category: Mitsubishi Hyper-Heat, Daikin Aurora, LG ENERGY STAR Certified Cold-Climate, Carrier Greenspeed, and Lennox SunSource. Cold-climate models cost $2,000 to $5,000 more than standard heat pumps but are essential in zone 5 or colder climates.</p>
+                            </div></div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-q" aria-expanded="false" aria-controls="faq-heat-pump-buyers-guide-14"><span>Do heat pumps work in cold-climate states like Minnesota or Maine?</span><span class="faq-icon"></span></button>
+                            <div class="faq-a" id="faq-heat-pump-buyers-guide-14"><div class="faq-a-inner">
+                                <p>Yes &mdash; with the right model. Cold-climate heat pumps installed in Minnesota, Maine, Vermont, Wisconsin, and similar zone 6 / zone 7 states maintain heating capacity to 5&deg;F or lower without auxiliary heat. Dual-fuel systems (heat pump for moderate temperatures, gas furnace as backup for extreme cold) are common in these states because the operating-cost math shifts toward gas below about 20&deg;F. State energy offices in cold-climate states (Minnesota, Maine, New York, Massachusetts, Vermont) often run additional rebate programs on top of HEAR specifically for cold-climate heat pump adoption, sometimes adding $1,500 to $5,000 in incentives.</p>
+                            </div></div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-q" aria-expanded="false" aria-controls="faq-heat-pump-buyers-guide-15"><span>What refrigerant do new heat pumps use?</span><span class="faq-icon"></span></button>
+                            <div class="faq-a" id="faq-heat-pump-buyers-guide-15"><div class="faq-a-inner">
+                                <p>New residential heat pumps installed in 2026 use either R-454B (GWP 466) or R-32 (GWP 675), both classified as A2L (mildly flammable) by ASHRAE. Under the AIM Act, EPA regulations restrict residential HVAC equipment manufactured on or after January 1, 2025 to refrigerants with GWP below 700, and new installations on or after January 1, 2026 must use these lower-GWP refrigerants. R-410A (GWP 2088), the previous standard, was phased out. R-454B has a 78 percent lower GWP than R-410A and slightly higher cooling capacity per pound. R-32 has a 65 percent lower GWP than R-410A. EPA Section 608 still legally requires technician certification for any refrigerant work.</p>
+                            </div></div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-q" aria-expanded="false" aria-controls="faq-heat-pump-buyers-guide-16"><span>Can I install a heat pump myself?</span><span class="faq-icon"></span></button>
+                            <div class="faq-a" id="faq-heat-pump-buyers-guide-16"><div class="faq-a-inner">
+                                <p>No. Refrigerant work is federally regulated under EPA Section 608 &mdash; certification is legally required to recover, recharge, or repair sealed refrigerant lines. Heat pump installation also involves: 240-volt electrical work (requires a qualified electrician in most states); brazing copper line sets (specialized skill); vacuum pulling and refrigerant charging (requires manifold gauges and EPA certification); ductwork modification or mini-split bracketing; condensate drain installation. Improper installation voids manufacturer warranty in most cases. DIY mini-split kits sold online do exist but require technician final commissioning to be EPA-compliant and warranty-valid. Always use a qualified HVAC technician for installation.</p>
+                            </div></div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-q" aria-expanded="false" aria-controls="faq-heat-pump-buyers-guide-17"><span>How do I find a qualified heat pump installer?</span><span class="faq-icon"></span></button>
+                            <div class="faq-a" id="faq-heat-pump-buyers-guide-17"><div class="faq-a-inner">
+                                <p>Three filters. First, the installer must hold the appropriate state HVAC contractor credential and EPA Section 608 certification for refrigerant handling. Second, they should perform a Manual J load calculation before quoting equipment size &mdash; a quote based on square footage alone or "whatever fits the existing system" is a flag. Third, they should provide an itemized written quote separating equipment, installation labor, ductwork modifications, electrical work, and refrigerant charging. Avoid installers who push a same-day decision on a five-figure heat pump quote, refuse to walk you through the equipment specs, or claim federal tax credits are available in 2026 (they aren't &mdash; see the OBBBA section above). Cool Call Pro connects homeowners with independent technicians for these comparison quotes.</p>
+                            </div></div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-q" aria-expanded="false" aria-controls="faq-heat-pump-buyers-guide-18"><span>What are the disadvantages of heat pumps?</span><span class="faq-icon"></span></button>
+                            <div class="faq-a" id="faq-heat-pump-buyers-guide-18"><div class="faq-a-inner">
+                                <p>Honest list of drawbacks: (1) Higher upfront cost than a gas furnace alone &mdash; though typically cheaper than buying separate AC and furnace. (2) Operating cost depends on local electricity vs gas rate ratio &mdash; in regions with very cheap gas, gas furnaces still win on running cost. (3) Auxiliary backup heat may run during deep cold (sub-5&deg;F for standard models, sub-15&deg;F for cold-climate), which is expensive electric resistance heat. (4) Defrost cycles in humid winter weather temporarily reduce heat output for 2-10 minutes. (5) Outdoor unit needs clear space year-round (ice and snow buildup matters). (6) A2L refrigerants (R-454B, R-32) are mildly flammable, requiring updated installation codes that some local jurisdictions are still rolling out. (7) Federal 25C tax credit terminated for 2026 installs, reducing the financial advantage that existed in 2023-2025.</p>
+                            </div></div>
+                        </div>
+
+                        <h3>Local HVAC Service Areas</h3>
+                        <p>Cool Call Pro connects homeowners with independent HVAC technicians nationwide. Find a heat pump pro in <a href="../locations/eugene-or" style="color: var(--orange-dark); font-weight: 600;">Eugene (OR)</a>, <a href="../locations/portland-or" style="color: var(--orange-dark); font-weight: 600;">Portland (OR)</a>, <a href="../locations/winston-salem-nc" style="color: var(--orange-dark); font-weight: 600;">Winston-Salem (NC)</a>, <a href="../locations/oklahoma-city-ok" style="color: var(--orange-dark); font-weight: 600;">Oklahoma City (OK)</a>, or <a href="../locations/cheyenne-wy" style="color: var(--orange-dark); font-weight: 600;">Cheyenne (WY)</a>, or browse by state: <a href="../locations/oregon" style="color: var(--orange-dark); font-weight: 600;">Oregon</a>, <a href="../locations/north-carolina" style="color: var(--orange-dark); font-weight: 600;">North Carolina</a>, or <a href="../locations" style="color: var(--orange-dark); font-weight: 600;">all locations</a>.</p>
+
+                    </article>
+
+                    <aside class="article-sidebar">
+                        <div class="sidebar-widget">
+                            <h4>&#128205; Find a Pro Near You</h4>
+                            <ul>
+                                <li><a href="../locations/eugene-or" style="color: var(--orange-dark); font-weight: 600;">Eugene (OR)</a></li>
+                                <li><a href="../locations/portland-or" style="color: var(--orange-dark); font-weight: 600;">Portland (OR)</a></li>
+                                <li><a href="../locations/winston-salem-nc" style="color: var(--orange-dark); font-weight: 600;">Winston-Salem (NC)</a></li>
+                                <li><a href="../locations/oklahoma-city-ok" style="color: var(--orange-dark); font-weight: 600;">Oklahoma City (OK)</a></li>
+                                <li><a href="../locations/cheyenne-wy" style="color: var(--orange-dark); font-weight: 600;">Cheyenne (WY)</a></li>
+                                <li><a href="../locations/oregon" style="color: var(--orange-dark); font-weight: 600;">All Oregon Cities</a></li>
+                                <li><a href="../locations/north-carolina" style="color: var(--orange-dark); font-weight: 600;">All North Carolina Cities</a></li>
+                                <li><a href="../locations" style="font-weight: 600;">All Locations &rarr;</a></li>
+                            </ul>
+                        </div>
+                        <div class="sidebar-widget">
+                            <h4>&#128218; Related Guides</h4>
+                            <ul>
+                                <li><a href="../article-heat-pump">Heat Pump Not Working?</a></li>
+                                <li><a href="heat-pump-vs-gas-furnace">Heat Pump vs. Gas Furnace</a></li>
+                                <li><a href="repair-or-replace-framework">Repair-or-Replace Framework</a></li>
+                                <li><a href="../articles/2026-hvac-cost-guide">2026 HVAC Cost Guide</a></li>
+                                <li><a href="../articles/year-round-hvac-maintenance-playbook">Maintenance Playbook</a></li>
+                                <li><a href="../article-hvac-financing">HVAC Financing Options</a></li>
+                                <li><a href="../article-refrigerant">Refrigerant Leaks &amp; AC Ice</a></li>
+                            </ul>
+                        </div>
+                    </aside>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Brand -->
+                <div class="footer-brand">
+                    <a href="../" class="logo"><span class="logo-icon">&#10052;&#65039;</span><span class="logo-text">CoolCall<span class="logo-accent">Pro</span></span></a>
+                    <p>Connecting homeowners with independent HVAC professionals across the US. Available 24/7 in many areas.</p>
+                    <div class="footer-contact">
+                        <a href="tel:+18445821795" class="footer-phone">(844) 582-1795</a>
+                        <span>24/7 Service Line</span>
+                    </div>
+                </div>
+                <!-- Resources -->
+                <div class="footer-col">
+                    <h3 class="footer-heading">Resources</h3>
+                    <ul>
+                        <li><a href="../costs">Cost Guide</a></li>
+                        <li><a href="../emergency">Emergency Service</a></li>
+                        <li><a href="../safety">Safety Tips</a></li>
+                        <li><a href="../articles">All Articles</a></li>
+                        <li><a href="../locations">Locations</a></li>
+                    </ul>
+                </div>
+                <!-- Company -->
+                <div class="footer-col">
+                    <h3 class="footer-heading">Company</h3>
+                    <ul>
+                        <li><a href="../about">About Us</a></li>
+                        <li><a href="../contact">Contact</a></li>
+                        <li><a href="../author-gyanesh">Author</a></li>
+                        <li><a href="../privacy">Privacy Policy</a></li>
+                        <li><a href="../advertising-disclosure">Advertising Disclosure</a></li>
+                    </ul>
+                </div>
+                <!-- Service Areas -->
+                <div class="footer-col">
+                    <h3 class="footer-heading">Service Areas</h3>
+                    <ul class="service-areas">
+                        <li><a href="../locations/atlanta-ga">Atlanta, GA</a></li>
+                        <li><a href="../locations/chicago-il">Chicago, IL</a></li>
+                        <li><a href="../locations/dallas-tx">Dallas, TX</a></li>
+                        <li><a href="../locations/houston-tx">Houston, TX</a></li>
+                        <li><a href="../locations/phoenix-az">Phoenix, AZ</a></li>
+                        <li><a href="../locations">All 50 states &#8594;</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Legal Disclosure + Bottom Bar -->
+            <div class="footer-bottom">
+                <p><strong style="color: rgba(255,255,255,0.9);">How this site works:</strong> We publish HVAC cost and troubleshooting information and may connect callers to independent service providers. We do not perform HVAC services ourselves. Pricing, availability, and response times vary by provider and location.</p>
+                <p><strong style="color: rgba(255,255,255,0.9);">Editorial standards:</strong> Our content focuses on helpful troubleshooting tips and realistic pricing information. We avoid guarantees; actual pricing depends on the provider and situation. We clearly disclose compensation for referrals. We update content for clarity and accuracy when needed.</p>
+                <p><strong style="color: rgba(255,255,255,0.9);">Disclaimer:</strong> Cool Call Pro is a free service to assist homeowners in connecting with local service providers. All contractors/providers are independent and Cool Call Pro does not warrant or guarantee any work performed. It is the responsibility of the homeowner to verify that the hired contractor furnishes the necessary license and insurance required for the work being performed. All persons depicted in a photo or video are actors or models and not contractors listed on Cool Call Pro.</p>
+                <p>&copy; <span class="copyright-year">2026</span> Cool Call Pro. All rights reserved. &nbsp;&middot;&nbsp; <a href="../privacy">Privacy Policy</a> &nbsp;&middot;&nbsp; <a href="../terms">Terms of Use</a> &nbsp;&middot;&nbsp; <a href="../disclaimer">Disclaimer</a> &nbsp;&middot;&nbsp; <a href="../advertising-disclosure">Advertising Disclosure</a></p>
+            </div>
+        </div>
+    </footer>
+    <script>document.querySelectorAll('.copyright-year').forEach(function(el){el.textContent=new Date().getFullYear()});</script>
+
+    <script src="../js/main.min.js" defer></script>
+</body>
+
+</html>

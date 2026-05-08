@@ -198,7 +198,8 @@
         "title": "The 2026 Heat Pump Buyer's Guide: Cost, Performance, Rebates, and Whether It's Right for You",
         "slug": "2026-heat-pump-buyers-guide",
         "filename": "articles/2026-heat-pump-buyers-guide.html",
-        "status": "pending"
+        "status": "live",
+        "date_published": "2026-05-08"
       },
       "cross_cluster_anchor": {
         "cluster": "C5_compare",
