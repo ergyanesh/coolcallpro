@@ -88,3 +88,8 @@ images/_failed.txt
 
 # Brainstorming visual-companion mockups (local-only)
 .superpowers/
+
+# YMYL refresh plan — regenerated on every scripts/ymyl_refresh_helper.py run.
+# (.ymyl_snapshots/ is TRACKED — the GH Action commits primary-source snapshots
+# so next week's diff has a baseline.)
+.ymyl_refresh_plan.md

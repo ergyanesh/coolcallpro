@@ -28,9 +28,38 @@ Exit codes:
 import html as html_mod
 import re
 import sys
+from datetime import date, datetime
 from pathlib import Path
 
 from safety_rules import check_diy_hazards
+
+
+# --- YMYL claim triggers (used by audit_ymyl_log + link-proximity check) ----
+# Any article body containing one of these terms (outside HTML comments) makes
+# YMYL claims and is therefore subject to the verification-log + primary-source-
+# proximity gates. Tax / regulatory / refrigerant / dollar-cap / federal-program
+# territory.
+YMYL_CLAIM_TRIGGERS = [
+    r"\bSection 25C\b", r"\bSection 25D\b", r"\bOBBBA\b", r"\bPublic Law 119-21\b",
+    r"\bForm 5695\b", r"\bHEAR\b", r"\bHEEHRA\b", r"\bInflation Reduction Act\b",
+    r"\bAIM Act\b", r"\bSection 608\b", r"\bR-454B\b", r"\bR-410A\b",
+    r"\bGWP\s+\d", r"\bCFPB\b", r"\bR-PACE\b", r"\bSEER2\b", r"\bHSPF2\b",
+    r"federal tax credit", r"federal rebate", r"federally regulated",
+]
+YMYL_TRIGGER_REGEX = re.compile("|".join(YMYL_CLAIM_TRIGGERS), re.IGNORECASE)
+
+# Primary-source domains accepted for link-proximity proof. .gov / .edu /
+# energystar.gov / dsireusa.org. Industry sites (acca.org, ahri.org) also
+# count for refrigerant / standards claims.
+PRIMARY_SOURCE_DOMAINS = [
+    "irs.gov", "epa.gov", "energy.gov", "energystar.gov", "dsireusa.org",
+    "cdc.gov", "cfpb.gov", "consumerfinance.gov", "noaa.gov", "census.gov",
+    "ftc.gov", "doe.gov", "bls.gov", "congress.gov", "govinfo.gov",
+    ".edu", "acca.org", "ahri.org", "ashrae.org",
+]
+
+# YMYL log staleness — re-verification cadence.
+YMYL_LOG_MAX_AGE_DAYS = 90
 
 
 # --- Forbidden safety words (per skill's YMYL rules) -----------------------
@@ -401,6 +430,215 @@ def audit_font_loading(html: str) -> int:
     return 0
 
 
+def _strip_html_comments(html: str) -> str:
+    """Return body HTML with all <!-- ... --> comments removed.
+
+    Used by YMYL audits so that the verification-log header (which itself
+    contains 25C/OBBBA/AIM-Act mentions for documentation purposes) is not
+    treated as YMYL claims that need primary-source proximity links.
+    """
+    return re.sub(r"<!--.*?-->", "", html, flags=re.DOTALL)
+
+
+def _extract_ymyl_log(html: str):
+    """Return (log_text, last_verified, next_due) or (None, None, None).
+
+    The canonical block lives inside an HTML comment near <head> and starts
+    with the literal "YMYL VERIFICATION LOG". Dates parse as YYYY-MM-DD.
+    """
+    m = re.search(r"YMYL VERIFICATION LOG.*?-->", html, re.DOTALL)
+    if not m:
+        return (None, None, None)
+    block = m.group(0)
+    last = re.search(r"last verified\s+(\d{4}-\d{2}-\d{2})", block, re.IGNORECASE)
+    nxt = re.search(r"next due\s+(\d{4}-\d{2}-\d{2})", block, re.IGNORECASE)
+    return (
+        block,
+        datetime.strptime(last.group(1), "%Y-%m-%d").date() if last else None,
+        datetime.strptime(nxt.group(1), "%Y-%m-%d").date() if nxt else None,
+    )
+
+
+def audit_ymyl_log(html: str, strict: bool) -> int:
+    """Layer 1 of the YMYL verification system (added 2026-05-08).
+
+    Three gates fire only on articles that actually make YMYL claims:
+
+    A. Verification-log presence. If the article body (HTML-comments stripped)
+       contains any YMYL trigger term, the inline log block is REQUIRED.
+    B. Log-entry format. Each CLAIM block must cite a URL on a primary-source
+       domain. "last verified" and "next due" dates must parse.
+    C. Staleness gate. If today >= next-due-date, the article is OUT OF DATE
+       — block the commit so the writer must re-verify before editing.
+
+    Rationale: the audit was a phrasing linter. It caught "tax credit" without
+    a "consult a tax professional" caveat, but never caught a tax-credit claim
+    whose primary source had quietly changed under us. These three gates close
+    that loop. See CLAUDE.md "Live Verification Discipline" (2026-05-04).
+    """
+    if not strict:
+        return 0
+    print("\nYMYL VERIFICATION-LOG AUDIT (Layer 1)")
+    fails = 0
+
+    body = _strip_html_comments(html)
+    has_claims = bool(YMYL_TRIGGER_REGEX.search(body))
+
+    if not has_claims:
+        print("  [INFO] No YMYL trigger terms in body — verification log not required.")
+        return 0
+
+    log_block, last_verified, next_due = _extract_ymyl_log(html)
+
+    # Gate A — log present
+    if not check(
+        "YMYL VERIFICATION LOG block present in <head>",
+        log_block is not None,
+        "Article makes YMYL claims (25C/OBBBA/HEAR/AIM Act/Section 608/etc.) "
+        "but has no inline verification log. See any 2026-05-04 article for the "
+        "canonical format.",
+    ):
+        return fails + 1
+
+    # Gate B — required fields parse
+    if not check(
+        f"Log has parseable 'last verified' date (got: {last_verified})",
+        last_verified is not None,
+    ):
+        fails += 1
+    if not check(
+        f"Log has parseable 'next due' date (got: {next_due})",
+        next_due is not None,
+    ):
+        fails += 1
+
+    # Each CLAIM block must cite either a primary-source URL or a known
+    # project-internal source of truth (costs.html, cluster_map.json).
+    # Split the log on CLAIM markers so we can check each block individually.
+    claim_blocks = re.split(r"(?=CLAIM\s+\d+:)", log_block)
+    claim_blocks = [b for b in claim_blocks if re.match(r"CLAIM\s+\d+:", b)]
+    INTERNAL_SOURCES = ("costs.html", "cluster_map.json", "states.xlsx", "cities_updated.xlsx")
+    if not claim_blocks:
+        if not check(
+            "Log contains at least one CLAIM N: entry",
+            False,
+            "Log block exists but has no 'CLAIM N: ...' entries.",
+        ):
+            fails += 1
+    else:
+        unsourced = []
+        for cb in claim_blocks:
+            urls = re.findall(r"https?://\S+", cb)
+            has_primary = any(any(d in u for d in PRIMARY_SOURCE_DOMAINS) for u in urls)
+            has_internal = any(s in cb for s in INTERNAL_SOURCES)
+            if not (has_primary or has_internal):
+                num_match = re.match(r"CLAIM\s+(\d+):", cb)
+                unsourced.append(num_match.group(1) if num_match else "?")
+        if not check(
+            f"Each CLAIM cites a primary-source URL or internal canonical "
+            f"({len(claim_blocks) - len(unsourced)}/{len(claim_blocks)} sourced)",
+            not unsourced,
+            (
+                f"CLAIM(s) {', '.join(unsourced)} have no primary-source URL "
+                f"(.gov / .edu / dsireusa.org / energystar.gov / acca.org / ahri.org / "
+                f"ashrae.org) and no internal canonical reference (costs.html / "
+                f"cluster_map.json / states.xlsx / cities_updated.xlsx). Add a "
+                f"'URL: <primary-source-url>' line to each."
+            ) if unsourced else "",
+        ):
+            fails += 1
+
+    # Gate C — staleness
+    if next_due is not None:
+        today = date.today()
+        days_overdue = (today - next_due).days
+        if days_overdue > 0:
+            if not check(
+                f"YMYL log freshness (overdue by {days_overdue} days; next-due was {next_due})",
+                False,
+                f"Re-verify each CLAIM against its primary source via WebFetch, then bump "
+                f"'last verified' to today ({today}) and 'next due' to "
+                f"{date.fromordinal(today.toordinal() + YMYL_LOG_MAX_AGE_DAYS)}.",
+            ):
+                fails += 1
+        else:
+            days_left = -days_overdue
+            print(f"  [PASS] YMYL log freshness ({days_left} days until next due {next_due})")
+
+    return fails
+
+
+# Per-topic primary-source matrix. For every YMYL claim TYPE that appears in
+# the article body, at least one anchor href on a matching domain must also
+# appear in the body. Catches "article cites OBBBA but never links to IRS"
+# without flagging every TLDR mention.
+YMYL_TOPIC_SOURCE_MATRIX = [
+    # (topic regex, list of acceptable primary-source domains, human label)
+    (r"\bSection 25C\b|\bSection 25D\b|\bForm 5695\b|federal tax credit",
+     ["irs.gov", "energystar.gov"], "tax-credit / 25C / 25D / Form 5695"),
+    (r"\bOBBBA\b|\bPublic Law 119-21\b",
+     ["irs.gov", "congress.gov", "govinfo.gov"], "OBBBA / Public Law 119-21"),
+    (r"\bAIM Act\b|\bR-454B\b|\bR-410A\b|\bGWP\s+\d",
+     ["epa.gov"], "AIM Act / refrigerant transition"),
+    (r"\bSection 608\b|federally regulated",
+     ["epa.gov"], "EPA Section 608 refrigerant certification"),
+    (r"\bHEAR\b|\bHEEHRA\b|\bInflation Reduction Act\b|federal rebate",
+     ["energy.gov", "dsireusa.org"], "HEAR / IRA rebate program"),
+    (r"\bCFPB\b|\bR-PACE\b",
+     ["consumerfinance.gov", "cfpb.gov"], "CFPB / R-PACE"),
+    (r"\bSEER2\b|\bHSPF2\b",
+     ["energy.gov", "energystar.gov", "ahri.org"], "SEER2 / HSPF2 efficiency standards"),
+]
+
+
+def audit_ymyl_link_proximity(html: str, strict: bool) -> int:
+    """Per-topic primary-source matrix check. For every YMYL claim TYPE
+    (25C, OBBBA, AIM Act, HEAR, Section 608, CFPB, SEER2/HSPF2) that appears
+    in the article body, the body must include at least one <a href> to a
+    matching primary-source domain. Catches "article uses term X but cites
+    no primary source for X anywhere."
+
+    This is the article-level discipline — not paragraph-level. A single
+    well-placed inline <a href="https://www.irs.gov/...">IRS Section 25C
+    page</a> covers every 25C mention in the article. The audit cares that
+    the source is present and pointable, not that every paragraph repeats
+    the citation.
+
+    Scope: <article class="article-content"> body only. Schema, head meta,
+    and the verification log are excluded.
+    """
+    if not strict:
+        return 0
+    print("\nYMYL TOPIC -> SOURCE MATRIX (per-topic primary-source link required)")
+
+    article_match = re.search(
+        r'<article class="article-content">(.*?)</article>', html, re.DOTALL
+    )
+    if not article_match:
+        print("  [INFO] No <article class=\"article-content\"> body found — skipping.")
+        return 0
+    body = _strip_html_comments(article_match.group(1))
+
+    hrefs = [hm.group(1) for hm in re.finditer(r'href="([^"]+)"', body)]
+    fails = 0
+    for topic_pat, accepted_domains, label in YMYL_TOPIC_SOURCE_MATRIX:
+        if not re.search(topic_pat, body, re.IGNORECASE):
+            continue
+        has_source = any(any(d in h for d in accepted_domains) for h in hrefs)
+        if not check(
+            f"Topic '{label}' has primary-source link in body "
+            f"(accepted: {', '.join(accepted_domains)})",
+            has_source,
+            f"Article makes claims under '{label}' but the body has NO link to "
+            f"{' or '.join(accepted_domains)}. Add an inline <a href> to one of "
+            f"those domains in the section discussing this topic.",
+        ):
+            fails += 1
+    if fails == 0:
+        print("  [PASS] Every YMYL topic in the body has a matching primary-source link")
+    return fails
+
+
 def audit_pillar_spec(html: str, is_pillar: bool) -> int:
     if not is_pillar:
         return 0
@@ -473,6 +711,8 @@ def main():
     fails += check_diy_hazards(html, source_label=path)
     fails += audit_seo(html)
     fails += audit_your_money(html, strict)
+    fails += audit_ymyl_log(html, strict)
+    fails += audit_ymyl_link_proximity(html, strict)
     fails += audit_geo_aeo(html, strict)
     fails += audit_css_regression(strict)
     fails += audit_font_loading(html)

@@ -306,6 +306,71 @@ The trigger is: would getting this wrong materially harm a homeowner's financial
 
 **The 5 articles shipped between 2026-04-30 and 2026-05-04 already have verification logs in place** (H4, H5, M8, C5 pillar, financing) covering OBBBA / 25C / 25D / HEAR / PACE / CFPB rule / EPA Section 608. Next due 2026-08-04.
 
+**Update 2026-05-08:** retroactive backfill complete — all 29 live articles now carry inline YMYL verification logs with explicit `URL:` lines pointing at primary sources. The Live Verification Discipline rule is no longer agent-discretion — it is now enforced automatically by Layer 1 (see "YMYL Three-Layer Verification System" below). Pre-commit hook blocks any article whose log is >90 days stale, missing required URLs, or makes claims under topics (25C / OBBBA / AIM Act / Section 608 / HEAR / CFPB / SEER2-HSPF2) without an inline link to a matching primary-source domain in the body.
+
+## YMYL Three-Layer Verification System (since 8 May 2026 — NON-NEGOTIABLE)
+
+Codifies the Live Verification Discipline rule into automated tooling so YMYL accuracy issues are caught BEFORE they ship, not surfaced post-hoc. Three independent layers:
+
+### Layer 1 — Pre-commit gates (`audit_article.py`)
+
+Three new checks, all blocking, all running in `--ci` mode (pre-commit hook):
+
+1. **Verification-log presence + format.** Any article whose body mentions a YMYL trigger term (`Section 25C`, `OBBBA`, `Public Law 119-21`, `Form 5695`, `HEAR`, `HEEHRA`, `Inflation Reduction Act`, `AIM Act`, `Section 608`, `R-454B`, `R-410A`, `GWP \d+`, `CFPB`, `R-PACE`, `SEER2`, `HSPF2`, `federal tax credit`, `federal rebate`, `federally regulated`) MUST contain the inline `<!-- YMYL VERIFICATION LOG -->` block with parseable `last verified YYYY-MM-DD, next due YYYY-MM-DD` dates. Each `CLAIM N:` block must cite a `URL: <primary-source-url>` line on a `.gov / .edu / dsireusa.org / energystar.gov / acca.org / ahri.org / ashrae.org` domain — or an internal canonical reference (`costs.html`, `cluster_map.json`, `states.xlsx`, `cities_updated.xlsx`).
+
+2. **90-day staleness gate.** If today >= the log's `next due` date, the commit is blocked. The article must be re-verified (WebFetch each cited URL, confirm claims still hold) and the dates bumped before any further edit can ship.
+
+3. **Topic→source matrix.** A claim type appearing in the rendered article body requires a primary-source `<a href>` in the body on a matching domain. Mapping:
+   | Topic | Required link domain |
+   |---|---|
+   | tax-credit / 25C / 25D / Form 5695 | `irs.gov` or `energystar.gov` |
+   | OBBBA / Public Law 119-21 | `irs.gov` / `congress.gov` / `govinfo.gov` |
+   | AIM Act / refrigerant transition | `epa.gov` |
+   | EPA Section 608 / federally regulated | `epa.gov` |
+   | HEAR / IRA rebate program | `energy.gov` or `dsireusa.org` |
+   | CFPB / R-PACE | `consumerfinance.gov` or `cfpb.gov` |
+   | SEER2 / HSPF2 standards | `energy.gov` / `energystar.gov` / `ahri.org` |
+
+   The check is article-level (one matching link anywhere in the body covers all mentions of that topic), not paragraph-level — so TLDRs and FAQ summaries don't need their own citations as long as the deep-dive section in the body has the link.
+
+### Layer 2 — Weekly primary-source diff watcher
+
+`.github/workflows/ymyl-source-watcher.yml` runs every Monday at 13:00 UTC. Calls `scripts/ymyl_source_watcher.py`, which:
+- Fetches 7 monitored primary sources: IRS 25C, IRS 25D, ENERGY STAR Federal Credits, EPA Section 608, EPA AIM Act / Tech Transitions, DOE Heat Pump Systems, DOE Home Upgrades.
+- Diffs against snapshots stored under `.ymyl_snapshots/`.
+- Writes `.ymyl_snapshots/_report.md` with any material text deltas.
+- Opens a GitHub issue (label `ymyl`, `verification`) if material change detected.
+- Auto-commits refreshed snapshots so next week's diff has a fresh baseline.
+
+A companion remote-trigger routine (`trig_015SLS6kf3k57QHzaoWBGys9`, "YMYL weekly source-change alert") fires every Tuesday at 13:07 UTC, reads the report, and emails gyanesh.gulshan@gmail.com if any `## CHANGE` section is present (silent otherwise). Catches "the IRS updated their 25C page tomorrow" within 7 days.
+
+### Layer 3 — Monthly verification refresh agent
+
+Remote-trigger routine `trig_017fbEsQfe6NqnWKA3kR3bNL` ("YMYL monthly verification refresh") fires the 1st of each month at 14:13 UTC. It:
+- Runs `python scripts/ymyl_refresh_helper.py --threshold-days 45` to enumerate every article whose `next due` date is within 45 days, grouped by unique CLAIM URL across all articles.
+- WebFetches each unique URL ONCE (deduplication keeps the WebFetch budget small even when 20+ articles cite the same IRS page).
+- For each (URL, CLAIM) pair: classifies SUPPORTS / CONTRADICTS / UNCLEAR.
+- If all CLAIMs in an article still hold: bumps the inline log's `last verified` to today and `next due` to today + 90, then commits + pushes.
+- If any CLAIM has DRIFTED or is UNCLEAR: emails gyanesh.gulshan@gmail.com with the discrepancy + fix list. Does NOT auto-edit CLAIM text (that's a content decision the user owns).
+
+This is the layer that prevents the 90-day staleness gate from firing in the first place — claims get re-verified on a 30-day cadence, well before the 90-day deadline.
+
+### Helper scripts
+
+- `scripts/ymyl_source_watcher.py` — Layer 2 diff engine. Used by GH Action and runnable locally for testing.
+- `scripts/ymyl_refresh_helper.py` — Layer 3 planning tool. `--bump-all` re-stamps every pending article's log dates after manual verification. Pure analysis, no network.
+- `.ymyl_snapshots/` — versioned directory of primary-source baseline content + metadata. Gitignored content files; tracked metadata.
+
+### What still requires human/agent judgment
+
+- Editing CLAIM text when a primary source has materially changed. The Layer 3 agent surfaces drift but does not auto-rewrite claims.
+- Adding NEW primary sources to monitor. Edit `scripts/ymyl_source_watcher.py SOURCES` and `audit_article.py YMYL_TOPIC_SOURCE_MATRIX`.
+- Handling stale primary sources (e.g., DOE consumer page that hasn't been updated to reflect OBBBA termination). Document the discrepancy inline in the verification log; keep the article current with the actual statute.
+
+### Why this exists
+
+User raised a legitimate concern on 2026-05-08: with site impressions growing on page 2 of Google, factual errors propagate faster than agent-discipline alone can catch them. CLAUDE.md said "verify YMYL claims via WebFetch" but the discipline was honor-system. After three retroactive audit passes (5 distinct factual errors found across 5 articles — including the Missouri R-PACE error that propagated for ~9 months), the right answer was to mechanize the discipline. Layer 1 makes verification non-skippable. Layer 2 catches external drift. Layer 3 keeps logs warm without manual intervention. Together they reduce the failure surface to: (a) a brand-new YMYL topic the system doesn't know about (mitigation: add it to the matrix when you write the first article on it), or (b) a primary source that itself goes stale (mitigation: Layer 2 catches the change; agent edits the article).
+
 ## Pre-Commit Audit Hook (since 20 April 2026)
 
 A git pre-commit hook at `.git/hooks/pre-commit` blocks any commit whose staged HTML fails YMYL/SEO/AEO/GEO/CSS-regression checks:
@@ -613,6 +678,8 @@ Indexing" on the clean URL — but don't do it for all 17 at once (quota).
 6. If new URLs were added: resubmit sitemap in Google Search Console
 
 **Scheduled article publishing:** Drop article in `_drafts/YYYY-MM-DD-slug.html`. GitHub Actions (`.github/workflows/publish-scheduled-articles.yml`) runs daily 9am EST and auto-publishes on the scheduled date.
+
+**Pending workflow update — Node.js 20 deprecation (deadline 2 June 2026):** GitHub flagged on 2026-05-05 that `actions/checkout@v4` and `actions/setup-python@v5` in our workflow run on Node.js 20, which becomes the default-disabled runtime on **June 2, 2026** (Node.js 20 fully removed September 16, 2026). Both actions are pinned to major-version tags (`@v4`, `@v5`), so the maintainers' point-release updates to Node 24 will land automatically — but if for any reason auto-update doesn't kick in, manually re-pin to a known-Node-24 release before June 2. A scheduled remote agent has been queued for late May 2026 to verify and execute the bump if needed. If you read this section AFTER 2 June 2026 and the workflow is still green, the auto-update worked and this note can be deleted.
 
 **Do NOT:** create `deploy {date}/` folders, upload via Cloudflare dashboard manually, or use `wrangler deploy`. Those workflows are obsolete.
 
