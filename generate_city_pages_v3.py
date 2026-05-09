@@ -1494,6 +1494,23 @@ def load_cities():
             # Optional; empty string means generator renders no local-context
             # section, so un-researched cities keep their Phase 3 template.
             'local_context_html': str(row[17] or '') if len(row) > 17 else '',
+            # Phase-3-uniqueness fields (added 2026-05-09 in NOAA + Census + EIA
+            # fetcher commits). Columns 18-29. Stored as native types where
+            # available (int/float) or None for cities with NCEI sentinels.
+            # Drive new content blocks: "Climate by the Numbers", "Housing
+            # Stock & HVAC Considerations", "Local Operating Cost Snapshot".
+            'noaa_hdd_annual':              row[18] if len(row) > 18 else None,
+            'noaa_cdd_annual':              row[19] if len(row) > 19 else None,
+            'noaa_days_above_90':           row[20] if len(row) > 20 else None,
+            'noaa_days_below_32':           row[21] if len(row) > 21 else None,
+            'noaa_snowfall_inches':         row[22] if len(row) > 22 else None,
+            'acs_median_home_year':         row[23] if len(row) > 23 else None,
+            'acs_heating_fuel_pct_gas':     row[24] if len(row) > 24 else None,
+            'acs_heating_fuel_pct_electric':row[25] if len(row) > 25 else None,
+            'acs_owner_occupied_pct':       row[26] if len(row) > 26 else None,
+            'acs_median_home_value':        row[27] if len(row) > 27 else None,
+            'eia_state_elec_rate':          row[28] if len(row) > 28 else None,
+            'eia_state_gas_rate':           row[29] if len(row) > 29 else None,
         }
         all_cities.append(city)
         if row[0] not in cities:
