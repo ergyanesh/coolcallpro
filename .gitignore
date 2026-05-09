@@ -93,3 +93,4 @@ images/_failed.txt
 # (.ymyl_snapshots/ is TRACKED — the GH Action commits primary-source snapshots
 # so next week's diff has a baseline.)
 .ymyl_refresh_plan.md
+_audit/location_uniqueness.csv
