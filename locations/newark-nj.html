@@ -186,10 +186,17 @@
     }
     .city-hero p {
       font-size: 1.15rem;
-      max-width: 720px;
+      max-width: 620px;
       margin: 0 auto;
       opacity: 0.9;
       line-height: 1.7;
+    }
+    .city-context {
+      font-size: 1.1rem;
+      line-height: 1.85;
+      color: var(--gray-700);
+      max-width: 760px;
+      margin: 0 auto 40px;
     }
     .city-services {
       max-width: 760px;
@@ -283,8 +290,8 @@
       <div class="container">
         <span class="section-tag" style="background: rgba(255,255,255,0.1); color: #fff;">&#128205; Newark, NJ</span>
         <h1>24/7 Furnace Repair &amp; Emergency HVAC Service in Newark, NJ</h1>
-        <p>When the temperature drops to 26&deg;F and your heat fails, every hour counts. Connect with an independent local HVAC pro now &mdash; 24/7 dispatch nationwide.</p>
-        <div class="article-meta-modern"><div class="meta-line meta-reviewed">Last reviewed <time datetime="2026-04-25">April 25, 2026</time></div></div>
+        <p>Connect with independent local HVAC professionals in Newark, New Jersey. Emergency furnace repair, AC service, and system installation available 24/7.</p>
+        <div class="article-meta-modern"><div class="meta-line meta-reviewed">Last reviewed <time datetime="2026-05-09">May 9, 2026</time></div></div>
         <div class="author-byline">
           <img src="../images/author-gyane.webp" alt="Gyanesh Gulshan" class="author-avatar-sm" loading="lazy" width="48" height="48" />
           <span>By <a href="../author-gyanesh">Gyanesh Gulshan</a> &mdash; Founder, Cool Call Pro</span>
@@ -314,259 +321,129 @@
       </div>
     </div>
 
-    <!-- EMERGENCY LANE -->
-    <section class="section" style="padding: 72px 0 64px; background:#fff;" id="emergency-lane">
+    <!-- Local Context Paragraph -->
+    <section class="section" style="padding: 48px 0 0;">
       <div class="container">
-        <div style="text-align:center; margin-bottom: 36px;">
-          <span style="display:inline-block; font-size:0.78rem; font-weight:800; letter-spacing:0.12em; text-transform:uppercase; color:var(--red); padding:6px 14px; background:#fef2f2; border:1px solid #fed7d7; border-radius:999px; margin-bottom:16px;">&#128680; What's wrong right now?</span>
-          <h2 style="font-size: 1.75rem; color: var(--navy); margin: 0 0 22px;">Common Newark HVAC emergencies</h2>
-          <a href="tel:+18445821795" class="btn btn-primary btn-lg btn-vibrate"><span class="phone-icon">&#128222;</span> Call Now &mdash; (844) 582-1795</a>
-          <p style="font-size: 0.9rem; color: var(--gray-500); margin: 12px 0 0;">24/7 dispatch &middot; Newark-area network</p>
+        <div class="city-context" style="max-width: 760px; margin: 0 auto 40px;">
+          <p>Serving <strong>317,303</strong> residents across <strong>Newark, New Jersey</strong>, Cool Call Pro connects homeowners in <strong>Forest Hill, Ironbound, Weequahic, Upper Vailsburg, Upper Roseville</strong> with independent 24/7 HVAC technicians. Our referral network covers <strong>07104, 07105, 07112, 07106, 07107</strong> and surrounding areas. If your system is beyond repair, a furnace replacement in the Newark area typically runs <strong>$4,000–$7,500</strong>, and AC replacements average <strong>$4,500–$8,500</strong>. Your contractor should pull mechanical permits through the <strong>Newark Office of Uniform Construction Code (UCC)</strong>.</p>
         </div>
 
-        <div class="precaution-cards" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; max-width: 1100px; margin: 0 auto; align-items: stretch;">
+        <!-- Phase 3 (2026-05-09): the original Climate Context section was
+             8 climate-conditional templates — every hot-humid city got the
+             same paragraph with city/temp slots filled in. That made
+             same-cluster cities highly similar at the shingle level.
+             The new climate_by_numbers / housing_stock / operating_cost
+             blocks below replace it with NOAA + Census + EIA data-driven
+             prose that varies city-by-city, not just climate-by-climate. -->
 
-          <div class="precaution-card precaution-danger">
-            <div class="precaution-icon">&#128293; NO HEAT</div>
-            <h3>Furnace not igniting or blowing cold</h3>
-            <p style="margin-bottom: 0;">Furnace won't ignite &middot; blowing cold air &middot; short-cycling &middot; burning smell on first startup. In Newark, a furnace failure in deep winter can lead to frozen pipes within hours. <strong>If you smell gas, leave the building immediately and call 911 first.</strong></p>
-          </div>
-          <div class="precaution-card precaution-warning">
-            <div class="precaution-icon">&#10052;&#65039; FROZEN PIPES</div>
-            <h3>Pipes freezing while heat is out</h3>
-            <p style="margin-bottom: 0;">Once Newark indoor temps drop below 55&deg;F, pipes in exterior walls and unheated basements are at risk. If your heat is out and the forecast is below freezing, this is an emergency &mdash; restoring heat fast prevents thousands in burst-pipe damage.</p>
-          </div>
-          <div class="precaution-card" style="display:flex; flex-direction:column; background:#fff; border:1px solid var(--gray-200); box-shadow: 0 4px 16px rgba(10,22,40,0.04);">
-            <div class="precaution-icon">&#10052;&#65039; NO AC</div>
-            <h3>AC out during a summer heat wave</h3>
-            <p style="margin-bottom: 0;">Outdoor unit silent &middot; warm air at vents &middot; short-cycling. Even short Newark summers bring stretches of 90&deg;F+ days &mdash; an AC failure during a heat wave is a real-comfort emergency. Most causes are electrical and require a technician.</p>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- TRUST STRIP -->
-    <section class="section" style="padding: 72px 0; background: var(--gray-50);">
-      <div class="container">
-        <div style="text-align:center; margin-bottom: 36px;">
-          <span style="display:inline-block; font-size:0.78rem; font-weight:800; letter-spacing:0.12em; text-transform:uppercase; color:var(--navy); padding:6px 14px; background:#fff; border:1px solid var(--gray-200); border-radius:999px; margin-bottom:16px;">&#128205; The Newark Network</span>
-          <h2 style="font-size: 1.75rem; color: var(--navy); margin: 0;">About the Cool Call Pro Newark network</h2>
+        <!-- Phase 3: Climate by the Numbers (NOAA NCEI 1991-2020 Normals) -->
+        <div class="city-services" id="climate-numbers" style="margin-bottom: 40px;">
+          <h2>Newark Climate by the Numbers</h2>
+          <p style="font-size: 1.05rem; line-height: 1.85; color: var(--gray-700);">NOAA's 1991-2020 Climate Normals record <strong>4,870 heating degree days</strong> and 1,190 cooling degree days for Newark &mdash; a heating-leaning climate where furnaces and heat pumps run more hours than central AC. In an average year, 20.9 days per year hit 90&deg;F &mdash; short hot stretches rather than sustained heat and 81.9 days fall below 32&deg;F, requiring competent heating capacity through a real winter season. Snowfall is modest at 28.5&quot; per year &mdash; occasional accumulation rather than a structural design factor.</p>
         </div>
 
-        <div class="wh-steps" style="max-width: 1100px; margin: 0 auto;">
-
-          <div class="wh-step">
-            <div class="wh-step-num" aria-hidden="true">
-              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            </div>
-            <h3>24/7 Newark Dispatch</h3>
-            <p>Independent HVAC providers offering round-the-clock emergency response across the Newark metro &mdash; including weekends and holidays. Overnight surcharges are set by the individual provider.</p>
-          </div>
-
-          <div class="wh-step">
-            <div class="wh-step-num" aria-hidden="true">
-              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            </div>
-            <h3>Newark Metro Coverage</h3>
-            <p>Independent providers across major Newark neighborhoods, routed to your area by current availability. The full ZIP-level coverage detail is in the <a href="#services" style="color: var(--orange-dark); font-weight: 600;">Services &amp; service area</a> section below.</p>
-          </div>
-
-          <div class="wh-step">
-            <div class="wh-step-num" aria-hidden="true">
-              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            </div>
-            <h3>State License Required</h3>
-            <p>All HVAC contractors in New Jersey should hold a current <strong>State License Required (NJ DCA - Master HVACR Contractor)</strong>. Verify any contractor at the <a href="https://www.njconsumeraffairs.gov/hvacr" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">State Board of Examiners of HVACR Contractors</a> before you hire.</p>
-          </div>
-
+        <!-- Phase 3: Housing Stock & HVAC Considerations (Census ACS 2019-2023) -->
+        <div class="city-services" id="housing-stock" style="margin-bottom: 40px;">
+          <h2>Newark Housing Stock &amp; HVAC Considerations</h2>
+          <p style="font-size: 1.05rem; line-height: 1.85; color: var(--gray-700);">The median Newark home was built in <strong>1966</strong> per the U.S. Census ACS 5-year estimates &mdash; about 60 years old. Homes from this era typically have second-generation HVAC equipment by now, and replacement ductwork sealing is often the highest-ROI HVAC upgrade. Natural gas heat dominates: <strong>70.7%</strong> of homes burn utility gas and only 19.9% heat with electricity. Heat pump conversions face cheap-gas economics that often favor staying with a high-efficiency furnace. Owner-occupancy is low at <strong>24.1%</strong> with a mid-range median home value of <strong>$337,800</strong>.</p>
         </div>
-      </div>
-    </section>
 
-    <!-- CLIMATE + PHOTO (combined section, white background) -->
-    <section class="section" style="padding: 72px 0; background:#fff;">
-      <div class="container">
-        <div style="max-width: 1100px; margin: 0 auto;">
-          <div style="text-align:center; margin-bottom: 36px;">
-            <span style="display:inline-block; font-size:0.78rem; font-weight:800; letter-spacing:0.12em; text-transform:uppercase; color:#1557b0; padding:6px 14px; background:#ebf8ff; border:1px solid #bee3f8; border-radius:999px; margin-bottom:16px;">&#127777;&#65039; Climate Profile</span>
-            <h2 style="font-size: 1.75rem; color: var(--navy); margin: 0 0 14px;">Newark's cold-winter climate &amp; your HVAC</h2>
-            <p style="max-width: 720px; margin: 0 auto; font-size: 1.05rem; color: var(--gray-700); line-height: 1.7;">This is a heating-dominated Zone 4A (Mixed-Humid) climate &mdash; the furnace is the most-used appliance in the home for 5&ndash;7 months a year. Federal SEER2 13.4 (North Region) minimum applies to new AC equipment, and AFUE 90+ is the de-facto baseline for new gas furnaces in cold-winter regions.</p>
-          </div>
+        <!-- Phase 3: Local Operating Cost Snapshot (EIA + NOAA, transparent math) -->
+        <div class="city-services" id="operating-cost" style="margin-bottom: 40px;">
+          <h2>Heating Operating Cost in Newark: Heat Pump vs Gas Furnace</h2>
+          <p style="font-size: 1.05rem; line-height: 1.85; color: var(--gray-700);">At Newark's state-average rates (23.1&cent;/kWh electricity, $1.27/therm natural gas), the <strong>gas furnace wins on operating cost</strong>: $22.59/MMBtu for the heat pump vs $13.27/MMBtu for the gas furnace, a 41% margin. For a typical 1,500 sqft home in Newark's climate (4,870 HDD), that maps to roughly <strong>$1,200/year</strong> for a heat pump vs <strong>$700/year</strong> for a gas furnace at current rates &mdash; actual usage varies with insulation, thermostat habits, and equipment efficiency. The math, transparently: 1 MMBtu = 293.07 kWh = 10 therms. Heat pump cost-per-MMBtu = (electricity rate &times; 293.07) &divide; COP; gas furnace cost-per-MMBtu = (gas rate &times; 10) &divide; AFUE. Modern heat pumps achieve a coefficient of performance (COP) of 2.5 to 4 across most U.S. climates per the <a href="https://www.energy.gov/energysaver/heat-pump-systems" target="_blank" rel="noopener noreferrer" style="color: var(--orange-dark); font-weight: 600;">U.S. Department of Energy</a>; modern gas furnaces hit 95-98% AFUE.</p>
+        </div>
 
-          <div class="precaution-cards" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-bottom: 40px;">
-            <div class="precaution-card" style="text-align:center; padding: 24px 16px; background:#fff; border:1px solid var(--gray-200); box-shadow: 0 4px 16px rgba(10,22,40,0.04);">
-              <div style="font-size: 2.4rem; font-weight: 800; color: var(--orange-dark); line-height: 1; font-family: var(--font-display);">87&deg;F</div>
-              <p style="font-size: 0.95rem; color: var(--gray-700); margin: 8px 0 0;">Avg summer high</p>
-            </div>
-            <div class="precaution-card" style="text-align:center; padding: 24px 16px; background:#fff; border:1px solid var(--gray-200); box-shadow: 0 4px 16px rgba(10,22,40,0.04);">
-              <div style="font-size: 2.4rem; font-weight: 800; color: var(--orange-dark); line-height: 1; font-family: var(--font-display);">4A</div>
-              <p style="font-size: 0.95rem; color: var(--gray-700); margin: 8px 0 0;">IECC zone (cold-winter)</p>
-            </div>
-            <div class="precaution-card" style="text-align:center; padding: 24px 16px; background:#fff; border:1px solid var(--gray-200); box-shadow: 0 4px 16px rgba(10,22,40,0.04);">
-              <div style="font-size: 2.4rem; font-weight: 800; color: var(--orange-dark); line-height: 1; font-family: var(--font-display);">26&deg;F</div>
-              <p style="font-size: 0.95rem; color: var(--gray-700); margin: 8px 0 0;">Avg winter low</p>
-            </div>
-            <div class="precaution-card" style="text-align:center; padding: 24px 16px; background:#fff; border:1px solid var(--gray-200); box-shadow: 0 4px 16px rgba(10,22,40,0.04);">
-              <div style="font-size: 2.4rem; font-weight: 800; color: var(--orange-dark); line-height: 1; font-family: var(--font-display);">13.4</div>
-              <p style="font-size: 0.95rem; color: var(--gray-700); margin: 8px 0 0;">Federal SEER2 minimum</p>
-            </div>
-          </div>
-
-          <figure class="location-figure" style="margin: 0 auto 40px; max-width: 1100px;">
+        <figure class="location-figure" style="margin: 0 auto 40px; max-width: 1100px;">
           <img src="../images/cities/newark-nj.webp" alt="Aerial view of downtown in Newark, Essex County, New Jersey from an aircraft which just departed from Newark Liberty International Airport — Newark, NJ" width="1200" height="900" loading="lazy" decoding="async" style="width: 100%; height: auto; border-radius: var(--radius); display: block;" />
           <figcaption style="display: inline-block; margin-top: 12px; padding: 8px 14px; background: var(--gray-50); border: 1px solid var(--gray-100); border-radius: 999px; font-size: 0.78rem; color: var(--gray-600); line-height: 1.5;">
             <span aria-hidden="true" style="margin-right: 6px;">&#128247;</span>Famartin &middot; <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank" rel="nofollow noopener">CC BY-SA 4.0</a> via <a href="https://commons.wikimedia.org/wiki/File:2025-09-12_12_24_59_Aerial_view_of_downtown_in_Newark,_Essex_County,_New_Jersey_from_an_aircraft_which_just_departed_from_Newark_Liberty_International_Airport.jpg" target="_blank" rel="nofollow noopener" style="color: var(--gray-700); text-decoration: underline;">Wikimedia Commons</a> &middot; <a href="../image-credits" style="color: var(--gray-700); text-decoration: underline;">credits</a>
           </figcaption>
         </figure>
 
-          <p style="text-align:center; font-size: 0.92rem; color: var(--gray-500); margin-top: 24px;">Read our guide on <a href="../article-furnace" style="color: var(--orange-dark); font-weight: 600;">what to do when your furnace fails during a cold snap</a>.</p>
+        <!-- Phase 6: Researched per-city factual block (primary-source citations) -->
+        <div class="city-services" id="local-data" style="margin-bottom: 40px;">
+          <h2>HVAC in Newark, NJ: Local Data &amp; Context</h2>
+          <p style="font-size: 1.05rem; line-height: 1.85; color: var(--gray-700);">The figures below are drawn from federal and state primary sources &mdash; NOAA climate normals, U.S. Census ACS estimates, the New Jersey State Board of Examiners of HVACR Contractors, and U.S. Department of Energy guidance. Every claim in this section links to the source document that contains the underlying number or language.</p>
+
+<h3 style="font-size: 1.2rem; color: var(--navy); margin-top: 24px;">Climate Profile (NOAA Station KEWR Newark Liberty)</h3>
+<p style="font-size: 1.05rem; line-height: 1.85; color: var(--gray-700);">Newark Liberty International Airport (KEWR) is the NOAA reference station for the city. Per the <a href="https://www.ncei.noaa.gov/access/us-climate-normals/" target="_blank" rel="nofollow noopener">NOAA NCEI U.S. Climate Normals 1991&ndash;2020</a> (station USW00014734), Newark records an <strong>annual mean temperature of 55.5&deg;F</strong>, approximately <strong>4,700.6 annual heating degree days</strong> against <strong>1,269.5 cooling degree days</strong>, <strong>46.60 inches of annual precipitation</strong>, and 31.5 inches of annual snowfall. The 3.7:1 HDD-to-CDD ratio defines Newark as a classic Zone 4A mixed-humid climate where both heating and cooling matter meaningfully &mdash; ideal heat-pump territory.</p>
+
+<h3 style="font-size: 1.2rem; color: var(--navy); margin-top: 24px;">Housing Stock &amp; Fuel-Oil Legacy</h3>
+<p style="font-size: 1.05rem; line-height: 1.85; color: var(--gray-700);">The <a href="https://api.census.gov/data/2023/acs/acs5?get=NAME,B25040_001E,B25040_002E,B25040_003E,B25040_004E,B25040_005E,B25040_006E,B25040_007E,B25040_008E,B25040_009E,B25040_010E&amp;for=place:51000&amp;in=state:34" target="_blank" rel="nofollow noopener">U.S. Census Bureau ACS 2023 5-year estimates</a> (Tables B25040 and B25035 for Newark city, New Jersey) report <strong>113,748 occupied housing units</strong> with a <strong>median year built of 1966</strong>. Heating-fuel distribution: <strong>70.7% utility natural gas</strong> (80,434 units), <strong>19.9% electricity</strong> (22,655 units), and a notable <strong>2.9% fuel oil</strong> (3,281 units) &mdash; a Northeast urban legacy similar to Philadelphia (3.0%), Boston (7.2%), and NYC (12.5%). Newark also has 3,252 occupied units (2.9%) reporting no fuel used.</p>
+
+<h3 style="font-size: 1.2rem; color: var(--navy); margin-top: 24px;">Zone 4A Heat Pump &amp; Mini-Split Suitability</h3>
+<p style="font-size: 1.05rem; line-height: 1.85; color: var(--gray-700);">Newark&rsquo;s Zone 4A mixed-humid climate makes it well-suited to air-source heat pumps in both dual-fuel and single-fuel configurations. Per the <a href="https://www.energy.gov/energysaver/heat-pump-systems" target="_blank" rel="nofollow noopener">U.S. Department of Energy Energy Saver guide on Heat Pump Systems</a>, modern cold-climate heat pumps maintain capacity at low temperatures, making them suitable for moderate northern climates such as the Mid-Atlantic. For Newark&rsquo;s dense pre-1966 multi-family housing stock, ductless mini-splits provide a retrofit path that doesn&rsquo;t require invasive ductwork &mdash; particularly relevant for the 5-plus-story walk-ups and triple-decker buildings common in the city&rsquo;s older neighborhoods.</p>
+
+<h3 style="font-size: 1.2rem; color: var(--navy); margin-top: 24px;">NJ HVACR Contractor License (State Board)</h3>
+<p style="font-size: 1.05rem; line-height: 1.85; color: var(--gray-700);">Every HVAC contractor in Newark must hold a current license from the <a href="https://www.njconsumeraffairs.gov/hvacr/Pages/default.aspx" target="_blank" rel="nofollow noopener">New Jersey State Board of Examiners of Heating, Ventilating, Air Conditioning and Refrigeration (HVACR) Contractors</a>, administered by the NJ Division of Consumer Affairs. New Jersey is one of the few states with a dedicated HVACR-specific licensing board (separate from general contractor licensing). Per the Board: <em>&ldquo;All heating, ventilating, air conditioning and refrigeration contractors must be licensed by the state and renew their licenses every two years,&rdquo;</em> and <em>&ldquo;The Board ensures contractors meet all educational requirements for licensure.&rdquo;</em> Board contact: HVACR@dca.njoag.gov / (973) 504-6250 / P.O. Box 47031, Newark, NJ 07101 (the Board itself is headquartered in Newark).</p>
+
+<h3 style="font-size: 1.2rem; color: var(--navy); margin-top: 24px;">Permits, Rebates &amp; Federal Credits</h3>
+<p style="font-size: 1.05rem; line-height: 1.85; color: var(--gray-700);">Permit fees for residential mechanical work in Newark are set by the <strong>Newark Office of Uniform Construction Code (UCC)</strong>, which administers the New Jersey Uniform Construction Code (NJUCC); contact the UCC office at 920 Mayor Kenneth A. Gibson Blvd, 973-733-4311, for the current fee schedule. Newark is served by <strong>PSE&amp;G</strong> (Public Service Enterprise Group) for both electricity and natural gas; PSE&amp;G runs the Home Energy Solutions program, and residents are eligible for the statewide <a href="https://www.njcleanenergy.com/residential/home/home" target="_blank" rel="nofollow noopener">NJ Clean Energy Program</a> which administers heat pump and other efficiency incentives. The federal Section 25C tax credit was terminated for installations after Dec 31, 2025 (OBBBA, P.L. 119-21) &mdash; the local incentives above remain active for 2026.</p>
         </div>
-      </div>
-    </section>
 
-    <!-- LOCAL DATA 2x2 CARD GRID -->
-    <section class="section" id="local-data" style="padding: 72px 0; background: var(--gray-50);">
-      <div class="container">
-        <div style="max-width: 1100px; margin: 0 auto;">
-          <div style="text-align:center; margin-bottom: 32px;">
-            <span style="display:inline-block; font-size:0.78rem; font-weight:800; letter-spacing:0.12em; text-transform:uppercase; color:#1557b0; padding:6px 14px; background:#fff; border:1px solid #bee3f8; border-radius:999px; margin-bottom:16px;">&#128202; Primary Sources</span>
-            <h2 style="font-size: 1.75rem; color: var(--navy); margin: 0;">HVAC in Newark, NJ: local data &amp; sources</h2>
-          </div>
-
-          <div style="margin: 0 auto 32px; background: linear-gradient(135deg, #f7fafc, #edf2f7); border: 1px solid var(--gray-200); border-left: 5px solid var(--blue); border-radius: var(--radius); padding: 20px 24px;">
-            <div style="display: flex; align-items: flex-start; gap: 16px;">
-              <div style="font-size: 1.6rem; line-height: 1; flex-shrink: 0;" aria-hidden="true">&#128202;</div>
-              <div>
-                <div style="font-family: var(--font-display); font-weight: 800; font-size: 1.05rem; color: var(--navy); margin-bottom: 6px;">About these primary sources</div>
-                <p style="margin: 0; color: var(--gray-700); line-height: 1.65;">Every numerical claim below references a federal, state, or municipal primary source &mdash; NOAA climate normals, U.S. Census ACS, the New Jersey licensing authority, and your local utility's published rebate program.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="precaution-cards" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 20px; align-items: stretch;">
-
-            <div class="precaution-card" style="display:flex; flex-direction:column; background:#fff; border:1px solid var(--gray-200); box-shadow: 0 4px 16px rgba(10,22,40,0.04);">
-              <div class="precaution-icon" style="color: var(--blue);">&#127777;&#65039; Climate Profile</div>
-              <h3>NOAA NCEI 1991&ndash;2020 Normals</h3>
-              <p>Newark Liberty International Airport (KEWR) is the NOAA reference station for the city. Per the <a href="https://www.ncei.noaa.gov/access/us-climate-normals/" target="_blank" rel="nofollow noopener">NOAA NCEI U.S. Climate Normals 1991&ndash;2020</a> (station USW00014734), Newark records an <strong>annual mean temperature of 55.5&deg;F</strong>, approximately <strong>4,700.6 annual heating degree days</strong> against <strong>1,269.5 cooling degree days</strong>, <strong>46.60 inches of annual precipitation</strong>, and 31.5 inches of annual snowfall. The 3.7:1 HDD-to-CDD ratio defines Newark as a classic Zone 4A mixed-humid climate where both heating and cooling matter meaningfully &mdash; ideal heat-pump territory.</p>
-              <p>Newark&rsquo;s Zone 4A mixed-humid climate makes it well-suited to air-source heat pumps in both dual-fuel and single-fuel configurations. Per the <a href="https://www.energy.gov/energysaver/heat-pump-systems" target="_blank" rel="nofollow noopener">U.S. Department of Energy Energy Saver guide on Heat Pump Systems</a>, modern cold-climate heat pumps maintain capacity at low temperatures, making them suitable for moderate northern climates such as the Mid-Atlantic. For Newark&rsquo;s dense pre-1966 multi-family housing stock, ductless mini-splits provide a retrofit path that doesn&rsquo;t require invasive ductwork &mdash; particularly relevant for the 5-plus-story walk-ups and triple-decker buildings common in the city&rsquo;s older neighborhoods.</p>
-              <p style="margin-top: auto; padding-top: 8px; margin-bottom: 0;"><a href="https://www.ncei.noaa.gov/access/us-climate-normals/" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">NOAA NCEI Climate Normals &rarr;</a></p>
-            </div>
-            <div class="precaution-card" style="display:flex; flex-direction:column; background:#fff; border:1px solid var(--gray-200); box-shadow: 0 4px 16px rgba(10,22,40,0.04);">
-              <div class="precaution-icon" style="color: var(--blue);">&#127968; Housing Stock</div>
-              <h3>U.S. Census ACS 2022 5-Year</h3>
-              <p>The <a href="https://api.census.gov/data/2023/acs/acs5?get=NAME,B25040_001E,B25040_002E,B25040_003E,B25040_004E,B25040_005E,B25040_006E,B25040_007E,B25040_008E,B25040_009E,B25040_010E&amp;for=place:51000&amp;in=state:34" target="_blank" rel="nofollow noopener">U.S. Census Bureau ACS 2023 5-year estimates</a> (Tables B25040 and B25035 for Newark city, New Jersey) report <strong>113,748 occupied housing units</strong> with a <strong>median year built of 1966</strong>. Heating-fuel distribution: <strong>70.7% utility natural gas</strong> (80,434 units), <strong>19.9% electricity</strong> (22,655 units), and a notable <strong>2.9% fuel oil</strong> (3,281 units) &mdash; a Northeast urban legacy similar to Philadelphia (3.0%), Boston (7.2%), and NYC (12.5%). Newark also has 3,252 occupied units (2.9%) reporting no fuel used.</p>
-              <p style="margin-top: auto; padding-top: 8px; margin-bottom: 0;"><a href="https://api.census.gov/data/2023/acs/acs5?get=NAME,B25040_001E,B25040_002E,B25040_003E,B25040_004E,B25040_005E,B25040_006E,B25040_007E,B25040_008E,B25040_009E,B25040_010E&amp;for=place:51000&amp;in=state:34" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">Census ACS Data &rarr;</a></p>
-            </div>
-            <div class="precaution-card" style="display:flex; flex-direction:column; background:#fff; border:1px solid var(--gray-200); box-shadow: 0 4px 16px rgba(10,22,40,0.04);">
-              <div class="precaution-icon" style="color: var(--blue);">&#128203; New Jersey License</div>
-              <h3>New Jersey Licensing Authority</h3>
-              <p>Every HVAC contractor in Newark must hold a current license from the <a href="https://www.njconsumeraffairs.gov/hvacr/Pages/default.aspx" target="_blank" rel="nofollow noopener">New Jersey State Board of Examiners of Heating, Ventilating, Air Conditioning and Refrigeration (HVACR) Contractors</a>, administered by the NJ Division of Consumer Affairs. New Jersey is one of the few states with a dedicated HVACR-specific licensing board (separate from general contractor licensing). Per the Board: <em>&ldquo;All heating, ventilating, air conditioning and refrigeration contractors must be licensed by the state and renew their licenses every two years,&rdquo;</em> and <em>&ldquo;The Board ensures contractors meet all educational requirements for licensure.&rdquo;</em> Board contact: HVACR@dca.njoag.gov / (973) 504-6250 / P.O. Box 47031, Newark, NJ 07101 (the Board itself is headquartered in Newark).</p>
-              <p style="margin-top: auto; padding-top: 8px; margin-bottom: 0;"><a href="https://www.njconsumeraffairs.gov/hvacr/Pages/default.aspx" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">IRS Section 25C &rarr;</a></p>
-            </div>
-            <div class="precaution-card" style="display:flex; flex-direction:column; background:#fff; border:1px solid var(--gray-200); box-shadow: 0 4px 16px rgba(10,22,40,0.04);">
-              <div class="precaution-icon" style="color: var(--blue);">&#128176; Local Rebates &amp; Permits</div>
-              <h3>NJ Clean Energy</h3>
-              <p>Permit fees for residential mechanical work in Newark are set by the <strong>Newark Office of Uniform Construction Code (UCC)</strong>, which administers the New Jersey Uniform Construction Code (NJUCC); contact the UCC office at 920 Mayor Kenneth A. Gibson Blvd, 973-733-4311, for the current fee schedule. Newark is served by <strong>PSE&amp;G</strong> (Public Service Enterprise Group) for both electricity and natural gas; PSE&amp;G runs the Home Energy Solutions program, and residents are eligible for the statewide <a href="https://www.njcleanenergy.com/residential/home/home" target="_blank" rel="nofollow noopener">NJ Clean Energy Program</a> which administers heat pump and other efficiency incentives. The federal Section 25C tax credit was terminated for installations after Dec 31, 2025 (OBBBA, P.L. 119-21) &mdash; the local incentives above remain active for 2026.</p>
-              <p style="margin-top: auto; padding-top: 8px; margin-bottom: 0;"><a href="https://www.njcleanenergy.com/residential/home/home" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">View primary source &rarr;</a></p>
-            </div>
-
-          </div>
-
-          <div style="max-width: 1100px; margin: 32px auto 0; background: linear-gradient(135deg, #fffbeb, #fef3c7); border: 1px solid var(--yellow); border-left: 5px solid var(--orange-dark); border-radius: var(--radius); padding: 20px 24px;">
-            <div style="display: flex; align-items: flex-start; gap: 16px;">
-              <div style="font-size: 1.6rem; line-height: 1; flex-shrink: 0;" aria-hidden="true">&#128203;</div>
-              <div>
-                <div style="font-family: var(--font-display); font-weight: 800; font-size: 1.05rem; color: var(--navy); margin-bottom: 6px;">Federal tax credits &mdash; important update for 2026</div>
-                <p style="margin: 0; color: var(--gray-700); line-height: 1.65;">The federal <strong>Section 25C Energy Efficient Home Improvement Credit</strong> was terminated for installations placed in service after Dec 31, 2025 by the One Big Beautiful Bill Act (Public Law 119-21). <strong>State HEAR rebates and utility programs remain in effect.</strong> See our <a href="../article-hvac-financing" style="color: var(--orange-dark); font-weight: 600;">HVAC financing options</a> for what's still available.</p>
-              </div>
-            </div>
-          </div>
+        <!-- ZIP Codes & Neighborhoods (surfaced from xlsx data) -->
+        <div class="city-services" id="neighborhoods" style="margin-bottom: 40px;">
+          <h2>ZIP Codes &amp; Neighborhoods Served in Newark, NJ</h2>
+          <p style="font-size: 1.05rem; line-height: 1.85; color: var(--gray-700);">Our referral network connects homeowners across Newark&rsquo;s neighborhoods with independent HVAC professionals. Service verification available via <a href="tel:+18445821795" style="color: var(--orange-dark); font-weight: 600;">(844) 582-1795</a>.</p>
+          <ul class="neighborhood-grid">
+            <li><strong>Forest Hill</strong> &mdash; ZIP 07104</li>
+            <li><strong>Ironbound</strong> &mdash; ZIP 07105</li>
+            <li><strong>Weequahic</strong> &mdash; ZIP 07112</li>
+            <li><strong>Upper Vailsburg</strong> &mdash; ZIP 07106</li>
+            <li><strong>Upper Roseville</strong> &mdash; ZIP 07107</li>
+          </ul>
         </div>
-      </div>
-    </section>
 
-    <!-- SERVICES + ZIPS 2-COLUMN ROW -->
-    <section class="section" id="services" style="padding: 72px 0; background:#fff;">
-      <div class="container">
-        <div style="text-align:center; margin-bottom: 36px;">
-          <span style="display:inline-block; font-size:0.78rem; font-weight:800; letter-spacing:0.12em; text-transform:uppercase; color:var(--navy); padding:6px 14px; background:var(--gray-50); border:1px solid var(--gray-200); border-radius:999px; margin-bottom:16px;">&#128295; Coverage</span>
-          <h2 style="font-size: 1.75rem; color: var(--navy); margin: 0;">Services &amp; service area</h2>
-        </div>
-        <div class="precaution-cards" style="max-width: 1000px; margin: 0 auto; display:grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 20px; align-items: stretch;">
-
-          <div class="precaution-card" style="display:flex; flex-direction:column; background:#fff; border:1px solid var(--gray-200); box-shadow: 0 4px 16px rgba(10,22,40,0.04);">
-            <div class="precaution-icon" style="color: var(--navy);">&#128295; Services in Newark</div>
-            <h3>What our network covers</h3>
-            <ul style="margin-top: 0; margin-bottom: 0;">
+        <!-- Services List -->
+        <div class="city-services" id="services">
+          <h2>HVAC Services in Newark, NJ</h2>
+          <ul>
               <li>Emergency Furnace Repair in Newark</li>
               <li>High-Efficiency Furnace Installation in Newark</li>
               <li>Central Air Conditioning Repair &amp; Replacement</li>
               <li>Boiler Service &amp; Radiant Heating</li>
               <li>Ductwork Inspection, Cleaning &amp; Insulation</li>
-            </ul>
-          </div>
-
-          <div class="precaution-card" id="neighborhoods" style="display:flex; flex-direction:column; background:#fff; border:1px solid var(--gray-200); box-shadow: 0 4px 16px rgba(10,22,40,0.04);">
-            <div class="precaution-icon" style="color: var(--navy);">&#128205; ZIPs &amp; Neighborhoods</div>
-            <h3>Where we connect homeowners</h3>
-            <ul style="margin-top: 0; margin-bottom: 0;">
-              <li><strong>Forest Hill</strong> &mdash; ZIP 07104</li>
-              <li><strong>Ironbound</strong> &mdash; ZIP 07105</li>
-              <li><strong>Weequahic</strong> &mdash; ZIP 07112</li>
-              <li><strong>Upper Vailsburg</strong> &mdash; ZIP 07106</li>
-              <li><strong>Upper Roseville</strong> &mdash; ZIP 07107</li>
-            </ul>
-          </div>
-
+          </ul>
         </div>
-      </div>
-    </section>
 
-    <!-- MID-PAGE CTA -->
-    <section style="padding: 64px 0; background: var(--gray-50);">
-      <div class="container">
-        <div style="max-width: 760px; margin: 0 auto; background:linear-gradient(135deg, var(--navy-deep), var(--navy)); color:#fff; padding: 32px; border-radius: var(--radius-lg); text-align:center; box-shadow: 0 12px 40px rgba(10,22,40,0.18);">
-          <p style="font-size: 1.4rem; font-weight: 700; font-family: var(--font-display); color:#fff; margin-bottom: 10px;">Ready to talk to a Newark HVAC pro?</p>
-          <p style="margin-bottom: 22px; opacity: 0.85; font-size: 1rem;">Independent technicians &middot; 24/7 dispatch &middot; State License Required-verified network</p>
-          <a href="tel:+18445821795" class="btn btn-primary btn-lg btn-vibrate"><span class="phone-icon">&#128222;</span> Call Now &mdash; (844) 582-1795</a>
-          <p style="font-size: 0.72rem; color: rgba(255,255,255,0.5); margin: 16px auto 0; max-width: 460px; line-height: 1.5;">Disclosure: We are a referral service and may receive compensation for qualified calls. Calls may be routed to an independent provider network and may be recorded. Pricing and availability vary by provider and location.</p>
+        <!-- Licensing & Trust -->
+        <div class="city-services" style="margin-bottom: 40px;">
+          <h2>HVAC Licensing &amp; Permits in Newark, NJ</h2>
+          <p style="font-size: 1.05rem; line-height: 1.85; color: var(--gray-700);">Before hiring any HVAC contractor in New Jersey, verify they hold the proper <strong>State License Required (NJ DCA - Master HVACR Contractor)</strong>. Verify any contractor's license at the <a href="https://www.njconsumeraffairs.gov/hvacr" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">State Board of Examiners of HVACR Contractors</a>. Licensed contractors carry insurance, pull permits correctly, and stand behind their work. For Newark residents, your local permit office is <strong>Newark Office of Uniform Construction Code (UCC)</strong>&mdash;any major installation should have a permit on file. See our <a href="../costs" style="color: var(--orange-dark); font-weight: 600;">HVAC cost guide</a> for detailed pricing breakdowns. For full statewide licensing details, see our <a href="new-jersey" style="color: var(--orange-dark); font-weight: 600;">New Jersey HVAC guide</a>.</p>
+        </div>
+
+        <!-- Rebates & Incentives -->
+        <div class="city-services" style="margin-bottom: 48px;">
+          <h2>HVAC Rebates &amp; Incentives in Newark, NJ</h2>
+          <p style="font-size: 1.05rem; line-height: 1.85; color: var(--gray-700);">Newark homeowners served by <strong>PSE&amp;G</strong> may qualify for savings through <strong>PSE&amp;G HVAC Instant Rebate Program</strong> when installing qualifying high-efficiency equipment. For all New Jersey incentives including state and federal programs, see the <a href="https://www.dsireusa.org/" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">DSIRE database (N.C. State University / U.S. DOE)</a> or the <a href="https://www.energystar.gov/rebate-finder" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">ENERGY STAR Rebate Finder (EPA)</a>. The federal Section 25C credit (<a href="https://www.irs.gov/credits-deductions/energy-efficient-home-improvement-credit" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">Energy Efficient Home Improvement Credit</a>) was terminated for installations placed in service after Dec 31, 2025 by the One Big Beautiful Bill Act (P.L. 119-21); for 2026 installs focus on state HEAR rebates and utility programs. Learn about <a href="../article-hvac-financing" style="color: var(--orange-dark); font-weight: 600;">HVAC financing options</a>.</p>
         </div>
       </div>
     </section>
 
     <!-- Also Serving Metro Area -->
-    <section class="section" style="padding: 72px 0; background:#fff;">
-      <div class="container">
-        <div style="text-align:center; margin-bottom: 36px;">
-          <span style="display:inline-block; font-size:0.78rem; font-weight:800; letter-spacing:0.12em; text-transform:uppercase; color:var(--navy); padding:6px 14px; background:var(--gray-50); border:1px solid var(--gray-200); border-radius:999px; margin-bottom:16px;">&#127961;&#65039; Metro Area</span>
-          <h2 style="font-size: 1.75rem; color: var(--navy); margin: 0 0 12px;">Also serving the greater Newark metro</h2>
-          <p style="max-width: 720px; margin: 0 auto; font-size: 1.05rem; color: var(--gray-700); line-height: 1.7;">Our HVAC referral network extends beyond Newark proper into surrounding metro communities.</p>
-        </div>
-        <div class="precaution-cards" style="max-width: 760px; margin: 0 auto; display:grid; gap: 20px;">
-          <div class="precaution-card" style="display:flex; flex-direction:column; background:#fff; border:1px solid var(--gray-200); box-shadow: 0 4px 16px rgba(10,22,40,0.04);">
-            <div class="precaution-icon" style="color: var(--navy);">&#128205; Jersey City, NJ</div>
-            <h3>Neighborhoods, ZIPs &amp; permits</h3>
-            <p style="margin-bottom: 0;">Neighborhoods: <strong>The Heights, Bergen-Lafayette, Greenville, Journal Square, West Bergen</strong>. ZIP codes served: <strong>07307, 07304, 07305, 07306, 07302</strong>. Local permits through <strong>Jersey City Division of Construction Code Enforcement</strong>.</p>
+    <section class="section" style="padding: 0 0 48px;">
+      <div class="container" style="max-width: 760px;">
+        <div class="city-services">
+          <h2>Also Serving the Greater Newark Metro Area</h2>
+          <p style="font-size: 1.05rem; line-height: 1.85; color: var(--gray-700);">Our HVAC referral network extends beyond Newark to cover the surrounding metro area, including Jersey City, Trenton.</p>
+          <div style="margin-top: 20px; padding: 16px; background: var(--gray-50); border-radius: 8px;">
+            <h3 style="font-size: 1.15rem; color: var(--navy); margin-bottom: 8px;">Jersey City, NJ</h3>
+            <p style="font-size: 0.95rem; line-height: 1.75; color: var(--gray-700);">Neighborhoods: <strong>The Heights, Bergen-Lafayette, Greenville, Journal Square, West Bergen</strong>. ZIP codes served: <strong>07307, 07304, 07305, 07306, 07302</strong>. Local permits through <strong>Jersey City Division of Construction Code Enforcement</strong>.</p>
           </div>
-          <div class="precaution-card" style="display:flex; flex-direction:column; background:#fff; border:1px solid var(--gray-200); box-shadow: 0 4px 16px rgba(10,22,40,0.04);">
-            <div class="precaution-icon" style="color: var(--navy);">&#128205; Trenton, NJ</div>
-            <h3>Neighborhoods, ZIPs &amp; permits</h3>
-            <p style="margin-bottom: 0;">Neighborhoods: <strong>Cadwalader &amp; Hillcrest, Berkeley Square &amp; Parkside, Villa Park, Chambersburg, West Trenton</strong>. ZIP codes served: <strong>08618, 08611, 08609, 08629, 08638</strong>. Local permits through <strong>City of Trenton Division of Technical Services</strong>.</p>
+          <div style="margin-top: 20px; padding: 16px; background: var(--gray-50); border-radius: 8px;">
+            <h3 style="font-size: 1.15rem; color: var(--navy); margin-bottom: 8px;">Trenton, NJ</h3>
+            <p style="font-size: 0.95rem; line-height: 1.75; color: var(--gray-700);">Neighborhoods: <strong>Cadwalader &amp; Hillcrest, Berkeley Square &amp; Parkside, Villa Park, Chambersburg, West Trenton</strong>. ZIP codes served: <strong>08618, 08611, 08609, 08629, 08638</strong>. Local permits through <strong>City of Trenton Division of Technical Services</strong>.</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- FAQs -->
-    <section class="section" id="faqs" style="padding: 72px 0; background:#fff;">
+    <section class="section" id="faqs">
       <div class="container" style="max-width: 800px;">
-        <div class="city-faq" style="text-align:center; margin-bottom: 36px;">
-          <span style="display:inline-block; font-size:0.78rem; font-weight:800; letter-spacing:0.12em; text-transform:uppercase; color:var(--navy); padding:6px 14px; background:var(--gray-50); border:1px solid var(--gray-200); border-radius:999px; margin-bottom:16px;">&#10067; Common Questions</span>
-          <h2 style="font-size: 1.75rem; color: var(--navy); margin: 0;">Frequently Asked Questions &mdash; Newark, NJ</h2>
-        </div>
         <div class="city-faq">
+          <h2>Frequently Asked Questions &#8212; Newark, NJ</h2>
           <div class="faq-list" style="margin-top: 24px;">
             <div class="faq-item">
               <button class="faq-q" aria-expanded="false">
@@ -611,7 +488,7 @@
               </button>
               <div class="faq-a">
                 <div class="faq-a-inner">
-                  <p>A standard AC replacement in Newark typically costs <strong>$4,500–$8,500</strong>, and furnace installations run <strong>$4,000–$7,500</strong>. Costs vary based on system size, efficiency rating, and installation complexity. In New Jersey, new AC units must meet a minimum <strong>SEER2 13.4 (North Region)</strong> rating.</p>
+                  <p>A furnace replacement in Newark typically costs <strong>$4,000–$7,500</strong>, and AC replacements run <strong>$4,500–$8,500</strong>. Costs vary based on system size, efficiency rating, and installation complexity. In New Jersey, new AC units must meet a minimum <strong>SEER2 13.4 (North Region)</strong> rating.</p>
                 </div>
               </div>
             </div>
@@ -634,10 +511,10 @@
     </section>
 
     <!-- Nearby Service Areas -->
-    <section class="section" style="padding: 72px 0; background: var(--gray-50);">
+    <section class="section" style="padding: 32px 0 48px;">
       <div class="container" style="max-width: 800px;">
         <div class="city-services">
-          <h2 style="text-align:center;">Nearby HVAC Service Areas</h2>
+          <h2>Nearby HVAC Service Areas</h2>
           <ul>
             <li><a href="chicago-il">Chicago, IL</a></li>
             <li><a href="houston-tx">Houston, TX</a></li>

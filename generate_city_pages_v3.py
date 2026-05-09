@@ -667,6 +667,281 @@ def neighborhoods_section_html(c):
 '''
 
 
+def climate_by_numbers_html(c):
+    """Phase 3 / uniqueness uplift: render NOAA Climate Normals as data-driven
+    factual prose. Each paragraph picks a sentence variant based on data ranges
+    so that two cities with similar climate types still produce distinct prose.
+
+    Drives ~200 words of city-specific content per page when all NOAA fields
+    are populated. Skips fields where NCEI returned a sentinel (None for
+    tropical-no-HDD, arid-no-snow, etc.) and adapts prose around what's missing.
+
+    Source: NOAA NCEI 1991-2020 Climate Normals (verified 2026-05-09).
+    """
+    city_e = escape(c['city'])
+    st_e = escape(c['state'])
+    hdd = c.get('noaa_hdd_annual')
+    cdd = c.get('noaa_cdd_annual')
+    days_90 = c.get('noaa_days_above_90')
+    days_32 = c.get('noaa_days_below_32')
+    snow = c.get('noaa_snowfall_inches')
+
+    # If we have nothing, render nothing (Laredo and similar gaps)
+    if not any(v is not None for v in (hdd, cdd, days_90, days_32, snow)):
+        return ""
+
+    # Sentence 1 — opening, by HDD/CDD ratio
+    if hdd is not None and cdd is not None and cdd > 0:
+        ratio = hdd / cdd if cdd else 999
+        if ratio > 5:
+            opener = (f"{city_e}'s climate is heating-dominated: NOAA's 1991-2020 Climate Normals "
+                      f"record <strong>{hdd:,} annual heating degree days</strong> against just "
+                      f"{cdd:,} cooling degree days &mdash; a {ratio:.1f}-to-1 heating-to-cooling load.")
+        elif ratio > 2:
+            opener = (f"NOAA's 1991-2020 Climate Normals record <strong>{hdd:,} heating degree days</strong> "
+                      f"and {cdd:,} cooling degree days for {city_e} &mdash; a heating-leaning climate "
+                      f"where furnaces and heat pumps run more hours than central AC.")
+        elif ratio > 0.7:
+            opener = (f"{city_e} sits in a balanced climate band: NOAA records <strong>{hdd:,} heating "
+                      f"degree days and {cdd:,} cooling degree days</strong> annually, meaning HVAC "
+                      f"systems work both seasons roughly equally.")
+        else:
+            opener = (f"{city_e}'s climate is cooling-dominated: NOAA records <strong>{cdd:,} annual "
+                      f"cooling degree days</strong> against just {hdd:,} heating degree days &mdash; "
+                      f"AC capacity and refrigerant integrity matter more than furnace size here.")
+    elif cdd is not None and hdd is None:
+        opener = (f"{city_e}'s climate is so warm that NOAA's 1991-2020 Climate Normals record no "
+                  f"meaningful heating load. Cooling degree days run <strong>{cdd:,} per year</strong>, "
+                  f"placing {city_e} among the most cooling-intensive markets in the U.S.")
+    elif hdd is not None:
+        opener = (f"NOAA's 1991-2020 Climate Normals record <strong>{hdd:,} annual heating degree days</strong> "
+                  f"for {city_e} &mdash; a heating load HVAC equipment must be sized to handle.")
+    else:
+        opener = (f"NOAA's 1991-2020 Climate Normals capture {city_e}'s long-run heating and cooling load.")
+
+    # Sentence 2 — temperature extremes
+    extremes_parts = []
+    if days_90 is not None and days_90 >= 1:
+        if days_90 > 100:
+            extremes_parts.append(f"{days_90} days per year exceed 90&deg;F &mdash; sustained AC duty cycles "
+                                  f"that drive compressor wear and refrigerant stress")
+        elif days_90 > 30:
+            extremes_parts.append(f"{days_90} days per year top 90&deg;F, putting consistent strain on "
+                                  f"central AC equipment through summer")
+        else:
+            extremes_parts.append(f"{days_90} days per year hit 90&deg;F &mdash; short hot stretches "
+                                  f"rather than sustained heat")
+    if days_32 is not None and days_32 >= 1:
+        if days_32 > 120:
+            extremes_parts.append(f"{days_32} days drop below freezing &mdash; cold-climate heat pump "
+                                  f"capacity matters here, and gas furnace reliability is non-negotiable")
+        elif days_32 > 30:
+            extremes_parts.append(f"{days_32} days fall below 32&deg;F, requiring competent heating "
+                                  f"capacity through a real winter season")
+        else:
+            extremes_parts.append(f"only {days_32} days dip below freezing, so cold-climate equipment "
+                                  f"specs aren't a primary concern")
+    extremes = (" In an average year, " + " and ".join(extremes_parts) + ".") if extremes_parts else ""
+
+    # Sentence 3 — snowfall
+    snow_part = ""
+    if snow is not None:
+        if snow > 80:
+            snow_part = (f" Annual snowfall averages <strong>{snow}&quot; per year</strong> &mdash; outdoor "
+                         f"unit ice-pack damage and snow-load on heat pump coils are real spring service drivers.")
+        elif snow > 30:
+            snow_part = (f" Annual snowfall averages {snow}&quot; per year, enough that outdoor units need "
+                         f"clearance from snowdrifts and gutter runoff.")
+        elif snow > 5:
+            snow_part = (f" Snowfall is modest at {snow}&quot; per year &mdash; occasional accumulation "
+                         f"rather than a structural design factor.")
+        elif snow > 0:
+            snow_part = (f" Snowfall is rare at just {snow}&quot; in a typical year.")
+        # snow == 0: omit (already implied by climate)
+
+    paragraph = opener + extremes + snow_part
+
+    return f'''
+        <!-- Phase 3: Climate by the Numbers (NOAA NCEI 1991-2020 Normals) -->
+        <div class="city-services" id="climate-numbers" style="margin-bottom: 40px;">
+          <h2>{city_e} Climate by the Numbers</h2>
+          <p style="font-size: 1.05rem; line-height: 1.85; color: var(--gray-700);">{paragraph}</p>
+        </div>
+'''
+
+
+def housing_stock_html(c):
+    """Phase 3: render Census ACS housing stock data as HVAC-relevant prose.
+
+    Drives ~200 words tying median home age + heating fuel mix + ownership rate
+    to HVAC implications (older systems, fuel availability, owner motivation).
+    Sentence variants chosen by data ranges so similar cities still differ.
+
+    Source: Census ACS 5-year 2019-2023 (verified 2026-05-09).
+    """
+    city_e = escape(c['city'])
+    state_full = escape(STATE_FULL.get(c['state'], c['state']))
+    yr = c.get('acs_median_home_year')
+    pct_gas = c.get('acs_heating_fuel_pct_gas')
+    pct_elec = c.get('acs_heating_fuel_pct_electric')
+    owner_pct = c.get('acs_owner_occupied_pct')
+    home_value = c.get('acs_median_home_value')
+
+    if not yr and not pct_gas and not pct_elec and not owner_pct and not home_value:
+        return ""
+
+    # Sentence 1 — housing age, by year built bucket
+    age_part = ""
+    if yr:
+        age_now = 2026 - yr
+        if yr < 1960:
+            age_part = (f"{city_e}'s housing stock is among the oldest in {state_full}: per the U.S. Census ACS "
+                        f"5-year estimates, the median home was built in <strong>{yr}</strong> &mdash; "
+                        f"{age_now} years old on average. Original ductwork from this era often "
+                        f"leaks 25-35% of conditioned air through joint failures, and many homes still "
+                        f"have undersized electrical panels.")
+        elif yr < 1980:
+            age_part = (f"The median {city_e} home was built in <strong>{yr}</strong> per the U.S. Census ACS "
+                        f"5-year estimates &mdash; about {age_now} years old. Homes from this era typically "
+                        f"have second-generation HVAC equipment by now, and replacement ductwork sealing is "
+                        f"often the highest-ROI HVAC upgrade.")
+        elif yr < 2000:
+            age_part = (f"{city_e}'s median home was built in <strong>{yr}</strong> &mdash; about {age_now} "
+                        f"years old per the U.S. Census ACS 5-year estimates. Original HVAC equipment from "
+                        f"this era is at or beyond expected lifespan; replacements are a normal expense.")
+        else:
+            age_part = (f"{city_e} has relatively new housing stock: the median home was built in "
+                        f"<strong>{yr}</strong> per the U.S. Census ACS 5-year estimates, just {age_now} years old. "
+                        f"Original equipment is usually still serviceable, with first-generation replacements "
+                        f"on the horizon.")
+
+    # Sentence 2 — heating fuel mix
+    fuel_part = ""
+    if pct_gas is not None and pct_elec is not None:
+        if pct_gas > 70:
+            fuel_part = (f" Natural gas heat dominates: <strong>{pct_gas}%</strong> of homes burn utility gas "
+                         f"and only {pct_elec}% heat with electricity. Heat pump conversions face cheap-gas "
+                         f"economics that often favor staying with a high-efficiency furnace.")
+        elif pct_elec > 70:
+            fuel_part = (f" Electricity dominates home heating at <strong>{pct_elec}%</strong> of households, "
+                         f"with only {pct_gas}% on utility gas. Heat pump installations meet existing "
+                         f"infrastructure; the upgrade path is straightforward.")
+        elif pct_gas > pct_elec:
+            fuel_part = (f" Heating fuel splits {pct_gas}% utility gas to {pct_elec}% electricity &mdash; a "
+                         f"mixed-market where heat pump conversion economics depend on local utility rates "
+                         f"and individual home setups.")
+        else:
+            fuel_part = (f" Heating fuel splits {pct_elec}% electricity to {pct_gas}% utility gas, with "
+                         f"electric and gas roughly comparable across the housing stock.")
+
+    # Sentence 3 — ownership + value
+    ownership_part = ""
+    if owner_pct is not None:
+        if owner_pct > 65:
+            ownership_part = (f" Owner-occupancy is high at <strong>{owner_pct}%</strong>")
+        elif owner_pct > 45:
+            ownership_part = (f" Owner-occupancy runs {owner_pct}%")
+        else:
+            ownership_part = (f" Owner-occupancy is low at <strong>{owner_pct}%</strong>")
+    if home_value:
+        if home_value < 200000:
+            value_word = "modest"
+        elif home_value < 500000:
+            value_word = "mid-range"
+        elif home_value < 1000000:
+            value_word = "elevated"
+        else:
+            value_word = "high"
+        if ownership_part:
+            ownership_part += f" with a {value_word} median home value of <strong>${home_value:,}</strong>"
+        else:
+            ownership_part = f" Median home value runs <strong>${home_value:,}</strong>"
+        # Pivot to HVAC implication
+        if home_value > 500000:
+            ownership_part += " &mdash; homeowners here typically invest in higher-efficiency replacements rather than minimum-spec equipment."
+        elif home_value < 200000:
+            ownership_part += " &mdash; replacement budgets tend to favor reliable mid-tier equipment over premium-tier upgrades."
+        else:
+            ownership_part += "."
+    elif ownership_part:
+        ownership_part += "."
+
+    paragraph = (age_part + fuel_part + ownership_part).strip()
+    if not paragraph:
+        return ""
+
+    return f'''
+        <!-- Phase 3: Housing Stock & HVAC Considerations (Census ACS 2019-2023) -->
+        <div class="city-services" id="housing-stock" style="margin-bottom: 40px;">
+          <h2>{city_e} Housing Stock &amp; HVAC Considerations</h2>
+          <p style="font-size: 1.05rem; line-height: 1.85; color: var(--gray-700);">{paragraph}</p>
+        </div>
+'''
+
+
+def operating_cost_snapshot_html(c):
+    """Phase 3: render a per-city heat-pump-vs-furnace operating cost snapshot
+    using EIA state rates + NOAA climate load.
+
+    Math (transparent so a homeowner can verify):
+      1 MMBtu = 293.07 kWh; 1 MMBtu = 10 therms
+      Cost per million BTU of DELIVERED heat:
+        - Heat pump (COP 3.0): elec_rate * 293.07 / 3.0   ($/MMBtu)
+        - Gas furnace (AFUE 96%): gas_rate * 10 / 0.96    ($/MMBtu)
+      Annual heating cost for a 1,500 sqft home (~50 MMBtu/yr at HDD 4500):
+        scaled by city HDD ÷ 4500.
+
+    Source: EIA Electric Power Monthly + Natural Gas Annual (verified 2026-02 / 2024).
+    """
+    city_e = escape(c['city'])
+    elec = c.get('eia_state_elec_rate')   # $/kWh
+    gas = c.get('eia_state_gas_rate')      # $/therm
+    hdd = c.get('noaa_hdd_annual')
+
+    if not (elec and gas):
+        return ""
+
+    # Cost per million BTU of delivered heat
+    hp_per_mbtu = round(elec * 293.07 / 3.0, 2)
+    gas_per_mbtu = round(gas * 10 / 0.96, 2)
+
+    # Wins/loses framing
+    winner_word = "heat pump" if hp_per_mbtu < gas_per_mbtu else "gas furnace"
+    margin_pct = abs(hp_per_mbtu - gas_per_mbtu) / max(hp_per_mbtu, gas_per_mbtu) * 100
+
+    # Annual cost estimate if we have HDD
+    annual_part = ""
+    if hdd:
+        # Assume 50 MMBtu/year for ~1500 sqft home in a 4500 HDD climate; scale by city HDD
+        load_mmbtu = round(50 * (hdd / 4500), 1)
+        hp_annual = round(hp_per_mbtu * load_mmbtu / 50) * 50  # round to nearest $50
+        gas_annual = round(gas_per_mbtu * load_mmbtu / 50) * 50
+        annual_part = (f" For a typical 1,500 sqft home in {city_e}'s climate ({hdd:,} HDD), "
+                       f"that maps to roughly <strong>${hp_annual:,}/year</strong> for a heat pump "
+                       f"vs <strong>${gas_annual:,}/year</strong> for a gas furnace at current rates &mdash; "
+                       f"actual usage varies with insulation, thermostat habits, and equipment efficiency.")
+
+    # Headline
+    if margin_pct < 8:
+        verdict = (f"At {city_e}'s state-average rates ({elec*100:.1f}&cent;/kWh electricity, "
+                   f"${gas:.2f}/therm natural gas), heat pump and gas furnace operating costs run "
+                   f"close: <strong>${hp_per_mbtu}/MMBtu for the heat pump vs ${gas_per_mbtu}/MMBtu "
+                   f"for the gas furnace</strong>, a {margin_pct:.0f}% gap.")
+    else:
+        verdict = (f"At {city_e}'s state-average rates ({elec*100:.1f}&cent;/kWh electricity, "
+                   f"${gas:.2f}/therm natural gas), the <strong>{winner_word} wins on operating cost</strong>: "
+                   f"${hp_per_mbtu}/MMBtu for the heat pump vs ${gas_per_mbtu}/MMBtu for the gas furnace, "
+                   f"a {margin_pct:.0f}% margin.")
+
+    return f'''
+        <!-- Phase 3: Local Operating Cost Snapshot (EIA + NOAA, transparent math) -->
+        <div class="city-services" id="operating-cost" style="margin-bottom: 40px;">
+          <h2>Heating Operating Cost in {city_e}: Heat Pump vs Gas Furnace</h2>
+          <p style="font-size: 1.05rem; line-height: 1.85; color: var(--gray-700);">{verdict}{annual_part} The math, transparently: 1 MMBtu = 293.07 kWh = 10 therms. Heat pump cost-per-MMBtu = (electricity rate &times; 293.07) &divide; COP; gas furnace cost-per-MMBtu = (gas rate &times; 10) &divide; AFUE. Modern heat pumps achieve a coefficient of performance (COP) of 2.5 to 4 across most U.S. climates per the <a href="https://www.energy.gov/energysaver/heat-pump-systems" target="_blank" rel="noopener noreferrer" style="color: var(--orange-dark); font-weight: 600;">U.S. Department of Energy</a>; modern gas furnaces hit 95-98% AFUE.</p>
+        </div>
+'''
+
+
 def local_context_section_html(c):
     """Phase 6: render the researched factual block, if populated.
 
@@ -875,6 +1150,12 @@ def generate_page(c, climate_type, nearby, absorbed_data, all_cities_lookup, sta
     meta_block = page_meta_html(reviewed_iso, reviewed_readable)
     neighborhoods_block = neighborhoods_section_html(c)
     local_context_block = local_context_section_html(c)
+    # Phase 3 / uniqueness uplift: new data-driven blocks. Each one renders
+    # only if the underlying xlsx fields are populated; degrades gracefully
+    # to empty string for cities with sentinel/missing values.
+    climate_numbers_block = climate_by_numbers_html(c)
+    housing_stock_block = housing_stock_html(c)
+    operating_cost_block = operating_cost_snapshot_html(c)
     sources_block = sources_footer_html()
     license_faq_html = license_faq_sentence(c, html=True)
     license_faq_plain = license_faq_sentence(c, html=False).replace('"', '\\"')
@@ -1247,12 +1528,14 @@ def generate_page(c, climate_type, nearby, absorbed_data, all_cities_lookup, sta
           <p>Serving <strong>{pop_str}</strong> residents across <strong>{e_city}, {e_state}</strong>, Cool Call Pro connects homeowners in <strong>{e_neighborhoods}</strong> with independent 24/7 HVAC technicians. Our referral network covers <strong>{e_zips}</strong> and surrounding areas. {cost_sentence} Your contractor should pull mechanical permits through the <strong>{e_permit}</strong>.</p>
         </div>
 
-        <!-- Climate Context -->
-        <div class="city-services" style="margin-bottom: 40px;">
-          <h2>{climate_h2}</h2>
-          <p style="font-size: 1.05rem; line-height: 1.85; color: var(--gray-700);">{climate_para}</p>
-        </div>
-{figure_block}{local_context_block}{neighborhoods_block}
+        <!-- Phase 3 (2026-05-09): the original Climate Context section was
+             8 climate-conditional templates — every hot-humid city got the
+             same paragraph with city/temp slots filled in. That made
+             same-cluster cities highly similar at the shingle level.
+             The new climate_by_numbers / housing_stock / operating_cost
+             blocks below replace it with NOAA + Census + EIA data-driven
+             prose that varies city-by-city, not just climate-by-climate. -->
+{climate_numbers_block}{housing_stock_block}{operating_cost_block}{figure_block}{local_context_block}{neighborhoods_block}
         <!-- Services List -->
         <div class="city-services" id="services">
           <h2>HVAC Services in {e_city}, {e_st}</h2>

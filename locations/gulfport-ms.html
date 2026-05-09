@@ -177,10 +177,17 @@
     }
     .city-hero p {
       font-size: 1.15rem;
-      max-width: 720px;
+      max-width: 620px;
       margin: 0 auto;
       opacity: 0.9;
       line-height: 1.7;
+    }
+    .city-context {
+      font-size: 1.1rem;
+      line-height: 1.85;
+      color: var(--gray-700);
+      max-width: 760px;
+      margin: 0 auto 40px;
     }
     .city-services {
       max-width: 760px;
@@ -274,8 +281,8 @@
       <div class="container">
         <span class="section-tag" style="background: rgba(255,255,255,0.1); color: #fff;">&#128205; Gulfport, MS</span>
         <h1>24/7 AC Repair &amp; Emergency HVAC Service in Gulfport, MS</h1>
-        <p>When summer humidity hits and your AC quits, every hour matters. Connect with an independent local HVAC pro now &mdash; 24/7 dispatch nationwide.</p>
-        <div class="article-meta-modern"><div class="meta-line meta-reviewed">Last reviewed <time datetime="2026-04-25">April 25, 2026</time></div></div>
+        <p>Connect with independent local HVAC professionals in Gulfport, Mississippi. Emergency AC repair, furnace service, and system installation available 24/7.</p>
+        <div class="article-meta-modern"><div class="meta-line meta-reviewed">Last reviewed <time datetime="2026-05-09">May 9, 2026</time></div></div>
         <div class="author-byline">
           <img src="../images/author-gyane.webp" alt="Gyanesh Gulshan" class="author-avatar-sm" loading="lazy" width="48" height="48" />
           <span>By <a href="../author-gyanesh">Gyanesh Gulshan</a> &mdash; Founder, Cool Call Pro</span>
@@ -305,236 +312,120 @@
       </div>
     </div>
 
-    <!-- EMERGENCY LANE -->
-    <section class="section" style="padding: 72px 0 64px; background:#fff;" id="emergency-lane">
+    <!-- Local Context Paragraph -->
+    <section class="section" style="padding: 48px 0 0;">
       <div class="container">
-        <div style="text-align:center; margin-bottom: 36px;">
-          <span style="display:inline-block; font-size:0.78rem; font-weight:800; letter-spacing:0.12em; text-transform:uppercase; color:var(--red); padding:6px 14px; background:#fef2f2; border:1px solid #fed7d7; border-radius:999px; margin-bottom:16px;">&#128680; What's wrong right now?</span>
-          <h2 style="font-size: 1.75rem; color: var(--navy); margin: 0 0 22px;">Common Gulfport HVAC emergencies</h2>
-          <a href="tel:+18445821795" class="btn btn-primary btn-lg btn-vibrate"><span class="phone-icon">&#128222;</span> Call Now &mdash; (844) 582-1795</a>
-          <p style="font-size: 0.9rem; color: var(--gray-500); margin: 12px 0 0;">24/7 dispatch &middot; Gulfport-area network</p>
+        <div class="city-context" style="max-width: 760px; margin: 0 auto 40px;">
+          <p>Serving <strong>74,621</strong> residents across <strong>Gulfport, Mississippi</strong>, Cool Call Pro connects homeowners in <strong>Bayou View, Orange Grove, North Gulfport, Magnolia Grove, The Island</strong> with independent 24/7 HVAC technicians. Our referral network covers <strong>39501, 39503, 39507, 39505, 39506</strong> and surrounding areas. If your system is beyond repair, a standard AC replacement in the Gulfport area typically runs <strong>$3,500–$7,500</strong>, and furnace installations average <strong>$3,000–$6,500</strong>. Your contractor should pull mechanical permits through the <strong>City of Gulfport Urban Development Building Code Services</strong>.</p>
         </div>
 
-        <div class="precaution-cards" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; max-width: 1100px; margin: 0 auto; align-items: stretch;">
+        <!-- Phase 3 (2026-05-09): the original Climate Context section was
+             8 climate-conditional templates — every hot-humid city got the
+             same paragraph with city/temp slots filled in. That made
+             same-cluster cities highly similar at the shingle level.
+             The new climate_by_numbers / housing_stock / operating_cost
+             blocks below replace it with NOAA + Census + EIA data-driven
+             prose that varies city-by-city, not just climate-by-climate. -->
 
-          <div class="precaution-card precaution-danger">
-            <div class="precaution-icon">&#10052;&#65039; NO AC</div>
-            <h3>AC out, blowing warm, or iced over</h3>
-            <p style="margin-bottom: 0;">Outdoor unit silent &middot; indoor blower running but warm air &middot; ice on the refrigerant lines &middot; short-cycling on/off. The most common cause is electrical (capacitor, contactor) or refrigerant &mdash; both require a technician.</p>
-          </div>
-          <div class="precaution-card precaution-danger">
-            <div class="precaution-icon">&#128293; NO HEAT</div>
-            <h3>Furnace not igniting or blowing cold</h3>
-            <p style="margin-bottom: 0;">Furnace won't ignite &middot; blowing cold air &middot; short-cycling &middot; burning smell on first startup. <strong>If you smell gas, leave the building immediately and call 911 first.</strong></p>
-          </div>
-          <div class="precaution-card precaution-warning">
-            <div class="precaution-icon">&#128167; WATER LEAK</div>
-            <h3>Water dripping from vent or air handler</h3>
-            <p style="margin-bottom: 0;">Water from a ceiling vent &middot; pooling near the indoor air handler &middot; drain pan overflowing. The #1 cause in humid Gulfport summers is a clogged condensate drain line &mdash; clearing it requires working around the evaporator coil and is a technician task.</p>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- TRUST STRIP -->
-    <section class="section" style="padding: 72px 0; background: var(--gray-50);">
-      <div class="container">
-        <div style="text-align:center; margin-bottom: 36px;">
-          <span style="display:inline-block; font-size:0.78rem; font-weight:800; letter-spacing:0.12em; text-transform:uppercase; color:var(--navy); padding:6px 14px; background:#fff; border:1px solid var(--gray-200); border-radius:999px; margin-bottom:16px;">&#128205; The Gulfport Network</span>
-          <h2 style="font-size: 1.75rem; color: var(--navy); margin: 0;">About the Cool Call Pro Gulfport network</h2>
+        <!-- Phase 3: Climate by the Numbers (NOAA NCEI 1991-2020 Normals) -->
+        <div class="city-services" id="climate-numbers" style="margin-bottom: 40px;">
+          <h2>Gulfport Climate by the Numbers</h2>
+          <p style="font-size: 1.05rem; line-height: 1.85; color: var(--gray-700);">Gulfport's climate is cooling-dominated: NOAA records <strong>2,591 annual cooling degree days</strong> against just 1,628 heating degree days &mdash; AC capacity and refrigerant integrity matter more than furnace size here. In an average year, 52.3 days per year top 90&deg;F, putting consistent strain on central AC equipment through summer and only 14.8 days dip below freezing, so cold-climate equipment specs aren't a primary concern.</p>
         </div>
 
-        <div class="wh-steps" style="max-width: 1100px; margin: 0 auto;">
-
-          <div class="wh-step">
-            <div class="wh-step-num" aria-hidden="true">
-              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            </div>
-            <h3>24/7 Gulfport Dispatch</h3>
-            <p>Independent HVAC providers offering round-the-clock emergency response across the Gulfport metro &mdash; including weekends and holidays. Overnight surcharges are set by the individual provider.</p>
-          </div>
-
-          <div class="wh-step">
-            <div class="wh-step-num" aria-hidden="true">
-              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            </div>
-            <h3>Gulfport Metro Coverage</h3>
-            <p>Independent providers across major Gulfport neighborhoods, routed to your area by current availability. The full ZIP-level coverage detail is in the <a href="#services" style="color: var(--orange-dark); font-weight: 600;">Services &amp; service area</a> section below.</p>
-          </div>
-
-          <div class="wh-step">
-            <div class="wh-step-num" aria-hidden="true">
-              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            </div>
-            <h3>MS State Board of Contractors HVAC License</h3>
-            <p>All HVAC contractors in Mississippi should hold a current <strong>MS State Board of Contractors HVAC License</strong>. Verify any contractor at the <a href="https://www.msboc.us/" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">Mississippi State Board of Contractors</a> before you hire.</p>
-          </div>
-
+        <!-- Phase 3: Housing Stock & HVAC Considerations (Census ACS 2019-2023) -->
+        <div class="city-services" id="housing-stock" style="margin-bottom: 40px;">
+          <h2>Gulfport Housing Stock &amp; HVAC Considerations</h2>
+          <p style="font-size: 1.05rem; line-height: 1.85; color: var(--gray-700);">Gulfport's median home was built in <strong>1986</strong> &mdash; about 40 years old per the U.S. Census ACS 5-year estimates. Original HVAC equipment from this era is at or beyond expected lifespan; replacements are a normal expense. Electricity dominates home heating at <strong>73.3%</strong> of households, with only 23.7% on utility gas. Heat pump installations meet existing infrastructure; the upgrade path is straightforward. Owner-occupancy runs 53.1% with a modest median home value of <strong>$167,100</strong> &mdash; replacement budgets tend to favor reliable mid-tier equipment over premium-tier upgrades.</p>
         </div>
-      </div>
-    </section>
 
-    <!-- CLIMATE + PHOTO (combined section, white background) -->
-    <section class="section" style="padding: 72px 0; background:#fff;">
-      <div class="container">
-        <div style="max-width: 1100px; margin: 0 auto;">
-          <div style="text-align:center; margin-bottom: 36px;">
-            <span style="display:inline-block; font-size:0.78rem; font-weight:800; letter-spacing:0.12em; text-transform:uppercase; color:#1557b0; padding:6px 14px; background:#ebf8ff; border:1px solid #bee3f8; border-radius:999px; margin-bottom:16px;">&#127777;&#65039; Climate Profile</span>
-            <h2 style="font-size: 1.75rem; color: var(--navy); margin: 0 0 14px;">Gulfport's hot-humid climate &amp; your HVAC</h2>
-            <p style="max-width: 720px; margin: 0 auto; font-size: 1.05rem; color: var(--gray-700); line-height: 1.7;">This is a strongly cooling-dominated Zone 2A (Hot-Humid) climate &mdash; AC runs 8&ndash;10 months of the year and humidity management is a year-round design consideration. Federal SEER2 14.3 (Southeast Region) minimum applies to new equipment.</p>
-          </div>
+        <!-- Phase 3: Local Operating Cost Snapshot (EIA + NOAA, transparent math) -->
+        <div class="city-services" id="operating-cost" style="margin-bottom: 40px;">
+          <h2>Heating Operating Cost in Gulfport: Heat Pump vs Gas Furnace</h2>
+          <p style="font-size: 1.05rem; line-height: 1.85; color: var(--gray-700);">At Gulfport's state-average rates (14.7&cent;/kWh electricity, $1.49/therm natural gas), heat pump and gas furnace operating costs run close: <strong>$14.38/MMBtu for the heat pump vs $15.49/MMBtu for the gas furnace</strong>, a 7% gap. For a typical 1,500 sqft home in Gulfport's climate (1,628 HDD), that maps to roughly <strong>$250/year</strong> for a heat pump vs <strong>$300/year</strong> for a gas furnace at current rates &mdash; actual usage varies with insulation, thermostat habits, and equipment efficiency. The math, transparently: 1 MMBtu = 293.07 kWh = 10 therms. Heat pump cost-per-MMBtu = (electricity rate &times; 293.07) &divide; COP; gas furnace cost-per-MMBtu = (gas rate &times; 10) &divide; AFUE. Modern heat pumps achieve a coefficient of performance (COP) of 2.5 to 4 across most U.S. climates per the <a href="https://www.energy.gov/energysaver/heat-pump-systems" target="_blank" rel="noopener noreferrer" style="color: var(--orange-dark); font-weight: 600;">U.S. Department of Energy</a>; modern gas furnaces hit 95-98% AFUE.</p>
+        </div>
 
-          <div class="precaution-cards" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-bottom: 40px;">
-            <div class="precaution-card" style="text-align:center; padding: 24px 16px; background:#fff; border:1px solid var(--gray-200); box-shadow: 0 4px 16px rgba(10,22,40,0.04);">
-              <div style="font-size: 2.4rem; font-weight: 800; color: var(--orange-dark); line-height: 1; font-family: var(--font-display);">90&deg;F</div>
-              <p style="font-size: 0.95rem; color: var(--gray-700); margin: 8px 0 0;">Avg summer high</p>
-            </div>
-            <div class="precaution-card" style="text-align:center; padding: 24px 16px; background:#fff; border:1px solid var(--gray-200); box-shadow: 0 4px 16px rgba(10,22,40,0.04);">
-              <div style="font-size: 2.4rem; font-weight: 800; color: var(--orange-dark); line-height: 1; font-family: var(--font-display);">2A</div>
-              <p style="font-size: 0.95rem; color: var(--gray-700); margin: 8px 0 0;">IECC zone (hot-humid)</p>
-            </div>
-            <div class="precaution-card" style="text-align:center; padding: 24px 16px; background:#fff; border:1px solid var(--gray-200); box-shadow: 0 4px 16px rgba(10,22,40,0.04);">
-              <div style="font-size: 2.4rem; font-weight: 800; color: var(--orange-dark); line-height: 1; font-family: var(--font-display);">46&deg;F</div>
-              <p style="font-size: 0.95rem; color: var(--gray-700); margin: 8px 0 0;">Avg winter low</p>
-            </div>
-            <div class="precaution-card" style="text-align:center; padding: 24px 16px; background:#fff; border:1px solid var(--gray-200); box-shadow: 0 4px 16px rgba(10,22,40,0.04);">
-              <div style="font-size: 2.4rem; font-weight: 800; color: var(--orange-dark); line-height: 1; font-family: var(--font-display);">14.3</div>
-              <p style="font-size: 0.95rem; color: var(--gray-700); margin: 8px 0 0;">Federal SEER2 minimum</p>
-            </div>
-          </div>
-
-          <figure class="location-figure" style="margin: 0 auto 40px; max-width: 1100px;">
+        <figure class="location-figure" style="margin: 0 auto 40px; max-width: 1100px;">
           <img src="../images/cities/gulfport-ms.webp" alt="Fighting Seabees Statue located at the entrance to the Naval Construction Battalion Center in Gulfport, Mississippi." width="1200" height="900" loading="lazy" decoding="async" style="width: 100%; height: auto; border-radius: var(--radius); display: block;" />
           <figcaption style="display: inline-block; margin-top: 12px; padding: 8px 14px; background: var(--gray-50); border: 1px solid var(--gray-100); border-radius: 999px; font-size: 0.78rem; color: var(--gray-600); line-height: 1.5;">
             <span aria-hidden="true" style="margin-right: 6px;">&#128247;</span>Woodlot &middot; <a href="https://creativecommons.org/licenses/by-sa/3.0" target="_blank" rel="nofollow noopener">CC BY-SA 3.0</a> via <a href="https://commons.wikimedia.org/wiki/File:FightingSeabee_NavalConstructionBattalionCenter_Gulfport,MS.jpg" target="_blank" rel="nofollow noopener" style="color: var(--gray-700); text-decoration: underline;">Wikimedia Commons</a> &middot; <a href="../image-credits" style="color: var(--gray-700); text-decoration: underline;">credits</a>
           </figcaption>
         </figure>
 
-          <p style="text-align:center; font-size: 0.92rem; color: var(--gray-500); margin-top: 24px;">Read our guide on <a href="../article-ac-summer" style="color: var(--orange-dark); font-weight: 600;">preparing your AC for summer</a>.</p>
+        <!-- Phase 6: Researched per-city factual block (primary-source citations) -->
+        <div class="city-services" id="local-data" style="margin-bottom: 40px;">
+          <h2>HVAC in Gulfport, MS: Local Data &amp; Context</h2>
+          <p style="font-size: 1.05rem; line-height: 1.85; color: var(--gray-700);">The figures below come from federal primary sources &mdash; NOAA Climate Normals, U.S. Census ACS estimates, and IRS tax-credit guidance. Every claim links to the source document containing the underlying number or language.</p>
+
+<h3 style="font-size: 1.2rem; color: var(--navy); margin-top: 24px;">Climate Profile (NOAA Station KGPT)</h3>
+
+<p style="font-size: 1.05rem; line-height: 1.85; color: var(--gray-700);">Gulfport-Biloxi International Airport (KGPT) is the official NOAA reference station. Per the <a href="https://www.ncei.noaa.gov/access/us-climate-normals/" target="_blank" rel="nofollow noopener">NOAA NCEI U.S. Climate Normals 1991&ndash;2020</a> (station USW00012854), Gulfport records an <strong>annual mean temperature of 73.2&deg;F</strong>, an <strong>average annual maximum of 83.1&deg;F</strong> against an annual minimum of 63.2&deg;F, approximately <strong>557.3 annual heating degree days</strong> against <strong>3,554.1 cooling degree days</strong>, and an annual precipitation normal of <strong>49.63 inches</strong>. The <strong>6.4:1 CDD-to-HDD ratio</strong> makes Gulfport one of the most cooling-dominant cities in the project. Heating demand is minimal &mdash; the &ldquo;heating system&rdquo; for most homes is simply the heat pump&rsquo;s reverse cycle running a modest number of winter hours.</p>
+
+<h3 style="font-size: 1.2rem; color: var(--navy); margin-top: 24px;">Housing Stock &amp; Heating-Fuel Distribution</h3>
+
+<p style="font-size: 1.05rem; line-height: 1.85; color: var(--gray-700);">The <a href="https://api.census.gov/data/2023/acs/acs5?get=NAME,B25040_001E,B25040_002E,B25040_003E,B25040_004E,B25040_005E,B25040_006E,B25040_007E,B25040_008E,B25040_009E,B25040_010E&amp;for=place:29700&amp;in=state:28" target="_blank" rel="nofollow noopener">U.S. Census Bureau ACS 2023 5-year estimates</a> (Tables B25040 and B25035 for Gulfport city, Mississippi) report <strong>28,420 occupied housing units</strong> with a <strong>median year built of 1986</strong>. Heating-fuel distribution: <strong>73.3% electricity</strong> (20,819 units), <strong>23.7% utility natural gas</strong> (6,732 units), and 377 on bottled/tank/LP gas. The strong electric majority reflects the Gulf Coast climate where electric heat pumps and resistance heat are the practical standard.</p>
+
+<h3 style="font-size: 1.2rem; color: var(--navy); margin-top: 24px;">Gulf Coast Hurricane Exposure (Zone 2A)</h3>
+
+<p style="font-size: 1.05rem; line-height: 1.85; color: var(--gray-700);">Per <a href="https://www.energy.gov/energysaver/heat-and-cool" target="_blank" rel="nofollow noopener">U.S. Department of Energy Energy Saver guidance</a>, Zone 2A hot-humid climates produce extreme latent (moisture) cooling loads. Gulfport&rsquo;s combination of 3,554.1 CDD and 49.63 inches of precipitation means dehumidification is the dominant HVAC comfort variable. Hurricane exposure along the Gulf Coast &mdash; Gulfport was severely impacted by Hurricane Katrina in 2005 &mdash; means outdoor condenser placement, elevated pad mounts, tie-down anchoring, and wind-debris protection are critical practical considerations.</p>
+
+<h3 style="font-size: 1.2rem; color: var(--navy); margin-top: 24px;">Mississippi HVAC Contractor Licensing</h3>
+
+<p style="font-size: 1.05rem; line-height: 1.85; color: var(--gray-700);">Mississippi requires HVAC contractors to hold an <strong>HVAC License</strong> issued by the Mississippi State Board of Contractors. Verify a specific contractor&rsquo;s current license status before contracting.</p>
+
+<h3 style="font-size: 1.2rem; color: var(--navy); margin-top: 24px;">Mississippi Power Rebates</h3>
+
+<p style="font-size: 1.05rem; line-height: 1.85; color: var(--gray-700);">Mississippi Power administers residential rebate programs for its Gulfport service territory. Contact Mississippi Power directly for the current heat pump, smart thermostat, and HVAC rebate amounts.</p>
+
+<h3 style="font-size: 1.2rem; color: var(--navy); margin-top: 24px;">Permit Fees &amp; Federal Tax Credits</h3>
+
+<p style="font-size: 1.05rem; line-height: 1.85; color: var(--gray-700);">Mechanical/HVAC permit fees in Gulfport are set by local permitting authorities. The federal Section 25C credit (<a href="https://www.irs.gov/credits-deductions/energy-efficient-home-improvement-credit" target="_blank" rel="nofollow noopener">Energy Efficient Home Improvement Credit</a>) was terminated for installations placed in service after Dec 31, 2025 by the One Big Beautiful Bill Act (Public Law 119-21).</p>
         </div>
-      </div>
-    </section>
 
-    <!-- LOCAL DATA 2x2 CARD GRID -->
-    <section class="section" id="local-data" style="padding: 72px 0; background: var(--gray-50);">
-      <div class="container">
-        <div style="max-width: 1100px; margin: 0 auto;">
-          <div style="text-align:center; margin-bottom: 32px;">
-            <span style="display:inline-block; font-size:0.78rem; font-weight:800; letter-spacing:0.12em; text-transform:uppercase; color:#1557b0; padding:6px 14px; background:#fff; border:1px solid #bee3f8; border-radius:999px; margin-bottom:16px;">&#128202; Primary Sources</span>
-            <h2 style="font-size: 1.75rem; color: var(--navy); margin: 0;">HVAC in Gulfport, MS: local data &amp; sources</h2>
-          </div>
-
-          <div style="margin: 0 auto 32px; background: linear-gradient(135deg, #f7fafc, #edf2f7); border: 1px solid var(--gray-200); border-left: 5px solid var(--blue); border-radius: var(--radius); padding: 20px 24px;">
-            <div style="display: flex; align-items: flex-start; gap: 16px;">
-              <div style="font-size: 1.6rem; line-height: 1; flex-shrink: 0;" aria-hidden="true">&#128202;</div>
-              <div>
-                <div style="font-family: var(--font-display); font-weight: 800; font-size: 1.05rem; color: var(--navy); margin-bottom: 6px;">About these primary sources</div>
-                <p style="margin: 0; color: var(--gray-700); line-height: 1.65;">Every numerical claim below references a federal, state, or municipal primary source &mdash; NOAA climate normals, U.S. Census ACS, the Mississippi licensing authority, and your local utility's published rebate program.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="precaution-cards" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 20px; align-items: stretch;">
-
-            <div class="precaution-card" style="display:flex; flex-direction:column; background:#fff; border:1px solid var(--gray-200); box-shadow: 0 4px 16px rgba(10,22,40,0.04);">
-              <div class="precaution-icon" style="color: var(--blue);">&#127777;&#65039; Climate Profile</div>
-              <h3>NOAA NCEI 1991&ndash;2020 Normals</h3>
-              <p>Gulfport-Biloxi International Airport (KGPT) is the official NOAA reference station. Per the <a href="https://www.ncei.noaa.gov/access/us-climate-normals/" target="_blank" rel="nofollow noopener">NOAA NCEI U.S. Climate Normals 1991&ndash;2020</a> (station USW00012854), Gulfport records an <strong>annual mean temperature of 73.2&deg;F</strong>, an <strong>average annual maximum of 83.1&deg;F</strong> against an annual minimum of 63.2&deg;F, approximately <strong>557.3 annual heating degree days</strong> against <strong>3,554.1 cooling degree days</strong>, and an annual precipitation normal of <strong>49.63 inches</strong>. The <strong>6.4:1 CDD-to-HDD ratio</strong> makes Gulfport one of the most cooling-dominant cities in the project. Heating demand is minimal &mdash; the &ldquo;heating system&rdquo; for most homes is simply the heat pump&rsquo;s reverse cycle running a modest number of winter hours.</p>
-              <p style="margin-top: auto; padding-top: 8px; margin-bottom: 0;"><a href="https://www.ncei.noaa.gov/access/us-climate-normals/" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">NOAA NCEI Climate Normals &rarr;</a></p>
-            </div>
-            <div class="precaution-card" style="display:flex; flex-direction:column; background:#fff; border:1px solid var(--gray-200); box-shadow: 0 4px 16px rgba(10,22,40,0.04);">
-              <div class="precaution-icon" style="color: var(--blue);">&#127968; Housing Stock</div>
-              <h3>U.S. Census ACS 2022 5-Year</h3>
-              <p>The <a href="https://api.census.gov/data/2023/acs/acs5?get=NAME,B25040_001E,B25040_002E,B25040_003E,B25040_004E,B25040_005E,B25040_006E,B25040_007E,B25040_008E,B25040_009E,B25040_010E&amp;for=place:29700&amp;in=state:28" target="_blank" rel="nofollow noopener">U.S. Census Bureau ACS 2023 5-year estimates</a> (Tables B25040 and B25035 for Gulfport city, Mississippi) report <strong>28,420 occupied housing units</strong> with a <strong>median year built of 1986</strong>. Heating-fuel distribution: <strong>73.3% electricity</strong> (20,819 units), <strong>23.7% utility natural gas</strong> (6,732 units), and 377 on bottled/tank/LP gas. The strong electric majority reflects the Gulf Coast climate where electric heat pumps and resistance heat are the practical standard.</p>
-              <p style="margin-top: auto; padding-top: 8px; margin-bottom: 0;"><a href="https://api.census.gov/data/2023/acs/acs5?get=NAME,B25040_001E,B25040_002E,B25040_003E,B25040_004E,B25040_005E,B25040_006E,B25040_007E,B25040_008E,B25040_009E,B25040_010E&amp;for=place:29700&amp;in=state:28" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">Census ACS Data &rarr;</a></p>
-            </div>
-            <div class="precaution-card" style="display:flex; flex-direction:column; background:#fff; border:1px solid var(--gray-200); box-shadow: 0 4px 16px rgba(10,22,40,0.04);">
-              <div class="precaution-icon" style="color: var(--blue);">&#128203; Mississippi License</div>
-              <h3>Mississippi Licensing Authority</h3>
-              <p>Mississippi requires HVAC contractors to hold an <strong>HVAC License</strong> issued by the Mississippi State Board of Contractors. Verify a specific contractor&rsquo;s current license status before contracting. <strong>Primary source:</strong> <a href="https://www.msboc.us/" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">Mississippi State Board of Contractors</a>.</p>
-              <p style="margin-top: auto; padding-top: 8px; margin-bottom: 0;"><a href="https://www.msboc.us/" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">Mississippi State Board of Contractors &rarr;</a></p>
-            </div>
-            <div class="precaution-card" style="display:flex; flex-direction:column; background:#fff; border:1px solid var(--gray-200); box-shadow: 0 4px 16px rgba(10,22,40,0.04);">
-              <div class="precaution-icon" style="color: var(--blue);">&#128176; Local Rebates &amp; Permits</div>
-              <h3>Utility &amp; Permit Sources</h3>
-              <p>Mississippi Power administers residential rebate programs for its Gulfport service territory. Contact Mississippi Power directly for the current heat pump, smart thermostat, and HVAC rebate amounts. <strong>Primary source:</strong> <a href="https://www.dsireusa.org/" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">DSIRE &mdash; Mississippi</a>.</p>
-              <p>Per <a href="https://www.energy.gov/energysaver/heat-and-cool" target="_blank" rel="nofollow noopener">U.S. Department of Energy Energy Saver guidance</a>, Zone 2A hot-humid climates produce extreme latent (moisture) cooling loads. Gulfport&rsquo;s combination of 3,554.1 CDD and 49.63 inches of precipitation means dehumidification is the dominant HVAC comfort variable. Hurricane exposure along the Gulf Coast &mdash; Gulfport was severely impacted by Hurricane Katrina in 2005 &mdash; means outdoor condenser placement, elevated pad mounts, tie-down anchoring, and wind-debris protection are critical practical considerations.</p>
-              <p style="margin-top: auto; padding-top: 8px; margin-bottom: 0;"><a href="https://www.dsireusa.org/" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">DSIRE &mdash; Mississippi &rarr;</a></p>
-            </div>
-
-          </div>
-
-          <div style="max-width: 1100px; margin: 32px auto 0; background: linear-gradient(135deg, #fffbeb, #fef3c7); border: 1px solid var(--yellow); border-left: 5px solid var(--orange-dark); border-radius: var(--radius); padding: 20px 24px;">
-            <div style="display: flex; align-items: flex-start; gap: 16px;">
-              <div style="font-size: 1.6rem; line-height: 1; flex-shrink: 0;" aria-hidden="true">&#128203;</div>
-              <div>
-                <div style="font-family: var(--font-display); font-weight: 800; font-size: 1.05rem; color: var(--navy); margin-bottom: 6px;">Federal tax credits &mdash; important update for 2026</div>
-                <p style="margin: 0; color: var(--gray-700); line-height: 1.65;">The federal <strong>Section 25C Energy Efficient Home Improvement Credit</strong> was terminated for installations placed in service after Dec 31, 2025 by the One Big Beautiful Bill Act (Public Law 119-21). <strong>State HEAR rebates and utility programs remain in effect.</strong> See our <a href="../article-hvac-financing" style="color: var(--orange-dark); font-weight: 600;">HVAC financing options</a> for what's still available.</p>
-              </div>
-            </div>
-          </div>
+        <!-- ZIP Codes & Neighborhoods (surfaced from xlsx data) -->
+        <div class="city-services" id="neighborhoods" style="margin-bottom: 40px;">
+          <h2>ZIP Codes &amp; Neighborhoods Served in Gulfport, MS</h2>
+          <p style="font-size: 1.05rem; line-height: 1.85; color: var(--gray-700);">Our referral network connects homeowners across Gulfport&rsquo;s neighborhoods with independent HVAC professionals. Service verification available via <a href="tel:+18445821795" style="color: var(--orange-dark); font-weight: 600;">(844) 582-1795</a>.</p>
+          <ul class="neighborhood-grid">
+            <li><strong>Bayou View</strong> &mdash; ZIP 39501</li>
+            <li><strong>Orange Grove</strong> &mdash; ZIP 39503</li>
+            <li><strong>North Gulfport</strong> &mdash; ZIP 39507</li>
+            <li><strong>Magnolia Grove</strong> &mdash; ZIP 39505</li>
+            <li><strong>The Island</strong> &mdash; ZIP 39506</li>
+          </ul>
         </div>
-      </div>
-    </section>
 
-    <!-- SERVICES + ZIPS 2-COLUMN ROW -->
-    <section class="section" id="services" style="padding: 72px 0; background:#fff;">
-      <div class="container">
-        <div style="text-align:center; margin-bottom: 36px;">
-          <span style="display:inline-block; font-size:0.78rem; font-weight:800; letter-spacing:0.12em; text-transform:uppercase; color:var(--navy); padding:6px 14px; background:var(--gray-50); border:1px solid var(--gray-200); border-radius:999px; margin-bottom:16px;">&#128295; Coverage</span>
-          <h2 style="font-size: 1.75rem; color: var(--navy); margin: 0;">Services &amp; service area</h2>
-        </div>
-        <div class="precaution-cards" style="max-width: 1000px; margin: 0 auto; display:grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 20px; align-items: stretch;">
-
-          <div class="precaution-card" style="display:flex; flex-direction:column; background:#fff; border:1px solid var(--gray-200); box-shadow: 0 4px 16px rgba(10,22,40,0.04);">
-            <div class="precaution-icon" style="color: var(--navy);">&#128295; Services in Gulfport</div>
-            <h3>What our network covers</h3>
-            <ul style="margin-top: 0; margin-bottom: 0;">
+        <!-- Services List -->
+        <div class="city-services" id="services">
+          <h2>HVAC Services in Gulfport, MS</h2>
+          <ul>
               <li>Emergency AC Repair in Gulfport</li>
               <li>Humidity Control &amp; Dehumidification</li>
               <li>Central AC Installation &amp; Replacement</li>
               <li>HVAC System Maintenance &amp; Tune-Ups</li>
               <li>Ductwork Inspection, Cleaning &amp; Mold Prevention</li>
-            </ul>
-          </div>
-
-          <div class="precaution-card" id="neighborhoods" style="display:flex; flex-direction:column; background:#fff; border:1px solid var(--gray-200); box-shadow: 0 4px 16px rgba(10,22,40,0.04);">
-            <div class="precaution-icon" style="color: var(--navy);">&#128205; ZIPs &amp; Neighborhoods</div>
-            <h3>Where we connect homeowners</h3>
-            <ul style="margin-top: 0; margin-bottom: 0;">
-              <li><strong>Bayou View</strong> &mdash; ZIP 39501</li>
-              <li><strong>Orange Grove</strong> &mdash; ZIP 39503</li>
-              <li><strong>North Gulfport</strong> &mdash; ZIP 39507</li>
-              <li><strong>Magnolia Grove</strong> &mdash; ZIP 39505</li>
-              <li><strong>The Island</strong> &mdash; ZIP 39506</li>
-            </ul>
-          </div>
-
+          </ul>
         </div>
-      </div>
-    </section>
 
-    <!-- MID-PAGE CTA -->
-    <section style="padding: 64px 0; background: var(--gray-50);">
-      <div class="container">
-        <div style="max-width: 760px; margin: 0 auto; background:linear-gradient(135deg, var(--navy-deep), var(--navy)); color:#fff; padding: 32px; border-radius: var(--radius-lg); text-align:center; box-shadow: 0 12px 40px rgba(10,22,40,0.18);">
-          <p style="font-size: 1.4rem; font-weight: 700; font-family: var(--font-display); color:#fff; margin-bottom: 10px;">Ready to talk to a Gulfport HVAC pro?</p>
-          <p style="margin-bottom: 22px; opacity: 0.85; font-size: 1rem;">Independent technicians &middot; 24/7 dispatch &middot; MS State Board of Contractors HVAC License-verified network</p>
-          <a href="tel:+18445821795" class="btn btn-primary btn-lg btn-vibrate"><span class="phone-icon">&#128222;</span> Call Now &mdash; (844) 582-1795</a>
-          <p style="font-size: 0.72rem; color: rgba(255,255,255,0.5); margin: 16px auto 0; max-width: 460px; line-height: 1.5;">Disclosure: We are a referral service and may receive compensation for qualified calls. Calls may be routed to an independent provider network and may be recorded. Pricing and availability vary by provider and location.</p>
+        <!-- Licensing & Trust -->
+        <div class="city-services" style="margin-bottom: 40px;">
+          <h2>HVAC Licensing &amp; Permits in Gulfport, MS</h2>
+          <p style="font-size: 1.05rem; line-height: 1.85; color: var(--gray-700);">Before hiring any HVAC contractor in Mississippi, verify they hold the proper <strong>MS State Board of Contractors HVAC License</strong>. Verify any contractor's license at the <a href="https://www.msboc.us/" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">Mississippi State Board of Contractors</a>. Licensed contractors carry insurance, pull permits correctly, and stand behind their work. For Gulfport residents, your local permit office is <strong>City of Gulfport Urban Development Building Code Services</strong>&mdash;any major installation should have a permit on file. See our <a href="../costs" style="color: var(--orange-dark); font-weight: 600;">HVAC cost guide</a> for detailed pricing breakdowns. For full statewide licensing details, see our <a href="mississippi" style="color: var(--orange-dark); font-weight: 600;">Mississippi HVAC guide</a>.</p>
+        </div>
+
+        <!-- Rebates & Incentives -->
+        <div class="city-services" style="margin-bottom: 48px;">
+          <h2>HVAC Rebates &amp; Incentives in Gulfport, MS</h2>
+          <p style="font-size: 1.05rem; line-height: 1.85; color: var(--gray-700);">Gulfport homeowners served by <strong>Mississippi Power</strong> may qualify for savings through <strong>Mississippi Power Energy Efficiency Rebates</strong> when installing qualifying high-efficiency equipment. For all Mississippi incentives including state and federal programs, see the <a href="https://www.dsireusa.org/" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">DSIRE database (N.C. State University / U.S. DOE)</a> or the <a href="https://www.energystar.gov/rebate-finder" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">ENERGY STAR Rebate Finder (EPA)</a>. The federal Section 25C credit (<a href="https://www.irs.gov/credits-deductions/energy-efficient-home-improvement-credit" target="_blank" rel="nofollow noopener" style="color: var(--orange-dark); font-weight: 600;">Energy Efficient Home Improvement Credit</a>) was terminated for installations placed in service after Dec 31, 2025 by the One Big Beautiful Bill Act (P.L. 119-21); for 2026 installs focus on state HEAR rebates and utility programs. Learn about <a href="../article-hvac-financing" style="color: var(--orange-dark); font-weight: 600;">HVAC financing options</a>.</p>
         </div>
       </div>
     </section>
 
     <!-- FAQs -->
-    <section class="section" id="faqs" style="padding: 72px 0; background:#fff;">
+    <section class="section" id="faqs">
       <div class="container" style="max-width: 800px;">
-        <div class="city-faq" style="text-align:center; margin-bottom: 36px;">
-          <span style="display:inline-block; font-size:0.78rem; font-weight:800; letter-spacing:0.12em; text-transform:uppercase; color:var(--navy); padding:6px 14px; background:var(--gray-50); border:1px solid var(--gray-200); border-radius:999px; margin-bottom:16px;">&#10067; Common Questions</span>
-          <h2 style="font-size: 1.75rem; color: var(--navy); margin: 0;">Frequently Asked Questions &mdash; Gulfport, MS</h2>
-        </div>
         <div class="city-faq">
+          <h2>Frequently Asked Questions &#8212; Gulfport, MS</h2>
           <div class="faq-list" style="margin-top: 24px;">
             <div class="faq-item">
               <button class="faq-q" aria-expanded="false">
@@ -602,10 +493,10 @@
     </section>
 
     <!-- Nearby Service Areas -->
-    <section class="section" style="padding: 72px 0; background: var(--gray-50);">
+    <section class="section" style="padding: 32px 0 48px;">
       <div class="container" style="max-width: 800px;">
         <div class="city-services">
-          <h2 style="text-align:center;">Nearby HVAC Service Areas</h2>
+          <h2>Nearby HVAC Service Areas</h2>
           <ul>
             <li><a href="jackson-ms">Jackson, MS</a></li>
             <li><a href="chicago-il">Chicago, IL</a></li>
