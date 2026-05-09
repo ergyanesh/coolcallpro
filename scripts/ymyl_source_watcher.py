@@ -97,6 +97,11 @@ SOURCES = [
         "https://www.energy.gov/save/home-upgrades",
         "DOE Home Upgrades / HEAR Portal",
     ),
+    (
+        "pacenation-pace-programs",
+        "https://www.pacenation.org/pace-programs/",
+        "PACENation PACE Programs (industry advocacy — watch for MO SB736 framing)",
+    ),
 ]
 
 USER_AGENT = "CoolCallPro-YMYL-Watcher/1.0 (+https://coolcallpro.com)"
