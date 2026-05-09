@@ -94,3 +94,4 @@ images/_failed.txt
 # so next week's diff has a baseline.)
 .ymyl_refresh_plan.md
 _audit/location_uniqueness.csv
+scripts/ghcnd-stations.txt

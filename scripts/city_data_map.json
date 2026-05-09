@@ -8,7 +8,8 @@
     "noaa_station": "KABQ",
     "census_place_fips": "02000",
     "census_state_fips": "35",
-    "utility": "PNM (Public Service Co. of New Mexico)"
+    "utility": "PNM (Public Service Co. of New Mexico)",
+    "ghcnd_station_id": "USW00023050"
   },
   "allentown-pa": {
     "city": "Allentown",
@@ -19,7 +20,8 @@
     "noaa_station": "KABE",
     "census_place_fips": "02000",
     "census_state_fips": "42",
-    "utility": "PPL Electric Utilities"
+    "utility": "PPL Electric Utilities",
+    "ghcnd_station_id": "USW00014737"
   },
   "anchorage-ak": {
     "city": "Anchorage",
@@ -30,7 +32,8 @@
     "noaa_station": "KANC",
     "census_place_fips": "03000",
     "census_state_fips": "02",
-    "utility": "Chugach Electric Association"
+    "utility": "Chugach Electric Association",
+    "ghcnd_station_id": "USW00026451"
   },
   "atlanta-ga": {
     "city": "Atlanta",
@@ -41,7 +44,8 @@
     "noaa_station": "KATL",
     "census_place_fips": "04000",
     "census_state_fips": "13",
-    "utility": "Georgia Power"
+    "utility": "Georgia Power",
+    "ghcnd_station_id": "USW00013874"
   },
   "augusta-ga": {
     "city": "Augusta",
@@ -52,7 +56,8 @@
     "noaa_station": "KAGS",
     "census_place_fips": "04204",
     "census_state_fips": "13",
-    "utility": "Georgia Power"
+    "utility": "Georgia Power",
+    "ghcnd_station_id": "USW00003820"
   },
   "austin-tx": {
     "city": "Austin",
@@ -63,7 +68,8 @@
     "noaa_station": "KAUS",
     "census_place_fips": "05000",
     "census_state_fips": "48",
-    "utility": "Austin Energy (municipal)"
+    "utility": "Austin Energy (municipal)",
+    "ghcnd_station_id": "USW00013904"
   },
   "baltimore-md": {
     "city": "Baltimore",
@@ -74,7 +80,8 @@
     "noaa_station": "KBWI",
     "census_place_fips": "04000",
     "census_state_fips": "24",
-    "utility": "Baltimore Gas & Electric (BGE)"
+    "utility": "Baltimore Gas & Electric (BGE)",
+    "ghcnd_station_id": "USW00093721"
   },
   "baton-rouge-la": {
     "city": "Baton Rouge",
@@ -85,7 +92,8 @@
     "noaa_station": "KBTR",
     "census_place_fips": "05000",
     "census_state_fips": "22",
-    "utility": "Entergy Louisiana"
+    "utility": "Entergy Louisiana",
+    "ghcnd_station_id": "USW00013970"
   },
   "birmingham-al": {
     "city": "Birmingham",
@@ -96,7 +104,8 @@
     "noaa_station": "KBHM",
     "census_place_fips": "07000",
     "census_state_fips": "01",
-    "utility": "Alabama Power"
+    "utility": "Alabama Power",
+    "ghcnd_station_id": "USW00013876"
   },
   "boise-id": {
     "city": "Boise",
@@ -107,7 +116,8 @@
     "noaa_station": "KBOI",
     "census_place_fips": "08830",
     "census_state_fips": "16",
-    "utility": "Idaho Power"
+    "utility": "Idaho Power",
+    "ghcnd_station_id": "USW00024131"
   },
   "boston-ma": {
     "city": "Boston",
@@ -118,7 +128,8 @@
     "noaa_station": "KBOS",
     "census_place_fips": "07000",
     "census_state_fips": "25",
-    "utility": "Eversource"
+    "utility": "Eversource",
+    "ghcnd_station_id": "USW00014739"
   },
   "bridgeport-ct": {
     "city": "Bridgeport",
@@ -129,7 +140,8 @@
     "noaa_station": "KBDR",
     "census_place_fips": "08000",
     "census_state_fips": "09",
-    "utility": "United Illuminating (UI)"
+    "utility": "United Illuminating (UI)",
+    "ghcnd_station_id": "USW00094702"
   },
   "brownsville-tx": {
     "city": "Brownsville",
@@ -140,7 +152,8 @@
     "noaa_station": "KBRO",
     "census_place_fips": "10768",
     "census_state_fips": "48",
-    "utility": "Brownsville PUB (municipal)"
+    "utility": "Brownsville PUB (municipal)",
+    "ghcnd_station_id": "USW00012919"
   },
   "buffalo-ny": {
     "city": "Buffalo",
@@ -151,7 +164,8 @@
     "noaa_station": "KBUF",
     "census_place_fips": "11000",
     "census_state_fips": "36",
-    "utility": "National Grid"
+    "utility": "National Grid",
+    "ghcnd_station_id": "USW00014733"
   },
   "charlotte-nc": {
     "city": "Charlotte",
@@ -162,7 +176,8 @@
     "noaa_station": "KCLT",
     "census_place_fips": "12000",
     "census_state_fips": "37",
-    "utility": "Duke Energy Carolinas"
+    "utility": "Duke Energy Carolinas",
+    "ghcnd_station_id": "USW00013881"
   },
   "chattanooga-tn": {
     "city": "Chattanooga",
@@ -173,7 +188,8 @@
     "noaa_station": "KCHA",
     "census_place_fips": "14000",
     "census_state_fips": "47",
-    "utility": "EPB (Electric Power Board, TVA distributor)"
+    "utility": "EPB (Electric Power Board, TVA distributor)",
+    "ghcnd_station_id": "USW00013882"
   },
   "chicago-il": {
     "city": "Chicago",
@@ -184,7 +200,8 @@
     "noaa_station": "KORD",
     "census_place_fips": "14000",
     "census_state_fips": "17",
-    "utility": "ComEd (Commonwealth Edison)"
+    "utility": "ComEd (Commonwealth Edison)",
+    "ghcnd_station_id": "USW00094846"
   },
   "cleveland-oh": {
     "city": "Cleveland",
@@ -195,7 +212,8 @@
     "noaa_station": "KCLE",
     "census_place_fips": "16000",
     "census_state_fips": "39",
-    "utility": "The Illuminating Company (FirstEnergy)"
+    "utility": "The Illuminating Company (FirstEnergy)",
+    "ghcnd_station_id": "USW00014820"
   },
   "colorado-springs-co": {
     "city": "Colorado Springs",
@@ -206,7 +224,8 @@
     "noaa_station": "KCOS",
     "census_place_fips": "16000",
     "census_state_fips": "08",
-    "utility": "Colorado Springs Utilities"
+    "utility": "Colorado Springs Utilities",
+    "ghcnd_station_id": "USW00093037"
   },
   "columbus-oh": {
     "city": "Columbus",
@@ -217,7 +236,8 @@
     "noaa_station": "KCMH",
     "census_place_fips": "18000",
     "census_state_fips": "39",
-    "utility": "AEP Ohio"
+    "utility": "AEP Ohio",
+    "ghcnd_station_id": "USW00014821"
   },
   "dallas-tx": {
     "city": "Dallas",
@@ -228,7 +248,8 @@
     "noaa_station": "KDFW",
     "census_place_fips": "19000",
     "census_state_fips": "48",
-    "utility": "Oncor Electric Delivery (TDU)"
+    "utility": "Oncor Electric Delivery (TDU)",
+    "ghcnd_station_id": "USW00013960"
   },
   "dayton-oh": {
     "city": "Dayton",
@@ -239,7 +260,8 @@
     "noaa_station": "KDAY",
     "census_place_fips": "21000",
     "census_state_fips": "39",
-    "utility": "AES Ohio (formerly DP&L)"
+    "utility": "AES Ohio (formerly DP&L)",
+    "ghcnd_station_id": "USW00093815"
   },
   "denver-co": {
     "city": "Denver",
@@ -250,7 +272,8 @@
     "noaa_station": "KDEN",
     "census_place_fips": "20000",
     "census_state_fips": "08",
-    "utility": "Xcel Energy"
+    "utility": "Xcel Energy",
+    "ghcnd_station_id": "USW00003017"
   },
   "des-moines-ia": {
     "city": "Des Moines",
@@ -261,7 +284,8 @@
     "noaa_station": "KDSM",
     "census_place_fips": "21000",
     "census_state_fips": "19",
-    "utility": "MidAmerican Energy"
+    "utility": "MidAmerican Energy",
+    "ghcnd_station_id": "USW00014933"
   },
   "detroit-mi": {
     "city": "Detroit",
@@ -272,7 +296,8 @@
     "noaa_station": "KDTW",
     "census_place_fips": "22000",
     "census_state_fips": "26",
-    "utility": "DTE Energy"
+    "utility": "DTE Energy",
+    "ghcnd_station_id": "USW00094847"
   },
   "el-paso-tx": {
     "city": "El Paso",
@@ -283,7 +308,8 @@
     "noaa_station": "KELP",
     "census_place_fips": "24000",
     "census_state_fips": "48",
-    "utility": "El Paso Electric"
+    "utility": "El Paso Electric",
+    "ghcnd_station_id": "USW00023044"
   },
   "eugene-or": {
     "city": "Eugene",
@@ -294,7 +320,8 @@
     "noaa_station": "KEUG",
     "census_place_fips": "23850",
     "census_state_fips": "41",
-    "utility": "EWEB (Eugene Water & Electric Board)"
+    "utility": "EWEB (Eugene Water & Electric Board)",
+    "ghcnd_station_id": "USW00024221"
   },
   "fayetteville-nc": {
     "city": "Fayetteville",
@@ -305,7 +332,8 @@
     "noaa_station": "KFAY",
     "census_place_fips": "22920",
     "census_state_fips": "37",
-    "utility": "Duke Energy Progress"
+    "utility": "Duke Energy Progress",
+    "ghcnd_station_id": "USW00013714"
   },
   "fort-wayne-in": {
     "city": "Fort Wayne",
@@ -316,7 +344,8 @@
     "noaa_station": "KFWA",
     "census_place_fips": "25000",
     "census_state_fips": "18",
-    "utility": "Indiana Michigan Power (I&M / AEP)"
+    "utility": "Indiana Michigan Power (I&M / AEP)",
+    "ghcnd_station_id": "USW00014827"
   },
   "fort-worth-tx": {
     "city": "Fort Worth",
@@ -327,7 +356,8 @@
     "noaa_station": "KFTW",
     "census_place_fips": "27000",
     "census_state_fips": "48",
-    "utility": "Oncor Electric Delivery (TDU)"
+    "utility": "Oncor Electric Delivery (TDU)",
+    "ghcnd_station_id": "USW00003927"
   },
   "fresno-ca": {
     "city": "Fresno",
@@ -338,7 +368,8 @@
     "noaa_station": "KFAT",
     "census_place_fips": "27000",
     "census_state_fips": "06",
-    "utility": "PG&E"
+    "utility": "PG&E",
+    "ghcnd_station_id": "USW00093193"
   },
   "glendale-az": {
     "city": "Glendale",
@@ -349,7 +380,8 @@
     "noaa_station": "KPHX",
     "census_place_fips": "27820",
     "census_state_fips": "04",
-    "utility": "Arizona Public Service (APS)"
+    "utility": "Arizona Public Service (APS)",
+    "ghcnd_station_id": "USW00023183"
   },
   "grand-rapids-mi": {
     "city": "Grand Rapids",
@@ -360,7 +392,8 @@
     "noaa_station": "KGRR",
     "census_place_fips": "34000",
     "census_state_fips": "26",
-    "utility": "Consumers Energy"
+    "utility": "Consumers Energy",
+    "ghcnd_station_id": "USW00094860"
   },
   "hartford-ct": {
     "city": "Hartford",
@@ -371,7 +404,8 @@
     "noaa_station": "KBDL",
     "census_place_fips": "37000",
     "census_state_fips": "09",
-    "utility": "Eversource"
+    "utility": "Eversource",
+    "ghcnd_station_id": "USW00014740"
   },
   "houston-tx": {
     "city": "Houston",
@@ -382,7 +416,8 @@
     "noaa_station": "KIAH",
     "census_place_fips": "35000",
     "census_state_fips": "48",
-    "utility": "CenterPoint Energy (TDU)"
+    "utility": "CenterPoint Energy (TDU)",
+    "ghcnd_station_id": "USW00012960"
   },
   "huntsville-al": {
     "city": "Huntsville",
@@ -393,7 +428,8 @@
     "noaa_station": "KHSV",
     "census_place_fips": "37000",
     "census_state_fips": "01",
-    "utility": "Huntsville Utilities (TVA distributor)"
+    "utility": "Huntsville Utilities (TVA distributor)",
+    "ghcnd_station_id": "USW00003856"
   },
   "indianapolis-in": {
     "city": "Indianapolis",
@@ -404,7 +440,8 @@
     "noaa_station": "KIND",
     "census_place_fips": "36003",
     "census_state_fips": "18",
-    "utility": "AES Indiana"
+    "utility": "AES Indiana",
+    "ghcnd_station_id": "USW00093819"
   },
   "irvine-ca": {
     "city": "Irvine",
@@ -415,7 +452,8 @@
     "noaa_station": "KSNA",
     "census_place_fips": "36770",
     "census_state_fips": "06",
-    "utility": "SCE (Southern California Edison)"
+    "utility": "SCE (Southern California Edison)",
+    "ghcnd_station_id": "USW00093184"
   },
   "jacksonville-fl": {
     "city": "Jacksonville",
@@ -426,7 +464,8 @@
     "noaa_station": "KJAX",
     "census_place_fips": "35000",
     "census_state_fips": "12",
-    "utility": "JEA (Jacksonville Electric Authority)"
+    "utility": "JEA (Jacksonville Electric Authority)",
+    "ghcnd_station_id": "USW00013889"
   },
   "kansas-city-mo": {
     "city": "Kansas City",
@@ -437,7 +476,8 @@
     "noaa_station": "KMCI",
     "census_place_fips": "38000",
     "census_state_fips": "29",
-    "utility": "Evergy"
+    "utility": "Evergy",
+    "ghcnd_station_id": "USW00003947"
   },
   "knoxville-tn": {
     "city": "Knoxville",
@@ -448,7 +488,8 @@
     "noaa_station": "KTYS",
     "census_place_fips": "40000",
     "census_state_fips": "47",
-    "utility": "KUB (Knoxville Utilities Board, TVA distributor)"
+    "utility": "KUB (Knoxville Utilities Board, TVA distributor)",
+    "ghcnd_station_id": "USW00013891"
   },
   "laredo-tx": {
     "city": "Laredo",
@@ -459,7 +500,8 @@
     "noaa_station": "KLRD",
     "census_place_fips": "41464",
     "census_state_fips": "48",
-    "utility": "AEP Texas (TDU)"
+    "utility": "AEP Texas (TDU)",
+    "ghcnd_station_id": "USW00012907"
   },
   "las-vegas-nv": {
     "city": "Las Vegas",
@@ -470,7 +512,8 @@
     "noaa_station": "KLAS",
     "census_place_fips": "40000",
     "census_state_fips": "32",
-    "utility": "NV Energy"
+    "utility": "NV Energy",
+    "ghcnd_station_id": "USW00023169"
   },
   "lexington-ky": {
     "city": "Lexington",
@@ -481,7 +524,8 @@
     "noaa_station": "KLEX",
     "census_place_fips": "46027",
     "census_state_fips": "21",
-    "utility": "Kentucky Utilities (KU)"
+    "utility": "Kentucky Utilities (KU)",
+    "ghcnd_station_id": "USW00093820"
   },
   "lincoln-ne": {
     "city": "Lincoln",
@@ -492,7 +536,8 @@
     "noaa_station": "KLNK",
     "census_place_fips": "28000",
     "census_state_fips": "31",
-    "utility": "Lincoln Electric System"
+    "utility": "Lincoln Electric System",
+    "ghcnd_station_id": "USW00014939"
   },
   "little-rock-ar": {
     "city": "Little Rock",
@@ -503,7 +548,8 @@
     "noaa_station": "KLIT",
     "census_place_fips": "41000",
     "census_state_fips": "05",
-    "utility": "Entergy Arkansas"
+    "utility": "Entergy Arkansas",
+    "ghcnd_station_id": "USW00013963"
   },
   "los-angeles-ca": {
     "city": "Los Angeles",
@@ -514,7 +560,8 @@
     "noaa_station": "KLAX",
     "census_place_fips": "44000",
     "census_state_fips": "06",
-    "utility": "LADWP"
+    "utility": "LADWP",
+    "ghcnd_station_id": "USW00023174"
   },
   "louisville-ky": {
     "city": "Louisville",
@@ -525,7 +572,8 @@
     "noaa_station": "KSDF",
     "census_place_fips": "48006",
     "census_state_fips": "21",
-    "utility": "Louisville Gas & Electric (LG&E)"
+    "utility": "Louisville Gas & Electric (LG&E)",
+    "ghcnd_station_id": "USW00093821"
   },
   "lubbock-tx": {
     "city": "Lubbock",
@@ -536,7 +584,8 @@
     "noaa_station": "KLBB",
     "census_place_fips": "45000",
     "census_state_fips": "48",
-    "utility": "Lubbock Power & Light (municipal)"
+    "utility": "Lubbock Power & Light (municipal)",
+    "ghcnd_station_id": "USW00023042"
   },
   "madison-wi": {
     "city": "Madison",
@@ -547,7 +596,8 @@
     "noaa_station": "KMSN",
     "census_place_fips": "48000",
     "census_state_fips": "55",
-    "utility": "Madison Gas & Electric"
+    "utility": "Madison Gas & Electric",
+    "ghcnd_station_id": "USW00014837"
   },
   "memphis-tn": {
     "city": "Memphis",
@@ -558,7 +608,8 @@
     "noaa_station": "KMEM",
     "census_place_fips": "48000",
     "census_state_fips": "47",
-    "utility": "MLGW (Memphis Light, Gas & Water, TVA distributor)"
+    "utility": "MLGW (Memphis Light, Gas & Water, TVA distributor)",
+    "ghcnd_station_id": "USW00013893"
   },
   "mesa-az": {
     "city": "Mesa",
@@ -569,7 +620,8 @@
     "noaa_station": "KIWA",
     "census_place_fips": "46000",
     "census_state_fips": "04",
-    "utility": "Salt River Project (SRP)"
+    "utility": "Salt River Project (SRP)",
+    "ghcnd_station_id": "USW00023183"
   },
   "miami-fl": {
     "city": "Miami",
@@ -580,7 +632,8 @@
     "noaa_station": "KMIA",
     "census_place_fips": "45000",
     "census_state_fips": "12",
-    "utility": "Florida Power & Light (FPL)"
+    "utility": "Florida Power & Light (FPL)",
+    "ghcnd_station_id": "USW00012839"
   },
   "milwaukee-wi": {
     "city": "Milwaukee",
@@ -591,7 +644,8 @@
     "noaa_station": "KMKE",
     "census_place_fips": "53000",
     "census_state_fips": "55",
-    "utility": "We Energies"
+    "utility": "We Energies",
+    "ghcnd_station_id": "USW00014839"
   },
   "minneapolis-mn": {
     "city": "Minneapolis",
@@ -602,7 +656,8 @@
     "noaa_station": "KMSP",
     "census_place_fips": "43000",
     "census_state_fips": "27",
-    "utility": "Xcel Energy"
+    "utility": "Xcel Energy",
+    "ghcnd_station_id": "USW00014922"
   },
   "mobile-al": {
     "city": "Mobile",
@@ -613,7 +668,8 @@
     "noaa_station": "KMOB",
     "census_place_fips": "50000",
     "census_state_fips": "01",
-    "utility": "Alabama Power"
+    "utility": "Alabama Power",
+    "ghcnd_station_id": "USW00013894"
   },
   "modesto-ca": {
     "city": "Modesto",
@@ -624,7 +680,8 @@
     "noaa_station": "KMOD",
     "census_place_fips": "48354",
     "census_state_fips": "06",
-    "utility": "MID (Modesto Irrigation District)"
+    "utility": "MID (Modesto Irrigation District)",
+    "ghcnd_station_id": "USW00023258"
   },
   "nashville-tn": {
     "city": "Nashville",
@@ -635,7 +692,8 @@
     "noaa_station": "KBNA",
     "census_place_fips": "52006",
     "census_state_fips": "47",
-    "utility": "NES (Nashville Electric Service, TVA distributor)"
+    "utility": "NES (Nashville Electric Service, TVA distributor)",
+    "ghcnd_station_id": "USW00013897"
   },
   "new-orleans-la": {
     "city": "New Orleans",
@@ -646,7 +704,8 @@
     "noaa_station": "KMSY",
     "census_place_fips": "55000",
     "census_state_fips": "22",
-    "utility": "Entergy New Orleans"
+    "utility": "Entergy New Orleans",
+    "ghcnd_station_id": "USW00012916"
   },
   "new-york-city-ny": {
     "city": "New York City",
@@ -657,7 +716,8 @@
     "noaa_station": "KNYC",
     "census_place_fips": "51000",
     "census_state_fips": "36",
-    "utility": "Con Edison"
+    "utility": "Con Edison",
+    "ghcnd_station_id": "USW00094728"
   },
   "newark-nj": {
     "city": "Newark",
@@ -668,7 +728,8 @@
     "noaa_station": "KEWR",
     "census_place_fips": "51000",
     "census_state_fips": "34",
-    "utility": "PSE&G"
+    "utility": "PSE&G",
+    "ghcnd_station_id": "USW00014734"
   },
   "oakland-ca": {
     "city": "Oakland",
@@ -679,7 +740,8 @@
     "noaa_station": "KOAK",
     "census_place_fips": "53000",
     "census_state_fips": "06",
-    "utility": "PG&E"
+    "utility": "PG&E",
+    "ghcnd_station_id": "USW00023230"
   },
   "oklahoma-city-ok": {
     "city": "Oklahoma City",
@@ -690,7 +752,8 @@
     "noaa_station": "KOKC",
     "census_place_fips": "55000",
     "census_state_fips": "40",
-    "utility": "OG&E (Oklahoma Gas & Electric)"
+    "utility": "OG&E (Oklahoma Gas & Electric)",
+    "ghcnd_station_id": "USW00013967"
   },
   "omaha-ne": {
     "city": "Omaha",
@@ -701,7 +764,8 @@
     "noaa_station": "KOMA",
     "census_place_fips": "37000",
     "census_state_fips": "31",
-    "utility": "OPPD (Omaha Public Power District)"
+    "utility": "OPPD (Omaha Public Power District)",
+    "ghcnd_station_id": "USW00094918"
   },
   "peoria-il": {
     "city": "Peoria",
@@ -712,7 +776,8 @@
     "noaa_station": "KPIA",
     "census_place_fips": "59000",
     "census_state_fips": "17",
-    "utility": "Ameren Illinois"
+    "utility": "Ameren Illinois",
+    "ghcnd_station_id": "USW00014842"
   },
   "philadelphia-pa": {
     "city": "Philadelphia",
@@ -723,7 +788,8 @@
     "noaa_station": "KPHL",
     "census_place_fips": "60000",
     "census_state_fips": "42",
-    "utility": "PECO Energy"
+    "utility": "PECO Energy",
+    "ghcnd_station_id": "USW00013739"
   },
   "phoenix-az": {
     "city": "Phoenix",
@@ -734,7 +800,8 @@
     "noaa_station": "KPHX",
     "census_place_fips": "55000",
     "census_state_fips": "04",
-    "utility": "APS / Salt River Project (SRP)"
+    "utility": "APS / Salt River Project (SRP)",
+    "ghcnd_station_id": "USW00023183"
   },
   "pittsburgh-pa": {
     "city": "Pittsburgh",
@@ -745,7 +812,8 @@
     "noaa_station": "KPIT",
     "census_place_fips": "61000",
     "census_state_fips": "42",
-    "utility": "Duquesne Light Company"
+    "utility": "Duquesne Light Company",
+    "ghcnd_station_id": "USW00094823"
   },
   "providence-ri": {
     "city": "Providence",
@@ -756,7 +824,8 @@
     "noaa_station": "KPVD",
     "census_place_fips": "59000",
     "census_state_fips": "44",
-    "utility": "Rhode Island Energy"
+    "utility": "Rhode Island Energy",
+    "ghcnd_station_id": "USW00014765"
   },
   "raleigh-nc": {
     "city": "Raleigh",
@@ -767,7 +836,8 @@
     "noaa_station": "KRDU",
     "census_place_fips": "55000",
     "census_state_fips": "37",
-    "utility": "Duke Energy Progress"
+    "utility": "Duke Energy Progress",
+    "ghcnd_station_id": "USW00013722"
   },
   "reno-nv": {
     "city": "Reno",
@@ -778,7 +848,8 @@
     "noaa_station": "KRNO",
     "census_place_fips": "60600",
     "census_state_fips": "32",
-    "utility": "NV Energy"
+    "utility": "NV Energy",
+    "ghcnd_station_id": "USW00023185"
   },
   "richmond-va": {
     "city": "Richmond",
@@ -789,7 +860,8 @@
     "noaa_station": "KRIC",
     "census_place_fips": "67000",
     "census_state_fips": "51",
-    "utility": "Dominion Energy"
+    "utility": "Dominion Energy",
+    "ghcnd_station_id": "USW00013740"
   },
   "sacramento-ca": {
     "city": "Sacramento",
@@ -800,7 +872,8 @@
     "noaa_station": "KSAC",
     "census_place_fips": "64000",
     "census_state_fips": "06",
-    "utility": "SMUD (Sacramento Municipal Utility District)"
+    "utility": "SMUD (Sacramento Municipal Utility District)",
+    "ghcnd_station_id": "USW00023232"
   },
   "salt-lake-city-ut": {
     "city": "Salt Lake City",
@@ -811,7 +884,8 @@
     "noaa_station": "KSLC",
     "census_place_fips": "67000",
     "census_state_fips": "49",
-    "utility": "Rocky Mountain Power"
+    "utility": "Rocky Mountain Power",
+    "ghcnd_station_id": "USW00024127"
   },
   "san-antonio-tx": {
     "city": "San Antonio",
@@ -822,7 +896,8 @@
     "noaa_station": "KSAT",
     "census_place_fips": "65000",
     "census_state_fips": "48",
-    "utility": "CPS Energy (municipal)"
+    "utility": "CPS Energy (municipal)",
+    "ghcnd_station_id": "USW00012921"
   },
   "san-diego-ca": {
     "city": "San Diego",
@@ -833,7 +908,8 @@
     "noaa_station": "KSAN",
     "census_place_fips": "66000",
     "census_state_fips": "06",
-    "utility": "SDG&E"
+    "utility": "SDG&E",
+    "ghcnd_station_id": "USW00023188"
   },
   "san-francisco-ca": {
     "city": "San Francisco",
@@ -844,7 +920,8 @@
     "noaa_station": "KSFO",
     "census_place_fips": "67000",
     "census_state_fips": "06",
-    "utility": "PG&E"
+    "utility": "PG&E",
+    "ghcnd_station_id": "USW00023234"
   },
   "san-jose-ca": {
     "city": "San Jose",
@@ -855,7 +932,8 @@
     "noaa_station": "KSJC",
     "census_place_fips": "68000",
     "census_state_fips": "06",
-    "utility": "PG&E"
+    "utility": "PG&E",
+    "ghcnd_station_id": "USW00023293"
   },
   "seattle-wa": {
     "city": "Seattle",
@@ -866,7 +944,8 @@
     "noaa_station": "KSEA",
     "census_place_fips": "63000",
     "census_state_fips": "53",
-    "utility": "Seattle City Light"
+    "utility": "Seattle City Light",
+    "ghcnd_station_id": "USW00024233"
   },
   "shreveport-la": {
     "city": "Shreveport",
@@ -877,7 +956,8 @@
     "noaa_station": "KSHV",
     "census_place_fips": "70000",
     "census_state_fips": "22",
-    "utility": "SWEPCO (Southwestern Electric Power Company)"
+    "utility": "SWEPCO (Southwestern Electric Power Company)",
+    "ghcnd_station_id": "USW00013957"
   },
   "spokane-wa": {
     "city": "Spokane",
@@ -888,7 +968,8 @@
     "noaa_station": "KGEG",
     "census_place_fips": "67000",
     "census_state_fips": "53",
-    "utility": "Avista Utilities"
+    "utility": "Avista Utilities",
+    "ghcnd_station_id": "USW00024157"
   },
   "springfield-ma": {
     "city": "Springfield",
@@ -899,7 +980,8 @@
     "noaa_station": "KCEF",
     "census_place_fips": "67000",
     "census_state_fips": "25",
-    "utility": "Eversource (WMECO)"
+    "utility": "Eversource (WMECO)",
+    "ghcnd_station_id": "USW00014739"
   },
   "st-louis-mo": {
     "city": "St. Louis",
@@ -910,7 +992,8 @@
     "noaa_station": "KSTL",
     "census_place_fips": "65000",
     "census_state_fips": "29",
-    "utility": "Ameren Missouri"
+    "utility": "Ameren Missouri",
+    "ghcnd_station_id": "USW00013994"
   },
   "syracuse-ny": {
     "city": "Syracuse",
@@ -921,7 +1004,8 @@
     "noaa_station": "KSYR",
     "census_place_fips": "73000",
     "census_state_fips": "36",
-    "utility": "National Grid"
+    "utility": "National Grid",
+    "ghcnd_station_id": "USW00014771"
   },
   "tallahassee-fl": {
     "city": "Tallahassee",
@@ -932,7 +1016,8 @@
     "noaa_station": "KTLH",
     "census_place_fips": "70600",
     "census_state_fips": "12",
-    "utility": "City of Tallahassee Utilities"
+    "utility": "City of Tallahassee Utilities",
+    "ghcnd_station_id": "USW00093805"
   },
   "tampa-fl": {
     "city": "Tampa",
@@ -943,7 +1028,8 @@
     "noaa_station": "KTPA",
     "census_place_fips": "71000",
     "census_state_fips": "12",
-    "utility": "TECO (Tampa Electric Company)"
+    "utility": "TECO (Tampa Electric Company)",
+    "ghcnd_station_id": "USW00012842"
   },
   "toledo-oh": {
     "city": "Toledo",
@@ -954,7 +1040,8 @@
     "noaa_station": "KTOL",
     "census_place_fips": "77000",
     "census_state_fips": "39",
-    "utility": "Toledo Edison / FirstEnergy"
+    "utility": "Toledo Edison / FirstEnergy",
+    "ghcnd_station_id": "USW00094830"
   },
   "tucson-az": {
     "city": "Tucson",
@@ -965,7 +1052,8 @@
     "noaa_station": "KTUS",
     "census_place_fips": "77000",
     "census_state_fips": "04",
-    "utility": "Tucson Electric Power"
+    "utility": "Tucson Electric Power",
+    "ghcnd_station_id": "USW00023160"
   },
   "tulsa-ok": {
     "city": "Tulsa",
@@ -976,7 +1064,8 @@
     "noaa_station": "KTUL",
     "census_place_fips": "75000",
     "census_state_fips": "40",
-    "utility": "PSO (Public Service Co. of Oklahoma)"
+    "utility": "PSO (Public Service Co. of Oklahoma)",
+    "ghcnd_station_id": "USW00013968"
   },
   "virginia-beach-va": {
     "city": "Virginia Beach",
@@ -987,7 +1076,8 @@
     "noaa_station": "KNGU",
     "census_place_fips": "82000",
     "census_state_fips": "51",
-    "utility": "Dominion Energy"
+    "utility": "Dominion Energy",
+    "ghcnd_station_id": "USW00013737"
   },
   "washington-dc": {
     "city": "Washington",
@@ -998,7 +1088,8 @@
     "noaa_station": "KDCA",
     "census_place_fips": "50000",
     "census_state_fips": "11",
-    "utility": "Pepco (Potomac Electric Power Company)"
+    "utility": "Pepco (Potomac Electric Power Company)",
+    "ghcnd_station_id": "USW00013743"
   },
   "wichita-ks": {
     "city": "Wichita",
@@ -1009,7 +1100,8 @@
     "noaa_station": "KICT",
     "census_place_fips": "79000",
     "census_state_fips": "20",
-    "utility": "Evergy"
+    "utility": "Evergy",
+    "ghcnd_station_id": "USW00003928"
   },
   "winston-salem-nc": {
     "city": "Winston-Salem",
@@ -1020,7 +1112,8 @@
     "noaa_station": "KINT",
     "census_place_fips": "75000",
     "census_state_fips": "37",
-    "utility": "Duke Energy Carolinas"
+    "utility": "Duke Energy Carolinas",
+    "ghcnd_station_id": "USW00013723"
   },
   "worcester-ma": {
     "city": "Worcester",
@@ -1031,7 +1124,8 @@
     "noaa_station": "KORH",
     "census_place_fips": "82000",
     "census_state_fips": "25",
-    "utility": "National Grid"
+    "utility": "National Grid",
+    "ghcnd_station_id": "USW00094746"
   },
   "honolulu-hi": {
     "city": "Honolulu",
@@ -1042,7 +1136,8 @@
     "noaa_station": "KHNL",
     "census_place_fips": "71550",
     "census_state_fips": "15",
-    "utility": "Hawaiian Electric (HECO)"
+    "utility": "Hawaiian Electric (HECO)",
+    "ghcnd_station_id": "USW00022521"
   },
   "columbia-sc": {
     "city": "Columbia",
@@ -1053,7 +1148,8 @@
     "noaa_station": "KCAE",
     "census_place_fips": "16000",
     "census_state_fips": "45",
-    "utility": "Dominion Energy South Carolina"
+    "utility": "Dominion Energy South Carolina",
+    "ghcnd_station_id": "USW00013883"
   },
   "greenville-sc": {
     "city": "Greenville",
@@ -1064,7 +1160,8 @@
     "noaa_station": "KGSP",
     "census_place_fips": "30850",
     "census_state_fips": "45",
-    "utility": "Duke Energy Carolinas"
+    "utility": "Duke Energy Carolinas",
+    "ghcnd_station_id": "USW00013886"
   },
   "jackson-ms": {
     "city": "Jackson",
@@ -1075,7 +1172,8 @@
     "noaa_station": "KJAN",
     "census_place_fips": "36000",
     "census_state_fips": "28",
-    "utility": "Entergy Mississippi"
+    "utility": "Entergy Mississippi",
+    "ghcnd_station_id": "USW00003940"
   },
   "gulfport-ms": {
     "city": "Gulfport",
@@ -1086,7 +1184,8 @@
     "noaa_station": "KGPT",
     "census_place_fips": "29700",
     "census_state_fips": "28",
-    "utility": "Mississippi Power"
+    "utility": "Mississippi Power",
+    "ghcnd_station_id": "USW00093874"
   },
   "bangor-me": {
     "city": "Bangor",
@@ -1097,7 +1196,8 @@
     "noaa_station": "KBGR",
     "census_place_fips": "02795",
     "census_state_fips": "23",
-    "utility": "Versant Power"
+    "utility": "Versant Power",
+    "ghcnd_station_id": "USW00014606"
   },
   "morgantown-wv": {
     "city": "Morgantown",
@@ -1108,7 +1208,8 @@
     "noaa_station": "KMGW",
     "census_place_fips": "55756",
     "census_state_fips": "54",
-    "utility": "Mon Power (FirstEnergy)"
+    "utility": "Mon Power (FirstEnergy)",
+    "ghcnd_station_id": "USW00013736"
   },
   "billings-mt": {
     "city": "Billings",
@@ -1119,7 +1220,8 @@
     "noaa_station": "KBIL",
     "census_place_fips": "06550",
     "census_state_fips": "30",
-    "utility": "NorthWestern Energy"
+    "utility": "NorthWestern Energy",
+    "ghcnd_station_id": "USW00024033"
   },
   "missoula-mt": {
     "city": "Missoula",
@@ -1130,7 +1232,8 @@
     "noaa_station": "KMSO",
     "census_place_fips": "50200",
     "census_state_fips": "30",
-    "utility": "NorthWestern Energy"
+    "utility": "NorthWestern Energy",
+    "ghcnd_station_id": "USW00024153"
   },
   "fargo-nd": {
     "city": "Fargo",
@@ -1141,7 +1244,8 @@
     "noaa_station": "KFAR",
     "census_place_fips": "25700",
     "census_state_fips": "38",
-    "utility": "Xcel Energy"
+    "utility": "Xcel Energy",
+    "ghcnd_station_id": "USW00014914"
   },
   "bismarck-nd": {
     "city": "Bismarck",
@@ -1152,7 +1256,8 @@
     "noaa_station": "KBIS",
     "census_place_fips": "07200",
     "census_state_fips": "38",
-    "utility": "Montana-Dakota Utilities (MDU)"
+    "utility": "Montana-Dakota Utilities (MDU)",
+    "ghcnd_station_id": "USW00024011"
   },
   "sioux-falls-sd": {
     "city": "Sioux Falls",
@@ -1163,7 +1268,8 @@
     "noaa_station": "KFSD",
     "census_place_fips": "59020",
     "census_state_fips": "46",
-    "utility": "Xcel Energy (electric), MidAmerican Energy (gas)"
+    "utility": "Xcel Energy (electric), MidAmerican Energy (gas)",
+    "ghcnd_station_id": "USW00014944"
   },
   "rapid-city-sd": {
     "city": "Rapid City",
@@ -1174,7 +1280,8 @@
     "noaa_station": "KRAP",
     "census_place_fips": "52980",
     "census_state_fips": "46",
-    "utility": "Black Hills Energy"
+    "utility": "Black Hills Energy",
+    "ghcnd_station_id": "USW00024090"
   },
   "wilmington-de": {
     "city": "Wilmington",
@@ -1185,7 +1292,8 @@
     "noaa_station": "KILG",
     "census_place_fips": "77580",
     "census_state_fips": "10",
-    "utility": "Delmarva Power (Exelon)"
+    "utility": "Delmarva Power (Exelon)",
+    "ghcnd_station_id": "USW00013781"
   },
   "burlington-vt": {
     "city": "Burlington",
@@ -1196,7 +1304,8 @@
     "noaa_station": "KBTV",
     "census_place_fips": "10675",
     "census_state_fips": "50",
-    "utility": "Burlington Electric Department"
+    "utility": "Burlington Electric Department",
+    "ghcnd_station_id": "USW00014742"
   },
   "cheyenne-wy": {
     "city": "Cheyenne",
@@ -1207,7 +1316,8 @@
     "noaa_station": "KCYS",
     "census_place_fips": "13900",
     "census_state_fips": "56",
-    "utility": "Cheyenne Light Fuel and Power (Black Hills Energy)"
+    "utility": "Cheyenne Light Fuel and Power (Black Hills Energy)",
+    "ghcnd_station_id": "USW00024018"
   },
   "manchester-nh": {
     "city": "Manchester",
@@ -1218,7 +1328,8 @@
     "noaa_station": "KMHT",
     "census_place_fips": "45140",
     "census_state_fips": "33",
-    "utility": "Eversource Energy"
+    "utility": "Eversource Energy",
+    "ghcnd_station_id": "USW00014710"
   },
   "portland-or": {
     "city": "Portland",
@@ -1229,7 +1340,8 @@
     "noaa_station": "KPDX",
     "census_place_fips": "59000",
     "census_state_fips": "41",
-    "utility": "Portland General Electric (PGE)"
+    "utility": "Portland General Electric (PGE)",
+    "ghcnd_station_id": "USW00024229"
   },
   "portland-me": {
     "city": "Portland",
@@ -1240,7 +1352,8 @@
     "noaa_station": "KPWM",
     "census_place_fips": "60545",
     "census_state_fips": "23",
-    "utility": "Central Maine Power (CMP)"
+    "utility": "Central Maine Power (CMP)",
+    "ghcnd_station_id": "USW00014764"
   },
   "charleston-wv": {
     "city": "Charleston",
@@ -1251,7 +1364,8 @@
     "noaa_station": "KCRW",
     "census_place_fips": "14600",
     "census_state_fips": "54",
-    "utility": "Appalachian Power (AEP)"
+    "utility": "Appalachian Power (AEP)",
+    "ghcnd_station_id": "USW00013866"
   },
   "charleston-sc": {
     "city": "Charleston",
@@ -1262,6 +1376,7 @@
     "noaa_station": "KCHS",
     "census_place_fips": "13330",
     "census_state_fips": "45",
-    "utility": "Dominion Energy South Carolina"
+    "utility": "Dominion Energy South Carolina",
+    "ghcnd_station_id": "USW00013880"
   }
 }
