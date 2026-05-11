@@ -414,185 +414,198 @@
       ]
     }
   },
+  "_priority_queue_strategy": "GSC-informed reorder 2026-05-10. Last 7-day GSC data showed: financing article hitting positions 1-5 on multiple long-tail queries; '$5000 rule for hvac' at position 2 (C5 repair-vs-replace pillar winning informational decision-research intent); 'hvac emergency' at position 4.3 (informational variant of emergency queries CAN win — local-pack-dominated transactional ones cannot). Pending articles reordered to lead with C5 Compare (decision-research) + C4 Cost (cost research) where SERP shape allows referral-content wins. Lower-priority: C2/C3 diagnostic articles (valuable for topical authority but slower to rank). See feedback_referral_model_seo_constraints.md memory for the broader strategy constraints.",
   "priority_queue": [
     {
       "position": 1,
-      "cluster": "C1_ac",
-      "slug": "complete-ac-troubleshooting-guide",
-      "type": "pillar"
+      "cluster": "C5_compare",
+      "slug": "1000-into-12yo-ac",
+      "type": "cluster",
+      "note": "Direct mirror of '$5000 rule' query winning at position 2. Same decision-research intent."
     },
     {
       "position": 2,
-      "cluster": "C4_cost",
-      "slug": "2026-hvac-cost-guide",
-      "type": "pillar"
+      "cluster": "C5_compare",
+      "slug": "seer-14-vs-18-payback",
+      "type": "cluster",
+      "note": "Decision-research intent; technical reference content; same SERP shape as #1."
     },
     {
       "position": 3,
-      "cluster": "C1_ac",
-      "slug": "ac-freezing-up-in-summer",
-      "type": "cluster"
+      "cluster": "C4_cost",
+      "slug": "emergency-weekend-hvac-cost",
+      "type": "cluster",
+      "note": "Captures informational variants of emergency queries (the kind we CAN win); ties to 62% emergency-themed impression share."
     },
     {
       "position": 4,
-      "cluster": "C1_ac",
-      "slug": "ac-not-cooling-below-80",
-      "type": "cluster"
+      "cluster": "C4_cost",
+      "slug": "cost-replace-3-ton-ac",
+      "type": "cluster",
+      "note": "Direct cost-research head term; matches general cost queries surfacing in GSC."
     },
     {
       "position": 5,
-      "cluster": "C1_ac",
-      "slug": "ac-circuit-breaker-trips",
-      "type": "cluster"
+      "cluster": "C4_cost",
+      "slug": "r410a-recharge-cost",
+      "type": "cluster",
+      "note": "Refrigerant cost is a striking-distance area."
     },
     {
       "position": 6,
       "cluster": "C4_cost",
-      "slug": "cost-replace-3-ton-ac",
-      "type": "cluster"
+      "slug": "new-furnace-installed-cost",
+      "type": "cluster",
+      "note": "Furnace theme accounts for 12.9% of GSC impressions; direct cost research."
     },
     {
       "position": 7,
       "cluster": "C4_cost",
-      "slug": "r410a-recharge-cost",
-      "type": "cluster"
+      "slug": "dual-run-capacitor-cost",
+      "type": "cluster",
+      "note": "Niche cost-research; specific repair item."
     },
     {
       "position": 8,
-      "cluster": "C2_furnace",
-      "slug": "furnace-not-working-diagnostic-guide",
-      "type": "pillar"
-    },
-    {
-      "position": 9,
-      "cluster": "C2_furnace",
-      "slug": "furnace-short-cycling",
-      "type": "cluster"
-    },
-    {
-      "position": 10,
-      "cluster": "C2_furnace",
-      "slug": "furnace-burning-plastic-smell",
-      "type": "cluster"
-    },
-    {
-      "position": 11,
-      "cluster": "C1_ac",
-      "slug": "thermostat-blank-ac-wont-start",
-      "type": "cluster"
-    },
-    {
-      "position": 12,
-      "cluster": "C4_cost",
-      "slug": "dual-run-capacitor-cost",
-      "type": "cluster"
-    },
-    {
-      "position": 13,
-      "cluster": "C4_cost",
-      "slug": "emergency-weekend-hvac-cost",
-      "type": "cluster"
-    },
-    {
-      "position": 14,
-      "cluster": "C3_heatpump",
-      "slug": "2026-heat-pump-buyers-guide",
-      "type": "pillar"
-    },
-    {
-      "position": 15,
-      "cluster": "C3_heatpump",
-      "slug": "heat-pump-stuck-in-cooling",
-      "type": "cluster"
-    },
-    {
-      "position": 16,
-      "cluster": "C3_heatpump",
-      "slug": "heat-pump-lukewarm-air",
-      "type": "cluster"
-    },
-    {
-      "position": 17,
-      "cluster": "C5_compare",
-      "slug": "repair-or-replace-framework",
-      "type": "pillar"
-    },
-    {
-      "position": 18,
-      "cluster": "C5_compare",
-      "slug": "1000-into-12yo-ac",
-      "type": "cluster"
-    },
-    {
-      "position": 19,
-      "cluster": "C5_compare",
-      "slug": "heat-pump-vs-gas-furnace",
-      "type": "cluster"
-    },
-    {
-      "position": 20,
-      "cluster": "C1_ac",
-      "slug": "ac-contactor-clicking",
-      "type": "cluster"
-    },
-    {
-      "position": 21,
-      "cluster": "C1_ac",
-      "slug": "water-dripping-from-vent",
-      "type": "cluster"
-    },
-    {
-      "position": 22,
       "cluster": "C4_cost",
       "slug": "mini-split-installation-cost",
       "type": "cluster"
     },
     {
-      "position": 23,
+      "position": 9,
       "cluster": "C4_cost",
       "slug": "central-air-no-ductwork-cost",
       "type": "cluster"
     },
     {
-      "position": 24,
+      "position": 10,
+      "cluster": "C2_furnace",
+      "slug": "furnace-short-cycling",
+      "type": "cluster",
+      "note": "Diagnostic; valuable for topical authority but lower immediate-ranking leverage."
+    },
+    {
+      "position": 11,
+      "cluster": "C2_furnace",
+      "slug": "furnace-burning-plastic-smell",
+      "type": "cluster"
+    },
+    {
+      "position": 12,
+      "cluster": "C2_furnace",
+      "slug": "co-detector-furnace-running",
+      "type": "cluster",
+      "note": "Safety-critical content; high E-E-A-T value even if traffic is moderate."
+    },
+    {
+      "position": 13,
       "cluster": "C2_furnace",
       "slug": "furnace-ignitor-wont-light",
       "type": "cluster"
     },
     {
-      "position": 25,
-      "cluster": "C2_furnace",
-      "slug": "co-detector-furnace-running",
+      "position": 14,
+      "cluster": "C3_heatpump",
+      "slug": "heat-pump-stuck-in-cooling",
       "type": "cluster"
     },
     {
-      "position": 26,
-      "cluster": "C6_maint",
-      "slug": "year-round-hvac-maintenance-playbook",
-      "type": "pillar"
-    },
-    {
-      "position": 27,
-      "cluster": "C6_maint",
-      "slug": "best-merv-rating",
+      "position": 15,
+      "cluster": "C3_heatpump",
+      "slug": "heat-pump-lukewarm-air",
       "type": "cluster"
     },
     {
-      "position": 28,
-      "cluster": "C5_compare",
-      "slug": "seer-14-vs-18-payback",
-      "type": "cluster"
-    },
-    {
-      "position": 29,
+      "position": 16,
       "cluster": "C3_heatpump",
       "slug": "heat-pump-defrost-grinding",
       "type": "cluster"
     },
     {
-      "position": 30,
+      "position": 17,
+      "cluster": "C6_maint",
+      "slug": "best-merv-rating",
+      "type": "cluster"
+    },
+    {
+      "_completed_below": "Positions 18+ are already-shipped pillars + cluster articles, kept for ordering completeness. Filter on status='live' in clusters[].articles[] / clusters[].pillar to identify shipped vs pending."
+    },
+    {
+      "position": 18,
+      "cluster": "C1_ac",
+      "slug": "complete-ac-troubleshooting-guide",
+      "type": "pillar"
+    },
+    {
+      "position": 19,
       "cluster": "C4_cost",
-      "slug": "new-furnace-installed-cost",
+      "slug": "2026-hvac-cost-guide",
+      "type": "pillar"
+    },
+    {
+      "position": 20,
+      "cluster": "C2_furnace",
+      "slug": "furnace-not-working-diagnostic-guide",
+      "type": "pillar"
+    },
+    {
+      "position": 21,
+      "cluster": "C3_heatpump",
+      "slug": "2026-heat-pump-buyers-guide",
+      "type": "pillar"
+    },
+    {
+      "position": 22,
+      "cluster": "C5_compare",
+      "slug": "repair-or-replace-framework",
+      "type": "pillar"
+    },
+    {
+      "position": 23,
+      "cluster": "C6_maint",
+      "slug": "year-round-hvac-maintenance-playbook",
+      "type": "pillar"
+    },
+    {
+      "position": 24,
+      "cluster": "C1_ac",
+      "slug": "ac-freezing-up-in-summer",
+      "type": "cluster"
+    },
+    {
+      "position": 25,
+      "cluster": "C1_ac",
+      "slug": "ac-not-cooling-below-80",
+      "type": "cluster"
+    },
+    {
+      "position": 26,
+      "cluster": "C1_ac",
+      "slug": "ac-circuit-breaker-trips",
+      "type": "cluster"
+    },
+    {
+      "position": 27,
+      "cluster": "C1_ac",
+      "slug": "thermostat-blank-ac-wont-start",
+      "type": "cluster"
+    },
+    {
+      "position": 28,
+      "cluster": "C1_ac",
+      "slug": "ac-contactor-clicking",
+      "type": "cluster"
+    },
+    {
+      "position": 29,
+      "cluster": "C1_ac",
+      "slug": "water-dripping-from-vent",
+      "type": "cluster"
+    },
+    {
+      "position": 30,
+      "cluster": "C5_compare",
+      "slug": "heat-pump-vs-gas-furnace",
       "type": "cluster"
     }
   ]
