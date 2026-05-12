@@ -113,6 +113,12 @@
 
   <!-- New Articles (articles/ subfolder) -->
   <url>
+    <loc>https://coolcallpro.com/articles/1000-into-12yo-ac</loc>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://coolcallpro.com/articles/2026-heat-pump-buyers-guide</loc>
     <lastmod>2026-05-08</lastmod>
     <changefreq>monthly</changefreq>

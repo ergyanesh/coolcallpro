@@ -347,9 +347,10 @@
           "slug": "1000-into-12yo-ac",
           "path": "articles/1000-into-12yo-ac.html",
           "title": "Should I Put $1,000 into a 12-Year-Old AC?",
-          "status": "pending",
+          "status": "live",
           "priority": 18,
-          "roadmap_id": 71
+          "roadmap_id": 71,
+          "date_published": "2026-05-10"
         },
         {
           "slug": "heat-pump-vs-gas-furnace",
