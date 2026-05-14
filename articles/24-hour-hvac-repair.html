@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!--
+    ===================================================================
+    YMYL VERIFICATION LOG — last verified 2026-05-14, next due 2026-08-14
+    ===================================================================
+    Per the "Live Verification Discipline" rule in CLAUDE.md, every YMYL
+    factual claim below was WebFetch-verified against the cited primary
+    source on the verification date.
+
+    CLAIM 1: Refrigerant handling is federally regulated under EPA
+            Section 608 of the Clean Air Act. Certification is legally
+            required to recover, recharge, or repair sealed refrigerant
+            lines, and applies overnight as much as during business
+            hours. This affects which 24-hour techs can legally do
+            what work at 3 a.m.
+        VERIFIED via EPA Section 608 Technician Certification.
+        URL: https://www.epa.gov/section608
+
+    CLAIM 2: After-hours surcharge, diagnostic fee, and standard labor
+            rate ranges (canonical pricing) reference the CoolCallPro
+            cost guide rather than being restated here. This article
+            focuses on availability/response, not pricing math.
+        Internal canonical: see costs.html "Emergency &amp; Service
+            Call Fees" table and articles/emergency-hvac-service-cost
+            for the full pricing breakdown.
+        URL: https://coolcallpro.com/costs
+
+    CLAIM 3: Repair-vs-replace decision math is covered in the C5
+            cluster pillar (cluster_map.json -> C5_compare.pillar).
+            This article cites the pillar as the canonical decision
+            frame and links to it.
+        Internal canonical: cluster_map.json pillar entry for C5_compare.
+        URL: https://coolcallpro.com/articles/repair-or-replace-framework
+
+    CLAIM 4: CDC carbon-monoxide guidance — symptoms of CO exposure
+            (headache, dizziness, confusion, nausea) require immediate
+            evacuation. A nighttime CO detector alarm with the furnace
+            running is a true 24-hour-service call.
+        VERIFIED via CDC Carbon Monoxide Poisoning &mdash; About.
+        URL: https://www.cdc.gov/carbon-monoxide/about/index.html
+    ===================================================================
+    -->
+    <!-- Google tag (gtag.js) - GA4 — deferred until first interaction for LCP -->
+    <script>
+        (function() {
+            var loaded = false;
+            function loadGA() {
+                if (loaded) return;
+                loaded = true;
+                var s = document.createElement('script');
+                s.src = 'https://www.googletagmanager.com/gtag/js?id=G-WD0ND0K60Q';
+                s.async = true;
+                document.head.appendChild(s);
+                s.onload = function() {
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){dataLayer.push(arguments);}
+                    window.gtag = gtag;
+                    gtag('js', new Date());
+                    gtag('config', 'G-WD0ND0K60Q');
+                };
+            }
+            ['click', 'scroll', 'touchstart', 'keydown'].forEach(function(evt) {
+                window.addEventListener(evt, loadGA, { once: true, passive: true });
+            });
+            setTimeout(loadGA, 4000);
+        })();
+    </script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index, follow" />
+    <title>24-Hour HVAC Repair: What's Open at 3 a.m. | Cool Call Pro</title>
+    <meta name="description"
+        content="24-hour HVAC repair guide: who's actually open at 3 a.m., realistic arrival windows, and how to spot the 'phones-only' 24/7 marketing trap." />
+    <link rel="canonical" href="https://coolcallpro.com/articles/24-hour-hvac-repair" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="24-Hour HVAC Repair: What's Open at 3 a.m. (2026)" />
+    <meta property="og:description"
+        content="24-hour HVAC repair guide: who's actually open at 3 a.m., realistic arrival windows, and how to spot 'phones-only' 24/7 marketing traps." />
+    <meta property="og:url" content="https://coolcallpro.com/articles/24-hour-hvac-repair" />
+    <meta property="og:site_name" content="Cool Call Pro" />
+    <meta property="article:author" content="Gyanesh Gulshan" />
+    <meta property="article:published_time" content="2026-05-14T00:00:00Z" />
+    <meta property="article:modified_time" content="2026-05-14T00:00:00Z" />
+    <meta property="og:image" content="https://coolcallpro.com/images/hvac_24_hour_repair_guide.webp" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="24-Hour HVAC Repair: What's Open at 3 a.m. | Cool Call Pro" />
+    <meta name="twitter:description" content="Three tiers of '24-hour' HVAC, how to verify a real overnight operator, and what's actually closed even at 24-hour shops." />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+    <link rel="stylesheet" href="../css/style.min.css" />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <!-- Article Schema -->
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "24-Hour HVAC Repair: What's Open at 3 a.m. (and What's Not)",
+    "description": "24-hour HVAC repair guide: who's actually open at 3 a.m., realistic arrival windows, and how to spot the 'phones-only' 24/7 marketing trap.",
+    "datePublished": "2026-05-14",
+    "dateModified": "2026-05-14",
+    "author": {
+        "@type": "Person",
+        "name": "Gyanesh Gulshan",
+        "url": "https://coolcallpro.com/author-gyanesh",
+        "image": "https://coolcallpro.com/images/author-gyane.webp",
+        "sameAs": ["https://www.linkedin.com/in/gyaneshgulshan/"]
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Cool Call Pro",
+        "url": "https://coolcallpro.com",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://coolcallpro.com/favicon.svg"
+        }
+    },
+    "image": "https://coolcallpro.com/images/hvac_24_hour_repair_guide.webp",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://coolcallpro.com/articles/24-hour-hvac-repair"
+    },
+    "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [".tldr-box", ".faq-q", ".faq-a-inner"]
+    },
+    "about": [
+        {"@type": "Thing", "name": "HVAC", "sameAs": "https://en.wikipedia.org/wiki/Heating,_ventilation,_and_air_conditioning"},
+        {"@type": "Thing", "name": "Emergency service", "sameAs": "https://en.wikipedia.org/wiki/Emergency_service"},
+        {"@type": "Thing", "name": "Section 608 of the Clean Air Act", "sameAs": "https://www.epa.gov/section608"}
+    ]
+}
+    </script>
+    <!-- Breadcrumb Schema -->
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://coolcallpro.com/"
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Articles",
+            "item": "https://coolcallpro.com/articles"
+        },
+        {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "24-Hour HVAC Repair: What's Open at 3 a.m.",
+            "item": "https://coolcallpro.com/articles/24-hour-hvac-repair"
+        }
+    ]
+}
+    </script>
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "Is there really 24-hour HVAC service in my area?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Almost certainly yes for major metros and suburbs — but with a major caveat. Marketed '24/7 HVAC service' falls into three very different tiers. Tier 1 (true 24-hour) means a technician on a rotating on-call shift can be dispatched at 3 a.m. and arrive in 60 to 180 minutes. Tier 2 (24-hour phones) means a call center answers around the clock, but the soonest tech is queued for morning. Tier 3 (call-back) means you reach an answering service that books you a morning slot. The phone gets answered in all three; the truck rolls in only one. Before authorizing a service call, ask explicitly: 'Can you have a technician at my house tonight, and what is the earliest arrival window?' That single question separates the three tiers immediately. Rural markets and small towns often only support Tier 2 or Tier 3 overnight — the next real Tier-1 operator may be 60 to 90 miles away."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "How quickly can a 24-hour HVAC technician actually arrive?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Realistic overnight arrival windows in 2026 run 60 to 180 minutes for true Tier 1 operators in major metros, and longer in cold-weather emergencies when demand spikes. Friday and Saturday night summer AC failures and weeknight winter no-heat calls below 25 F outdoor produce 3-to-5-hour waits at most operators because call volume overwhelms staffing. The advertised '60-minute response' is the operator's best-case scenario, not the typical experience during weather-driven demand. Holidays and major weather events extend windows further — a Thanksgiving evening no-heat call in a cold-climate market commonly sees 4-to-6-hour windows. If your situation is true safety-tier (CO alarm, gas smell, electrical burning), call 911 first and only loop the HVAC dispatcher in after the immediate emergency is contained."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Are all 24-hour HVAC companies open on holidays?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. Many operators that advertise '24/7' close on the four big holidays — Thanksgiving, Christmas Eve, Christmas Day, and New Year's Day — because the after-hours premium can't recruit enough technicians for those nights and parts depots are closed. Independents are more likely to take holiday calls than franchise chains because the holiday surcharge falls to a single tech instead of a corporate schedule. Always verify holiday coverage by asking the dispatcher directly: 'Are you taking calls on Christmas Eve?' A vague 'we try our best' is a no. A specific 'yes, we have a tech on rotation' is a yes. Holiday premium surcharges run 2x the standard weekend rate — see our emergency HVAC service cost guide for the cost math."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Why does my 'open 24/7' HVAC company say they can't come until morning?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Because the company sells 24-hour phone answering, not 24-hour technician dispatch. This is the most common 24/7 HVAC marketing trap. The call center is on-shift around the clock; the on-call technician pool is either limited (one tech for a metro of 500,000 people) or scheduled-only (techs work 7 a.m. to 9 p.m. and the dispatcher just books your call into the morning queue). The legal advertising standard is 'someone answers the phone 24/7' — not 'a truck rolls 24/7.' If the dispatcher says 'we can get you the first morning slot at 7 a.m.,' that's a Tier 2 operator. Ask if any other operator in the area is a true Tier 1 dispatch — sometimes the call-center company also has a sister brand or a partner that handles after-hours calls. If your situation is genuinely safety-tier, escalate to 911 or your gas utility rather than waiting for the morning queue."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Is 24-hour HVAC service worth it, or should I wait until morning?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Three categories justify the 24-hour call: safety risks (gas smell, CO alarm, electrical burning, visible water damage in progress), habitability for vulnerable occupants (no heat below 40 F with infants or elderly; no cooling above 100 F with similar occupants), and actively escalating damage (frozen coil about to dump water on a finished ceiling, refrigerant leak tripping low-pressure cutoff). Outside those three categories, waiting until morning saves $100 to $300 in after-hours surcharge and avoids the 60-to-180-minute response window. See our emergency HVAC service cost guide for the full triage and dispatcher-question checklist."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "How is 24-hour HVAC pricing different from regular hours?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The repair itself costs the same, but three add-on layers stack on overnight calls: a $100 to $300 after-hours surcharge, a 1- to 2-hour minimum service charge regardless of actual repair time, and a weekend or holiday multiplier on top of both. A 15-minute capacitor swap that's $200 at 2 p.m. on a weekday runs $340 to $900 at 9 p.m., and $430 to $1,100 on a Saturday night. The pricing structure is covered in detail in the emergency HVAC service cost guide and the costs.html canonical reference. For the AVAILABILITY side — who's actually open, how fast they arrive, what closes at night — that's the topic of this article."
+            }
+        }
+    ]
+}
+    </script>
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <div class="topbar">
+        <div class="container topbar-inner" style="justify-content: center; padding: 10px; font-weight: 600;">
+            <span class="topbar-text">24/7 Referral Service — Connecting Homeowners with Independent HVAC Professionals</span>
+        </div>
+    </div>
+    <header class="header" id="header">
+        <nav class="nav container" role="navigation" aria-label="Main navigation">
+            <a href="../" class="logo"><span class="logo-icon">&#10052;&#65039;</span><span class="logo-text">CoolCall<span class="logo-accent">Pro</span></span></a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../articles" class="nav-link active">Articles</a></li>
+                <li><a href="../emergency" class="nav-link emergency-link">&#128680; Emergency</a></li>
+                <li><a href="../costs" class="nav-link">Cost Guide</a></li>
+                <li><a href="../safety" class="nav-link">Safety Tips</a></li>
+                <li><a href="../locations" class="nav-link">&#128205; Locations</a></li>
+                <li><a href="../about" class="nav-link">About</a></li>
+                <li><a href="../contact" class="nav-link">Contact</a></li>
+            </ul>
+            <a href="tel:+18445821795" class="btn btn-cta nav-cta btn-vibrate" id="headerNavCta"
+                aria-hidden="true" tabindex="-1"
+                style="opacity: 0; pointer-events: none; transition: opacity 0.3s ease;">
+                <span class="phone-icon">&#128222;</span>
+                <span class="hide-on-mobile">(844) 582-1795</span>
+            </a>
+            <button class="hamburger" id="hamburger" aria-label="Menu">&#9776;</button>
+        </nav>
+    </header>
+
+    <main id="main-content">
+
+        <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+            <div class="container">
+                <ol class="breadcrumb-list">
+                    <li><a href="../">Home</a></li>
+                    <li><a href="../articles">Articles</a></li>
+                    <li>24-Hour HVAC Repair: What's Open at 3 a.m.</li>
+                </ol>
+            </div>
+        </nav>
+
+        <div class="page-hero">
+            <div class="container">
+                <span class="article-tag tag-cost" style="display:inline-block; margin-bottom:16px;">&#128176; Cost Guide</span>
+                <h1>24-Hour HVAC Repair: What's Open at 3 a.m. (and What's Not)</h1>
+                <p class="article-disclaimer">For informational purposes only — always consult a qualified HVAC professional for your specific situation.</p>
+                <div class="article-meta-modern"><div class="meta-line meta-published">Published <time datetime="2026-05-14">May 14, 2026</time></div></div>
+                <div class="author-byline">
+                    <img src="../images/author-gyane.webp" alt="Gyanesh Gulshan" class="author-avatar-sm" loading="lazy" width="48" height="48" />
+                    <span>By <a href="../author-gyanesh">Gyanesh Gulshan</a> &mdash; Founder, Cool Call Pro</span>
+                </div>
+            </div>
+        </div>
+
+        <section class="section">
+            <div class="container">
+                <div class="article-layout">
+                    <article class="article-content">
+                        <img src="../images/hvac_24_hour_repair_guide.webp" alt="Residential outdoor HVAC condenser unit photographed at night beside a dimly-lit suburban home with one window light still on, illustrating a late-night homeowner needing 24-hour emergency HVAC repair service" class="lead-img" fetchpriority="high" width="1280" height="720" />
+
+                        <p class="article-disclosure"><a href="../advertising-disclosure">Advertising Disclosure</a>: This site may receive compensation for service connections made through this page. Content is editorially independent.</p>
+
+                        <div class="callout-box callout-danger" style="margin-top: 24px;">
+                            <div class="callout-icon">&#9888;&#65039;</div>
+                            <div class="callout-text">
+                                <strong>If you smell natural gas, evacuate the home and call 911 or your gas utility from outside before anything else. If a carbon monoxide detector is alarming, evacuate and call 911. HVAC systems involve high-voltage electricity, pressurized refrigerant, and capacitors that hold a lethal charge even after power is cut &mdash; diagnosis and repair are technician work, day or night. The technician will kill the breaker at the disconnect before opening any cabinet. Refrigerant handling is federally regulated under <a href="https://www.epa.gov/section608" target="_blank" rel="noopener noreferrer">EPA Section 608</a> and applies overnight as much as during business hours &mdash; certification is legally required to recover, recharge, or repair sealed refrigerant lines. Let a qualified HVAC technician handle every part of diagnosis and repair.</strong>
+                            </div>
+                        </div>
+
+                        <div class="tldr-box">
+                            <div class="tldr-label">Key Takeaway</div>
+                            <p>"24-hour HVAC repair" is a marketing claim with three very different real-world meanings. <strong>Tier 1</strong> operators dispatch an on-call technician at 3 a.m. with a typical 60-to-180-minute arrival window. <strong>Tier 2</strong> operators answer phones around the clock but queue your call for the morning. <strong>Tier 3</strong> is just an answering service that books a daytime slot. Most consumers who Google "24-hour HVAC near me" assume they're getting Tier 1; in most metros, the majority of advertised "24/7" companies are actually Tier 2. The single phone question that separates the tiers: "Can you have a technician at my house tonight, and what is the earliest arrival window?" A specific time means Tier 1; "first thing in the morning" means Tier 2; "we'll call you back" means Tier 3. This guide covers how to verify a true 24-hour operator, what arrival windows are realistic, what work can actually be done overnight, and how holidays and weather change the math.</p>
+                        </div>
+
+                        <p>It's 11 p.m. The AC stopped working two hours ago. The house is still 84 F because no one opened the windows. You Google "24-hour HVAC repair near me" and get a dozen results, all of them advertising "24/7 service" and "open now." You call the top one. They answer on the second ring. The friendly dispatcher books you for "first available" &mdash; tomorrow at 9 a.m. You call the next one. Same script. The third one says they can have a tech out tonight, but it'll be a 3-to-4-hour wait and they need a credit card on file before dispatch. <strong>That third one is the only company in your market that actually delivers 24-hour service.</strong> The other two are running a 24/7-marketing-but-daytime-dispatch model that's the industry norm. This guide is how to spot the difference in the first 90 seconds of the phone call, what arrival windows to actually expect, and what physically cannot be repaired overnight even at a true 24-hour operator.</p>
+
+                        <p>This is the availability-focused companion to our <a href="emergency-hvac-service-cost">emergency HVAC service cost guide</a>, which covers the pricing layers (after-hours surcharge, minimum service charge, weekend/holiday multipliers). For the canonical 2026 pricing of the underlying repair itself, see <a href="../costs">costs.html</a>. For the decision of whether to call now or wait until morning, that triage lives in the cost guide article. <strong>This article's unique territory is the operational reality of what "24-hour HVAC" actually means in 2026 &mdash; and how to find an operator who delivers it.</strong></p>
+
+                        <h2 id="three-tiers">The Three Tiers of "24-Hour" HVAC Service</h2>
+
+                        <p>Every operator that advertises 24/7 HVAC service falls into one of three operational tiers. The advertised promise is identical; the reality is dramatically different. Knowing which tier you're calling determines whether you get a technician tonight or just a friendly conversation.</p>
+
+                        <h3>Tier 1: True 24-Hour Dispatch (the real thing)</h3>
+
+                        <p>An on-call technician is rotated through a 24/7 schedule. When the dispatcher takes your call at 3 a.m., they radio or text the on-call tech, who is at home or in a service truck and can be moving toward your house within 30 to 60 minutes of authorization. <strong>Typical arrival window:</strong> 60 to 180 minutes from authorization in normal demand; 3 to 5 hours during weather-driven demand spikes. <strong>How to spot it on the phone:</strong> the dispatcher commits to a specific arrival window in hours, not "morning" or "first available." Examples of legitimate Tier 1 phrasing: "I have a tech finishing a call in Mesa, he can be at you between 1:30 and 2:30 a.m." or "We're at full capacity tonight, next available is 5 a.m." Both commit to a clock time before sunrise.</p>
+
+                        <h3>Tier 2: 24-Hour Phones, Morning Dispatch (the most common)</h3>
+
+                        <p>A call center is staffed around the clock. The center takes your call, logs your information, and books you into the morning technician rotation. The dispatcher is friendly and informative, and the booking process feels real, but no truck rolls until the standard shift starts at 7 or 8 a.m. <strong>Typical arrival window:</strong> 7 to 11 a.m. the next day, in priority order based on when you called and the severity of your description. <strong>How to spot it on the phone:</strong> the dispatcher offers "first available" or "first thing in the morning" without committing to a clock time. Sometimes they offer a "priority morning slot" for a 2x surcharge that still doesn't put a truck on the road until daylight. This is the most common 24/7 operator structure in 2026 because phone-answering is cheap and after-hours dispatching is expensive. <strong>It is technically not false advertising</strong> &mdash; the phone is answered 24/7. But homeowners who call at 11 p.m. expecting same-night service are routinely disappointed.</p>
+
+                        <h3>Tier 3: After-Hours Answering Service (the call-back model)</h3>
+
+                        <p>The "24/7" line goes to a third-party answering service that takes your name and number, then forwards a voicemail to the company's on-call dispatcher who calls you back the next morning. There is no live human troubleshooting your problem at 2 a.m.; there is no system in place to dispatch anyone. <strong>Typical arrival window:</strong> daytime appointment booked when they return your call, often 8 to 12 hours after your initial outreach. <strong>How to spot it on the phone:</strong> the person who answers identifies themselves as an answering service rather than a dispatcher, or the script is generic enough that it could apply to any service business. Tier 3 operators usually drop the "24/7" claim from their website footer but keep it in the Google Business Profile and ad copy where competitors do the same.</p>
+
+                        <p>Most homeowners assume they're calling Tier 1. In a typical metro of 1 million people, our experience is that 1 to 3 operators run a true Tier 1 model, 8 to 15 operators run Tier 2 with 24/7 marketing, and the long tail runs Tier 3. The phone-answer-rate looks identical across all three tiers &mdash; the truck-roll rate is what differs.</p>
+
+                        <h2 id="verify-tier-1">How to Verify You've Got a Real 24-Hour Operator</h2>
+
+                        <p>Four signs separate a Tier 1 operator from a Tier 2 dispatcher in the first 90 seconds of the call. Run through them before you authorize service, before you give a credit card, and before you assume a truck is on the way.</p>
+
+                        <ol>
+                            <li><strong>Specific clock-time commitment.</strong> "We can have someone there between 12:30 and 2:00 a.m." is Tier 1. "First thing in the morning" is Tier 2. "We'll have a dispatcher call you back" is Tier 3. Always force the dispatcher to commit to a clock time before sunrise.</li>
+                            <li><strong>Live diagnosis of your problem.</strong> Tier 1 dispatchers triage on the phone &mdash; they ask what's broken, what model the system is, how long it's been failing &mdash; because they need to brief the on-call technician. Tier 2 dispatchers just collect your address and book a slot. If the person on the phone isn't asking technical questions, the truck is not rolling tonight.</li>
+                            <li><strong>Credit-card-on-file requirement.</strong> Tier 1 operators almost always require a credit card on file before dispatch because the after-hours economics break otherwise. Tier 2 books your slot without payment because no truck is committed. The credit card requirement feels invasive but is actually the strongest signal that a truck will physically arrive.</li>
+                            <li><strong>The "Section 608" question.</strong> Refrigerant work is federally regulated under EPA Section 608. If your problem involves refrigerant (low-pressure cutoff, frost on the lines, suspected leak), ask the dispatcher: "Will the overnight tech be Section 608 certified?" A Tier 1 operator has on-call techs who are certified; a Tier 2 operator might not have certified techs on the overnight rotation. If they hedge or say "the morning tech will handle that," you've identified Tier 2.</li>
+                        </ol>
+
+                        <p>If three of four signs point to Tier 1, you're getting a real overnight service call. If two or fewer, you're getting a morning appointment. Either is fine &mdash; just know which one before you commit to waiting up for a truck that isn't coming.</p>
+
+                        <h2 id="arrival-windows">Realistic Arrival Windows by Time-of-Night</h2>
+
+                        <p>Even at true Tier 1 operators, arrival windows are wider than the advertised "60-minute response" because the after-hours technician pool is small and demand is uneven. Realistic 2026 windows for a typical metro:</p>
+
+                        <table class="cost-table" style="margin-top: 16px;">
+                            <caption style="font-weight:700; padding: 8px 0;">Realistic 24-Hour HVAC Arrival Windows (Tier 1 operator, typical metro)</caption>
+                            <thead>
+                                <tr><th>Time of call</th><th>Normal demand</th><th>Weather-driven demand</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>5 p.m. &ndash; 9 p.m. (early evening)</td><td>60&ndash;120 min</td><td>3&ndash;5 hours</td></tr>
+                                <tr><td>9 p.m. &ndash; midnight</td><td>90&ndash;150 min</td><td>3&ndash;6 hours</td></tr>
+                                <tr><td>Midnight &ndash; 3 a.m.</td><td>90&ndash;180 min</td><td>3&ndash;7 hours or queued for sunrise</td></tr>
+                                <tr><td>3 a.m. &ndash; 6 a.m.</td><td>60&ndash;180 min</td><td>often queued for 7 a.m. shift</td></tr>
+                                <tr><td>Holiday evenings</td><td>2&ndash;4 hours</td><td>4&ndash;8 hours; many operators close</td></tr>
+                            </tbody>
+                        </table>
+
+                        <p style="color: var(--gray-600); font-size: 0.85rem; margin-top: 8px;">Estimated ranges based on industry experience. Actual windows vary by region, operator capacity, and current demand. "Weather-driven demand" means: summer heat-index above 95 F, winter outdoor below 25 F, or active weather event (storm, ice, heatwave) in the metro.</p>
+
+                        <p>Two patterns drive the windows. First, the deeper into the night, the fewer on-call techs are awake and dispatched, so the wait climbs even at fixed demand. Second, weather-driven demand collapses the system &mdash; the same Tier 1 operator that delivers in 90 minutes on a 70 F weeknight delivers in 5 hours on a 99 F heat-index Saturday because every tech in the rotation is already on a call.</p>
+
+                        <h2 id="what-closes">What Actually Closes Even at 24-Hour Shops</h2>
+
+                        <p>Even a true Tier 1 operator can't physically deliver every kind of repair overnight. Several things close even when the dispatcher is taking calls:</p>
+
+                        <ul>
+                            <li><strong>Parts depots.</strong> HVAC parts wholesalers close at 6 or 7 p.m. and don't reopen until 7 a.m. If your repair needs a non-standard part (a brand-specific control board, an uncommon capacitor microfarad, a rare blower motor), the technician may diagnose tonight but can't fix until parts arrive in the morning. Common items (universal capacitors, contactors, condenser fan motors in standard horsepower) are usually on the truck.</li>
+                            <li><strong>Permit offices.</strong> Any repair requiring a permit (full equipment replacement, electrical service upgrades) can't be permitted overnight. The tech can diagnose and quote, but the actual replacement is queued for the next business day.</li>
+                            <li><strong>Specialized certifications during slow hours.</strong> Section 608 Type II refrigerant certification is required for split-system refrigerant work. Not every overnight tech holds the cert; if yours doesn't, refrigerant work waits for the morning shift even though the diagnosis happens tonight.</li>
+                            <li><strong>Weather-related no-travel.</strong> In severe weather (active ice storm, blizzard, lightning), companies pull techs off the road for liability reasons. The dispatcher will still answer; the truck will not roll until conditions clear. Common in mountain markets, the upper Midwest, and the Northeast.</li>
+                            <li><strong>Inspector callouts.</strong> If the repair involves a gas line, the local utility's inspection schedule is daytime-only. A leaking gas valve gets shut off overnight, but the official inspection and certified repair happen during business hours.</li>
+                        </ul>
+
+                        <p>Knowing what's physically closed overnight helps you frame realistic expectations. A capacitor swap or contactor replacement can be done at 2 a.m. with parts off the truck. A compressor replacement, gas-valve repair, or full system replacement essentially cannot &mdash; the diagnosis is overnight, the fix is morning.</p>
+
+                        <!-- CTA 1 -->
+                        <div class="callout-box"
+                            style="background: var(--gray-900); color: white; border: none; padding: 24px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.15); display: flex; flex-direction: column; align-items: center; text-align: center; margin: 32px 0;">
+                            <div
+                                style="font-size: 1.25rem; font-weight: 700; font-family: var(--font-display); margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+                                <span>&#128680;</span> Need a Tech Tonight?
+                            </div>
+                            <p style="color: rgba(255,255,255,0.8); margin-bottom: 20px; font-size: 0.95rem;">
+                                We connect homeowners with independent HVAC technicians 24/7 in many areas.
+                            </p>
+                            <a href="tel:+18445821795" class="btn btn-primary btn-lg btn-vibrate"><span class="phone-icon">&#128222;</span> Call Now — (844) 582-1795</a>
+                            <p style="color: rgba(255,255,255,0.6); font-size: 0.72rem; margin-top: 12px; max-width: 340px; line-height: 1.5;">Disclosure: We are a referral service and may receive compensation for qualified calls. Calls may be routed to an independent provider network and may be recorded. Pricing and availability vary by provider and location.</p>
+                        </div>
+
+                        <h2 id="holidays-weather">Holiday and Weather Reality</h2>
+
+                        <p>Two demand patterns reliably break the 24-hour HVAC service model: federal holidays and weather events. Both deserve their own expectations.</p>
+
+                        <h3>The four big holidays</h3>
+
+                        <p>Thanksgiving, Christmas Eve, Christmas Day, and New Year's Day are the days when even reliable Tier 1 operators commonly close. The reasons are practical: parts depots are closed (so refrigerant work and rare-part repairs are impossible anyway), holiday-pay surcharges for technicians make the economics tight, and the call volume is comparatively low because most homeowners delay non-critical issues. <strong>If your situation is genuinely safety-tier on a holiday, call the operator anyway</strong> &mdash; some independents do take the rotation, and you may also have a regional emergency-services network that picks up holiday gaps. <strong>If your situation is comfort-tier on a holiday, expect a 2-to-3-day delay</strong> at standard rates rather than a 4x holiday-surcharge call. The math is rarely worth the premium.</p>
+
+                        <h3>Weather-driven demand spikes</h3>
+
+                        <p>Weather events that affect HVAC demand: summer heat waves above 95 F heat-index, winter cold snaps below 20 F outdoor, ice storms, blizzards, and post-storm power-restoration weeks. During these events, every operator in the metro is at capacity simultaneously. <strong>Expected outcome:</strong> Tier 1 operators stretch arrival windows to 4 to 8 hours, Tier 2 operators close their phone lines entirely, and Tier 3 operators stop returning calls. The two ways homeowners get fast service during weather events: (1) be already on a service contract with the operator (priority scheduling tends to hold even during demand spikes), or (2) accept a 2x-to-3x premium on a referral network that can pull from a wider provider pool. The cost guide article covers both options. The bottom line: weather is when 24-hour service collapses, and weather is also when you need it most.</p>
+
+                        <h2 id="climate-context">By Region: When 24-Hour HVAC Demand Peaks</h2>
+
+                        <p>Different metros have different 24-hour-HVAC reality depending on climate. Four representative examples:</p>
+
+                        <p><strong><a href="../locations/mesa-az">Mesa, Arizona</a> (hot-dry):</strong> Late June through August, summer demand peaks. AC failures at 8 p.m. in 110 F daytime heat are genuinely safety-tier when vulnerable occupants are involved &mdash; nighttime indoor temperatures can climb past 95 F. Mesa and the broader Phoenix metro have 5 to 8 true Tier 1 operators during peak season but routinely run 4-to-6-hour windows mid-July. October through April, demand drops to almost nothing and Tier 1 operators thin to 1 to 2.</p>
+
+                        <p><strong><a href="../locations/syracuse-ny">Syracuse, New York</a> and <a href="../locations/madison-wi">Madison, Wisconsin</a> (cold-climate):</strong> December through February, no-heat calls dominate. Syracuse and Madison both run 3 to 5 Tier 1 operators during the heating-emergency season but see 4-to-7-hour windows during cold snaps below 0 F because outdoor work slows technician throughput. Frozen pipes become a secondary risk when no-heat extends past 12 hours indoor below 50 F. April through October, heating-emergency demand drops; AC-emergency demand is moderate; arrival windows ease to 1 to 2 hours.</p>
+
+                        <p><strong><a href="../locations/huntsville-al">Huntsville, Alabama</a> (mixed-humid):</strong> Both heating-emergency season (December through February) and cooling-emergency season (June through August) generate demand. Huntsville is a smaller metro &mdash; 2 to 3 true Tier 1 operators are typical, with longer arrival windows than larger Southern metros simply because the after-hours technician pool is smaller. Spring storms add a weather wildcard.</p>
+
+                        <p>The pattern across regions is consistent: 24-hour HVAC availability is real where demand justifies the after-hours staffing cost. Major metros support real Tier 1 operators year-round; smaller metros support them seasonally; rural markets often have no true Tier 1 within 60 to 90 miles &mdash; nighttime service genuinely means morning service.</p>
+
+                        <h3>Trusted Industry Sources</h3>
+                        <p>The guidance in this article is consistent with published recommendations from:</p>
+                        <ul>
+                            <li><a href="https://www.epa.gov/section608" target="_blank" rel="noopener noreferrer">EPA &mdash; Section 608 Technician Certification</a></li>
+                            <li><a href="https://www.cdc.gov/carbon-monoxide/about/index.html" target="_blank" rel="noopener noreferrer">CDC &mdash; Carbon Monoxide Poisoning</a></li>
+                            <li><a href="https://www.energy.gov/energysaver/maintaining-your-air-conditioner" target="_blank" rel="noopener noreferrer">U.S. Department of Energy &mdash; Maintaining Your Air Conditioner</a></li>
+                            <li><a href="https://www.acca.org/standards/technical-manuals" target="_blank" rel="noopener noreferrer">ACCA &mdash; Air Conditioning Contractors of America (standards)</a></li>
+                        </ul>
+
+                        <!-- CTA 2 -->
+                        <div class="callout-box"
+                            style="background: var(--gray-900); color: white; border: none; padding: 24px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.15); display: flex; flex-direction: column; align-items: center; text-align: center; margin: 32px 0;">
+                            <div
+                                style="font-size: 1.25rem; font-weight: 700; font-family: var(--font-display); margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+                                <span>&#9878;&#65039;</span> Ready to Get Connected?
+                            </div>
+                            <p style="color: rgba(255,255,255,0.8); margin-bottom: 20px; font-size: 0.95rem;">
+                                A technician can walk you through the diagnosis tonight and itemize the bill before any work starts.
+                            </p>
+                            <a href="tel:+18445821795" class="btn btn-primary btn-lg btn-vibrate"><span class="phone-icon">&#128222;</span> Call Now — (844) 582-1795</a>
+                            <p style="color: rgba(255,255,255,0.6); font-size: 0.72rem; margin-top: 12px; max-width: 340px; line-height: 1.5;">Disclosure: We are a referral service and may receive compensation for qualified calls. Calls may be routed to an independent provider network and may be recorded. Pricing and availability vary by provider and location.</p>
+                        </div>
+
+                        <h2 id="faqs">Frequently Asked Questions</h2>
+
+                        <div class="faq-item">
+                            <button class="faq-q" aria-expanded="false" aria-controls="faq-24-hour-hvac-1"><span>Is there really 24-hour HVAC service in my area?</span><span class="faq-icon"></span></button>
+                            <div class="faq-a" id="faq-24-hour-hvac-1"><div class="faq-a-inner">
+                                <p>Almost certainly yes for major metros and suburbs &mdash; but with a major caveat. Marketed "24/7 HVAC service" falls into three very different tiers. Tier 1 (true 24-hour) means a technician on a rotating on-call shift can be dispatched at 3 a.m. and arrive in 60 to 180 minutes. Tier 2 (24-hour phones) means a call center answers around the clock, but the soonest tech is queued for morning. Tier 3 (call-back) means you reach an answering service that books you a morning slot. The phone gets answered in all three; the truck rolls in only one. Before authorizing a service call, ask explicitly: "Can you have a technician at my house tonight, and what is the earliest arrival window?" That single question separates the three tiers immediately. Rural markets and small towns often only support Tier 2 or Tier 3 overnight &mdash; the next real Tier-1 operator may be 60 to 90 miles away.</p>
+                            </div></div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-q" aria-expanded="false" aria-controls="faq-24-hour-hvac-2"><span>How quickly can a 24-hour HVAC technician actually arrive?</span><span class="faq-icon"></span></button>
+                            <div class="faq-a" id="faq-24-hour-hvac-2"><div class="faq-a-inner">
+                                <p>Realistic overnight arrival windows in 2026 run 60 to 180 minutes for true Tier 1 operators in major metros, and longer in cold-weather emergencies when demand spikes. Friday and Saturday night summer AC failures and weeknight winter no-heat calls below 25 F outdoor produce 3-to-5-hour waits at most operators because call volume overwhelms staffing. The advertised "60-minute response" is the operator's best-case scenario, not the typical experience during weather-driven demand. Holidays and major weather events extend windows further &mdash; a Thanksgiving evening no-heat call in a cold-climate market commonly sees 4-to-6-hour windows. If your situation is true safety-tier (CO alarm, gas smell, electrical burning), call 911 first and only loop the HVAC dispatcher in after the immediate emergency is contained.</p>
+                            </div></div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-q" aria-expanded="false" aria-controls="faq-24-hour-hvac-3"><span>Are all 24-hour HVAC companies open on holidays?</span><span class="faq-icon"></span></button>
+                            <div class="faq-a" id="faq-24-hour-hvac-3"><div class="faq-a-inner">
+                                <p>No. Many operators that advertise "24/7" close on the four big holidays &mdash; Thanksgiving, Christmas Eve, Christmas Day, and New Year's Day &mdash; because the after-hours premium can't recruit enough technicians for those nights and parts depots are closed. Independents are more likely to take holiday calls than franchise chains because the holiday surcharge falls to a single tech instead of a corporate schedule. Always verify holiday coverage by asking the dispatcher directly: "Are you taking calls on Christmas Eve?" A vague "we try our best" is a no. A specific "yes, we have a tech on rotation" is a yes. Holiday premium surcharges run 2x the standard weekend rate &mdash; see our <a href="emergency-hvac-service-cost">emergency HVAC service cost guide</a> for the cost math.</p>
+                            </div></div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-q" aria-expanded="false" aria-controls="faq-24-hour-hvac-4"><span>Why does my "open 24/7" HVAC company say they can't come until morning?</span><span class="faq-icon"></span></button>
+                            <div class="faq-a" id="faq-24-hour-hvac-4"><div class="faq-a-inner">
+                                <p>Because the company sells 24-hour phone answering, not 24-hour technician dispatch. This is the most common 24/7 HVAC marketing trap. The call center is on-shift around the clock; the on-call technician pool is either limited (one tech for a metro of 500,000 people) or scheduled-only (techs work 7 a.m. to 9 p.m. and the dispatcher just books your call into the morning queue). The legal advertising standard is "someone answers the phone 24/7" &mdash; not "a truck rolls 24/7." If the dispatcher says "we can get you the first morning slot at 7 a.m.," that's a Tier 2 operator. Ask if any other operator in the area is a true Tier 1 dispatch &mdash; sometimes the call-center company also has a sister brand or a partner that handles after-hours calls. If your situation is genuinely safety-tier, escalate to 911 or your gas utility rather than waiting for the morning queue.</p>
+                            </div></div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-q" aria-expanded="false" aria-controls="faq-24-hour-hvac-5"><span>Is 24-hour HVAC service worth it, or should I wait until morning?</span><span class="faq-icon"></span></button>
+                            <div class="faq-a" id="faq-24-hour-hvac-5"><div class="faq-a-inner">
+                                <p>Three categories justify the 24-hour call: safety risks (gas smell, CO alarm, electrical burning, visible water damage in progress), habitability for vulnerable occupants (no heat below 40 F with infants or elderly; no cooling above 100 F with similar occupants), and actively escalating damage (frozen coil about to dump water on a finished ceiling, refrigerant leak tripping low-pressure cutoff). Outside those three categories, waiting until morning saves $100 to $300 in after-hours surcharge and avoids the 60-to-180-minute response window. See our <a href="emergency-hvac-service-cost">emergency HVAC service cost guide</a> for the full triage and dispatcher-question checklist.</p>
+                            </div></div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-q" aria-expanded="false" aria-controls="faq-24-hour-hvac-6"><span>How is 24-hour HVAC pricing different from regular hours?</span><span class="faq-icon"></span></button>
+                            <div class="faq-a" id="faq-24-hour-hvac-6"><div class="faq-a-inner">
+                                <p>The repair itself costs the same, but three add-on layers stack on overnight calls: a $100 to $300 after-hours surcharge, a 1- to 2-hour minimum service charge regardless of actual repair time, and a weekend or holiday multiplier on top of both. A 15-minute capacitor swap that's $200 at 2 p.m. on a weekday runs $340 to $900 at 9 p.m., and $430 to $1,100 on a Saturday night. The pricing structure is covered in detail in the <a href="emergency-hvac-service-cost">emergency HVAC service cost guide</a> and the <a href="../costs">costs.html</a> canonical reference. For the AVAILABILITY side &mdash; who's actually open, how fast they arrive, what closes at night &mdash; that's the topic of this article.</p>
+                            </div></div>
+                        </div>
+
+                        <h3>Local HVAC Service Areas</h3>
+                        <p>Cool Call Pro connects homeowners with independent HVAC technicians nationwide. Find a pro in <a href="../locations/syracuse-ny" style="color: var(--orange-dark); font-weight: 600;">Syracuse (NY)</a>, <a href="../locations/madison-wi" style="color: var(--orange-dark); font-weight: 600;">Madison (WI)</a>, <a href="../locations/huntsville-al" style="color: var(--orange-dark); font-weight: 600;">Huntsville (AL)</a>, or <a href="../locations/mesa-az" style="color: var(--orange-dark); font-weight: 600;">Mesa (AZ)</a>, or browse by state: <a href="../locations/new-york" style="color: var(--orange-dark); font-weight: 600;">New York</a>, <a href="../locations/wisconsin" style="color: var(--orange-dark); font-weight: 600;">Wisconsin</a>, or <a href="../locations" style="color: var(--orange-dark); font-weight: 600;">all locations</a>.</p>
+
+                    </article>
+
+                    <aside class="article-sidebar">
+                        <div class="sidebar-widget">
+                            <h4>&#128205; Find a Pro Near You</h4>
+                            <ul>
+                                <li><a href="../locations/syracuse-ny" style="color: var(--orange-dark); font-weight: 600;">Syracuse (NY)</a></li>
+                                <li><a href="../locations/madison-wi" style="color: var(--orange-dark); font-weight: 600;">Madison (WI)</a></li>
+                                <li><a href="../locations/huntsville-al" style="color: var(--orange-dark); font-weight: 600;">Huntsville (AL)</a></li>
+                                <li><a href="../locations/mesa-az" style="color: var(--orange-dark); font-weight: 600;">Mesa (AZ)</a></li>
+                                <li><a href="../locations/new-york" style="color: var(--orange-dark); font-weight: 600;">All New York Cities</a></li>
+                                <li><a href="../locations/wisconsin" style="color: var(--orange-dark); font-weight: 600;">All Wisconsin Cities</a></li>
+                                <li><a href="../locations" style="font-weight: 600;">All Locations &rarr;</a></li>
+                            </ul>
+                        </div>
+                        <div class="sidebar-widget">
+                            <h4>&#128218; Related Guides</h4>
+                            <ul>
+                                <li><a href="emergency-hvac-service-cost">Emergency HVAC Service Cost</a></li>
+                                <li><a href="../costs">Full HVAC Cost Guide</a></li>
+                                <li><a href="2026-hvac-cost-guide">2026 HVAC Cost Guide (Pillar)</a></li>
+                                <li><a href="repair-or-replace-framework">Repair-or-Replace Framework</a></li>
+                                <li><a href="thermostat-blank-ac-wont-start">Blank Thermostat? Check Before Calling</a></li>
+                                <li><a href="../emergency">Emergency HVAC Service</a></li>
+                                <li><a href="../safety">Safety Tips</a></li>
+                            </ul>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Brand -->
+                <div class="footer-brand">
+                    <a href="../" class="logo"><span class="logo-icon">&#10052;&#65039;</span><span class="logo-text">CoolCall<span class="logo-accent">Pro</span></span></a>
+                    <p>Connecting homeowners with independent HVAC professionals across the US. Available 24/7 in many areas.</p>
+                    <div class="footer-contact">
+                        <a href="tel:+18445821795" class="footer-phone">(844) 582-1795</a>
+                        <span>24/7 Service Line</span>
+                    </div>
+                </div>
+                <!-- Resources -->
+                <div class="footer-col">
+                    <h3 class="footer-heading">Resources</h3>
+                    <ul>
+                        <li><a href="../costs">Cost Guide</a></li>
+                        <li><a href="../emergency">Emergency Service</a></li>
+                        <li><a href="../safety">Safety Tips</a></li>
+                        <li><a href="../articles">All Articles</a></li>
+                        <li><a href="../locations">Locations</a></li>
+                    </ul>
+                </div>
+                <!-- Company -->
+                <div class="footer-col">
+                    <h3 class="footer-heading">Company</h3>
+                    <ul>
+                        <li><a href="../about">About Us</a></li>
+                        <li><a href="../contact">Contact</a></li>
+                        <li><a href="../author-gyanesh">Author</a></li>
+                        <li><a href="../privacy">Privacy Policy</a></li>
+                        <li><a href="../advertising-disclosure">Advertising Disclosure</a></li>
+                    </ul>
+                </div>
+                <!-- Service Areas -->
+                <div class="footer-col">
+                    <h3 class="footer-heading">Service Areas</h3>
+                    <ul class="service-areas">
+                        <li><a href="../locations/atlanta-ga">Atlanta, GA</a></li>
+                        <li><a href="../locations/chicago-il">Chicago, IL</a></li>
+                        <li><a href="../locations/dallas-tx">Dallas, TX</a></li>
+                        <li><a href="../locations/houston-tx">Houston, TX</a></li>
+                        <li><a href="../locations/phoenix-az">Phoenix, AZ</a></li>
+                        <li><a href="../locations">All 50 states &#8594;</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Legal Disclosure + Bottom Bar -->
+            <div class="footer-bottom">
+                <p><strong style="color: rgba(255,255,255,0.9);">How this site works:</strong> We publish HVAC cost and troubleshooting information and may connect callers to independent service providers. We do not perform HVAC services ourselves. Pricing, availability, and response times vary by provider and location.</p>
+                <p><strong style="color: rgba(255,255,255,0.9);">Editorial standards:</strong> Our content focuses on helpful troubleshooting tips and realistic pricing information. We avoid guarantees; actual pricing depends on the provider and situation. We clearly disclose compensation for referrals. We update content for clarity and accuracy when needed.</p>
+                <p><strong style="color: rgba(255,255,255,0.9);">Disclaimer:</strong> Cool Call Pro is a free service to assist homeowners in connecting with local service providers. All contractors/providers are independent and Cool Call Pro does not warrant or guarantee any work performed. It is the responsibility of the homeowner to verify that the hired contractor furnishes the necessary license and insurance required for the work being performed. All persons depicted in a photo or video are actors or models and not contractors listed on Cool Call Pro.</p>
+                <p><strong style="color: rgba(255,255,255,0.9);">Service availability:</strong> Same-day and 24/7 emergency services are subject to provider participation, location, technician availability, and demand. Availability is not guaranteed and may vary by market and appointment capacity.</p>
+                <p>&copy; <span class="copyright-year">2026</span> Cool Call Pro. All rights reserved. &nbsp;&middot;&nbsp; <a href="../privacy">Privacy Policy</a> &nbsp;&middot;&nbsp; <a href="../terms">Terms of Use</a> &nbsp;&middot;&nbsp; <a href="../disclaimer">Disclaimer</a> &nbsp;&middot;&nbsp; <a href="../advertising-disclosure">Advertising Disclosure</a></p>
+            </div>
+        </div>
+    </footer>
+    <script>document.querySelectorAll('.copyright-year').forEach(function(el){el.textContent=new Date().getFullYear()});</script>
+    <script src="../js/main.min.js" defer></script>
+
+    <!-- Mobile Call Bar -->
+    <div class="mobile-call-bar">
+        <a href="tel:+18445821795"><span class="phone-icon">&#128222;</span> Call Now — (844) 582-1795</a>
+    </div>
+</body>
+
+</html>

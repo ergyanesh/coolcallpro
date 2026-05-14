@@ -51,7 +51,7 @@ Then re-run `python generate_link_plan.py` and commit the new CSVs.
 | C1_ac | AC Troubleshooting & Emergencies | live | 12 | 1 | hot-humid:0.4, tropical:0.1, hot-dry:0.25, mixed-humid:0.25 |
 | C2_furnace | Furnace & Heating Emergencies | live | 4 | 5 | cold:0.5, subarctic:0.1, mountain:0.25, mixed-humid:0.15 |
 | C3_heatpump | Heat Pumps & Modern Systems | live | 1 | 3 | coastal:0.3, mixed-humid:0.4, mountain:0.3 |
-| C4_cost | Repair & Replacement Costs | live | 2 | 8 | all_rotated |
+| C4_cost | Repair & Replacement Costs | live | 3 | 7 | all_rotated |
 | C5_compare | Repair-vs-Replace & Comparisons | live | 4 | 0 | all_rotated |
 | C6_maint | Maintenance, Safety & Seasonal | live | 3 | 1 | all_rotated |
 

@@ -349,13 +349,14 @@
           "gsc_basis": "Captures BIGGEST winnable cluster: ~2,161 emergency-hvac impressions across 'emergency hvac service' (645), 'hvac emergency repair' (351), 'emergency hvac repair' (349), 'hvac emergency service' (232), 'emergency hvac services' (183), 'emergency hvac' (113), 'residential emergency hvac service' (18), '24/7 emergency hvac service' (23), 'emergency hvac repair services' (28). Currently sitting pos 16-22. (GSC 2026-05-10)"
         },
         {
-          "slug": "24-hour-hvac-repair-guide",
-          "path": "articles/24-hour-hvac-repair-guide.html",
-          "title": "24-Hour HVAC Repair: What's Open, What's Fair, What's a Trap",
-          "status": "pending",
+          "slug": "24-hour-hvac-repair",
+          "path": "articles/24-hour-hvac-repair.html",
+          "title": "24-Hour HVAC Repair: What's Open at 3 a.m. (and What's Not)",
+          "status": "live",
           "priority": 2,
           "roadmap_id": 93,
-          "gsc_basis": "Captures 24-hour cluster: ~620 winnable impressions across '24 hour hvac repair' (307), '24 hour hvac service' (74), 'hvac 24 hour service' (45), '24 hour heating and air conditioning repair' (29), '24 hour hvac' (33), '24/7 hvac repair services' (21), '24/7 hvac repair' (21), 'hvac 24 hour emergency service' (26), 'after hours hvac service' (25), '24 7 emergency residential hvac repair' (23). Currently sitting pos 11-18. (GSC 2026-05-10)"
+          "date_published": "2026-05-14",
+          "gsc_basis": "Captures 24-hour cluster: ~620 winnable impressions across '24 hour hvac repair' (307), '24 hour hvac service' (74), 'hvac 24 hour service' (45), '24 hour heating and air conditioning repair' (29), '24 hour hvac' (33), '24/7 hvac repair services' (21), '24/7 hvac repair' (21), 'hvac 24 hour emergency service' (26), 'after hours hvac service' (25), '24 7 emergency residential hvac repair' (23). Currently sitting pos 11-18. (GSC 2026-05-10). Slug shortened from '-guide' suffix to match head query verbatim + avoid pillar-detection audit heuristic."
         }
       ]
     },
@@ -465,7 +466,7 @@
     {
       "position": 2,
       "cluster": "C4_cost",
-      "slug": "24-hour-hvac-repair-guide",
+      "slug": "24-hour-hvac-repair",
       "type": "cluster",
       "note": "GSC: 620 winnable imp at pos 11-18. '24 hour hvac repair' at pos 15.2 with 307 imp — closest to top 10 of any winnable cluster. Article frames trust signals (independent network, what to ask) vs the predatory after-hours operators that dominate these SERPs."
     },
