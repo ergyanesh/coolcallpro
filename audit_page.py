@@ -47,6 +47,18 @@ MARKETCALL_DISCLAIMER_FULL = (
     "or models and not contractors listed on Cool Call Pro."
 )
 
+# --- MarketCall "Service availability" disclaimer (added 2026-05-14) -------
+# Required by MarketCall partner agreement because the site uses 24/7 and
+# same-day language. Must appear on every page that carries the primary
+# MarketCall disclaimer. Same lock policy: text is byte-identical.
+MARKETCALL_AVAILABILITY_SIGNATURE = "Same-day and 24/7 emergency services are subject to provider participation"
+MARKETCALL_AVAILABILITY_FULL = (
+    "Same-day and 24/7 emergency services are subject to provider "
+    "participation, location, technician availability, and demand. "
+    "Availability is not guaranteed and may vary by market and "
+    "appointment capacity."
+)
+
 
 def read(path: str) -> str:
     return Path(path).read_text(encoding="utf-8")
@@ -157,6 +169,21 @@ def audit_page_universal(html: str, path: str) -> int:
         if not check(
             "MarketCall disclaimer text is VERBATIM (not edited)",
             MARKETCALL_DISCLAIMER_FULL in normalized,
+            "Locked by MarketCall partner agreement — do not rewrite",
+        ):
+            fails += 1
+        # The "Service availability" sibling disclaimer must also be present
+        # and verbatim (added 2026-05-14 per MarketCall partner-agreement update)
+        if not check(
+            "MarketCall 'Service availability' disclaimer is PRESENT",
+            MARKETCALL_AVAILABILITY_SIGNATURE in html,
+            "Required by MarketCall when the site uses 24/7 or same-day language. "
+            "Run scripts/add_marketcall_availability_disclaimer.py to add it.",
+        ):
+            fails += 1
+        elif not check(
+            "MarketCall 'Service availability' disclaimer text is VERBATIM",
+            MARKETCALL_AVAILABILITY_FULL in normalized,
             "Locked by MarketCall partner agreement — do not rewrite",
         ):
             fails += 1

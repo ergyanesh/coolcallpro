@@ -376,9 +376,23 @@ User raised a legitimate concern on 2026-05-08: with site impressions growing on
 A git pre-commit hook at `.git/hooks/pre-commit` blocks any commit whose staged HTML fails YMYL/SEO/AEO/GEO/CSS-regression checks:
 
 - **Staged `articles/*.html`** → runs `python audit_article.py <file> --ci` (full strict mode: YMYL, GEO/AEO, HowTo, speakable, CSS regression, cost drift vs `costs.html`, FAQ pattern)
-- **Any other staged `*.html`** → runs `python audit_page.py <file>` (GA defer, no Google Fonts CDN, footer-col structure, MarketCall disclaimer lock, h1/meta/canonical, **Lighthouse perf pattern enforcement**)
+- **Any other staged `*.html`** → runs `python audit_page.py <file>` (GA defer, no Google Fonts CDN, footer-col structure, **both MarketCall disclaimer locks** — see "MarketCall Disclaimer Lock" section below, h1/meta/canonical, **Lighthouse perf pattern enforcement**)
 
 The hook source lives at [`scripts/pre-commit`](scripts/pre-commit) (version-controlled). After a fresh clone, install once with `bash scripts/install-hooks.sh`. Edits to the source must be followed by a re-install.
+
+## MarketCall Disclaimer Lock (since 20 April 2026, expanded 14 May 2026)
+
+TWO verbatim disclaimer paragraphs are required by MarketCall in the footer of every page that links to the (844) 582-1795 referral number. Both are byte-locked by `audit_page.py` and verified by the pre-commit hook. NEVER edit either text — revenue-threatening if you do.
+
+**Locked text #1 — "Disclaimer:"** (`MARKETCALL_DISCLAIMER_FULL` in audit_page.py):
+> Cool Call Pro is a free service to assist homeowners in connecting with local service providers. All contractors/providers are independent and Cool Call Pro does not warrant or guarantee any work performed. It is the responsibility of the homeowner to verify that the hired contractor furnishes the necessary license and insurance required for the work being performed. All persons depicted in a photo or video are actors or models and not contractors listed on Cool Call Pro.
+
+**Locked text #2 — "Service availability:"** added 2026-05-14 per MarketCall partner-agreement update (`MARKETCALL_AVAILABILITY_FULL` in audit_page.py):
+> Same-day and 24/7 emergency services are subject to provider participation, location, technician availability, and demand. Availability is not guaranteed and may vary by market and appointment capacity.
+
+Required because the site uses "24/7" and "same-day" language in topbar, footer brand block, articles, and location pages. MarketCall's revised terms require this sibling disclaimer wherever those phrases appear. Applied site-wide via `scripts/add_marketcall_availability_disclaimer.py` on 2026-05-14 (213 HTML files patched, idempotent — safe to re-run). All three generators (`generate_city_pages_v3.py`, `generate_state_hubs.py`, `generate_city_pages_v4.py`) emit text #2 in their footer templates so regenerations include it.
+
+**Enforcement:** when `audit_page.py` finds the "Disclaimer:" signature on a page, it requires BOTH paragraphs to be present AND byte-identical. Pre-commit hook blocks regressions.
 
 Browser verification (link underline rendering, FAQ expand, hero render) is still agent discipline — the hook enforces every text-inspectable check. Bypass (rare, not recommended): `git commit --no-verify`.
 
