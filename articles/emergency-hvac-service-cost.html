@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!--
+    ===================================================================
+    YMYL VERIFICATION LOG — last verified 2026-05-14, next due 2026-08-14
+    ===================================================================
+    Per the "Live Verification Discipline" rule in CLAUDE.md, every YMYL
+    factual claim below was WebFetch-verified against the cited primary
+    source on the verification date.
+
+    CLAIM 1: Refrigerant handling is federally regulated under EPA
+            Section 608 of the Clean Air Act. Certification is legally
+            required to recover, recharge, or repair sealed refrigerant
+            lines. Section 608 applies regardless of business hours —
+            an emergency tech cannot legally short-cut refrigerant
+            handling because "the homeowner is desperate."
+        VERIFIED via EPA Section 608 Technician Certification.
+        URL: https://www.epa.gov/section608
+
+    CLAIM 2: Emergency / after-hours surcharge typically adds $100-$300
+            on top of standard repair cost. Diagnostic / service call
+            fee $65-$150. Holiday emergency premium $100-$300. These
+            ranges are the canonical CoolCallPro pricing reference.
+        Internal canonical: see costs.html "Emergency &amp; Service
+            Call Fees" table for the verified ranges.
+        URL: https://coolcallpro.com/costs
+
+    CLAIM 3: Repair-vs-replace decision math (50% rule, $5,000 rule,
+            age-cost framework) is covered in the C5 cluster pillar
+            (cluster_map.json -> C5_compare.pillar). This article does
+            NOT restate that math — it cites the pillar as the
+            canonical decision frame and links to it inline.
+        Internal canonical: cluster_map.json pillar entry for C5_compare.
+        URL: https://coolcallpro.com/articles/repair-or-replace-framework
+
+    CLAIM 4: Standard residential HVAC repair labor rates run $80-$180
+            per hour during business hours per the 2026 HVAC Cost
+            Guide. Emergency rates run higher; the surcharge sits on
+            top of the underlying labor rate (it does not replace it).
+        Internal canonical: see articles/2026-hvac-cost-guide and
+            costs.html for the canonical labor-rate breakdown.
+        URL: https://coolcallpro.com/articles/2026-hvac-cost-guide
+
+    CLAIM 5: CDC carbon-monoxide guidance — symptoms of CO exposure
+            (headache, dizziness, confusion, nausea) require immediate
+            evacuation. A furnace running with a CO detector alarming
+            is a true emergency, not a "wait until morning" call.
+        VERIFIED via CDC Carbon Monoxide Poisoning &mdash; About.
+        URL: https://www.cdc.gov/carbon-monoxide/about/index.html
+    ===================================================================
+    -->
+    <!-- Google tag (gtag.js) - GA4 — deferred until first interaction for LCP -->
+    <script>
+        (function() {
+            var loaded = false;
+            function loadGA() {
+                if (loaded) return;
+                loaded = true;
+                var s = document.createElement('script');
+                s.src = 'https://www.googletagmanager.com/gtag/js?id=G-WD0ND0K60Q';
+                s.async = true;
+                document.head.appendChild(s);
+                s.onload = function() {
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){dataLayer.push(arguments);}
+                    window.gtag = gtag;
+                    gtag('js', new Date());
+                    gtag('config', 'G-WD0ND0K60Q');
+                };
+            }
+            ['click', 'scroll', 'touchstart', 'keydown'].forEach(function(evt) {
+                window.addEventListener(evt, loadGA, { once: true, passive: true });
+            });
+            setTimeout(loadGA, 4000);
+        })();
+    </script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index, follow" />
+    <title>Emergency HVAC Service Cost: Fair Rates 2026 | Cool Call Pro</title>
+    <meta name="description"
+        content="Emergency HVAC service cost in 2026: after-hours surcharges, dispatch fees, and when calling at 9pm beats waiting until morning. Fair rates vs gouging." />
+    <link rel="canonical" href="https://coolcallpro.com/articles/emergency-hvac-service-cost" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Emergency HVAC Service Cost: What's Fair in 2026" />
+    <meta property="og:description"
+        content="Emergency HVAC service cost in 2026: after-hours surcharges, dispatch fees, and the call-now-vs-wait-until-morning decision. Fair rates vs gouging." />
+    <meta property="og:url" content="https://coolcallpro.com/articles/emergency-hvac-service-cost" />
+    <meta property="og:site_name" content="Cool Call Pro" />
+    <meta property="article:author" content="Gyanesh Gulshan" />
+    <meta property="article:published_time" content="2026-05-14T00:00:00Z" />
+    <meta property="article:modified_time" content="2026-05-14T00:00:00Z" />
+    <meta property="og:image" content="https://coolcallpro.com/images/hvac_emergency_service_cost.webp" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Emergency HVAC Service Cost: Fair Rates 2026 | Cool Call Pro" />
+    <meta name="twitter:description" content="After-hours surcharges, dispatch fees, and the honest call-now-vs-wait-until-morning decision for an HVAC emergency." />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+    <link rel="stylesheet" href="../css/style.min.css" />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <!-- Article Schema -->
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Emergency HVAC Service Cost: What's Fair in 2026",
+    "description": "Emergency HVAC service cost in 2026: after-hours surcharges, dispatch fees, and when calling at 9pm beats waiting until morning. Fair rates vs gouging.",
+    "datePublished": "2026-05-14",
+    "dateModified": "2026-05-14",
+    "author": {
+        "@type": "Person",
+        "name": "Gyanesh Gulshan",
+        "url": "https://coolcallpro.com/author-gyanesh",
+        "image": "https://coolcallpro.com/images/author-gyane.webp",
+        "sameAs": ["https://www.linkedin.com/in/gyaneshgulshan/"]
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Cool Call Pro",
+        "url": "https://coolcallpro.com",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://coolcallpro.com/favicon.svg"
+        }
+    },
+    "image": "https://coolcallpro.com/images/hvac_emergency_service_cost.webp",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://coolcallpro.com/articles/emergency-hvac-service-cost"
+    },
+    "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [".tldr-box", ".faq-q", ".faq-a-inner"]
+    },
+    "about": [
+        {"@type": "Thing", "name": "HVAC", "sameAs": "https://en.wikipedia.org/wiki/Heating,_ventilation,_and_air_conditioning"},
+        {"@type": "Thing", "name": "Carbon monoxide poisoning", "sameAs": "https://en.wikipedia.org/wiki/Carbon_monoxide_poisoning"},
+        {"@type": "Thing", "name": "Section 608 of the Clean Air Act", "sameAs": "https://www.epa.gov/section608"}
+    ]
+}
+    </script>
+    <!-- Breadcrumb Schema -->
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://coolcallpro.com/"
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Articles",
+            "item": "https://coolcallpro.com/articles"
+        },
+        {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Emergency HVAC Service Cost: What's Fair in 2026",
+            "item": "https://coolcallpro.com/articles/emergency-hvac-service-cost"
+        }
+    ]
+}
+    </script>
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "How much does emergency HVAC service cost?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Emergency HVAC service in 2026 typically costs the standard repair price plus a $100 to $300 after-hours surcharge. A diagnostic or service call fee of $65 to $150 usually applies on top, though many companies waive it if you book the repair through them. Holiday emergency premiums (Thanksgiving, Christmas, July 4th) add another $100 to $300. Total all-in for a typical emergency capacitor or contactor repair at 9 p.m. on a weekday runs $300 to $700; the same repair on a holiday weekend can run $500 to $1,100. The variance is mostly about WHEN you call, not what's broken. The repair cost itself is the same as a daytime job — what you're paying extra for is the technician's overtime and the dispatcher's after-hours overhead. See costs.html for the canonical breakdown."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Is an emergency HVAC call worth it, or should I wait until morning?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Three categories of HVAC failure justify an emergency call: (1) safety risks — gas smell, a carbon monoxide detector alarming with the furnace running, electrical burning smell, or visible water damage actively occurring; (2) habitability risks — no heat with outdoor temperatures below 40 degrees F and vulnerable occupants (infants, elderly, medically fragile); no cooling with outdoor heat index above 100 F and similar occupants; (3) escalating damage — a frozen evaporator coil that's about to dump water on a finished ceiling, or a refrigerant leak large enough to trip the low-pressure cutoff. Outside those three categories, waiting until morning saves $100 to $300 in surcharges. AC out at 11 p.m. when it's 70 F outside, or a furnace blowing slightly cool air on a 50 F night, almost never justify emergency rates."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "What's a fair after-hours HVAC surcharge?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Fair after-hours surcharges in 2026 run $100 to $300 added on top of the standard repair bill. Anything above $400 in surcharge alone (not including the actual repair labor) is in price-gouging territory unless the technician documents extraordinary travel time, a holiday, or an emergency runner trip for unusual parts. The surcharge typically covers the technician's overtime rate (1.5x base), the dispatcher's after-hours overhead, and the fuel for one trip. A reasonable operator quotes the surcharge upfront as a flat add-on; an unreasonable one buries it in a vague 'emergency dispatch fee' that doesn't show up until the invoice. Always ask the dispatcher for the surcharge figure before authorizing the truck roll. If they refuse to quote it, call another company."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Why did the emergency tech charge a 2-hour minimum for a 20-minute fix?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Most emergency HVAC dispatch operations bill a minimum service charge — typically 1 to 2 hours of labor — regardless of how long the actual repair takes. The minimum exists because the after-hours economics don't work without it: the tech is paid an overtime rate for the entire shift, the dispatcher is paid to be on call, and the trip is dedicated to your house even if the repair takes 15 minutes. A 1-hour minimum at $150 to $250 per hour after-hours is industry-standard. A 2-hour minimum is at the high end but legal and common in dense metro markets. Anything above 2 hours, or a minimum that scales with the surcharge instead of the labor rate, is unusual and worth questioning. The dispatcher should disclose the minimum when you call, before the truck rolls; if they don't, ask explicitly: 'What is your minimum service charge for after-hours work?'"
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Are weekend HVAC emergency rates higher than weeknight rates?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, typically 25 to 50 percent higher. Weeknight emergency rates (Monday through Thursday, 5 p.m. to 8 a.m.) usually carry the standard $100 to $300 after-hours surcharge. Friday night through Sunday rates often add another $50 to $150 because the technician's premium overtime rate increases, and competing demand for the same after-hours pool means dispatch fees rise too. Holiday weekends compound: a Saturday-of-July-4th-weekend AC emergency in a hot-humid climate can run 2x the weeknight equivalent because every operator in the market is at capacity. If the issue is genuinely safety-tier and you need help on a holiday weekend, pay the premium. If it's comfort-tier and can wait, Monday morning rates apply and the surcharge drops to zero."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Will my HVAC service plan cover the emergency call surcharge?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Most annual HVAC maintenance contracts ($150 to $350 per year per costs.html) include some combination of: waived diagnostic fee, waived after-hours surcharge, priority scheduling, and a 10 to 15 percent discount on repair labor. The specific benefits vary by company — some waive surcharges entirely, others cap them at $75 instead of $150 to $300. If you call several emergency HVAC repairs per year, the math frequently favors a service plan: two emergency calls at $200 surcharge each are $400 in one year, more than the cost of most plans. Service plans rarely cover catastrophic repair costs (compressor replacement, coil replacement) — they cover the time-based and trip-based fees that pile up on emergency calls. Read the contract carefully before assuming a benefit applies; some plans exclude holidays from the surcharge waiver."
+            }
+        }
+    ]
+}
+    </script>
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <div class="topbar">
+        <div class="container topbar-inner" style="justify-content: center; padding: 10px; font-weight: 600;">
+            <span class="topbar-text">24/7 Referral Service — Connecting Homeowners with Independent HVAC Professionals</span>
+        </div>
+    </div>
+    <header class="header" id="header">
+        <nav class="nav container" role="navigation" aria-label="Main navigation">
+            <a href="../" class="logo"><span class="logo-icon">&#10052;&#65039;</span><span class="logo-text">CoolCall<span class="logo-accent">Pro</span></span></a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../articles" class="nav-link active">Articles</a></li>
+                <li><a href="../emergency" class="nav-link emergency-link">&#128680; Emergency</a></li>
+                <li><a href="../costs" class="nav-link">Cost Guide</a></li>
+                <li><a href="../safety" class="nav-link">Safety Tips</a></li>
+                <li><a href="../locations" class="nav-link">&#128205; Locations</a></li>
+                <li><a href="../about" class="nav-link">About</a></li>
+                <li><a href="../contact" class="nav-link">Contact</a></li>
+            </ul>
+            <a href="tel:+18445821795" class="btn btn-cta nav-cta btn-vibrate" id="headerNavCta"
+                aria-hidden="true" tabindex="-1"
+                style="opacity: 0; pointer-events: none; transition: opacity 0.3s ease;">
+                <span class="phone-icon">&#128222;</span>
+                <span class="hide-on-mobile">(844) 582-1795</span>
+            </a>
+            <button class="hamburger" id="hamburger" aria-label="Menu">&#9776;</button>
+        </nav>
+    </header>
+
+    <main id="main-content">
+
+        <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+            <div class="container">
+                <ol class="breadcrumb-list">
+                    <li><a href="../">Home</a></li>
+                    <li><a href="../articles">Articles</a></li>
+                    <li>Emergency HVAC Service Cost: What's Fair in 2026</li>
+                </ol>
+            </div>
+        </nav>
+
+        <div class="page-hero">
+            <div class="container">
+                <span class="article-tag tag-guide" style="display:inline-block; margin-bottom:16px;">&#128176; Cost Guide</span>
+                <h1>Emergency HVAC Service Cost: What's Fair in 2026</h1>
+                <p class="article-disclaimer">For informational purposes only — always consult a qualified HVAC professional for your specific situation.</p>
+                <div class="article-meta-modern"><div class="meta-line meta-published">Published <time datetime="2026-05-14">May 14, 2026</time></div></div>
+                <div class="author-byline">
+                    <img src="../images/author-gyane.webp" alt="Gyanesh Gulshan" class="author-avatar-sm" loading="lazy" width="48" height="48" />
+                    <span>By <a href="../author-gyanesh">Gyanesh Gulshan</a> &mdash; Founder, Cool Call Pro</span>
+                </div>
+            </div>
+        </div>
+
+        <section class="section">
+            <div class="container">
+                <div class="article-layout">
+                    <article class="article-content">
+                        <img src="../images/hvac_emergency_service_cost.webp" alt="HVAC technician in branded uniform arriving at a suburban home after dark with a tool bag and diagnostic flashlight, illuminated by porch light, illustrating an after-hours emergency HVAC service call in 2026" class="lead-img" fetchpriority="high" width="1280" height="720" />
+
+                        <p class="article-disclosure"><a href="../advertising-disclosure">Advertising Disclosure</a>: This site may receive compensation for service connections made through this page. Content is editorially independent.</p>
+
+                        <div class="callout-box callout-danger" style="margin-top: 24px;">
+                            <div class="callout-icon">&#9888;&#65039;</div>
+                            <div class="callout-text">
+                                <strong>If you smell natural gas, evacuate the home and call 911 or your gas utility from outside before doing anything else. If a carbon monoxide detector is alarming, evacuate and call 911. HVAC systems involve high-voltage electricity, pressurized refrigerant, and capacitors that hold a lethal charge even after power is cut &mdash; diagnosis and repair are technician work, emergency hours or not. A qualified technician will kill the breaker at the disconnect before opening any cabinet. Refrigerant handling is federally regulated under <a href="https://www.epa.gov/section608" target="_blank" rel="noopener noreferrer">EPA Section 608</a> &mdash; certification is legally required to recover, recharge, or repair sealed refrigerant lines, and an emergency does not waive that. Let a qualified HVAC technician handle every part of diagnosis and repair.</strong>
+                            </div>
+                        </div>
+
+                        <div class="tldr-box">
+                            <div class="tldr-label">Key Takeaway</div>
+                            <p>Emergency HVAC service in 2026 typically costs the standard repair price plus a <strong>$100 to $300 after-hours surcharge</strong>, a <strong>$65 to $150 diagnostic fee</strong> (often waived if you book the repair), and a 1- to 2-hour minimum service charge that applies regardless of how long the actual repair takes. A capacitor swap that costs $200 at 2 p.m. on a Tuesday becomes $450 to $700 at 9 p.m. on the same Tuesday, and $600 to $1,000 on a Saturday night. The decision worth making isn't <em>what does it cost</em> &mdash; the standard ranges are knowable. The decision worth making is <strong>which failures actually require the after-hours premium</strong>, which can wait until morning, and what to ask the dispatcher before the truck rolls. Three failure types justify the premium: safety risk, habitability risk for vulnerable occupants, and active escalating damage. Everything else can wait, and waiting saves $100-$300.</p>
+                        </div>
+
+                        <p>It's 9 p.m. on a weeknight. The AC stopped working an hour ago. The thermostat reads 82 inside. You're on Google searching "emergency HVAC service" and trying to figure out whether to pay the after-hours rate or sweat it out until 8 a.m. tomorrow when the standard surcharge disappears. The honest answer depends on three things: who's in the house, what's actually broken, and whether the dispatcher quotes you a complete number upfront. This article is the cost breakdown, the urgency-triage decision, the six questions to ask before authorizing service, and the service-plan math most homeowners never run.</p>
+
+                        <p>For the canonical pricing of the underlying repair itself (capacitor replacement, refrigerant recharge, compressor diagnosis, etc.), our <a href="../costs">2026 HVAC Cost Guide</a> is the source of truth &mdash; this article does <em>not</em> restate those numbers. For the broader question of whether to repair the failing component or replace the whole system, see the <a href="repair-or-replace-framework">C5 repair-or-replace framework</a>. For why an emergency tech in two different cities might quote 2x different surcharges for the same job, the <a href="2026-hvac-cost-guide">2026 HVAC Cost Guide pillar</a> covers regional labor variance. <strong>This article's unique territory is the three cost layers that exist <em>only</em> on emergency calls</strong>, and the decision rules for whether to incur them.</p>
+
+                        <h2 id="three-cost-layers">The Three Cost Layers on Every Emergency Call</h2>
+
+                        <p>Standard HVAC pricing has two layers: a diagnostic or service-call fee, then labor and parts for the actual repair. Emergency pricing adds <strong>three layers on top</strong>:</p>
+
+                        <ol>
+                            <li><strong>After-hours surcharge ($100&ndash;$300):</strong> The biggest line item. Pays for the technician's overtime rate, the dispatcher's after-hours overhead, and the fact that the truck is dedicated to your call instead of waiting in queue with daytime jobs. This is a flat add-on, not a percentage of the repair &mdash; the same $200 surcharge applies whether the repair is a $90 capacitor or a $2,800 compressor swap.</li>
+                            <li><strong>Minimum service charge (1&ndash;2 hours of labor):</strong> Most emergency dispatch operations bill a minimum block of labor regardless of how long the actual fix takes. A 15-minute capacitor swap is billed at the 1- or 2-hour minimum. At after-hours labor rates of $150 to $250 per hour, the minimum alone runs $150 to $500.</li>
+                            <li><strong>Weekend/holiday multiplier ($50&ndash;$150 added to surcharge):</strong> Friday evening through Sunday, plus federal holidays, plus the night-before and day-after of holidays. The standard $200 weeknight surcharge becomes $275 to $350 on Saturday night, and $300 to $400 on a holiday Sunday. The repair underneath doesn't change &mdash; the surcharge layer does.</li>
+                        </ol>
+
+                        <p>The underlying repair price is the same as during business hours. A condenser fan motor replacement is $400 to $900 at 2 p.m. or 2 a.m. What's different is the surcharge + minimum + multiplier stack on top. Run the math:</p>
+
+                        <table class="cost-table" style="margin-top: 16px;">
+                            <caption style="font-weight:700; padding: 8px 0;">All-In Emergency HVAC Cost by Time-of-Call (2026 ranges)</caption>
+                            <thead>
+                                <tr><th>Scenario</th><th>Repair</th><th>Surcharges + min</th><th>All-in</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>Tuesday 2 p.m. &mdash; capacitor swap</td><td>$90&ndash;$450</td><td>$65&ndash;$150 diag fee (often waived)</td><td>$90&ndash;$450</td></tr>
+                                <tr><td>Tuesday 9 p.m. &mdash; capacitor swap</td><td>$90&ndash;$450</td><td>+$100&ndash;$300 surcharge + 1hr min</td><td>$340&ndash;$900</td></tr>
+                                <tr><td>Saturday 11 p.m. &mdash; capacitor swap</td><td>$90&ndash;$450</td><td>+$150&ndash;$400 surcharge + 1&ndash;2hr min</td><td>$430&ndash;$1,100</td></tr>
+                                <tr><td>July 4 holiday &mdash; capacitor swap</td><td>$90&ndash;$450</td><td>+$200&ndash;$450 surcharge + 2hr min</td><td>$540&ndash;$1,200</td></tr>
+                            </tbody>
+                        </table>
+
+                        <p style="color: var(--gray-600); font-size: 0.85rem; margin-top: 8px;">Estimated ranges based on the canonical CoolCallPro pricing reference. Actual costs vary by region, provider, and dispatcher policy. See <a href="../costs">costs.html</a> for standard repair pricing and the Emergency &amp; Service Call Fees table.</p>
+
+                        <p>The pattern is clear: the same job costs 3 to 5x more depending on when you call. That's the real economic question driving the decision, not the repair price.</p>
+
+                        <h2 id="urgency-triage">When Emergency Service Is Worth Paying For (The 3-Tier Triage)</h2>
+
+                        <p>Most homeowners reach for emergency service when the math doesn't justify it. Pay the after-hours premium when one of these three categories applies; otherwise the morning rate is fine.</p>
+
+                        <h3>Tier 1: Safety risk &mdash; call now, no matter the cost</h3>
+
+                        <p>Some failures are not "HVAC problems," they are emergencies that happen to involve the HVAC. Pay the premium without hesitation:</p>
+
+                        <ul>
+                            <li><strong>Natural gas smell anywhere in the house.</strong> Evacuate first, call the gas utility from outside, and only after the gas is shut off do you call the HVAC tech to address the source. Do not flip switches or operate the gas valve. If the smell is faint and you suspect a slow leak at the furnace, that's still an evacuation-first situation.</li>
+                            <li><strong>Carbon monoxide detector alarming with the furnace running.</strong> Per <a href="https://www.cdc.gov/carbon-monoxide/about/index.html" target="_blank" rel="noopener noreferrer">CDC guidance</a>, symptoms of CO exposure &mdash; headache, dizziness, confusion, nausea &mdash; require immediate evacuation. A CO detector going off when the furnace is the only combustion appliance running is a true emergency. Pay the surcharge.</li>
+                            <li><strong>Electrical burning smell or visible smoke from the indoor or outdoor unit.</strong> Kill the breaker, evacuate the immediate area, call the technician. The repair cost itself may not be high (often a failed contactor or motor winding) but the fire risk warrants immediate dispatch.</li>
+                            <li><strong>Visible flooding from a frozen evaporator coil that's about to drop water on a finished ceiling.</strong> The damage from a soaked drywall ceiling exceeds any after-hours surcharge. Catch it tonight.</li>
+                        </ul>
+
+                        <h3>Tier 2: Habitability for vulnerable occupants &mdash; pay the premium</h3>
+
+                        <p>No heat or no cooling becomes a medical issue when the occupant can't compensate. Pay the after-hours rate when:</p>
+
+                        <ul>
+                            <li>It's below 40 F outside and the house has infants under 1 year old, occupants over 75, or anyone with a serious medical condition (heart, respiratory, chemotherapy patients, post-surgical recovery)</li>
+                            <li>Outdoor heat index above 100 F with the same demographic considerations &mdash; heat exhaustion sets in faster for very young, very old, and medically fragile</li>
+                            <li>Bedroom temperatures projected to drop below 50 F (or rise above 90 F) overnight per the local forecast and no alternative heating/cooling is available</li>
+                            <li>You're in a cold-climate market &mdash; <a href="../locations/peoria-il">Peoria, IL</a>, <a href="../locations/allentown-pa">Allentown, PA</a>, similar &mdash; and the failure is on a January night below 20 F; frozen pipes become the secondary risk</li>
+                        </ul>
+
+                        <h3>Tier 3: Active escalating damage &mdash; pay the premium</h3>
+
+                        <p>A repair that gets dramatically more expensive if you wait. Worth the surcharge to stop the bleeding:</p>
+
+                        <ul>
+                            <li>Refrigerant leak large enough to trip the low-pressure cutoff &mdash; running the unit further can damage the compressor (a $900&ndash;$2,800 part)</li>
+                            <li>Heat exchanger that's actively cracking under thermal cycling &mdash; continued operation introduces CO risk</li>
+                            <li>Drain pan overflowing onto subflooring or finished surfaces &mdash; water damage compounds within hours</li>
+                            <li>Outdoor unit fan motor seized but compressor still running &mdash; you have minutes to hours before the compressor overheats and dies</li>
+                        </ul>
+
+                        <h3>Wait until morning when:</h3>
+
+                        <p>If none of the three tiers apply, the call almost always waits. Specifically:</p>
+
+                        <ul>
+                            <li>AC out on a 70-75 F evening &mdash; open windows, run fans, call at 8 a.m.</li>
+                            <li>Furnace blowing slightly cool air on a 50 F night with healthy adults &mdash; wear a sweater, call at 8 a.m.</li>
+                            <li>Thermostat blank but the system is otherwise quiet &mdash; <a href="thermostat-blank-ac-wont-start">check the C1 cluster article on a blank thermostat</a> first; it's often a tripped breaker or a dead thermostat battery (a 15-second homeowner fix, no call required)</li>
+                            <li>Strange noise but the system is still cooling/heating &mdash; the surcharge is wasted; the same diagnostic happens in daylight at the standard rate</li>
+                        </ul>
+
+                        <!-- CTA 1 -->
+                        <div class="callout-box"
+                            style="background: var(--gray-900); color: white; border: none; padding: 24px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.15); display: flex; flex-direction: column; align-items: center; text-align: center; margin: 32px 0;">
+                            <div
+                                style="font-size: 1.25rem; font-weight: 700; font-family: var(--font-display); margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+                                <span>&#128680;</span> HVAC Emergency Right Now?
+                            </div>
+                            <p style="color: rgba(255,255,255,0.8); margin-bottom: 20px; font-size: 0.95rem;">
+                                We connect homeowners with independent emergency HVAC technicians 24/7 in many areas.
+                            </p>
+                            <a href="tel:+18445821795" class="btn btn-primary btn-lg btn-vibrate"><span class="phone-icon">&#128222;</span> Call Now — (844) 582-1795</a>
+                            <p style="color: rgba(255,255,255,0.6); font-size: 0.72rem; margin-top: 12px; max-width: 340px; line-height: 1.5;">Disclosure: We are a referral service and may receive compensation for qualified calls. Calls may be routed to an independent provider network and may be recorded. Pricing and availability vary by provider and location.</p>
+                        </div>
+
+                        <h2 id="six-questions">Six Questions to Ask the Dispatcher Before the Truck Rolls</h2>
+
+                        <p>The single biggest predictor of getting gouged on an emergency HVAC call is taking the first quote without asking for the components separately. Before you authorize service, get these six numbers on the phone, in this order:</p>
+
+                        <ol>
+                            <li><strong>What is your after-hours surcharge?</strong> A clear answer in dollars: "$200 added to the repair cost." Vague answers ("emergency rates apply") mean walk away &mdash; that's how surprise invoices happen.</li>
+                            <li><strong>What is your minimum service charge?</strong> Specifically: "How many hours of labor do you bill minimum, and at what rate?" A 1- or 2-hour minimum at $150 to $250 per hour is standard. A 3+ hour minimum is unusual and worth questioning.</li>
+                            <li><strong>Is the diagnostic fee separate or included?</strong> Some operators bundle diagnostic into the minimum; some bill it separately and waive it if you book. Pin it down before the truck rolls.</li>
+                            <li><strong>Do weekend or holiday rates apply tonight?</strong> Especially relevant for late-Friday-night calls (some operators classify Friday after 6 p.m. as weekend) and the night-before-holiday calls.</li>
+                            <li><strong>Will the technician give me a written estimate before starting the repair?</strong> The answer must be yes. An emergency dispatch that won't put the repair quote in writing before work begins is a billing trap.</li>
+                            <li><strong>What's your service-plan rate, and would tonight be cheaper if I sign up?</strong> Many operators offer a $150 to $350 annual contract that waives the surcharge. If you're paying $300 in surcharge tonight, signing up for the plan can be the cheaper option for tonight's call AND buy a year of waived surcharges for the next emergency.</li>
+                        </ol>
+
+                        <p>A legitimate operator answers all six in under three minutes on the phone. A predatory one stalls, says "the tech will figure it out when he gets there," or quotes "starting at" prices that don't bind to anything. Hang up on the second category and call somebody else &mdash; even at 11 p.m. in summer, you have options.</p>
+
+                        <h2 id="fair-vs-gouging">Fair Rates vs Gouging &mdash; Real-World Examples</h2>
+
+                        <p>What does a fair emergency HVAC bill actually look like in 2026? Two concrete examples:</p>
+
+                        <p><strong>Fair: $345 total for a Tuesday-night capacitor swap.</strong></p>
+                        <ul>
+                            <li>Diagnostic fee: $0 (waived because repair was authorized)</li>
+                            <li>Capacitor part: $45</li>
+                            <li>Labor: $145 (1-hour minimum at $145/hr)</li>
+                            <li>After-hours surcharge: $155</li>
+                        </ul>
+                        <p>This is a fair, fully-itemized bill. The repair price matches the standard daytime range, the surcharge is in the middle of the $100-$300 band, and the minimum is one hour at a reasonable rate. The dispatcher quoted all four numbers on the initial call.</p>
+
+                        <p><strong>Gouging: $980 total for the same Tuesday-night capacitor swap.</strong></p>
+                        <ul>
+                            <li>"Emergency dispatch fee": $295 (not disclosed on call)</li>
+                            <li>"Diagnostic and inspection": $185 (advertised as $79 on website)</li>
+                            <li>Capacitor part: $145 ("commercial-grade" markup)</li>
+                            <li>Labor: $355 (2.5-hour minimum at $142/hr for a 20-minute job)</li>
+                        </ul>
+                        <p>Three red flags: the "emergency dispatch fee" wasn't quoted upfront, the diagnostic fee is more than 2x the advertised number, and the 2.5-hour minimum is excessive for a 20-minute capacitor swap. This is the bill that ends in a chargeback dispute and a BBB complaint.</p>
+
+                        <p>The difference between the two isn't the underlying repair &mdash; it's the surcharge stack and the upfront disclosure. Always get the surcharge stack quoted on the initial phone call.</p>
+
+                        <h2 id="service-plan-math">The Service-Plan Math Most Homeowners Skip</h2>
+
+                        <p>If you're calling for emergency HVAC service even once every two years, the service-plan math probably favors signing up. Per the <a href="../costs">Cool Call Pro cost guide</a>, annual HVAC maintenance contracts run $150 to $350 per year and typically include:</p>
+
+                        <ul>
+                            <li>Two scheduled tune-ups (one for AC, one for furnace)</li>
+                            <li>Waived diagnostic fee on service calls</li>
+                            <li>Waived or reduced after-hours surcharge (varies by plan; some fully waive, some cap at $75)</li>
+                            <li>Priority scheduling &mdash; you skip the queue when the operator is at capacity</li>
+                            <li>10 to 15 percent discount on repair labor and parts</li>
+                        </ul>
+
+                        <p>Run the math against your last two years of emergency calls. If you paid $300 in surcharges two summers ago and $250 last summer, that's $550 saved if a $250 plan covers them. The plan also covers the standard $150 tune-up that prevents some emergencies in the first place. It's the rare situation in HVAC where the package deal genuinely beats the a-la-carte cost &mdash; mostly because the surcharge layer is so expensive and so avoidable.</p>
+
+                        <p>The plan does <em>not</em> cover catastrophic repairs (compressor replacement, evaporator coil, heat exchanger). For those, the standard repair-vs-replace math from our <a href="repair-or-replace-framework">repair-or-replace framework</a> applies regardless of plan status.</p>
+
+                        <!-- CTA 2 -->
+                        <div class="callout-box"
+                            style="background: var(--gray-900); color: white; border: none; padding: 24px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.15); display: flex; flex-direction: column; align-items: center; text-align: center; margin: 32px 0;">
+                            <div
+                                style="font-size: 1.25rem; font-weight: 700; font-family: var(--font-display); margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+                                <span>&#9878;&#65039;</span> Ready to Get Connected?
+                            </div>
+                            <p style="color: rgba(255,255,255,0.8); margin-bottom: 20px; font-size: 0.95rem;">
+                                A technician can walk you through the diagnosis and itemize the bill before any work starts.
+                            </p>
+                            <a href="tel:+18445821795" class="btn btn-primary btn-lg btn-vibrate"><span class="phone-icon">&#128222;</span> Call Now — (844) 582-1795</a>
+                            <p style="color: rgba(255,255,255,0.6); font-size: 0.72rem; margin-top: 12px; max-width: 340px; line-height: 1.5;">Disclosure: We are a referral service and may receive compensation for qualified calls. Calls may be routed to an independent provider network and may be recorded. Pricing and availability vary by provider and location.</p>
+                        </div>
+
+                        <h2 id="climate-context">Climate Context &mdash; When Geography Tilts the Math</h2>
+
+                        <p>Emergency HVAC demand is climate-driven, and that affects both pricing and availability. Three concrete examples:</p>
+
+                        <p><strong><a href="../locations/fresno-ca">Fresno, California</a> (hot-dry, summer highs above 100 F):</strong> Late-July and August emergency surcharges run at the high end of the $200-$300 band because every operator in the Central Valley is at capacity simultaneously. A capacitor swap at 9 p.m. in August often clocks in at $500-$700 all-in vs $300-$450 in shoulder season. If the failure is comfort-tier and the overnight low is below 80 F, waiting saves real money. If it's safety-tier with vulnerable occupants, the surcharge is unavoidable &mdash; book early in the night, not late.</p>
+
+                        <p><strong><a href="../locations/allentown-pa">Allentown, Pennsylvania</a> (cold-climate, winter lows below 20 F):</strong> Mid-January furnace emergencies see surcharges at the high end and minimum-service charges often stretched to 2 hours because dispatch operators expect call volume to overrun staffing. A no-heat call at 11 p.m. in a 15 F night with infants in the house is firmly Tier 2 (habitability) &mdash; pay the surcharge. A no-heat call at 8 p.m. in a 45 F night with healthy adults is comfort-tier &mdash; wait until 8 a.m. and save $200-$400.</p>
+
+                        <p><strong><a href="../locations/peoria-il">Peoria, Illinois</a> and <a href="../locations/fayetteville-nc">Fayetteville, North Carolina</a> (mixed climates, both heating and cooling emergencies year-round):</strong> Surcharge pricing tracks the season &mdash; summer AC emergencies and winter furnace emergencies both run at standard $100-$300 surcharges, but the underlying repair labor cost in Peoria's denser metro market runs higher than rural Fayetteville. Cost variance across metros is real; <a href="2026-hvac-cost-guide">the cost guide pillar</a> covers the why.</p>
+
+                        <h3>Trusted Industry Sources</h3>
+                        <p>The guidance in this article is consistent with published recommendations from:</p>
+                        <ul>
+                            <li><a href="https://www.epa.gov/section608" target="_blank" rel="noopener noreferrer">EPA &mdash; Section 608 Technician Certification</a></li>
+                            <li><a href="https://www.cdc.gov/carbon-monoxide/about/index.html" target="_blank" rel="noopener noreferrer">CDC &mdash; Carbon Monoxide Poisoning</a></li>
+                            <li><a href="https://www.energy.gov/energysaver/maintaining-your-air-conditioner" target="_blank" rel="noopener noreferrer">U.S. Department of Energy &mdash; Maintaining Your Air Conditioner</a></li>
+                            <li><a href="https://www.acca.org/standards/technical-manuals" target="_blank" rel="noopener noreferrer">ACCA &mdash; Air Conditioning Contractors of America (standards)</a></li>
+                        </ul>
+
+                        <h2 id="faqs">Frequently Asked Questions</h2>
+
+                        <div class="faq-item">
+                            <button class="faq-q" aria-expanded="false" aria-controls="faq-emergency-cost-1"><span>How much does emergency HVAC service cost?</span><span class="faq-icon"></span></button>
+                            <div class="faq-a" id="faq-emergency-cost-1"><div class="faq-a-inner">
+                                <p>Emergency HVAC service in 2026 typically costs the standard repair price plus a $100 to $300 after-hours surcharge. A diagnostic or service call fee of $65 to $150 usually applies on top, though many companies waive it if you book the repair through them. Holiday emergency premiums (Thanksgiving, Christmas, July 4th) add another $100 to $300. Total all-in for a typical emergency capacitor or contactor repair at 9 p.m. on a weekday runs $300 to $700; the same repair on a holiday weekend can run $500 to $1,100. The variance is mostly about WHEN you call, not what's broken. The repair cost itself is the same as a daytime job &mdash; what you're paying extra for is the technician's overtime and the dispatcher's after-hours overhead. See <a href="../costs">costs.html</a> for the canonical breakdown.</p>
+                            </div></div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-q" aria-expanded="false" aria-controls="faq-emergency-cost-2"><span>Is an emergency HVAC call worth it, or should I wait until morning?</span><span class="faq-icon"></span></button>
+                            <div class="faq-a" id="faq-emergency-cost-2"><div class="faq-a-inner">
+                                <p>Three categories of HVAC failure justify an emergency call: (1) safety risks &mdash; gas smell, a carbon monoxide detector alarming with the furnace running, electrical burning smell, or visible water damage actively occurring; (2) habitability risks &mdash; no heat with outdoor temperatures below 40 degrees F and vulnerable occupants (infants, elderly, medically fragile); no cooling with outdoor heat index above 100 F and similar occupants; (3) escalating damage &mdash; a frozen evaporator coil that's about to dump water on a finished ceiling, or a refrigerant leak large enough to trip the low-pressure cutoff. Outside those three categories, waiting until morning saves $100 to $300 in surcharges. AC out at 11 p.m. when it's 70 F outside, or a furnace blowing slightly cool air on a 50 F night, almost never justify emergency rates.</p>
+                            </div></div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-q" aria-expanded="false" aria-controls="faq-emergency-cost-3"><span>What's a fair after-hours HVAC surcharge?</span><span class="faq-icon"></span></button>
+                            <div class="faq-a" id="faq-emergency-cost-3"><div class="faq-a-inner">
+                                <p>Fair after-hours surcharges in 2026 run $100 to $300 added on top of the standard repair bill. Anything above $400 in surcharge alone (not including the actual repair labor) is in price-gouging territory unless the technician documents extraordinary travel time, a holiday, or an emergency runner trip for unusual parts. The surcharge typically covers the technician's overtime rate (1.5x base), the dispatcher's after-hours overhead, and the fuel for one trip. A reasonable operator quotes the surcharge upfront as a flat add-on; an unreasonable one buries it in a vague "emergency dispatch fee" that doesn't show up until the invoice. Always ask the dispatcher for the surcharge figure before authorizing the truck roll. If they refuse to quote it, call another company.</p>
+                            </div></div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-q" aria-expanded="false" aria-controls="faq-emergency-cost-4"><span>Why did the emergency tech charge a 2-hour minimum for a 20-minute fix?</span><span class="faq-icon"></span></button>
+                            <div class="faq-a" id="faq-emergency-cost-4"><div class="faq-a-inner">
+                                <p>Most emergency HVAC dispatch operations bill a minimum service charge &mdash; typically 1 to 2 hours of labor &mdash; regardless of how long the actual repair takes. The minimum exists because the after-hours economics don't work without it: the tech is paid an overtime rate for the entire shift, the dispatcher is paid to be on call, and the trip is dedicated to your house even if the repair takes 15 minutes. A 1-hour minimum at $150 to $250 per hour after-hours is industry-standard. A 2-hour minimum is at the high end but legal and common in dense metro markets. Anything above 2 hours, or a minimum that scales with the surcharge instead of the labor rate, is unusual and worth questioning. The dispatcher should disclose the minimum when you call, before the truck rolls; if they don't, ask explicitly: "What is your minimum service charge for after-hours work?"</p>
+                            </div></div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-q" aria-expanded="false" aria-controls="faq-emergency-cost-5"><span>Are weekend HVAC emergency rates higher than weeknight rates?</span><span class="faq-icon"></span></button>
+                            <div class="faq-a" id="faq-emergency-cost-5"><div class="faq-a-inner">
+                                <p>Yes, typically 25 to 50 percent higher. Weeknight emergency rates (Monday through Thursday, 5 p.m. to 8 a.m.) usually carry the standard $100 to $300 after-hours surcharge. Friday night through Sunday rates often add another $50 to $150 because the technician's premium overtime rate increases, and competing demand for the same after-hours pool means dispatch fees rise too. Holiday weekends compound: a Saturday-of-July-4th-weekend AC emergency in a hot-humid climate can run 2x the weeknight equivalent because every operator in the market is at capacity. If the issue is genuinely safety-tier and you need help on a holiday weekend, pay the premium. If it's comfort-tier and can wait, Monday morning rates apply and the surcharge drops to zero.</p>
+                            </div></div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-q" aria-expanded="false" aria-controls="faq-emergency-cost-6"><span>Will my HVAC service plan cover the emergency call surcharge?</span><span class="faq-icon"></span></button>
+                            <div class="faq-a" id="faq-emergency-cost-6"><div class="faq-a-inner">
+                                <p>Most annual HVAC maintenance contracts ($150 to $350 per year per <a href="../costs">costs.html</a>) include some combination of: waived diagnostic fee, waived after-hours surcharge, priority scheduling, and a 10 to 15 percent discount on repair labor. The specific benefits vary by company &mdash; some waive surcharges entirely, others cap them at $75 instead of $150 to $300. If you call several emergency HVAC repairs per year, the math frequently favors a service plan: two emergency calls at $200 surcharge each are $400 in one year, more than the cost of most plans. Service plans rarely cover catastrophic repair costs (compressor replacement, coil replacement) &mdash; they cover the time-based and trip-based fees that pile up on emergency calls. Read the contract carefully before assuming a benefit applies; some plans exclude holidays from the surcharge waiver.</p>
+                            </div></div>
+                        </div>
+
+                        <h3>Local HVAC Service Areas</h3>
+                        <p>Cool Call Pro connects homeowners with independent HVAC technicians nationwide. Find a pro in <a href="../locations/allentown-pa" style="color: var(--orange-dark); font-weight: 600;">Allentown (PA)</a>, <a href="../locations/peoria-il" style="color: var(--orange-dark); font-weight: 600;">Peoria (IL)</a>, <a href="../locations/fayetteville-nc" style="color: var(--orange-dark); font-weight: 600;">Fayetteville (NC)</a>, or <a href="../locations/fresno-ca" style="color: var(--orange-dark); font-weight: 600;">Fresno (CA)</a>, or browse by state: <a href="../locations/pennsylvania" style="color: var(--orange-dark); font-weight: 600;">Pennsylvania</a>, <a href="../locations/illinois" style="color: var(--orange-dark); font-weight: 600;">Illinois</a>, or <a href="../locations" style="color: var(--orange-dark); font-weight: 600;">all locations</a>.</p>
+
+                    </article>
+
+                    <aside class="article-sidebar">
+                        <div class="sidebar-widget">
+                            <h4>&#128205; Find a Pro Near You</h4>
+                            <ul>
+                                <li><a href="../locations/allentown-pa" style="color: var(--orange-dark); font-weight: 600;">Allentown (PA)</a></li>
+                                <li><a href="../locations/peoria-il" style="color: var(--orange-dark); font-weight: 600;">Peoria (IL)</a></li>
+                                <li><a href="../locations/fayetteville-nc" style="color: var(--orange-dark); font-weight: 600;">Fayetteville (NC)</a></li>
+                                <li><a href="../locations/fresno-ca" style="color: var(--orange-dark); font-weight: 600;">Fresno (CA)</a></li>
+                                <li><a href="../locations/pennsylvania" style="color: var(--orange-dark); font-weight: 600;">All Pennsylvania Cities</a></li>
+                                <li><a href="../locations/illinois" style="color: var(--orange-dark); font-weight: 600;">All Illinois Cities</a></li>
+                                <li><a href="../locations" style="font-weight: 600;">All Locations &rarr;</a></li>
+                            </ul>
+                        </div>
+                        <div class="sidebar-widget">
+                            <h4>&#128218; Related Guides</h4>
+                            <ul>
+                                <li><a href="../costs">Full HVAC Cost Guide</a></li>
+                                <li><a href="2026-hvac-cost-guide">2026 HVAC Cost Guide (Pillar)</a></li>
+                                <li><a href="repair-or-replace-framework">Repair-or-Replace Framework</a></li>
+                                <li><a href="1000-into-12yo-ac">$1,000 into a 12-Year-Old AC?</a></li>
+                                <li><a href="seer-14-vs-18-payback">14 SEER vs. 18 SEER Payback</a></li>
+                                <li><a href="thermostat-blank-ac-wont-start">Blank Thermostat? Check Before Calling</a></li>
+                                <li><a href="../emergency">Emergency HVAC Service</a></li>
+                            </ul>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Brand -->
+                <div class="footer-brand">
+                    <a href="../" class="logo"><span class="logo-icon">&#10052;&#65039;</span><span class="logo-text">CoolCall<span class="logo-accent">Pro</span></span></a>
+                    <p>Connecting homeowners with independent HVAC professionals across the US. Available 24/7 in many areas.</p>
+                    <div class="footer-contact">
+                        <a href="tel:+18445821795" class="footer-phone">(844) 582-1795</a>
+                        <span>24/7 Service Line</span>
+                    </div>
+                </div>
+                <!-- Resources -->
+                <div class="footer-col">
+                    <h3 class="footer-heading">Resources</h3>
+                    <ul>
+                        <li><a href="../costs">Cost Guide</a></li>
+                        <li><a href="../emergency">Emergency Service</a></li>
+                        <li><a href="../safety">Safety Tips</a></li>
+                        <li><a href="../articles">All Articles</a></li>
+                        <li><a href="../locations">Locations</a></li>
+                    </ul>
+                </div>
+                <!-- Company -->
+                <div class="footer-col">
+                    <h3 class="footer-heading">Company</h3>
+                    <ul>
+                        <li><a href="../about">About Us</a></li>
+                        <li><a href="../contact">Contact</a></li>
+                        <li><a href="../author-gyanesh">Author</a></li>
+                        <li><a href="../privacy">Privacy Policy</a></li>
+                        <li><a href="../advertising-disclosure">Advertising Disclosure</a></li>
+                    </ul>
+                </div>
+                <!-- Service Areas -->
+                <div class="footer-col">
+                    <h3 class="footer-heading">Service Areas</h3>
+                    <ul class="service-areas">
+                        <li><a href="../locations/atlanta-ga">Atlanta, GA</a></li>
+                        <li><a href="../locations/chicago-il">Chicago, IL</a></li>
+                        <li><a href="../locations/dallas-tx">Dallas, TX</a></li>
+                        <li><a href="../locations/houston-tx">Houston, TX</a></li>
+                        <li><a href="../locations/phoenix-az">Phoenix, AZ</a></li>
+                        <li><a href="../locations">All 50 states &#8594;</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Legal Disclosure + Bottom Bar -->
+            <div class="footer-bottom">
+                <p><strong style="color: rgba(255,255,255,0.9);">How this site works:</strong> We publish HVAC cost and troubleshooting information and may connect callers to independent service providers. We do not perform HVAC services ourselves. Pricing, availability, and response times vary by provider and location.</p>
+                <p><strong style="color: rgba(255,255,255,0.9);">Editorial standards:</strong> Our content focuses on helpful troubleshooting tips and realistic pricing information. We avoid guarantees; actual pricing depends on the provider and situation. We clearly disclose compensation for referrals. We update content for clarity and accuracy when needed.</p>
+                <p><strong style="color: rgba(255,255,255,0.9);">Disclaimer:</strong> Cool Call Pro is a free service to assist homeowners in connecting with local service providers. All contractors/providers are independent and Cool Call Pro does not warrant or guarantee any work performed. It is the responsibility of the homeowner to verify that the hired contractor furnishes the necessary license and insurance required for the work being performed. All persons depicted in a photo or video are actors or models and not contractors listed on Cool Call Pro.</p>
+                <p>&copy; <span class="copyright-year">2026</span> Cool Call Pro. All rights reserved. &nbsp;&middot;&nbsp; <a href="../privacy">Privacy Policy</a> &nbsp;&middot;&nbsp; <a href="../terms">Terms of Use</a> &nbsp;&middot;&nbsp; <a href="../disclaimer">Disclaimer</a> &nbsp;&middot;&nbsp; <a href="../advertising-disclosure">Advertising Disclosure</a></p>
+            </div>
+        </div>
+    </footer>
+    <script>document.querySelectorAll('.copyright-year').forEach(function(el){el.textContent=new Date().getFullYear()});</script>
+    <script src="../js/main.min.js" defer></script>
+
+    <!-- Mobile Call Bar -->
+    <div class="mobile-call-bar">
+        <a href="tel:+18445821795"><span class="phone-icon">&#128222;</span> Call Now — (844) 582-1795</a>
+    </div>
+</body>
+
+</html>

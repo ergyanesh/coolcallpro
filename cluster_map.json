@@ -341,10 +341,11 @@
         {
           "slug": "emergency-hvac-service-cost",
           "path": "articles/emergency-hvac-service-cost.html",
-          "title": "How Much Does Emergency HVAC Service Cost? Fair Rates in 2026",
-          "status": "pending",
+          "title": "Emergency HVAC Service Cost: What's Fair in 2026",
+          "status": "live",
           "priority": 1,
           "roadmap_id": 92,
+          "date_published": "2026-05-14",
           "gsc_basis": "Captures BIGGEST winnable cluster: ~2,161 emergency-hvac impressions across 'emergency hvac service' (645), 'hvac emergency repair' (351), 'emergency hvac repair' (349), 'hvac emergency service' (232), 'emergency hvac services' (183), 'emergency hvac' (113), 'residential emergency hvac service' (18), '24/7 emergency hvac service' (23), 'emergency hvac repair services' (28). Currently sitting pos 16-22. (GSC 2026-05-10)"
         },
         {
