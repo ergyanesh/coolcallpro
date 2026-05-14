@@ -111,6 +111,15 @@
           "date_published": "2026-04-21",
           "priority": 21,
           "roadmap_id": 16
+        },
+        {
+          "slug": "emergency-ac-repair-cost-guide",
+          "path": "articles/emergency-ac-repair-cost-guide.html",
+          "title": "Emergency AC Repair: When to Call & What's Fair to Pay",
+          "status": "pending",
+          "priority": 1,
+          "roadmap_id": 94,
+          "gsc_basis": "Captures emergency-AC cluster: ~1,184 winnable impressions across 'emergency ac service' (244), 'emergency ac services' (171), 'ac repair emergency' (131), 'emergency ac repairs' (94), 'ac emergency repair' (90), 'emergency air conditioning service' (231), '24/7 ac repair' (49), 'same day ac repair' (61). Currently sitting pos 16-30. (GSC 2026-05-10)"
         }
       ]
     },
@@ -189,6 +198,15 @@
           "status": "pending",
           "priority": 25,
           "roadmap_id": 27
+        },
+        {
+          "slug": "emergency-furnace-repair-guide",
+          "path": "articles/emergency-furnace-repair-guide.html",
+          "title": "Emergency Furnace Repair: Wait Until Morning or Call Now?",
+          "status": "pending",
+          "priority": 1,
+          "roadmap_id": 95,
+          "gsc_basis": "Captures emergency-furnace cluster: ~734 winnable impressions across 'emergency furnace repair' (209), '24 hour furnace repair' (143), 'emergency heating repair' (85), 'emergency heating service' (60), '24/7 furnace repair' (43), 'emergency heating and cooling' (42), '24 hour emergency heating service' (39), '24 hour emergency heating repair' (30), 'furnace repair emergency' (26), 'same day heating repair' (25). Currently sitting pos 14-32. (GSC 2026-05-10)"
         }
       ]
     },
@@ -319,6 +337,24 @@
           "status": "pending",
           "priority": 30,
           "roadmap_id": 49
+        },
+        {
+          "slug": "emergency-hvac-service-cost",
+          "path": "articles/emergency-hvac-service-cost.html",
+          "title": "How Much Does Emergency HVAC Service Cost? Fair Rates in 2026",
+          "status": "pending",
+          "priority": 1,
+          "roadmap_id": 92,
+          "gsc_basis": "Captures BIGGEST winnable cluster: ~2,161 emergency-hvac impressions across 'emergency hvac service' (645), 'hvac emergency repair' (351), 'emergency hvac repair' (349), 'hvac emergency service' (232), 'emergency hvac services' (183), 'emergency hvac' (113), 'residential emergency hvac service' (18), '24/7 emergency hvac service' (23), 'emergency hvac repair services' (28). Currently sitting pos 16-22. (GSC 2026-05-10)"
+        },
+        {
+          "slug": "24-hour-hvac-repair-guide",
+          "path": "articles/24-hour-hvac-repair-guide.html",
+          "title": "24-Hour HVAC Repair: What's Open, What's Fair, What's a Trap",
+          "status": "pending",
+          "priority": 2,
+          "roadmap_id": 93,
+          "gsc_basis": "Captures 24-hour cluster: ~620 winnable impressions across '24 hour hvac repair' (307), '24 hour hvac service' (74), 'hvac 24 hour service' (45), '24 hour heating and air conditioning repair' (29), '24 hour hvac' (33), '24/7 hvac repair services' (21), '24/7 hvac repair' (21), 'hvac 24 hour emergency service' (26), 'after hours hvac service' (25), '24 7 emergency residential hvac repair' (23). Currently sitting pos 11-18. (GSC 2026-05-10)"
         }
       ]
     },
@@ -416,115 +452,129 @@
       ]
     }
   },
-  "_priority_queue_strategy": "GSC-informed reorder 2026-05-10. Last 7-day GSC data showed: financing article hitting positions 1-5 on multiple long-tail queries; '$5000 rule for hvac' at position 2 (C5 repair-vs-replace pillar winning informational decision-research intent); 'hvac emergency' at position 4.3 (informational variant of emergency queries CAN win — local-pack-dominated transactional ones cannot). Pending articles reordered to lead with C5 Compare (decision-research) + C4 Cost (cost research) where SERP shape allows referral-content wins. Lower-priority: C2/C3 diagnostic articles (valuable for topical authority but slower to rank). See feedback_referral_model_seo_constraints.md memory for the broader strategy constraints.",
+  "_priority_queue_strategy": "GSC EVIDENCE-BASED reorder 2026-05-14 (supersedes 2026-05-10 heuristic reorder). Pulled full GSC Queries.csv (1,000 queries, 7-day window). Grouped winnable queries (pos 11-40, impressions >= 5) by intent theme. Verdict: emergency/24-7 cluster has 4,622 generic-emergency winnable impressions at pos 15-25 (4 distinct article-targetable sub-themes). C1/C2 diagnostic queries = 0 winnable imp at our authority level. Cost/price = 67 imp total. SEER/efficiency = 0 imp. Therefore: next 4 articles are emergency-cluster informational content (capturing $$ MILLIONS of homeowner spend with single-article wins). After those 4 ship and rank, re-pull GSC and re-prioritize. Articles after #4 are existing C4/C2/C3 cluster slugs in their prior order — those won't move until they have GSC signal of their own. Critical referral-site constraint: target INFORMATIONAL emergency variants ('what is fair to pay', 'when to call vs wait'), NOT geo-modified transactional ('emergency hvac near me') — those go on location pages where they belong. See feedback_referral_model_seo_constraints.md and project_gsc_strategy_2026_05_10.md memories.",
   "priority_queue": [
     {
       "position": 1,
-      "cluster": "C5_compare",
-      "slug": "1000-into-12yo-ac",
+      "cluster": "C4_cost",
+      "slug": "emergency-hvac-service-cost",
       "type": "cluster",
-      "note": "Direct mirror of '$5000 rule' query winning at position 2. Same decision-research intent."
+      "note": "GSC: 2,161 winnable imp at pos 16-22. BIGGEST winnable cluster — 'emergency hvac service' alone has 645 imp at pos 20.9. Single article should push into top 10. Informational framing ('how much does it cost', 'fair rates') wins this SERP; geo-modified variants belong on location pages."
     },
     {
       "position": 2,
-      "cluster": "C5_compare",
-      "slug": "seer-14-vs-18-payback",
+      "cluster": "C4_cost",
+      "slug": "24-hour-hvac-repair-guide",
       "type": "cluster",
-      "note": "Decision-research intent; technical reference content; same SERP shape as #1."
+      "note": "GSC: 620 winnable imp at pos 11-18. '24 hour hvac repair' at pos 15.2 with 307 imp — closest to top 10 of any winnable cluster. Article frames trust signals (independent network, what to ask) vs the predatory after-hours operators that dominate these SERPs."
     },
     {
       "position": 3,
-      "cluster": "C4_cost",
-      "slug": "emergency-weekend-hvac-cost",
+      "cluster": "C1_ac",
+      "slug": "emergency-ac-repair-cost-guide",
       "type": "cluster",
-      "note": "Captures informational variants of emergency queries (the kind we CAN win); ties to 62% emergency-themed impression share."
+      "note": "GSC: 1,184 winnable imp at pos 16-30. Mirrors the #1 article's structure but AC-specific — covers 'emergency ac service' (244), 'emergency air conditioning service' (231), 'same day ac repair' (61). Links to C4 cost pillar + C1 troubleshooting pillar."
     },
     {
       "position": 4,
-      "cluster": "C4_cost",
-      "slug": "cost-replace-3-ton-ac",
+      "cluster": "C2_furnace",
+      "slug": "emergency-furnace-repair-guide",
       "type": "cluster",
-      "note": "Direct cost-research head term; matches general cost queries surfacing in GSC."
+      "note": "GSC: 734 winnable imp at pos 14-32. Furnace counterpart — 'emergency furnace repair' (209), '24 hour furnace repair' (143), 'emergency heating repair' (85). Different urgency profile than AC (CO/freeze risk) → different decision content. Links to C2 furnace pillar + C4 cost pillar."
     },
     {
       "position": 5,
       "cluster": "C4_cost",
-      "slug": "r410a-recharge-cost",
+      "slug": "emergency-weekend-hvac-cost",
       "type": "cluster",
-      "note": "Refrigerant cost is a striking-distance area."
+      "note": "AFTER positions 1-4 ship, this becomes the weekend/after-hours-specific deep-dive that the top-of-funnel emergency articles link to. Originally #3 on heuristic queue; demoted to #5 by GSC evidence since weekend-specific queries are a subset of the broader emergency cluster captured by #1."
     },
     {
       "position": 6,
       "cluster": "C4_cost",
-      "slug": "new-furnace-installed-cost",
+      "slug": "cost-replace-3-ton-ac",
       "type": "cluster",
-      "note": "Furnace theme accounts for 12.9% of GSC impressions; direct cost research."
+      "note": "Cost-research head term. GSC shows cost theme is small (67 imp winnable) but this article anchors the C4 cost-cluster long-tail. Re-evaluate priority after emergency cluster ships."
     },
     {
       "position": 7,
+      "cluster": "C4_cost",
+      "slug": "r410a-recharge-cost",
+      "type": "cluster",
+      "note": "Refrigerant cost — narrow but high-intent niche cluster. Worth shipping once emergency content is in place."
+    },
+    {
+      "position": 8,
+      "cluster": "C4_cost",
+      "slug": "new-furnace-installed-cost",
+      "type": "cluster",
+      "note": "Direct cost-research; pairs naturally with C2 furnace cluster articles."
+    },
+    {
+      "position": 9,
       "cluster": "C4_cost",
       "slug": "dual-run-capacitor-cost",
       "type": "cluster",
       "note": "Niche cost-research; specific repair item."
     },
     {
-      "position": 8,
+      "position": 10,
       "cluster": "C4_cost",
       "slug": "mini-split-installation-cost",
       "type": "cluster"
     },
     {
-      "position": 9,
+      "position": 11,
       "cluster": "C4_cost",
       "slug": "central-air-no-ductwork-cost",
       "type": "cluster"
     },
     {
-      "position": 10,
+      "position": 12,
       "cluster": "C2_furnace",
       "slug": "furnace-short-cycling",
       "type": "cluster",
-      "note": "Diagnostic; valuable for topical authority but lower immediate-ranking leverage."
+      "note": "Diagnostic content. GSC shows 0 winnable diagnostic imp currently, but topical authority builder."
     },
     {
-      "position": 11,
+      "position": 13,
       "cluster": "C2_furnace",
       "slug": "furnace-burning-plastic-smell",
       "type": "cluster"
     },
     {
-      "position": 12,
+      "position": 14,
       "cluster": "C2_furnace",
       "slug": "co-detector-furnace-running",
       "type": "cluster",
       "note": "Safety-critical content; high E-E-A-T value even if traffic is moderate."
     },
     {
-      "position": 13,
+      "position": 15,
       "cluster": "C2_furnace",
       "slug": "furnace-ignitor-wont-light",
       "type": "cluster"
     },
     {
-      "position": 14,
+      "position": 16,
       "cluster": "C3_heatpump",
       "slug": "heat-pump-stuck-in-cooling",
       "type": "cluster"
     },
     {
-      "position": 15,
+      "position": 17,
       "cluster": "C3_heatpump",
       "slug": "heat-pump-lukewarm-air",
       "type": "cluster"
     },
     {
-      "position": 16,
+      "position": 18,
       "cluster": "C3_heatpump",
       "slug": "heat-pump-defrost-grinding",
       "type": "cluster"
     },
     {
-      "position": 17,
+      "position": 19,
       "cluster": "C6_maint",
       "slug": "best-merv-rating",
       "type": "cluster"
