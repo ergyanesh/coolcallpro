@@ -365,9 +365,10 @@
           "slug": "seer-14-vs-18-payback",
           "path": "articles/seer-14-vs-18-payback.html",
           "title": "14 SEER vs. 18 SEER: Years to Payback?",
-          "status": "pending",
+          "status": "live",
           "priority": 28,
-          "roadmap_id": 85
+          "roadmap_id": 85,
+          "date_published": "2026-05-12"
         }
       ]
     },
