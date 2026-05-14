@@ -116,10 +116,11 @@
           "slug": "emergency-ac-repair-cost-guide",
           "path": "articles/emergency-ac-repair-cost-guide.html",
           "title": "Emergency AC Repair: When to Call & What's Fair to Pay",
-          "status": "pending",
+          "status": "paused-doorway-risk",
           "priority": 1,
           "roadmap_id": 94,
-          "gsc_basis": "Captures emergency-AC cluster: ~1,184 winnable impressions across 'emergency ac service' (244), 'emergency ac services' (171), 'ac repair emergency' (131), 'emergency ac repairs' (94), 'ac emergency repair' (90), 'emergency air conditioning service' (231), '24/7 ac repair' (49), 'same day ac repair' (61). Currently sitting pos 16-30. (GSC 2026-05-10)"
+          "gsc_basis": "Captures emergency-AC cluster: ~1,184 winnable impressions across 'emergency ac service' (244), 'emergency ac services' (171), 'ac repair emergency' (131), 'emergency ac repairs' (94), 'ac emergency repair' (90), 'emergency air conditioning service' (231), '24/7 ac repair' (49), 'same day ac repair' (61). Currently sitting pos 16-30. (GSC 2026-05-10)",
+          "paused_reason": "PAUSED 2026-05-14 — doorway-risk against emergency-hvac-service-cost. As scoped (AC-specific cost), this would mostly restate the 3-cost-layer framework + urgency triage + dispatcher checklist from article #1 with 'AC' swapped for 'HVAC.' Reframe to genuinely different territory before writing (e.g., heat-stress medical-risk decision math, AC failure-cascade timeline, when-to-leave-the-house tipping point) — or skip. See feedback_article_uniqueness_check memory."
         }
       ]
     },
@@ -203,10 +204,11 @@
           "slug": "emergency-furnace-repair-guide",
           "path": "articles/emergency-furnace-repair-guide.html",
           "title": "Emergency Furnace Repair: Wait Until Morning or Call Now?",
-          "status": "pending",
+          "status": "paused-doorway-risk",
           "priority": 1,
           "roadmap_id": 95,
-          "gsc_basis": "Captures emergency-furnace cluster: ~734 winnable impressions across 'emergency furnace repair' (209), '24 hour furnace repair' (143), 'emergency heating repair' (85), 'emergency heating service' (60), '24/7 furnace repair' (43), 'emergency heating and cooling' (42), '24 hour emergency heating service' (39), '24 hour emergency heating repair' (30), 'furnace repair emergency' (26), 'same day heating repair' (25). Currently sitting pos 14-32. (GSC 2026-05-10)"
+          "gsc_basis": "Captures emergency-furnace cluster: ~734 winnable impressions across 'emergency furnace repair' (209), '24 hour furnace repair' (143), 'emergency heating repair' (85), 'emergency heating service' (60), '24/7 furnace repair' (43), 'emergency heating and cooling' (42), '24 hour emergency heating service' (39), '24 hour emergency heating repair' (30), 'furnace repair emergency' (26), 'same day heating repair' (25). Currently sitting pos 14-32. (GSC 2026-05-10)",
+          "paused_reason": "PAUSED 2026-05-14 — doorway-risk against emergency-hvac-service-cost. As scoped (furnace-specific cost + decision), this would mostly restate the 3-cost-layer framework + urgency triage + dispatcher checklist from article #1. Reframe to genuinely different territory before writing (e.g., CO-risk-driven decision math specific to combustion furnaces, frozen-pipe cascade timeline for no-heat below 25 F, gas-utility-vs-HVAC-tech division of work) — or skip. See feedback_article_uniqueness_check memory."
         }
       ]
     },
@@ -454,7 +456,7 @@
       ]
     }
   },
-  "_priority_queue_strategy": "GSC EVIDENCE-BASED reorder 2026-05-14 (supersedes 2026-05-10 heuristic reorder). Pulled full GSC Queries.csv (1,000 queries, 7-day window). Grouped winnable queries (pos 11-40, impressions >= 5) by intent theme. Verdict: emergency/24-7 cluster has 4,622 generic-emergency winnable impressions at pos 15-25 (4 distinct article-targetable sub-themes). C1/C2 diagnostic queries = 0 winnable imp at our authority level. Cost/price = 67 imp total. SEER/efficiency = 0 imp. Therefore: next 4 articles are emergency-cluster informational content (capturing $$ MILLIONS of homeowner spend with single-article wins). After those 4 ship and rank, re-pull GSC and re-prioritize. Articles after #4 are existing C4/C2/C3 cluster slugs in their prior order — those won't move until they have GSC signal of their own. Critical referral-site constraint: target INFORMATIONAL emergency variants ('what is fair to pay', 'when to call vs wait'), NOT geo-modified transactional ('emergency hvac near me') — those go on location pages where they belong. See feedback_referral_model_seo_constraints.md and project_gsc_strategy_2026_05_10.md memories.",
+  "_priority_queue_strategy": "GSC EVIDENCE-BASED reorder 2026-05-14 (supersedes 2026-05-10 heuristic reorder). Shipped articles #1 (emergency-hvac-service-cost) and #2 (24-hour-hvac-repair) on 2026-05-14 — both clear doorway-test with genuinely distinct frames (article #1 owns cost layers + dispatcher checklist; article #2 owns 3-tier service framework + arrival windows). QUEUE PAUSED on articles #3 and #4 (emergency-ac-repair-cost-guide, emergency-furnace-repair-guide) — flagged 2026-05-14 as doorway-risk because both would mostly restate article #1's cost layers with an equipment-type swap. Different SERPs do NOT guarantee different content. Before resuming, EITHER reframe #3 and #4 around genuinely different angles (heat-stress medical-risk for AC, CO-risk + frozen-pipe cascade for furnace) OR skip them entirely and pivot to a different cluster intent. Articles #5+ in the queue (cost-replace-3-ton-ac, etc.) need fresh GSC re-pull before assuming priority — those slugs were ranked by judgment, not evidence, and demand should be re-validated 7-14 days after articles #1 and #2 begin accumulating impressions. RULE going forward (see feedback_article_uniqueness_check memory): before drafting any cluster article, articulate the unique territory it owns vs all live articles in the cluster in 1-2 sentences. If overlap >40%, reframe or skip. Different SERP target ≠ unique content.",
   "priority_queue": [
     {
       "position": 1,
