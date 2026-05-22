@@ -20,7 +20,7 @@ Usage:
 import os
 import re
 import sys
-from datetime import date
+from datetime import date, datetime
 from html import escape
 
 # Reuse v3 helpers wholesale -- this v4 only refactors generate_page().
@@ -1760,6 +1760,12 @@ def generate_page(c, climate_type, nearby, absorbed_data, all_cities_lookup, sta
         reviewed_readable = today.strftime("%B %-d, %Y") if os.name != 'nt' else today.strftime("%B %#d, %Y")
     meta_block = page_meta_html(reviewed_iso, reviewed_readable)
 
+    # Build stamp -- microsecond-precision timestamp emitted as <meta name="generator">.
+    # Forces a unique file hash on every regen so Cloudflare Pages must re-upload the
+    # asset (and cannot dedupe against any stale/corrupted blob from a prior failed
+    # upload). Set per-file so even same-second regens of different cities differ.
+    build_stamp = datetime.now().isoformat(timespec='microseconds')
+
     # Service-zip JSON for schema (first 5 ZIPs only)
     service_zip_list = [z.strip() for z in zips.split(",") if z.strip()][:5]
     service_zip_json = ", ".join(f'"{z}"' for z in service_zip_list)
@@ -1861,6 +1867,7 @@ def generate_page(c, climate_type, nearby, absorbed_data, all_cities_lookup, sta
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="generator" content="ccp-v4-trackb-{build_stamp}" />
   <title>{title_text}</title>
   <meta name="description"
     content="{meta_desc}" />
