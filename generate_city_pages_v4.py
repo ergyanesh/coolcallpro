@@ -1534,6 +1534,162 @@ def trust_strip_section(c, climate_type, state_info):
 
 
 # ============================================================
+# TRACK B — Cost-intent framing + aggregator disclosure
+# Shipped 2026-05-22 after H3 cohort verdict: title-only repositioning
+# was insufficient (0 clicks on 15,315 cohort impressions over 25 days,
+# position improved 0.5 vs ≥3 required). Deeper framing pivot adds:
+# cost-intent title (already proven directionally positive on cohort
+# +34% impressions, +0.5 position), "Find a Technician" H1, aggregator
+# disclosure badge above the fold, and per-city cost-summary card grid.
+# Reference: _audit/POST_H3_DECISION_PLAN.md + _audit/H3_TEST_COHORT.md.
+# ============================================================
+
+def cost_intent_title(city, climate_type):
+    """Climate-aware cost-intent title.
+
+    Escapes GBP-locked SERPs by targeting `[city] [equipment] repair cost`
+    queries where Google does NOT trigger the local pack. Climate-aware so
+    each page reads as natural to the dominant local problem.
+    """
+    if climate_type in ('tropical', 'hot-humid'):
+        core = f"{city} AC Repair Cost & 24/7 Emergency HVAC"
+    elif climate_type == 'hot-dry':
+        core = f"{city} HVAC Repair Cost & 24/7 AC Service"
+    elif climate_type in ('cold', 'subarctic'):
+        core = f"{city} Furnace Repair Cost & 24/7 No-Heat Service"
+    elif climate_type == 'coastal':
+        core = f"{city} Heat Pump Repair Cost & 24/7 HVAC Service"
+    else:  # mixed-humid, mountain
+        core = f"{city} HVAC Repair Cost & 24/7 Emergency Service"
+    # Append brand suffix only if title stays <= 60 chars
+    candidate = core + " | Cool Call Pro"
+    return candidate if len(candidate) <= 60 else core
+
+
+def cost_intent_meta_desc(city, st, climate_type):
+    """Climate-aware meta description. Cost-intent + aggregator framing.
+
+    Stays <= 155 chars. Always includes phone CTA.
+    """
+    if climate_type in ('tropical', 'hot-humid', 'hot-dry'):
+        equipment = "AC"
+    elif climate_type in ('cold', 'subarctic'):
+        equipment = "furnace"
+    elif climate_type == 'coastal':
+        equipment = "heat pump"
+    else:
+        equipment = "HVAC"
+    return (
+        f"What does {equipment} repair cost in {city}, {st}? "
+        f"Cool Call Pro connects you with independent technicians 24/7. "
+        f"Call (844) 582-1795."
+    )
+
+
+def cost_intent_h1(city_e, st_e, climate_type):
+    """Climate-aware aggregator-framed H1.
+
+    Reframes from old promise-style ("24/7 [Service] Repair & Emergency HVAC
+    Service in [City]") to aggregator-style ("Find a 24/7 [Service] Technician
+    in [City], [ST]"). Signals on first crawl that we connect to independent
+    technicians — addresses the doorway-page hypothesis where Google's
+    quality classifier may have been treating city pages as fake-local.
+    """
+    if climate_type in ('tropical', 'hot-humid'):
+        svc = "AC Repair"
+    elif climate_type == 'hot-dry':
+        svc = "AC &amp; HVAC"
+    elif climate_type in ('cold', 'subarctic'):
+        svc = "Furnace Repair"
+    elif climate_type == 'coastal':
+        svc = "Heat Pump"
+    else:  # mixed-humid, mountain
+        svc = "HVAC"
+    return f"Find a 24/7 {svc} Technician in {city_e}, {st_e}"
+
+
+def aggregator_disclosure_badge():
+    """Above-the-fold pill clarifying the referral role.
+
+    Sits in the hero between H1 and subhead so Google's quality classifier
+    sees the "we connect, we don't dispatch" signal on first crawl. The same
+    disclaimer text exists in the footer but was buried below the classifier
+    threshold.
+    """
+    return (
+        '<div style="display:inline-block; background: rgba(255,255,255,0.08); '
+        'border: 1px solid rgba(255,255,255,0.22); border-radius: 999px; '
+        'padding: 8px 18px; font-size: 0.88rem; margin-bottom: 20px; '
+        'color: rgba(255,255,255,0.92); font-weight: 500; max-width: 640px;">'
+        'Cool Call Pro is a referral service &mdash; we connect you with '
+        'independent local technicians, not our own crew.'
+        '</div>'
+    )
+
+
+def cost_summary_block(city_e, st_e):
+    """4-card repair-cost summary, inserted inside Services section.
+
+    Uses costs.html canonical ranges (single source of truth). City name in
+    heading makes it page-specific; dollar ranges are universal.
+
+    Content-duplication note: the FAQ keeps city-specific INSTALL costs
+    (xlsx col 3 + 4). This block covers REPAIR costs (different intent),
+    so no overlap with the FAQ.
+    """
+    card_style = (
+        'display:flex; flex-direction:column; background:#fff; '
+        'border:1px solid var(--gray-200); '
+        'box-shadow: 0 4px 16px rgba(10,22,40,0.04); padding: 22px;'
+    )
+    figure_style = (
+        'font-size: 1.55rem; font-weight: 800; color: var(--orange-dark); '
+        'text-align: center; margin: 0 0 4px;'
+    )
+    label_style = (
+        'font-size: 0.95rem; color: var(--navy); margin: 0 0 8px; '
+        'text-align: center; font-weight: 700;'
+    )
+    sub_style = (
+        'font-size: 0.85rem; color: var(--gray-600); text-align: center; margin: 0;'
+    )
+    return f'''
+        <!-- TRACK B: Repair-cost summary (cost-intent matches title) -->
+        <div style="max-width: 1000px; margin: 56px auto 0;">
+          <div style="text-align:center; margin-bottom: 28px;">
+            <h3 style="font-size: 1.4rem; color: var(--navy); margin: 0 0 8px;">Common HVAC repair costs in {city_e}, {st_e}</h3>
+            <p style="font-size: 0.95rem; color: var(--gray-600); margin: 0;">Typical 2026 ranges. Actual price varies by provider and complexity.</p>
+          </div>
+          <div class="precaution-cards" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; align-items: stretch;">
+            <div class="precaution-card" style="{card_style}">
+              <h4 style="{label_style}">Diagnostic / service call</h4>
+              <p style="{figure_style}">$65&ndash;$150</p>
+              <p style="{sub_style}">Often waived if you book the repair</p>
+            </div>
+            <div class="precaution-card" style="{card_style}">
+              <h4 style="{label_style}">Common AC repair</h4>
+              <p style="{figure_style}">$90&ndash;$450</p>
+              <p style="{sub_style}">Capacitor, contactor, thermostat, drain line</p>
+            </div>
+            <div class="precaution-card" style="{card_style}">
+              <h4 style="{label_style}">Refrigerant recharge</h4>
+              <p style="{figure_style}">$150&ndash;$600</p>
+              <p style="{sub_style}">R-410A per recharge; leak fix extra</p>
+            </div>
+            <div class="precaution-card" style="{card_style}">
+              <h4 style="{label_style}">After-hours surcharge</h4>
+              <p style="{figure_style}">$100&ndash;$300</p>
+              <p style="{sub_style}">Added to repair cost on emergency calls</p>
+            </div>
+          </div>
+          <p style="text-align:center; margin: 24px 0 0; font-size: 0.95rem; color: var(--gray-600);">
+            See full repair, install, and replacement ranges in our <a href="../costs" style="color: var(--orange-dark); font-weight: 600;">2026 HVAC Cost Guide &rarr;</a>
+          </p>
+        </div>
+'''
+
+
+# ============================================================
 # MAIN PAGE GENERATOR (CARD-DRIVEN LAYOUT)
 # ============================================================
 
@@ -1572,15 +1728,14 @@ def generate_page(c, climate_type, nearby, absorbed_data, all_cities_lookup, sta
     e_rebates = escape(rebates)
     e_climate = escape(climate_zone)
 
-    # Title (≤60 chars, climate-aware)
-    title_svc = profile['title_service']
-    title_text = f"24/7 {title_svc} in {e_city}, {e_st} | Cool Call Pro"
-    if len(title_text.replace("&amp;", "&")) > 60:
-        title_text = f"HVAC Repair in {e_city}, {e_st} | Cool Call Pro"
+    # Title (≤60 chars, climate-aware) — Track B cost-intent pattern (2026-05-22)
+    title_text = cost_intent_title(city, climate_type)
 
-    # Meta description (≤155 chars)
-    meta_svc = profile['meta_desc_service']
-    meta_desc = f"Need {meta_svc} in {e_city}, {e_st}? Cool Call Pro connects you 24/7. Call (844) 582-1795."
+    # Twitter title fallback — short form without brand suffix
+    twitter_title_text = cost_intent_title(city, climate_type).replace(" | Cool Call Pro", "")
+
+    # Meta description (≤155 chars) — Track B cost-intent + aggregator framing
+    meta_desc = cost_intent_meta_desc(city, st, climate_type)
 
     # FAQ schema fields
     permit_faq_q = profile['permit_faq_q']
@@ -1714,15 +1869,15 @@ def generate_page(c, climate_type, nearby, absorbed_data, all_cities_lookup, sta
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="{title_text}" />
-  <meta property="og:description" content="Connect with independent HVAC professionals in {e_city}, {e_state}. {profile['og_service']}" />
+  <meta property="og:description" content="{meta_desc}" />
   <meta property="og:url" content="https://coolcallpro.com/locations/{slug}" />
   <meta property="og:site_name" content="Cool Call Pro" />
   <meta property="og:image" content="https://coolcallpro.com/images/og-homepage.webp" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="24/7 {title_svc} in {e_city}, {e_st}" />
-  <meta name="twitter:description" content="Connect with independent HVAC professionals in {e_city}, {e_state}." />
+  <meta name="twitter:title" content="{twitter_title_text}" />
+  <meta name="twitter:description" content="Cool Call Pro connects {e_city}, {e_state} homeowners with independent HVAC technicians 24/7." />
   <meta name="twitter:image" content="https://coolcallpro.com/images/og-homepage.webp" />
 
   <!-- Favicon -->
@@ -1951,7 +2106,8 @@ def generate_page(c, climate_type, nearby, absorbed_data, all_cities_lookup, sta
     <section class="city-hero" id="hero">
       <div class="container">
         <span class="section-tag" style="background: rgba(255,255,255,0.1); color: #fff;">&#128205; {e_city}, {e_st}</span>
-        <h1>{profile['h1_service']} in {e_city}, {e_st}</h1>
+        <h1>{cost_intent_h1(e_city, e_st, climate_type)}</h1>
+        {aggregator_disclosure_badge()}
         <p>{subhead}</p>
         {meta_block}
         <div style="margin-top: 28px;">
@@ -2040,7 +2196,7 @@ def generate_page(c, climate_type, nearby, absorbed_data, all_cities_lookup, sta
       </div>
     </section>
 
-    <!-- SERVICES + ZIPS 2-COLUMN ROW -->
+    <!-- SERVICES + ZIPS 2-COLUMN ROW + REPAIR-COST SUMMARY (Track B) -->
     <section class="section" id="services" style="padding: 72px 0; background:#fff;">
       <div class="container">
         <div style="text-align:center; margin-bottom: 36px;">
@@ -2054,6 +2210,7 @@ def generate_page(c, climate_type, nearby, absorbed_data, all_cities_lookup, sta
           {zips_card}
 
         </div>
+{cost_summary_block(e_city, e_st)}
       </div>
     </section>
 {midpage_html}{also_serving_html}

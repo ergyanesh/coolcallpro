@@ -167,8 +167,10 @@ def check_hero_subhead(html):
     if not m: return ["missing city-hero section"]
     section = m.group(0)
     failures = []
-    # Extract the subhead paragraph (first <p> after the H1)
-    sub = re.search(r'<h1>.*?</h1>\s*<p>(.*?)</p>', section, re.DOTALL)
+    # Extract the subhead paragraph (first <p> after the H1). Track B (2026-05-22)
+    # inserts an aggregator-disclosure <div> between H1 and the subhead <p>, so
+    # the regex now allows an optional <div>...</div> in that slot.
+    sub = re.search(r'<h1>.*?</h1>\s*(?:<div[^>]*>.*?</div>\s*)?<p>(.*?)</p>', section, re.DOTALL)
     if not sub: return ["no hero subhead <p> found"]
     text = re.sub(r'<[^>]+>', '', sub.group(1))
     # Placeholders that should never leak
