@@ -17,7 +17,7 @@ chicago-il,Chicago,IL,cold,1,year-round-hvac-maintenance-playbook
 cleveland-oh,Cleveland,OH,cold,1,article-furnace
 columbus-oh,Columbus,OH,cold,1,article-carbon-monoxide
 dayton-oh,Dayton,OH,cold,1,dual-run-capacitor-cost
-des-moines-ia,Des Moines,IA,cold,1,1000-into-12yo-ac
+des-moines-ia,Des Moines,IA,cold,2,24-hour-hvac-repair; 1000-into-12yo-ac
 detroit-mi,Detroit,MI,cold,4,emergency-furnace-repair-guide; cost-replace-3-ton-ac; article-fall-prep; article-emergency
 fort-wayne-in,Fort Wayne,IN,cold,0,
 grand-rapids-mi,Grand Rapids,MI,cold,4,furnace-blowing-cold-air-winter; furnace-short-cycling; heat-pump-vs-gas-furnace; article-emergency
@@ -25,7 +25,7 @@ hartford-ct,Hartford,CT,cold,1,furnace-short-cycling
 indianapolis-in,Indianapolis,IN,cold,2,cost-replace-3-ton-ac; repair-or-replace-framework
 kansas-city-mo,Kansas City,MO,cold,1,mini-split-installation-cost
 lincoln-ne,Lincoln,NE,cold,3,article-furnace; article-winter-storm; best-merv-rating
-madison-wi,Madison,WI,cold,1,24-hour-hvac-repair-guide
+madison-wi,Madison,WI,cold,1,24-hour-hvac-repair
 manchester-nh,Manchester,NH,cold,1,r410a-recharge-cost
 milwaukee-wi,Milwaukee,WI,cold,1,mini-split-installation-cost
 minneapolis-mn,Minneapolis,MN,cold,3,furnace-ignitor-wont-light; article-hvac-financing; article-fall-prep
@@ -40,7 +40,7 @@ portland-me,Portland,ME,cold,1,dual-run-capacitor-cost
 providence-ri,Providence,RI,cold,0,
 sioux-falls-sd,Sioux Falls,SD,cold,2,co-detector-furnace-running; article-repair-vs-replace
 springfield-ma,Springfield,MA,cold,1,2026-hvac-cost-guide
-syracuse-ny,Syracuse,NY,cold,3,emergency-furnace-repair-guide; 24-hour-hvac-repair-guide; year-round-hvac-maintenance-playbook
+syracuse-ny,Syracuse,NY,cold,2,emergency-furnace-repair-guide; year-round-hvac-maintenance-playbook
 toledo-oh,Toledo,OH,cold,2,central-air-no-ductwork-cost; new-furnace-installed-cost
 wichita-ks,Wichita,KS,cold,1,article-carbon-monoxide
 wilmington-de,Wilmington,DE,cold,3,article-winter-storm; repair-or-replace-framework; seer-14-vs-18-payback
@@ -51,9 +51,9 @@ glendale-az,Glendale,AZ,hot-dry,1,article-repair-vs-replace
 irvine-ca,Irvine,CA,hot-dry,2,ac-compressor-buzzing-fan-not-spinning; ac-contactor-clicking
 laredo-tx,Laredo,TX,hot-dry,2,hvac-leaking-water-inside-house; article-emergency
 las-vegas-nv,Las Vegas,NV,hot-dry,2,emergency-ac-repair-cost-guide; article-hvac-financing
-los-angeles-ca,Los Angeles,CA,hot-dry,1,r410a-recharge-cost
+los-angeles-ca,Los Angeles,CA,hot-dry,2,r410a-recharge-cost; 24-hour-hvac-repair
 lubbock-tx,Lubbock,TX,hot-dry,3,ac-freezing-up-in-summer; ac-circuit-breaker-trips; 2026-hvac-cost-guide
-mesa-az,Mesa,AZ,hot-dry,3,why-is-my-ac-blowing-warm-air; emergency-weekend-hvac-cost; 24-hour-hvac-repair-guide
+mesa-az,Mesa,AZ,hot-dry,2,why-is-my-ac-blowing-warm-air; emergency-weekend-hvac-cost
 modesto-ca,Modesto,CA,hot-dry,0,
 phoenix-az,Phoenix,AZ,hot-dry,3,ac-not-cooling-below-80; mini-split-installation-cost; heat-pump-vs-gas-furnace
 sacramento-ca,Sacramento,CA,hot-dry,1,central-air-no-ductwork-cost
@@ -74,7 +74,7 @@ atlanta-ga,Atlanta,GA,mixed-humid,2,article-refrigerant; ac-circuit-breaker-trip
 augusta-ga,Augusta,GA,mixed-humid,2,article-hvac-financing; new-furnace-installed-cost
 birmingham-al,Birmingham,AL,mixed-humid,1,heat-pump-defrost-grinding
 charleston-sc,Charleston,SC,mixed-humid,3,furnace-not-working-diagnostic-guide; article-carbon-monoxide; best-merv-rating
-charleston-wv,Charleston,WV,mixed-humid,1,heat-pump-vs-gas-furnace
+charleston-wv,Charleston,WV,mixed-humid,2,24-hour-hvac-repair; heat-pump-vs-gas-furnace
 charlotte-nc,Charlotte,NC,mixed-humid,4,article-winter-storm; furnace-blowing-cold-air-winter; emergency-furnace-repair-guide; mini-split-installation-cost
 chattanooga-tn,Chattanooga,TN,mixed-humid,1,thermostat-blank-ac-wont-start
 columbia-sc,Columbia,SC,mixed-humid,1,article-repair-vs-replace
@@ -82,7 +82,7 @@ dallas-tx,Dallas,TX,mixed-humid,2,emergency-ac-repair-cost-guide; article-heat-p
 fayetteville-nc,Fayetteville,NC,mixed-humid,4,why-is-my-ac-blowing-warm-air; central-air-no-ductwork-cost; emergency-hvac-service-cost; 1000-into-12yo-ac
 fort-worth-tx,Fort Worth,TX,mixed-humid,1,2026-hvac-cost-guide
 greenville-sc,Greenville,SC,mixed-humid,2,article-ac-summer; cost-replace-3-ton-ac
-huntsville-al,Huntsville,AL,mixed-humid,3,heat-pump-lukewarm-air; r410a-recharge-cost; 24-hour-hvac-repair-guide
+huntsville-al,Huntsville,AL,mixed-humid,2,heat-pump-lukewarm-air; r410a-recharge-cost
 jackson-ms,Jackson,MS,mixed-humid,2,ac-not-cooling-below-80; article-maintenance
 knoxville-tn,Knoxville,TN,mixed-humid,3,furnace-short-cycling; heat-pump-stuck-in-cooling; repair-or-replace-framework
 lexington-ky,Lexington,KY,mixed-humid,0,
