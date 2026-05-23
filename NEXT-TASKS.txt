@@ -1,0 +1,185 @@
+COOLCALLPRO.COM — NEXT TASKS
+Generated: 2026-05-23
+Reference briefing: ~/.claude/plans/i-just-think-that-reflective-forest.md
+Article strategy:  docs/article-strategy-2026-05-23.md (READ FIRST)
+Live site:         https://coolcallpro.com
+
+
+==================================================================
+WHAT SHIPPED IN THE LAST 48 HOURS (2026-05-22 + 23)
+==================================================================
+
+Already done — do not redo:
+
+[X] H3 city-title cohort decision  -> Track B framing pivot LIVE
+    Commits: ac57848 + 6684309. Every one of the 115 city pages
+    now has: cost-intent climate-aware title, "Find a 24/7 [Service]
+    Technician" H1, above-the-fold aggregator disclosure badge,
+    6-card climate grid (was 4), per-city homes-and-energy paragraph
+    sourced from US Census ACS + EIA, 4-card repair-cost summary
+    block. Microsecond build-stamp meta tag defends against the
+    Cloudflare Pages corrupted-blob failure mode.
+
+[X] llms.txt deployment  -> LIVE at https://coolcallpro.com/llms.txt
+    Commit: 3a24108. Was 404 for 26 days because build.sh did not
+    copy it to _dist. Fix is one line. AI search agents (ChatGPT,
+    Perplexity, Google AI Overviews, Bing Copilot) can now find it.
+
+[X] M6 orphan-city distribution investigation  -> CONCLUDED: weight
+    tuning cannot reduce orphans materially with current article
+    count. Simulations showed every candidate weight set produced
+    equal-or-worse orphans. Natural fix is more articles (system's
+    own message: "grows to near-zero at 100 articles"). NO weight
+    changes were committed.
+
+[X] Article strategy override 2026-05-23  -> Codified durably in:
+    - CLAUDE.md "Topical Authority Without Doorway Risk" section
+    - docs/article-strategy-2026-05-23.md (Phase 1 menu)
+    - cluster_map.json _priority_queue_strategy field
+    - Queue #3 + #4 marked status=skipped (permanently)
+    - feedback_topical_authority_without_doorway memory
+
+
+==================================================================
+PRIORITY 0 — STILL DUE (carried from 2026-05-22)
+==================================================================
+
+[1] DMARC POLICY UPGRADE (p=none -> p=quarantine)
+    Status: Due ~2026-05-22 (1 day overdue)
+    Effort: 15 min review + 5 min DNS update
+
+    a) Check admin@coolcallpro.com inbox for DMARC aggregate reports
+       (XML attachments from Google/Microsoft/Yahoo)
+    b) Scan for unauthorized "From: @coolcallpro.com" sender activity
+    c) If clean, update DMARC TXT record at DNS host to:
+       v=DMARC1; p=quarantine; rua=mailto:admin@coolcallpro.com;
+       ruf=mailto:admin@coolcallpro.com; fo=1; aspf=s; adkim=s
+    d) Update memory project_dmarc_posture.md with new posture +
+       30-day review date for next step (-> p=reject)
+
+[2] CSP FLIP (REPORT-ONLY -> ENFORCING)
+    Status: Due ~2026-05-22 (1 day overdue)
+    Effort: 5 min file edit + 24h monitoring window
+
+    a) Visit https://coolcallpro.com in fresh Chrome with DevTools open
+    b) Click through 5-10 pages, confirm console has no CSP warnings
+    c) Edit _headers: rename header from
+         Content-Security-Policy-Report-Only: ...
+       to
+         Content-Security-Policy: ...
+       AND append "; upgrade-insecure-requests" at end of policy
+    d) Commit + push. Monitor for ~24h. Revert immediately if any
+       page breaks (image won't load, font won't load, inline script
+       blocked).
+
+
+==================================================================
+PRIORITY 1 — ARTICLE CADENCE (the actual work)
+==================================================================
+
+[3] PHASE 1 ARTICLE BATCH (next 8 articles, ~2 months @ 1/week)
+    Status: Strategy DECIDED 2026-05-23. Articles NOT YET drafted.
+    Effort: 6-10h per pillar, 3-5h per cluster article
+    Reference: docs/article-strategy-2026-05-23.md
+
+    Per CLAUDE.md "Topical Authority Without Doorway Risk":
+    - Before drafting any article, write the 3-question uniqueness
+      test (LEARN / NARRATIVE ANCHOR / SERP OVERLAP CHECK)
+    - Run those three sentences past the user for sign-off
+    - Persist them as HTML comment at top of the article
+    - Aim for 40% Type A+C, 60% Types B+D+E+F+G
+
+    Phase 1 candidate menu (in suggested order, flexible):
+      1. C3 Type F: "Why heat pumps work in cold weather (physics)"
+      2. C6 Type G: "Our 2026 maintenance methodology"
+      3. C3 Type B: "When to switch furnace -> heat pump (decision tree)"
+      4. C2 Type D: "Gas leak vs. CO leak: telling them apart in 60 sec"
+      5. C6 Type F: "What an HVAC tech actually does on a service call"
+      6. C5 Type B: "How to evaluate an HVAC quote (red-flag checklist)"
+      7. C3 Type A: "Heat pump making ice in winter (defrost vs problem)"
+         -- SERP-check before drafting
+      8. C4 Type G: "2026 HVAC cost trends: what's changed since OBBBA"
+
+    After every 4-6 articles ship, RE-PULL GSC (filter 2026-05-22
+    onward) and re-evaluate from the menu.
+
+    DO NOT grind through cluster_map.json priority_queue in order.
+    That queue is now informational only.
+
+
+==================================================================
+PRIORITY 2 — INFRASTRUCTURE / TECH DEBT (this month)
+==================================================================
+
+[4] UNTRACKED FILES CLEANUP
+    Status: Pending decisions, low urgency
+    Effort: 15 min
+
+    a) ACTION-PLAN.md + FULL-AUDIT-REPORT.md (2026-04-26 audit):
+       all critical/high items shipped; archive to _audit/ or leave
+       untracked
+    b) _audit_doorway.py: useful tool; move to scripts/ and commit
+    c) seo_page_analyzer.py: ad-hoc; delete
+    d) scratch_page.html: superseded; delete
+    e) _pilot_test/: pre-generation pilot snapshot; delete
+    f) coolcallpro.com-Performance-on-Search-2026-04-23/: empty
+       directory; confirm removal
+    g) coolcallpro.com-Performance-on-Search-2026-05-10/ and
+       coolcallpro.com-Performance-on-Search-2026-05-22/: keep
+       untracked (GSC exports are reference data)
+
+
+==================================================================
+PRIORITY 3 — SCHEDULED / MONITORING (no action unless triggered)
+==================================================================
+
+[5] NODE 20 DEPRECATION DEADLINE — 2026-06-02
+    Verification routine fires 2026-05-28 14:00 UTC
+    (trig_019Tw95BWooynJyk5Z7WMUe2). If actions/checkout@v4 and
+    actions/setup-python@v5 have NOT auto-updated to Node 24
+    point-releases by then, you'll get an email. Manual re-pin
+    takes 2 min.
+
+[6] YMYL LAYER 3 FIRST FIRE — 2026-06-01
+    Auto-bumps log dates for SUPPORTS; emails only on CONTRADICTS
+    or UNCLEAR. No action needed unless you receive an email.
+
+[7] GSC RE-MEASURE — ~2026-06-12 (21 days post Track B + Phase 3)
+    Export Pages.csv filtered 2026-05-22 -> today. Drop into repo
+    as coolcallpro.com-Performance-on-Search-2026-06-12/. I'll
+    re-run cohort-vs-control + check if cost-intent titles moved
+    position into click territory (positions 1-10) and whether CTR
+    rose above 0.
+
+
+==================================================================
+QUICK REFERENCE
+==================================================================
+
+DEPLOY:        git push origin main -> Cloudflare Pages live in ~60s
+LOCAL TEST:    python serve.py -> http://localhost:8080
+PROGRESS:      PROGRESS.md (auto-generated; read first in any new session)
+ARTICLE STRAT: docs/article-strategy-2026-05-23.md (Phase 1 menu)
+SITE:          https://coolcallpro.com
+REPO:          https://github.com/ergyanesh/coolcallpro (private)
+CLAUDE RULES:  CLAUDE.md (40+ NON-NEGOTIABLE rules)
+CLUSTER STATE: cluster_map.json (single source of truth, status field)
+
+ARTICLE PRE-COMMIT GATE:
+  Articles -> python audit_article.py <file> --ci   (strict mode)
+  Other HTML -> python audit_page.py <file>          (universal)
+  Bypass (rare) -> git commit --no-verify
+
+BEFORE DRAFTING ANY ARTICLE:
+  1. Write 3-question uniqueness test (LEARN / ANCHOR / SERP)
+  2. Share with user; get sign-off
+  3. Add slug to cluster_map.json
+  4. Draft per .agents/SKILLS/hvac-article-writer.md
+  5. Run audit_article.py --strict --browser-verified
+  6. After ship: flip status=live in cluster_map.json,
+     python generate_link_plan.py, commit + push
+
+
+==================================================================
+END OF FILE
+==================================================================

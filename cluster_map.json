@@ -116,11 +116,12 @@
           "slug": "emergency-ac-repair-cost-guide",
           "path": "articles/emergency-ac-repair-cost-guide.html",
           "title": "Emergency AC Repair: When to Call & What's Fair to Pay",
-          "status": "paused-doorway-risk",
+          "status": "skipped",
           "priority": 1,
           "roadmap_id": 94,
           "gsc_basis": "Captures emergency-AC cluster: ~1,184 winnable impressions across 'emergency ac service' (244), 'emergency ac services' (171), 'ac repair emergency' (131), 'emergency ac repairs' (94), 'ac emergency repair' (90), 'emergency air conditioning service' (231), '24/7 ac repair' (49), 'same day ac repair' (61). Currently sitting pos 16-30. (GSC 2026-05-10)",
-          "paused_reason": "PAUSED 2026-05-14 — doorway-risk against emergency-hvac-service-cost. As scoped (AC-specific cost), this would mostly restate the 3-cost-layer framework + urgency triage + dispatcher checklist from article #1 with 'AC' swapped for 'HVAC.' Reframe to genuinely different territory before writing (e.g., heat-stress medical-risk decision math, AC failure-cascade timeline, when-to-leave-the-house tipping point) — or skip. See feedback_article_uniqueness_check memory."
+          "paused_reason": "PAUSED 2026-05-14 \u2014 doorway-risk against emergency-hvac-service-cost. As scoped (AC-specific cost), this would mostly restate the 3-cost-layer framework + urgency triage + dispatcher checklist from article #1 with 'AC' swapped for 'HVAC.' Reframe to genuinely different territory before writing (e.g., heat-stress medical-risk decision math, AC failure-cascade timeline, when-to-leave-the-house tipping point) \u2014 or skip. See feedback_article_uniqueness_check memory.",
+          "note": "SKIPPED 2026-05-23 per docs/article-strategy-2026-05-23.md doorway-risk decision. Do not resurrect; article #1 covers the SERP."
         }
       ]
     },
@@ -204,11 +205,12 @@
           "slug": "emergency-furnace-repair-guide",
           "path": "articles/emergency-furnace-repair-guide.html",
           "title": "Emergency Furnace Repair: Wait Until Morning or Call Now?",
-          "status": "paused-doorway-risk",
+          "status": "skipped",
           "priority": 1,
           "roadmap_id": 95,
           "gsc_basis": "Captures emergency-furnace cluster: ~734 winnable impressions across 'emergency furnace repair' (209), '24 hour furnace repair' (143), 'emergency heating repair' (85), 'emergency heating service' (60), '24/7 furnace repair' (43), 'emergency heating and cooling' (42), '24 hour emergency heating service' (39), '24 hour emergency heating repair' (30), 'furnace repair emergency' (26), 'same day heating repair' (25). Currently sitting pos 14-32. (GSC 2026-05-10)",
-          "paused_reason": "PAUSED 2026-05-14 — doorway-risk against emergency-hvac-service-cost. As scoped (furnace-specific cost + decision), this would mostly restate the 3-cost-layer framework + urgency triage + dispatcher checklist from article #1. Reframe to genuinely different territory before writing (e.g., CO-risk-driven decision math specific to combustion furnaces, frozen-pipe cascade timeline for no-heat below 25 F, gas-utility-vs-HVAC-tech division of work) — or skip. See feedback_article_uniqueness_check memory."
+          "paused_reason": "PAUSED 2026-05-14 \u2014 doorway-risk against emergency-hvac-service-cost. As scoped (furnace-specific cost + decision), this would mostly restate the 3-cost-layer framework + urgency triage + dispatcher checklist from article #1. Reframe to genuinely different territory before writing (e.g., CO-risk-driven decision math specific to combustion furnaces, frozen-pipe cascade timeline for no-heat below 25 F, gas-utility-vs-HVAC-tech division of work) \u2014 or skip. See feedback_article_uniqueness_check memory.",
+          "note": "SKIPPED 2026-05-23 per docs/article-strategy-2026-05-23.md doorway-risk decision. Do not resurrect; article #1 covers the SERP."
         }
       ]
     },
@@ -456,35 +458,37 @@
       ]
     }
   },
-  "_priority_queue_strategy": "GSC EVIDENCE-BASED reorder 2026-05-14 (supersedes 2026-05-10 heuristic reorder). Shipped articles #1 (emergency-hvac-service-cost) and #2 (24-hour-hvac-repair) on 2026-05-14 — both clear doorway-test with genuinely distinct frames (article #1 owns cost layers + dispatcher checklist; article #2 owns 3-tier service framework + arrival windows). QUEUE PAUSED on articles #3 and #4 (emergency-ac-repair-cost-guide, emergency-furnace-repair-guide) — flagged 2026-05-14 as doorway-risk because both would mostly restate article #1's cost layers with an equipment-type swap. Different SERPs do NOT guarantee different content. Before resuming, EITHER reframe #3 and #4 around genuinely different angles (heat-stress medical-risk for AC, CO-risk + frozen-pipe cascade for furnace) OR skip them entirely and pivot to a different cluster intent. Articles #5+ in the queue (cost-replace-3-ton-ac, etc.) need fresh GSC re-pull before assuming priority — those slugs were ranked by judgment, not evidence, and demand should be re-validated 7-14 days after articles #1 and #2 begin accumulating impressions. RULE going forward (see feedback_article_uniqueness_check memory): before drafting any cluster article, articulate the unique territory it owns vs all live articles in the cluster in 1-2 sentences. If overlap >40%, reframe or skip. Different SERP target ≠ unique content.",
+  "_priority_queue_strategy": "TOPICAL-AUTHORITY-FIRST direction shipped 2026-05-23. SUPERSEDES the 2026-05-14 GSC-evidence reorder for queue positions #3 and beyond. Articles #1 (emergency-hvac-service-cost) and #2 (24-hour-hvac-repair) shipped under the 2026-05-14 strategy and remain valid. #3 and #4 are now permanently SKIPPED (not paused) due to doorway-risk vs article #1. All subsequent slugs in this queue (cost-niche + symptom-variant) are DEFERRED indefinitely; the cost-guide pillar already covers their content and they would compound the C1+C4 over-weight problem. \n\nGoing forward: the priority_queue array is informational only -- do NOT grind through it in order. Read CLAUDE.md 'Topical Authority Without Doorway Risk' section (since 2026-05-23) for the new framework, then read docs/article-strategy-2026-05-23.md for the Phase 1 next-8 candidate menu (Type F/G/B/D articles to rebalance C3/C5/C6 + build editorial voice). Each next article must pass the 3-question uniqueness test before being added to cluster_map.json. \n\nAfter every 4-6 articles ship, re-pull GSC (filter 2026-05-22 onward) and re-evaluate the Phase 2 menu against fresh data. The roadmap is a menu, not a queue.",
   "priority_queue": [
     {
       "position": 1,
       "cluster": "C4_cost",
       "slug": "emergency-hvac-service-cost",
       "type": "cluster",
-      "note": "GSC: 2,161 winnable imp at pos 16-22. BIGGEST winnable cluster — 'emergency hvac service' alone has 645 imp at pos 20.9. Single article should push into top 10. Informational framing ('how much does it cost', 'fair rates') wins this SERP; geo-modified variants belong on location pages."
+      "note": "GSC: 2,161 winnable imp at pos 16-22. BIGGEST winnable cluster \u2014 'emergency hvac service' alone has 645 imp at pos 20.9. Single article should push into top 10. Informational framing ('how much does it cost', 'fair rates') wins this SERP; geo-modified variants belong on location pages."
     },
     {
       "position": 2,
       "cluster": "C4_cost",
       "slug": "24-hour-hvac-repair",
       "type": "cluster",
-      "note": "GSC: 620 winnable imp at pos 11-18. '24 hour hvac repair' at pos 15.2 with 307 imp — closest to top 10 of any winnable cluster. Article frames trust signals (independent network, what to ask) vs the predatory after-hours operators that dominate these SERPs."
+      "note": "GSC: 620 winnable imp at pos 11-18. '24 hour hvac repair' at pos 15.2 with 307 imp \u2014 closest to top 10 of any winnable cluster. Article frames trust signals (independent network, what to ask) vs the predatory after-hours operators that dominate these SERPs."
     },
     {
       "position": 3,
       "cluster": "C1_ac",
       "slug": "emergency-ac-repair-cost-guide",
       "type": "cluster",
-      "note": "GSC: 1,184 winnable imp at pos 16-30. Mirrors the #1 article's structure but AC-specific — covers 'emergency ac service' (244), 'emergency air conditioning service' (231), 'same day ac repair' (61). Links to C4 cost pillar + C1 troubleshooting pillar."
+      "note": "SKIPPED PERMANENTLY 2026-05-23. Doorway-risk: would mostly restate article #1 (emergency-hvac-service-cost) with an equipment-type swap. Do NOT reframe -- the SERPs are already captured by article #1. See docs/article-strategy-2026-05-23.md.",
+      "status": "skipped"
     },
     {
       "position": 4,
       "cluster": "C2_furnace",
       "slug": "emergency-furnace-repair-guide",
       "type": "cluster",
-      "note": "GSC: 734 winnable imp at pos 14-32. Furnace counterpart — 'emergency furnace repair' (209), '24 hour furnace repair' (143), 'emergency heating repair' (85). Different urgency profile than AC (CO/freeze risk) → different decision content. Links to C2 furnace pillar + C4 cost pillar."
+      "note": "SKIPPED PERMANENTLY 2026-05-23. Doorway-risk: would mostly restate article #1 (emergency-hvac-service-cost) with an equipment-type swap. Do NOT reframe -- the SERPs are already captured by article #1. See docs/article-strategy-2026-05-23.md.",
+      "status": "skipped"
     },
     {
       "position": 5,
@@ -505,7 +509,7 @@
       "cluster": "C4_cost",
       "slug": "r410a-recharge-cost",
       "type": "cluster",
-      "note": "Refrigerant cost — narrow but high-intent niche cluster. Worth shipping once emergency content is in place."
+      "note": "Refrigerant cost \u2014 narrow but high-intent niche cluster. Worth shipping once emergency content is in place."
     },
     {
       "position": 8,

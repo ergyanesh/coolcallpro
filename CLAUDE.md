@@ -177,6 +177,46 @@ The 100-article roadmap is organized into **6 topic clusters** (C1 AC Troublesho
 
 **Out of scope (explicitly):** programmatic city × topic pages like "AC Repair in Houston" — too close to doorway/spam territory. Cities link to topical articles via the deterministic linker; topical articles link to climate-appropriate cities. No zone-specific article titles.
 
+### Topical Authority Without Doorway Risk (since 23 May 2026 — NON-NEGOTIABLE)
+
+**This rule SUPERSEDES the keyword-driven priority queue from 2026-05-14.** That earlier reorder was built from GSC impression data ("which queries have winnable impressions?"), which is a legitimate signal but creates doorway risk when applied without restraint. Two articles from that queue (`emergency-ac-repair-cost-guide`, `emergency-furnace-repair-guide`) were paused 2026-05-14 because they would mostly restate `emergency-hvac-service-cost` with an equipment-type swap. The honest call (made 2026-05-23) is that those two are **not paused — they are skipped permanently**. Don't reframe them; the SERPs they'd target are already being captured by article #1.
+
+**Why this rule exists:** topical authority and doorway pages share surface symptoms (many related pages, similar templates, internal cross-linking). What separates them is **unique value per article**. Google's doorway penalty triggers on "substantially similar pages closer to search results than a clearly defined hierarchy" and "many pages with substantially duplicate content." A 100-article roadmap built by listing queries-to-rank-for will inevitably produce doorway clusters. A 100-article roadmap built by listing distinct-things-to-teach builds authority. The two roadmaps overlap a lot but not completely — and the parts where they diverge are where penalties happen.
+
+**The 3-question test — MANDATORY before drafting any cluster article:**
+
+Write three sentences. If you cannot write all three confidently, the article shouldn't be written:
+
+1. **What does the homeowner LEARN here that they wouldn't learn from any of the live articles in this cluster?** (must name a specific fact, framework, data point, or angle that's NEW)
+2. **What is the ONE narrative anchor that drives this piece?** (must be a single sentence, not a feature list — e.g., "the EPA AIM Act timeline is the cost driver" or "frozen-pipe cascade is the urgency frame," NOT "covers R-410A recharge")
+3. **Would Google's quality classifier perceive this as a duplicate of [closest existing article]?** (do a SERP overlap check — if the new article's top 3 target queries return Google top-10 results with >40% overlap vs the existing article's top queries, kill one)
+
+Persist these three sentences as an HTML comment at the top of every new article so future sessions can audit the rationale.
+
+**Article type taxonomy — aim for a healthy mix, not all of one type:**
+
+Doorway risk concentrates in Types A (symptoms) and C (cost-niche) when published in volume. Types B/D/E/F/G are inherently more distinct because they're driven by framework/data/perspective rather than keyword target.
+
+| Type | Description | Doorway risk | Current site |
+|---|---|---|---|
+| A — Symptom-Diagnostic | "Why is my X doing Y" | **Medium** | 12 live in C1 (over-weight) |
+| B — Decision-Framework | "Should I X or Y" | Low | 4 live in C5 — expand |
+| C — Cost-Reality | "What does X cost" | **HIGH** — easiest to template | 3 live in C4 + 7 pending (slow down) |
+| D — Safety + Emergency | Specific hazard (CO / gas / electrical) | Low | 2-3 live — expand |
+| E — Seasonal + Behavioral | Calendar / habit | Low | 2 live — expand |
+| F — Explainer / Educational | "Why X works the way it does" (physics, regulation, process) | **Very low** | **0 live — major gap** |
+| G — Editorial / Original Data | Methodology, market report, year-in-review | **Very low** | **0 live — major gap** |
+
+**Target publishing mix going forward:** ~40% Type A+C combined, ~60% Types B+D+E+F+G. Right now the site is ~75% Type A+C — that imbalance is exactly where doorway risk concentrates. The next 8 articles should heavily favor F + G + B + D to rebalance.
+
+**Cluster rebalance is also mandatory.** C1 has 12 cluster articles, C3 / C5 / C6 have only 1-4 each. Google reads cluster depth as a topic-coverage signal — a cluster with 1 pillar + 1 spoke looks weak regardless of how good those 2 articles are. **Stop adding to C1; expand C3, C5, C6 first.** C4 cost-niche articles (R410A recharge, capacitor cost, etc.) are on hold until cluster mix is healthier — the pillar `2026-hvac-cost-guide` already covers their content; standalone niche articles would be doorway-pattern.
+
+**Phase 1 next-8 article priorities (drafted 2026-05-23):** see [docs/article-strategy-2026-05-23.md](docs/article-strategy-2026-05-23.md) for the full plan, including each article's 3-question uniqueness rationale, suggested H1, target cluster, and type. Read this doc BEFORE picking the next article to draft.
+
+**The roadmap is a MENU, not a QUEUE.** Re-pull GSC every 4-6 articles and re-prioritize from the menu. Don't grind through cluster_map.json's `priority_queue` order — that order was built before this strategy and may suggest doorway-risky articles. The `_priority_queue_strategy` field in `cluster_map.json` carries the most recent decision rationale; always read it before queuing the next slug.
+
+**This rule overrides any prior instinct to maximize GSC impression capture.** Impressions that come from doorway-risk articles eventually cost more than they're worth (penalty risk on whole cluster). Quality > quantity > velocity.
+
 ### Accessibility (WCAG 2.1 AA)
 - See `ACCESSIBILITY.md` for full checklist
 - All images need descriptive `alt` (or `alt=""` for decorative)
