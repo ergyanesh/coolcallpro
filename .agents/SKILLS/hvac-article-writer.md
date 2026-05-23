@@ -662,7 +662,7 @@ Every roadmap item carries **both** a Bucket (for CTA emotional framing) and a C
 
 ## Summary: The Writing Loop for Every Article
 
-1. **Read `cluster_map.json`** — pick the next topic from `priority_queue` (or use the user's topic).
+1. **Pick a candidate from `docs/article-strategy-2026-05-23.md`** (the Phase 1 menu) OR use a user-supplied topic. **DO NOT pick directly from `priority_queue` in `cluster_map.json`** — that array is informational only since the 2026-05-23 strategy override (see CLAUDE.md "Topical Authority Without Doorway Risk" section). Before drafting, write the 3-question uniqueness test (LEARN / NARRATIVE ANCHOR / SERP OVERLAP CHECK), share with the user for sign-off, then add the slug + status=`in_progress` to `cluster_map.json`. Persist the 3 sentences as an HTML comment at the top of the article so future sessions can audit the rationale.
 2. **Verify pillar precedence** (Instruction 7). If the cluster's pillar isn't live, write the pillar first.
 3. **Run the linker:** `python article_city_linker.py <slug> <cluster-id> 4` (or `5` for pillars). Record the 4 cities + 2 state hubs.
 4. **Identify cluster-mates:** 1 pillar link + 3 cluster-mate articles + 1 cross-cluster anchor (from `cluster_map.json`).

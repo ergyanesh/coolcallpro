@@ -158,13 +158,16 @@ The 4 hand-edited pilot pages (Houston-TX, Phoenix-AZ city pilots; Texas, Arizon
 
 ### Article Writing (Pillar-Cluster Topical Authority System — since 16 April 2026)
 
-The 100-article roadmap is organized into **6 topic clusters** (C1 AC Troubleshooting, C2 Furnace, C3 Heat Pumps, C4 Costs, C5 Repair-vs-Replace, C6 Maintenance). Each cluster has one pillar article + 12-22 supporting articles. Authoritative strategy and rules live in `.agents/SKILLS/hvac-article-writer.md`.
+**⚠ READ THE NEXT SECTION FIRST** — "Topical Authority Without Doorway Risk (since 23 May 2026)" supersedes this section's strategic guidance about WHICH article to write next. This section covers the MECHANICAL rules (H1 form, FAQ pattern, costs.html, image rules, audit_article); the next section covers the STRATEGIC rules (uniqueness test, type taxonomy, cluster rebalance, menu-not-queue). Both apply.
+
+The 100-article roadmap is organized into **6 topic clusters** (C1 AC Troubleshooting, C2 Furnace, C3 Heat Pumps, C4 Costs, C5 Repair-vs-Replace, C6 Maintenance). Each cluster has one pillar article + 12-22 supporting articles. Mechanical writing procedure lives in `.agents/SKILLS/hvac-article-writer.md`; strategic priority lives in `docs/article-strategy-2026-05-23.md`.
 
 **Single source of truth:**
-- `cluster_map.json` — cluster definitions, pillar titles, article assignments, status (live/pending/in_progress)
+- `cluster_map.json` — cluster definitions, pillar titles, article assignments, status (live/in_progress/pending/skipped — `skipped` added 2026-05-23 for doorway-risk articles)
 - `PROGRESS.md` — auto-generated dashboard, read FIRST in any new session
 - `article_link_plan.csv` — every planned article → its 4 cities + 2 state hubs (materialized, auto-regenerated)
 - `city_link_coverage.csv` — reverse view: each city → which articles link to it
+- `docs/article-strategy-2026-05-23.md` — Phase 1 candidate menu + cluster balance status
 
 **Non-negotiable rules for every article:**
 1. **H1 framing should match search intent — not a universal question-form rule.** Use **question form** for symptom/diagnostic/decision articles ("Why Isn't My AC Working?", "Furnace Blowing Cold Air?") — matches how homeowners type those queries. Use **declarative form** for head-term pillars, cost guides, comparisons, and best-of lists ("The Honest 2026 HVAC Cost Guide", "12-Month HVAC Maintenance Checklist", "HVAC Repair vs. Replace: Decision Guide") — matches how those queries are typed and scans better for CTR. Primary keyword must lead the H1 regardless of form. Forcing every title into a question makes them awkward and hurts click-through.

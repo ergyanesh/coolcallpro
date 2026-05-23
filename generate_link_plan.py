@@ -352,7 +352,16 @@ def write_progress_dashboard(cmap, n_cities, city_to_articles, issues, out_path=
 
     lines.extend([
         "",
-        "## Next 10 articles to write (from cluster_map.json priority_queue)",
+        "## Priority queue (INFORMATIONAL ONLY since 2026-05-23)",
+        "",
+        "> **Do NOT pick the next article directly from this queue.** Per the",
+        "> CLAUDE.md \"Topical Authority Without Doorway Risk\" rule (2026-05-23),",
+        "> the queue order below is informational only. The current Phase 1 menu",
+        "> of next-8 candidates lives at [`docs/article-strategy-2026-05-23.md`](docs/article-strategy-2026-05-23.md).",
+        "> Many slugs below have `status=skipped` or are deferred indefinitely",
+        "> (cost-niche + symptom-variant articles that would compound doorway risk).",
+        "> Always pass the 3-question uniqueness test before adding any slug to",
+        "> `cluster_map.json`.",
         "",
         "| # | Cluster | Type | Slug | Status |",
         "|---|---------|------|------|--------|",
