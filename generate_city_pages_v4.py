@@ -421,6 +421,130 @@ def climate_stat_cards(c, climate_type):
     return "\n            ".join(out)
 
 
+def extra_noaa_stat_cards(c):
+    """Append 2 NOAA-derived stat cards (days >90F and days <32F) to the
+    Climate Profile grid. Phase 3 enrichment -- adds per-city primary-source
+    data points so each page is genuinely unique even when other content
+    overlaps. Returns "" gracefully if either field is missing on the city.
+
+    Cards render in the same `.precaution-card` style as the existing 4
+    climate stat cards so the auto-fit grid flows from 4 -> 6 naturally.
+    """
+    def card(big, label):
+        return (
+            '<div class="precaution-card" style="text-align:center; padding: 24px 16px; '
+            'background:#fff; border:1px solid var(--gray-200); '
+            'box-shadow: 0 4px 16px rgba(10,22,40,0.04);">\n'
+            '              <div style="font-size: 2.4rem; font-weight: 800; '
+            'color: var(--orange-dark); line-height: 1; font-family: var(--font-display);">'
+            f'{big}</div>\n'
+            f'              <p style="font-size: 0.95rem; color: var(--gray-700); margin: 8px 0 0;">{label}</p>\n'
+            '            </div>'
+        )
+
+    cards = []
+    da90 = c.get('noaa_days_above_90')
+    db32 = c.get('noaa_days_below_32')
+    if da90 is not None:
+        try:
+            cards.append(card(f"{round(float(da90))}", "Days/yr above 90&deg;F"))
+        except (TypeError, ValueError):
+            pass
+    if db32 is not None:
+        try:
+            cards.append(card(f"{round(float(db32))}", "Days/yr below 32&deg;F"))
+        except (TypeError, ValueError):
+            pass
+    return ("\n            ".join(cards)) if cards else ""
+
+
+def homes_and_energy_block(c):
+    """Per-city housing + energy context paragraph (Phase 3 enrichment).
+
+    Weaves the ACS housing fields (median_home_year, median_home_value,
+    owner_occupied_pct, heating_fuel_gas/electric) and the EIA state
+    electric rate into a single dense paragraph. Each datapoint is from a
+    federal primary source and is unique per city. Falls back gracefully
+    on any missing field.
+
+    Note: the EIA gas-rate column carries an ambiguous unit across the
+    fetcher's source rows (some $/therm, some $/Mcf) so we deliberately
+    surface only the electric rate ($/kWh) which is unambiguous. Gas rate
+    stays in xlsx for future use once the unit is normalized.
+    """
+    city_e = escape(c['city'])
+    state_e = escape(c['state'])
+    state_full_e = escape(STATE_FULL.get(c['state'], c['state']))
+
+    median_year = c.get('acs_median_home_year')
+    median_value = c.get('acs_median_home_value')
+    owner_pct = c.get('acs_owner_occupied_pct')
+    gas_pct = c.get('acs_heating_fuel_pct_gas')
+    elec_pct = c.get('acs_heating_fuel_pct_electric')
+    elec_rate = c.get('eia_state_elec_rate')
+
+    parts = []
+
+    # 1. Housing stock (year + value)
+    try:
+        if median_year and median_value:
+            parts.append(
+                f"In {city_e}, the median home was built in "
+                f"<strong>{int(median_year)}</strong> with a current median value of "
+                f"<strong>${int(median_value):,}</strong>"
+            )
+        elif median_year:
+            parts.append(f"In {city_e}, the median home was built in <strong>{int(median_year)}</strong>")
+    except (TypeError, ValueError):
+        pass
+
+    # 2. Owner-occupied %
+    try:
+        if owner_pct is not None:
+            parts.append(f"Around <strong>{round(float(owner_pct))}%</strong> of homes are owner-occupied")
+    except (TypeError, ValueError):
+        pass
+
+    # 3. Heating fuel mix
+    try:
+        if gas_pct is not None and elec_pct is not None:
+            g = round(float(gas_pct))
+            e = round(float(elec_pct))
+            parts.append(
+                f"About <strong>{g}%</strong> of households heat with natural gas vs. "
+                f"<strong>{e}%</strong> electric"
+            )
+    except (TypeError, ValueError):
+        pass
+
+    # 4. State electric rate
+    try:
+        if elec_rate is not None:
+            er = float(elec_rate)
+            parts.append(
+                f"The {state_full_e} grid averages <strong>${er:.2f}/kWh</strong>"
+            )
+    except (TypeError, ValueError):
+        pass
+
+    if not parts:
+        return ""
+
+    body = ". ".join(parts) + "."
+
+    return (
+        '<p style="max-width: 880px; margin: 32px auto 0; font-size: 1rem; '
+        'color: var(--gray-700); line-height: 1.75; text-align: center;">'
+        f'{body} '
+        '<span style="font-size: 0.85rem; color: var(--gray-500);">Sources: '
+        '<a href="https://data.census.gov/" target="_blank" rel="nofollow noopener" '
+        'style="color: var(--gray-600);">U.S. Census ACS</a> &middot; '
+        '<a href="https://www.eia.gov/electricity/monthly/" target="_blank" rel="nofollow noopener" '
+        'style="color: var(--gray-600);">U.S. EIA state rates</a>.'
+        '</span></p>'
+    )
+
+
 def climate_h2_text(c, climate_type):
     """H2 text for the Climate Profile section — uniform 'Citys descriptor climate & your HVAC' shape."""
     descriptor = climate_profile_descriptor(climate_type, c['climate'])
@@ -1830,6 +1954,10 @@ def generate_page(c, climate_type, nearby, absorbed_data, all_cities_lookup, sta
     climate_h2 = climate_h2_text(c, climate_type)
     climate_intro_p = climate_profile_intro(c, climate_type)
     stat_cards_html = climate_stat_cards(c, climate_type)
+    extra_noaa_cards_html = extra_noaa_stat_cards(c)
+    if extra_noaa_cards_html:
+        stat_cards_html = stat_cards_html + "\n            " + extra_noaa_cards_html
+    homes_energy_html = homes_and_energy_block(c)
     figure_html = inline_location_figure(slug, city, st)
     article_href, article_text = CLIMATE_ARTICLE_LINKS[climate_type]
 
@@ -2170,11 +2298,13 @@ def generate_page(c, climate_type, nearby, absorbed_data, all_cities_lookup, sta
             <p style="max-width: 720px; margin: 0 auto; font-size: 1.05rem; color: var(--gray-700); line-height: 1.7;">{climate_intro_p}</p>
           </div>
 
-          <div class="precaution-cards" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-bottom: 40px;">
+          <div class="precaution-cards" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-bottom: 24px;">
             {stat_cards_html}
           </div>
 
-          {figure_html}
+          {homes_energy_html}
+
+          <div style="margin-top: 40px;">{figure_html}</div>
 
           <p style="text-align:center; font-size: 0.92rem; color: var(--gray-500); margin-top: 24px;">Read our guide on <a href="{article_href}" style="color: var(--orange-dark); font-weight: 600;">{article_text}</a>.</p>
         </div>
