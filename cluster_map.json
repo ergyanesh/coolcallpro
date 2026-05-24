@@ -122,6 +122,20 @@
           "gsc_basis": "Captures emergency-AC cluster: ~1,184 winnable impressions across 'emergency ac service' (244), 'emergency ac services' (171), 'ac repair emergency' (131), 'emergency ac repairs' (94), 'ac emergency repair' (90), 'emergency air conditioning service' (231), '24/7 ac repair' (49), 'same day ac repair' (61). Currently sitting pos 16-30. (GSC 2026-05-10)",
           "paused_reason": "PAUSED 2026-05-14 \u2014 doorway-risk against emergency-hvac-service-cost. As scoped (AC-specific cost), this would mostly restate the 3-cost-layer framework + urgency triage + dispatcher checklist from article #1 with 'AC' swapped for 'HVAC.' Reframe to genuinely different territory before writing (e.g., heat-stress medical-risk decision math, AC failure-cascade timeline, when-to-leave-the-house tipping point) \u2014 or skip. See feedback_article_uniqueness_check memory.",
           "note": "SKIPPED 2026-05-23 per docs/article-strategy-2026-05-23.md doorway-risk decision. Do not resurrect; article #1 covers the SERP."
+        },
+        {
+          "slug": "ac-capacitor-bulging-leaking-safety-check",
+          "path": "articles/ac-capacitor-bulging-leaking-safety-check.html",
+          "title": "AC Capacitor Bulging or Leaking? 60-Second Safety Check Before You Call",
+          "status": "live",
+          "type": "D-safety",
+          "roadmap_id": 97,
+          "uniqueness_test": {
+            "learn": "The specific visual + audible symptoms of a failing AC capacitor (bulging top, leaking electrolyte oil, system trying to start then humming and shutting off), the 60-second LOOK-DONT-TOUCH protocol homeowners can safely run (kill the breaker, visual check from 3 feet, call), and the 4 things a technician checks on a capacitor service call (measured microfarad reading vs data-plate rating, voltage rating, weather sealing on the bottom, fan motor amp draw under load). Differs from live ac-contactor-clicking (contactor, not capacitor) and ac-compressor-buzzing-fan-not-spinning (mentions capacitor as one of multiple causes; this article is the deep-dive on JUST capacitor symptoms and the safety angle).",
+            "narrative_anchor": "A bulging or leaking capacitor is the most catchable summer AC failure -- and the one with the highest DIY injury rate. Power off, look only, then call.",
+            "serp_overlap": "Low. Symptom-specific safety angle. Queries like \"ac capacitor bulging\" / \"ac capacitor leaking oil\" / \"is bulging capacitor dangerous\" return contractor blogs and DIY forums -- no neutral aggregator covers the homeowner safety frame transparently."
+          },
+          "date_published": "2026-05-24"
         }
       ]
     },

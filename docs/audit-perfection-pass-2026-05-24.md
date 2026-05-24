@@ -5,12 +5,13 @@ are heuristic suggestions for human review -- see CLAUDE.md sections
 "Topical Authority Without Doorway Risk", "Conversion Arc", and
 "No Assumptions, No Guesswork in Any Article" for the underlying rules.
 
-**Audit scope:** 34 articles
+**Audit scope:** 35 articles
 
 ## Per-article verdict table
 
 | Slug | Cluster | Max overlap pair | Arc score (/6) | Missing arc steps | Guesswork issues | Verdict |
 |---|---|---|---:|---|---:|---|
+| `ac-capacitor-bulging-leaking-safety-check` | C1_ac | what-hvac-technician-does-on-service-call (22%) | 6 | - | 0 | PASS |
 | `ac-circuit-breaker-trips` | C1_ac | ac-contactor-clicking (28%) | 6 | - | 0 | PASS |
 | `ac-compressor-buzzing-fan-not-spinning` | C1_ac | why-is-my-ac-blowing-warm-air (24%) | 6 | - | 0 | PASS |
 | `ac-contactor-clicking` | C1_ac | ac-circuit-breaker-trips (28%) | 6 | - | 0 | PASS |
@@ -43,7 +44,7 @@ are heuristic suggestions for human review -- see CLAUDE.md sections
 | `article-emergency` | C6_maint | article-maintenance (21%) | 6 | - | 6 | **FIX** |
 | `article-fall-prep` | C6_maint | article-maintenance (23%) | 6 | - | 2 | minor-FIX |
 | `article-maintenance` | C6_maint | article-fall-prep (23%) | 6 | - | 4 | minor-FIX |
-| `what-hvac-technician-does-on-service-call` | C6_maint | emergency-hvac-service-cost (21%) | 6 | - | 0 | PASS |
+| `what-hvac-technician-does-on-service-call` | C6_maint | ac-capacitor-bulging-leaking-safety-check (22%) | 6 | - | 0 | PASS |
 | `year-round-hvac-maintenance-playbook` | C6_maint | article-maintenance (23%) | 5 | 1_symptom | 5 | **FIX** |
 
 ## Flagged uniqueness pairs (overlap >= 40%)
@@ -79,6 +80,7 @@ _None. All article pairs are below the 40% overlap threshold._
 
 | Slug | Step 1 symptom | Step 2 stakes | Step 3 DIY | Step 4 demystify pro | Step 5 trust | Step 6 CTA |
 |---|---|---|---|---|---|---|
+| `ac-capacitor-bulging-leaking-safety-check` | OK | OK | OK | OK | OK | OK |
 | `ac-circuit-breaker-trips` | OK | OK | OK | OK | OK | OK |
 | `ac-compressor-buzzing-fan-not-spinning` | OK | OK | OK | OK | OK | OK |
 | `ac-contactor-clicking` | OK | OK | OK | OK | OK | OK |

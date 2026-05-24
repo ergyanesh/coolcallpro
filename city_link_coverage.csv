@@ -48,7 +48,7 @@ worcester-ma,Worcester,MA,cold,0,
 el-paso-tx,El Paso,TX,hot-dry,4,article-refrigerant; thermostat-blank-ac-wont-start; new-furnace-installed-cost; best-merv-rating
 fresno-ca,Fresno,CA,hot-dry,5,cost-replace-3-ton-ac; emergency-hvac-service-cost; repair-or-replace-framework; 1000-into-12yo-ac; what-hvac-technician-does-on-service-call
 glendale-az,Glendale,AZ,hot-dry,1,article-repair-vs-replace
-irvine-ca,Irvine,CA,hot-dry,2,ac-compressor-buzzing-fan-not-spinning; ac-contactor-clicking
+irvine-ca,Irvine,CA,hot-dry,3,ac-compressor-buzzing-fan-not-spinning; ac-contactor-clicking; ac-capacitor-bulging-leaking-safety-check
 laredo-tx,Laredo,TX,hot-dry,2,hvac-leaking-water-inside-house; article-emergency
 las-vegas-nv,Las Vegas,NV,hot-dry,2,emergency-ac-repair-cost-guide; article-hvac-financing
 los-angeles-ca,Los Angeles,CA,hot-dry,2,r410a-recharge-cost; 24-hour-hvac-repair
@@ -64,8 +64,8 @@ baton-rouge-la,Baton Rouge,LA,hot-humid,1,article-spring-ac
 brownsville-tx,Brownsville,TX,hot-humid,1,water-dripping-from-vent
 gulfport-ms,Gulfport,MS,hot-humid,1,ac-contactor-clicking
 houston-tx,Houston,TX,hot-humid,3,article-refrigerant; ac-freezing-up-in-summer; emergency-ac-repair-cost-guide
-jacksonville-fl,Jacksonville,FL,hot-humid,3,article-spring-ac; ac-compressor-buzzing-fan-not-spinning; ac-not-cooling-below-80
-mobile-al,Mobile,AL,hot-humid,4,complete-ac-troubleshooting-guide; ac-freezing-up-in-summer; ac-circuit-breaker-trips; water-dripping-from-vent
+jacksonville-fl,Jacksonville,FL,hot-humid,4,article-spring-ac; ac-compressor-buzzing-fan-not-spinning; ac-not-cooling-below-80; ac-capacitor-bulging-leaking-safety-check
+mobile-al,Mobile,AL,hot-humid,5,complete-ac-troubleshooting-guide; ac-freezing-up-in-summer; ac-circuit-breaker-trips; water-dripping-from-vent; ac-capacitor-bulging-leaking-safety-check
 new-orleans-la,New Orleans,LA,hot-humid,2,article-ac-summer; why-is-my-ac-blowing-warm-air
 san-antonio-tx,San Antonio,TX,hot-humid,7,article-ac-summer; why-is-my-ac-blowing-warm-air; hvac-leaking-water-inside-house; ac-circuit-breaker-trips; thermostat-blank-ac-wont-start; ac-contactor-clicking; emergency-ac-repair-cost-guide
 tallahassee-fl,Tallahassee,FL,hot-humid,1,thermostat-blank-ac-wont-start
@@ -95,7 +95,7 @@ raleigh-nc,Raleigh,NC,mixed-humid,0,
 richmond-va,Richmond,VA,mixed-humid,3,ac-contactor-clicking; year-round-hvac-maintenance-playbook; article-emergency
 shreveport-la,Shreveport,LA,mixed-humid,3,heat-pump-stuck-in-cooling; heat-pump-defrost-grinding; seer-14-vs-18-payback
 st-louis-mo,St. Louis,MO,mixed-humid,1,what-hvac-technician-does-on-service-call
-tulsa-ok,Tulsa,OK,mixed-humid,2,ac-compressor-buzzing-fan-not-spinning; furnace-burning-plastic-smell
+tulsa-ok,Tulsa,OK,mixed-humid,3,ac-compressor-buzzing-fan-not-spinning; ac-capacitor-bulging-leaking-safety-check; furnace-burning-plastic-smell
 virginia-beach-va,Virginia Beach,VA,mixed-humid,1,emergency-weekend-hvac-cost
 washington-dc,Washington,DC,mixed-humid,0,
 winston-salem-nc,Winston-Salem,NC,mixed-humid,2,article-furnace; 2026-heat-pump-buyers-guide

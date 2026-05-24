@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!--
+    ===================================================================
+    UNIQUENESS RATIONALE - drafted 2026-05-24
+    ===================================================================
+    Per CLAUDE.md "Topical Authority Without Doorway Risk" -- the
+    3-question test for this article:
+
+    1. LEARN: The specific visual + audible symptoms of a FAILING AC
+       capacitor (bulging top, leaking electrolyte oil, system trying
+       to start then humming and shutting off), the 60-second
+       LOOK-DON'T-TOUCH protocol a homeowner can safely run, and the
+       4 things a technician checks. Distinct from live
+       ac-contactor-clicking (different component) and from
+       ac-compressor-buzzing-fan-not-spinning (covers capacitor as
+       one cause among many; this article is the deep-dive on JUST
+       capacitor symptoms with the safety frame).
+
+    2. NARRATIVE ANCHOR: A bulging or leaking capacitor is the most
+       catchable summer AC failure -- and the one with the highest
+       DIY injury rate. Power off, look only, then call.
+
+    3. SERP OVERLAP: Low. Symptom-specific safety angle. Queries like
+       "ac capacitor bulging" / "ac capacitor leaking oil" / "is
+       bulging capacitor dangerous" return contractor blogs and DIY
+       forums -- no neutral aggregator covers the homeowner safety
+       frame transparently. <40% overlap vs existing site articles.
+    ===================================================================
+    -->
+    <!--
+    ===================================================================
+    YMYL VERIFICATION LOG - last verified 2026-05-24, next due 2026-08-22
+    ===================================================================
+    Per the "Live Verification Discipline" rule in CLAUDE.md, every
+    YMYL factual claim below was WebFetch-verified against the cited
+    primary source on the verification date.
+
+    CLAIM 1: HVAC run capacitors store electrical energy at 370V or
+            440V AC and retain a potentially lethal charge for some
+            time after the system is powered off. OSHA's electrical
+            safety standards govern technician procedures for
+            de-energizing and verifying-dead before contact.
+        VERIFIED via OSHA Electrical Safety standard 29 CFR 1910 Subpart S.
+        URL: https://www.osha.gov/electrical
+
+    CLAIM 2: Refrigerant work on the sealed system (which can be
+            triggered when an over-amped compressor caused the
+            capacitor failure) is federally regulated under EPA
+            Section 608.
+        VERIFIED via EPA Section 608 Technician Certification.
+        URL: https://www.epa.gov/section608
+
+    CLAIM 3: Capacitor + service-call labor pricing ($90-$450 minor
+            repair, $65-$150 diagnostic) is canonical to costs.html
+            and is not restated here. This article focuses on the
+            safety check and the diagnostic sequence.
+        Internal canonical: see costs.html
+        URL: https://coolcallpro.com/costs
+
+    CLAIM 4: ENERGY STAR's published HVAC maintenance guidance lists
+            capacitor inspection and electrical-component tightening
+            as routine tune-up items, supporting the framing that
+            capacitor failures are catchable on annual service.
+        VERIFIED via ENERGY STAR Heating & Cooling.
+        URL: https://www.energystar.gov/products/energy_star_home_upgrade/clean_heating_cooling
+
+    CLAIM 5: ACCA's technical standards govern contractor scope of
+            work, including the diagnostic sequence for electrical
+            faults on residential split-system equipment.
+        VERIFIED via ACCA Technical Manuals listing.
+        URL: https://www.acca.org/standards/technical-manuals
+
+    CLAIM 6: DOE EERE's residential HVAC guidance notes that a unit
+            humming without starting is a classic symptom of a
+            failed start/run capacitor or a seized compressor --
+            both diagnoseable only by a qualified technician.
+        VERIFIED via DOE Energy Saver: Maintaining Your Air Conditioner.
+        URL: https://www.energy.gov/energysaver/maintaining-your-air-conditioner
+    ===================================================================
+    -->
+    <!-- Google tag (gtag.js) - GA4 -- deferred until first interaction for LCP -->
+    <script>
+        (function() {
+            var loaded = false;
+            function loadGA() {
+                if (loaded) return;
+                loaded = true;
+                var s = document.createElement('script');
+                s.src = 'https://www.googletagmanager.com/gtag/js?id=G-WD0ND0K60Q';
+                s.async = true;
+                document.head.appendChild(s);
+                s.onload = function() {
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){dataLayer.push(arguments);}
+                    window.gtag = gtag;
+                    gtag('js', new Date());
+                    gtag('config', 'G-WD0ND0K60Q');
+                };
+            }
+            ['click', 'scroll', 'touchstart', 'keydown'].forEach(function(evt) {
+                window.addEventListener(evt, loadGA, { once: true, passive: true });
+            });
+            setTimeout(loadGA, 4000);
+        })();
+    </script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index, follow" />
+    <title>Bulging AC Capacitor Safety Check | Cool Call Pro</title>
+    <meta name="description"
+        content="Bulging or leaking AC capacitor? The 60-second LOOK-DONT-TOUCH safety check, what the symptoms mean, and what a tech checks on the call." />
+    <link rel="canonical" href="https://coolcallpro.com/articles/ac-capacitor-bulging-leaking-safety-check" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="AC Capacitor Bulging or Leaking? 60-Second Safety Check Before You Call" />
+    <meta property="og:description"
+        content="Bulging or leaking AC capacitor? The 60-second LOOK-DONT-TOUCH safety check, what the symptoms mean, and what a technician checks on the service call." />
+    <meta property="og:url" content="https://coolcallpro.com/articles/ac-capacitor-bulging-leaking-safety-check" />
+    <meta property="og:site_name" content="Cool Call Pro" />
+    <meta property="article:author" content="Gyanesh Gulshan" />
+    <meta property="article:published_time" content="2026-05-24T00:00:00Z" />
+    <meta property="article:modified_time" content="2026-05-24T00:00:00Z" />
+    <meta property="og:image" content="https://coolcallpro.com/images/hvac_ac_capacitor_safety_check.webp" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="AC Capacitor Bulging or Leaking? 60-Second Safety Check | Cool Call Pro" />
+    <meta name="twitter:description" content="The 60-second LOOK-DONT-TOUCH safety check, what bulging/leaking capacitor symptoms mean, and what the technician will test." />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+    <link rel="stylesheet" href="../css/style.min.css" />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <!-- Article Schema -->
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "AC Capacitor Bulging or Leaking? 60-Second Safety Check Before You Call",
+    "description": "Bulging or leaking AC capacitor symptoms, the 60-second LOOK-DONT-TOUCH safety check homeowners can safely run, and the 4-test diagnostic sequence the technician performs on arrival.",
+    "datePublished": "2026-05-24",
+    "dateModified": "2026-05-24",
+    "author": {
+        "@type": "Person",
+        "name": "Gyanesh Gulshan",
+        "url": "https://coolcallpro.com/author-gyanesh",
+        "image": "https://coolcallpro.com/images/author-gyane.webp",
+        "sameAs": ["https://www.linkedin.com/in/gyaneshgulshan/"]
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Cool Call Pro",
+        "url": "https://coolcallpro.com",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://coolcallpro.com/favicon.svg"
+        }
+    },
+    "image": "https://coolcallpro.com/images/hvac_ac_capacitor_safety_check.webp",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://coolcallpro.com/articles/ac-capacitor-bulging-leaking-safety-check"
+    },
+    "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [".tldr-box", ".faq-q", ".faq-a-inner"]
+    },
+    "about": [
+        {"@type": "Thing", "name": "Capacitor", "sameAs": "https://en.wikipedia.org/wiki/Capacitor"},
+        {"@type": "Thing", "name": "HVAC", "sameAs": "https://en.wikipedia.org/wiki/Heating,_ventilation,_and_air_conditioning"},
+        {"@type": "Thing", "name": "Electrical safety", "sameAs": "https://www.osha.gov/electrical"}
+    ]
+}
+    </script>
+    <!-- Breadcrumb Schema -->
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://coolcallpro.com/"},
+        {"@type": "ListItem", "position": 2, "name": "Articles", "item": "https://coolcallpro.com/articles"},
+        {"@type": "ListItem", "position": 3, "name": "AC Capacitor Bulging or Leaking? 60-Second Safety Check", "item": "https://coolcallpro.com/articles/ac-capacitor-bulging-leaking-safety-check"}
+    ]
+}
+    </script>
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "Is a bulging AC capacitor dangerous to touch?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes -- treat it as dangerous. An HVAC run capacitor stores electrical energy at 370 or 440 volts AC and holds a potentially lethal charge for some time after power is cut. A capacitor that is bulging or leaking is also at increased risk of rupturing if disturbed, releasing the electrolyte and the stored charge unpredictably. The safe homeowner response is identical regardless of whether the capacitor looks intact: power off at the breaker, look only from at least 3 feet away, do not open the access panel, do not touch any wiring, and call a qualified HVAC technician. OSHA electrical-safety standards govern the technician's de-energizing and verify-dead procedure -- this is not a DIY repair, even with the breaker off."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "What does a failed AC capacitor look like?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Three visual signs are reliable through-the-panel-louvers indicators when the access panel is closed and the system is powered off: a domed or bulging top (the metal lid pushed upward instead of flat), oily residue or amber liquid pooled at the base of the capacitor or on the cabinet floor (the dielectric electrolyte leaking out), and visible scorching or discoloration on the capacitor casing or nearby wiring. A failing-but-still-intact capacitor often shows no visible damage -- it fails electrically (low microfarad reading) before it fails physically. So 'looks fine' does not rule out capacitor failure; the visual check rules IN the worst cases. The technician's microfarad-meter test rules out the rest."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "What are the audible symptoms of a failing AC capacitor?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Four audible patterns commonly point to capacitor failure. A loud humming or buzzing from the outdoor unit lasting 10 to 30 seconds with no fan spin or compressor start, often followed by a click as the internal overload trips it off. The system trying to start every few minutes (the same hum-then-click cycle repeating). A high-pitched whine when the compressor finally starts, indicating the run capacitor is providing degraded but not absent assistance. The outdoor fan spinning slowly or only after you give it a manual push (do NOT do this -- it is a technician-only diagnostic). All four patterns warrant the safety check and call sequence. None of them justify opening the access panel."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Can I replace an AC capacitor myself to save money?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No, and the math saying you should usually does not survive the safety math saying you should not. Capacitor replacement is a sub-$200 repair at most contractors (per our cost guide, minor AC repairs run $90 to $450 fully loaded). The risk of self-replacement is electrical: an improperly discharged capacitor can deliver a stored shock at 370 to 440 volts, well above the 50V threshold OSHA considers safe to contact. There is also a diagnostic risk: a capacitor rarely fails in isolation -- it usually fails because the motor it serves is drawing higher amperage than the capacitor was sized for, and replacing the capacitor without measuring the motor amp draw means the new capacitor fails on the same root cause. The technician's job is the discharge sequence AND the root-cause diagnosis. The price you save by DIY-ing the swap is the price you pay twice when the new one fails next month."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "How long does an AC capacitor service call take?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A capacitor diagnosis and replacement typically takes 30 to 60 minutes from technician arrival to system back online. The diagnostic sequence (visual inspection, breaker check, microfarad measurement, motor amp draw under load) takes 15 to 20 minutes. The replacement itself -- if the capacitor IS the diagnosis -- takes 10 to 15 minutes once power is killed, the old capacitor is discharged, and a matching microfarad/voltage replacement is on the truck (standard sizes usually are). The remaining time is the homeowner debrief, the written estimate, and the post-replacement system test (verifying the system starts and runs at normal amp draw). This sits inside the 45 to 60 minute window we cover in the full service-call sequence."
+            }
+        }
+    ]
+}
+    </script>
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <div class="topbar">
+        <div class="container topbar-inner" style="justify-content: center; padding: 10px; font-weight: 600;">
+            <span class="topbar-text">24/7 Referral Service &mdash; Connecting Homeowners with Independent HVAC Professionals</span>
+        </div>
+    </div>
+    <header class="header" id="header">
+        <nav class="nav container" role="navigation" aria-label="Main navigation">
+            <a href="../" class="logo"><span class="logo-icon">&#10052;&#65039;</span><span class="logo-text">CoolCall<span class="logo-accent">Pro</span></span></a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../articles" class="nav-link active">Articles</a></li>
+                <li><a href="../emergency" class="nav-link emergency-link">&#128680; Emergency</a></li>
+                <li><a href="../costs" class="nav-link">Cost Guide</a></li>
+                <li><a href="../safety" class="nav-link">Safety Tips</a></li>
+                <li><a href="../locations" class="nav-link">&#128205; Locations</a></li>
+                <li><a href="../about" class="nav-link">About</a></li>
+                <li><a href="../contact" class="nav-link">Contact</a></li>
+            </ul>
+            <a href="tel:+18445821795" class="btn btn-cta nav-cta btn-vibrate" id="headerNavCta"
+                aria-hidden="true" tabindex="-1"
+                style="opacity: 0; pointer-events: none; transition: opacity 0.3s ease;">
+                <span class="phone-icon">&#128222;</span>
+                <span class="hide-on-mobile">(844) 582-1795</span>
+            </a>
+            <button class="hamburger" id="hamburger" aria-label="Menu">&#9776;</button>
+        </nav>
+    </header>
+
+    <main id="main-content">
+
+        <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+            <div class="container">
+                <ol class="breadcrumb-list">
+                    <li><a href="../">Home</a></li>
+                    <li><a href="../articles">Articles</a></li>
+                    <li>AC Capacitor Bulging or Leaking? 60-Second Safety Check</li>
+                </ol>
+            </div>
+        </nav>
+
+        <div class="page-hero">
+            <div class="container">
+                <span class="article-tag tag-safety" style="display:inline-block; margin-bottom:16px;">&#128293; Safety</span>
+                <h1>AC Capacitor Bulging or Leaking? 60-Second Safety Check Before You Call</h1>
+                <p class="article-disclaimer">For informational purposes only &mdash; always consult a qualified HVAC professional for your specific situation.</p>
+                <div class="article-meta-modern"><div class="meta-line meta-published">Published <time datetime="2026-05-24">May 24, 2026</time></div></div>
+                <div class="author-byline">
+                    <img src="../images/author-gyane.webp" alt="Gyanesh Gulshan" class="author-avatar-sm" loading="lazy" width="48" height="48" />
+                    <span>By <a href="../author-gyanesh">Gyanesh Gulshan</a> &mdash; Founder, Cool Call Pro</span>
+                </div>
+            </div>
+        </div>
+
+        <section class="section">
+            <div class="container">
+                <div class="article-layout">
+                    <article class="article-content">
+                        <img src="../images/hvac_ac_capacitor_safety_check.webp" alt="Close-up of a residential outdoor air conditioning condenser unit on a concrete pad outside a suburban home, with the access panel closed and the side louvers showing the cylindrical metal can of a dual-run capacitor inside, illustrating the homeowner safety check for a bulging or leaking capacitor without opening the unit" class="lead-img" fetchpriority="high" width="1280" height="720" />
+
+                        <p class="article-disclosure"><a href="../advertising-disclosure">Advertising Disclosure</a>: This site may receive compensation for service connections made through this page. Content is editorially independent.</p>
+
+                        <div class="callout-box callout-danger" style="margin-top: 24px;">
+                            <div class="callout-icon">&#9888;&#65039;</div>
+                            <div class="callout-text">
+                                <strong>HVAC systems involve high-voltage electricity, pressurized refrigerant, and capacitors that store energy at 370 or 440 volts AC and retain a potentially lethal charge for some time after the system is powered off. The technician will kill the breaker at the outdoor disconnect, drain the stored charge from the component with an insulated tool, and verify-dead before any contact &mdash; that procedure is governed by <a href="https://www.osha.gov/electrical" target="_blank" rel="noopener noreferrer">OSHA electrical-safety standards</a> and is not a DIY task even with the breaker off. If you ever smell natural gas in or around the home, evacuate first and call 911 or your gas utility from outside &mdash; that is a 911-tier emergency, not an HVAC service call. Every action described in this article past the homeowner visual check is technician work; it is educational context, not a step-by-step instruction. Always let a qualified HVAC technician handle diagnosis and repair.</strong>
+                            </div>
+                        </div>
+
+                        <div class="tldr-box">
+                            <div class="tldr-label">Key Takeaway</div>
+                            <p>A bulging or leaking AC capacitor is the most catchable summer AC failure and the one with the highest DIY injury rate. <strong>The safe 60-second protocol:</strong> kill the breaker to the outdoor unit, look at the capacitor through the closed access-panel louvers from at least 3 feet away, and call a technician. <strong>Do NOT</strong> open the panel, touch the capacitor, attempt to discharge it, or replace it yourself &mdash; the stored 370-440V charge persists after power is cut and the discharge procedure is OSHA-governed technician work. A capacitor replacement on the service call typically runs in the $90 to $450 minor-AC-repair range per our <a href="../costs">cost guide</a>, finishes in 30-60 minutes including diagnosis, and almost always pays for itself by avoiding the secondary compressor damage a degraded capacitor accumulates over weeks of running.</p>
+                        </div>
+
+                        <h2 id="symptoms">What a Failing Capacitor Looks and Sounds Like</h2>
+
+                        <p>An AC run capacitor is the cylindrical metal can mounted inside the outdoor condenser cabinet that gives the compressor motor and the condenser fan motor the extra rotational push they need to start. When it fails, the system tries to start but cannot &mdash; producing a set of symptoms that are unusually consistent across brands and ages.</p>
+
+                        <p><strong>Visual indicators (visible through the closed panel louvers):</strong></p>
+                        <ul>
+                            <li><strong>A bulging or domed top.</strong> A healthy capacitor lid is flat or very slightly concave. A failing one balloons outward as the internal pressure rises from the electrolyte breaking down. The lid bulge is often the only visible sign before a catastrophic failure.</li>
+                            <li><strong>Oily residue or amber fluid pooled at the base.</strong> When the seal at the bottom of the can gives way, the dielectric electrolyte (an oil-based fluid) leaks out and pools on the cabinet floor or runs down the side of the can. The fluid is mildly hazardous and the residue does not evaporate; it remains visible until cleaned by a technician.</li>
+                            <li><strong>Scorching or discoloration on the casing or nearby wiring.</strong> If the capacitor ruptured slightly or arced to a nearby terminal, the metal shows heat discoloration and the adjacent wire insulation may be browned or melted.</li>
+                        </ul>
+
+                        <p><strong>Audible patterns from the outdoor unit:</strong></p>
+                        <ul>
+                            <li>Loud humming or buzzing lasting 10 to 30 seconds with no fan rotation and no compressor start, followed by a click as the internal thermal overload trips off.</li>
+                            <li>The same hum-then-click cycle repeating every few minutes as the thermostat keeps calling for cooling.</li>
+                            <li>A high-pitched whine when the compressor finally manages to start, signaling the run capacitor is providing degraded assistance.</li>
+                            <li>The outdoor fan blade spinning slowly or starting only after physical assistance &mdash; do <strong>not</strong> push it; the fan blade can be sharp and the motor can re-energize without warning. This pattern is a technician-only diagnostic indicator.</li>
+                        </ul>
+
+                        <p>A failing-but-not-yet-bulged capacitor often shows no visible damage at all &mdash; it fails electrically (microfarad reading drops below the data-plate rating) before it fails physically. "Looks fine" therefore does not rule out capacitor failure; it just rules out the worst-case scenarios. The microfarad measurement, which is the only definitive test, is technician work governed by <a href="https://www.acca.org/standards/technical-manuals" target="_blank" rel="noopener noreferrer">ACCA technical standards</a> and requires de-energizing the system, discharging the capacitor with an insulated tool, and reading it with a meter rated for the application.</p>
+
+                        <h2 id="stakes">Why "Just Run It Until the Tech Comes Out" Is Not Safe</h2>
+
+                        <p>A normal homeowner instinct on a hot day is to keep the thermostat calling for cooling so the system has a chance to start &mdash; "maybe it will catch on its own." When the visible symptom is a bulging or leaking capacitor, this is the wrong instinct. Three failure modes compound for every minute the system tries-and-fails to start:</p>
+
+                        <p><strong>Compressor damage from locked-rotor amperage.</strong> Every failed start attempt draws "locked-rotor amperage" (LRA) through the compressor windings &mdash; a current spike 3 to 6 times the normal running amperage. The windings tolerate brief LRA during a healthy start, but repeated 10-to-30-second LRA cycles cook the insulation. A capacitor failure that gets ignored for a week can turn a $200 capacitor swap into a $1,500-$3,500 compressor replacement (per the <a href="2026-hvac-cost-guide">2026 HVAC cost guide</a> major-repair range). DOE EERE's <a href="https://www.energy.gov/energysaver/maintaining-your-air-conditioner" target="_blank" rel="noopener noreferrer">residential HVAC maintenance guidance</a> frames this cascade as the classic "ignore-the-cheap-failure, buy-the-expensive-one" pattern that scheduled-maintenance is meant to prevent.</p>
+
+                        <p><strong>Electrical fire risk in the disconnect.</strong> The repeated high-current draw heats every electrical connection between the breaker and the compressor &mdash; the breaker terminal, the disconnect contacts, the contactor in the condenser cabinet, the capacitor terminals themselves. Worn or corroded connections that handle normal amperage fine begin to arc and discolor under repeated LRA cycles. A bulging capacitor that ruptures during one of these cycles can ignite the leaked electrolyte if a hot connection is nearby.</p>
+
+                        <p><strong>Refrigerant-side damage from short-cycling.</strong> A system that starts and immediately stops &mdash; "short-cycles" &mdash; subjects the sealed refrigerant loop to repeated pressure swings that fatigue the joints. On 2025-and-newer systems being deployed under the <a href="https://www.epa.gov/climate-hfcs-reduction/aim-act" target="_blank" rel="noopener noreferrer">EPA AIM Act refrigerant transition</a> using R-454B, the A2L safety classification adds an additional reason short-cycling is best avoided.</p>
+
+                        <p>The cost-minimizing move is the opposite of "let it run." Turn the thermostat to OFF (not COOL), kill the breaker to the outdoor unit at the service panel, and call. Every hour you do not run the system after the visible failure is a few dollars saved on the replacement.</p>
+
+                        <h2 id="safety-check">The 60-Second Homeowner Safety Check (Look Only)</h2>
+
+                        <p>Four actions, all from a safe distance, completed in about 60 seconds. None require opening any panel, touching any component, or testing anything electrical.</p>
+
+                        <ol>
+                            <li><strong>Turn the thermostat to OFF</strong> (not COOL, not AUTO). Stop the indoor side from continuing to call for cooling. About 5 seconds.</li>
+                            <li><strong>Kill the breaker for the outdoor condenser</strong> at your main service panel. The breaker is usually labeled "AC," "Condenser," or "Air Conditioner." Flip it to OFF. About 10 seconds.</li>
+                            <li><strong>Walk to the outdoor unit and look through the side panel louvers</strong> from at least 3 feet away. You are looking for one of the three visible indicators above &mdash; a bulging capacitor top, oily residue at the unit's base or on the cabinet floor, scorching on visible wiring. About 30 seconds.</li>
+                            <li><strong>Take a photo through the louvers if you can do so without crouching close to the unit.</strong> A clear photo of the capacitor and surrounding wiring helps the dispatcher route the right technician and have the right replacement part on the truck. About 15 seconds.</li>
+                        </ol>
+
+                        <p>That is the entire safe homeowner check. <strong>Do not</strong> open the access panel, do not pull the disconnect at the unit, do not touch the capacitor or the wiring, do not attempt to discharge anything, do not run a multimeter on any terminal, do not push the fan blade, do not order a replacement capacitor online. Every one of those actions is technician work, and the consequences for getting it wrong range from a 240V shock to ignition of leaked electrolyte to voiding the manufacturer warranty. Our <a href="../safety">safety page</a> covers the full DIY boundary for homeowner HVAC tasks &mdash; capacitor work is firmly outside it. If your safe homeowner check finds any of the three visible indicators, or if the audible symptoms match the patterns above and the visible check is inconclusive, book the call.</p>
+
+                        <!-- CTA 1 -->
+                        <div class="callout-box"
+                            style="background: var(--gray-900); color: white; border: none; padding: 24px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.15); display: flex; flex-direction: column; align-items: center; text-align: center; margin: 32px 0;">
+                            <div
+                                style="font-size: 1.25rem; font-weight: 700; font-family: var(--font-display); margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+                                <span>&#128680;</span> Need a Pro Right Now?
+                            </div>
+                            <p style="color: rgba(255,255,255,0.8); margin-bottom: 20px; font-size: 0.95rem;">
+                                Get connected with an independent HVAC technician in your area &mdash; especially during summer heat advisories when capacitor failures spike.
+                            </p>
+                            <a href="tel:+18445821795" class="btn btn-primary btn-lg btn-vibrate"><span class="phone-icon">&#128222;</span> Call Now &mdash; (844) 582-1795</a>
+                            <p style="color: rgba(255,255,255,0.6); font-size: 0.72rem; margin-top: 12px; max-width: 340px; line-height: 1.5;">Disclosure: We are a referral service and may receive compensation for qualified calls. Calls may be routed to an independent provider network and may be recorded. Pricing and availability vary by provider and location.</p>
+                        </div>
+
+                        <h2 id="what-tech-checks">What the Technician Will Test on Arrival</h2>
+
+                        <p>A competent technician on a capacitor-suspected service call follows a fixed four-test sequence after the homeowner interview. The whole sequence sits inside the broader 45 to 60 minute routine service call we cover in <a href="what-hvac-technician-does-on-service-call">what an HVAC technician actually does on a service call</a>; what follows is the capacitor-specific subset.</p>
+
+                        <ol>
+                            <li><strong>Microfarad measurement vs. data-plate rating.</strong> After killing power and discharging the capacitor with an insulated discharge tool, the technician removes the wires and reads the capacitance with a meter rated for the application. A run capacitor whose measured microfarads (&micro;F) are more than 6% below the rated value is failed and is the cause on a meaningful share of summer no-cool calls. A dual-run capacitor (one can serving both compressor and fan) is read on both halves; either half being out-of-spec means the capacitor needs replacement.</li>
+                            <li><strong>Voltage rating verification.</strong> The replacement must match or exceed the voltage rating on the data plate (typically 370V or 440V). A 370V can swapped into a 440V application will fail again under load. The technician also verifies the new capacitor's microfarad rating matches the data plate exactly &mdash; "close enough" capacitor microfarads cause new failures.</li>
+                            <li><strong>Weather sealing inspection at the base.</strong> If the failing capacitor leaked, the technician looks for evidence that water from rain or condensation entered the cabinet and contributed to the failure. A degraded grommet or a cracked condensate-management seal is the secondary issue that needs to be fixed alongside the capacitor itself, or the new capacitor fails on the same root cause.</li>
+                            <li><strong>Fan motor and compressor amp-draw test under load.</strong> Once the new capacitor is wired in and power restored, the technician clamps an ammeter on the compressor and fan-motor leads and reads the actual current draw under running conditions. Both should be at or below the rated full-load amperage (FLA) on the data plate. High amp draw on the compressor after a capacitor replacement is the diagnostic for early compressor wear &mdash; the capacitor failed BECAUSE the compressor is degrading, and a second service call is in the future. Catching this on the same visit gives the homeowner the option to plan for replacement vs. running the system to its remaining-life ceiling.</li>
+                        </ol>
+
+                        <p>This four-test sequence is what justifies the ENERGY STAR <a href="https://www.energystar.gov/products/energy_star_home_upgrade/clean_heating_cooling" target="_blank" rel="noopener noreferrer">routine maintenance guidance</a> that capacitor inspection should be part of an annual tune-up. The capacitor is a $30 part with high failure visibility; catching the degradation at 80% of rated microfarads on a spring tune-up prevents the 100%-failed-during-July-heatwave call.</p>
+
+                        <h2 id="trust-signals">Spotting Honest Diagnosis vs. Replacement Pressure</h2>
+
+                        <p>Three patterns separate competent capacitor diagnosis from a tech who walks in and immediately recommends a full system replacement.</p>
+
+                        <p><strong>The microfarad measurement gets shared.</strong> A competent tech can tell you the measured value and the rated value. "Your capacitor reads 32&micro;F on a 45&micro;F rating &mdash; that is 71% of capacity, well below the 94% failure threshold" is honest diagnosis. "Your capacitor is bad and you need a new one" without a specific number is a warning sign &mdash; ask the technician for the measurement. Any competent tech welcomes the question because the measurement is what justifies the repair quote.</p>
+
+                        <p><strong>Repair-first framing on systems under 10 years.</strong> A 6-year-old system with a failed capacitor is not a replacement candidate &mdash; it is a capacitor replacement that costs the homeowner less than $450. A tech who walks in and recommends a full equipment replacement on a 6-year-old system is upselling. Cross-reference our <a href="repair-or-replace-framework">repair-or-replace framework</a> for the age-and-cost math; the framework is intentionally conservative on replacement to avoid exactly this upsell pattern. On a 13-15+ year old system where the capacitor failed because of compressor wear, the replacement conversation is legitimate &mdash; but it is still a conversation, not a pressure pitch.</p>
+
+                        <p><strong>The amp-draw test result gets shared.</strong> After the replacement, the compressor and fan-motor amp readings should be in normal range. If they are high, the tech should say so &mdash; "your new capacitor is running fine but your compressor is pulling 18 amps on a 16-amp rated load, which suggests the compressor is wearing." That is honest diagnosis. A tech who replaces the capacitor, packs up, and does not run the amp test is doing half the job.</p>
+
+                        <p>The cluster of related symptoms is also worth knowing about. If your unit is also producing the symptoms in <a href="ac-compressor-buzzing-fan-not-spinning">our AC compressor buzzing / fan not spinning article</a> or <a href="ac-circuit-breaker-trips">tripping the breaker repeatedly</a>, the capacitor is one possible cause among several &mdash; the tech's measurements determine which. If your unit is making the clicking-without-action pattern, see <a href="ac-contactor-clicking">our AC contactor clicking article</a> &mdash; the contactor is a different component with similar audible symptoms but a different fix.</p>
+
+                        <h2 id="cta-prep">When You Call: What to Tell the Dispatcher</h2>
+
+                        <p>Five items make the call fast and route the right technician with the right parts on the truck. Have these ready before you dial.</p>
+
+                        <ol>
+                            <li><strong>System type and approximate age.</strong> Central AC, heat pump, or mini-split; year of manufacture from the data plate if accessible.</li>
+                            <li><strong>Brand and model number.</strong> Photo through the louvers covers this if you cannot open the panel (which you should not). The dispatcher uses brand and model to pull the correct microfarad/voltage rating from the parts catalog.</li>
+                            <li><strong>The visible symptoms.</strong> "I see bulging on the top of the cylindrical metal can," "there is oily fluid pooled at the base of the unit," "the fan is spinning slowly," or "the unit hums for 20 seconds and then clicks off."</li>
+                            <li><strong>When the symptoms started and the recent temperature pattern.</strong> Capacitor failures spike during the first sustained heat-advisory week of summer because the previously-degrading capacitor cannot deliver the higher start current the compressor needs at peak ambient temperature.</li>
+                            <li><strong>Whether anyone vulnerable to heat (infant, elderly, medical condition) is in the home.</strong> This changes priority routing and may move you ahead of non-urgent calls during demand spikes.</li>
+                        </ol>
+
+                        <p>Climate context: capacitor failures are most concentrated in hot-humid metros like <a href="../locations/jacksonville-fl">Jacksonville, Florida</a> and <a href="../locations/mobile-al">Mobile, Alabama</a>, where summer ambient temperatures stay in the upper 90s for weeks at a time, and in hot-dry metros like <a href="../locations/irvine-ca">Irvine, California</a> where the same pattern plays out in late summer. In mixed-humid metros like <a href="../locations/tulsa-ok">Tulsa, Oklahoma</a> the spike is shorter but sharper &mdash; July and August absorb most of the season's capacitor calls. The dispatcher in these markets is used to the symptoms and the routing is fast.</p>
+
+                        <h3>Trusted Industry Sources</h3>
+                        <p>The diagnostic-sequence and electrical-safety guidance in this article is consistent with published guidance from:</p>
+                        <ul>
+                            <li><a href="https://www.osha.gov/electrical" target="_blank" rel="noopener noreferrer">OSHA &mdash; Electrical Safety (29 CFR 1910 Subpart S)</a></li>
+                            <li><a href="https://www.epa.gov/section608" target="_blank" rel="noopener noreferrer">EPA &mdash; Section 608 Technician Certification</a></li>
+                            <li><a href="https://www.epa.gov/climate-hfcs-reduction/aim-act" target="_blank" rel="noopener noreferrer">EPA &mdash; AIM Act (refrigerant transition)</a></li>
+                            <li><a href="https://www.energy.gov/energysaver/maintaining-your-air-conditioner" target="_blank" rel="noopener noreferrer">U.S. Department of Energy &mdash; Maintaining Your Air Conditioner</a></li>
+                            <li><a href="https://www.energystar.gov/products/energy_star_home_upgrade/clean_heating_cooling" target="_blank" rel="noopener noreferrer">ENERGY STAR &mdash; Clean Heating &amp; Cooling</a></li>
+                            <li><a href="https://www.acca.org/standards/technical-manuals" target="_blank" rel="noopener noreferrer">ACCA &mdash; Technical Manuals</a></li>
+                        </ul>
+
+                        <!-- CTA 2 -->
+                        <div class="callout-box"
+                            style="background: var(--gray-900); color: white; border: none; padding: 24px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.15); display: flex; flex-direction: column; align-items: center; text-align: center; margin: 32px 0;">
+                            <div
+                                style="font-size: 1.25rem; font-weight: 700; font-family: var(--font-display); margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+                                <span>&#128205;</span> Still Need Help?
+                            </div>
+                            <p style="color: rgba(255,255,255,0.8); margin-bottom: 20px; font-size: 0.95rem;">
+                                Do not wait &mdash; a degrading capacitor damages the compressor with every failed start. Get a technician dispatched to your area.
+                            </p>
+                            <a href="tel:+18445821795" class="btn btn-primary btn-lg btn-vibrate"><span class="phone-icon">&#128222;</span> Call Now &mdash; (844) 582-1795</a>
+                            <p style="color: rgba(255,255,255,0.6); font-size: 0.72rem; margin-top: 12px; max-width: 340px; line-height: 1.5;">Disclosure: We are a referral service and may receive compensation for qualified calls. Calls may be routed to an independent provider network and may be recorded. Pricing and availability vary by provider and location.</p>
+                        </div>
+
+                        <h2 id="faqs">Frequently Asked Questions</h2>
+
+                        <div class="faq-item">
+                            <button class="faq-q" aria-expanded="false" aria-controls="faq-ac-cap-safety-1"><span>Is a bulging AC capacitor dangerous to touch?</span><span class="faq-icon"></span></button>
+                            <div class="faq-a" id="faq-ac-cap-safety-1"><div class="faq-a-inner">
+                                <p>Yes &mdash; treat it as dangerous. An HVAC run capacitor stores electrical energy at 370 or 440 volts AC and holds a potentially lethal charge for some time after power is cut. A capacitor that is bulging or leaking is also at increased risk of rupturing if disturbed, releasing the electrolyte and the stored charge unpredictably. The safe homeowner response is identical regardless of whether the capacitor looks intact: power off at the breaker, look only from at least 3 feet away, do not open the access panel, do not touch any wiring, and call a qualified HVAC technician. <a href="https://www.osha.gov/electrical" target="_blank" rel="noopener noreferrer">OSHA electrical-safety standards</a> govern the technician's de-energizing and verify-dead procedure &mdash; this is not a DIY repair, even with the breaker off.</p>
+                            </div></div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-q" aria-expanded="false" aria-controls="faq-ac-cap-safety-2"><span>What does a failed AC capacitor look like?</span><span class="faq-icon"></span></button>
+                            <div class="faq-a" id="faq-ac-cap-safety-2"><div class="faq-a-inner">
+                                <p>Three visual signs are reliable through-the-panel-louvers indicators when the access panel is closed and the system is powered off: a domed or bulging top (the metal lid pushed upward instead of flat), oily residue or amber liquid pooled at the base of the capacitor or on the cabinet floor (the dielectric electrolyte leaking out), and visible scorching or discoloration on the capacitor casing or nearby wiring. A failing-but-still-intact capacitor often shows no visible damage &mdash; it fails electrically (low microfarad reading) before it fails physically. So "looks fine" does not rule out capacitor failure; the visual check rules IN the worst cases. The technician's microfarad-meter test rules out the rest.</p>
+                            </div></div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-q" aria-expanded="false" aria-controls="faq-ac-cap-safety-3"><span>What are the audible symptoms of a failing AC capacitor?</span><span class="faq-icon"></span></button>
+                            <div class="faq-a" id="faq-ac-cap-safety-3"><div class="faq-a-inner">
+                                <p>Four audible patterns commonly point to capacitor failure. A loud humming or buzzing from the outdoor unit lasting 10 to 30 seconds with no fan spin or compressor start, often followed by a click as the internal overload trips it off. The system trying to start every few minutes (the same hum-then-click cycle repeating). A high-pitched whine when the compressor finally starts, indicating the run capacitor is providing degraded but not absent assistance. The outdoor fan spinning slowly or only after you give it a manual push (do NOT do this &mdash; it is a technician-only diagnostic). All four patterns warrant the safety check and call sequence. None of them justify opening the access panel.</p>
+                            </div></div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-q" aria-expanded="false" aria-controls="faq-ac-cap-safety-4"><span>Can I replace an AC capacitor myself to save money?</span><span class="faq-icon"></span></button>
+                            <div class="faq-a" id="faq-ac-cap-safety-4"><div class="faq-a-inner">
+                                <p>No, and the math saying you should usually does not survive the safety math saying you should not. Capacitor replacement is a sub-$200 repair at most contractors (per our <a href="../costs">cost guide</a>, minor AC repairs run $90 to $450 fully loaded). The risk of self-replacement is electrical: an improperly discharged capacitor can deliver a stored shock at 370 to 440 volts, well above the 50V threshold OSHA considers safe to contact. There is also a diagnostic risk: a capacitor rarely fails in isolation &mdash; it usually fails because the motor it serves is drawing higher amperage than the capacitor was sized for, and replacing the capacitor without measuring the motor amp draw means the new capacitor fails on the same root cause. The technician's job is the discharge sequence AND the root-cause diagnosis. The price you save by DIY-ing the swap is the price you pay twice when the new one fails next month.</p>
+                            </div></div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-q" aria-expanded="false" aria-controls="faq-ac-cap-safety-5"><span>How long does an AC capacitor service call take?</span><span class="faq-icon"></span></button>
+                            <div class="faq-a" id="faq-ac-cap-safety-5"><div class="faq-a-inner">
+                                <p>A capacitor diagnosis and replacement typically takes 30 to 60 minutes from technician arrival to system back online. The diagnostic sequence (visual inspection, breaker check, microfarad measurement, motor amp draw under load) takes 15 to 20 minutes. The replacement itself &mdash; if the capacitor IS the diagnosis &mdash; takes 10 to 15 minutes once power is killed, the old capacitor is discharged, and a matching microfarad/voltage replacement is on the truck (standard sizes usually are). The remaining time is the homeowner debrief, the written estimate, and the post-replacement system test (verifying the system starts and runs at normal amp draw). This sits inside the 45 to 60 minute window we cover in the <a href="what-hvac-technician-does-on-service-call">full service-call sequence</a>.</p>
+                            </div></div>
+                        </div>
+
+                        <h3>Local HVAC Service Areas</h3>
+                        <p>Cool Call Pro connects homeowners with independent HVAC technicians nationwide. Find a pro in <a href="../locations/jacksonville-fl" style="color: var(--orange-dark); font-weight: 600;">Jacksonville (FL)</a>, <a href="../locations/mobile-al" style="color: var(--orange-dark); font-weight: 600;">Mobile (AL)</a>, <a href="../locations/irvine-ca" style="color: var(--orange-dark); font-weight: 600;">Irvine (CA)</a>, or <a href="../locations/tulsa-ok" style="color: var(--orange-dark); font-weight: 600;">Tulsa (OK)</a>, or browse by state: <a href="../locations/florida" style="color: var(--orange-dark); font-weight: 600;">Florida</a>, <a href="../locations/alabama" style="color: var(--orange-dark); font-weight: 600;">Alabama</a>, or <a href="../locations" style="color: var(--orange-dark); font-weight: 600;">all locations</a>.</p>
+
+                    </article>
+
+                    <aside class="article-sidebar">
+                        <div class="sidebar-widget">
+                            <h4>&#128205; Find a Pro Near You</h4>
+                            <ul>
+                                <li><a href="../locations/jacksonville-fl" style="color: var(--orange-dark); font-weight: 600;">Jacksonville (FL)</a></li>
+                                <li><a href="../locations/mobile-al" style="color: var(--orange-dark); font-weight: 600;">Mobile (AL)</a></li>
+                                <li><a href="../locations/irvine-ca" style="color: var(--orange-dark); font-weight: 600;">Irvine (CA)</a></li>
+                                <li><a href="../locations/tulsa-ok" style="color: var(--orange-dark); font-weight: 600;">Tulsa (OK)</a></li>
+                                <li><a href="../locations/florida" style="color: var(--orange-dark); font-weight: 600;">All Florida Cities</a></li>
+                                <li><a href="../locations/alabama" style="color: var(--orange-dark); font-weight: 600;">All Alabama Cities</a></li>
+                                <li><a href="../locations" style="font-weight: 600;">All Locations &rarr;</a></li>
+                            </ul>
+                        </div>
+                        <div class="sidebar-widget">
+                            <h4>&#128218; Related Guides</h4>
+                            <ul>
+                                <li><a href="complete-ac-troubleshooting-guide">Complete AC Troubleshooting Guide (Pillar)</a></li>
+                                <li><a href="ac-compressor-buzzing-fan-not-spinning">AC Compressor Buzzing, Fan Not Spinning</a></li>
+                                <li><a href="ac-contactor-clicking">AC Contactor Clicking</a></li>
+                                <li><a href="ac-circuit-breaker-trips">AC Tripping the Breaker</a></li>
+                                <li><a href="what-hvac-technician-does-on-service-call">What an HVAC Tech Does on a Service Call</a></li>
+                                <li><a href="../costs">Full HVAC Cost Guide</a></li>
+                                <li><a href="../safety">Safety Tips</a></li>
+                            </ul>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Brand -->
+                <div class="footer-brand">
+                    <a href="../" class="logo"><span class="logo-icon">&#10052;&#65039;</span><span class="logo-text">CoolCall<span class="logo-accent">Pro</span></span></a>
+                    <p>Connecting homeowners with independent HVAC professionals across the US. Available 24/7 in many areas.</p>
+                    <div class="footer-contact">
+                        <a href="tel:+18445821795" class="footer-phone">(844) 582-1795</a>
+                        <span>24/7 Service Line</span>
+                    </div>
+                </div>
+                <!-- Resources -->
+                <div class="footer-col">
+                    <h3 class="footer-heading">Resources</h3>
+                    <ul>
+                        <li><a href="../costs">Cost Guide</a></li>
+                        <li><a href="../emergency">Emergency Service</a></li>
+                        <li><a href="../safety">Safety Tips</a></li>
+                        <li><a href="../articles">All Articles</a></li>
+                        <li><a href="../locations">Locations</a></li>
+                    </ul>
+                </div>
+                <!-- Company -->
+                <div class="footer-col">
+                    <h3 class="footer-heading">Company</h3>
+                    <ul>
+                        <li><a href="../about">About Us</a></li>
+                        <li><a href="../contact">Contact</a></li>
+                        <li><a href="../author-gyanesh">Author</a></li>
+                        <li><a href="../privacy">Privacy Policy</a></li>
+                        <li><a href="../advertising-disclosure">Advertising Disclosure</a></li>
+                    </ul>
+                </div>
+                <!-- Service Areas -->
+                <div class="footer-col">
+                    <h3 class="footer-heading">Service Areas</h3>
+                    <ul class="service-areas">
+                        <li><a href="../locations/atlanta-ga">Atlanta, GA</a></li>
+                        <li><a href="../locations/chicago-il">Chicago, IL</a></li>
+                        <li><a href="../locations/dallas-tx">Dallas, TX</a></li>
+                        <li><a href="../locations/houston-tx">Houston, TX</a></li>
+                        <li><a href="../locations/phoenix-az">Phoenix, AZ</a></li>
+                        <li><a href="../locations">All 50 states &#8594;</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Legal Disclosure + Bottom Bar -->
+            <div class="footer-bottom">
+                <p><strong style="color: rgba(255,255,255,0.9);">How this site works:</strong> We publish HVAC cost and troubleshooting information and may connect callers to independent service providers. We do not perform HVAC services ourselves. Pricing, availability, and response times vary by provider and location.</p>
+                <p><strong style="color: rgba(255,255,255,0.9);">Editorial standards:</strong> Our content focuses on helpful troubleshooting tips and realistic pricing information. We avoid guarantees; actual pricing depends on the provider and situation. We clearly disclose compensation for referrals. We update content for clarity and accuracy when needed.</p>
+                <p><strong style="color: rgba(255,255,255,0.9);">Disclaimer:</strong> Cool Call Pro is a free service to assist homeowners in connecting with local service providers. All contractors/providers are independent and Cool Call Pro does not warrant or guarantee any work performed. It is the responsibility of the homeowner to verify that the hired contractor furnishes the necessary license and insurance required for the work being performed. All persons depicted in a photo or video are actors or models and not contractors listed on Cool Call Pro.</p>
+                <p><strong style="color: rgba(255,255,255,0.9);">Service availability:</strong> Same-day and 24/7 emergency services are subject to provider participation, location, technician availability, and demand. Availability is not guaranteed and may vary by market and appointment capacity.</p>
+                <p>&copy; <span class="copyright-year">2026</span> Cool Call Pro. All rights reserved. &nbsp;&middot;&nbsp; <a href="../privacy">Privacy Policy</a> &nbsp;&middot;&nbsp; <a href="../terms">Terms of Use</a> &nbsp;&middot;&nbsp; <a href="../disclaimer">Disclaimer</a> &nbsp;&middot;&nbsp; <a href="../advertising-disclosure">Advertising Disclosure</a></p>
+            </div>
+        </div>
+    </footer>
+    <script>document.querySelectorAll('.copyright-year').forEach(function(el){el.textContent=new Date().getFullYear()});</script>
+    <script src="../js/main.min.js" defer></script>
+
+    <!-- Mobile Call Bar -->
+    <div class="mobile-call-bar">
+        <a href="tel:+18445821795"><span class="phone-icon">&#128222;</span> Call Now &mdash; (844) 582-1795</a>
+    </div>
+</body>
+
+</html>

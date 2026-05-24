@@ -17,7 +17,7 @@ Then re-run `python generate_link_plan.py` and commit the new CSVs.
 
 | File | What it shows | Rows |
 |------|---------------|------|
-| `article_link_plan.csv` | Each planned article → its 4-5 city links + 2 state hubs + pillar link + cross-cluster anchor | 51 |
+| `article_link_plan.csv` | Each planned article → its 4-5 city links + 2 state hubs + pillar link + cross-cluster anchor | 52 |
 | `city_link_coverage.csv` | Each published city → every article slug that will link to it | 115 |
 | `LINK_PLAN.md` (this file) | Human overview + coverage stats | — |
 
@@ -26,7 +26,7 @@ Then re-run `python generate_link_plan.py` and commit the new CSVs.
 - **Total published cities:** 115
 - **Cities receiving ≥1 article link:** 101 (88%)
 - **Orphan cities (0 planned article links):** 14
-- **Average article links per city:** 1.8
+- **Average article links per city:** 1.9
 - **Max article links to any one city:** 7
 
 ### Cities with 4+ planned article links (watch for crowding)
@@ -34,21 +34,21 @@ Then re-run `python generate_link_plan.py` and commit the new CSVs.
 | City slug | Article links |
 |-----------|---------------|
 | `san-antonio-tx` | 7 |
+| `mobile-al` | 5 |
 | `tucson-az` | 5 |
 | `cheyenne-wy` | 5 |
 | `fresno-ca` | 5 |
-| `mobile-al` | 4 |
 | `san-diego-ca` | 4 |
+| `jacksonville-fl` | 4 |
 | `louisville-ky` | 4 |
 | `el-paso-tx` | 4 |
 | `fayetteville-nc` | 4 |
-| `charlotte-nc` | 4 |
 
 ## Clusters (from cluster_map.json)
 
 | ID | Name | Pillar status | Live articles | Pending articles | Climate weights |
 |----|------|---------------|---------------|------------------|-----------------|
-| C1_ac | AC Troubleshooting & Emergencies | live | 12 | 0 | hot-humid:0.4, tropical:0.1, hot-dry:0.25, mixed-humid:0.25 |
+| C1_ac | AC Troubleshooting & Emergencies | live | 13 | 0 | hot-humid:0.4, tropical:0.1, hot-dry:0.25, mixed-humid:0.25 |
 | C2_furnace | Furnace & Heating Emergencies | live | 4 | 4 | cold:0.5, subarctic:0.1, mountain:0.25, mixed-humid:0.15 |
 | C3_heatpump | Heat Pumps & Modern Systems | live | 1 | 3 | coastal:0.3, mixed-humid:0.4, mountain:0.3 |
 | C4_cost | Repair & Replacement Costs | live | 3 | 7 | all_rotated |
