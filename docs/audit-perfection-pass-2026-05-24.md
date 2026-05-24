@@ -5,7 +5,7 @@ are heuristic suggestions for human review -- see CLAUDE.md sections
 "Topical Authority Without Doorway Risk", "Conversion Arc", and
 "No Assumptions, No Guesswork in Any Article" for the underlying rules.
 
-**Audit scope:** 35 articles
+**Audit scope:** 36 articles
 
 ## Per-article verdict table
 
@@ -32,6 +32,7 @@ are heuristic suggestions for human review -- see CLAUDE.md sections
 | `furnace-not-working-diagnostic-guide` | C2_furnace | complete-ac-troubleshooting-guide (34%) | 6 | - | 2 | minor-FIX |
 | `2026-heat-pump-buyers-guide` | C3_heatpump | heat-pump-vs-gas-furnace (26%) | 5 | 1_symptom | 4 | minor-FIX |
 | `article-heat-pump` | C3_heatpump | complete-ac-troubleshooting-guide (21%) | 5 | 2_stakes | 1 | minor-FIX |
+| `heat-pump-cold-weather-physics-explainer` | C3_heatpump | 2026-heat-pump-buyers-guide (19%) | 6 | - | 0 | PASS |
 | `2026-hvac-cost-guide` | C4_cost | 2026-heat-pump-buyers-guide (21%) | 6 | - | 0 | PASS |
 | `24-hour-hvac-repair` | C4_cost | emergency-hvac-service-cost (24%) | 6 | - | 0 | PASS |
 | `article-hvac-financing` | C4_cost | 2026-hvac-cost-guide (17%) | 6 | - | 0 | PASS |
@@ -101,6 +102,7 @@ _None. All article pairs are below the 40% overlap threshold._
 | `furnace-not-working-diagnostic-guide` | OK | OK | OK | OK | OK | OK |
 | `2026-heat-pump-buyers-guide` | MISS | OK | OK | OK | OK | OK |
 | `article-heat-pump` | OK | MISS | OK | OK | OK | OK |
+| `heat-pump-cold-weather-physics-explainer` | OK | OK | OK | OK | OK | OK |
 | `2026-hvac-cost-guide` | OK | OK | OK | OK | OK | OK |
 | `24-hour-hvac-repair` | OK | OK | OK | OK | OK | OK |
 | `article-hvac-financing` | OK | OK | OK | OK | OK | OK |

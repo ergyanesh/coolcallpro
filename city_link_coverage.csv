@@ -3,7 +3,7 @@ eugene-or,Eugene,OR,coastal,1,2026-heat-pump-buyers-guide
 oakland-ca,Oakland,CA,coastal,0,
 portland-or,Portland,OR,coastal,2,2026-heat-pump-buyers-guide; heat-pump-lukewarm-air
 san-francisco-ca,San Francisco,CA,coastal,2,heat-pump-stuck-in-cooling; heat-pump-defrost-grinding
-san-jose-ca,San Jose,CA,coastal,1,article-heat-pump
+san-jose-ca,San Jose,CA,coastal,2,article-heat-pump; heat-pump-cold-weather-physics-explainer
 seattle-wa,Seattle,WA,coastal,0,
 allentown-pa,Allentown,PA,cold,1,emergency-hvac-service-cost
 baltimore-md,Baltimore,MD,cold,3,furnace-blowing-cold-air-winter; 2026-hvac-cost-guide; article-repair-vs-replace
@@ -78,7 +78,7 @@ charleston-wv,Charleston,WV,mixed-humid,2,24-hour-hvac-repair; heat-pump-vs-gas-
 charlotte-nc,Charlotte,NC,mixed-humid,4,article-winter-storm; furnace-blowing-cold-air-winter; emergency-furnace-repair-guide; mini-split-installation-cost
 chattanooga-tn,Chattanooga,TN,mixed-humid,1,thermostat-blank-ac-wont-start
 columbia-sc,Columbia,SC,mixed-humid,1,article-repair-vs-replace
-dallas-tx,Dallas,TX,mixed-humid,2,emergency-ac-repair-cost-guide; article-heat-pump
+dallas-tx,Dallas,TX,mixed-humid,3,emergency-ac-repair-cost-guide; article-heat-pump; heat-pump-cold-weather-physics-explainer
 fayetteville-nc,Fayetteville,NC,mixed-humid,4,why-is-my-ac-blowing-warm-air; central-air-no-ductwork-cost; emergency-hvac-service-cost; 1000-into-12yo-ac
 fort-worth-tx,Fort Worth,TX,mixed-humid,1,2026-hvac-cost-guide
 greenville-sc,Greenville,SC,mixed-humid,2,article-ac-summer; cost-replace-3-ton-ac
@@ -94,12 +94,12 @@ oklahoma-city-ok,Oklahoma City,OK,mixed-humid,3,complete-ac-troubleshooting-guid
 raleigh-nc,Raleigh,NC,mixed-humid,0,
 richmond-va,Richmond,VA,mixed-humid,3,ac-contactor-clicking; year-round-hvac-maintenance-playbook; article-emergency
 shreveport-la,Shreveport,LA,mixed-humid,3,heat-pump-stuck-in-cooling; heat-pump-defrost-grinding; seer-14-vs-18-payback
-st-louis-mo,St. Louis,MO,mixed-humid,1,what-hvac-technician-does-on-service-call
+st-louis-mo,St. Louis,MO,mixed-humid,2,heat-pump-cold-weather-physics-explainer; what-hvac-technician-does-on-service-call
 tulsa-ok,Tulsa,OK,mixed-humid,3,ac-compressor-buzzing-fan-not-spinning; ac-capacitor-bulging-leaking-safety-check; furnace-burning-plastic-smell
 virginia-beach-va,Virginia Beach,VA,mixed-humid,1,emergency-weekend-hvac-cost
 washington-dc,Washington,DC,mixed-humid,0,
 winston-salem-nc,Winston-Salem,NC,mixed-humid,2,article-furnace; 2026-heat-pump-buyers-guide
-albuquerque-nm,Albuquerque,NM,mountain,2,article-winter-storm; 2026-hvac-cost-guide
+albuquerque-nm,Albuquerque,NM,mountain,3,article-winter-storm; heat-pump-cold-weather-physics-explainer; 2026-hvac-cost-guide
 billings-mt,Billings,MT,mountain,2,emergency-furnace-repair-guide; heat-pump-stuck-in-cooling
 boise-id,Boise,ID,mountain,1,furnace-burning-plastic-smell
 cheyenne-wy,Cheyenne,WY,mountain,5,article-carbon-monoxide; furnace-blowing-cold-air-winter; 2026-heat-pump-buyers-guide; article-heat-pump; repair-or-replace-framework

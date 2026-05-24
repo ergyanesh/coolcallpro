@@ -56,7 +56,7 @@ PRIMARY_SOURCE_DOMAINS = [
     "cdc.gov", "cfpb.gov", "consumerfinance.gov", "noaa.gov", "census.gov",
     "ftc.gov", "doe.gov", "bls.gov", "congress.gov", "govinfo.gov",
     "osha.gov", "nfpa.org",
-    ".edu", "acca.org", "ahri.org", "ashrae.org",
+    ".edu", "acca.org", "ahri.org", "ahrinet.org", "ashrae.org",
 ]
 
 # YMYL log staleness — re-verification cadence.

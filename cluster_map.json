@@ -283,6 +283,21 @@
           "priority": 29,
           "roadmap_id": 29,
           "note": "DEFERRED 2026-05-23 per docs/article-strategy-2026-05-23.md. Do NOT pick this slug for drafting without first passing the 3-question uniqueness test in CLAUDE.md 'Topical Authority Without Doorway Risk' section. The Phase 1 menu at docs/article-strategy-2026-05-23.md is the current priority queue."
+        },
+        {
+          "slug": "heat-pump-cold-weather-physics-explainer",
+          "path": "articles/heat-pump-cold-weather-physics-explainer.html",
+          "title": "Heat Pumps in Cold Weather: The Physics (and Why Yours Still Works at 5F)",
+          "status": "live",
+          "type": "F-explainer",
+          "roadmap_id": 98,
+          "cluster_rebalance_pick": true,
+          "uniqueness_test": {
+            "learn": "The actual thermodynamics of heat-pump operation at sub-freezing outdoor temperatures: why coefficient of performance (COP) drops as outdoor temp drops but a cold-climate heat pump (CCHP) still moves more heat than electric resistance does even at 5F, what variable-speed inverter compressors and vapor-injection technology change about the cold-weather COP curve, the role of auxiliary/backup heat strips, the difference between balance-point heating and pure heat-pump heating, and the relevance of the EPA ENERGY STAR Cold Climate Heat Pump (CCHP) certification spec. Differs from the live 2026-heat-pump-buyers-guide pillar (purchase decision, not physics) and from article-heat-pump (general overview, not cold-weather specific).",
+            "narrative_anchor": "Even at 5F outdoor, your heat pump is moving heat, not making it -- the physics works because there is still energy in the air above absolute zero, and a CCHP is engineered to harvest it efficiently.",
+            "serp_overlap": "Low. Primary competitors are manufacturer pages (Mitsubishi Hyper-Heating, Bosch IDS) and the DOE Cold Climate Heat Pump page. Our angle: aggregator-honest, no brand bias, with the homeowner-decision frame layered onto the physics explanation. <40% overlap vs any existing site article."
+          },
+          "date_published": "2026-05-24"
         }
       ]
     },
@@ -712,5 +727,28 @@
       "type": "cluster"
     }
   ],
-  "_article_writing_warning": "READ THIS BEFORE PICKING ANY ARTICLE TO WRITE. 1. The priority_queue array below is INFORMATIONAL ONLY since 2026-05-23. Do NOT pick the next article from it. 2. The current Phase 1 candidate menu lives in docs/article-strategy-2026-05-23.md (repo-tracked, survives any machine change). 3. Every pending entry in cluster.articles[] now carries a 'note' field explaining it is deferred until it passes the 3-question uniqueness test in CLAUDE.md 'Topical Authority Without Doorway Risk' section. 4. Articles marked status='skipped' are PERMANENTLY skipped for doorway-risk; do not reframe or resurrect. 5. After every 4-6 articles ship, re-pull GSC and re-evaluate from the menu."
+  "_article_writing_warning": "READ THIS BEFORE PICKING ANY ARTICLE TO WRITE. 1. The priority_queue array below is INFORMATIONAL ONLY since 2026-05-23. Do NOT pick the next article from it. 2. The current Phase 1 candidate menu lives in docs/article-strategy-2026-05-23.md (repo-tracked, survives any machine change). 3. Every pending entry in cluster.articles[] now carries a 'note' field explaining it is deferred until it passes the 3-question uniqueness test in CLAUDE.md 'Topical Authority Without Doorway Risk' section. 4. Articles marked status='skipped' are PERMANENTLY skipped for doorway-risk; do not reframe or resurrect. 5. After every 4-6 articles ship, re-pull GSC and re-evaluate from the menu.",
+  "_active_decisions_2026_05_24": {
+    "date": "2026-05-24",
+    "rule": "C1_ac is OVER-WEIGHTED. After Article #2 ships, C1 has 14 articles (~41% of the live site) while C3_heatpump has 2, C5_compare has 6, C6_maint has 5. The cluster-rebalance rule in CLAUDE.md (Topical Authority Without Doorway Risk section) explicitly says STOP ADDING TO C1; expand C3, C5, C6 first.",
+    "enforcement": "Until C3 reaches at least 5 articles AND C6 reaches at least 7, no new C1 articles -- ANY type. Type D (safety) carve-out used for Article #2 is the LAST C1 article under this rule.",
+    "next_article_choice": "Article #3 = C3_heatpump Type F (cold-weather heat-pump physics explainer). Doorway-safe (F-type). Builds the weakest cluster. Roadmap reference: docs/article-strategy-2026-05-23.md candidate #1.",
+    "cluster_live_counts_post_article_2": {
+      "C1_ac": 14,
+      "C2_furnace": 5,
+      "C3_heatpump": 2,
+      "C4_cost": 4,
+      "C5_compare": 6,
+      "C6_maint": 5
+    },
+    "unblock_review_at": "After every 4 articles ship, re-check counts and re-pull GSC. If C3 + C6 are healthier, the next pick can be from any cluster -- but only Types B/D/E/F/G (NOT A or C) until the type mix also rebalances.",
+    "cluster_live_counts_post_article_3": {
+      "C1_ac": 14,
+      "C2_furnace": 5,
+      "C3_heatpump": 3,
+      "C4_cost": 4,
+      "C5_compare": 6,
+      "C6_maint": 5
+    }
+  }
 }

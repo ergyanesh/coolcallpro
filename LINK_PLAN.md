@@ -17,7 +17,7 @@ Then re-run `python generate_link_plan.py` and commit the new CSVs.
 
 | File | What it shows | Rows |
 |------|---------------|------|
-| `article_link_plan.csv` | Each planned article → its 4-5 city links + 2 state hubs + pillar link + cross-cluster anchor | 52 |
+| `article_link_plan.csv` | Each planned article → its 4-5 city links + 2 state hubs + pillar link + cross-cluster anchor | 53 |
 | `city_link_coverage.csv` | Each published city → every article slug that will link to it | 115 |
 | `LINK_PLAN.md` (this file) | Human overview + coverage stats | — |
 
@@ -50,7 +50,7 @@ Then re-run `python generate_link_plan.py` and commit the new CSVs.
 |----|------|---------------|---------------|------------------|-----------------|
 | C1_ac | AC Troubleshooting & Emergencies | live | 13 | 0 | hot-humid:0.4, tropical:0.1, hot-dry:0.25, mixed-humid:0.25 |
 | C2_furnace | Furnace & Heating Emergencies | live | 4 | 4 | cold:0.5, subarctic:0.1, mountain:0.25, mixed-humid:0.15 |
-| C3_heatpump | Heat Pumps & Modern Systems | live | 1 | 3 | coastal:0.3, mixed-humid:0.4, mountain:0.3 |
+| C3_heatpump | Heat Pumps & Modern Systems | live | 2 | 3 | coastal:0.3, mixed-humid:0.4, mountain:0.3 |
 | C4_cost | Repair & Replacement Costs | live | 3 | 7 | all_rotated |
 | C5_compare | Repair-vs-Replace & Comparisons | live | 4 | 0 | all_rotated |
 | C6_maint | Maintenance, Safety & Seasonal | live | 4 | 1 | all_rotated |

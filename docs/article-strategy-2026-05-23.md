@@ -4,6 +4,39 @@ Versioned planning artifact. Lives in the repo so it survives any machine change
 This document is the detailed companion to the "Topical Authority Without
 Doorway Risk" NON-NEGOTIABLE section in [CLAUDE.md](../CLAUDE.md).
 
+## ACTIVE DECISIONS (READ FIRST — updated 2026-05-24)
+
+**Articles shipped under this strategy:**
+- ✅ Article #1 — `what-hvac-technician-does-on-service-call` (C6_maint, Type F) — shipped 2026-05-24
+- ✅ Article #2 — `ac-capacitor-bulging-leaking-safety-check` (C1_ac, Type D) — shipped 2026-05-24
+
+**Live cluster counts after Article #2:** C1=14 · C2=5 · C3=2 · C4=4 · C5=6 · C6=5.
+
+**HARD RULE (locked in 2026-05-24):** **C1_ac is over-weighted and is now CAPPED.**
+No new C1 articles of any type until C3_heatpump reaches at least 5 articles
+AND C6_maint reaches at least 7. The Type D carve-out used to admit Article #2
+was the LAST C1 article under this rule. The cluster rebalance rule from
+CLAUDE.md "Topical Authority Without Doorway Risk" is now load-bearing —
+Google reads cluster depth as a topic-coverage signal, and a 14-article cluster
+next to a 2-article cluster signals topical imbalance regardless of how good
+individual articles are.
+
+**Article #3 = `heat-pump-cold-weather-physics-explainer` (C3_heatpump, Type F)**
+— builds the starved cluster, doorway-safe explainer, primary sources are DOE
+EERE cold-climate heat-pump data + ENERGY STAR Cold Climate Heat Pump (CCHP)
+spec + manufacturer COP curves (Mitsubishi Hyper-Heating, Bosch IDS, etc.).
+
+**Unblock review:** after every 4 articles ship, re-check live cluster counts
+and re-pull GSC. If C3 + C6 are healthier (C3 ≥ 5, C6 ≥ 7), the next pick can
+return to any cluster — but only Types B/D/E/F/G until the type mix is also
+rebalanced (currently A+C ≈ 47% of site; target ≤40%).
+
+The same active decision is mirrored in
+[cluster_map.json `_active_decisions_2026_05_24`](../cluster_map.json) so it
+survives any session that doesn't read this doc.
+
+---
+
 ## Decision
 
 On 2026-05-23 we explicitly decided to publish articles for **unique editorial
