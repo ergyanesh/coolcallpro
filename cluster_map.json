@@ -469,6 +469,20 @@
           "priority": 27,
           "roadmap_id": 91,
           "note": "DEFERRED 2026-05-23 per docs/article-strategy-2026-05-23.md. Do NOT pick this slug for drafting without first passing the 3-question uniqueness test in CLAUDE.md 'Topical Authority Without Doorway Risk' section. The Phase 1 menu at docs/article-strategy-2026-05-23.md is the current priority queue."
+        },
+        {
+          "slug": "what-hvac-technician-does-on-service-call",
+          "path": "articles/what-hvac-technician-does-on-service-call.html",
+          "title": "What an HVAC Technician Actually Does on a Service Call",
+          "status": "live",
+          "type": "F-explainer",
+          "roadmap_id": 96,
+          "uniqueness_test": {
+            "learn": "The 12-15 specific physical actions a competent HVAC tech performs on a routine service call (visual inspection, electrical test sequence, refrigerant pressure measurement, airflow + temperature-split measurement), with sources from DOE EERE residential HVAC guide, ACCA Manual scope, EPA Section 608 cert scope, ENERGY STAR routine maintenance guidance. No live article covers this transparently \u2014 pillar 2026-hvac-cost-guide names the $65-$150 diagnostic fee but does not break down what is inside it; pillar year-round-hvac-maintenance-playbook covers homeowner maintenance, not what the tech does.",
+            "narrative_anchor": "The service-call fee buys you a credentialed eyes-on inspection that you cannot do yourself \u2014 and knowing what they are actually doing for that money makes you a better customer when they call you back with a quote.",
+            "serp_overlap": "Low. Queries like \"what does HVAC technician do on a service call\" / \"what is in HVAC diagnostic fee\" / \"how long does HVAC service call take\" return contractor blogs and Quora \u2014 no neutral aggregator covers this transparently. <40% overlap with any existing site article."
+          },
+          "date_published": "2026-05-24"
         }
       ]
     }

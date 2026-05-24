@@ -21,7 +21,7 @@ des-moines-ia,Des Moines,IA,cold,2,24-hour-hvac-repair; 1000-into-12yo-ac
 detroit-mi,Detroit,MI,cold,4,emergency-furnace-repair-guide; cost-replace-3-ton-ac; article-fall-prep; article-emergency
 fort-wayne-in,Fort Wayne,IN,cold,0,
 grand-rapids-mi,Grand Rapids,MI,cold,4,furnace-blowing-cold-air-winter; furnace-short-cycling; heat-pump-vs-gas-furnace; article-emergency
-hartford-ct,Hartford,CT,cold,1,furnace-short-cycling
+hartford-ct,Hartford,CT,cold,2,furnace-short-cycling; what-hvac-technician-does-on-service-call
 indianapolis-in,Indianapolis,IN,cold,2,cost-replace-3-ton-ac; repair-or-replace-framework
 kansas-city-mo,Kansas City,MO,cold,1,mini-split-installation-cost
 lincoln-ne,Lincoln,NE,cold,3,article-furnace; article-winter-storm; best-merv-rating
@@ -36,7 +36,7 @@ omaha-ne,Omaha,NE,cold,3,furnace-not-working-diagnostic-guide; furnace-ignitor-w
 peoria-il,Peoria,IL,cold,1,emergency-hvac-service-cost
 philadelphia-pa,Philadelphia,PA,cold,0,
 pittsburgh-pa,Pittsburgh,PA,cold,2,furnace-not-working-diagnostic-guide; r410a-recharge-cost
-portland-me,Portland,ME,cold,1,dual-run-capacitor-cost
+portland-me,Portland,ME,cold,2,dual-run-capacitor-cost; what-hvac-technician-does-on-service-call
 providence-ri,Providence,RI,cold,0,
 sioux-falls-sd,Sioux Falls,SD,cold,2,co-detector-furnace-running; article-repair-vs-replace
 springfield-ma,Springfield,MA,cold,1,2026-hvac-cost-guide
@@ -46,7 +46,7 @@ wichita-ks,Wichita,KS,cold,1,article-carbon-monoxide
 wilmington-de,Wilmington,DE,cold,3,article-winter-storm; repair-or-replace-framework; seer-14-vs-18-payback
 worcester-ma,Worcester,MA,cold,0,
 el-paso-tx,El Paso,TX,hot-dry,4,article-refrigerant; thermostat-blank-ac-wont-start; new-furnace-installed-cost; best-merv-rating
-fresno-ca,Fresno,CA,hot-dry,4,cost-replace-3-ton-ac; emergency-hvac-service-cost; repair-or-replace-framework; 1000-into-12yo-ac
+fresno-ca,Fresno,CA,hot-dry,5,cost-replace-3-ton-ac; emergency-hvac-service-cost; repair-or-replace-framework; 1000-into-12yo-ac; what-hvac-technician-does-on-service-call
 glendale-az,Glendale,AZ,hot-dry,1,article-repair-vs-replace
 irvine-ca,Irvine,CA,hot-dry,2,ac-compressor-buzzing-fan-not-spinning; ac-contactor-clicking
 laredo-tx,Laredo,TX,hot-dry,2,hvac-leaking-water-inside-house; article-emergency
@@ -94,7 +94,7 @@ oklahoma-city-ok,Oklahoma City,OK,mixed-humid,3,complete-ac-troubleshooting-guid
 raleigh-nc,Raleigh,NC,mixed-humid,0,
 richmond-va,Richmond,VA,mixed-humid,3,ac-contactor-clicking; year-round-hvac-maintenance-playbook; article-emergency
 shreveport-la,Shreveport,LA,mixed-humid,3,heat-pump-stuck-in-cooling; heat-pump-defrost-grinding; seer-14-vs-18-payback
-st-louis-mo,St. Louis,MO,mixed-humid,0,
+st-louis-mo,St. Louis,MO,mixed-humid,1,what-hvac-technician-does-on-service-call
 tulsa-ok,Tulsa,OK,mixed-humid,2,ac-compressor-buzzing-fan-not-spinning; furnace-burning-plastic-smell
 virginia-beach-va,Virginia Beach,VA,mixed-humid,1,emergency-weekend-hvac-cost
 washington-dc,Washington,DC,mixed-humid,0,

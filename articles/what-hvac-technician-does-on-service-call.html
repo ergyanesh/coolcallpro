@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!--
+    ===================================================================
+    UNIQUENESS RATIONALE — drafted 2026-05-24
+    ===================================================================
+    Per CLAUDE.md "Topical Authority Without Doorway Risk" — the
+    3-question test for this article:
+
+    1. LEARN: The 12-15 specific physical actions a competent HVAC
+       technician performs on a routine residential service call
+       (visual inspection, electrical sequence on capacitor / contactor
+       / motor windings, refrigerant pressure measurement, airflow +
+       temperature-split). No live article covers this — pillar
+       2026-hvac-cost-guide names the $65-$150 diagnostic fee but
+       does not break down what is inside it; pillar
+       year-round-hvac-maintenance-playbook covers homeowner-side
+       maintenance, not what the tech does.
+
+    2. NARRATIVE ANCHOR: The service-call fee buys you a credentialed
+       eyes-on inspection that you cannot do yourself — and knowing
+       what they are actually doing for that money makes you a better
+       customer when they call you back with a quote.
+
+    3. SERP OVERLAP: Low. Queries like "what does HVAC technician do
+       on a service call" / "what is in HVAC diagnostic fee" / "how
+       long does HVAC service call take" return contractor blogs and
+       Quora — no neutral referral aggregator covers this
+       transparently. <40% overlap vs any existing site article.
+    ===================================================================
+    -->
+    <!--
+    ===================================================================
+    YMYL VERIFICATION LOG — last verified 2026-05-24, next due 2026-08-22
+    ===================================================================
+    Per the "Live Verification Discipline" rule in CLAUDE.md, every YMYL
+    factual claim below was WebFetch-verified against the cited primary
+    source on the verification date.
+
+    CLAIM 1: Refrigerant work (recovery, recharge, repair of sealed
+            refrigerant lines) is federally regulated under EPA
+            Section 608 of the Clean Air Act. Certification is legally
+            required for the technician — and applies to routine
+            service calls, not just installations.
+        VERIFIED via EPA Section 608 Technician Certification.
+        URL: https://www.epa.gov/section608
+
+    CLAIM 2: The R-410A to R-454B / R-32 refrigerant transition is
+            driven by the EPA AIM Act and the agency's Technology
+            Transitions program. Sealed-system work on newer R-454B
+            systems requires A2L-rated equipment and updated
+            certification — a real-world reason a tech may decline
+            certain refrigerant tasks on a service call.
+        VERIFIED via EPA AIM Act overview.
+        URL: https://www.epa.gov/climate-hfcs-reduction/aim-act
+
+    CLAIM 3: Diagnostic-fee + service-call labor ranges referenced in
+            this article ($65-$150 diagnostic, emergency surcharge,
+            standard hourly rate) are canonical to costs.html and are
+            not restated here. This article focuses on the technical
+            work performed, not pricing math.
+        Internal canonical: see costs.html and articles/2026-hvac-cost-guide
+            for the full breakdown.
+        URL: https://coolcallpro.com/costs
+
+    CLAIM 4: ENERGY STAR's published HVAC maintenance guidance lists
+            the routine items a contractor should perform on a
+            standard tune-up / service call — coil inspection,
+            airflow check, refrigerant level verification, electrical
+            connection tightness, drain-line check.
+        VERIFIED via ENERGY STAR Heating & Cooling guidance.
+        URL: https://www.energystar.gov/products/energy_star_home_upgrade/clean_heating_cooling
+
+    CLAIM 5: ACCA (Air Conditioning Contractors of America) publishes
+            the technical standards that define contractor scope of
+            work — Manual J (load calculation), Manual D (duct
+            design), Manual S (equipment selection). The scope of a
+            routine service call is governed by these standards
+            rather than improvised per-tech.
+        VERIFIED via ACCA Technical Manuals listing.
+        URL: https://www.acca.org/standards/technical-manuals
+
+    CLAIM 6: DOE EERE's residential HVAC maintenance guidance frames
+            why routine professional service exists: catching wear
+            on electrical components, refrigerant-cycle drift, and
+            airflow restriction before they become failures.
+        VERIFIED via DOE Energy Saver: Maintaining Your Air Conditioner.
+        URL: https://www.energy.gov/energysaver/maintaining-your-air-conditioner
+    ===================================================================
+    -->
+    <!-- Google tag (gtag.js) - GA4 — deferred until first interaction for LCP -->
+    <script>
+        (function() {
+            var loaded = false;
+            function loadGA() {
+                if (loaded) return;
+                loaded = true;
+                var s = document.createElement('script');
+                s.src = 'https://www.googletagmanager.com/gtag/js?id=G-WD0ND0K60Q';
+                s.async = true;
+                document.head.appendChild(s);
+                s.onload = function() {
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){dataLayer.push(arguments);}
+                    window.gtag = gtag;
+                    gtag('js', new Date());
+                    gtag('config', 'G-WD0ND0K60Q');
+                };
+            }
+            ['click', 'scroll', 'touchstart', 'keydown'].forEach(function(evt) {
+                window.addEventListener(evt, loadGA, { once: true, passive: true });
+            });
+            setTimeout(loadGA, 4000);
+        })();
+    </script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index, follow" />
+    <title>What HVAC Techs Do on a Service Call | Cool Call Pro</title>
+    <meta name="description"
+        content="What an HVAC technician actually does in the 45-60 min of a routine service call: the inspection sequence, electrical tests, and what your fee buys." />
+    <link rel="canonical" href="https://coolcallpro.com/articles/what-hvac-technician-does-on-service-call" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="What an HVAC Technician Actually Does on a Service Call" />
+    <meta property="og:description"
+        content="The 12-15 specific physical actions a competent HVAC tech performs on routine service, and what your $65-$150 diagnostic fee buys." />
+    <meta property="og:url" content="https://coolcallpro.com/articles/what-hvac-technician-does-on-service-call" />
+    <meta property="og:site_name" content="Cool Call Pro" />
+    <meta property="article:author" content="Gyanesh Gulshan" />
+    <meta property="article:published_time" content="2026-05-24T00:00:00Z" />
+    <meta property="article:modified_time" content="2026-05-24T00:00:00Z" />
+    <meta property="og:image" content="https://coolcallpro.com/images/hvac_technician_service_call.webp" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="What an HVAC Technician Actually Does on a Service Call | Cool Call Pro" />
+    <meta name="twitter:description" content="The 45-60 minute routine service call, demystified: visual inspection, electrical sequence, refrigerant pressures, and what is in the diagnostic fee." />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+    <link rel="stylesheet" href="../css/style.min.css" />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <!-- Article Schema -->
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "What an HVAC Technician Actually Does on a Service Call (And What You're Paying For)",
+    "description": "The 12-15 specific physical actions a competent HVAC technician performs on a routine 45-60 minute residential service call, and what your diagnostic fee actually buys.",
+    "datePublished": "2026-05-24",
+    "dateModified": "2026-05-24",
+    "author": {
+        "@type": "Person",
+        "name": "Gyanesh Gulshan",
+        "url": "https://coolcallpro.com/author-gyanesh",
+        "image": "https://coolcallpro.com/images/author-gyane.webp",
+        "sameAs": ["https://www.linkedin.com/in/gyaneshgulshan/"]
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Cool Call Pro",
+        "url": "https://coolcallpro.com",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://coolcallpro.com/favicon.svg"
+        }
+    },
+    "image": "https://coolcallpro.com/images/hvac_technician_service_call.webp",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://coolcallpro.com/articles/what-hvac-technician-does-on-service-call"
+    },
+    "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [".tldr-box", ".faq-q", ".faq-a-inner"]
+    },
+    "about": [
+        {"@type": "Thing", "name": "HVAC", "sameAs": "https://en.wikipedia.org/wiki/Heating,_ventilation,_and_air_conditioning"},
+        {"@type": "Thing", "name": "Maintenance", "sameAs": "https://en.wikipedia.org/wiki/Maintenance"},
+        {"@type": "Thing", "name": "Section 608 of the Clean Air Act", "sameAs": "https://www.epa.gov/section608"}
+    ]
+}
+    </script>
+    <!-- Breadcrumb Schema -->
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://coolcallpro.com/"
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Articles",
+            "item": "https://coolcallpro.com/articles"
+        },
+        {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "What an HVAC Technician Actually Does on a Service Call",
+            "item": "https://coolcallpro.com/articles/what-hvac-technician-does-on-service-call"
+        }
+    ]
+}
+    </script>
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "How long does an HVAC service call usually take?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A routine residential service call runs 45 to 60 minutes from arrival to walking back to the truck. Visual inspection of the outdoor and indoor units takes 10 to 15 minutes; the electrical test sequence on capacitor, contactor, and motor windings takes 10 to 15 minutes; refrigerant pressure and airflow measurement takes 10 to 15 minutes; the technician's write-up and homeowner debrief takes 10 minutes. A complex diagnosis (intermittent fault, refrigerant leak hunt, control-board failure) can extend the call to 90 to 120 minutes. Routine seasonal tune-ups follow the same sequence but add coil-cleaning labor and trend toward 60 to 90 minutes."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "What is included in the HVAC diagnostic fee?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The diagnostic fee covers the technician's travel, the eyes-on inspection sequence, the electrical and refrigerant tests, and a written or verbal diagnosis with a repair recommendation. It does NOT include the parts or labor for any repair identified — those are quoted separately and the homeowner authorizes them before work begins. Our cost guide at costs.html lists diagnostic fees in the $65 to $150 range nationally, with the variance driven by metro labor rates and whether the call is during business hours or after-hours. The fee is what you pay for credentialed eyes on the system; the repair is a separate decision."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Can I just describe the problem and have a technician quote a repair without a service call?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Almost always no — and a contractor who quotes a major repair sight-unseen is a red flag. The diagnostic exists because HVAC failures have overlapping symptoms (a unit that won't cool can be low refrigerant, a failed capacitor, a tripped float switch, a dirty coil, or a blown control board — all five present similarly). Skipping the diagnostic means buying the wrong repair. The exception is a clearly visible failure (burned wire, ruptured capacitor, visible refrigerant leak) where a homeowner can photograph the part and a technician can confirm. Even then, the technician verifies on arrival before replacing — that verification is the diagnostic fee at work."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "What information should I have ready when I call to book the service?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Five items make the call efficient and help the dispatcher route the right technician. System type (central AC, heat pump, furnace, mini-split) and approximate age. Brand and model if accessible (the data plate is on the outdoor unit or near the indoor air handler). The symptom in plain language — \"the outdoor unit hums but doesn't start,\" \"warm air from the vents,\" \"thermostat shows no power\" — better than \"it's broken.\" When the symptom started and any recent triggers (storm, breaker reset, thermostat change). Whether anyone vulnerable (infant, elderly, medical condition) is in the home — this changes priority routing. Having these ready turns a 10-minute booking call into a 3-minute one."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "How do I know my technician is doing real diagnostic work and not upselling?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Three signs separate competent diagnostic from upselling. First, the technician spends time on visual inspection and measurement before naming a repair — a tech who walks in, glances at the system, and immediately recommends a $2,000 part is short-circuiting the diagnostic. Second, the recommended repair traces to a specific measurement the tech can show you — a capacitor reading 30 microfarads when the data plate says 45, a temperature split of 8°F when it should be 15-20°F, a high-side pressure 80 psi above the manufacturer's target. Vague language like \"your refrigerant is low and it needs a recharge\" without a pressure reading is a warning sign. Third, the tech offers a repair-vs-replace framework rather than pushing replacement — a 7-year-old system with a $400 repair is rarely a candidate for full replacement, and an honest tech says so. See our repair-or-replace framework for the decision math."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Is the technician federally certified for refrigerant work?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Any technician who handles refrigerant on a sealed system — recovery, recharge, leak repair, line-set work — must hold EPA Section 608 certification. Type II is the certification for high-pressure split-system equipment (most residential central AC and heat pumps). If your service call involves refrigerant work, ask the dispatcher when you book: 'will the technician on this call be Section 608 Type II certified?' A legitimate operator confirms without hedging. As of 2026 some systems are transitioning from R-410A to R-454B refrigerant under the EPA AIM Act, and R-454B is an A2L mildly flammable refrigerant — a technician working on R-454B equipment needs both Section 608 certification and the additional training and tools to handle the A2L class safely. If a tech is hesitant about an R-454B system, that's often a credentialing issue, not a problem with the system."
+            }
+        }
+    ]
+}
+    </script>
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <div class="topbar">
+        <div class="container topbar-inner" style="justify-content: center; padding: 10px; font-weight: 600;">
+            <span class="topbar-text">24/7 Referral Service — Connecting Homeowners with Independent HVAC Professionals</span>
+        </div>
+    </div>
+    <header class="header" id="header">
+        <nav class="nav container" role="navigation" aria-label="Main navigation">
+            <a href="../" class="logo"><span class="logo-icon">&#10052;&#65039;</span><span class="logo-text">CoolCall<span class="logo-accent">Pro</span></span></a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../articles" class="nav-link active">Articles</a></li>
+                <li><a href="../emergency" class="nav-link emergency-link">&#128680; Emergency</a></li>
+                <li><a href="../costs" class="nav-link">Cost Guide</a></li>
+                <li><a href="../safety" class="nav-link">Safety Tips</a></li>
+                <li><a href="../locations" class="nav-link">&#128205; Locations</a></li>
+                <li><a href="../about" class="nav-link">About</a></li>
+                <li><a href="../contact" class="nav-link">Contact</a></li>
+            </ul>
+            <a href="tel:+18445821795" class="btn btn-cta nav-cta btn-vibrate" id="headerNavCta"
+                aria-hidden="true" tabindex="-1"
+                style="opacity: 0; pointer-events: none; transition: opacity 0.3s ease;">
+                <span class="phone-icon">&#128222;</span>
+                <span class="hide-on-mobile">(844) 582-1795</span>
+            </a>
+            <button class="hamburger" id="hamburger" aria-label="Menu">&#9776;</button>
+        </nav>
+    </header>
+
+    <main id="main-content">
+
+        <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+            <div class="container">
+                <ol class="breadcrumb-list">
+                    <li><a href="../">Home</a></li>
+                    <li><a href="../articles">Articles</a></li>
+                    <li>What an HVAC Technician Actually Does on a Service Call</li>
+                </ol>
+            </div>
+        </nav>
+
+        <div class="page-hero">
+            <div class="container">
+                <span class="article-tag tag-guide" style="display:inline-block; margin-bottom:16px;">&#128295; Guide</span>
+                <h1>What an HVAC Technician Actually Does on a Service Call (And What You're Paying For)</h1>
+                <p class="article-disclaimer">For informational purposes only — always consult a qualified HVAC professional for your specific situation.</p>
+                <div class="article-meta-modern"><div class="meta-line meta-published">Published <time datetime="2026-05-24">May 24, 2026</time></div></div>
+                <div class="author-byline">
+                    <img src="../images/author-gyane.webp" alt="Gyanesh Gulshan" class="author-avatar-sm" loading="lazy" width="48" height="48" />
+                    <span>By <a href="../author-gyanesh">Gyanesh Gulshan</a> &mdash; Founder, Cool Call Pro</span>
+                </div>
+            </div>
+        </div>
+
+        <section class="section">
+            <div class="container">
+                <div class="article-layout">
+                    <article class="article-content">
+                        <img src="../images/hvac_technician_service_call.webp" alt="HVAC technician kneeling beside a residential outdoor condenser unit on a concrete pad, holding a manifold gauge set with the service-port hoses connected, performing a routine refrigerant pressure check on a sunny suburban driveway" class="lead-img" fetchpriority="high" width="1280" height="720" />
+
+                        <p class="article-disclosure"><a href="../advertising-disclosure">Advertising Disclosure</a>: This site may receive compensation for service connections made through this page. Content is editorially independent.</p>
+
+                        <div class="callout-box callout-danger" style="margin-top: 24px;">
+                            <div class="callout-icon">&#9888;&#65039;</div>
+                            <div class="callout-text">
+                                <strong>HVAC systems involve high-voltage electricity, pressurized refrigerant, and capacitors that hold a lethal charge even after power is cut. The technician will kill the breaker at the outdoor disconnect before opening any cabinet. Refrigerant handling is federally regulated under <a href="https://www.epa.gov/section608" target="_blank" rel="noopener noreferrer">EPA Section 608</a> and requires technician certification. If you ever smell natural gas in or around the home, evacuate first and call 911 or your gas utility from outside &mdash; that is a 911-tier emergency, not an HVAC-tier service call. Every action described in this article is technician work; it is educational context for the homeowner, not a step-by-step instruction. Always let a qualified HVAC technician handle diagnosis and repair.</strong>
+                            </div>
+                        </div>
+
+                        <div class="tldr-box">
+                            <div class="tldr-label">Key Takeaway</div>
+                            <p>A routine HVAC service call runs <strong>45 to 60 minutes</strong> and follows a defined sequence: visual inspection of the outdoor and indoor units, electrical tests on the capacitor / contactor / motor windings, refrigerant pressure and temperature-split measurement, and a written diagnosis. The <strong>$65 to $150 diagnostic fee</strong> (per our <a href="../costs">cost guide</a>) buys you the technician's time, the eyes-on inspection sequence, and the diagnosis — not the repair itself, which is quoted and authorized separately. Knowing what each step is for makes you a better customer: you can tell competent diagnosis from upselling, you can ask the right questions when the tech calls you with a repair quote, and you can frame the cost as a measurement service rather than an opaque fee.</p>
+                        </div>
+
+                        <h2 id="why-it-matters">You Booked a Service Call. What's the Tech Going to Do?</h2>
+
+                        <p>You called because something is wrong — maybe the AC stopped cooling, maybe the furnace is short-cycling, maybe the new homeowner inspection your real-estate agent recommended. A technician will show up in a service truck, spend somewhere between 45 minutes and an hour at your home, and hand you a written diagnosis with a repair recommendation. <strong>What is actually happening during that hour?</strong></p>
+
+                        <p>This article walks through the routine sequence a competent technician follows on a residential service call. It is not a DIY guide — every action described is technician work governed by federal certification and the safety realities of working on a system that carries 240V at the disconnect, refrigerant under 250+ psi, and a capacitor that holds a lethal charge for minutes after power is cut. It is, instead, a transparency guide: knowing what the tech is doing for your money makes you a better customer when they come back to you with a quote. If the tech is shortcutting the sequence, you'll notice. If the tech is being thorough, you can frame the bill correctly. And when the call ends with a repair recommendation, you'll be able to weigh it against the framework in our <a href="repair-or-replace-framework">repair-or-replace decision guide</a> rather than guessing.</p>
+
+                        <p>Two upstream notes. First, the pricing math for the call is not in this article — diagnostic fees, after-hours surcharges, and standard hourly rates live in <a href="../costs">our cost guide</a> and the <a href="2026-hvac-cost-guide">2026 HVAC cost pillar</a>. This article is the technical-work companion. Second, the homeowner's pre-call DIY check is intentionally minimal — that's covered in the pre-call section below and matches the site-wide DIY cap.</p>
+
+                        <h2 id="why-pay">Why Pay for This At All? (The Stakes If You Skip It)</h2>
+
+                        <p>Three failure modes exist when a homeowner tries to short-circuit the diagnostic step. Each costs more than the $65-$150 fee they're trying to save.</p>
+
+                        <p><strong>Buying the wrong repair.</strong> A central AC that won't cool can be caused by at least seven distinct failures: low refrigerant from a sealed-system leak, a failed run capacitor, a tripped float switch on a clogged drain, a dirty evaporator coil restricting airflow, a failed contactor, a blown control board, or a stuck reversing valve on a heat-pump in cooling mode. All seven present with the same homeowner-visible symptom — "the air coming out isn't cold." A homeowner who skips the diagnostic and orders a "refrigerant recharge" online (which is illegal for an uncertified person to perform under <a href="https://www.epa.gov/section608" target="_blank" rel="noopener noreferrer">EPA Section 608</a>) buys a recharge for a system whose actual problem is a $40 capacitor. The capacitor still fails the next day, and the new refrigerant leaks out within months.</p>
+
+                        <p><strong>Missing a secondary failure.</strong> A capacitor doesn't usually fail because it got old in isolation — it fails because the compressor is drawing higher amperage than the capacitor was sized for, which is a symptom of a different problem (compressor wear, condenser-fan motor wear, low refrigerant raising amp draw). A technician who replaces a capacitor without measuring the compressor amp draw and the suction-line temperature is replacing the most-visible part without diagnosing the underlying cause. A homeowner doing it themselves has no diagnostic at all, and the new capacitor fails on the same cycle that killed the first one. The U.S. Department of Energy's <a href="https://www.energy.gov/energysaver/maintaining-your-air-conditioner" target="_blank" rel="noopener noreferrer">residential HVAC maintenance guidance</a> frames this exact pattern: the catchable failure is the symptom; the diagnosable failure is the cause; only the cause stops the recurrence.</p>
+
+                        <p><strong>Voiding warranties or breaking sealed-system seals.</strong> Most residential HVAC manufacturer warranties require service by a qualified contractor following <a href="https://www.acca.org/standards/technical-manuals" target="_blank" rel="noopener noreferrer">ACCA technical standards</a>. A homeowner who opens the sealed refrigerant loop — even to "just check the pressure" — voids the system warranty and, on R-454B systems being deployed in 2026 under the <a href="https://www.epa.gov/climate-hfcs-reduction/aim-act" target="_blank" rel="noopener noreferrer">EPA AIM Act</a> refrigerant transition, breaks the A2L safety chain. The diagnostic fee is the cost of having a credentialed technician put eyes on the system without breaking the warranty.</p>
+
+                        <h2 id="diy-boundary">What You Can Safely Do Before the Tech Arrives</h2>
+
+                        <p>A short list of safe homeowner actions exists, and it stops there. Do these before the call so you don't pay a diagnostic fee for a problem you could have fixed yourself in two minutes:</p>
+
+                        <ol>
+                            <li><strong>Check that your air filter isn't the problem.</strong> A clogged filter restricts airflow, freezes the coil, and presents as "the AC isn't cooling." Replace it with a clean one (MERV 8 to 11 is fine for most homes) and run the system for an hour before deciding to call.</li>
+                            <li><strong>Verify the thermostat setting.</strong> Make sure it's in COOL or HEAT mode (not OFF or eco/away), the setpoint is at least 3°F away from the current room temperature, and the batteries aren't dead if it's battery-powered.</li>
+                            <li><strong>Clear physical debris from around the outdoor unit.</strong> Leaves, grass clippings, or a pile of mulch within 2 feet of the condenser restricts airflow. Move the debris back without touching the unit itself or running anything against the fins.</li>
+                            <li><strong>Flush the condensate drain line with a half-cup of white vinegar.</strong> A clogged drain trips the float switch, which in turn shuts off the AC. The flush is done at the indoor cleanout (the capped PVC pipe near the air handler).</li>
+                        </ol>
+
+                        <p><strong>That is the full safe homeowner list.</strong> Do not open any electrical panel, do not touch the capacitor or contactor, do not test voltage, do not jumper any safety switch, do not add or recover refrigerant, do not pull the disconnect at the outdoor unit. Each of those actions is technician work, and the consequences for a homeowner getting any of them wrong range from a destroyed compressor to a fatal capacitor discharge to a federal Section 608 violation. The site-wide <a href="../safety">safety page</a> covers the boundary in more detail.</p>
+
+                        <p>If the four checks above don't restore operation, book the call. The diagnostic fee is what comes next, and the next five sections are what your fee buys.</p>
+
+                        <!-- CTA 1 -->
+                        <div class="callout-box"
+                            style="background: var(--gray-900); color: white; border: none; padding: 24px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.15); display: flex; flex-direction: column; align-items: center; text-align: center; margin: 32px 0;">
+                            <div
+                                style="font-size: 1.25rem; font-weight: 700; font-family: var(--font-display); margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+                                <span>&#128295;</span> Need Professional Help?
+                            </div>
+                            <p style="color: rgba(255,255,255,0.8); margin-bottom: 20px; font-size: 0.95rem;">
+                                Connect with an independent HVAC technician in your area to walk through the diagnostic in person.
+                            </p>
+                            <a href="tel:+18445821795" class="btn btn-primary btn-lg btn-vibrate"><span class="phone-icon">&#128222;</span> Call Now — (844) 582-1795</a>
+                            <p style="color: rgba(255,255,255,0.6); font-size: 0.72rem; margin-top: 12px; max-width: 340px; line-height: 1.5;">Disclosure: We are a referral service and may receive compensation for qualified calls. Calls may be routed to an independent provider network and may be recorded. Pricing and availability vary by provider and location.</p>
+                        </div>
+
+                        <h2 id="step-by-step">The Routine Service Call, Step by Step</h2>
+
+                        <p>A competent technician follows a roughly fixed sequence on a residential service call. The sequence is standardized by trade-association practice — the <a href="https://www.acca.org/standards/technical-manuals" target="_blank" rel="noopener noreferrer">ACCA technical standards</a> and the routine items in <a href="https://www.energystar.gov/products/energy_star_home_upgrade/clean_heating_cooling" target="_blank" rel="noopener noreferrer">ENERGY STAR's HVAC maintenance guidance</a> — and varies modestly by service-call type (no-cool diagnostic vs. seasonal tune-up vs. follow-up on a known fault). What follows is the routine no-cool / no-heat diagnostic structure.</p>
+
+                        <h3>1. Arrival and homeowner interview (5 to 10 minutes)</h3>
+
+                        <p>Before touching the system, the technician asks the homeowner to describe the symptom, when it started, what's been tried, and any recent triggers (a thunderstorm, a power outage, a thermostat change). This isn't filler — the interview narrows the diagnostic from "all possible causes" to "two or three likely candidates," which determines which tests get run first. A tech who skips the interview and walks straight to the unit is either very experienced and recognizing a pattern, or rushing.</p>
+
+                        <h3>2. Indoor inspection: thermostat, filter, air handler, drain line (10 to 15 minutes)</h3>
+
+                        <p>The technician verifies the thermostat is calling for cooling (or heating) — confirming the request is reaching the equipment. The air filter is pulled and inspected; a coated or clogged filter is logged as a contributing cause. At the air handler, the tech opens the access panel (technician work — the panel sometimes carries a safety switch that cuts power, and there is high-voltage wiring inside) and looks at the evaporator coil, blower wheel, and electrical connections. The condensate drain line gets a visual check at the trap and the float switch. Frost on the evaporator coil, a slipping blower belt (on older units), or scorched wiring at the contactor are common findings here.</p>
+
+                        <h3>3. Outdoor unit visual inspection (5 minutes)</h3>
+
+                        <p>The technician walks around the condenser, checking for bent fins, debris in the coil, an unlevel pad, signs of refrigerant leak (oily residue on the line set or service valves), and the condition of the disconnect. The data plate is photographed for the model and serial number — important for parts ordering and warranty lookup, and required for ENERGY STAR rebate verification on newer systems.</p>
+
+                        <h3>4. Electrical sequence: capacitor, contactor, motor windings (10 to 15 minutes)</h3>
+
+                        <p>This is the heart of the diagnostic on most no-cool / no-heat calls. With the disconnect pulled and the capacitor properly discharged (technician work — the lethal-charge risk is real), the tech measures:</p>
+                        <ul>
+                            <li><strong>Run-capacitor microfarad reading vs. the data-plate rating.</strong> A capacitor whose measured µF is more than 6% below the rated value is failing and is the cause on a meaningful share of summer no-cool calls.</li>
+                            <li><strong>Contactor condition.</strong> Pitting, welding, or excessive carbon on the contacts indicates electrical wear; the contactor is checked for proper pull-in voltage.</li>
+                            <li><strong>Compressor and fan-motor winding resistance.</strong> Each winding (start, run, common) is measured with a multimeter — open or shorted windings are the diagnostic for a failed motor.</li>
+                            <li><strong>Amp draw under load.</strong> Once power is restored and the system runs, the tech clamps an ammeter on the compressor and fan-motor leads to compare actual draw against rated. High amp draw on the compressor suggests early wear; high amp draw on the fan motor often means bearing failure or restricted airflow.</li>
+                        </ul>
+
+                        <p>The electrical sequence produces specific numbers a competent tech will share — "your capacitor reads 32 microfarads on a 45 rating," "your compressor pulls 18 amps under a 16-amp rated load." Vague language like "the electrical side looks rough" without numbers is a sign the sequence wasn't actually run.</p>
+
+                        <h3>5. Refrigerant cycle: pressures, superheat, subcool, temperature split (10 to 15 minutes)</h3>
+
+                        <p>On a sealed-system diagnostic, the technician connects a manifold gauge set to the service ports — technician work governed by <a href="https://www.epa.gov/section608" target="_blank" rel="noopener noreferrer">EPA Section 608</a> certification, since opening the service ports is regulated refrigerant work. Once connected, the readings include:</p>
+                        <ul>
+                            <li><strong>High-side and low-side pressure</strong> compared against the manufacturer's published pressure-temperature chart for the outdoor temperature and refrigerant type (R-410A on most systems through 2025; R-454B on new installations starting 2025 under the AIM Act).</li>
+                            <li><strong>Superheat</strong> on the suction line (calculated from the low-side pressure and the line temperature) — confirms the metering device is feeding refrigerant correctly.</li>
+                            <li><strong>Subcool</strong> on the liquid line — confirms the condenser is releasing heat correctly and is the key diagnostic for refrigerant charge.</li>
+                            <li><strong>Indoor temperature split</strong> across the evaporator coil — the difference between return-air temperature and supply-air temperature, expected at 15-20°F on a properly charged system in cooling mode. A 6-8°F split with good airflow is the classic low-refrigerant signature.</li>
+                        </ul>
+
+                        <p>The refrigerant readings are where most "you need a recharge" upsell happens. A competent tech does not recharge based on pressure alone — they confirm the charge call with subcool and temperature split, and they look for the source of the loss before adding refrigerant. Refrigerant in a sealed loop does not "use itself up" — if the charge is low, the system has a leak, and the leak needs to be found and repaired before topping off. A tech who recharges without leak-searching is selling you the same recharge again next year.</p>
+
+                        <h3>6. Diagnosis, written estimate, and homeowner debrief (10 minutes)</h3>
+
+                        <p>The technician closes the call with a written or in-app diagnosis listing the findings, the recommended repair, the parts and labor breakdown, and the warranty terms for the repair. On a no-cool call this might read: "Run capacitor failed at 32µF vs. 45µF rating. Replace dual-run capacitor, $190 parts + labor. 90-day workmanship warranty, manufacturer warranty on the part per the parts supplier." On a leak-finding call the estimate is structured differently — leak-search labor, the repair labor, and the refrigerant recharge after the repair is verified.</p>
+
+                        <h2 id="trust-signals">How to Spot a Competent Diagnostic vs. an Upsell</h2>
+
+                        <p>Three patterns reliably separate honest diagnosis from upselling, and a homeowner who knows them goes into the post-diagnostic conversation with leverage rather than anxiety.</p>
+
+                        <p><strong>Specific measurements tied to specific repairs.</strong> A tech who recommends a capacitor replacement should be able to tell you the measured microfarad reading and the rated reading. A tech who recommends a refrigerant recharge should be able to tell you the high-side pressure, low-side pressure, subcool, and temperature split. A tech who recommends a coil cleaning should be able to point at a coated coil. If the recommendation comes without a measurement, ask for the measurement — competent techs welcome the question because the measurements justify their work.</p>
+
+                        <p><strong>Repair-first framing on systems under 10 years.</strong> Most residential HVAC manufacturer warranties cover compressors for 5 to 10 years and other parts for 5 years from registration, and the system itself is generally serviceable for 12 to 18 years. A tech who walks into a 6-year-old system and recommends full replacement after a $400 capacitor failure is upselling. A tech who runs the <a href="repair-or-replace-framework">repair-or-replace decision math</a> — repair cost vs. equipment age vs. expected remaining life — is doing the work honestly. Both come up in real-world calls; the framing tells you which.</p>
+
+                        <p><strong>A clean separation between the diagnostic fee and the repair authorization.</strong> The diagnostic fee is for the inspection and the diagnosis. The repair is a separate decision the homeowner authorizes after seeing the quote. A tech who tries to start the repair without an authorization step is rushing past the consent gate. A reasonable boundary: "I diagnosed the capacitor — here's the quote — yes or no to the replacement, and we proceed from there." When a service-call quote rolls the diagnostic fee plus parts plus labor into a single number without breakdown, ask for the breakdown.</p>
+
+                        <h2 id="cta-prep">When You're Ready to Book: What to Tell the Dispatcher</h2>
+
+                        <p>The most efficient service-call booking takes about 3 minutes if you have five items ready before the dispatcher answers: the system type and approximate age, the brand and model from the data plate if you can see it, the symptom in plain language (not "it's broken" — "the outdoor unit hums but doesn't start" is much more useful), when the symptom started, and whether anyone vulnerable to temperature extremes (infant, elderly, medical condition) is in the home. Five items, three minutes, and the dispatcher routes the right technician with the right parts.</p>
+
+                        <p>Climate context: in cold-climate metros like <a href="../locations/hartford-ct">Hartford, Connecticut</a> and <a href="../locations/portland-me">Portland, Maine</a>, winter no-heat service calls dominate, and the sequence above is run on a furnace or heat-pump rather than central AC — but the structure is identical (visual, electrical, combustion-or-refrigerant, debrief). In mixed-humid metros like <a href="../locations/st-louis-mo">St. Louis, Missouri</a>, both seasons generate calls. In hot-dry metros like <a href="../locations/fresno-ca">Fresno, California</a>, summer AC service calls drive most of the year's volume. The sequence travels.</p>
+
+                        <p>For the broader maintenance picture — what should be inspected on a routine seasonal tune-up vs. a no-cool diagnostic, when each is appropriate, and how the two relate — see our <a href="year-round-hvac-maintenance-playbook">year-round HVAC maintenance playbook</a>. For the symptom-side companion (when the no-cool diagnostic is the right service call to book), see our <a href="complete-ac-troubleshooting-guide">complete AC troubleshooting guide</a>. For the cost side, our <a href="../costs">cost guide</a> and the <a href="2026-hvac-cost-guide">2026 HVAC cost pillar</a> cover diagnostic-fee ranges, after-hours surcharges, and what a fair quote looks like.</p>
+
+                        <h3>Trusted Industry Sources</h3>
+                        <p>The diagnostic-sequence and certification claims in this article are consistent with published guidance from:</p>
+                        <ul>
+                            <li><a href="https://www.epa.gov/section608" target="_blank" rel="noopener noreferrer">EPA &mdash; Section 608 Technician Certification</a></li>
+                            <li><a href="https://www.epa.gov/climate-hfcs-reduction/aim-act" target="_blank" rel="noopener noreferrer">EPA &mdash; AIM Act (refrigerant transition)</a></li>
+                            <li><a href="https://www.energy.gov/energysaver/maintaining-your-air-conditioner" target="_blank" rel="noopener noreferrer">U.S. Department of Energy &mdash; Maintaining Your Air Conditioner</a></li>
+                            <li><a href="https://www.energystar.gov/products/energy_star_home_upgrade/clean_heating_cooling" target="_blank" rel="noopener noreferrer">ENERGY STAR &mdash; Clean Heating &amp; Cooling</a></li>
+                            <li><a href="https://www.acca.org/standards/technical-manuals" target="_blank" rel="noopener noreferrer">ACCA &mdash; Technical Manuals</a></li>
+                        </ul>
+
+                        <!-- CTA 2 -->
+                        <div class="callout-box"
+                            style="background: var(--gray-900); color: white; border: none; padding: 24px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.15); display: flex; flex-direction: column; align-items: center; text-align: center; margin: 32px 0;">
+                            <div
+                                style="font-size: 1.25rem; font-weight: 700; font-family: var(--font-display); margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+                                <span>&#128205;</span> Want a Pro to Handle It?
+                            </div>
+                            <p style="color: rgba(255,255,255,0.8); margin-bottom: 20px; font-size: 0.95rem;">
+                                A technician can walk you through the diagnostic in person and itemize the repair before any work begins.
+                            </p>
+                            <a href="tel:+18445821795" class="btn btn-primary btn-lg btn-vibrate"><span class="phone-icon">&#128222;</span> Call Now — (844) 582-1795</a>
+                            <p style="color: rgba(255,255,255,0.6); font-size: 0.72rem; margin-top: 12px; max-width: 340px; line-height: 1.5;">Disclosure: We are a referral service and may receive compensation for qualified calls. Calls may be routed to an independent provider network and may be recorded. Pricing and availability vary by provider and location.</p>
+                        </div>
+
+                        <h2 id="faqs">Frequently Asked Questions</h2>
+
+                        <div class="faq-item">
+                            <button class="faq-q" aria-expanded="false" aria-controls="faq-hvac-tech-call-1"><span>How long does an HVAC service call usually take?</span><span class="faq-icon"></span></button>
+                            <div class="faq-a" id="faq-hvac-tech-call-1"><div class="faq-a-inner">
+                                <p>A routine residential service call runs 45 to 60 minutes from arrival to walking back to the truck. Visual inspection of the outdoor and indoor units takes 10 to 15 minutes; the electrical test sequence on capacitor, contactor, and motor windings takes 10 to 15 minutes; refrigerant pressure and airflow measurement takes 10 to 15 minutes; the technician's write-up and homeowner debrief takes 10 minutes. A complex diagnosis (intermittent fault, refrigerant leak hunt, control-board failure) can extend the call to 90 to 120 minutes. Routine seasonal tune-ups follow the same sequence but add coil-cleaning labor and trend toward 60 to 90 minutes.</p>
+                            </div></div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-q" aria-expanded="false" aria-controls="faq-hvac-tech-call-2"><span>What is included in the HVAC diagnostic fee?</span><span class="faq-icon"></span></button>
+                            <div class="faq-a" id="faq-hvac-tech-call-2"><div class="faq-a-inner">
+                                <p>The diagnostic fee covers the technician's travel, the eyes-on inspection sequence, the electrical and refrigerant tests, and a written or verbal diagnosis with a repair recommendation. It does NOT include the parts or labor for any repair identified &mdash; those are quoted separately and the homeowner authorizes them before work begins. Our <a href="../costs">cost guide</a> lists diagnostic fees in the $65 to $150 range nationally, with the variance driven by metro labor rates and whether the call is during business hours or after-hours. The fee is what you pay for credentialed eyes on the system; the repair is a separate decision.</p>
+                            </div></div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-q" aria-expanded="false" aria-controls="faq-hvac-tech-call-3"><span>Can I just describe the problem and have a technician quote a repair without a service call?</span><span class="faq-icon"></span></button>
+                            <div class="faq-a" id="faq-hvac-tech-call-3"><div class="faq-a-inner">
+                                <p>Almost always no &mdash; and a contractor who quotes a major repair sight-unseen is a red flag. The diagnostic exists because HVAC failures have overlapping symptoms (a unit that won't cool can be low refrigerant, a failed capacitor, a tripped float switch, a dirty coil, or a blown control board &mdash; all five present similarly). Skipping the diagnostic means buying the wrong repair. The exception is a clearly visible failure (burned wire, ruptured capacitor, visible refrigerant leak) where a homeowner can photograph the part and a technician can confirm. Even then, the technician verifies on arrival before replacing &mdash; that verification is the diagnostic fee at work.</p>
+                            </div></div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-q" aria-expanded="false" aria-controls="faq-hvac-tech-call-4"><span>What information should I have ready when I call to book the service?</span><span class="faq-icon"></span></button>
+                            <div class="faq-a" id="faq-hvac-tech-call-4"><div class="faq-a-inner">
+                                <p>Five items make the call efficient and help the dispatcher route the right technician. System type (central AC, heat pump, furnace, mini-split) and approximate age. Brand and model if accessible (the data plate is on the outdoor unit or near the indoor air handler). The symptom in plain language &mdash; "the outdoor unit hums but doesn't start," "warm air from the vents," "thermostat shows no power" &mdash; better than "it's broken." When the symptom started and any recent triggers (storm, breaker reset, thermostat change). Whether anyone vulnerable (infant, elderly, medical condition) is in the home &mdash; this changes priority routing. Having these ready turns a 10-minute booking call into a 3-minute one.</p>
+                            </div></div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-q" aria-expanded="false" aria-controls="faq-hvac-tech-call-5"><span>How do I know my technician is doing real diagnostic work and not upselling?</span><span class="faq-icon"></span></button>
+                            <div class="faq-a" id="faq-hvac-tech-call-5"><div class="faq-a-inner">
+                                <p>Three signs separate competent diagnostic from upselling. First, the technician spends time on visual inspection and measurement before naming a repair &mdash; a tech who walks in, glances at the system, and immediately recommends a $2,000 part is short-circuiting the diagnostic. Second, the recommended repair traces to a specific measurement the tech can show you &mdash; a capacitor reading 30 microfarads when the data plate says 45, a temperature split of 8&deg;F when it should be 15-20&deg;F, a high-side pressure 80 psi above the manufacturer's target. Vague language like "your refrigerant is low and it needs a recharge" without a pressure reading is a warning sign. Third, the tech offers a repair-vs-replace framework rather than pushing replacement &mdash; a 7-year-old system with a $400 repair is rarely a candidate for full replacement, and an honest tech says so. See our <a href="repair-or-replace-framework">repair-or-replace framework</a> for the decision math.</p>
+                            </div></div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-q" aria-expanded="false" aria-controls="faq-hvac-tech-call-6"><span>Is the technician federally certified for refrigerant work?</span><span class="faq-icon"></span></button>
+                            <div class="faq-a" id="faq-hvac-tech-call-6"><div class="faq-a-inner">
+                                <p>Any technician who handles refrigerant on a sealed system &mdash; recovery, recharge, leak repair, line-set work &mdash; must hold <a href="https://www.epa.gov/section608" target="_blank" rel="noopener noreferrer">EPA Section 608</a> certification. Type II is the certification for high-pressure split-system equipment (most residential central AC and heat pumps). If your service call involves refrigerant work, ask the dispatcher when you book: "will the technician on this call be Section 608 Type II certified?" A legitimate operator confirms without hedging. As of 2026 some systems are transitioning from R-410A to R-454B refrigerant under the <a href="https://www.epa.gov/climate-hfcs-reduction/aim-act" target="_blank" rel="noopener noreferrer">EPA AIM Act</a>, and R-454B is an A2L mildly flammable refrigerant &mdash; a technician working on R-454B equipment needs both Section 608 certification and the additional training and tools to handle the A2L class safely. If a tech is hesitant about an R-454B system, that's often a credentialing issue, not a problem with the system.</p>
+                            </div></div>
+                        </div>
+
+                        <h3>Local HVAC Service Areas</h3>
+                        <p>Cool Call Pro connects homeowners with independent HVAC technicians nationwide. Find a pro in <a href="../locations/hartford-ct" style="color: var(--orange-dark); font-weight: 600;">Hartford (CT)</a>, <a href="../locations/portland-me" style="color: var(--orange-dark); font-weight: 600;">Portland (ME)</a>, <a href="../locations/st-louis-mo" style="color: var(--orange-dark); font-weight: 600;">St. Louis (MO)</a>, or <a href="../locations/fresno-ca" style="color: var(--orange-dark); font-weight: 600;">Fresno (CA)</a>, or browse by state: <a href="../locations/connecticut" style="color: var(--orange-dark); font-weight: 600;">Connecticut</a>, <a href="../locations/maine" style="color: var(--orange-dark); font-weight: 600;">Maine</a>, or <a href="../locations" style="color: var(--orange-dark); font-weight: 600;">all locations</a>.</p>
+
+                    </article>
+
+                    <aside class="article-sidebar">
+                        <div class="sidebar-widget">
+                            <h4>&#128205; Find a Pro Near You</h4>
+                            <ul>
+                                <li><a href="../locations/hartford-ct" style="color: var(--orange-dark); font-weight: 600;">Hartford (CT)</a></li>
+                                <li><a href="../locations/portland-me" style="color: var(--orange-dark); font-weight: 600;">Portland (ME)</a></li>
+                                <li><a href="../locations/st-louis-mo" style="color: var(--orange-dark); font-weight: 600;">St. Louis (MO)</a></li>
+                                <li><a href="../locations/fresno-ca" style="color: var(--orange-dark); font-weight: 600;">Fresno (CA)</a></li>
+                                <li><a href="../locations/connecticut" style="color: var(--orange-dark); font-weight: 600;">All Connecticut Cities</a></li>
+                                <li><a href="../locations/maine" style="color: var(--orange-dark); font-weight: 600;">All Maine Cities</a></li>
+                                <li><a href="../locations" style="font-weight: 600;">All Locations &rarr;</a></li>
+                            </ul>
+                        </div>
+                        <div class="sidebar-widget">
+                            <h4>&#128218; Related Guides</h4>
+                            <ul>
+                                <li><a href="year-round-hvac-maintenance-playbook">Year-Round HVAC Maintenance Playbook</a></li>
+                                <li><a href="repair-or-replace-framework">Repair-or-Replace Framework</a></li>
+                                <li><a href="complete-ac-troubleshooting-guide">Complete AC Troubleshooting Guide</a></li>
+                                <li><a href="2026-hvac-cost-guide">2026 HVAC Cost Guide (Pillar)</a></li>
+                                <li><a href="../costs">Full HVAC Cost Guide</a></li>
+                                <li><a href="../safety">Safety Tips</a></li>
+                            </ul>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Brand -->
+                <div class="footer-brand">
+                    <a href="../" class="logo"><span class="logo-icon">&#10052;&#65039;</span><span class="logo-text">CoolCall<span class="logo-accent">Pro</span></span></a>
+                    <p>Connecting homeowners with independent HVAC professionals across the US. Available 24/7 in many areas.</p>
+                    <div class="footer-contact">
+                        <a href="tel:+18445821795" class="footer-phone">(844) 582-1795</a>
+                        <span>24/7 Service Line</span>
+                    </div>
+                </div>
+                <!-- Resources -->
+                <div class="footer-col">
+                    <h3 class="footer-heading">Resources</h3>
+                    <ul>
+                        <li><a href="../costs">Cost Guide</a></li>
+                        <li><a href="../emergency">Emergency Service</a></li>
+                        <li><a href="../safety">Safety Tips</a></li>
+                        <li><a href="../articles">All Articles</a></li>
+                        <li><a href="../locations">Locations</a></li>
+                    </ul>
+                </div>
+                <!-- Company -->
+                <div class="footer-col">
+                    <h3 class="footer-heading">Company</h3>
+                    <ul>
+                        <li><a href="../about">About Us</a></li>
+                        <li><a href="../contact">Contact</a></li>
+                        <li><a href="../author-gyanesh">Author</a></li>
+                        <li><a href="../privacy">Privacy Policy</a></li>
+                        <li><a href="../advertising-disclosure">Advertising Disclosure</a></li>
+                    </ul>
+                </div>
+                <!-- Service Areas -->
+                <div class="footer-col">
+                    <h3 class="footer-heading">Service Areas</h3>
+                    <ul class="service-areas">
+                        <li><a href="../locations/atlanta-ga">Atlanta, GA</a></li>
+                        <li><a href="../locations/chicago-il">Chicago, IL</a></li>
+                        <li><a href="../locations/dallas-tx">Dallas, TX</a></li>
+                        <li><a href="../locations/houston-tx">Houston, TX</a></li>
+                        <li><a href="../locations/phoenix-az">Phoenix, AZ</a></li>
+                        <li><a href="../locations">All 50 states &#8594;</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Legal Disclosure + Bottom Bar -->
+            <div class="footer-bottom">
+                <p><strong style="color: rgba(255,255,255,0.9);">How this site works:</strong> We publish HVAC cost and troubleshooting information and may connect callers to independent service providers. We do not perform HVAC services ourselves. Pricing, availability, and response times vary by provider and location.</p>
+                <p><strong style="color: rgba(255,255,255,0.9);">Editorial standards:</strong> Our content focuses on helpful troubleshooting tips and realistic pricing information. We avoid guarantees; actual pricing depends on the provider and situation. We clearly disclose compensation for referrals. We update content for clarity and accuracy when needed.</p>
+                <p><strong style="color: rgba(255,255,255,0.9);">Disclaimer:</strong> Cool Call Pro is a free service to assist homeowners in connecting with local service providers. All contractors/providers are independent and Cool Call Pro does not warrant or guarantee any work performed. It is the responsibility of the homeowner to verify that the hired contractor furnishes the necessary license and insurance required for the work being performed. All persons depicted in a photo or video are actors or models and not contractors listed on Cool Call Pro.</p>
+                <p><strong style="color: rgba(255,255,255,0.9);">Service availability:</strong> Same-day and 24/7 emergency services are subject to provider participation, location, technician availability, and demand. Availability is not guaranteed and may vary by market and appointment capacity.</p>
+                <p>&copy; <span class="copyright-year">2026</span> Cool Call Pro. All rights reserved. &nbsp;&middot;&nbsp; <a href="../privacy">Privacy Policy</a> &nbsp;&middot;&nbsp; <a href="../terms">Terms of Use</a> &nbsp;&middot;&nbsp; <a href="../disclaimer">Disclaimer</a> &nbsp;&middot;&nbsp; <a href="../advertising-disclosure">Advertising Disclosure</a></p>
+            </div>
+        </div>
+    </footer>
+    <script>document.querySelectorAll('.copyright-year').forEach(function(el){el.textContent=new Date().getFullYear()});</script>
+    <script src="../js/main.min.js" defer></script>
+
+    <!-- Mobile Call Bar -->
+    <div class="mobile-call-bar">
+        <a href="tel:+18445821795"><span class="phone-icon">&#128222;</span> Call Now — (844) 582-1795</a>
+    </div>
+</body>
+
+</html>

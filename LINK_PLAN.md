@@ -17,15 +17,15 @@ Then re-run `python generate_link_plan.py` and commit the new CSVs.
 
 | File | What it shows | Rows |
 |------|---------------|------|
-| `article_link_plan.csv` | Each planned article → its 4-5 city links + 2 state hubs + pillar link + cross-cluster anchor | 50 |
+| `article_link_plan.csv` | Each planned article → its 4-5 city links + 2 state hubs + pillar link + cross-cluster anchor | 51 |
 | `city_link_coverage.csv` | Each published city → every article slug that will link to it | 115 |
 | `LINK_PLAN.md` (this file) | Human overview + coverage stats | — |
 
 ## Coverage Summary
 
 - **Total published cities:** 115
-- **Cities receiving ≥1 article link:** 100 (87%)
-- **Orphan cities (0 planned article links):** 15
+- **Cities receiving ≥1 article link:** 101 (88%)
+- **Orphan cities (0 planned article links):** 14
 - **Average article links per city:** 1.8
 - **Max article links to any one city:** 7
 
@@ -36,13 +36,13 @@ Then re-run `python generate_link_plan.py` and commit the new CSVs.
 | `san-antonio-tx` | 7 |
 | `tucson-az` | 5 |
 | `cheyenne-wy` | 5 |
+| `fresno-ca` | 5 |
 | `mobile-al` | 4 |
 | `san-diego-ca` | 4 |
 | `louisville-ky` | 4 |
 | `el-paso-tx` | 4 |
 | `fayetteville-nc` | 4 |
 | `charlotte-nc` | 4 |
-| `grand-rapids-mi` | 4 |
 
 ## Clusters (from cluster_map.json)
 
@@ -53,7 +53,7 @@ Then re-run `python generate_link_plan.py` and commit the new CSVs.
 | C3_heatpump | Heat Pumps & Modern Systems | live | 1 | 3 | coastal:0.3, mixed-humid:0.4, mountain:0.3 |
 | C4_cost | Repair & Replacement Costs | live | 3 | 7 | all_rotated |
 | C5_compare | Repair-vs-Replace & Comparisons | live | 4 | 0 | all_rotated |
-| C6_maint | Maintenance, Safety & Seasonal | live | 3 | 1 | all_rotated |
+| C6_maint | Maintenance, Safety & Seasonal | live | 4 | 1 | all_rotated |
 
 ## How to use
 
