@@ -175,7 +175,8 @@
           "title": "Furnace Short Cycling? Turns On & Off",
           "status": "pending",
           "priority": 9,
-          "roadmap_id": 12
+          "roadmap_id": 12,
+          "note": "DEFERRED 2026-05-23 per docs/article-strategy-2026-05-23.md. Do NOT pick this slug for drafting without first passing the 3-question uniqueness test in CLAUDE.md 'Topical Authority Without Doorway Risk' section. The Phase 1 menu at docs/article-strategy-2026-05-23.md is the current priority queue."
         },
         {
           "slug": "furnace-burning-plastic-smell",
@@ -183,7 +184,8 @@
           "title": "Furnace Burning Plastic Smell? Shut It Off",
           "status": "pending",
           "priority": 10,
-          "roadmap_id": 5
+          "roadmap_id": 5,
+          "note": "DEFERRED 2026-05-23 per docs/article-strategy-2026-05-23.md. Do NOT pick this slug for drafting without first passing the 3-question uniqueness test in CLAUDE.md 'Topical Authority Without Doorway Risk' section. The Phase 1 menu at docs/article-strategy-2026-05-23.md is the current priority queue."
         },
         {
           "slug": "furnace-ignitor-wont-light",
@@ -191,7 +193,8 @@
           "title": "Furnace Ignitor Glows Red but Won't Light",
           "status": "pending",
           "priority": 24,
-          "roadmap_id": 36
+          "roadmap_id": 36,
+          "note": "DEFERRED 2026-05-23 per docs/article-strategy-2026-05-23.md. Do NOT pick this slug for drafting without first passing the 3-question uniqueness test in CLAUDE.md 'Topical Authority Without Doorway Risk' section. The Phase 1 menu at docs/article-strategy-2026-05-23.md is the current priority queue."
         },
         {
           "slug": "co-detector-furnace-running",
@@ -199,7 +202,8 @@
           "title": "CO Detector Going Off with Furnace? Critical",
           "status": "pending",
           "priority": 25,
-          "roadmap_id": 27
+          "roadmap_id": 27,
+          "note": "DEFERRED 2026-05-23 per docs/article-strategy-2026-05-23.md. Do NOT pick this slug for drafting without first passing the 3-question uniqueness test in CLAUDE.md 'Topical Authority Without Doorway Risk' section. The Phase 1 menu at docs/article-strategy-2026-05-23.md is the current priority queue."
         },
         {
           "slug": "emergency-furnace-repair-guide",
@@ -245,7 +249,8 @@
           "title": "Heat Pump Stuck in Cooling Mode in Winter",
           "status": "pending",
           "priority": 15,
-          "roadmap_id": 7
+          "roadmap_id": 7,
+          "note": "DEFERRED 2026-05-23 per docs/article-strategy-2026-05-23.md. Do NOT pick this slug for drafting without first passing the 3-question uniqueness test in CLAUDE.md 'Topical Authority Without Doorway Risk' section. The Phase 1 menu at docs/article-strategy-2026-05-23.md is the current priority queue."
         },
         {
           "slug": "heat-pump-lukewarm-air",
@@ -253,7 +258,8 @@
           "title": "Heat Pump Blowing Lukewarm Air? Why",
           "status": "pending",
           "priority": 16,
-          "roadmap_id": 15
+          "roadmap_id": 15,
+          "note": "DEFERRED 2026-05-23 per docs/article-strategy-2026-05-23.md. Do NOT pick this slug for drafting without first passing the 3-question uniqueness test in CLAUDE.md 'Topical Authority Without Doorway Risk' section. The Phase 1 menu at docs/article-strategy-2026-05-23.md is the current priority queue."
         },
         {
           "slug": "heat-pump-defrost-grinding",
@@ -261,7 +267,8 @@
           "title": "Heat Pump Grinding During Defrost Cycle?",
           "status": "pending",
           "priority": 29,
-          "roadmap_id": 29
+          "roadmap_id": 29,
+          "note": "DEFERRED 2026-05-23 per docs/article-strategy-2026-05-23.md. Do NOT pick this slug for drafting without first passing the 3-question uniqueness test in CLAUDE.md 'Topical Authority Without Doorway Risk' section. The Phase 1 menu at docs/article-strategy-2026-05-23.md is the current priority queue."
         }
       ]
     },
@@ -292,7 +299,8 @@
           "title": "Cost to Replace a 3-Ton AC Unit in 2026",
           "status": "pending",
           "priority": 6,
-          "roadmap_id": 41
+          "roadmap_id": 41,
+          "note": "DEFERRED 2026-05-23 per docs/article-strategy-2026-05-23.md. Do NOT pick this slug for drafting without first passing the 3-question uniqueness test in CLAUDE.md 'Topical Authority Without Doorway Risk' section. The Phase 1 menu at docs/article-strategy-2026-05-23.md is the current priority queue."
         },
         {
           "slug": "r410a-recharge-cost",
@@ -300,7 +308,8 @@
           "title": "R-410A Freon Recharge Cost: What's Fair?",
           "status": "pending",
           "priority": 7,
-          "roadmap_id": 43
+          "roadmap_id": 43,
+          "note": "DEFERRED 2026-05-23 per docs/article-strategy-2026-05-23.md. Do NOT pick this slug for drafting without first passing the 3-question uniqueness test in CLAUDE.md 'Topical Authority Without Doorway Risk' section. The Phase 1 menu at docs/article-strategy-2026-05-23.md is the current priority queue."
         },
         {
           "slug": "dual-run-capacitor-cost",
@@ -308,7 +317,8 @@
           "title": "AC Dual-Run Capacitor Replacement Cost",
           "status": "pending",
           "priority": 12,
-          "roadmap_id": 44
+          "roadmap_id": 44,
+          "note": "DEFERRED 2026-05-23 per docs/article-strategy-2026-05-23.md. Do NOT pick this slug for drafting without first passing the 3-question uniqueness test in CLAUDE.md 'Topical Authority Without Doorway Risk' section. The Phase 1 menu at docs/article-strategy-2026-05-23.md is the current priority queue."
         },
         {
           "slug": "emergency-weekend-hvac-cost",
@@ -316,7 +326,8 @@
           "title": "Emergency Weekend HVAC Call Cost: Fair Rates",
           "status": "pending",
           "priority": 13,
-          "roadmap_id": 47
+          "roadmap_id": 47,
+          "note": "DEFERRED 2026-05-23 per docs/article-strategy-2026-05-23.md. Do NOT pick this slug for drafting without first passing the 3-question uniqueness test in CLAUDE.md 'Topical Authority Without Doorway Risk' section. The Phase 1 menu at docs/article-strategy-2026-05-23.md is the current priority queue."
         },
         {
           "slug": "mini-split-installation-cost",
@@ -324,7 +335,8 @@
           "title": "Ductless Mini-Split Installation Cost (1 Room)",
           "status": "pending",
           "priority": 22,
-          "roadmap_id": 45
+          "roadmap_id": 45,
+          "note": "DEFERRED 2026-05-23 per docs/article-strategy-2026-05-23.md. Do NOT pick this slug for drafting without first passing the 3-question uniqueness test in CLAUDE.md 'Topical Authority Without Doorway Risk' section. The Phase 1 menu at docs/article-strategy-2026-05-23.md is the current priority queue."
         },
         {
           "slug": "central-air-no-ductwork-cost",
@@ -332,7 +344,8 @@
           "title": "Central Air Install Cost with No Ductwork",
           "status": "pending",
           "priority": 23,
-          "roadmap_id": 48
+          "roadmap_id": 48,
+          "note": "DEFERRED 2026-05-23 per docs/article-strategy-2026-05-23.md. Do NOT pick this slug for drafting without first passing the 3-question uniqueness test in CLAUDE.md 'Topical Authority Without Doorway Risk' section. The Phase 1 menu at docs/article-strategy-2026-05-23.md is the current priority queue."
         },
         {
           "slug": "new-furnace-installed-cost",
@@ -340,7 +353,8 @@
           "title": "New Furnace Installed Cost in 2026",
           "status": "pending",
           "priority": 30,
-          "roadmap_id": 49
+          "roadmap_id": 49,
+          "note": "DEFERRED 2026-05-23 per docs/article-strategy-2026-05-23.md. Do NOT pick this slug for drafting without first passing the 3-question uniqueness test in CLAUDE.md 'Topical Authority Without Doorway Risk' section. The Phase 1 menu at docs/article-strategy-2026-05-23.md is the current priority queue."
         },
         {
           "slug": "emergency-hvac-service-cost",
@@ -453,7 +467,8 @@
           "title": "Best MERV Rating for Home AC Filters",
           "status": "pending",
           "priority": 27,
-          "roadmap_id": 91
+          "roadmap_id": 91,
+          "note": "DEFERRED 2026-05-23 per docs/article-strategy-2026-05-23.md. Do NOT pick this slug for drafting without first passing the 3-question uniqueness test in CLAUDE.md 'Topical Authority Without Doorway Risk' section. The Phase 1 menu at docs/article-strategy-2026-05-23.md is the current priority queue."
         }
       ]
     }
@@ -668,5 +683,6 @@
       "slug": "heat-pump-vs-gas-furnace",
       "type": "cluster"
     }
-  ]
+  ],
+  "_article_writing_warning": "READ THIS BEFORE PICKING ANY ARTICLE TO WRITE. 1. The priority_queue array below is INFORMATIONAL ONLY since 2026-05-23. Do NOT pick the next article from it. 2. The current Phase 1 candidate menu lives in docs/article-strategy-2026-05-23.md (repo-tracked, survives any machine change). 3. Every pending entry in cluster.articles[] now carries a 'note' field explaining it is deferred until it passes the 3-question uniqueness test in CLAUDE.md 'Topical Authority Without Doorway Risk' section. 4. Articles marked status='skipped' are PERMANENTLY skipped for doorway-risk; do not reframe or resurrect. 5. After every 4-6 articles ship, re-pull GSC and re-evaluate from the menu."
 }

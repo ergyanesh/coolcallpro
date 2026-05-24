@@ -586,13 +586,14 @@ git push origin main
 When this skill is triggered in a new session, before doing ANYTHING else:
 
 1. **Read `PROGRESS.md`** at the project root — the auto-generated dashboard showing:
-   - Articles live / in progress / pending
+   - Articles live / in progress / pending / **skipped** (`skipped` added 2026-05-23 for doorway-risk articles — do NOT resurrect them)
    - Cluster health (which pillars exist, which clusters are thin)
-   - Next 10 priority articles to write
+   - The priority queue is INFORMATIONAL ONLY since 2026-05-23 — see the warning header in PROGRESS.md "Priority queue" section
    - Any state drift (articles marked live but file missing, or vice versa)
-2. **Read `cluster_map.json`** — authoritative state of every article.
-3. **If PROGRESS.md shows ERRORS** (e.g., article marked "live" but file missing), stop and surface them to the user. Do not proceed until resolved.
-4. **Show the user the top 5 pending articles** from PROGRESS.md's "Next 10" section and ask which to write.
+2. **Read `docs/article-strategy-2026-05-23.md`** — the authoritative Phase 1 candidate menu (8 articles spanning Types F/G/B/D/A) plus the deferred-slug list. This SUPERSEDES the cluster_map.json `priority_queue` order for picking the next slug to write.
+3. **Read `cluster_map.json`** — authoritative state of every article. Note `_priority_queue_strategy` field for the override rationale.
+4. **If PROGRESS.md shows ERRORS** (e.g., article marked "live" but file missing), stop and surface them to the user. Do not proceed until resolved.
+5. **Show the user the Phase 1 menu from `docs/article-strategy-2026-05-23.md`** (NOT PROGRESS.md's priority_queue table) and ask which candidate to draft. Run the 3-question uniqueness test before drafting (CLAUDE.md "Topical Authority Without Doorway Risk" section).
 
 **BEFORE CLAIMING AN ARTICLE IS DONE — MANDATORY SELF-AUDIT (STRICT MODE):**
 

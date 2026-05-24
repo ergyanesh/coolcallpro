@@ -300,8 +300,12 @@ def write_progress_dashboard(cmap, n_cities, city_to_articles, issues, out_path=
     This is the FIRST file any future session should read. It answers:
     - Where are we in the 100-article plan?
     - Which cluster is healthiest / weakest?
-    - What are the next 10 articles to write?
+    - Which priority_queue entries are SKIPPED (doorway-risk) vs pending?
     - Is anything out of sync?
+
+    Note: since 2026-05-23 the priority_queue section is INFORMATIONAL ONLY.
+    For "what to write next," consult docs/article-strategy-2026-05-23.md
+    (Phase 1 menu) and CLAUDE.md "Topical Authority Without Doorway Risk".
     """
     total_planned = 100
     all_articles = []

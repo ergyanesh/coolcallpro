@@ -4,6 +4,26 @@
 **First checkpoint:** ~2026-05-03 (≈7 days after push) — "is anything moving?"
 **Decision deadline:** 2026-05-17 (21 days, per H3_TEST_COHORT.md) — "expand, revert, or pivot?"
 
+> ✅ **DECISION COMPLETE 2026-05-22 — Track B shipped.** Verdict was
+> "deeper framing pivot" because Track A (title-only) failed the
+> decision criteria (0 clicks on 15,315 cohort impressions, position
+> improved only 0.5 places vs ≥3 required). All 115 city pages
+> regenerated 2026-05-22 with the Track B template (commits
+> `ac57848` + `6684309`). Cloudflare Pages had a corrupted-blob
+> failure mode that required a fresh-hash redeploy; documented
+> permanently as `<meta name="generator">` build-stamp in v4
+> generator + `reference_cloudflare_pages_failed_upload_recovery`
+> memory + `NEXT-TASKS.txt`.
+>
+> The "Independent tracks" recommendations in this plan (write H4
+> furnace pillar + M8 heat-pump-vs-furnace + L1-L4 backlog) are
+> mostly DONE — H4 + M8 + H5 maintenance pillar all shipped.
+> Article-writing recommendations should now be read from
+> `docs/article-strategy-2026-05-23.md` (new strategy, see
+> CLAUDE.md "Topical Authority Without Doorway Risk" section).
+>
+> This plan is retained as historical record of the decision process.
+
 ---
 
 ## The strategic context (read first)

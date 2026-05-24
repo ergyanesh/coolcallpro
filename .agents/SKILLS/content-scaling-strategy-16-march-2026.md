@@ -1,5 +1,21 @@
 # Content Scaling Strategy — Cool Call Pro
 
+> ⚠ **SUPERSEDED 2026-05-23 for article-priority guidance.** This document
+> is the original pre-cluster content plan from March 2026. The article
+> roadmap and writing process are now governed by:
+>
+> 1. **`CLAUDE.md`** sections "Article Writing (Pillar-Cluster Topical
+>    Authority System)" + "Topical Authority Without Doorway Risk"
+>    (the latter added 2026-05-23 and overrides keyword-driven queues)
+> 2. **`docs/article-strategy-2026-05-23.md`** — Phase 1 candidate menu
+> 3. **`cluster_map.json`** — machine-readable cluster + article state
+> 4. **`.agents/SKILLS/hvac-article-writer.md`** — writing-loop procedure
+>
+> The site-architecture diagram below is still accurate (locations + articles
+> hub-and-spoke), but **DO NOT use the "Article Writing Priority Queue"
+> section here as guidance** — it predates the 6-cluster pillar system
+> and doorway-risk awareness. Kept for historical context only.
+
 > Single source of truth for article planning, service pages, and internal linking architecture.
 > Separate from city page template (see `city-page-programmatic-seo-16-march-2026.md`).
 > **MANDATORY:** After creating or updating ANY pages, run QC checklist in `site-qc-checklist.md` before deploying.

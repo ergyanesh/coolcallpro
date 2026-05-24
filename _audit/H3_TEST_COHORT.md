@@ -4,6 +4,20 @@
 **Decision deadline:** 2026-05-17 (3 weeks; minimum window for Google to re-render SERPs and accumulate enough impression/click data to be statistically meaningful)
 **Scope:** 10 of 115 city pages — title attribute only (meta description and H1 untouched, so the experiment isolates title CTR effect)
 
+> ✅ **DECISION COMPLETE 2026-05-22.** Cohort yielded 0 clicks across
+> 15,315 cohort impressions over 25 days (with the caveat that hand-
+> edited cohort titles were silently overwritten by Phase 2/3 regens
+> on 2026-05-09, so only ~13 of 25 days carried the new title).
+> Track A (expand title-only) did NOT qualify per the decision rule.
+> **Outcome: Track B framing pivot** shipped 2026-05-22 as commits
+> `ac57848` + `6684309`. All 115 city pages now carry cost-intent
+> climate-aware titles + aggregator-framed H1 + ATF disclosure badge
+> + 6-card climate grid + per-city homes-and-energy paragraph +
+> 4-card repair-cost summary block.
+>
+> This document is retained as the experiment record. The rollback
+> procedure is moot.
+
 ---
 
 ## The hypothesis
