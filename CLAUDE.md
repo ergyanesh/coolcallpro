@@ -220,6 +220,78 @@ Doorway risk concentrates in Types A (symptoms) and C (cost-niche) when publishe
 
 **This rule overrides any prior instinct to maximize GSC impression capture.** Impressions that come from doorway-risk articles eventually cost more than they're worth (penalty risk on whole cluster). Quality > quantity > velocity.
 
+### No Assumptions, No Guesswork in Any Article (since 23 May 2026 — NON-NEGOTIABLE)
+
+**Every factual claim in every article must be verifiable at write-time.** This rule generalizes the existing Verifiability Guarantee (location pages, 2026-04-25) and Live Verification Discipline (YMYL claims, 2026-05-04) to cover ALL article body content — not just YMYL triggers, not just location data, but every cost figure, statistic, technical specification, comparison, historical reference, industry-standard claim, percentage, count, lifespan estimate, and equipment behavior assertion.
+
+**The 3 source tests — every article claim must pass at least one:**
+
+1. **Primary-source citation in the body** — federal / state / regulatory (.gov), manufacturer-documented (mfr spec sheet PDF or product-page URL), trade-association (ACCA / AHRI / ASHRAE / ENERGY STAR), or peer-reviewed source. Link inline. For YMYL-triggered claims, also log in the inline `<!-- YMYL VERIFICATION LOG -->` block per the Live Verification Discipline section.
+2. **Derivation from our own published data** — `costs.html` for all pricing, `cities_updated.xlsx` for city facts, `states.xlsx` for state facts, `cluster_map.json` for cluster state. Reference the source-of-truth file inline ("see `/costs`" / "per our 2026 cost guide").
+3. **Explicit-estimate framing with NAMED source** — phrases like "typical range," "industry guidance," or "manufacturer warranties typically" must name the source on the SAME line ("…per ACCA Manual J," "…per DOE 2024 Residential HVAC Survey," "…per Lennox warranty registration page"). Generic "industry standard" / "most homeowners" / "studies show" / "experts agree" / "according to data" without a named source are FORBIDDEN.
+
+**Phrases that are ALWAYS forbidden without inline citation:**
+
+- "Most homeowners…" / "most HVAC systems…" / "most furnaces…"
+- "Typically lasts X years" without manufacturer or DOE citation
+- "X% of homes…" without ACS / DOE / EIA citation
+- "Industry standard is…" without trade-association citation
+- "Studies show…" / "research indicates…" without DOI or publication name
+- "Experts recommend…" without naming who
+- "Average cost is…" without `/costs` link or named industry-survey citation
+- "Common cause" / "leading cause" without citation
+- "X is the most common HVAC failure" without citation
+- Brand-comparison claims ("Lennox is more reliable than Trane") without manufacturer-spec or third-party-test citation
+- Anecdotal homeowner stories we cannot verify
+
+**Phrases that are OK with the right framing:**
+
+- "AC repair in our published cost guide ranges $90-$450 (see /costs)" — derivation from our data
+- "The EPA's AIM Act began the R-410A phase-down in 2025" with EPA link — primary source
+- "Manufacturer warranties on residential heat-pump compressors are typically 5-10 years; verify your brand's specific terms" — explicit-estimate framing with the verification path named
+- "Houston averages 102 days/year above 90°F (NOAA Climate Normals 1991-2020)" with link — primary source
+- "Cool Call Pro's referral network technicians follow these 12 steps on a routine service call" — describing our own process; no external source needed
+
+**Verification protocol BEFORE the article ships:**
+
+1. Re-read the entire article. For every numerical claim, every "always/most/usually/typically" claim, every comparison, every historical reference, every industry-standard reference: ask **"What's the source?"**
+2. If the answer in one sentence is "I assumed it" / "it's common knowledge" / "industry standard says so": the claim FAILS the rule. Cut it, rewrite with inline citation, or replace with verifiable content.
+3. For YMYL-triggered claims, also follow the Live Verification Discipline inline-log protocol.
+4. After write: search the article body for forbidden phrases (the bullet list above). If any appear without inline citation: rewrite.
+
+**Why this rule:** the Verifiability Guarantee covers location pages; the Live Verification Discipline covers YMYL claims; but everyday article body claims ("most homeowners…", "typical lifespan…", "common cause…") were unprotected. As impressions grow, an unverifiable confident-sounding claim spreads farther than a sourced one and is harder to retract. User explicitly flagged 2026-05-23: "no article should be based on any assumptions of guesswork." Every claim must earn its place by being verifiable. The job of the article is to make the homeowner trust us; one unverifiable claim makes them trust us less.
+
+**This rule applies before the conversion-arc rule.** No conversion-driven CTA can be supported by an unverifiable claim. The article funnels the reader toward calling BECAUSE every claim along the way is true and verifiable — not despite it.
+
+### Conversion Arc (since 23 May 2026 — NON-NEGOTIABLE)
+
+**Every article is a conversion funnel.** Cool Call Pro's revenue mechanism is phone calls via MarketCall (1-844-582-1795). Articles aren't pure SEO content with a CTA tacked on — they're educational content STRUCTURED so the homeowner reaches the conclusion "I should call" naturally, on their own, by the end of the read. The phone number is the answer to a question they've already asked themselves.
+
+**The 6-step conversion arc — every cluster article must follow this:**
+
+1. **Symptom validation (hook + opening)** — name the exact problem the homeowner is searching for. Use their language, not industry jargon. The reader feels understood. ~100-150 words.
+2. **Stakes escalation** — what happens if they ignore the problem? (system damage, safety risk, cost compounding, secondary damage). Be specific, cite sources. The reader feels urgency. ~150-250 words.
+3. **DIY boundary, hard-drawn** — what the homeowner CAN do (per CLAUDE.md DIY cap: filter, thermostat off, debris clearance away from unit, drain-line vinegar flush, call a technician). What they MUST NOT do (per safety_rules.py). The reader stops trying to fix it themselves; this is also the doorway-page differentiator (we're not a DIY publisher). ~150-250 words.
+4. **Demystify the pro's process** — what the technician actually does on a service call for THIS specific issue: visual inspection steps, electrical/refrigerant test sequence, diagnostic time (45-60 min routine, longer if complex), what's in the $65-$150 service-call fee vs what's billed separately (cite /costs). The reader sees value, knows what to expect, can budget. ~200-300 words.
+5. **Trust signals + price-shop defense** — how to spot upselling vs legitimate diagnosis, what to ask the dispatcher when calling, what info to have ready (system age, brand, symptom, when it started). The reader trusts the call won't get them scammed. ~150-200 words.
+6. **The CTA is the natural conclusion** — phone number prominent at the end, AND contextually-relevant emergency CTAs throughout where genuinely urgent ("If you smell gas, stop reading and call (844) 582-1795"). The end-of-article CTA is NOT a sales pitch — it's the obvious next step: "If [this symptom + stakes + you've done the DIY check], the next step is `(844) 582-1795`. Here's what to say." ~100-150 words.
+
+**Total target article length: ~1,500-2,000 words for cluster articles, ~3,000-5,000 for pillars.** The arc dictates the structure; word count is a consequence, not a goal.
+
+**Article types vs the arc:**
+
+- **Type A (Symptom-Diagnostic):** follow all 6 steps in order. Highest conversion fit.
+- **Type B (Decision-Framework):** steps 1 + 2 are reframed as "decision dilemma + stakes." Steps 3-6 still apply.
+- **Type C (Cost-Reality):** step 4 (demystify pro's process) becomes "what drives the price." Steps 1-3 + 5-6 still apply.
+- **Type D (Safety + Emergency):** step 3 is the hardest — name the specific 60-second response action that's safe, then call.
+- **Type E (Seasonal + Behavioral):** step 1 is calendar-based ("here's what this week needs"). Steps 2-6 follow.
+- **Type F (Explainer / Educational):** step 1 is curiosity-framed ("here's how X works"). Step 4 becomes "and here's why a pro is needed when this goes wrong." Steps 5-6 still apply.
+- **Type G (Editorial / Data):** step 1 is data-driven hook. Step 6 is the soft CTA ("if this affects your home, here's the number").
+
+**Out of scope:** the arc does not apply to pillars (which are reference content covering the full cluster topic at depth), index/hub pages, or location pages (which have their own template + per-city CTAs).
+
+**Why this rule:** Cool Call Pro is a referral aggregator — every published page exists to drive call volume. Until 2026-05-23 the arc was implicit ("write good content + add CTA"); shipped articles vary in how well they funnel. Codifying the arc as structural means every future article is engineered for conversion BEFORE it's written, not retrofitted after.
+
 ### Accessibility (WCAG 2.1 AA)
 - See `ACCESSIBILITY.md` for full checklist
 - All images need descriptive `alt` (or `alt=""` for decorative)
