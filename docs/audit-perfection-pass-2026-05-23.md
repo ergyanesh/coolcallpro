@@ -5,7 +5,7 @@ are heuristic suggestions for human review -- see CLAUDE.md sections
 "Topical Authority Without Doorway Risk", "Conversion Arc", and
 "No Assumptions, No Guesswork in Any Article" for the underlying rules.
 
-**Audit scope:** 17 articles
+**Audit scope:** 33 articles
 
 ## Per-article verdict table
 
@@ -16,18 +16,34 @@ are heuristic suggestions for human review -- see CLAUDE.md sections
 | `ac-contactor-clicking` | C1_ac | ac-circuit-breaker-trips (28%) | 6 | - | 0 | PASS |
 | `ac-freezing-up-in-summer` | C1_ac | ac-not-cooling-below-80 (30%) | 6 | - | 0 | PASS |
 | `ac-not-cooling-below-80` | C1_ac | ac-freezing-up-in-summer (30%) | 6 | - | 0 | PASS |
-| `article-ac-summer` | C1_ac | why-is-my-ac-blowing-warm-air (20%) | 6 | - | 0 | PASS |
-| `article-refrigerant` | C1_ac | ac-freezing-up-in-summer (18%) | 6 | - | 0 | PASS |
-| `article-spring-ac` | C1_ac | complete-ac-troubleshooting-guide (19%) | 6 | - | 0 | PASS |
-| `complete-ac-troubleshooting-guide` | C1_ac | ac-freezing-up-in-summer (23%) | 6 | - | 0 | PASS |
-| `hvac-leaking-water-inside-house` | C1_ac | water-dripping-from-vent (20%) | 6 | - | 0 | PASS |
+| `article-ac-summer` | C1_ac | article-furnace (20%) | 6 | - | 0 | PASS |
+| `article-refrigerant` | C1_ac | article-emergency (20%) | 6 | - | 0 | PASS |
+| `article-spring-ac` | C1_ac | article-maintenance (23%) | 6 | - | 0 | PASS |
+| `complete-ac-troubleshooting-guide` | C1_ac | furnace-not-working-diagnostic-guide (34%) | 6 | - | 0 | PASS |
+| `hvac-leaking-water-inside-house` | C1_ac | furnace-blowing-cold-air-winter (21%) | 6 | - | 0 | PASS |
 | `thermostat-blank-ac-wont-start` | C1_ac | ac-not-cooling-below-80 (23%) | 6 | - | 0 | PASS |
 | `water-dripping-from-vent` | C1_ac | thermostat-blank-ac-wont-start (21%) | 6 | - | 0 | PASS |
-| `why-is-my-ac-blowing-warm-air` | C1_ac | ac-compressor-buzzing-fan-not-spinning (24%) | 6 | - | 0 | PASS |
-| `2026-hvac-cost-guide` | C4_cost | complete-ac-troubleshooting-guide (20%) | 6 | - | 0 | PASS |
+| `why-is-my-ac-blowing-warm-air` | C1_ac | furnace-blowing-cold-air-winter (27%) | 6 | - | 0 | PASS |
+| `article-carbon-monoxide` | C2_furnace | article-furnace (19%) | 6 | - | 0 | PASS |
+| `article-furnace` | C2_furnace | furnace-blowing-cold-air-winter (23%) | 4 | 5_trust, 6_cta | 4 | minor-FIX |
+| `article-winter-storm` | C2_furnace | article-maintenance (21%) | 4 | 1_symptom, 5_trust | 0 | minor-FIX |
+| `furnace-blowing-cold-air-winter` | C2_furnace | why-is-my-ac-blowing-warm-air (27%) | 5 | 5_trust | 2 | minor-FIX |
+| `furnace-not-working-diagnostic-guide` | C2_furnace | complete-ac-troubleshooting-guide (34%) | 6 | - | 2 | minor-FIX |
+| `2026-heat-pump-buyers-guide` | C3_heatpump | heat-pump-vs-gas-furnace (26%) | 5 | 1_symptom | 4 | minor-FIX |
+| `article-heat-pump` | C3_heatpump | complete-ac-troubleshooting-guide (21%) | 5 | 2_stakes | 1 | minor-FIX |
+| `2026-hvac-cost-guide` | C4_cost | 2026-heat-pump-buyers-guide (21%) | 6 | - | 0 | PASS |
 | `24-hour-hvac-repair` | C4_cost | emergency-hvac-service-cost (24%) | 6 | - | 0 | PASS |
-| `article-hvac-financing` | C4_cost | 2026-hvac-cost-guide (18%) | 6 | - | 0 | PASS |
+| `article-hvac-financing` | C4_cost | 2026-hvac-cost-guide (17%) | 6 | - | 0 | PASS |
 | `emergency-hvac-service-cost` | C4_cost | 24-hour-hvac-repair (24%) | 6 | - | 0 | PASS |
+| `1000-into-12yo-ac` | C5_compare | seer-14-vs-18-payback (23%) | 2 | 1_symptom, 2_stakes, 3_diy_boundary, 5_trust | 4 | **REWRITE** |
+| `article-repair-vs-replace` | C5_compare | repair-or-replace-framework (31%) | 6 | - | 4 | minor-FIX |
+| `heat-pump-vs-gas-furnace` | C5_compare | 2026-heat-pump-buyers-guide (26%) | 4 | 1_symptom, 5_trust | 4 | minor-FIX |
+| `repair-or-replace-framework` | C5_compare | article-repair-vs-replace (31%) | 5 | 1_symptom | 2 | minor-FIX |
+| `seer-14-vs-18-payback` | C5_compare | 1000-into-12yo-ac (23%) | 3 | 2_stakes, 3_diy_boundary, 5_trust | 0 | **FIX** |
+| `article-emergency` | C6_maint | article-maintenance (21%) | 6 | - | 6 | **FIX** |
+| `article-fall-prep` | C6_maint | article-maintenance (23%) | 6 | - | 2 | minor-FIX |
+| `article-maintenance` | C6_maint | article-fall-prep (23%) | 6 | - | 4 | minor-FIX |
+| `year-round-hvac-maintenance-playbook` | C6_maint | article-maintenance (23%) | 5 | 1_symptom | 5 | **FIX** |
 
 ## Flagged uniqueness pairs (overlap >= 40%)
 
@@ -37,26 +53,26 @@ _None. All article pairs are below the 40% overlap threshold._
 
 | # | Article A | Article B | Overlap |
 |---|---|---|---:|
-| 1 | `ac-freezing-up-in-summer` | `ac-not-cooling-below-80` | 30% |
-| 2 | `ac-circuit-breaker-trips` | `ac-contactor-clicking` | 28% |
-| 3 | `ac-not-cooling-below-80` | `ac-circuit-breaker-trips` | 26% |
-| 4 | `why-is-my-ac-blowing-warm-air` | `ac-compressor-buzzing-fan-not-spinning` | 24% |
-| 5 | `emergency-hvac-service-cost` | `24-hour-hvac-repair` | 24% |
-| 6 | `complete-ac-troubleshooting-guide` | `ac-freezing-up-in-summer` | 23% |
-| 7 | `ac-not-cooling-below-80` | `ac-contactor-clicking` | 23% |
-| 8 | `ac-not-cooling-below-80` | `thermostat-blank-ac-wont-start` | 23% |
-| 9 | `thermostat-blank-ac-wont-start` | `ac-contactor-clicking` | 23% |
-| 10 | `complete-ac-troubleshooting-guide` | `ac-not-cooling-below-80` | 22% |
-| 11 | `ac-freezing-up-in-summer` | `ac-circuit-breaker-trips` | 22% |
-| 12 | `ac-circuit-breaker-trips` | `thermostat-blank-ac-wont-start` | 22% |
-| 13 | `ac-compressor-buzzing-fan-not-spinning` | `ac-contactor-clicking` | 21% |
-| 14 | `thermostat-blank-ac-wont-start` | `water-dripping-from-vent` | 21% |
-| 15 | `complete-ac-troubleshooting-guide` | `ac-circuit-breaker-trips` | 21% |
-| 16 | `complete-ac-troubleshooting-guide` | `why-is-my-ac-blowing-warm-air` | 21% |
-| 17 | `ac-freezing-up-in-summer` | `water-dripping-from-vent` | 21% |
-| 18 | `ac-circuit-breaker-trips` | `water-dripping-from-vent` | 21% |
-| 19 | `ac-contactor-clicking` | `water-dripping-from-vent` | 21% |
-| 20 | `why-is-my-ac-blowing-warm-air` | `ac-not-cooling-below-80` | 21% |
+| 1 | `complete-ac-troubleshooting-guide` | `furnace-not-working-diagnostic-guide` | 34% |
+| 2 | `repair-or-replace-framework` | `article-repair-vs-replace` | 31% |
+| 3 | `ac-freezing-up-in-summer` | `ac-not-cooling-below-80` | 30% |
+| 4 | `ac-circuit-breaker-trips` | `ac-contactor-clicking` | 28% |
+| 5 | `why-is-my-ac-blowing-warm-air` | `furnace-blowing-cold-air-winter` | 27% |
+| 6 | `2026-heat-pump-buyers-guide` | `heat-pump-vs-gas-furnace` | 26% |
+| 7 | `ac-not-cooling-below-80` | `ac-circuit-breaker-trips` | 26% |
+| 8 | `why-is-my-ac-blowing-warm-air` | `ac-compressor-buzzing-fan-not-spinning` | 24% |
+| 9 | `emergency-hvac-service-cost` | `24-hour-hvac-repair` | 24% |
+| 10 | `complete-ac-troubleshooting-guide` | `ac-freezing-up-in-summer` | 23% |
+| 11 | `ac-not-cooling-below-80` | `thermostat-blank-ac-wont-start` | 23% |
+| 12 | `ac-not-cooling-below-80` | `ac-contactor-clicking` | 23% |
+| 13 | `article-furnace` | `furnace-blowing-cold-air-winter` | 23% |
+| 14 | `article-maintenance` | `article-fall-prep` | 23% |
+| 15 | `1000-into-12yo-ac` | `seer-14-vs-18-payback` | 23% |
+| 16 | `article-spring-ac` | `article-maintenance` | 23% |
+| 17 | `year-round-hvac-maintenance-playbook` | `article-maintenance` | 23% |
+| 18 | `thermostat-blank-ac-wont-start` | `ac-contactor-clicking` | 23% |
+| 19 | `complete-ac-troubleshooting-guide` | `ac-not-cooling-below-80` | 22% |
+| 20 | `ac-freezing-up-in-summer` | `ac-circuit-breaker-trips` | 22% |
 
 ## Conversion arc gap detail
 
@@ -75,38 +91,134 @@ _None. All article pairs are below the 40% overlap threshold._
 | `thermostat-blank-ac-wont-start` | OK | OK | OK | OK | OK | OK |
 | `water-dripping-from-vent` | OK | OK | OK | OK | OK | OK |
 | `why-is-my-ac-blowing-warm-air` | OK | OK | OK | OK | OK | OK |
+| `article-carbon-monoxide` | OK | OK | OK | OK | OK | OK |
+| `article-furnace` | OK | OK | OK | OK | MISS | MISS |
+| `article-winter-storm` | MISS | OK | OK | OK | MISS | OK |
+| `furnace-blowing-cold-air-winter` | OK | OK | OK | OK | MISS | OK |
+| `furnace-not-working-diagnostic-guide` | OK | OK | OK | OK | OK | OK |
+| `2026-heat-pump-buyers-guide` | MISS | OK | OK | OK | OK | OK |
+| `article-heat-pump` | OK | MISS | OK | OK | OK | OK |
 | `2026-hvac-cost-guide` | OK | OK | OK | OK | OK | OK |
 | `24-hour-hvac-repair` | OK | OK | OK | OK | OK | OK |
 | `article-hvac-financing` | OK | OK | OK | OK | OK | OK |
 | `emergency-hvac-service-cost` | OK | OK | OK | OK | OK | OK |
+| `1000-into-12yo-ac` | MISS | MISS | MISS | OK | MISS | OK |
+| `article-repair-vs-replace` | OK | OK | OK | OK | OK | OK |
+| `heat-pump-vs-gas-furnace` | MISS | OK | OK | OK | MISS | OK |
+| `repair-or-replace-framework` | MISS | OK | OK | OK | OK | OK |
+| `seer-14-vs-18-payback` | OK | MISS | MISS | OK | MISS | OK |
+| `article-emergency` | OK | OK | OK | OK | OK | OK |
+| `article-fall-prep` | OK | OK | OK | OK | OK | OK |
+| `article-maintenance` | OK | OK | OK | OK | OK | OK |
+| `year-round-hvac-maintenance-playbook` | MISS | OK | OK | OK | OK | OK |
 
 ## Guesswork issues (forbidden phrases without inline citation)
 
-_None. All articles pass the no-guesswork check._
+### `article-furnace` (4 issues)
+
+- Line 579: "Most furnaces" (most furnaces)
+- Line 199: "typically last" (typically lasts)
+- Line 202: "typically lasts" (typically lasts)
+- Line 782: "typically last" (typically lasts)
+
+### `furnace-blowing-cold-air-winter` (2 issues)
+
+- Line 369: "most furnaces" (most furnaces)
+- Line 298: "most common cause" (most common cause/failure)
+
+### `furnace-not-working-diagnostic-guide` (2 issues)
+
+- Line 224: "typically lasts" (typically lasts)
+- Line 662: "typically lasts" (typically lasts)
+
+### `2026-heat-pump-buyers-guide` (4 issues)
+
+- Line 294: "industry standard" (industry standard)
+- Line 759: "industry standard" (industry standard)
+- Line 254: "typically last" (typically lasts)
+- Line 724: "typically last" (typically lasts)
+
+### `article-heat-pump` (1 issues)
+
+- Line 438: "most homeowners" (most homeowners)
+
+### `1000-into-12yo-ac` (4 issues)
+
+- Line 190: "typically lasts" (typically lasts)
+- Line 458: "typically lasts" (typically lasts)
+- Line 206: "most common failure" (most common cause/failure)
+- Line 472: "most common failure" (most common cause/failure)
+
+### `article-repair-vs-replace` (4 issues)
+
+- Line 290: "most homeowners" (most homeowners)
+- Line 320: "most HVAC systems" (most HVAC systems)
+- Line 176: "typically last" (typically lasts)
+- Line 538: "typically last" (typically lasts)
+
+### `heat-pump-vs-gas-furnace` (4 issues)
+
+- Line 208: "typically lasts" (typically lasts)
+- Line 208: "typically lasts" (typically lasts)
+- Line 478: "typically lasts" (typically lasts)
+- Line 478: "typically lasts" (typically lasts)
+
+### `repair-or-replace-framework` (2 issues)
+
+- Line 239: "typically last" (typically lasts)
+- Line 649: "typically last" (typically lasts)
+
+### `article-emergency` (6 issues)
+
+- Line 315: "most homeowners" (most homeowners)
+- Line 199: "most common cause" (most common cause/failure)
+- Line 202: "most common cause" (most common cause/failure)
+- Line 476: "most common cause" (most common cause/failure)
+- Line 683: "most common cause" (most common cause/failure)
+- Line 685: "most common cause" (most common cause/failure)
+
+### `article-fall-prep` (2 issues)
+
+- Line 403: "most homeowners" (most homeowners)
+- Line 549: "most homeowners" (most homeowners)
+
+### `article-maintenance` (4 issues)
+
+- Line 317: "Most HVAC systems" (most HVAC systems)
+- Line 202: "typically lasts" (typically lasts)
+- Line 317: "typically lasts" (typically lasts)
+- Line 718: "typically lasts" (typically lasts)
+
+### `year-round-hvac-maintenance-playbook` (5 issues)
+
+- Line 399: "most homeowners" (most homeowners)
+- Line 293: "Most HVAC systems" (most HVAC systems)
+- Line 705: "Most HVAC systems" (most HVAC systems)
+- Line 165: "industry standard" (industry standard)
+- Line 593: "industry standard" (industry standard)
 
 ## GSC query cannibalization (multiple articles competing for the same query)
 
 | Query | Impressions | Competing articles |
 |---|---:|---|
-| 24 hour hvac repair | 532 | `2026-hvac-cost-guide` (67%) + `24-hour-hvac-repair` (100%) |
-| emergency hvac repair | 430 | `2026-hvac-cost-guide` (67%) + `emergency-hvac-service-cost` (67%) + `24-hour-hvac-repair` (67%) |
-| hvac emergency repair | 390 | `2026-hvac-cost-guide` (67%) + `emergency-hvac-service-cost` (67%) + `24-hour-hvac-repair` (67%) |
+| 24 hour hvac repair | 532 | `24-hour-hvac-repair` (100%) + `repair-or-replace-framework` (67%) + `article-repair-vs-replace` (67%) |
+| emergency hvac repair | 430 | `emergency-hvac-service-cost` (67%) + `24-hour-hvac-repair` (67%) + `repair-or-replace-framework` (67%) + `article-repair-vs-replace` (67%) |
+| hvac emergency repair | 390 | `emergency-hvac-service-cost` (67%) + `24-hour-hvac-repair` (67%) + `repair-or-replace-framework` (67%) + `article-repair-vs-replace` (67%) |
 | 24 hour hvac service | 160 | `emergency-hvac-service-cost` (67%) + `24-hour-hvac-repair` (67%) |
-| hvac repair near me | 58 | `2026-hvac-cost-guide` (67%) + `24-hour-hvac-repair` (67%) |
-| hvac repair emergency | 57 | `2026-hvac-cost-guide` (67%) + `emergency-hvac-service-cost` (67%) + `24-hour-hvac-repair` (67%) |
+| financing for hvac | 73 | `article-hvac-financing` (67%) + `repair-or-replace-framework` (67%) |
+| hvac repair near me | 58 | `24-hour-hvac-repair` (67%) + `repair-or-replace-framework` (67%) + `article-repair-vs-replace` (67%) |
+| hvac repair emergency | 57 | `emergency-hvac-service-cost` (67%) + `24-hour-hvac-repair` (67%) + `repair-or-replace-framework` (67%) + `article-repair-vs-replace` (67%) |
 | hvac 24 hour service | 52 | `emergency-hvac-service-cost` (67%) + `24-hour-hvac-repair` (67%) |
-| hvac repair minneapolis mn | 48 | `2026-hvac-cost-guide` (67%) + `24-hour-hvac-repair` (67%) |
-| hvac service call | 45 | `hvac-leaking-water-inside-house` (67%) + `2026-hvac-cost-guide` (67%) + `emergency-hvac-service-cost` (100%) + `24-hour-hvac-repair` (67%) |
-| hvac repair minneapolis | 35 | `2026-hvac-cost-guide` (67%) + `24-hour-hvac-repair` (67%) |
-| hvac replacement financing | 32 | `2026-hvac-cost-guide` (67%) + `article-hvac-financing` (100%) |
+| hvac repair minneapolis mn | 48 | `24-hour-hvac-repair` (67%) + `repair-or-replace-framework` (67%) + `article-repair-vs-replace` (67%) |
+| hvac repair minneapolis | 35 | `24-hour-hvac-repair` (67%) + `repair-or-replace-framework` (67%) + `article-repair-vs-replace` (67%) |
 | 24-hour hvac service | 30 | `emergency-hvac-service-cost` (67%) + `24-hour-hvac-repair` (67%) |
-| hvac repair service | 28 | `2026-hvac-cost-guide` (67%) + `emergency-hvac-service-cost` (67%) + `24-hour-hvac-repair` (67%) |
+| hvac repair service | 28 | `emergency-hvac-service-cost` (67%) + `24-hour-hvac-repair` (67%) + `repair-or-replace-framework` (67%) + `article-repair-vs-replace` (67%) |
 | hvac financing rates | 26 | `article-hvac-financing` (67%) + `emergency-hvac-service-cost` (67%) |
-| hvac call center | 26 | `hvac-leaking-water-inside-house` (67%) + `2026-hvac-cost-guide` (67%) + `emergency-hvac-service-cost` (67%) + `24-hour-hvac-repair` (67%) |
-| 24/7 hvac repair services | 25 | `2026-hvac-cost-guide` (67%) + `24-hour-hvac-repair` (67%) |
-| minneapolis hvac repair | 24 | `2026-hvac-cost-guide` (67%) + `24-hour-hvac-repair` (67%) |
-| hvac repair services | 22 | `2026-hvac-cost-guide` (67%) + `24-hour-hvac-repair` (67%) |
-| local hvac repair | 20 | `2026-hvac-cost-guide` (67%) + `24-hour-hvac-repair` (67%) |
+| 24/7 hvac repair services | 25 | `24-hour-hvac-repair` (67%) + `repair-or-replace-framework` (67%) + `article-repair-vs-replace` (67%) |
+| minneapolis hvac repair | 24 | `24-hour-hvac-repair` (67%) + `repair-or-replace-framework` (67%) + `article-repair-vs-replace` (67%) |
+| hvac repair services | 22 | `24-hour-hvac-repair` (67%) + `repair-or-replace-framework` (67%) + `article-repair-vs-replace` (67%) |
+| 247 heat pump repair | 22 | `2026-heat-pump-buyers-guide` (67%) + `article-heat-pump` (100%) + `heat-pump-vs-gas-furnace` (67%) |
+| local hvac repair | 20 | `24-hour-hvac-repair` (67%) + `repair-or-replace-framework` (67%) + `article-repair-vs-replace` (67%) |
 
 ## How to act on this report
 

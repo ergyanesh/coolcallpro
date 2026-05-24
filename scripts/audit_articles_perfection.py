@@ -437,12 +437,22 @@ def gsc_query_cannibalization(articles: List[Dict], gsc_dir: Path) -> Dict:
                 impressions = int(row.get('Impressions', '0').replace(',', '') or 0)
                 queries.append((q, impressions))
 
-    # For each query, score against each article's H1 + title
+    # For each query, score against each article's H1 + title.
     # Tuned 2026-05-23: raise thresholds to filter out generic-cluster matches.
     # Only flag queries where:
     #   - impressions >= 20 (meaningful demand)
     #   - >=3 query words (specific intent, not "ac repair")
     #   - >=2 articles match at >=60% H1+title overlap (true cannibalization)
+    #
+    # Tuned 2026-05-23 (Batch 3): strip the " | Cool Call Pro" brand suffix
+    # from the title before tokenizing. Without this, the word "call" from
+    # the brand was matching "hvac service call" / "hvac call center" queries
+    # on every article (since every title ends with the brand). That's not
+    # real cannibalization -- Google distinguishes brand-suffix tokens.
+    def _content_only(text):
+        """Drop the brand suffix (everything after first ' | ') before tokenizing."""
+        return text.split('|')[0].strip().lower()
+
     candidates = []
     for q, imp in queries:
         if imp < 20:
@@ -452,8 +462,8 @@ def gsc_query_cannibalization(articles: List[Dict], gsc_dir: Path) -> Dict:
             continue
         matches = []
         for a in articles:
-            h1_words = set(re.findall(r'[a-z]{3,}', a.get('h1', '').lower()))
-            title_words = set(re.findall(r'[a-z]{3,}', a.get('title', '').lower()))
+            h1_words = set(re.findall(r'[a-z]{3,}', _content_only(a.get('h1', ''))))
+            title_words = set(re.findall(r'[a-z]{3,}', _content_only(a.get('title', ''))))
             overlap = len(q_words & (h1_words | title_words)) / max(1, len(q_words))
             if overlap >= 0.60:
                 matches.append((a['slug'], overlap))
