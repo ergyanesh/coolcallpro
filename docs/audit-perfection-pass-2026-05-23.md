@@ -16,18 +16,18 @@ are heuristic suggestions for human review -- see CLAUDE.md sections
 | `ac-contactor-clicking` | C1_ac | ac-circuit-breaker-trips (28%) | 6 | - | 0 | PASS |
 | `ac-freezing-up-in-summer` | C1_ac | ac-not-cooling-below-80 (30%) | 6 | - | 0 | PASS |
 | `ac-not-cooling-below-80` | C1_ac | ac-freezing-up-in-summer (30%) | 6 | - | 0 | PASS |
-| `article-ac-summer` | C1_ac | why-is-my-ac-blowing-warm-air (20%) | 5 | 6_cta | 0 | minor-FIX |
-| `article-refrigerant` | C1_ac | ac-freezing-up-in-summer (18%) | 4 | 1_symptom, 6_cta | 0 | minor-FIX |
-| `article-spring-ac` | C1_ac | complete-ac-troubleshooting-guide (19%) | 5 | 1_symptom | 0 | minor-FIX |
+| `article-ac-summer` | C1_ac | why-is-my-ac-blowing-warm-air (20%) | 6 | - | 0 | PASS |
+| `article-refrigerant` | C1_ac | ac-freezing-up-in-summer (18%) | 6 | - | 0 | PASS |
+| `article-spring-ac` | C1_ac | complete-ac-troubleshooting-guide (19%) | 6 | - | 0 | PASS |
 | `complete-ac-troubleshooting-guide` | C1_ac | ac-freezing-up-in-summer (23%) | 6 | - | 0 | PASS |
-| `hvac-leaking-water-inside-house` | C1_ac | water-dripping-from-vent (20%) | 5 | 1_symptom | 0 | minor-FIX |
-| `thermostat-blank-ac-wont-start` | C1_ac | ac-not-cooling-below-80 (24%) | 4 | 1_symptom, 5_trust | 0 | minor-FIX |
-| `water-dripping-from-vent` | C1_ac | ac-freezing-up-in-summer (21%) | 4 | 1_symptom, 5_trust | 0 | minor-FIX |
+| `hvac-leaking-water-inside-house` | C1_ac | water-dripping-from-vent (20%) | 6 | - | 0 | PASS |
+| `thermostat-blank-ac-wont-start` | C1_ac | ac-not-cooling-below-80 (23%) | 6 | - | 0 | PASS |
+| `water-dripping-from-vent` | C1_ac | thermostat-blank-ac-wont-start (21%) | 6 | - | 0 | PASS |
 | `why-is-my-ac-blowing-warm-air` | C1_ac | ac-compressor-buzzing-fan-not-spinning (24%) | 6 | - | 0 | PASS |
-| `2026-hvac-cost-guide` | C4_cost | complete-ac-troubleshooting-guide (20%) | 5 | 1_symptom | 0 | minor-FIX |
-| `24-hour-hvac-repair` | C4_cost | emergency-hvac-service-cost (23%) | 4 | 1_symptom, 3_diy_boundary | 0 | minor-FIX |
-| `article-hvac-financing` | C4_cost | 2026-hvac-cost-guide (18%) | 4 | 1_symptom, 2_stakes | 0 | minor-FIX |
-| `emergency-hvac-service-cost` | C4_cost | 24-hour-hvac-repair (23%) | 5 | 1_symptom | 0 | minor-FIX |
+| `2026-hvac-cost-guide` | C4_cost | complete-ac-troubleshooting-guide (20%) | 6 | - | 0 | PASS |
+| `24-hour-hvac-repair` | C4_cost | emergency-hvac-service-cost (24%) | 6 | - | 0 | PASS |
+| `article-hvac-financing` | C4_cost | 2026-hvac-cost-guide (18%) | 6 | - | 0 | PASS |
+| `emergency-hvac-service-cost` | C4_cost | 24-hour-hvac-repair (24%) | 6 | - | 0 | PASS |
 
 ## Flagged uniqueness pairs (overlap >= 40%)
 
@@ -41,22 +41,22 @@ _None. All article pairs are below the 40% overlap threshold._
 | 2 | `ac-circuit-breaker-trips` | `ac-contactor-clicking` | 28% |
 | 3 | `ac-not-cooling-below-80` | `ac-circuit-breaker-trips` | 26% |
 | 4 | `why-is-my-ac-blowing-warm-air` | `ac-compressor-buzzing-fan-not-spinning` | 24% |
-| 5 | `ac-not-cooling-below-80` | `thermostat-blank-ac-wont-start` | 24% |
-| 6 | `emergency-hvac-service-cost` | `24-hour-hvac-repair` | 23% |
-| 7 | `complete-ac-troubleshooting-guide` | `ac-freezing-up-in-summer` | 23% |
-| 8 | `ac-not-cooling-below-80` | `ac-contactor-clicking` | 23% |
+| 5 | `emergency-hvac-service-cost` | `24-hour-hvac-repair` | 24% |
+| 6 | `complete-ac-troubleshooting-guide` | `ac-freezing-up-in-summer` | 23% |
+| 7 | `ac-not-cooling-below-80` | `ac-contactor-clicking` | 23% |
+| 8 | `ac-not-cooling-below-80` | `thermostat-blank-ac-wont-start` | 23% |
 | 9 | `thermostat-blank-ac-wont-start` | `ac-contactor-clicking` | 23% |
-| 10 | `ac-circuit-breaker-trips` | `thermostat-blank-ac-wont-start` | 22% |
-| 11 | `complete-ac-troubleshooting-guide` | `ac-not-cooling-below-80` | 22% |
-| 12 | `ac-freezing-up-in-summer` | `ac-circuit-breaker-trips` | 22% |
+| 10 | `complete-ac-troubleshooting-guide` | `ac-not-cooling-below-80` | 22% |
+| 11 | `ac-freezing-up-in-summer` | `ac-circuit-breaker-trips` | 22% |
+| 12 | `ac-circuit-breaker-trips` | `thermostat-blank-ac-wont-start` | 22% |
 | 13 | `ac-compressor-buzzing-fan-not-spinning` | `ac-contactor-clicking` | 21% |
-| 14 | `ac-freezing-up-in-summer` | `water-dripping-from-vent` | 21% |
-| 15 | `ac-circuit-breaker-trips` | `water-dripping-from-vent` | 21% |
-| 16 | `complete-ac-troubleshooting-guide` | `ac-circuit-breaker-trips` | 21% |
-| 17 | `complete-ac-troubleshooting-guide` | `why-is-my-ac-blowing-warm-air` | 21% |
-| 18 | `ac-contactor-clicking` | `water-dripping-from-vent` | 21% |
-| 19 | `why-is-my-ac-blowing-warm-air` | `ac-not-cooling-below-80` | 21% |
-| 20 | `thermostat-blank-ac-wont-start` | `water-dripping-from-vent` | 21% |
+| 14 | `thermostat-blank-ac-wont-start` | `water-dripping-from-vent` | 21% |
+| 15 | `complete-ac-troubleshooting-guide` | `ac-circuit-breaker-trips` | 21% |
+| 16 | `complete-ac-troubleshooting-guide` | `why-is-my-ac-blowing-warm-air` | 21% |
+| 17 | `ac-freezing-up-in-summer` | `water-dripping-from-vent` | 21% |
+| 18 | `ac-circuit-breaker-trips` | `water-dripping-from-vent` | 21% |
+| 19 | `ac-contactor-clicking` | `water-dripping-from-vent` | 21% |
+| 20 | `why-is-my-ac-blowing-warm-air` | `ac-not-cooling-below-80` | 21% |
 
 ## Conversion arc gap detail
 
@@ -67,18 +67,18 @@ _None. All article pairs are below the 40% overlap threshold._
 | `ac-contactor-clicking` | OK | OK | OK | OK | OK | OK |
 | `ac-freezing-up-in-summer` | OK | OK | OK | OK | OK | OK |
 | `ac-not-cooling-below-80` | OK | OK | OK | OK | OK | OK |
-| `article-ac-summer` | OK | OK | OK | OK | OK | MISS |
-| `article-refrigerant` | MISS | OK | OK | OK | OK | MISS |
-| `article-spring-ac` | MISS | OK | OK | OK | OK | OK |
+| `article-ac-summer` | OK | OK | OK | OK | OK | OK |
+| `article-refrigerant` | OK | OK | OK | OK | OK | OK |
+| `article-spring-ac` | OK | OK | OK | OK | OK | OK |
 | `complete-ac-troubleshooting-guide` | OK | OK | OK | OK | OK | OK |
-| `hvac-leaking-water-inside-house` | MISS | OK | OK | OK | OK | OK |
-| `thermostat-blank-ac-wont-start` | MISS | OK | OK | OK | MISS | OK |
-| `water-dripping-from-vent` | MISS | OK | OK | OK | MISS | OK |
+| `hvac-leaking-water-inside-house` | OK | OK | OK | OK | OK | OK |
+| `thermostat-blank-ac-wont-start` | OK | OK | OK | OK | OK | OK |
+| `water-dripping-from-vent` | OK | OK | OK | OK | OK | OK |
 | `why-is-my-ac-blowing-warm-air` | OK | OK | OK | OK | OK | OK |
-| `2026-hvac-cost-guide` | MISS | OK | OK | OK | OK | OK |
-| `24-hour-hvac-repair` | MISS | OK | MISS | OK | OK | OK |
-| `article-hvac-financing` | MISS | MISS | OK | OK | OK | OK |
-| `emergency-hvac-service-cost` | MISS | OK | OK | OK | OK | OK |
+| `2026-hvac-cost-guide` | OK | OK | OK | OK | OK | OK |
+| `24-hour-hvac-repair` | OK | OK | OK | OK | OK | OK |
+| `article-hvac-financing` | OK | OK | OK | OK | OK | OK |
+| `emergency-hvac-service-cost` | OK | OK | OK | OK | OK | OK |
 
 ## Guesswork issues (forbidden phrases without inline citation)
 

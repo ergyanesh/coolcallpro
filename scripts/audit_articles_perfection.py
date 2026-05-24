@@ -98,14 +98,40 @@ def _extract_body_text(html_path: Path) -> str:
 
 
 def _extract_body_text_raw(html_path: Path) -> str:
-    """Pull article body text WITHOUT stripping boilerplate. Preserves CTAs / phone
-    numbers / DIY-boundary disclaimers. Use for arc detection."""
+    """Pull article body text WITHOUT stripping CTA/diagnostic boilerplate.
+    Preserves CTAs / phone numbers / DIY-boundary language. Use for arc detection.
+
+    Skips past the SITE-WIDE Advertising Disclosure + safety-warning boilerplate
+    that prefixes every article -- otherwise arc step 1 (symptom validation in
+    first 200 words) always falsely fails because the disclosure eats those words.
+    """
     soup = BeautifulSoup(html_path.read_text(encoding='utf-8'), 'html.parser')
     for tag in soup(['nav', 'header', 'footer', 'script', 'style', 'noscript']):
         tag.decompose()
     body = soup.find('article') or soup.find('main') or soup.body or soup
     text = body.get_text(separator=' ')
     text = re.sub(r'\s+', ' ', text).strip()
+
+    # Skip past site-wide safety boilerplate. Each article begins with either:
+    #   (a) "Advertising Disclosure: ... HVAC systems involve high-voltage
+    #        electricity, natural gas, and pressurized refrigerant. Always let
+    #        a qualified technician handle live components." (~120 words)
+    #   (b) Same plus a specific safety warning prefix ("If you smell natural
+    #        gas..." / "If a carbon monoxide detector is alarming...") (~150 words)
+    # We need to find where the actual article content begins.
+    boilerplate_end_patterns = [
+        # End of generic safety boilerplate
+        r'Always let a qualified technician handle live components\.\s*',
+        # End of CO/gas-specific safety prefix that ends with diagnosis statement
+        r'Let a qualified HVAC technician handle every part of diagnosis and repair\.\s*',
+        # Fallback: any "Key Takeaway" heading marks the start of article content
+        r'Key Takeaway\s+',
+    ]
+    for pat in boilerplate_end_patterns:
+        m = re.search(pat, text, re.IGNORECASE)
+        if m:
+            text = text[m.end():].lstrip()
+            break
     return text
 
 
