@@ -42,5 +42,9 @@ Allow: /
 User-agent: ChatGPT-User
 Allow: /
 
+# Bing / Microsoft Copilot grounding — explicit allow
+User-agent: Bingbot
+Allow: /
+
 Sitemap: https://coolcallpro.com/sitemap.xml
 Sitemap: https://coolcallpro.com/sitemap-images.xml

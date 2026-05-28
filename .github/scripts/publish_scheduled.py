@@ -99,8 +99,6 @@ def add_to_sitemap(slug):
         f'  <url>\n'
         f'    <loc>{new_url}</loc>\n'
         f'    <lastmod>{today_iso}</lastmod>\n'
-        f'    <changefreq>monthly</changefreq>\n'
-        f'    <priority>0.8</priority>\n'
         f'  </url>\n'
     )
 

@@ -17,13 +17,10 @@
   # opts out of Google's FLoC/Topics behavioral tracking.
   Permissions-Policy: accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=(), interest-cohort=()
 
-  # Content-Security-Policy in REPORT-ONLY mode.
-  # Does NOT block anything — only logs violations to the browser console.
-  # Once we have ~1-2 weeks of clean console output across pages, switch the
-  # header name from `Content-Security-Policy-Report-Only` to `Content-Security-Policy`
-  # to start enforcing.
-  # Note: `upgrade-insecure-requests` is intentionally NOT included here — per
-  # the CSP spec, browsers ignore that directive in Report-Only mode (logging
-  # a console error). When this header gets renamed to `Content-Security-Policy`
-  # to start enforcing, append `; upgrade-insecure-requests` then.
-  Content-Security-Policy-Report-Only: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://www.google-analytics.com https://www.googletagmanager.com; font-src 'self' data:; connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://*.analytics.google.com https://cloudflareinsights.com https://static.cloudflareinsights.com; frame-ancestors 'self'; base-uri 'self'; form-action 'self'; object-src 'none'
+  # Content-Security-Policy in ENFORCING mode (flipped 2026-05-28).
+  # Preceded by ~5 weeks in Report-Only with zero violations logged across
+  # sampled pages. `upgrade-insecure-requests` is appended now that we're
+  # enforcing (the directive is ignored in Report-Only mode).
+  # If a CSP violation surfaces post-flip, the failing resource is the cause —
+  # add its origin to the relevant src directive rather than rolling back.
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://www.google-analytics.com https://www.googletagmanager.com; font-src 'self' data:; connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://*.analytics.google.com https://cloudflareinsights.com https://static.cloudflareinsights.com; frame-ancestors 'self'; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests

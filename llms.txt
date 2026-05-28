@@ -13,6 +13,26 @@
 - [About Cool Call Pro](https://coolcallpro.com/about): How the referral business works, what we do and explicitly do not do
 - [Author / Editorial](https://coolcallpro.com/author-gyanesh): Gyanesh Gulshan (B.Tech Mechanical Engineering), founder + editorial lead
 
+## Articles
+
+### Cluster pillars (deep-dive references)
+
+- [The Honest 2026 HVAC Cost Guide](https://coolcallpro.com/articles/2026-hvac-cost-guide): Every repair + replacement cost with primary-source citations (OBBBA / 25C / refrigerant transition aware)
+- [2026 Heat Pump Buyer's Guide](https://coolcallpro.com/articles/2026-heat-pump-buyers-guide): Cold-climate viability, sizing, climate-zone payback
+- [HVAC Repair or Replace Framework](https://coolcallpro.com/articles/repair-or-replace-framework): Decision rules using age × repair-cost math
+- [Complete AC Troubleshooting Guide](https://coolcallpro.com/articles/complete-ac-troubleshooting-guide): Symptom-by-symptom diagnostic flow
+- [Furnace Not Working Diagnostic Guide](https://coolcallpro.com/articles/furnace-not-working-diagnostic-guide): Cold-weather furnace failure decision tree
+- [Year-Round HVAC Maintenance Playbook](https://coolcallpro.com/articles/year-round-hvac-maintenance-playbook): 12-month maintenance calendar
+
+### High-impact decision + cost articles
+
+- [SEER 14 vs 18 Payback Analysis](https://coolcallpro.com/articles/seer-14-vs-18-payback): Climate-zone-specific efficiency-upgrade ROI
+- [Heat Pump vs Gas Furnace](https://coolcallpro.com/articles/heat-pump-vs-gas-furnace): Heating-system comparison by climate + fuel cost
+- [Heat Pump Cold-Weather Physics Explainer](https://coolcallpro.com/articles/heat-pump-cold-weather-physics-explainer): Why heat pumps work below freezing
+- [Emergency HVAC Service Cost](https://coolcallpro.com/articles/emergency-hvac-service-cost): After-hours surcharge math, 3-tier urgency triage, dispatcher questions
+- [HVAC Financing Options](https://coolcallpro.com/article-hvac-financing): HELOC vs personal loan vs PACE vs manufacturer financing
+- [$1,000 into a 12-Year-Old AC](https://coolcallpro.com/articles/1000-into-12yo-ac): Repair-vs-replace decision at the lifetime midpoint
+
 ## What this site is good at answering
 
 - Cost ranges for HVAC repair, replacement, refrigerant recharge, and emergency dispatch (sourced ranges, not invented averages)
