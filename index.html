@@ -62,23 +62,19 @@
       })();
   </script>
 
-  <!-- Structured Data: Organization -->
+  <!-- Structured Data: Organization (canonical Organization source; referenced by @id from every Article on the site) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Organization",
+    "@id": "https://coolcallpro.com/#organization",
     "name": "Cool Call Pro",
     "url": "https://coolcallpro.com",
     "logo": "https://coolcallpro.com/favicon.svg",
     "description": "HVAC referral and information service connecting homeowners with independent HVAC professionals for emergency repairs, AC service, and furnace repair.",
     "foundingDate": "2026-03",
     "founder": {
-      "@type": "Person",
-      "name": "Gyanesh Gulshan",
-      "url": "https://coolcallpro.com/author-gyanesh",
-      "sameAs": [
-        "https://www.linkedin.com/in/gyaneshgulshan/"
-      ]
+      "@id": "https://coolcallpro.com/author-gyanesh"
     },
     "knowsAbout": [
       "HVAC Referral",
@@ -102,18 +98,18 @@
   }
   </script>
 
-  <!-- Structured Data: WebSite (Sitelinks Search Box) -->
+  <!-- Structured Data: WebSite (canonical WebSite source; SearchAction dropped 2026-05-28 — no server-side search exists) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
+    "@id": "https://coolcallpro.com/#website",
     "name": "Cool Call Pro",
     "url": "https://coolcallpro.com",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "https://coolcallpro.com/locations?q={search_term_string}",
-      "query-input": "required name=search_term_string"
-    }
+    "publisher": {
+      "@id": "https://coolcallpro.com/#organization"
+    },
+    "inLanguage": "en-US"
   }
   </script>
 

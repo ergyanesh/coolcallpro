@@ -64,20 +64,19 @@
     <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/fonts/outfit-latin.woff2" as="font" type="font/woff2" crossorigin>
 
-    <!-- Person Schema -->
+    <!-- Person Schema (canonical Person source for entity graph; referenced by @id from every Article on the site) -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "Person",
+        "@id": "https://coolcallpro.com/author-gyanesh",
         "name": "Gyanesh Gulshan",
         "jobTitle": "Founder & Home Services Professional",
         "url": "https://coolcallpro.com/author-gyanesh",
         "image": "https://coolcallpro.com/images/author-gyane.webp",
         "description": "Gyanesh Gulshan is the founder of Cool Call Pro, a nationwide HVAC referral network connecting homeowners with independent service professionals.",
         "worksFor": {
-            "@type": "Organization",
-            "name": "Cool Call Pro",
-            "url": "https://coolcallpro.com"
+            "@id": "https://coolcallpro.com/#organization"
         },
         "knowsAbout": [
             "HVAC Systems",

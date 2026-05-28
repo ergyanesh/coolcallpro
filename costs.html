@@ -62,32 +62,7 @@
     <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/fonts/outfit-latin.woff2" as="font" type="font/woff2" crossorigin>
 
-    <!-- Article Schema -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Article",
-        "headline": "HVAC Repair Cost Guide 2026 | Real Prices by Problem",
-        "description": "HVAC repair costs in 2026: AC repair $90–$3,500, furnace repair $75–$4,000, full system replacement $1,800–$12,000. Know real prices before the technician arrives.",
-        "image": "https://coolcallpro.com/images/og-homepage.webp",
-        "datePublished": "2026-01-15",
-        "dateModified": "2026-03-06",
-        "author": {
-            "@type": "Person",
-            "name": "Gyanesh Gulshan",
-            "url": "https://coolcallpro.com/author-gyanesh"
-        },
-        "publisher": {
-            "@type": "Organization",
-            "name": "Cool Call Pro",
-            "url": "https://coolcallpro.com"
-        },
-        "mainEntityOfPage": {
-            "@type": "WebPage",
-            "@id": "https://coolcallpro.com/costs"
-        }
-    }
-    </script>
+    <!-- Article schema consolidated into the @graph at end of <body>; this head-block was a duplicate (2026-05-28 audit S2). -->
 
     <!-- BreadcrumbList Schema -->
     <script type="application/ld+json">
@@ -965,9 +940,10 @@
             },
             {
                 "@type": "Organization",
+                "@id": "https://coolcallpro.com/#organization",
                 "name": "Cool Call Pro",
                 "url": "https://coolcallpro.com",
-                "telephone": "+18445821795",
+                "telephone": "+1-844-582-1795",
                 "description": "Cool Call Pro connects homeowners with independent HVAC professionals for emergency service and repairs nationwide."
             },
             {
@@ -977,21 +953,13 @@
                 "description": "Real HVAC repair and replacement cost ranges for 2026. AC repair, furnace repair, emergency fees, refrigerant recharge, and full system replacement prices.",
                 "url": "https://coolcallpro.com/costs",
                 "datePublished": "2026-02-01",
-                "dateModified": "2026-03-08",
+                "dateModified": "2026-05-28",
                 "image": "https://coolcallpro.com/images/og-homepage.webp",
-                "author": {
-                    "@type": "Person",
-                    "name": "Gyanesh Gulshan",
-                    "url": "https://coolcallpro.com/author-gyanesh"
-                },
-                "publisher": {
-                    "@type": "Organization",
-                    "name": "Cool Call Pro",
-                    "url": "https://coolcallpro.com",
-                    "logo": {
-                        "@type": "ImageObject",
-                        "url": "https://coolcallpro.com/favicon.svg"
-                    }
+                "author": {"@id": "https://coolcallpro.com/author-gyanesh"},
+                "publisher": {"@id": "https://coolcallpro.com/#organization"},
+                "speakable": {
+                    "@type": "SpeakableSpecification",
+                    "cssSelector": [".quick-summary", ".cost-table", ".faq-q", ".faq-a-inner"]
                 }
             }
         ]

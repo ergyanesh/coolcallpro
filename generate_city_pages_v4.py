@@ -2110,6 +2110,7 @@ def generate_page(c, climate_type, nearby, absorbed_data, all_cities_lookup, sta
       }},
       {{
         "@type": "Organization",
+        "@id": "https://coolcallpro.com/#organization",
         "name": "Cool Call Pro",
         "url": "https://coolcallpro.com",
         "description": "24/7 referral service connecting homeowners with independent HVAC professionals in {city}, {st}.",
