@@ -102,6 +102,17 @@ if [ "${#html_adr[@]}" -gt 0 ]; then
     fi
     git add _redirects
     echo "  _redirects regenerated and auto-staged into this commit."
+
+    # Also filter sitemap-images.xml so dead-city entries can't accumulate.
+    # Idempotent; safe to re-run regardless of which type of HTML changed.
+    if ! python scripts/clean_sitemap_images.py; then
+        echo
+        echo "ERROR: scripts/clean_sitemap_images.py failed."
+        echo "COMMIT BLOCKED. Investigate and fix, then re-stage."
+        exit 1
+    fi
+    git add sitemap-images.xml
+    echo "  sitemap-images.xml filtered and auto-staged into this commit."
 fi
 
 exit 0

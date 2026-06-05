@@ -24,6 +24,11 @@ fi
 echo "Regenerating _redirects from current HTML files..."
 "$PYTHON" scripts/regenerate_redirects.py
 
+# Layer 1 (cont): filter sitemap-images.xml to entries whose location page exists.
+# Drift here sends Google Image Search dead <loc> URLs and degrades sitemap trust.
+echo "Filtering sitemap-images.xml to deployed pages only..."
+"$PYTHON" scripts/clean_sitemap_images.py
+
 # Fresh output directory
 rm -rf "$OUT"
 mkdir -p "$OUT"

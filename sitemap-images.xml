@@ -2,22 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
-    <loc>https://coolcallpro.com/locations/akron-oh</loc>
-    <image:image>
-      <image:loc>https://coolcallpro.com/images/cities/akron-oh.webp</image:loc>
-      <image:title>Akron, OH</image:title>
-      <image:caption>Stan Hywet Hall, Akron, Ohio 
-
-
-
-
-
-
-This is an image of a place or building that is listed on the National Register of Historic Places in the United States of America. Its reference number is 75002058</image:caption>
-      <image:license>https://creativecommons.org/licenses/by-sa/4.0</image:license>
-    </image:image>
-  </url>
-  <url>
     <loc>https://coolcallpro.com/locations/albuquerque-nm</loc>
     <image:image>
       <image:loc>https://coolcallpro.com/images/cities/albuquerque-nm.webp</image:loc>
@@ -45,15 +29,6 @@ This is an image of a place or building that is listed on the National Register 
     </image:image>
   </url>
   <url>
-    <loc>https://coolcallpro.com/locations/arlington-tx</loc>
-    <image:image>
-      <image:loc>https://coolcallpro.com/images/cities/arlington-tx.webp</image:loc>
-      <image:title>Arlington, TX</image:title>
-      <image:caption>AT&amp;amp;T Stadium in Arlington, Texas (United States).</image:caption>
-      <image:license>https://creativecommons.org/licenses/by-sa/4.0</image:license>
-    </image:image>
-  </url>
-  <url>
     <loc>https://coolcallpro.com/locations/atlanta-ga</loc>
     <image:image>
       <image:loc>https://coolcallpro.com/images/cities/atlanta-ga.webp</image:loc>
@@ -69,15 +44,6 @@ This is an image of a place or building that is listed on the National Register 
       <image:title>Augusta, GA</image:title>
       <image:caption>Downtown Augusta, Georgia as seen across the Savannah River, on the Fifth Street Bridge.</image:caption>
       <image:license>http://creativecommons.org/publicdomain/zero/1.0/deed.en</image:license>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://coolcallpro.com/locations/aurora-co</loc>
-    <image:image>
-      <image:loc>https://coolcallpro.com/images/cities/aurora-co.webp</image:loc>
-      <image:title>Aurora, CO</image:title>
-      <image:caption>Aurora, CO, USA</image:caption>
-      <image:license>https://creativecommons.org/licenses/by/3.0</image:license>
     </image:image>
   </url>
   <url>
@@ -108,15 +74,6 @@ This is an image of a place or building that is listed on the National Register 
     </image:image>
   </url>
   <url>
-    <loc>https://coolcallpro.com/locations/binghamton-ny</loc>
-    <image:image>
-      <image:loc>https://coolcallpro.com/images/cities/binghamton-ny.webp</image:loc>
-      <image:title>Binghamton, NY</image:title>
-      <image:caption>Skyline of Binghamton, New York, USA</image:caption>
-      <image:license>https://creativecommons.org/licenses/by/4.0</image:license>
-    </image:image>
-  </url>
-  <url>
     <loc>https://coolcallpro.com/locations/birmingham-al</loc>
     <image:image>
       <image:loc>https://coolcallpro.com/images/cities/birmingham-al.webp</image:loc>
@@ -141,15 +98,6 @@ This is an image of a place or building that is listed on the National Register 
       <image:title>Boston, MA</image:title>
       <image:caption>Boston, Beacon Hill</image:caption>
       <image:license>https://creativecommons.org/licenses/by/2.5</image:license>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://coolcallpro.com/locations/boulder-co</loc>
-    <image:image>
-      <image:loc>https://coolcallpro.com/images/cities/boulder-co.webp</image:loc>
-      <image:title>Boulder, CO</image:title>
-      <image:caption>Pearl Street Mall in downtown Boulder, Colorado in 2009.</image:caption>
-      <image:license>https://creativecommons.org/licenses/by/2.0</image:license>
     </image:image>
   </url>
   <url>
@@ -180,15 +128,6 @@ This is an image of a place or building that is listed on the National Register 
     </image:image>
   </url>
   <url>
-    <loc>https://coolcallpro.com/locations/canton-oh</loc>
-    <image:image>
-      <image:loc>https://coolcallpro.com/images/cities/canton-oh.webp</image:loc>
-      <image:title>Canton, OH</image:title>
-      <image:caption>Pro Football Hall of Fame</image:caption>
-      <image:license>https://creativecommons.org/licenses/by/2.0</image:license>
-    </image:image>
-  </url>
-  <url>
     <loc>https://coolcallpro.com/locations/charlotte-nc</loc>
     <image:image>
       <image:loc>https://coolcallpro.com/images/cities/charlotte-nc.webp</image:loc>
@@ -207,29 +146,11 @@ This is an image of a place or building that is listed on the National Register 
     </image:image>
   </url>
   <url>
-    <loc>https://coolcallpro.com/locations/chesapeake-va</loc>
-    <image:image>
-      <image:loc>https://coolcallpro.com/images/cities/chesapeake-va.webp</image:loc>
-      <image:title>Chesapeake, VA</image:title>
-      <image:caption>A sailboat on the Great Dismal Swamp Canal.</image:caption>
-      <image:license>https://commons.wikimedia.org/wiki/File:Great_Dismal_Swamp_Canal.jpg</image:license>
-    </image:image>
-  </url>
-  <url>
     <loc>https://coolcallpro.com/locations/chicago-il</loc>
     <image:image>
       <image:loc>https://coolcallpro.com/images/cities/chicago-il.webp</image:loc>
       <image:title>Chicago, IL</image:title>
       <image:caption>A Chicago River tour boat passes in front of Trump Tower</image:caption>
-      <image:license>https://creativecommons.org/licenses/by/2.0</image:license>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://coolcallpro.com/locations/chula-vista-ca</loc>
-    <image:image>
-      <image:loc>https://coolcallpro.com/images/cities/chula-vista-ca.webp</image:loc>
-      <image:title>Chula Vista, CA</image:title>
-      <image:caption>Chula Vista Bayfront on the San Diego Bay</image:caption>
       <image:license>https://creativecommons.org/licenses/by/2.0</image:license>
     </image:image>
   </url>
@@ -267,24 +188,6 @@ This is an image of a place or building that is listed on the National Register 
       <image:title>Dallas, TX</image:title>
       <image:caption>A view of the Dallas skyline from the GeO-Deck of Reunion Tower in Dallas, Texas (United States).</image:caption>
       <image:license>https://creativecommons.org/licenses/by-sa/4.0</image:license>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://coolcallpro.com/locations/danville-va</loc>
-    <image:image>
-      <image:loc>https://coolcallpro.com/images/cities/danville-va.webp</image:loc>
-      <image:title>Danville, VA</image:title>
-      <image:caption>Worsham Street Overlook, Main Street &amp;amp; Ridge, Masonic Temple (River City Towers), Martin Luther King, Jr. Bridges, Municipal Building from Union Street, Repurposed Dan River Fabrics &quot;Home&quot; Sign.</image:caption>
-      <image:license>https://creativecommons.org/licenses/by-sa/4.0</image:license>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://coolcallpro.com/locations/davenport-ia</loc>
-    <image:image>
-      <image:loc>https://coolcallpro.com/images/cities/davenport-ia.webp</image:loc>
-      <image:title>Davenport, IA</image:title>
-      <image:caption>One of Davenport's oldest neighborhoods, the Village of East Davenport is full of small specialty shops and was used as parade grounds for Civil War soldiers from Camp McClellan.</image:caption>
-      <image:license>https://creativecommons.org/licenses/by-sa/3.0</image:license>
     </image:image>
   </url>
   <url>
@@ -333,15 +236,6 @@ This is an image of a place or building that is listed on the National Register 
     </image:image>
   </url>
   <url>
-    <loc>https://coolcallpro.com/locations/elmira-ny</loc>
-    <image:image>
-      <image:loc>https://coolcallpro.com/images/cities/elmira-ny.webp</image:loc>
-      <image:title>Elmira, NY</image:title>
-      <image:caption>City Hall, Elmira, NY</image:caption>
-      <image:license>https://creativecommons.org/licenses/by-sa/1.0</image:license>
-    </image:image>
-  </url>
-  <url>
     <loc>https://coolcallpro.com/locations/eugene-or</loc>
     <image:image>
       <image:loc>https://coolcallpro.com/images/cities/eugene-or.webp</image:loc>
@@ -351,30 +245,12 @@ This is an image of a place or building that is listed on the National Register 
     </image:image>
   </url>
   <url>
-    <loc>https://coolcallpro.com/locations/fairbanks-ak</loc>
-    <image:image>
-      <image:loc>https://coolcallpro.com/images/cities/fairbanks-ak.webp</image:loc>
-      <image:title>Fairbanks, AK</image:title>
-      <image:caption>Main School</image:caption>
-      <image:license>https://creativecommons.org/licenses/by-sa/3.0</image:license>
-    </image:image>
-  </url>
-  <url>
     <loc>https://coolcallpro.com/locations/fayetteville-nc</loc>
     <image:image>
       <image:loc>https://coolcallpro.com/images/cities/fayetteville-nc.webp</image:loc>
       <image:title>Fayetteville, NC</image:title>
       <image:caption>Fayetteville, NC Downtown Skyline</image:caption>
       <image:license>https://commons.wikimedia.org/wiki/File:Fayetteville,_NC_Downtown_Skyline.jpg</image:license>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://coolcallpro.com/locations/flint-mi</loc>
-    <image:image>
-      <image:loc>https://coolcallpro.com/images/cities/flint-mi.webp</image:loc>
-      <image:title>Flint, MI</image:title>
-      <image:caption>Aerial photograph of Flint, Michigan</image:caption>
-      <image:license>http://creativecommons.org/publicdomain/zero/1.0/deed.en</image:license>
     </image:image>
   </url>
   <url>
@@ -396,38 +272,11 @@ This is an image of a place or building that is listed on the National Register 
     </image:image>
   </url>
   <url>
-    <loc>https://coolcallpro.com/locations/fremont-ca</loc>
-    <image:image>
-      <image:loc>https://coolcallpro.com/images/cities/fremont-ca.webp</image:loc>
-      <image:title>Fremont, CA</image:title>
-      <image:caption>Mission Peak — over Lake Elizabeth in Fremont Central Park, Fremont, California.</image:caption>
-      <image:license>https://creativecommons.org/licenses/by-sa/3.0</image:license>
-    </image:image>
-  </url>
-  <url>
     <loc>https://coolcallpro.com/locations/fresno-ca</loc>
     <image:image>
       <image:loc>https://coolcallpro.com/images/cities/fresno-ca.webp</image:loc>
       <image:title>Fresno, CA</image:title>
       <image:caption>Fresno Bee Building</image:caption>
-      <image:license>https://creativecommons.org/licenses/by-sa/3.0</image:license>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://coolcallpro.com/locations/garland-tx</loc>
-    <image:image>
-      <image:loc>https://coolcallpro.com/images/cities/garland-tx.webp</image:loc>
-      <image:title>Garland, TX</image:title>
-      <image:caption>State &amp;amp; 5th Street in Downtown</image:caption>
-      <image:license>https://creativecommons.org/licenses/by-sa/4.0</image:license>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://coolcallpro.com/locations/gilbert-az</loc>
-    <image:image>
-      <image:loc>https://coolcallpro.com/images/cities/gilbert-az.webp</image:loc>
-      <image:title>Gilbert, AZ</image:title>
-      <image:caption>Gilbert’s Heritage Court as viewed from Gilbert Road, in Gilbert, Arizona.</image:caption>
       <image:license>https://creativecommons.org/licenses/by-sa/3.0</image:license>
     </image:image>
   </url>
@@ -438,15 +287,6 @@ This is an image of a place or building that is listed on the National Register 
       <image:title>Glendale, AZ</image:title>
       <image:caption>Downtown Glendale, Arizona as viewed from the intersections of Glendale Ave. and 58th Ave.</image:caption>
       <image:license>https://creativecommons.org/licenses/by-sa/3.0</image:license>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://coolcallpro.com/locations/grand-prairie-tx</loc>
-    <image:image>
-      <image:loc>https://coolcallpro.com/images/cities/grand-prairie-tx.webp</image:loc>
-      <image:title>Grand Prairie, TX</image:title>
-      <image:caption>The Market Square water tower in Grand Prairie, Texas (United States).</image:caption>
-      <image:license>https://creativecommons.org/licenses/by-sa/4.0</image:license>
     </image:image>
   </url>
   <url>
@@ -465,24 +305,6 @@ This is an image of a place or building that is listed on the National Register 
       <image:title>Hartford, CT</image:title>
       <image:caption>The skyline of Hartford, Connecticut's capital city with a population of 121,000. Taken on October 31, 2025</image:caption>
       <image:license>https://creativecommons.org/licenses/by/4.0</image:license>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://coolcallpro.com/locations/henderson-nv</loc>
-    <image:image>
-      <image:loc>https://coolcallpro.com/images/cities/henderson-nv.webp</image:loc>
-      <image:title>Henderson, NV</image:title>
-      <image:caption>Aerial view of w:Lake Las Vegas</image:caption>
-      <image:license>https://commons.wikimedia.org/wiki/File:Lake_Las_Vegas_aerial_view.jpg</image:license>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://coolcallpro.com/locations/hialeah-fl</loc>
-    <image:image>
-      <image:loc>https://coolcallpro.com/images/cities/hialeah-fl.webp</image:loc>
-      <image:title>Hialeah, FL</image:title>
-      <image:caption>Hialeah</image:caption>
-      <image:license>https://creativecommons.org/licenses/by/2.0</image:license>
     </image:image>
   </url>
   <url>
@@ -522,39 +344,12 @@ This is an image of a place or building that is listed on the National Register 
     </image:image>
   </url>
   <url>
-    <loc>https://coolcallpro.com/locations/irving-tx</loc>
-    <image:image>
-      <image:loc>https://coolcallpro.com/images/cities/irving-tx.webp</image:loc>
-      <image:title>Irving, TX</image:title>
-      <image:caption>A collage of pictures that I took of Irving, Texas</image:caption>
-      <image:license>https://commons.wikimedia.org/wiki/File:Irving_Montage.jpg</image:license>
-    </image:image>
-  </url>
-  <url>
     <loc>https://coolcallpro.com/locations/jacksonville-fl</loc>
     <image:image>
       <image:loc>https://coolcallpro.com/images/cities/jacksonville-fl.webp</image:loc>
       <image:title>Jacksonville, FL</image:title>
       <image:caption>Downtown Jacksonville, Florida skyline and the Main Street Bridge viewed from above the St. Johns River</image:caption>
       <image:license>https://creativecommons.org/licenses/by/4.0</image:license>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://coolcallpro.com/locations/jersey-city-nj</loc>
-    <image:image>
-      <image:loc>https://coolcallpro.com/images/cities/jersey-city-nj.webp</image:loc>
-      <image:title>Jersey City, NJ</image:title>
-      <image:caption>Journal Square, Jersey City, New Jersey.</image:caption>
-      <image:license>https://creativecommons.org/licenses/by-sa/4.0</image:license>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://coolcallpro.com/locations/johnstown-pa</loc>
-    <image:image>
-      <image:loc>https://coolcallpro.com/images/cities/johnstown-pa.webp</image:loc>
-      <image:title>Johnstown, PA</image:title>
-      <image:caption>View from from atop the Johnstown Inclined Plane platform.</image:caption>
-      <image:license>http://creativecommons.org/licenses/by-sa/3.0/</image:license>
     </image:image>
   </url>
   <url>
@@ -826,24 +621,6 @@ In the foregroun</image:caption>
     </image:image>
   </url>
   <url>
-    <loc>https://coolcallpro.com/locations/pittsfield-ma</loc>
-    <image:image>
-      <image:loc>https://coolcallpro.com/images/cities/pittsfield-ma.webp</image:loc>
-      <image:title>Pittsfield, MA</image:title>
-      <image:caption>Downtown and Park Square, Pittsfield, Massachusetts</image:caption>
-      <image:license>https://creativecommons.org/licenses/by-sa/4.0</image:license>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://coolcallpro.com/locations/plano-tx</loc>
-    <image:image>
-      <image:loc>https://coolcallpro.com/images/cities/plano-tx.webp</image:loc>
-      <image:title>Plano, TX</image:title>
-      <image:caption>Legacy West is a premier mixed-use development located in Plano, Texas, offering an upscale, walkable urban experience in the heart of the Dallas-Fort Worth metroplex. Spanning over 250 acres, Legacy </image:caption>
-      <image:license>https://creativecommons.org/licenses/by-sa/4.0</image:license>
-    </image:image>
-  </url>
-  <url>
     <loc>https://coolcallpro.com/locations/providence-ri</loc>
     <image:image>
       <image:loc>https://coolcallpro.com/images/cities/providence-ri.webp</image:loc>
@@ -877,24 +654,6 @@ In the foregroun</image:caption>
       <image:title>Richmond, VA</image:title>
       <image:caption>A downtown view of Richmond, VA</image:caption>
       <image:license>https://creativecommons.org/licenses/by-sa/4.0</image:license>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://coolcallpro.com/locations/rochester-ny</loc>
-    <image:image>
-      <image:loc>https://coolcallpro.com/images/cities/rochester-ny.webp</image:loc>
-      <image:title>Rochester, NY</image:title>
-      <image:caption>A beautiful night in July 2011 made this shot happen - that, and some HDR work.</image:caption>
-      <image:license>https://creativecommons.org/licenses/by/2.0</image:license>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://coolcallpro.com/locations/rockford-il</loc>
-    <image:image>
-      <image:loc>https://coolcallpro.com/images/cities/rockford-il.webp</image:loc>
-      <image:title>Rockford, IL</image:title>
-      <image:caption>A westward view of the downtown East Street Street corridor is seen from the intersection of E State St and 3rd Street in Rockford, IL</image:caption>
-      <image:license>https://creativecommons.org/licenses/by-sa/3.0</image:license>
     </image:image>
   </url>
   <url>
@@ -952,33 +711,6 @@ In the foregroun</image:caption>
     </image:image>
   </url>
   <url>
-    <loc>https://coolcallpro.com/locations/santa-cruz-ca</loc>
-    <image:image>
-      <image:loc>https://coolcallpro.com/images/cities/santa-cruz-ca.webp</image:loc>
-      <image:title>Santa Cruz, CA</image:title>
-      <image:caption>Santa Cruz, California, USA  - Mission Santa Cruz  /144 School St, Santa Cruz, CA 95060/</image:caption>
-      <image:license>https://creativecommons.org/licenses/by/3.0</image:license>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://coolcallpro.com/locations/santa-rosa-ca</loc>
-    <image:image>
-      <image:loc>https://coolcallpro.com/images/cities/santa-rosa-ca.webp</image:loc>
-      <image:title>Santa Rosa, CA</image:title>
-      <image:caption>The Sonoma County Museum on 7th St., Downtown Santa Rosa, California, United States. Completed in 1910, it was originally the Post Office and Federal Building.</image:caption>
-      <image:license>https://creativecommons.org/licenses/by/3.0</image:license>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://coolcallpro.com/locations/scranton-pa</loc>
-    <image:image>
-      <image:loc>https://coolcallpro.com/images/cities/scranton-pa.webp</image:loc>
-      <image:title>Scranton, PA</image:title>
-      <image:caption>Scranton, Pennsylvania's skyline. Scranton, Pennsylvania is the largest city in the northeastern part of Pennsylvania.</image:caption>
-      <image:license>https://creativecommons.org/licenses/by-sa/3.0</image:license>
-    </image:image>
-  </url>
-  <url>
     <loc>https://coolcallpro.com/locations/seattle-wa</loc>
     <image:image>
       <image:loc>https://coolcallpro.com/images/cities/seattle-wa.webp</image:loc>
@@ -1024,39 +756,12 @@ In the foregroun</image:caption>
     </image:image>
   </url>
   <url>
-    <loc>https://coolcallpro.com/locations/st-petersburg-fl</loc>
-    <image:image>
-      <image:loc>https://coolcallpro.com/images/cities/st-petersburg-fl.webp</image:loc>
-      <image:title>St. Petersburg, FL</image:title>
-      <image:caption>The St. Pete Pier in St. Petersburg, Florida, in July 2021.</image:caption>
-      <image:license>https://creativecommons.org/licenses/by-sa/4.0</image:license>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://coolcallpro.com/locations/stamford-ct</loc>
-    <image:image>
-      <image:loc>https://coolcallpro.com/images/cities/stamford-ct.webp</image:loc>
-      <image:title>Stamford, CT</image:title>
-      <image:caption>Aerial view of downtown Stamford, Connecticut, seen from the southwest in winter. Interstate 95 and the Metro-North/Amtrak rail corridor run along the east side of the city.</image:caption>
-      <image:license>https://creativecommons.org/licenses/by/4.0</image:license>
-    </image:image>
-  </url>
-  <url>
     <loc>https://coolcallpro.com/locations/syracuse-ny</loc>
     <image:image>
       <image:loc>https://coolcallpro.com/images/cities/syracuse-ny.webp</image:loc>
       <image:title>Syracuse, NY</image:title>
       <image:caption>JMA Wireless Dome, Syracuse University</image:caption>
       <image:license>https://creativecommons.org/licenses/by-sa/4.0</image:license>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://coolcallpro.com/locations/tacoma-wa</loc>
-    <image:image>
-      <image:loc>https://coolcallpro.com/images/cities/tacoma-wa.webp</image:loc>
-      <image:title>Tacoma, WA</image:title>
-      <image:caption>Aerial photo of Tacoma, Washington</image:caption>
-      <image:license>http://creativecommons.org/publicdomain/zero/1.0/deed.en</image:license>
     </image:image>
   </url>
   <url>
@@ -1087,15 +792,6 @@ In the foregroun</image:caption>
     </image:image>
   </url>
   <url>
-    <loc>https://coolcallpro.com/locations/trenton-nj</loc>
-    <image:image>
-      <image:loc>https://coolcallpro.com/images/cities/trenton-nj.webp</image:loc>
-      <image:title>Trenton, NJ</image:title>
-      <image:caption>NJ State House or Capitol, Trenton, NJ</image:caption>
-      <image:license>https://creativecommons.org/licenses/by-sa/4.0</image:license>
-    </image:image>
-  </url>
-  <url>
     <loc>https://coolcallpro.com/locations/tucson-az</loc>
     <image:image>
       <image:loc>https://coolcallpro.com/images/cities/tucson-az.webp</image:loc>
@@ -1111,15 +807,6 @@ In the foregroun</image:caption>
       <image:title>Tulsa, OK</image:title>
       <image:caption>Skyline in Tulsa/Oklahoma</image:caption>
       <image:license>https://creativecommons.org/licenses/by-sa/4.0</image:license>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://coolcallpro.com/locations/utica-ny</loc>
-    <image:image>
-      <image:loc>https://coolcallpro.com/images/cities/utica-ny.webp</image:loc>
-      <image:title>Utica, NY</image:title>
-      <image:caption>Stanley Theatre, Utica, NY.</image:caption>
-      <image:license>https://creativecommons.org/licenses/by/2.0</image:license>
     </image:image>
   </url>
   <url>
@@ -1165,15 +852,6 @@ In the foregroun</image:caption>
       <image:title>Worcester, MA</image:title>
       <image:caption>Downtown Worcester, Massachusetts from Norfolk Street on November 4, 2012</image:caption>
       <image:license>https://creativecommons.org/licenses/by-sa/3.0</image:license>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://coolcallpro.com/locations/youngstown-oh</loc>
-    <image:image>
-      <image:loc>https://coolcallpro.com/images/cities/youngstown-oh.webp</image:loc>
-      <image:title>Youngstown, OH</image:title>
-      <image:caption>A view of Lanterman's Mill and Lanterman's Falls in Mill Creek Park in Youngstown, Ohio</image:caption>
-      <image:license>https://creativecommons.org/licenses/by-sa/4.0</image:license>
     </image:image>
   </url>
   <url>
