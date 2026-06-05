@@ -70,7 +70,7 @@
         {
           "slug": "ac-not-cooling-below-80",
           "path": "articles/ac-not-cooling-below-80.html",
-          "title": "AC Running but Not Cooling Below 80\u00c2\u00b0? Why",
+          "title": "AC Running but Not Cooling Below 80Â°? Why",
           "status": "live",
           "date_published": "2026-04-20",
           "priority": 4,
@@ -120,7 +120,7 @@
           "priority": 1,
           "roadmap_id": 94,
           "gsc_basis": "Captures emergency-AC cluster: ~1,184 winnable impressions across 'emergency ac service' (244), 'emergency ac services' (171), 'ac repair emergency' (131), 'emergency ac repairs' (94), 'ac emergency repair' (90), 'emergency air conditioning service' (231), '24/7 ac repair' (49), 'same day ac repair' (61). Currently sitting pos 16-30. (GSC 2026-05-10)",
-          "paused_reason": "PAUSED 2026-05-14 \u2014 doorway-risk against emergency-hvac-service-cost. As scoped (AC-specific cost), this would mostly restate the 3-cost-layer framework + urgency triage + dispatcher checklist from article #1 with 'AC' swapped for 'HVAC.' Reframe to genuinely different territory before writing (e.g., heat-stress medical-risk decision math, AC failure-cascade timeline, when-to-leave-the-house tipping point) \u2014 or skip. See feedback_article_uniqueness_check memory.",
+          "paused_reason": "PAUSED 2026-05-14 — doorway-risk against emergency-hvac-service-cost. As scoped (AC-specific cost), this would mostly restate the 3-cost-layer framework + urgency triage + dispatcher checklist from article #1 with 'AC' swapped for 'HVAC.' Reframe to genuinely different territory before writing (e.g., heat-stress medical-risk decision math, AC failure-cascade timeline, when-to-leave-the-house tipping point) — or skip. See feedback_article_uniqueness_check memory.",
           "note": "SKIPPED 2026-05-23 per docs/article-strategy-2026-05-23.md doorway-risk decision. Do not resurrect; article #1 covers the SERP."
         },
         {
@@ -227,7 +227,7 @@
           "priority": 1,
           "roadmap_id": 95,
           "gsc_basis": "Captures emergency-furnace cluster: ~734 winnable impressions across 'emergency furnace repair' (209), '24 hour furnace repair' (143), 'emergency heating repair' (85), 'emergency heating service' (60), '24/7 furnace repair' (43), 'emergency heating and cooling' (42), '24 hour emergency heating service' (39), '24 hour emergency heating repair' (30), 'furnace repair emergency' (26), 'same day heating repair' (25). Currently sitting pos 14-32. (GSC 2026-05-10)",
-          "paused_reason": "PAUSED 2026-05-14 \u2014 doorway-risk against emergency-hvac-service-cost. As scoped (furnace-specific cost + decision), this would mostly restate the 3-cost-layer framework + urgency triage + dispatcher checklist from article #1. Reframe to genuinely different territory before writing (e.g., CO-risk-driven decision math specific to combustion furnaces, frozen-pipe cascade timeline for no-heat below 25 F, gas-utility-vs-HVAC-tech division of work) \u2014 or skip. See feedback_article_uniqueness_check memory.",
+          "paused_reason": "PAUSED 2026-05-14 — doorway-risk against emergency-hvac-service-cost. As scoped (furnace-specific cost + decision), this would mostly restate the 3-cost-layer framework + urgency triage + dispatcher checklist from article #1. Reframe to genuinely different territory before writing (e.g., CO-risk-driven decision math specific to combustion furnaces, frozen-pipe cascade timeline for no-heat below 25 F, gas-utility-vs-HVAC-tech division of work) — or skip. See feedback_article_uniqueness_check memory.",
           "note": "SKIPPED 2026-05-23 per docs/article-strategy-2026-05-23.md doorway-risk decision. Do not resurrect; article #1 covers the SERP."
         }
       ]
@@ -243,7 +243,7 @@
       },
       "cross_cluster_anchor": {
         "cluster": "C5_compare",
-        "reason": "Heat pump questions are decision-heavy \u00e2\u20ac\u201d pivot readers to the comparison cluster."
+        "reason": "Heat pump questions are decision-heavy â€” pivot readers to the comparison cluster."
       },
       "climate_weights": {
         "coastal": 0.3,
@@ -298,6 +298,16 @@
             "serp_overlap": "Low. Primary competitors are manufacturer pages (Mitsubishi Hyper-Heating, Bosch IDS) and the DOE Cold Climate Heat Pump page. Our angle: aggregator-honest, no brand bias, with the homeowner-decision frame layered onto the physics explanation. <40% overlap vs any existing site article."
           },
           "date_published": "2026-05-24"
+        },
+        {
+          "slug": "should-i-switch-to-heat-pump",
+          "path": "articles/should-i-switch-to-heat-pump.html",
+          "title": "Should I Switch From a Gas Furnace to a Heat Pump?",
+          "status": "live",
+          "date_published": "2026-06-05",
+          "type": "B",
+          "phase1_candidate": 3,
+          "note": "Phase 1 article #4 -- C3 Type B decision tree. Doorway-safe vs heat-pump-vs-gas-furnace (operating cost) and 2026-heat-pump-buyers-guide (selection guide)."
         }
       ]
     },
@@ -418,7 +428,7 @@
       },
       "cross_cluster_anchor": {
         "cluster": "C4_cost",
-        "reason": "Comparisons require cost context \u00e2\u20ac\u201d readers need both sides of the decision."
+        "reason": "Comparisons require cost context â€” readers need both sides of the decision."
       },
       "climate_weights": "all_rotated",
       "articles": [
@@ -468,7 +478,7 @@
       },
       "cross_cluster_anchor": {
         "cluster": "C1_ac",
-        "reason": "Maintenance prevents AC emergencies \u00e2\u20ac\u201d cross-link to the AC pillar."
+        "reason": "Maintenance prevents AC emergencies â€” cross-link to the AC pillar."
       },
       "climate_weights": "all_rotated",
       "articles": [
@@ -507,9 +517,9 @@
           "type": "F-explainer",
           "roadmap_id": 96,
           "uniqueness_test": {
-            "learn": "The 12-15 specific physical actions a competent HVAC tech performs on a routine service call (visual inspection, electrical test sequence, refrigerant pressure measurement, airflow + temperature-split measurement), with sources from DOE EERE residential HVAC guide, ACCA Manual scope, EPA Section 608 cert scope, ENERGY STAR routine maintenance guidance. No live article covers this transparently \u2014 pillar 2026-hvac-cost-guide names the $65-$150 diagnostic fee but does not break down what is inside it; pillar year-round-hvac-maintenance-playbook covers homeowner maintenance, not what the tech does.",
-            "narrative_anchor": "The service-call fee buys you a credentialed eyes-on inspection that you cannot do yourself \u2014 and knowing what they are actually doing for that money makes you a better customer when they call you back with a quote.",
-            "serp_overlap": "Low. Queries like \"what does HVAC technician do on a service call\" / \"what is in HVAC diagnostic fee\" / \"how long does HVAC service call take\" return contractor blogs and Quora \u2014 no neutral aggregator covers this transparently. <40% overlap with any existing site article."
+            "learn": "The 12-15 specific physical actions a competent HVAC tech performs on a routine service call (visual inspection, electrical test sequence, refrigerant pressure measurement, airflow + temperature-split measurement), with sources from DOE EERE residential HVAC guide, ACCA Manual scope, EPA Section 608 cert scope, ENERGY STAR routine maintenance guidance. No live article covers this transparently — pillar 2026-hvac-cost-guide names the $65-$150 diagnostic fee but does not break down what is inside it; pillar year-round-hvac-maintenance-playbook covers homeowner maintenance, not what the tech does.",
+            "narrative_anchor": "The service-call fee buys you a credentialed eyes-on inspection that you cannot do yourself — and knowing what they are actually doing for that money makes you a better customer when they call you back with a quote.",
+            "serp_overlap": "Low. Queries like \"what does HVAC technician do on a service call\" / \"what is in HVAC diagnostic fee\" / \"how long does HVAC service call take\" return contractor blogs and Quora — no neutral aggregator covers this transparently. <40% overlap with any existing site article."
           },
           "date_published": "2026-05-24"
         }
@@ -523,14 +533,14 @@
       "cluster": "C4_cost",
       "slug": "emergency-hvac-service-cost",
       "type": "cluster",
-      "note": "GSC: 2,161 winnable imp at pos 16-22. BIGGEST winnable cluster \u2014 'emergency hvac service' alone has 645 imp at pos 20.9. Single article should push into top 10. Informational framing ('how much does it cost', 'fair rates') wins this SERP; geo-modified variants belong on location pages."
+      "note": "GSC: 2,161 winnable imp at pos 16-22. BIGGEST winnable cluster — 'emergency hvac service' alone has 645 imp at pos 20.9. Single article should push into top 10. Informational framing ('how much does it cost', 'fair rates') wins this SERP; geo-modified variants belong on location pages."
     },
     {
       "position": 2,
       "cluster": "C4_cost",
       "slug": "24-hour-hvac-repair",
       "type": "cluster",
-      "note": "GSC: 620 winnable imp at pos 11-18. '24 hour hvac repair' at pos 15.2 with 307 imp \u2014 closest to top 10 of any winnable cluster. Article frames trust signals (independent network, what to ask) vs the predatory after-hours operators that dominate these SERPs."
+      "note": "GSC: 620 winnable imp at pos 11-18. '24 hour hvac repair' at pos 15.2 with 307 imp — closest to top 10 of any winnable cluster. Article frames trust signals (independent network, what to ask) vs the predatory after-hours operators that dominate these SERPs."
     },
     {
       "position": 3,
@@ -567,7 +577,7 @@
       "cluster": "C4_cost",
       "slug": "r410a-recharge-cost",
       "type": "cluster",
-      "note": "Refrigerant cost \u2014 narrow but high-intent niche cluster. Worth shipping once emergency content is in place."
+      "note": "Refrigerant cost — narrow but high-intent niche cluster. Worth shipping once emergency content is in place."
     },
     {
       "position": 8,

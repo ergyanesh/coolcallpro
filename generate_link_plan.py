@@ -36,7 +36,7 @@ CLUSTER_N = 4      # cluster articles get 4 city links
 
 
 def load_cluster_map(path="cluster_map.json"):
-    with open(path) as f:
+    with open(path, encoding="utf-8") as f:
         return json.load(f)
 
 

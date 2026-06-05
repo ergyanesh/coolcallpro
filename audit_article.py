@@ -55,7 +55,7 @@ PRIMARY_SOURCE_DOMAINS = [
     "irs.gov", "epa.gov", "energy.gov", "energystar.gov", "dsireusa.org",
     "cdc.gov", "cfpb.gov", "consumerfinance.gov", "noaa.gov", "census.gov",
     "ftc.gov", "doe.gov", "bls.gov", "congress.gov", "govinfo.gov",
-    "osha.gov", "nfpa.org",
+    "osha.gov", "nfpa.org", "eia.gov",
     ".edu", "acca.org", "ahri.org", "ahrinet.org", "ashrae.org",
 ]
 
