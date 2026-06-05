@@ -11,6 +11,19 @@ OUT="_dist"
 
 echo "Building Cloudflare Pages deploy directory at ./$OUT"
 
+# Layer 1 (deploy-time guarantee): regenerate _redirects from current HTML on disk.
+# This is the authoritative pass — even a commit that bypassed the pre-commit hook
+# cannot ship a stale redirects map, because every deploy regenerates from the
+# actual files in the build context. Fails the build if regen fails.
+PYTHON="$(command -v python3 || command -v python || true)"
+if [ -z "$PYTHON" ]; then
+    echo "ERROR: Python not found in build environment. Cannot regenerate _redirects."
+    echo "Fix: ensure Cloudflare Pages build image v2 (has Python 3) is selected."
+    exit 1
+fi
+echo "Regenerating _redirects from current HTML files..."
+"$PYTHON" scripts/regenerate_redirects.py
+
 # Fresh output directory
 rm -rf "$OUT"
 mkdir -p "$OUT"
