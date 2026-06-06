@@ -337,7 +337,7 @@
           "path": "articles/heat-pump-sizing.html",
           "title": "How to Size a Heat Pump (and Why BTU Per Square Foot Is Wrong)",
           "status": "live",
-          "date_published": "2026-06-06",
+          "date_published": "2026-06-06T13:00:00Z",
           "type": "F",
           "card_description": "C3 cluster -- why contractor rule-of-thumb sizing fails, what ACCA Manual J actually calculates, the three specific costs of oversizing (short-cycling, failed dehumidification, higher install+operating cost), and the three-ask homeowner workflow for verifying a heat pump quote.",
           "note": "Phase 1 article #6 -- C3 Type F (explainer/methodology). Brings C3 to 5 -- HALF of the C1-unblock criterion met (other half: C6 needs to reach 7). Doorway-safe explainer angle on sizing methodology, distinct from pillar (selection), cold-weather-physics (balance point), should-i-switch (decision)."
@@ -575,7 +575,7 @@
           "path": "articles/hvac-maintenance-essentials.html",
           "title": "HVAC Maintenance: What's Necessary, What's Overkill, and What's Optional",
           "status": "live",
-          "date_published": "2026-06-06",
+          "date_published": "2026-06-06T08:00:00Z",
           "type": "G",
           "card_description": "C6 cluster -- an item-by-item editorial audit of HVAC maintenance: the four tasks that genuinely prevent expensive failures, the three industry-recommended items that are upsell padding you can safely skip, and how to read your manufacturer warranty before paying for annual service.",
           "note": "Phase 1 article #5 -- C6 Type G editorial methodology piece. Reframed from the Phase 1 doc menu #2 to avoid pillar overlap. Doorway-safe contrarian-editorial angle: what to SKIP."
@@ -585,7 +585,7 @@
           "path": "articles/gas-leak-vs-co-leak.html",
           "title": "Gas Leak vs CO Leak: Telling Them Apart in 60 Seconds",
           "status": "live",
-          "date_published": "2026-06-06",
+          "date_published": "2026-06-06T20:00:00Z",
           "type": "D",
           "card_description": "C6 cluster -- the four signals that distinguish a natural gas leak from a carbon monoxide exposure (smell, symptoms, detector type, source), the first-60-second response for each, the homeowner mistakes that turn either emergency worse, and the HVAC equipment most likely to be the source.",
           "note": "Phase 1 article #7 -- C6 Type D (safety distinction). Brings C6 to 6 -- 1 more article away from C6 unblock criterion (=7), at which point both halves of the C1-resume criterion are met."

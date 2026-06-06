@@ -1167,6 +1167,16 @@ ul {
   color: var(--white);
 }
 
+.tag-maintenance {
+  background: #4a5568;
+  color: var(--white);
+}
+
+.tag-emergency {
+  background: var(--red);
+  color: var(--white);
+}
+
 .tag-tips {
   background: var(--navy-mid);
   color: var(--ice);

@@ -71,8 +71,17 @@ def cluster_short_id(cluster_id: str) -> str:
 
 
 def collect_articles(cmap):
-    """Return list of live article dicts: cluster_id, slug, path, title, date_published, card_description, is_pillar."""
+    """Return list of live article dicts: cluster_id, slug, path, title, date_published, card_description, is_pillar.
+
+    Sort: newest date first, then most recently added (within cluster_map.json's articles[] array)
+    first as a same-date tiebreak. cluster_map.json is append-only on article ship -- the last
+    entry in a cluster's articles[] is the most recently shipped article -- so the array index
+    is a reliable proxy for ship order when multiple articles share a date. Slug is the final
+    tiebreak for total stability (and only fires when two articles share BOTH date and array
+    index, which is essentially never).
+    """
     articles = []
+    insertion_index = 0  # monotonic across all clusters, captures insertion order
     for cid, c in cmap["clusters"].items():
         p = c.get("pillar", {})
         if p.get("status") == "live":
@@ -84,7 +93,9 @@ def collect_articles(cmap):
                 "date_published": p.get("date_published", "2026-04-01"),
                 "card_description": p.get("card_description", ""),
                 "is_pillar": True,
+                "_insertion_index": insertion_index,
             })
+            insertion_index += 1
         for a in c.get("articles", []):
             if a.get("status") == "live":
                 articles.append({
@@ -95,9 +106,11 @@ def collect_articles(cmap):
                     "date_published": a.get("date_published", "2026-04-01"),
                     "card_description": a.get("card_description", ""),
                     "is_pillar": False,
+                    "_insertion_index": insertion_index,
                 })
-    # Newest first; deterministic tiebreak by slug
-    articles.sort(key=lambda a: (a["date_published"], a["slug"]), reverse=True)
+                insertion_index += 1
+    # Sort: newest date first; on same-date ties, newer insertion (higher index) first; then slug.
+    articles.sort(key=lambda a: (a["date_published"], a["_insertion_index"], a["slug"]), reverse=True)
     return articles
 
 
