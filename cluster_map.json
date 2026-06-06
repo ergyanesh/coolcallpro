@@ -331,6 +331,16 @@
           "phase1_candidate": 3,
           "note": "Phase 1 article #4 -- C3 Type B decision tree. Doorway-safe vs heat-pump-vs-gas-furnace (operating cost) and 2026-heat-pump-buyers-guide (selection guide).",
           "card_description": "A 2026 decision tree for switching from a gas furnace to a heat pump: six questions on climate zone, electricity-vs-gas pricing, furnace age, panel capacity, HEAR rebates, and dual-fuel strategy &mdash; plus the honest scenarios where staying with gas is the right answer."
+        },
+        {
+          "slug": "heat-pump-sizing",
+          "path": "articles/heat-pump-sizing.html",
+          "title": "How to Size a Heat Pump (and Why BTU Per Square Foot Is Wrong)",
+          "status": "live",
+          "date_published": "2026-06-06",
+          "type": "F",
+          "card_description": "C3 cluster -- why contractor rule-of-thumb sizing fails, what ACCA Manual J actually calculates, the three specific costs of oversizing (short-cycling, failed dehumidification, higher install+operating cost), and the three-ask homeowner workflow for verifying a heat pump quote.",
+          "note": "Phase 1 article #6 -- C3 Type F (explainer/methodology). Brings C3 to 5 -- HALF of the C1-unblock criterion met (other half: C6 needs to reach 7). Doorway-safe explainer angle on sizing methodology, distinct from pillar (selection), cold-weather-physics (balance point), should-i-switch (decision)."
         }
       ]
     },

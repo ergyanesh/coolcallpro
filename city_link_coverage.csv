@@ -4,7 +4,7 @@ oakland-ca,Oakland,CA,coastal,1,should-i-switch-to-heat-pump
 portland-or,Portland,OR,coastal,2,2026-heat-pump-buyers-guide; heat-pump-lukewarm-air
 san-francisco-ca,San Francisco,CA,coastal,2,heat-pump-stuck-in-cooling; heat-pump-defrost-grinding
 san-jose-ca,San Jose,CA,coastal,2,article-heat-pump; heat-pump-cold-weather-physics-explainer
-seattle-wa,Seattle,WA,coastal,0,
+seattle-wa,Seattle,WA,coastal,1,heat-pump-sizing
 allentown-pa,Allentown,PA,cold,1,emergency-hvac-service-cost
 baltimore-md,Baltimore,MD,cold,3,furnace-blowing-cold-air-winter; 2026-hvac-cost-guide; article-repair-vs-replace
 bangor-me,Bangor,ME,cold,2,heat-pump-vs-gas-furnace; article-maintenance
@@ -71,7 +71,7 @@ san-antonio-tx,San Antonio,TX,hot-humid,7,article-ac-summer; why-is-my-ac-blowin
 tallahassee-fl,Tallahassee,FL,hot-humid,1,thermostat-blank-ac-wont-start
 tampa-fl,Tampa,FL,hot-humid,2,complete-ac-troubleshooting-guide; ac-compressor-buzzing-fan-not-spinning
 atlanta-ga,Atlanta,GA,mixed-humid,2,article-refrigerant; ac-circuit-breaker-trips
-augusta-ga,Augusta,GA,mixed-humid,2,article-hvac-financing; new-furnace-installed-cost
+augusta-ga,Augusta,GA,mixed-humid,3,heat-pump-sizing; article-hvac-financing; new-furnace-installed-cost
 birmingham-al,Birmingham,AL,mixed-humid,1,heat-pump-defrost-grinding
 charleston-sc,Charleston,SC,mixed-humid,3,furnace-not-working-diagnostic-guide; article-carbon-monoxide; best-merv-rating
 charleston-wv,Charleston,WV,mixed-humid,2,24-hour-hvac-repair; heat-pump-vs-gas-furnace
@@ -95,7 +95,7 @@ raleigh-nc,Raleigh,NC,mixed-humid,0,
 richmond-va,Richmond,VA,mixed-humid,3,ac-contactor-clicking; year-round-hvac-maintenance-playbook; article-emergency
 shreveport-la,Shreveport,LA,mixed-humid,3,heat-pump-stuck-in-cooling; heat-pump-defrost-grinding; seer-14-vs-18-payback
 st-louis-mo,St. Louis,MO,mixed-humid,2,heat-pump-cold-weather-physics-explainer; what-hvac-technician-does-on-service-call
-tulsa-ok,Tulsa,OK,mixed-humid,4,ac-compressor-buzzing-fan-not-spinning; ac-capacitor-bulging-leaking-safety-check; furnace-burning-plastic-smell; should-i-switch-to-heat-pump
+tulsa-ok,Tulsa,OK,mixed-humid,5,ac-compressor-buzzing-fan-not-spinning; ac-capacitor-bulging-leaking-safety-check; furnace-burning-plastic-smell; should-i-switch-to-heat-pump; heat-pump-sizing
 virginia-beach-va,Virginia Beach,VA,mixed-humid,1,emergency-weekend-hvac-cost
 washington-dc,Washington,DC,mixed-humid,0,
 winston-salem-nc,Winston-Salem,NC,mixed-humid,3,article-furnace; 2026-heat-pump-buyers-guide; should-i-switch-to-heat-pump
@@ -108,7 +108,7 @@ denver-co,Denver,CO,mountain,2,furnace-short-cycling; furnace-ignitor-wont-light
 missoula-mt,Missoula,MT,mountain,1,furnace-not-working-diagnostic-guide
 rapid-city-sd,Rapid City,SD,mountain,1,heat-pump-lukewarm-air
 reno-nv,Reno,NV,mountain,2,co-detector-furnace-running; year-round-hvac-maintenance-playbook
-salt-lake-city-ut,Salt Lake City,UT,mountain,0,
+salt-lake-city-ut,Salt Lake City,UT,mountain,1,heat-pump-sizing
 spokane-wa,Spokane,WA,mountain,1,heat-pump-defrost-grinding
 anchorage-ak,Anchorage,AK,subarctic,0,
 fargo-nd,Fargo,ND,subarctic,0,
