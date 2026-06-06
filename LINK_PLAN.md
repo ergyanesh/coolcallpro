@@ -17,7 +17,7 @@ Then re-run `python generate_link_plan.py` and commit the new CSVs.
 
 | File | What it shows | Rows |
 |------|---------------|------|
-| `article_link_plan.csv` | Each planned article → its 4-5 city links + 2 state hubs + pillar link + cross-cluster anchor | 56 |
+| `article_link_plan.csv` | Each planned article → its 4-5 city links + 2 state hubs + pillar link + cross-cluster anchor | 57 |
 | `city_link_coverage.csv` | Each published city → every article slug that will link to it | 115 |
 | `LINK_PLAN.md` (this file) | Human overview + coverage stats | — |
 
@@ -53,7 +53,7 @@ Then re-run `python generate_link_plan.py` and commit the new CSVs.
 | C3_heatpump | Heat Pumps & Modern Systems | live | 4 | 3 | coastal:0.3, mixed-humid:0.4, mountain:0.3 |
 | C4_cost | Repair & Replacement Costs | live | 3 | 7 | all_rotated |
 | C5_compare | Repair-vs-Replace & Comparisons | live | 4 | 0 | all_rotated |
-| C6_maint | Maintenance, Safety & Seasonal | live | 5 | 1 | all_rotated |
+| C6_maint | Maintenance, Safety & Seasonal | live | 6 | 1 | all_rotated |
 
 ## How to use
 

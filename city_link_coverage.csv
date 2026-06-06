@@ -10,8 +10,8 @@ baltimore-md,Baltimore,MD,cold,3,furnace-blowing-cold-air-winter; 2026-hvac-cost
 bangor-me,Bangor,ME,cold,2,heat-pump-vs-gas-furnace; article-maintenance
 bismarck-nd,Bismarck,ND,cold,2,seer-14-vs-18-payback; best-merv-rating
 boston-ma,Boston,MA,cold,2,furnace-burning-plastic-smell; article-maintenance
-bridgeport-ct,Bridgeport,CT,cold,2,furnace-burning-plastic-smell; new-furnace-installed-cost
-buffalo-ny,Buffalo,NY,cold,1,furnace-not-working-diagnostic-guide
+bridgeport-ct,Bridgeport,CT,cold,3,furnace-burning-plastic-smell; new-furnace-installed-cost; gas-leak-vs-co-leak
+buffalo-ny,Buffalo,NY,cold,2,furnace-not-working-diagnostic-guide; gas-leak-vs-co-leak
 burlington-vt,Burlington,VT,cold,1,central-air-no-ductwork-cost
 chicago-il,Chicago,IL,cold,1,year-round-hvac-maintenance-playbook
 cleveland-oh,Cleveland,OH,cold,1,article-furnace
@@ -53,7 +53,7 @@ laredo-tx,Laredo,TX,hot-dry,2,hvac-leaking-water-inside-house; article-emergency
 las-vegas-nv,Las Vegas,NV,hot-dry,2,emergency-ac-repair-cost-guide; article-hvac-financing
 los-angeles-ca,Los Angeles,CA,hot-dry,2,r410a-recharge-cost; 24-hour-hvac-repair
 lubbock-tx,Lubbock,TX,hot-dry,3,ac-freezing-up-in-summer; ac-circuit-breaker-trips; 2026-hvac-cost-guide
-mesa-az,Mesa,AZ,hot-dry,2,why-is-my-ac-blowing-warm-air; emergency-weekend-hvac-cost
+mesa-az,Mesa,AZ,hot-dry,3,why-is-my-ac-blowing-warm-air; emergency-weekend-hvac-cost; gas-leak-vs-co-leak
 modesto-ca,Modesto,CA,hot-dry,0,
 phoenix-az,Phoenix,AZ,hot-dry,3,ac-not-cooling-below-80; mini-split-installation-cost; heat-pump-vs-gas-furnace
 sacramento-ca,Sacramento,CA,hot-dry,1,central-air-no-ductwork-cost
@@ -84,7 +84,7 @@ fort-worth-tx,Fort Worth,TX,mixed-humid,1,2026-hvac-cost-guide
 greenville-sc,Greenville,SC,mixed-humid,2,article-ac-summer; cost-replace-3-ton-ac
 huntsville-al,Huntsville,AL,mixed-humid,2,heat-pump-lukewarm-air; r410a-recharge-cost
 jackson-ms,Jackson,MS,mixed-humid,2,ac-not-cooling-below-80; article-maintenance
-knoxville-tn,Knoxville,TN,mixed-humid,3,furnace-short-cycling; heat-pump-stuck-in-cooling; repair-or-replace-framework
+knoxville-tn,Knoxville,TN,mixed-humid,4,furnace-short-cycling; heat-pump-stuck-in-cooling; repair-or-replace-framework; gas-leak-vs-co-leak
 lexington-ky,Lexington,KY,mixed-humid,0,
 little-rock-ar,Little Rock,AR,mixed-humid,1,heat-pump-lukewarm-air
 louisville-ky,Louisville,KY,mixed-humid,4,article-spring-ac; water-dripping-from-vent; furnace-ignitor-wont-light; co-detector-furnace-running

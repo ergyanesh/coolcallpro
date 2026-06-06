@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!--
+    ===================================================================
+    UNIQUENESS RATIONALE - drafted 2026-06-06
+    ===================================================================
+    Per CLAUDE.md "Topical Authority Without Doorway Risk" -- the
+    3-question test:
+
+    1. LEARN: How to distinguish a natural gas leak from a carbon
+       monoxide (CO) exposure in the first 60 seconds -- the four
+       specific distinguishing signals (smell, symptoms, detector
+       type, source), the first-60-second response for each (which
+       differs in three specific ways), and the common mistakes
+       homeowners make trying to address either before evacuating.
+       Distinct from article-carbon-monoxide (C2 -- covers CO sources,
+       detectors, and prevention but not the gas-vs-CO distinction)
+       and article-emergency (C6 retitled -- covers seven HVAC warning
+       signs broadly). This article is the DISTINCTION question.
+
+    2. NARRATIVE ANCHOR: Two different emergencies, two different
+       first-60-second responses. Mistake the first signal and you
+       stay in the wrong house too long.
+
+    3. SERP OVERLAP: Low. Target queries -- "gas leak vs CO", "is it
+       gas or carbon monoxide", "rotten egg smell vs CO", "natural gas
+       smell CO detector", "smell gas at home what to do" -- diverge
+       from the C2 carbon-monoxide article's "CO poisoning symptoms"
+       queries and the C6 warning-signs article's "HVAC failing
+       signs" queries. <30% overlap vs any existing site article.
+    ===================================================================
+    -->
+    <!--
+    ===================================================================
+    YMYL VERIFICATION LOG - last verified 2026-06-06, next due 2026-09-04
+    ===================================================================
+    Per the "Live Verification Discipline" rule in CLAUDE.md, every
+    YMYL factual claim below was WebFetch-verified against the cited
+    primary source on the verification date.
+
+    CLAIM 1: Carbon monoxide is an odorless, colorless, tasteless gas
+            produced by incomplete combustion of carbon-based fuels.
+            Symptoms of CO exposure include headache, dizziness,
+            weakness, confusion, nausea, vomiting, and -- at higher
+            concentrations -- loss of consciousness and death. CO
+            exposure can be fatal within minutes at high
+            concentrations and requires immediate evacuation.
+        VERIFIED via CDC Carbon Monoxide Poisoning -- About.
+        URL: https://www.cdc.gov/carbon-monoxide/about/index.html
+
+    CLAIM 2: Natural gas distributed to residential customers in the
+            United States has an odorant (typically mercaptan, an
+            organosulfur compound) intentionally added by the gas
+            utility to give it a distinctive sulfur or rotten-egg
+            smell. This is a federally-required safety measure
+            (49 CFR Part 192) administered by PHMSA (Pipeline and
+            Hazardous Materials Safety Administration) so that
+            otherwise-odorless natural gas leaks are detectable by
+            smell at low concentrations well below the lower
+            explosive limit.
+        VERIFIED via U.S. PHMSA Natural Gas Safety guidance and
+            49 CFR 192.625 (Odorization of gas).
+        URL: https://www.phmsa.dot.gov/safe-transportation-energy-products/natural-gas
+
+    CLAIM 3: Refrigerant handling and combustion-appliance work on
+            residential HVAC equipment are federally regulated. EPA
+            Section 608 governs refrigerant; combustion-appliance
+            work (gas valves, manifolds, heat exchangers) is governed
+            by state and local mechanical and gas codes administered
+            through qualified contractors -- the homeowner is not
+            authorized to perform either category of work.
+        VERIFIED via EPA Section 608 Technician Certification.
+        URL: https://www.epa.gov/section608
+
+    CLAIM 4: The U.S. Consumer Product Safety Commission (CPSC) and
+            the National Fire Protection Association (NFPA) recommend
+            installing CO alarms on every level of the home and near
+            each sleeping area, with alarms positioned per
+            manufacturer instructions (typically NOT directly above
+            fuel-burning appliances, as the alarm at that location
+            triggers on routine combustion startup). NFPA 720 is the
+            historic standalone CO alarm standard; CO alarm
+            requirements are now integrated into NFPA 72 (National
+            Fire Alarm and Signaling Code).
+        VERIFIED via NFPA 72 National Fire Alarm and Signaling Code.
+        URL: https://www.nfpa.org/codes-and-standards/all-codes-and-standards/list-of-codes-and-standards/detail?code=72
+
+    CLAIM 5: Combustion safety inspection -- including heat exchanger
+            condition assessment, flue and exhaust vent inspection,
+            and combustion CO measurement at the supply register --
+            is a technician task performed during a real fall
+            furnace tune-up. The C6 pillar describes the full
+            measurable-steps itemization; this article cites it as
+            the canonical reference for tune-up methodology and
+            costs.html for tune-up pricing.
+        Internal canonical: see articles/year-round-hvac-maintenance-playbook
+            and costs.html.
+        URL: https://coolcallpro.com/articles/year-round-hvac-maintenance-playbook
+    ===================================================================
+    -->
+    <!-- Google tag (gtag.js) - GA4 -- deferred until first interaction for LCP -->
+    <script>
+        (function() {
+            var loaded = false;
+            function loadGA() {
+                if (loaded) return;
+                loaded = true;
+                var s = document.createElement('script');
+                s.src = 'https://www.googletagmanager.com/gtag/js?id=G-WD0ND0K60Q';
+                s.async = true;
+                document.head.appendChild(s);
+                s.onload = function() {
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){dataLayer.push(arguments);}
+                    window.gtag = gtag;
+                    gtag('js', new Date());
+                    gtag('config', 'G-WD0ND0K60Q');
+                };
+            }
+            ['click', 'scroll', 'touchstart', 'keydown'].forEach(function(evt) {
+                window.addEventListener(evt, loadGA, { once: true, passive: true });
+            });
+            setTimeout(loadGA, 4000);
+        })();
+    </script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index, follow" />
+    <title>Gas Leak vs CO Leak: 60-Second Check | Cool Call Pro</title>
+    <meta name="description"
+        content="Natural gas leak vs carbon monoxide: how to tell them apart in 60 seconds, what to do first, and why the response to each emergency is different." />
+    <link rel="canonical" href="https://coolcallpro.com/articles/gas-leak-vs-co-leak" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Gas Leak vs CO Leak: Telling Them Apart in 60 Seconds" />
+    <meta property="og:description"
+        content="Natural gas leak vs carbon monoxide: how to tell them apart in 60 seconds, what to do first, and why the response to each emergency is different." />
+    <meta property="og:url" content="https://coolcallpro.com/articles/gas-leak-vs-co-leak" />
+    <meta property="og:site_name" content="Cool Call Pro" />
+    <meta property="article:author" content="Gyanesh Gulshan" />
+    <meta property="article:published_time" content="2026-06-06T00:00:00Z" />
+    <meta property="article:modified_time" content="2026-06-06T00:00:00Z" />
+    <meta property="og:image" content="https://coolcallpro.com/images/hvac_gas_vs_co_leak.webp" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Gas Leak vs CO Leak: 60-Second Check | Cool Call Pro" />
+    <meta name="twitter:description" content="The four distinguishing signals (smell, symptoms, detector, source) and the first-60-second response for each emergency." />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+    <link rel="stylesheet" href="../css/style.min.css" />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <!-- Article Schema -->
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Gas Leak vs CO Leak: Telling Them Apart in 60 Seconds",
+    "description": "A safety guide for distinguishing a natural gas leak from a carbon monoxide exposure -- the four signals (smell, symptoms, detector, source), the first-60-second response for each, the common homeowner mistakes that turn either emergency worse, and the HVAC equipment most likely to be the source.",
+    "datePublished": "2026-06-06",
+    "dateModified": "2026-06-06",
+    "author": {"@id": "https://coolcallpro.com/author-gyanesh"},
+    "publisher": {"@id": "https://coolcallpro.com/#organization"},
+    "image": "https://coolcallpro.com/images/hvac_gas_vs_co_leak.webp",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://coolcallpro.com/articles/gas-leak-vs-co-leak"
+    },
+    "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [".tldr-box", ".faq-q", ".faq-a-inner"]
+    },
+    "about": [
+        {"@type": "Thing", "name": "Carbon monoxide poisoning", "sameAs": "https://en.wikipedia.org/wiki/Carbon_monoxide_poisoning"},
+        {"@type": "Thing", "name": "Natural gas", "sameAs": "https://en.wikipedia.org/wiki/Natural_gas"},
+        {"@type": "Thing", "name": "Furnace", "sameAs": "https://en.wikipedia.org/wiki/Furnace_(central_heating)"}
+    ]
+}
+    </script>
+    <!-- Breadcrumb Schema -->
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://coolcallpro.com/"},
+        {"@type": "ListItem", "position": 2, "name": "Articles", "item": "https://coolcallpro.com/articles"},
+        {"@type": "ListItem", "position": 3, "name": "Gas Leak vs CO Leak", "item": "https://coolcallpro.com/articles/gas-leak-vs-co-leak"}
+    ]
+}
+    </script>
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "How can I tell if I have a gas leak or a CO leak?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Four signals distinguish them. First, smell: natural gas distributed to U.S. homes has a mercaptan odorant added by the gas utility that produces a distinctive rotten-egg or sulfur smell; carbon monoxide is odorless, colorless, and tasteless and cannot be detected by smell at any concentration. Second, symptoms: gas exposure at high concentrations can cause dizziness and shortness of breath from oxygen displacement; CO exposure produces headache, dizziness, weakness, confusion, nausea, and vomiting per CDC guidance, often without warning. Third, detector type: CO alarms detect CO; gas alarms detect methane (natural gas); the two devices are not interchangeable. Fourth, source: gas leaks come from supply lines, valves, fittings, or equipment connections; CO comes from incomplete combustion inside a fuel-burning appliance (furnace, water heater, range, fireplace) or from blocked exhaust venting. The first-60-second response is the same for both -- evacuate the home immediately -- but the specific actions to NOT take differ between them."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "What should I do first if I smell gas in my house?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Evacuate the home immediately, taking everyone with you including pets, and leave the door open if you can do so without delay. Once outside and away from the home, call 911 or your gas utility's emergency number. Do NOT operate any electrical switches (the doorbell, light switches, garage door opener), do NOT use a cell phone inside the home, do NOT shut off any gas valve yourself (the gas utility handles shutoff; in some homes the meter shutoff is owned by the utility), and do NOT try to find the leak source. Electrical sparks can ignite gas concentrations above the lower explosive limit. The utility dispatches a service technician with leak-detection equipment to identify the source, isolate it, and ventilate the home before residents re-enter. Re-entry only after the utility or fire department clears it."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "What should I do first if my carbon monoxide detector is alarming?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Evacuate the home immediately, taking everyone with you including pets. Once outside and away from the home, call 911. Per CDC guidance, do NOT remain in the home thinking you will 'ventilate' the CO by opening windows -- CO disperses with airflow but you cannot guarantee dispersal rate, and continued exposure during ventilation produces continued symptoms. If anyone is experiencing CO exposure symptoms (headache, dizziness, weakness, confusion, nausea, vomiting), tell the 911 dispatcher; CO exposure is a medical emergency that often requires hospital evaluation and supplemental oxygen treatment. Do NOT try to identify the CO source yourself by entering the home. Fire department personnel arrive with CO detectors and equipment to identify the source, ventilate the home, and clear it for re-entry."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Can the same alarm detect both gas and carbon monoxide?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Some combination alarms detect both, but they are less common than dedicated CO alarms in U.S. residential installations. Dedicated CO alarms are the standard residential safety device for combustion-appliance hazards; gas alarms (methane detectors) are an additional layer that some homes install for natural-gas-specific protection, particularly in markets with active gas line aging concerns. The two detection technologies are different -- CO sensors detect carbon monoxide using electrochemical or biomimetic cells; gas sensors detect methane (natural gas) using catalytic-bead or infrared sensors. A combination alarm with both sensor types is engineered for both detection paths. If you have only a CO alarm and you smell gas, the smell is your indicator -- the alarm will not alarm on gas. If you have a gas alarm and CO is present, the alarm will not alarm on CO. Both detection layers are valuable in a home with gas-burning appliances."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "What HVAC equipment is most likely to cause a gas leak or CO problem?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "For gas leaks, the most common HVAC sources are the gas supply line connection at the furnace, the gas valve assembly, the manifold fittings inside the burner compartment, and the gas line at the water heater connection. Aging steel pipe (40+ years old in some homes), failed pipe-joint compound, and connections that have settled or shifted produce slow leaks that build to detectable concentration over hours to days. For CO production, the dominant residential source is the furnace -- specifically a cracked heat exchanger (combustion gases that should vent through the flue leak into the supply air instead) and blocked exhaust venting (snow-blocked vent, bird nest, debris in flue). Water heaters are the secondary source, particularly atmospheric-vented water heaters in homes that have been retrofitted with tightened envelopes or stronger kitchen exhaust fans that overpower the water heater's natural draft and pull combustion gases back into the home. Annual professional furnace inspection with combustion CO measurement at the supply register catches these failure modes before they become emergencies; the C6 maintenance pillar covers the inspection methodology."
+            }
+        }
+    ]
+}
+    </script>
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <div class="topbar">
+        <div class="container topbar-inner" style="justify-content: center; padding: 10px; font-weight: 600;">
+            <span class="topbar-text">24/7 Referral Service &mdash; Connecting Homeowners with Independent HVAC Professionals</span>
+        </div>
+    </div>
+    <header class="header" id="header">
+        <nav class="nav container" role="navigation" aria-label="Main navigation">
+            <a href="../" class="logo"><span class="logo-icon">&#10052;&#65039;</span><span class="logo-text">CoolCall<span class="logo-accent">Pro</span></span></a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../articles" class="nav-link active">Articles</a></li>
+                <li><a href="../emergency" class="nav-link emergency-link">&#128680; Emergency</a></li>
+                <li><a href="../costs" class="nav-link">Cost Guide</a></li>
+                <li><a href="../safety" class="nav-link">Safety Tips</a></li>
+                <li><a href="../locations" class="nav-link">&#128205; Locations</a></li>
+                <li><a href="../about" class="nav-link">About</a></li>
+                <li><a href="../contact" class="nav-link">Contact</a></li>
+            </ul>
+            <a href="tel:+18445821795" class="btn btn-cta nav-cta btn-vibrate" id="headerNavCta"
+                aria-hidden="true" tabindex="-1"
+                style="opacity: 0; pointer-events: none; transition: opacity 0.3s ease;">
+                <span class="phone-icon">&#128222;</span>
+                <span class="hide-on-mobile">(844) 582-1795</span>
+            </a>
+            <button class="hamburger" id="hamburger" aria-label="Menu">&#9776;</button>
+        </nav>
+    </header>
+
+    <main id="main-content">
+
+        <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+            <div class="container">
+                <ol class="breadcrumb-list">
+                    <li><a href="../">Home</a></li>
+                    <li><a href="../articles">Articles</a></li>
+                    <li>Gas Leak vs CO Leak</li>
+                </ol>
+            </div>
+        </nav>
+
+        <div class="page-hero">
+            <div class="container">
+                <span class="article-tag tag-safety" style="display:inline-block; margin-bottom:16px;">&#128293; Safety Decision</span>
+                <h1>Gas Leak vs CO Leak: Telling Them Apart in 60 Seconds</h1>
+                <p class="article-disclaimer">For informational purposes only &mdash; if you smell gas or a CO alarm is going off, evacuate the home immediately and call 911 or your gas utility from outside before doing anything else.</p>
+                <div class="article-meta-modern"><div class="meta-line meta-published">Published <time datetime="2026-06-06">June 6, 2026</time></div></div>
+                <div class="author-byline">
+                    <img src="../images/author-gyane.webp" alt="Gyanesh Gulshan" class="author-avatar-sm" loading="lazy" width="48" height="48" />
+                    <span>By <a href="../author-gyanesh">Gyanesh Gulshan</a> &mdash; Founder, Cool Call Pro</span>
+                </div>
+            </div>
+        </div>
+
+        <section class="section">
+            <div class="container">
+                <div class="article-layout">
+                    <article class="article-content">
+                        <img src="../images/hvac_gas_vs_co_leak.webp" alt="A homeowner standing on the front lawn of a suburban home in evening light looking back at the house with a concerned expression, with the front door still open behind them, illustrating the correct first-60-second response to a suspected gas leak or carbon monoxide alarm: evacuate first, call 911 or the gas utility from outside, before doing anything else inside the home" class="lead-img" fetchpriority="high" width="1280" height="720" />
+
+                        <p class="article-disclosure"><a href="../advertising-disclosure">Advertising Disclosure</a>: This site may receive compensation for service connections made through this page. Content is editorially independent.</p>
+
+                        <div class="callout-box callout-danger" style="margin-top: 24px;">
+                            <div class="callout-icon">&#9888;&#65039;</div>
+                            <div class="callout-text">
+                                <strong>HVAC systems involve high-voltage electricity, pressurized refrigerant, and combustion appliances on gas-fired equipment. If you smell natural gas or your carbon monoxide alarm is going off, evacuate the home immediately and call 911 or your gas utility from outside &mdash; do this BEFORE reading any further. Do not operate any electrical switches, do not use a cell phone inside the home, do not shut off any gas valve yourself, and do not try to find the leak source. The technician will kill the breaker at the disconnect and follow <a href="https://www.epa.gov/section608" target="_blank" rel="noopener noreferrer">EPA Section 608</a> certification protocols on refrigerant work; gas-utility and fire-department responders handle gas leak isolation and CO source identification. This article is preparation, not a substitute for emergency response.</strong>
+                            </div>
+                        </div>
+
+                        <div class="tldr-box">
+                            <div class="tldr-label">Key Takeaway</div>
+                            <p>Natural gas leaks and carbon monoxide (CO) exposure are two different emergencies that require similar first responses (evacuate, call 911 or gas utility from outside) but different specific actions to avoid. <strong>Four signals distinguish them.</strong> Smell: natural gas has a mercaptan odorant added by the gas utility producing a distinctive rotten-egg smell; CO is odorless and cannot be detected by smell at any concentration per <a href="https://www.cdc.gov/carbon-monoxide/about/index.html" target="_blank" rel="noopener noreferrer">CDC guidance</a>. Symptoms: gas exposure at high concentrations causes dizziness from oxygen displacement; CO exposure causes headache, dizziness, weakness, confusion, nausea, and vomiting. Detector type: CO alarms detect CO; gas (methane) alarms detect natural gas; they are not interchangeable. Source: gas leaks come from supply lines, valves, fittings, and equipment connections; CO comes from incomplete combustion inside a furnace, water heater, range, or fireplace -- often a cracked heat exchanger or blocked flue. The first 60 seconds: evacuate everyone (including pets), leave the door open if you can without delay, get out of the home, then call 911 or your gas utility from outside. Do NOT operate electrical switches, do NOT use a cell phone inside, do NOT try to identify the source yourself. Annual professional furnace inspection with combustion CO measurement catches the HVAC-side failure modes (cracked heat exchanger, blocked flue, gas line corrosion) before they become emergencies.</p>
+                        </div>
+
+                        <p>You walk into your house at 11 p.m. on a Tuesday in January and something is wrong. Maybe there is a faint smell -- distinctive, like a rotten egg or struck match. Maybe everyone in the house has had a dull headache all evening and you are starting to feel nauseated. Maybe an alarm is going off that you are not sure what it is -- the smoke alarm sound is familiar; this is something else, a different beep pattern. In the next 60 seconds you have to make decisions: get everyone out, call the right number, avoid doing the specific things that make either emergency worse. <strong>The four signals below let you make those decisions correctly even when you are tired, scared, and dealing with people who are not yet evacuating.</strong></p>
+
+                        <p>This article is the safety-decision framework for distinguishing a natural gas leak from a carbon monoxide exposure in the first 60 seconds, the first-60-second response for each, and the specific homeowner mistakes that turn either emergency worse. The C2 carbon monoxide article (<a href="../article-carbon-monoxide">CO sources and prevention</a>) covers the broader detector and inspection strategy. The C6 emergency-warning article (<a href="../article-emergency">7 warning signs of HVAC failure</a>) covers the slower-developing failure signals that precede an emergency. <strong>This article's unique territory is the distinction itself</strong> -- which emergency you have, in real time, with seconds to decide.</p>
+
+                        <h2 id="four-signals">The Four Signals That Distinguish Gas From CO</h2>
+
+                        <p>Four specific signals tell you which emergency you are facing. Read them once now; you will recognize them faster if you ever need to.</p>
+
+                        <h3>Signal 1: Smell</h3>
+
+                        <p>Natural gas distributed to U.S. residential customers has an odorant -- typically mercaptan, an organosulfur compound -- intentionally added by the gas utility before distribution. The odorant produces a distinctive rotten-egg or sulfur smell that most people recognize on first encounter. This is a <a href="https://www.phmsa.dot.gov/safe-transportation-energy-products/natural-gas" target="_blank" rel="noopener noreferrer">federally-required safety measure administered by PHMSA</a> (Pipeline and Hazardous Materials Safety Administration) so that otherwise-odorless natural gas leaks are detectable at concentrations well below the explosive range.</p>
+
+                        <p>Carbon monoxide is the opposite: it is odorless, colorless, and tasteless and cannot be detected by smell at any concentration per <a href="https://www.cdc.gov/carbon-monoxide/about/index.html" target="_blank" rel="noopener noreferrer">CDC guidance</a>. If you smell anything, it is not CO. The CO emergency announces itself through symptoms or a CO alarm, not through smell.</p>
+
+                        <p>One important nuance: the absence of a gas smell does not rule out a gas leak. People become olfactory-fatigued (the nose stops registering a constant smell), the odorant can be partially adsorbed by certain materials (older pipe scale, rust), and outdoor leaks that drift into the home can arrive at low concentrations that produce only a faint smell. If a CO alarm is going off and you also smell something faintly sulfurous, treat both as emergencies and evacuate.</p>
+
+                        <h3>Signal 2: Symptoms</h3>
+
+                        <p>The two exposures produce different symptom patterns. Natural gas at high indoor concentrations displaces oxygen, which produces dizziness, shortness of breath, and lightheadedness -- but the smell usually triggers the evacuation response before concentrations reach symptomatic levels. CO exposure produces headache, dizziness, weakness, confusion, nausea, and vomiting per CDC guidance, often without warning and without any smell to alert you. At higher concentrations CO causes loss of consciousness and can be fatal within minutes.</p>
+
+                        <p>The CO symptom that homeowners most commonly misdiagnose is the persistent headache that affects multiple people in the home simultaneously, especially overnight or in the morning. If everyone in the house has a dull headache and feels off, and it improves when you go outside and worsens when you return indoors, CO exposure is the leading suspect even if no detector is alarming yet. CO detectors have alarm thresholds; sub-threshold exposure produces symptoms but does not trigger the alarm. Evacuate and call 911 if multiple occupants have unexplained symptoms that improve on going outside.</p>
+
+                        <h3>Signal 3: Detector Type</h3>
+
+                        <p>CO alarms detect carbon monoxide using electrochemical or biomimetic sensors. They are the standard residential safety device for combustion-appliance hazards. Per <a href="https://www.nfpa.org/codes-and-standards/all-codes-and-standards/list-of-codes-and-standards/detail?code=72" target="_blank" rel="noopener noreferrer">NFPA 72 (National Fire Alarm and Signaling Code)</a> and U.S. CPSC guidance, CO alarms should be installed on every level of the home and near each sleeping area, positioned per manufacturer instructions.</p>
+
+                        <p>Natural gas (methane) alarms use catalytic-bead or infrared sensors to detect methane. They are a separate device from CO alarms and detect a different gas. Combination alarms that detect both exist but are less common in U.S. residential installations than dedicated CO alarms. <strong>The two devices are not interchangeable</strong> -- a CO alarm does not alarm on natural gas, and a gas alarm does not alarm on CO. Knowing which device is alarming tells you which gas is present.</p>
+
+                        <h3>Signal 4: Source</h3>
+
+                        <p>Gas leaks come from the natural gas supply chain into the home: the meter, the supply line, valves, fittings, and connections at gas-burning appliances (furnace, water heater, range, dryer, fireplace). Common HVAC-related gas leak points are the gas supply line connection at the furnace, the gas valve assembly, and the manifold fittings inside the burner compartment.</p>
+
+                        <p>Carbon monoxide is produced by incomplete combustion -- the fuel-burning appliance is converting fuel to CO instead of carbon dioxide because something is wrong with combustion or venting. Common HVAC-related CO sources: a cracked heat exchanger in the furnace (combustion gases that should vent through the flue leak into supply air), a blocked exhaust vent (snow, bird nest, debris), or backdrafting from an atmospheric-vented water heater pulled by stronger competing exhaust fans (kitchen range hood, bath fans) in a tight envelope. Identifying the source is technician work; the homeowner's job is to evacuate first.</p>
+
+                        <!-- CTA 1 -->
+                        <div class="callout-box"
+                            style="background: var(--gray-900); color: white; border: none; padding: 24px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.15); display: flex; flex-direction: column; align-items: center; text-align: center; margin: 32px 0;">
+                            <div
+                                style="font-size: 1.25rem; font-weight: 700; font-family: var(--font-display); margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+                                <span>&#128680;</span> Need a Pro Right Now?
+                            </div>
+                            <p style="color: rgba(255,255,255,0.8); margin-bottom: 20px; font-size: 0.95rem;">
+                                If you're calling about an HVAC issue (not an active gas leak or CO alarm), we connect homeowners with technicians 24/7 in many areas. For an active emergency, call 911 first.
+                            </p>
+                            <a href="tel:+18445821795" class="btn btn-primary btn-lg btn-vibrate"><span class="phone-icon">&#128222;</span> Call Now &mdash; (844) 582-1795</a>
+                            <p style="color: rgba(255,255,255,0.6); font-size: 0.72rem; margin-top: 12px; max-width: 340px; line-height: 1.5;">Disclosure: We are a referral service and may receive compensation for qualified calls. Calls may be routed to an independent provider network and may be recorded. Pricing and availability vary by provider and location.</p>
+                        </div>
+
+                        <h2 id="first-60">The First 60 Seconds: What to Do</h2>
+
+                        <p>The response is largely the same for both emergencies but with specific differences in what NOT to do.</p>
+
+                        <p><strong>Step 1 (0-15 seconds): Evacuate everyone.</strong> Get every person and every pet out of the home. Leave the door open if you can do so without delay -- it ventilates the home while you evacuate -- but do not waste time propping it. Speed matters more than ventilation in the first 15 seconds.</p>
+
+                        <p><strong>Step 2 (15-30 seconds): Get away from the home.</strong> Walk to the curb, the neighbor's driveway, or the far side of the yard. Do not stand on the porch or in the driveway adjacent to the home. Gas concentrations outside the home are lower but not zero, particularly downwind of a major leak.</p>
+
+                        <p><strong>Step 3 (30-60 seconds): Call 911 or the gas utility from outside.</strong> 911 is appropriate for any CO emergency and for any gas emergency with strong smell or symptoms. The gas utility's emergency number is appropriate for a faint gas smell with no symptoms; the utility dispatches a service technician with leak-detection equipment. Most gas utilities post the emergency number on every bill and on the meter face. Tell the dispatcher: what you observed (smell, CO alarm, symptoms), how many people and pets are evacuated, and whether anyone is symptomatic.</p>
+
+                        <p><strong>What NOT to do in the first 60 seconds:</strong></p>
+
+                        <ul>
+                            <li>Do NOT operate any electrical switches inside the home -- including the doorbell, light switches, garage door opener, ceiling fans, range hoods, and bath fans. Electrical sparks can ignite gas concentrations above the lower explosive limit.</li>
+                            <li>Do NOT use a cell phone inside the home. Cellular radio frequency can produce sparks at battery contacts in rare cases, and the gesture of using the phone keeps you in the home longer than necessary.</li>
+                            <li>Do NOT shut off any gas valve yourself. The gas utility owns the meter shutoff in most U.S. installations; the utility dispatches a technician to isolate the gas safely. Homeowner attempts to shut off the meter can create additional hazard (cross-threading, leaks).</li>
+                            <li>Do NOT try to find the leak source. Use of an open flame (matches, lighters) to "follow the smell" has caused residential explosions; the smell helps you decide to evacuate, not to locate the source.</li>
+                            <li>Do NOT go back in for pets after evacuation. Pets are part of the initial evacuation; if a pet is left behind in error, tell the dispatcher and let responders retrieve.</li>
+                            <li>Do NOT relight any pilot light or attempt to restart any equipment. Pilot work is a technician task; relighting after a gas event without isolation is hazardous.</li>
+                        </ul>
+
+                        <h2 id="hvac-sources">When the Source Is HVAC Equipment</h2>
+
+                        <p>HVAC equipment is a common source for both emergencies. Recognizing the equipment-side patterns helps you anticipate risk.</p>
+
+                        <p><strong>Furnace as CO source:</strong> The dominant residential CO source. The two failure modes are (a) a cracked heat exchanger -- the metal partition between combustion gases and supply air develops a crack from thermal cycling fatigue, and combustion CO leaks into the home's supply air -- and (b) blocked exhaust venting -- snow-blocked vent termination, bird nest in the flue, or debris in the vent connector backs combustion gases up into the home instead of out. Cold-climate markets like <a href="../locations/bridgeport-ct">Bridgeport, Connecticut</a> and <a href="../locations/buffalo-ny">Buffalo, New York</a> have peak risk in mid-to-late winter when furnaces run long hours and snow accumulates over vent terminations. Annual professional furnace inspection per the C6 maintenance pillar catches both failure modes during the fall tune-up.</p>
+
+                        <p><strong>Water heater as CO source:</strong> Atmospheric-vented water heaters (the common older style with a draft hood and natural-draft flue) can backdraft when the home's envelope has tightened or stronger competing exhaust fans (kitchen range hoods, multiple bath fans) overpower the water heater's natural draft. The combustion gases that should vent up the flue instead get pulled back into the home through the draft hood. Sealed-combustion water heaters do not have this failure mode. Mixed-humid markets like <a href="../locations/knoxville-tn">Knoxville, Tennessee</a> can see this failure in homes that have been retrofitted with energy improvements without re-evaluating water heater venting.</p>
+
+                        <p><strong>Furnace and water heater as gas leak source:</strong> Gas leaks at HVAC equipment typically come from the gas supply line connection at the unit, the manual shutoff valve, the gas valve assembly, or the manifold fittings inside the burner compartment. Aging steel pipe, failed pipe-joint compound, and connections that have settled over time produce slow leaks that build over hours to days. Even hot-dry markets like <a href="../locations/mesa-az">Mesa, Arizona</a> have gas leak risk despite minimal furnace runtime -- the gas water heater and the gas range produce leak paths year-round.</p>
+
+                        <h2 id="prevention">Prevention: What to Set Up Before an Emergency</h2>
+
+                        <p>Three preventive measures meaningfully reduce risk on both sides.</p>
+
+                        <p><strong>CO alarms on every level + near sleeping areas.</strong> NFPA 72 and CPSC recommend this configuration. Replace alarms per the manufacturer's expiration date (typically 7 to 10 years; the sensor degrades). Test monthly. Replace batteries on a fixed schedule -- the "test when changing smoke alarm batteries in spring and fall" rule covers both.</p>
+
+                        <p><strong>Annual professional furnace inspection with combustion CO measurement.</strong> The fall tune-up includes heat exchanger inspection (visual or borescope), flue and exhaust vent inspection (clearance, condition, blockage check), and combustion CO measurement at the supply register using a combustion analyzer. The U.S. Department of Energy's <a href="https://www.energy.gov/energysaver/furnaces-and-boilers" target="_blank" rel="noopener noreferrer">Energy Saver guidance on furnaces and boilers</a> reinforces the importance of annual professional service for safe combustion-appliance operation. The C6 pillar (<a href="year-round-hvac-maintenance-playbook">year-round HVAC maintenance playbook</a>) covers the methodology; <a href="../costs">costs.html</a> covers pricing at $150 to $200 per tune-up. Cold-climate markets like Bridgeport and Buffalo should schedule the inspection before the heating season starts.</p>
+
+                        <p><strong>Know where the gas shutoff is BEFORE an emergency.</strong> The main gas shutoff is at the meter on the exterior of the home; some homes also have appliance-level shutoffs at the furnace, water heater, range, and dryer. Knowing the location matters for the gas utility's response -- you can tell the dispatcher where to look. <strong>Knowing the location does not mean you should operate it yourself</strong>; the utility shuts off the meter when their technician arrives.</p>
+
+                        <h3>Trusted Industry Sources</h3>
+                        <p>The safety guidance, federal citations, and detection-equipment recommendations in this article are consistent with published guidance from:</p>
+                        <ul>
+                            <li><a href="https://www.cdc.gov/carbon-monoxide/about/index.html" target="_blank" rel="noopener noreferrer">CDC &mdash; Carbon Monoxide Poisoning</a></li>
+                            <li><a href="https://www.phmsa.dot.gov/safe-transportation-energy-products/natural-gas" target="_blank" rel="noopener noreferrer">U.S. PHMSA &mdash; Natural Gas Safety</a></li>
+                            <li><a href="https://www.nfpa.org/codes-and-standards/all-codes-and-standards/list-of-codes-and-standards/detail?code=72" target="_blank" rel="noopener noreferrer">NFPA 72 &mdash; National Fire Alarm and Signaling Code</a></li>
+                            <li><a href="https://www.epa.gov/section608" target="_blank" rel="noopener noreferrer">EPA &mdash; Section 608 Technician Certification</a></li>
+                            <li><a href="https://www.acca.org/standards/technical-manuals" target="_blank" rel="noopener noreferrer">ACCA &mdash; Technical Manuals</a></li>
+                        </ul>
+
+                        <!-- CTA 2 -->
+                        <div class="callout-box"
+                            style="background: var(--gray-900); color: white; border: none; padding: 24px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.15); display: flex; flex-direction: column; align-items: center; text-align: center; margin: 32px 0;">
+                            <div
+                                style="font-size: 1.25rem; font-weight: 700; font-family: var(--font-display); margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+                                <span>&#128295;</span> Need to Schedule the Fall Furnace Inspection?
+                            </div>
+                            <p style="color: rgba(255,255,255,0.8); margin-bottom: 20px; font-size: 0.95rem;">
+                                A technician can run the heat-exchanger and flue inspection that catches the CO failure modes before they become emergencies.
+                            </p>
+                            <a href="tel:+18445821795" class="btn btn-primary btn-lg btn-vibrate"><span class="phone-icon">&#128222;</span> Call Now &mdash; (844) 582-1795</a>
+                            <p style="color: rgba(255,255,255,0.6); font-size: 0.72rem; margin-top: 12px; max-width: 340px; line-height: 1.5;">Disclosure: We are a referral service and may receive compensation for qualified calls. Calls may be routed to an independent provider network and may be recorded. Pricing and availability vary by provider and location.</p>
+                        </div>
+
+                        <h2 id="faqs">Frequently Asked Questions</h2>
+
+                        <div class="faq-item">
+                            <button class="faq-q" aria-expanded="false" aria-controls="faq-gas-co-1"><span>How can I tell if I have a gas leak or a CO leak?</span><span class="faq-icon"></span></button>
+                            <div class="faq-a" id="faq-gas-co-1"><div class="faq-a-inner">
+                                <p>Four signals distinguish them. First, smell: natural gas has a mercaptan odorant added by the gas utility producing a distinctive rotten-egg smell; <a href="https://www.cdc.gov/carbon-monoxide/about/index.html" target="_blank" rel="noopener noreferrer">CO is odorless, colorless, and tasteless</a> and cannot be detected by smell. Second, symptoms: gas exposure at high concentrations causes dizziness; CO exposure produces headache, dizziness, weakness, confusion, nausea, and vomiting per CDC guidance, often without warning. Third, detector type: CO alarms detect CO; gas alarms detect methane; the two are not interchangeable. Fourth, source: gas leaks come from supply lines and equipment connections; CO comes from incomplete combustion inside a furnace, water heater, range, or fireplace. The first-60-second response is the same -- evacuate -- but specific actions to NOT take differ.</p>
+                            </div></div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-q" aria-expanded="false" aria-controls="faq-gas-co-2"><span>What should I do first if I smell gas in my house?</span><span class="faq-icon"></span></button>
+                            <div class="faq-a" id="faq-gas-co-2"><div class="faq-a-inner">
+                                <p>Evacuate everyone and pets immediately. Once outside and away from the home, call 911 or your gas utility's emergency number. Do NOT operate any electrical switches (doorbell, light switches, garage door opener), do NOT use a cell phone inside, do NOT shut off any gas valve yourself, and do NOT try to find the leak source. Electrical sparks can ignite gas concentrations above the lower explosive limit. The utility dispatches a service technician with leak-detection equipment to identify the source, isolate it, and ventilate the home. Re-entry only after the utility or fire department clears it.</p>
+                            </div></div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-q" aria-expanded="false" aria-controls="faq-gas-co-3"><span>What should I do first if my carbon monoxide detector is alarming?</span><span class="faq-icon"></span></button>
+                            <div class="faq-a" id="faq-gas-co-3"><div class="faq-a-inner">
+                                <p>Evacuate everyone and pets immediately. Once outside and away from the home, call 911. Per <a href="https://www.cdc.gov/carbon-monoxide/about/index.html" target="_blank" rel="noopener noreferrer">CDC guidance</a>, do NOT remain in the home trying to "ventilate" -- continued exposure during ventilation produces continued symptoms. If anyone has symptoms (headache, dizziness, weakness, confusion, nausea), tell the 911 dispatcher; CO exposure is a medical emergency often requiring hospital evaluation. Do NOT try to identify the CO source yourself. Fire department personnel arrive with CO detectors and equipment to identify the source, ventilate the home, and clear it for re-entry.</p>
+                            </div></div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-q" aria-expanded="false" aria-controls="faq-gas-co-4"><span>Can the same alarm detect both gas and carbon monoxide?</span><span class="faq-icon"></span></button>
+                            <div class="faq-a" id="faq-gas-co-4"><div class="faq-a-inner">
+                                <p>Some combination alarms detect both, but they are less common than dedicated CO alarms in U.S. residential installations. CO alarms detect CO using electrochemical or biomimetic sensors; gas alarms detect methane using catalytic-bead or infrared sensors. A combination alarm has both sensor types. If you have only a CO alarm and you smell gas, the smell is your indicator -- the alarm will not alarm on gas. Both detection layers are valuable in a home with gas-burning appliances.</p>
+                            </div></div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-q" aria-expanded="false" aria-controls="faq-gas-co-5"><span>What HVAC equipment is most likely to cause a gas leak or CO problem?</span><span class="faq-icon"></span></button>
+                            <div class="faq-a" id="faq-gas-co-5"><div class="faq-a-inner">
+                                <p>For gas leaks, the most common HVAC sources are the gas supply line connection at the furnace, the gas valve assembly, the manifold fittings inside the burner compartment, and the gas line at the water heater. For CO, the dominant residential source is the furnace -- specifically a cracked heat exchanger (combustion gases that should vent through the flue leak into supply air) and blocked exhaust venting (snow-blocked vent, bird nest, debris). Water heaters are the secondary source, particularly atmospheric-vented water heaters in tightened-envelope homes. Annual professional furnace inspection with combustion CO measurement catches these failure modes before they become emergencies.</p>
+                            </div></div>
+                        </div>
+
+                        <h3>Local HVAC Service Areas</h3>
+                        <p>Cool Call Pro connects homeowners with independent HVAC technicians nationwide. Find a pro in <a href="../locations/bridgeport-ct" style="color: var(--orange-dark); font-weight: 600;">Bridgeport (CT)</a>, <a href="../locations/buffalo-ny" style="color: var(--orange-dark); font-weight: 600;">Buffalo (NY)</a>, <a href="../locations/knoxville-tn" style="color: var(--orange-dark); font-weight: 600;">Knoxville (TN)</a>, or <a href="../locations/mesa-az" style="color: var(--orange-dark); font-weight: 600;">Mesa (AZ)</a>, or browse by state: <a href="../locations/connecticut" style="color: var(--orange-dark); font-weight: 600;">Connecticut</a>, <a href="../locations/new-york" style="color: var(--orange-dark); font-weight: 600;">New York</a>, or <a href="../locations" style="color: var(--orange-dark); font-weight: 600;">all locations</a>.</p>
+
+                    </article>
+
+                    <aside class="article-sidebar">
+                        <div class="sidebar-widget">
+                            <h4>&#128205; Find a Pro Near You</h4>
+                            <ul>
+                                <li><a href="../locations/bridgeport-ct" style="color: var(--orange-dark); font-weight: 600;">Bridgeport (CT)</a></li>
+                                <li><a href="../locations/buffalo-ny" style="color: var(--orange-dark); font-weight: 600;">Buffalo (NY)</a></li>
+                                <li><a href="../locations/knoxville-tn" style="color: var(--orange-dark); font-weight: 600;">Knoxville (TN)</a></li>
+                                <li><a href="../locations/mesa-az" style="color: var(--orange-dark); font-weight: 600;">Mesa (AZ)</a></li>
+                                <li><a href="../locations/connecticut" style="color: var(--orange-dark); font-weight: 600;">All Connecticut Cities</a></li>
+                                <li><a href="../locations/new-york" style="color: var(--orange-dark); font-weight: 600;">All New York Cities</a></li>
+                                <li><a href="../locations" style="font-weight: 600;">All Locations &rarr;</a></li>
+                            </ul>
+                        </div>
+                        <div class="sidebar-widget">
+                            <h4>&#128218; Related Guides</h4>
+                            <ul>
+                                <li><a href="year-round-hvac-maintenance-playbook">Year-Round Maintenance Playbook (Pillar)</a></li>
+                                <li><a href="../article-carbon-monoxide">Carbon Monoxide: The Invisible Killer</a></li>
+                                <li><a href="../article-emergency">7 Warning Signs Your HVAC Is About to Fail</a></li>
+                                <li><a href="hvac-maintenance-essentials">HVAC Maintenance: Necessary vs Overkill</a></li>
+                                <li><a href="../safety">Safety Tips</a></li>
+                                <li><a href="../costs">Full HVAC Cost Guide</a></li>
+                            </ul>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Brand -->
+                <div class="footer-brand">
+                    <a href="../" class="logo"><span class="logo-icon">&#10052;&#65039;</span><span class="logo-text">CoolCall<span class="logo-accent">Pro</span></span></a>
+                    <p>Connecting homeowners with independent HVAC professionals across the US. Available 24/7 in many areas.</p>
+                    <div class="footer-contact">
+                        <a href="tel:+18445821795" class="footer-phone">(844) 582-1795</a>
+                        <span>24/7 Service Line</span>
+                    </div>
+                </div>
+                <!-- Resources -->
+                <div class="footer-col">
+                    <h3 class="footer-heading">Resources</h3>
+                    <ul>
+                        <li><a href="../costs">Cost Guide</a></li>
+                        <li><a href="../emergency">Emergency Service</a></li>
+                        <li><a href="../safety">Safety Tips</a></li>
+                        <li><a href="../articles">All Articles</a></li>
+                        <li><a href="../locations">Locations</a></li>
+                    </ul>
+                </div>
+                <!-- Company -->
+                <div class="footer-col">
+                    <h3 class="footer-heading">Company</h3>
+                    <ul>
+                        <li><a href="../about">About Us</a></li>
+                        <li><a href="../contact">Contact</a></li>
+                        <li><a href="../author-gyanesh">Author</a></li>
+                        <li><a href="../privacy">Privacy Policy</a></li>
+                        <li><a href="../advertising-disclosure">Advertising Disclosure</a></li>
+                    </ul>
+                </div>
+                <!-- Service Areas -->
+                <div class="footer-col">
+                    <h3 class="footer-heading">Service Areas</h3>
+                    <ul class="service-areas">
+                        <li><a href="../locations/atlanta-ga">Atlanta, GA</a></li>
+                        <li><a href="../locations/chicago-il">Chicago, IL</a></li>
+                        <li><a href="../locations/dallas-tx">Dallas, TX</a></li>
+                        <li><a href="../locations/houston-tx">Houston, TX</a></li>
+                        <li><a href="../locations/phoenix-az">Phoenix, AZ</a></li>
+                        <li><a href="../locations">All 50 states &#8594;</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Legal Disclosure + Bottom Bar -->
+            <div class="footer-bottom">
+                <p><strong style="color: rgba(255,255,255,0.9);">How this site works:</strong> We publish HVAC cost and troubleshooting information and may connect callers to independent service providers. We do not perform HVAC services ourselves. Pricing, availability, and response times vary by provider and location.</p>
+                <p><strong style="color: rgba(255,255,255,0.9);">Editorial standards:</strong> Our content focuses on helpful troubleshooting tips and realistic pricing information. We avoid guarantees; actual pricing depends on the provider and situation. We clearly disclose compensation for referrals. We update content for clarity and accuracy when needed.</p>
+                <p><strong style="color: rgba(255,255,255,0.9);">Disclaimer:</strong> Cool Call Pro is a free service to assist homeowners in connecting with local service providers. All contractors/providers are independent and Cool Call Pro does not warrant or guarantee any work performed. It is the responsibility of the homeowner to verify that the hired contractor furnishes the necessary license and insurance required for the work being performed. All persons depicted in a photo or video are actors or models and not contractors listed on Cool Call Pro.</p>
+                <p><strong style="color: rgba(255,255,255,0.9);">Service availability:</strong> Same-day and 24/7 emergency services are subject to provider participation, location, technician availability, and demand. Availability is not guaranteed and may vary by market and appointment capacity.</p>
+                <p>&copy; <span class="copyright-year">2026</span> Cool Call Pro. All rights reserved. &nbsp;&middot;&nbsp; <a href="../privacy">Privacy Policy</a> &nbsp;&middot;&nbsp; <a href="../terms">Terms of Use</a> &nbsp;&middot;&nbsp; <a href="../disclaimer">Disclaimer</a> &nbsp;&middot;&nbsp; <a href="../advertising-disclosure">Advertising Disclosure</a></p>
+            </div>
+        </div>
+    </footer>
+    <script>document.querySelectorAll('.copyright-year').forEach(function(el){el.textContent=new Date().getFullYear()});</script>
+    <script src="../js/main.min.js" defer></script>
+
+    <!-- Mobile Call Bar -->
+    <div class="mobile-call-bar">
+        <a href="tel:+18445821795"><span class="phone-icon">&#128222;</span> Call Now &mdash; (844) 582-1795</a>
+    </div>
+</body>
+
+</html>
