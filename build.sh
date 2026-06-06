@@ -29,6 +29,13 @@ echo "Regenerating _redirects from current HTML files..."
 echo "Filtering sitemap-images.xml to deployed pages only..."
 "$PYTHON" scripts/clean_sitemap_images.py
 
+# Layer 1 (cont): regenerate article-card grids in articles.html and
+# author-gyanesh.html from cluster_map.json. Without this, shipped articles
+# can be in cluster_map + sitemap + indexed but invisible from the site's
+# own browse-all and author-portfolio pages.
+echo "Regenerating article-card grids from cluster_map.json..."
+"$PYTHON" scripts/generate_article_grids.py
+
 # Fresh output directory
 rm -rf "$OUT"
 mkdir -p "$OUT"

@@ -27,13 +27,18 @@
 set -u
 
 # Collect staged HTML changes:
-#  - staged_html (ACMR): files whose content needs auditing
-#  - html_adr (ADR):     events that require _redirects regen (Layer 2)
-# Skip everything only if neither set has entries.
-mapfile -t staged_html < <(git diff --cached --name-only --diff-filter=ACMR -- '*.html')
-mapfile -t html_adr   < <(git diff --cached --name-only --diff-filter=ADR  -- '*.html')
+#  - staged_html (ACMR):   files whose content needs auditing
+#  - html_adr (ADR):       events that require _redirects regen (Layer 2)
+#  - grid_trigger:         events that require article-card grid regen
+#                          (any HTML A/D/R in articles/ or root article-*.html,
+#                          OR cluster_map.json modified -- because pillar/cluster
+#                          article add/remove/title-change affects the grids)
+# Skip everything only if no relevant set has entries.
+mapfile -t staged_html   < <(git diff --cached --name-only --diff-filter=ACMR -- '*.html')
+mapfile -t html_adr      < <(git diff --cached --name-only --diff-filter=ADR  -- '*.html')
+mapfile -t grid_trigger  < <(git diff --cached --name-only --diff-filter=ACMRD -- 'articles/*.html' 'article-*.html' 'cluster_map.json')
 
-if [ "${#staged_html[@]}" -eq 0 ] && [ "${#html_adr[@]}" -eq 0 ]; then
+if [ "${#staged_html[@]}" -eq 0 ] && [ "${#html_adr[@]}" -eq 0 ] && [ "${#grid_trigger[@]}" -eq 0 ]; then
     exit 0
 fi
 
@@ -113,6 +118,25 @@ if [ "${#html_adr[@]}" -gt 0 ]; then
     fi
     git add sitemap-images.xml
     echo "  sitemap-images.xml filtered and auto-staged into this commit."
+fi
+
+# Layer 2 (cont): regenerate article-card grids when articles/ HTML or
+# cluster_map.json changed. The two grids on /articles and /author-gyanesh
+# are auto-generated from cluster_map.json + each article's HTML for hero
+# image and tag. Without this, a new article shipped in cluster_map.json
+# remains invisible from the site's own navigation until someone hand-adds
+# a card.
+if [ "${#grid_trigger[@]}" -gt 0 ]; then
+    echo
+    echo "== Layer 2 sync: ${#grid_trigger[@]} article HTML or cluster_map change, regenerating article-card grids =="
+    if ! python scripts/generate_article_grids.py; then
+        echo
+        echo "ERROR: scripts/generate_article_grids.py failed."
+        echo "COMMIT BLOCKED. Investigate and fix, then re-stage."
+        exit 1
+    fi
+    git add articles.html author-gyanesh.html
+    echo "  articles.html + author-gyanesh.html grids regenerated and auto-staged into this commit."
 fi
 
 exit 0

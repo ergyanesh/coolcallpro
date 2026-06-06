@@ -9,7 +9,8 @@
         "slug": "complete-ac-troubleshooting-guide",
         "filename": "articles/complete-ac-troubleshooting-guide.html",
         "status": "live",
-        "date_published": "2026-04-16"
+        "date_published": "2026-04-16",
+        "card_description": "Every AC symptom, cause, and fix — from clogged filters to seized compressors. What you can DIY, when to call a pro, and what 2026 repairs cost."
       },
       "cross_cluster_anchor": {
         "cluster": "C4_cost",
@@ -26,37 +27,43 @@
           "slug": "article-ac-summer",
           "path": "article-ac-summer.html",
           "title": "AC Broke in July? Cost & Emergency Help",
-          "status": "live"
+          "status": "live",
+          "card_description": "Summer AC failures spike 400% in July. Here's the real breakdown of costs and the fastest\n                                path to cold air."
         },
         {
           "slug": "article-spring-ac",
           "path": "article-spring-ac.html",
           "title": "Spring AC Tune-Up Checklist: Beat the Heat",
-          "status": "live"
+          "status": "live",
+          "card_description": "Seven steps — most under 30 minutes — that prevent the most common first-heat-wave failures and save you from summer emergency pricing."
         },
         {
           "slug": "article-refrigerant",
           "path": "article-refrigerant.html",
           "title": "Refrigerant Leaks: Why AC Ice Is a Problem",
-          "status": "live"
+          "status": "live",
+          "card_description": "Refrigerant is toxic. Ice buildup and warm air from your AC can signal a dangerous leak.\n                                Here's what to do and what NOT to do."
         },
         {
           "slug": "why-is-my-ac-blowing-warm-air",
           "path": "articles/why-is-my-ac-blowing-warm-air.html",
           "title": "AC Blowing Warm Air but Running? Why",
-          "status": "live"
+          "status": "live",
+          "card_description": "The 5 most common causes — from a dirty filter to a failed capacitor — the two safe homeowner checks, and when to call a technician."
         },
         {
           "slug": "ac-compressor-buzzing-fan-not-spinning",
           "path": "articles/ac-compressor-buzzing-fan-not-spinning.html",
           "title": "AC Compressor Buzzing, Fan Not Spinning?",
-          "status": "live"
+          "status": "live",
+          "card_description": "The 4 most likely causes — from a failed capacitor to a burned-out fan motor — what you can safely check, and when to call a technician."
         },
         {
           "slug": "hvac-leaking-water-inside-house",
           "path": "articles/hvac-leaking-water-inside-house.html",
           "title": "HVAC Leaking Water Inside? Stop Damage",
-          "status": "live"
+          "status": "live",
+          "card_description": "The 5 most common causes of indoor HVAC water leaks — from a clogged condensate drain to a frozen coil — and how to stop the damage fast."
         },
         {
           "slug": "ac-freezing-up-in-summer",
@@ -65,7 +72,8 @@
           "status": "live",
           "date_published": "2026-04-20",
           "priority": 3,
-          "roadmap_id": 8
+          "roadmap_id": 8,
+          "card_description": "Turn it off, switch the fan on, wait 2–4 hours. The 5 root causes of a frozen AC, safe DIY steps, and when to call a technician before it becomes a compressor replacement."
         },
         {
           "slug": "ac-not-cooling-below-80",
@@ -74,7 +82,8 @@
           "status": "live",
           "date_published": "2026-04-20",
           "priority": 4,
-          "roadmap_id": 11
+          "roadmap_id": 11,
+          "card_description": "The 20-degree split rule, the 5 root causes (dirty filter, dirty coil, low refrigerant, weak capacitor, undersized system), what to safely check yourself, and when to stop and call."
         },
         {
           "slug": "ac-circuit-breaker-trips",
@@ -83,7 +92,8 @@
           "status": "live",
           "date_published": "2026-04-20",
           "priority": 5,
-          "roadmap_id": 18
+          "roadmap_id": 18,
+          "card_description": "A breaker trips to protect you from a fire. The 6 root causes, the short safe-DIY list, the longer stop-and-call list, and why repeated resets are dangerous."
         },
         {
           "slug": "thermostat-blank-ac-wont-start",
@@ -92,7 +102,8 @@
           "status": "live",
           "date_published": "2026-04-20",
           "priority": 11,
-          "roadmap_id": 6
+          "roadmap_id": 6,
+          "card_description": "Dead batteries solve 7 of 10 cases. The other 4 root causes (float switch, blown 3A fuse, dead transformer, failed thermostat) and why everything past the battery swap is technician work."
         },
         {
           "slug": "ac-contactor-clicking",
@@ -101,7 +112,8 @@
           "status": "live",
           "date_published": "2026-04-20",
           "priority": 20,
-          "roadmap_id": 10
+          "roadmap_id": 10,
+          "card_description": "That rhythmic click from the outdoor unit is a 240V relay trying to start a system that won't. The 5 causes, why every click cycle hurts the compressor, and why it's a technician-only repair."
         },
         {
           "slug": "water-dripping-from-vent",
@@ -110,7 +122,8 @@
           "status": "live",
           "date_published": "2026-04-21",
           "priority": 21,
-          "roadmap_id": 16
+          "roadmap_id": 16,
+          "card_description": "Water from your AC vent is a same-day problem — every hour compounds ceiling damage. Turn the thermostat off, catch the drip, call a pro. The 5 causes and a step-by-step response."
         },
         {
           "slug": "emergency-ac-repair-cost-guide",
@@ -135,7 +148,8 @@
             "narrative_anchor": "A bulging or leaking capacitor is the most catchable summer AC failure -- and the one with the highest DIY injury rate. Power off, look only, then call.",
             "serp_overlap": "Low. Symptom-specific safety angle. Queries like \"ac capacitor bulging\" / \"ac capacitor leaking oil\" / \"is bulging capacitor dangerous\" return contractor blogs and DIY forums -- no neutral aggregator covers the homeowner safety frame transparently."
           },
-          "date_published": "2026-05-24"
+          "date_published": "2026-05-24",
+          "card_description": "The 60-second LOOK-DON'T-TOUCH protocol for a bulging or leaking AC capacitor, the 3 visible signs and 4 audible patterns, and the 4-test sequence the technician runs on arrival."
         }
       ]
     },
@@ -146,7 +160,8 @@
         "slug": "furnace-not-working-diagnostic-guide",
         "filename": "articles/furnace-not-working-diagnostic-guide.html",
         "status": "live",
-        "date_published": "2026-04-30"
+        "date_published": "2026-04-30",
+        "card_description": "Furnace dead, blowing cold, or short-cycling? Symptom-by-symptom diagnostic walkthrough — the 9 most common failure modes, what to check safely, when to call, and 2026 repair costs."
       },
       "cross_cluster_anchor": {
         "cluster": "C4_cost",
@@ -163,25 +178,29 @@
           "slug": "article-furnace",
           "path": "article-furnace.html",
           "title": "Furnace Not Igniting? What It Means",
-          "status": "live"
+          "status": "live",
+          "card_description": "A furnace that won't start could mean a faulty igniter, gas valve issue, or something far\n                                more serious. This is not a DIY situation."
         },
         {
           "slug": "article-winter-storm",
           "path": "article-winter-storm.html",
           "title": "Protect Your HVAC During a Winter Storm",
-          "status": "live"
+          "status": "live",
+          "card_description": "Ice storms, power outages, and freezing temps can permanently damage your HVAC system.\n                                Take\n                                these steps BEFORE the storm hits."
         },
         {
           "slug": "article-carbon-monoxide",
           "path": "article-carbon-monoxide.html",
           "title": "Carbon Monoxide: The Invisible Killer",
-          "status": "live"
+          "status": "live",
+          "card_description": "CO has no color, no smell — and it kills 400+ Americans per year. Learn how your furnace\n                                can\n                                produce it and how to protect your family."
         },
         {
           "slug": "furnace-blowing-cold-air-winter",
           "path": "articles/furnace-blowing-cold-air-winter.html",
           "title": "Furnace Blowing Cold Air? What to Check",
-          "status": "live"
+          "status": "live",
+          "card_description": "The 5 most common causes — from a clogged filter to a failed ignitor — what you can check yourself, and when to call a technician."
         },
         {
           "slug": "furnace-short-cycling",
@@ -239,7 +258,8 @@
         "slug": "2026-heat-pump-buyers-guide",
         "filename": "articles/2026-heat-pump-buyers-guide.html",
         "status": "live",
-        "date_published": "2026-05-08"
+        "date_published": "2026-05-08",
+        "card_description": "Cost reality, 6 decision factors, types compared, OBBBA's impact on federal credits, HEAR rebates, cold-climate truth, 8 contract questions, and when NOT to buy a heat pump."
       },
       "cross_cluster_anchor": {
         "cluster": "C5_compare",
@@ -255,7 +275,8 @@
           "slug": "article-heat-pump",
           "path": "article-heat-pump.html",
           "title": "Heat Pump Not Working? Repair Costs & Fixes",
-          "status": "live"
+          "status": "live",
+          "card_description": "Blowing cold in winter or warm in summer? Learn the real causes — reversing valve, defrost issues, refrigerant — and what each fix costs."
         },
         {
           "slug": "heat-pump-stuck-in-cooling",
@@ -297,7 +318,8 @@
             "narrative_anchor": "Even at 5F outdoor, your heat pump is moving heat, not making it -- the physics works because there is still energy in the air above absolute zero, and a CCHP is engineered to harvest it efficiently.",
             "serp_overlap": "Low. Primary competitors are manufacturer pages (Mitsubishi Hyper-Heating, Bosch IDS) and the DOE Cold Climate Heat Pump page. Our angle: aggregator-honest, no brand bias, with the homeowner-decision frame layered onto the physics explanation. <40% overlap vs any existing site article."
           },
-          "date_published": "2026-05-24"
+          "date_published": "2026-05-24",
+          "card_description": "Why heat pumps don't stop working in the cold: the COP curve from 47&deg;F to 5&deg;F, what a cold-climate heat pump (CCHP) changes, how balance point + backup heat actually engage, and the right contractor questions before signing."
         },
         {
           "slug": "should-i-switch-to-heat-pump",
@@ -307,7 +329,8 @@
           "date_published": "2026-06-05",
           "type": "B",
           "phase1_candidate": 3,
-          "note": "Phase 1 article #4 -- C3 Type B decision tree. Doorway-safe vs heat-pump-vs-gas-furnace (operating cost) and 2026-heat-pump-buyers-guide (selection guide)."
+          "note": "Phase 1 article #4 -- C3 Type B decision tree. Doorway-safe vs heat-pump-vs-gas-furnace (operating cost) and 2026-heat-pump-buyers-guide (selection guide).",
+          "card_description": "A 2026 decision tree for switching from a gas furnace to a heat pump: six questions on climate zone, electricity-vs-gas pricing, furnace age, panel capacity, HEAR rebates, and dual-fuel strategy &mdash; plus the honest scenarios where staying with gas is the right answer."
         }
       ]
     },
@@ -318,7 +341,8 @@
         "slug": "2026-hvac-cost-guide",
         "filename": "articles/2026-hvac-cost-guide.html",
         "status": "live",
-        "date_published": "2026-04-16"
+        "date_published": "2026-04-16",
+        "card_description": "Line-by-line quote breakdown, 5 scam patterns to walk away from, every hidden fee, and 2026 rebates worth up to $2,000. Know fair HVAC prices before you pay."
       },
       "cross_cluster_anchor": {
         "cluster": "C5_compare",
@@ -330,7 +354,8 @@
           "slug": "article-hvac-financing",
           "path": "article-hvac-financing.html",
           "title": "Finance an HVAC Replacement: 6 Options",
-          "status": "live"
+          "status": "live",
+          "card_description": "Manufacturer 0% deals, HELOCs, personal loans, PACE, utility rebates, and IRA tax credits — compared side by side so you pick the right one."
         },
         {
           "slug": "cost-replace-3-ton-ac",
@@ -403,7 +428,8 @@
           "priority": 1,
           "roadmap_id": 92,
           "date_published": "2026-05-14",
-          "gsc_basis": "Captures BIGGEST winnable cluster: ~2,161 emergency-hvac impressions across 'emergency hvac service' (645), 'hvac emergency repair' (351), 'emergency hvac repair' (349), 'hvac emergency service' (232), 'emergency hvac services' (183), 'emergency hvac' (113), 'residential emergency hvac service' (18), '24/7 emergency hvac service' (23), 'emergency hvac repair services' (28). Currently sitting pos 16-22. (GSC 2026-05-10)"
+          "gsc_basis": "Captures BIGGEST winnable cluster: ~2,161 emergency-hvac impressions across 'emergency hvac service' (645), 'hvac emergency repair' (351), 'emergency hvac repair' (349), 'hvac emergency service' (232), 'emergency hvac services' (183), 'emergency hvac' (113), 'residential emergency hvac service' (18), '24/7 emergency hvac service' (23), 'emergency hvac repair services' (28). Currently sitting pos 16-22. (GSC 2026-05-10)",
+          "card_description": "After-hours surcharges, dispatch fees, and the call-now-vs-wait-until-morning decision. The three cost layers that exist only on emergency calls &mdash; and how to spot gouging."
         },
         {
           "slug": "24-hour-hvac-repair",
@@ -413,7 +439,8 @@
           "priority": 2,
           "roadmap_id": 93,
           "date_published": "2026-05-14",
-          "gsc_basis": "Captures 24-hour cluster: ~620 winnable impressions across '24 hour hvac repair' (307), '24 hour hvac service' (74), 'hvac 24 hour service' (45), '24 hour heating and air conditioning repair' (29), '24 hour hvac' (33), '24/7 hvac repair services' (21), '24/7 hvac repair' (21), 'hvac 24 hour emergency service' (26), 'after hours hvac service' (25), '24 7 emergency residential hvac repair' (23). Currently sitting pos 11-18. (GSC 2026-05-10). Slug shortened from '-guide' suffix to match head query verbatim + avoid pillar-detection audit heuristic."
+          "gsc_basis": "Captures 24-hour cluster: ~620 winnable impressions across '24 hour hvac repair' (307), '24 hour hvac service' (74), 'hvac 24 hour service' (45), '24 hour heating and air conditioning repair' (29), '24 hour hvac' (33), '24/7 hvac repair services' (21), '24/7 hvac repair' (21), 'hvac 24 hour emergency service' (26), 'after hours hvac service' (25), '24 7 emergency residential hvac repair' (23). Currently sitting pos 11-18. (GSC 2026-05-10). Slug shortened from '-guide' suffix to match head query verbatim + avoid pillar-detection audit heuristic.",
+          "card_description": "The three tiers of \"24-hour\" HVAC service, how to verify a real overnight operator in 90 seconds, realistic arrival windows by time-of-night, and what physically closes even at 24-hour shops."
         }
       ]
     },
@@ -424,7 +451,8 @@
         "slug": "repair-or-replace-framework",
         "filename": "articles/repair-or-replace-framework.html",
         "status": "live",
-        "date_published": "2026-05-04"
+        "date_published": "2026-05-04",
+        "card_description": "The strategic 5-question framework — age math, repair cost thresholds, system-type modifiers, and the 2026 OBBBA reality. Cuts through \"$5,000 rule\" oversimplifications."
       },
       "cross_cluster_anchor": {
         "cluster": "C4_cost",
@@ -436,7 +464,8 @@
           "slug": "article-repair-vs-replace",
           "path": "article-repair-vs-replace.html",
           "title": "HVAC Repair vs. Replace: Decision Guide",
-          "status": "live"
+          "status": "live",
+          "card_description": "The $5,000 rule, a repair-cost decision matrix, SEER2 breakeven math, and the questions to ask before you spend a dollar."
         },
         {
           "slug": "1000-into-12yo-ac",
@@ -445,7 +474,8 @@
           "status": "live",
           "priority": 18,
           "roadmap_id": 71,
-          "date_published": "2026-05-10"
+          "date_published": "2026-05-10",
+          "card_description": "The 50% rule, the $5,000 rule, age math, and what $1,000 actually buys on a 12-year-old AC. Honest decision framework with 2026 cost-aware breakevens."
         },
         {
           "slug": "heat-pump-vs-gas-furnace",
@@ -454,7 +484,8 @@
           "status": "live",
           "priority": 19,
           "roadmap_id": 72,
-          "date_published": "2026-05-04"
+          "date_published": "2026-05-04",
+          "card_description": "The honest comparison — operating cost math by climate, OBBBA tax-credit reality (25C terminated), HEAR rebates, and the 15-year total cost picture. When each technology wins."
         },
         {
           "slug": "seer-14-vs-18-payback",
@@ -463,7 +494,8 @@
           "status": "live",
           "priority": 28,
           "roadmap_id": 85,
-          "date_published": "2026-05-12"
+          "date_published": "2026-05-12",
+          "card_description": "Cost premium, climate-based payback math, SEER vs. SEER2 conversion, and the 2026 R-410A phase-down wrinkle &mdash; when high-efficiency actually pays back."
         }
       ]
     },
@@ -474,7 +506,8 @@
         "slug": "year-round-hvac-maintenance-playbook",
         "filename": "articles/year-round-hvac-maintenance-playbook.html",
         "status": "live",
-        "date_published": "2026-04-30"
+        "date_published": "2026-04-30",
+        "card_description": "Why each maintenance task matters, what skipping costs over 15 years, and how to spot a real tune-up vs an upsell visit. The strategic playbook the tactical checklist needs."
       },
       "cross_cluster_anchor": {
         "cluster": "C1_ac",
@@ -486,19 +519,22 @@
           "slug": "article-maintenance",
           "path": "article-maintenance.html",
           "title": "12-Month HVAC Maintenance Checklist",
-          "status": "live"
+          "status": "live",
+          "card_description": "Simple monthly tasks that extend system life by 5-8 years and help prevent many avoidable emergency breakdowns. Bookmark this guide."
         },
         {
           "slug": "article-fall-prep",
           "path": "article-fall-prep.html",
           "title": "Fall HVAC Prep: 9 Steps Before First Freeze",
-          "status": "live"
+          "status": "live",
+          "card_description": "Most winter furnace failures happen in the first freeze because no one checked the system\n                                in\n                                fall. This checklist takes 20 minutes and prevents crisis."
         },
         {
           "slug": "article-emergency",
           "path": "article-emergency.html",
           "title": "7 Warning Signs Your HVAC Is About to Fail",
-          "status": "live"
+          "status": "live",
+          "card_description": "Strange noises, burning smell, weak airflow — these can escalate into dangerous\n                                emergencies\n                                within hours. A technician must assess this today."
         },
         {
           "slug": "best-merv-rating",
@@ -521,7 +557,8 @@
             "narrative_anchor": "The service-call fee buys you a credentialed eyes-on inspection that you cannot do yourself — and knowing what they are actually doing for that money makes you a better customer when they call you back with a quote.",
             "serp_overlap": "Low. Queries like \"what does HVAC technician do on a service call\" / \"what is in HVAC diagnostic fee\" / \"how long does HVAC service call take\" return contractor blogs and Quora — no neutral aggregator covers this transparently. <40% overlap with any existing site article."
           },
-          "date_published": "2026-05-24"
+          "date_published": "2026-05-24",
+          "card_description": "The 12-15 specific physical actions a competent HVAC tech performs in 45-60 minutes of routine service, the electrical and refrigerant test sequence, and what the $65-$150 diagnostic fee actually buys."
         }
       ]
     }
