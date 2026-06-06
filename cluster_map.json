@@ -559,6 +559,16 @@
           },
           "date_published": "2026-05-24",
           "card_description": "The 12-15 specific physical actions a competent HVAC tech performs in 45-60 minutes of routine service, the electrical and refrigerant test sequence, and what the $65-$150 diagnostic fee actually buys."
+        },
+        {
+          "slug": "hvac-maintenance-essentials",
+          "path": "articles/hvac-maintenance-essentials.html",
+          "title": "HVAC Maintenance: What's Necessary, What's Overkill, and What's Optional",
+          "status": "live",
+          "date_published": "2026-06-06",
+          "type": "G",
+          "card_description": "C6 cluster -- an item-by-item editorial audit of HVAC maintenance: the four tasks that genuinely prevent expensive failures, the three industry-recommended items that are upsell padding you can safely skip, and how to read your manufacturer warranty before paying for annual service.",
+          "note": "Phase 1 article #5 -- C6 Type G editorial methodology piece. Reframed from the Phase 1 doc menu #2 to avoid pillar overlap. Doorway-safe contrarian-editorial angle: what to SKIP."
         }
       ]
     }

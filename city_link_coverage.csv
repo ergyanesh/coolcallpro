@@ -15,7 +15,7 @@ buffalo-ny,Buffalo,NY,cold,1,furnace-not-working-diagnostic-guide
 burlington-vt,Burlington,VT,cold,1,central-air-no-ductwork-cost
 chicago-il,Chicago,IL,cold,1,year-round-hvac-maintenance-playbook
 cleveland-oh,Cleveland,OH,cold,1,article-furnace
-columbus-oh,Columbus,OH,cold,1,article-carbon-monoxide
+columbus-oh,Columbus,OH,cold,2,article-carbon-monoxide; hvac-maintenance-essentials
 dayton-oh,Dayton,OH,cold,1,dual-run-capacitor-cost
 des-moines-ia,Des Moines,IA,cold,2,24-hour-hvac-repair; 1000-into-12yo-ac
 detroit-mi,Detroit,MI,cold,4,emergency-furnace-repair-guide; cost-replace-3-ton-ac; article-fall-prep; article-emergency
@@ -31,7 +31,7 @@ milwaukee-wi,Milwaukee,WI,cold,1,mini-split-installation-cost
 minneapolis-mn,Minneapolis,MN,cold,3,furnace-ignitor-wont-light; article-hvac-financing; article-fall-prep
 morgantown-wv,Morgantown,WV,cold,1,co-detector-furnace-running
 new-york-city-ny,New York City,NY,cold,1,article-hvac-financing
-newark-nj,Newark,NJ,cold,2,emergency-weekend-hvac-cost; 1000-into-12yo-ac
+newark-nj,Newark,NJ,cold,3,emergency-weekend-hvac-cost; 1000-into-12yo-ac; hvac-maintenance-essentials
 omaha-ne,Omaha,NE,cold,3,furnace-not-working-diagnostic-guide; furnace-ignitor-wont-light; emergency-weekend-hvac-cost
 peoria-il,Peoria,IL,cold,1,emergency-hvac-service-cost
 philadelphia-pa,Philadelphia,PA,cold,0,
@@ -58,7 +58,7 @@ modesto-ca,Modesto,CA,hot-dry,0,
 phoenix-az,Phoenix,AZ,hot-dry,3,ac-not-cooling-below-80; mini-split-installation-cost; heat-pump-vs-gas-furnace
 sacramento-ca,Sacramento,CA,hot-dry,1,central-air-no-ductwork-cost
 san-diego-ca,San Diego,CA,hot-dry,4,complete-ac-troubleshooting-guide; article-ac-summer; water-dripping-from-vent; seer-14-vs-18-payback
-tucson-az,Tucson,AZ,hot-dry,5,article-spring-ac; dual-run-capacitor-cost; year-round-hvac-maintenance-playbook; article-maintenance; article-fall-prep
+tucson-az,Tucson,AZ,hot-dry,6,article-spring-ac; dual-run-capacitor-cost; year-round-hvac-maintenance-playbook; article-maintenance; article-fall-prep; hvac-maintenance-essentials
 austin-tx,Austin,TX,hot-humid,3,article-refrigerant; hvac-leaking-water-inside-house; ac-not-cooling-below-80
 baton-rouge-la,Baton Rouge,LA,hot-humid,1,article-spring-ac
 brownsville-tx,Brownsville,TX,hot-humid,1,water-dripping-from-vent
@@ -78,7 +78,7 @@ charleston-wv,Charleston,WV,mixed-humid,2,24-hour-hvac-repair; heat-pump-vs-gas-
 charlotte-nc,Charlotte,NC,mixed-humid,4,article-winter-storm; furnace-blowing-cold-air-winter; emergency-furnace-repair-guide; mini-split-installation-cost
 chattanooga-tn,Chattanooga,TN,mixed-humid,1,thermostat-blank-ac-wont-start
 columbia-sc,Columbia,SC,mixed-humid,1,article-repair-vs-replace
-dallas-tx,Dallas,TX,mixed-humid,3,emergency-ac-repair-cost-guide; article-heat-pump; heat-pump-cold-weather-physics-explainer
+dallas-tx,Dallas,TX,mixed-humid,4,emergency-ac-repair-cost-guide; article-heat-pump; heat-pump-cold-weather-physics-explainer; hvac-maintenance-essentials
 fayetteville-nc,Fayetteville,NC,mixed-humid,4,why-is-my-ac-blowing-warm-air; central-air-no-ductwork-cost; emergency-hvac-service-cost; 1000-into-12yo-ac
 fort-worth-tx,Fort Worth,TX,mixed-humid,1,2026-hvac-cost-guide
 greenville-sc,Greenville,SC,mixed-humid,2,article-ac-summer; cost-replace-3-ton-ac
