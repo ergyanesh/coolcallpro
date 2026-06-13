@@ -30,14 +30,44 @@ grouping in sitemap.xml: homepage, core service pages, articles hub, then
 articles, then locations, then legal/utility, then 404 excluded).
 """
 
+import re
 import subprocess
 import sys
-from datetime import date, datetime
+from datetime import date
 from pathlib import Path
 
 ROOT = Path(__file__).parent.parent
 SITEMAP = ROOT / "sitemap.xml"
 BASE = "https://coolcallpro.com"
+
+
+def existing_lastmods() -> dict:
+    """Read the current sitemap.xml and return {url: lastmod} for every entry.
+
+    Used as a fallback when git log can't determine a file's last-modified date
+    (Cloudflare Pages uses a shallow git clone, so `git log -1 -- <file>` returns
+    empty for any file not touched by the latest commit). Without this fallback,
+    every URL gets today's date, which makes the sitemap look like a stale spam
+    sitemap and Google flags it as invalid.
+    """
+    if not SITEMAP.exists():
+        return {}
+    try:
+        text = SITEMAP.read_text(encoding="utf-8")
+    except Exception:
+        return {}
+    out = {}
+    # Match <url>...<loc>X</loc>...<lastmod>Y</lastmod>...</url> blocks
+    for m in re.finditer(
+        r"<url>\s*<loc>([^<]+)</loc>\s*<lastmod>([^<]+)</lastmod>\s*</url>",
+        text,
+        re.DOTALL,
+    ):
+        out[m.group(1).strip()] = m.group(2).strip()
+    return out
+
+
+EXISTING_LASTMODS = existing_lastmods()
 
 # Files that must NEVER appear in the sitemap (these would otherwise be
 # globbed in because they're tracked HTML).
@@ -90,8 +120,20 @@ def tracked_html() -> list[str]:
     return files
 
 
-def git_last_modified(rel_path: str) -> str:
-    """Return YYYY-MM-DD of the file's last git commit; today if unavailable."""
+def git_last_modified(rel_path: str, url: str) -> str:
+    """Return YYYY-MM-DD of the file's last git commit.
+
+    Fallback chain when git log returns empty (shallow clone case — Cloudflare
+    Pages clones with --depth=1 by default, so `git log -1 -- <file>` returns
+    empty for any file not touched by the latest commit):
+
+      1. Try git log -1 --format=%cs -- <path>
+      2. Fall back to the lastmod already recorded for this URL in the
+         existing sitemap.xml (preserves the accurate dates last produced by
+         a full-history run such as the local pre-commit hook).
+      3. Fall back to today's date (only when this is a brand-new URL we
+         haven't seen before).
+    """
     try:
         result = subprocess.run(
             ["git", "log", "-1", "--format=%cs", "--", rel_path],
@@ -105,6 +147,10 @@ def git_last_modified(rel_path: str) -> str:
             return s
     except (subprocess.CalledProcessError, FileNotFoundError):
         pass
+    # Shallow-clone fallback: re-use the lastmod from the previous sitemap.
+    if url in EXISTING_LASTMODS:
+        return EXISTING_LASTMODS[url]
+    # Brand-new URL, no prior record: use today.
     return date.today().isoformat()
 
 
@@ -178,7 +224,7 @@ def main() -> int:
     for rel in files:
         bucket, group, sortkey = categorize(rel)
         url = path_to_url(rel)
-        lastmod = git_last_modified(rel)
+        lastmod = git_last_modified(rel, url)
         entries.append((bucket, group, sortkey, url, lastmod))
 
     # Sort: bucket asc, then sortkey asc
