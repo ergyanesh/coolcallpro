@@ -44,8 +44,9 @@ jobs:
         id: monitor
         env:
           GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
+          PYTHONUNBUFFERED: "1"  # surface print() progress in real time in Action logs
         run: |
-          python scripts/gsc_index_monitor.py
+          python -u scripts/gsc_index_monitor.py
           echo "exit_code=$?" >> $GITHUB_OUTPUT
         continue-on-error: true
 

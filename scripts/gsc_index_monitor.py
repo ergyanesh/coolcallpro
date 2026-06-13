@@ -81,7 +81,7 @@ ALERT_THRESHOLD_DEFAULT = 5
 def load_sitemap_urls() -> set[str]:
     """Return the set of canonical URLs from sitemap.xml."""
     if not SITEMAP.exists():
-        print(f"ERROR: {SITEMAP} not found", file=sys.stderr)
+        print(f"ERROR: {SITEMAP} not found", file=sys.stderr, flush=True)
         sys.exit(1)
     tree = ET.parse(SITEMAP)
     ns = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
@@ -119,10 +119,10 @@ def get_credentials():
             creds.refresh(Request())
         return creds
 
-    print("ERROR: No GSC credentials found.", file=sys.stderr)
-    print("Set GSC_SERVICE_ACCOUNT_JSON to either a path or JSON content (Path A),", file=sys.stderr)
-    print("or GSC_OAUTH_CREDENTIALS_FILE to a path with OAuth user credentials (Path B).", file=sys.stderr)
-    print("See: docs/gsc-monitor-setup.md", file=sys.stderr)
+    print("ERROR: No GSC credentials found.", file=sys.stderr, flush=True)
+    print("Set GSC_SERVICE_ACCOUNT_JSON to either a path or JSON content (Path A),", file=sys.stderr, flush=True)
+    print("or GSC_OAUTH_CREDENTIALS_FILE to a path with OAuth user credentials (Path B).", file=sys.stderr, flush=True)
+    print("See: docs/gsc-monitor-setup.md", file=sys.stderr, flush=True)
     sys.exit(2)
 
 
@@ -247,7 +247,7 @@ def write_report(
             lines.append(f"- {u} — reason: **{reason}**")
 
     report_path.write_text("\n".join(lines) + "\n", encoding="utf-8")
-    print(f"Wrote {report_path}")
+    print(f"Wrote {report_path}", flush=True)
     return report_path
 
 
@@ -264,21 +264,21 @@ def main() -> int:
     args = parser.parse_args()
 
     sitemap_urls = load_sitemap_urls()
-    print(f"Sitemap has {len(sitemap_urls)} URLs")
+    print(f"Sitemap has {len(sitemap_urls)} URLs", flush=True)
 
     if args.dry_run:
         # Just verify creds can be built
         creds = get_credentials()
-        print(f"Credentials loaded: {type(creds).__name__}")
-        print("Dry-run OK. Re-run without --dry-run to fetch from GSC.")
+        print(f"Credentials loaded: {type(creds).__name__}", flush=True)
+        print("Dry-run OK. Re-run without --dry-run to fetch from GSC.", flush=True)
         return 0
 
     creds = get_credentials()
     service = build_service(creds)
 
-    print(f"Fetching URLs with impressions (last 28d)...")
+    print(f"Fetching URLs with impressions (last 28d)...", flush=True)
     impressions_urls = fetch_urls_with_impressions(service, days=28)
-    print(f"  {len(impressions_urls)} URLs received impressions")
+    print(f"  {len(impressions_urls)} URLs received impressions", flush=True)
 
     # Determine which URLs need URL Inspection.
     sitemap_with_impressions = sitemap_urls & impressions_urls
@@ -286,10 +286,10 @@ def main() -> int:
 
     if args.full_inspect:
         to_inspect = sorted(sitemap_urls)
-        print(f"Full-inspect mode: inspecting all {len(to_inspect)} sitemap URLs")
+        print(f"Full-inspect mode: inspecting all {len(to_inspect)} sitemap URLs", flush=True)
     else:
         to_inspect = sorted(sitemap_without_impressions)
-        print(f"Inspecting {len(to_inspect)} URLs without recent impressions")
+        print(f"Inspecting {len(to_inspect)} URLs without recent impressions", flush=True)
         # Assume URLs with impressions are PASS without inspection (fast path)
 
     # URL Inspection: 600/min per site cap. Throttle to ~10/sec to be safe.
@@ -302,7 +302,7 @@ def main() -> int:
         if verdict == "PASS":
             indexed.add(url)
         if i % 25 == 0:
-            print(f"  inspected {i}/{len(to_inspect)} (latest: {coverage})")
+            print(f"  inspected {i}/{len(to_inspect)} (latest: {coverage})", flush=True)
         if i % 100 == 0:
             time.sleep(2)  # extra breather every 100 calls
 
@@ -322,19 +322,19 @@ def main() -> int:
     write_state(indexed, coverage_states)
     report_path = write_report(indexed, coverage_states, added, removed, sitemap_urls)
 
-    print()
-    print(f"=== Result ===")
-    print(f"Indexed today: {len(indexed)}")
+    print(, flush=True)
+    print(f"=== Result ===", flush=True)
+    print(f"Indexed today: {len(indexed)}", flush=True)
     if yesterday:
-        print(f"Indexed yesterday: {len(yesterday)}")
-        print(f"+{len(added)} added, -{len(removed)} removed")
+        print(f"Indexed yesterday: {len(yesterday)}", flush=True)
+        print(f"+{len(added)} added, -{len(removed)} removed", flush=True)
     else:
-        print("First run (no yesterday snapshot to diff against)")
+        print("First run (no yesterday snapshot to diff against)", flush=True)
 
     if len(removed) > args.threshold:
-        print()
-        print(f"!!! ALERT: {len(removed)} URLs dropped from index (threshold {args.threshold})")
-        print(f"See {report_path} for the full list.")
+        print(, flush=True)
+        print(f"!!! ALERT: {len(removed)} URLs dropped from index (threshold {args.threshold})", flush=True)
+        print(f"See {report_path} for the full list.", flush=True)
         return 1
 
     return 0
