@@ -68,6 +68,10 @@ def existing_lastmods() -> dict:
 
 
 EXISTING_LASTMODS = existing_lastmods()
+print(f"[regenerate_sitemap] EXISTING_LASTMODS loaded: {len(EXISTING_LASTMODS)} entries", flush=True)
+if EXISTING_LASTMODS:
+    _sample = list(EXISTING_LASTMODS.items())[:3]
+    print(f"[regenerate_sitemap] sample: {_sample}", flush=True)
 
 # Files that must NEVER appear in the sitemap (these would otherwise be
 # globbed in because they're tracked HTML).
@@ -120,6 +124,9 @@ def tracked_html() -> list[str]:
     return files
 
 
+_GIT_STATS = {"git_returned_data": 0, "fallback_existing": 0, "fallback_today": 0}
+
+
 def git_last_modified(rel_path: str, url: str) -> str:
     """Return YYYY-MM-DD of the file's last git commit.
 
@@ -144,13 +151,16 @@ def git_last_modified(rel_path: str, url: str) -> str:
         )
         s = result.stdout.strip()
         if s:
+            _GIT_STATS["git_returned_data"] += 1
             return s
     except (subprocess.CalledProcessError, FileNotFoundError):
         pass
     # Shallow-clone fallback: re-use the lastmod from the previous sitemap.
     if url in EXISTING_LASTMODS:
+        _GIT_STATS["fallback_existing"] += 1
         return EXISTING_LASTMODS[url]
     # Brand-new URL, no prior record: use today.
+    _GIT_STATS["fallback_today"] += 1
     return date.today().isoformat()
 
 
@@ -250,7 +260,8 @@ def main() -> int:
     out.append("\n</urlset>\n")
 
     SITEMAP.write_text("".join(out), encoding="utf-8", newline="\n")
-    print(f"Wrote {SITEMAP} with {len(entries)} URLs")
+    print(f"Wrote {SITEMAP} with {len(entries)} URLs", flush=True)
+    print(f"[regenerate_sitemap] lastmod source breakdown: {_GIT_STATS}", flush=True)
     return 0
 
 
