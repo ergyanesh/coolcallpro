@@ -46,7 +46,14 @@ jobs:
           GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
           PYTHONUNBUFFERED: "1"  # surface print() progress in real time in Action logs
         run: |
-          python -u scripts/gsc_index_monitor.py
+          # --full-inspect: call URL Inspection for EVERY sitemap URL, including
+          # those that received impressions in the last 28 days. This is the
+          # authoritative count -- the fast-path "impressions ≈ indexed" heuristic
+          # overcounts because Google can drop a URL from the index while it's
+          # still in the trailing-28-day impressions window. For a daily monitor,
+          # accuracy beats speed. ~220 URLs × ~1.5s = 5-10 min, well within the
+          # 2,000/day URL Inspection quota.
+          python -u scripts/gsc_index_monitor.py --full-inspect
           echo "exit_code=$?" >> $GITHUB_OUTPUT
         continue-on-error: true
 
