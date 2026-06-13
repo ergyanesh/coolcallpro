@@ -96,8 +96,6 @@ def _is_shallow_clone() -> bool:
 
 
 IS_SHALLOW = _is_shallow_clone()
-print(f"[regenerate_sitemap] shallow_clone={IS_SHALLOW}, "
-      f"EXISTING_LASTMODS={len(EXISTING_LASTMODS)} entries", flush=True)
 
 # Files that must NEVER appear in the sitemap (these would otherwise be
 # globbed in because they're tracked HTML).
@@ -294,8 +292,8 @@ def main() -> int:
     out.append("\n</urlset>\n")
 
     SITEMAP.write_text("".join(out), encoding="utf-8", newline="\n")
-    print(f"Wrote {SITEMAP} with {len(entries)} URLs", flush=True)
-    print(f"[regenerate_sitemap] lastmod source breakdown: {_GIT_STATS}", flush=True)
+    src = "git history" if IS_SHALLOW is False else "existing sitemap.xml (shallow clone)"
+    print(f"Wrote {SITEMAP} with {len(entries)} URLs (lastmod source: {src})", flush=True)
     return 0
 
 
