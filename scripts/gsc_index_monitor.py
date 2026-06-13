@@ -322,7 +322,7 @@ def main() -> int:
     write_state(indexed, coverage_states)
     report_path = write_report(indexed, coverage_states, added, removed, sitemap_urls)
 
-    print(, flush=True)
+    print(flush=True)
     print(f"=== Result ===", flush=True)
     print(f"Indexed today: {len(indexed)}", flush=True)
     if yesterday:
@@ -332,7 +332,7 @@ def main() -> int:
         print("First run (no yesterday snapshot to diff against)", flush=True)
 
     if len(removed) > args.threshold:
-        print(, flush=True)
+        print(flush=True)
         print(f"!!! ALERT: {len(removed)} URLs dropped from index (threshold {args.threshold})", flush=True)
         print(f"See {report_path} for the full list.", flush=True)
         return 1
