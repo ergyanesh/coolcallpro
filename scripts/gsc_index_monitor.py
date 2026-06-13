@@ -246,6 +246,43 @@ def write_report(
             reason = cs.get("coverageState", "Unknown")
             lines.append(f"- {u} — reason: **{reason}**")
 
+    # Per-reason grouped listing of every URL in coverage_states. This is the
+    # actionable detail the user needs: which specific URLs Google flagged as
+    # "Crawled - currently not indexed", "Discovered - currently not indexed",
+    # "URL is unknown", etc. Without this, the headline counts are diagnostic
+    # but the report can't drive specific URL-level fixes. The PASS bucket is
+    # collapsed (just shown as a count + total) since 121 PASS URLs would
+    # bloat the report; non-PASS URLs are all listed because they're the
+    # actionable set.
+    PASS_REASONS = {
+        "Submitted and indexed",
+        "Submitted and indexed (impressions in last 28d)",
+        "URL submitted and indexed",
+    }
+    by_reason: dict[str, list[str]] = {}
+    for url, cs in coverage_states.items():
+        reason = cs.get("coverageState", "Unknown")
+        by_reason.setdefault(reason, []).append(url)
+
+    lines += ["", "## URLs by coverageState (actionable detail)", ""]
+    for reason in sorted(by_reason.keys(), key=lambda r: -len(by_reason[r])):
+        urls = sorted(by_reason[reason])
+        if reason in PASS_REASONS:
+            lines += [
+                f"### {reason} ({len(urls)} URLs — collapsed, indexing healthy)",
+                "",
+                "<details><summary>Show URLs</summary>",
+                "",
+            ]
+            for u in urls:
+                lines.append(f"- {u}")
+            lines += ["", "</details>", ""]
+        else:
+            lines += [f"### {reason} ({len(urls)} URLs)", ""]
+            for u in urls:
+                lines.append(f"- {u}")
+            lines.append("")
+
     report_path.write_text("\n".join(lines) + "\n", encoding="utf-8")
     print(f"Wrote {report_path}", flush=True)
     return report_path
