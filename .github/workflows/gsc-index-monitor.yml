@@ -90,9 +90,22 @@ jobs:
           git config user.name "GSC Monitor Bot"
           git config user.email "actions@github.com"
           git add .gsc_state/report-*.md
-          if ! git diff --staged --quiet; then
-            git commit -m "GSC index monitor: report for $(date -u +%Y-%m-%d)"
-            git push
-          else
+          if git diff --staged --quiet; then
             echo "No report changes to commit."
+            exit 0
           fi
+          git commit -m "GSC index monitor: report for $(date -u +%Y-%m-%d)"
+          # The job ran ~5-15 min and a manual push to main during that window
+          # would reject our push. Rebase onto current main, then retry up to 3x
+          # with short backoff to absorb same-second race conditions.
+          for attempt in 1 2 3; do
+            git pull --rebase origin main || true
+            if git push origin main; then
+              echo "Pushed daily report on attempt $attempt"
+              exit 0
+            fi
+            echo "Push attempt $attempt failed; sleeping then retrying..."
+            sleep 5
+          done
+          echo "ERROR: failed to push daily report after 3 attempts"
+          exit 1
