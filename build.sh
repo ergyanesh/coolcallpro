@@ -24,6 +24,13 @@ fi
 echo "Regenerating _redirects from current HTML files..."
 "$PYTHON" scripts/regenerate_redirects.py
 
+# Layer 1 (cont): regenerate sitemap.xml from tracked HTML. Without this,
+# sitemap drifts behind shipped articles and slows Google's discovery
+# (root cause of the 4-articles-missing-from-sitemap drift caught on
+# 2026-06-13). Lastmod for each URL comes from the file's last git commit.
+echo "Regenerating sitemap.xml from tracked HTML files..."
+"$PYTHON" scripts/regenerate_sitemap.py
+
 # Layer 1 (cont): filter sitemap-images.xml to entries whose location page exists.
 # Drift here sends Google Image Search dead <loc> URLs and degrades sitemap trust.
 echo "Filtering sitemap-images.xml to deployed pages only..."

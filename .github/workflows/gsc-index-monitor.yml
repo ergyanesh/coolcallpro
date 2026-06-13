@@ -1,0 +1,97 @@
+name: GSC Indexation Monitor
+
+# Daily snapshot of which sitemap URLs are indexed in Google Search.
+# Runs every day at 14:00 UTC (after the YMYL watcher and after GSC's
+# typical 2-3 day data lag has settled enough to be representative).
+#
+# Catches indexation drops within 24 hours so the kind of stealth
+# de-indexation that happened on 2026-06-13 (121 -> 100 over 3 days,
+# caught by the user) cannot recur unnoticed.
+#
+# Auth: requires repository secret GSC_SERVICE_ACCOUNT_JSON containing
+# the JSON content of a Google Cloud service account with Search Console
+# API scope, granted as a Full or Restricted user under the GSC property
+# sc-domain:coolcallpro.com Settings → Users and permissions.
+#
+# See docs/gsc-monitor-setup.md for one-time setup steps.
+
+on:
+  schedule:
+    - cron: '0 14 * * *'  # Daily at 14:00 UTC
+  workflow_dispatch:        # allow manual trigger from Actions UI
+
+permissions:
+  contents: write           # to commit the daily report
+  issues: write             # to open an issue on drop
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install google-auth google-api-python-client requests
+
+      - name: Run GSC index monitor
+        id: monitor
+        env:
+          GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
+        run: |
+          python scripts/gsc_index_monitor.py
+          echo "exit_code=$?" >> $GITHUB_OUTPUT
+        continue-on-error: true
+
+      - name: Find today's report
+        if: always()
+        id: report
+        run: |
+          REPORT_FILE=$(ls -t .gsc_state/report-*.md 2>/dev/null | head -1)
+          if [ -n "$REPORT_FILE" ]; then
+            echo "report_file=$REPORT_FILE" >> $GITHUB_OUTPUT
+            BODY=$(cat "$REPORT_FILE")
+            BODY="${BODY:0:60000}"
+            {
+              echo "body<<EOF_BODY"
+              echo "$BODY"
+              echo "EOF_BODY"
+            } >> $GITHUB_OUTPUT
+          else
+            echo "report_file=" >> $GITHUB_OUTPUT
+            echo "body=No report generated." >> $GITHUB_OUTPUT
+          fi
+
+      - name: Open issue on alert
+        if: steps.monitor.outputs.exit_code != '0'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const body = `${{ steps.report.outputs.body }}`;
+            const today = new Date().toISOString().slice(0, 10);
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `[indexation] Drop detected in GSC index — ${today}`,
+              body: body,
+              labels: ['indexation', 'alert']
+            });
+
+      - name: Commit daily report
+        if: steps.report.outputs.report_file != ''
+        run: |
+          git config user.name "GSC Monitor Bot"
+          git config user.email "actions@github.com"
+          git add .gsc_state/report-*.md
+          if ! git diff --staged --quiet; then
+            git commit -m "GSC index monitor: report for $(date -u +%Y-%m-%d)"
+            git push
+          else
+            echo "No report changes to commit."
+          fi

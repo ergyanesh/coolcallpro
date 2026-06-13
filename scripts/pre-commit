@@ -108,6 +108,18 @@ if [ "${#html_adr[@]}" -gt 0 ]; then
     git add _redirects
     echo "  _redirects regenerated and auto-staged into this commit."
 
+    # Also regenerate sitemap.xml so newly-shipped articles appear immediately
+    # (preventing the 13-day staleness drift caught on 2026-06-13). Lastmod
+    # for each URL comes from the file's last git commit date.
+    if ! python scripts/regenerate_sitemap.py; then
+        echo
+        echo "ERROR: scripts/regenerate_sitemap.py failed."
+        echo "COMMIT BLOCKED. Investigate and fix, then re-stage."
+        exit 1
+    fi
+    git add sitemap.xml
+    echo "  sitemap.xml regenerated and auto-staged into this commit."
+
     # Also filter sitemap-images.xml so dead-city entries can't accumulate.
     # Idempotent; safe to re-run regardless of which type of HTML changed.
     if ! python scripts/clean_sitemap_images.py; then

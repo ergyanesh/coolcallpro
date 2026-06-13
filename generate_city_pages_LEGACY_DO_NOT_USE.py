@@ -1,3 +1,13 @@
+# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+# !!! LEGACY GENERATOR -- DO NOT RUN. PRODUCTION USES v3 / v4.            !!!
+# !!! Renamed 2026-06-13. Reason: this file emits canonical with .html    !!!
+# !!! suffix, which would re-introduce the duplicate-URL drift that       !!!
+# !!! commit cb5f9a3 fixed. Production uses generate_city_pages_v3.py     !!!
+# !!! (city pages) and generate_state_hubs.py (state hubs).               !!!
+# !!! Kept for git-history reference only. If you genuinely need it, fix  !!!
+# !!! line 64 (.html canonical) first before running.                     !!!
+# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
 import openpyxl
 import os
 import re

@@ -95,3 +95,7 @@ images/_failed.txt
 .ymyl_refresh_plan.md
 _audit/location_uniqueness.csv
 scripts/ghcnd-stations.txt
+
+# GSC indexation monitor state (json snapshots are gitignored, .md reports are tracked)
+.gsc_state/indexed_yesterday.json
+.gsc_state/coverage_states.json
