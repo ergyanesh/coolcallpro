@@ -68,10 +68,36 @@ def existing_lastmods() -> dict:
 
 
 EXISTING_LASTMODS = existing_lastmods()
-print(f"[regenerate_sitemap] EXISTING_LASTMODS loaded: {len(EXISTING_LASTMODS)} entries", flush=True)
-if EXISTING_LASTMODS:
-    _sample = list(EXISTING_LASTMODS.items())[:3]
-    print(f"[regenerate_sitemap] sample: {_sample}", flush=True)
+
+
+def _is_shallow_clone() -> bool:
+    """Detect a shallow clone (e.g., Cloudflare Pages defaults to --depth=1).
+
+    In a shallow clone there's only one available commit, so `git log -1 -- <file>`
+    returns that single commit's date for EVERY file — regardless of when the
+    file was actually last modified. That makes git_last_modified() useless
+    for accurate lastmod values, and we fall back to EXISTING_LASTMODS (the
+    in-repo sitemap.xml which was committed by the local pre-commit hook with
+    full history).
+    """
+    try:
+        result = subprocess.run(
+            ["git", "rev-parse", "--is-shallow-repository"],
+            cwd=ROOT,
+            capture_output=True,
+            text=True,
+            check=True,
+        )
+        return result.stdout.strip() == "true"
+    except (subprocess.CalledProcessError, FileNotFoundError):
+        # Not a git repo at all (e.g., tarball release) — treat as shallow so
+        # we use EXISTING_LASTMODS, not garbage git data.
+        return True
+
+
+IS_SHALLOW = _is_shallow_clone()
+print(f"[regenerate_sitemap] shallow_clone={IS_SHALLOW}, "
+      f"EXISTING_LASTMODS={len(EXISTING_LASTMODS)} entries", flush=True)
 
 # Files that must NEVER appear in the sitemap (these would otherwise be
 # globbed in because they're tracked HTML).
@@ -128,38 +154,46 @@ _GIT_STATS = {"git_returned_data": 0, "fallback_existing": 0, "fallback_today": 
 
 
 def git_last_modified(rel_path: str, url: str) -> str:
-    """Return YYYY-MM-DD of the file's last git commit.
+    """Return YYYY-MM-DD of the file's last meaningful modification.
 
-    Fallback chain when git log returns empty (shallow clone case — Cloudflare
-    Pages clones with --depth=1 by default, so `git log -1 -- <file>` returns
-    empty for any file not touched by the latest commit):
+    Source-of-truth order:
 
-      1. Try git log -1 --format=%cs -- <path>
-      2. Fall back to the lastmod already recorded for this URL in the
-         existing sitemap.xml (preserves the accurate dates last produced by
-         a full-history run such as the local pre-commit hook).
-      3. Fall back to today's date (only when this is a brand-new URL we
-         haven't seen before).
+      1. If git history is FULL (not a shallow clone):
+         use `git log -1 --format=%cs -- <path>` — accurate from history.
+      2. If shallow OR git unavailable:
+         use the existing sitemap.xml's recorded lastmod for this URL.
+         The in-repo sitemap.xml is produced by the local pre-commit hook
+         which runs with full git history, so the dates already committed
+         to git ARE accurate; we just propagate them.
+      3. Brand-new URL never seen before: use today's date.
+
+    Why this order: in a shallow clone, `git log -1 -- <file>` does NOT
+    return empty for files-not-in-the-latest-commit; it returns the date
+    of the only available commit (which is today's deploy commit). That
+    makes every file look like it was modified today — exactly the bug
+    GSC flags as "invalid sitemap" because no real site has all 220 pages
+    modified on the same day.
     """
-    try:
-        result = subprocess.run(
-            ["git", "log", "-1", "--format=%cs", "--", rel_path],
-            cwd=ROOT,
-            capture_output=True,
-            text=True,
-            check=True,
-        )
-        s = result.stdout.strip()
-        if s:
-            _GIT_STATS["git_returned_data"] += 1
-            return s
-    except (subprocess.CalledProcessError, FileNotFoundError):
-        pass
-    # Shallow-clone fallback: re-use the lastmod from the previous sitemap.
+    if not IS_SHALLOW:
+        try:
+            result = subprocess.run(
+                ["git", "log", "-1", "--format=%cs", "--", rel_path],
+                cwd=ROOT,
+                capture_output=True,
+                text=True,
+                check=True,
+            )
+            s = result.stdout.strip()
+            if s:
+                _GIT_STATS["git_returned_data"] += 1
+                return s
+        except (subprocess.CalledProcessError, FileNotFoundError):
+            pass
+    # Shallow-clone path (or full-clone git log failure): re-use the prior sitemap's date.
     if url in EXISTING_LASTMODS:
         _GIT_STATS["fallback_existing"] += 1
         return EXISTING_LASTMODS[url]
-    # Brand-new URL, no prior record: use today.
+    # Brand-new URL never recorded: use today.
     _GIT_STATS["fallback_today"] += 1
     return date.today().isoformat()
 
