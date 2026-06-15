@@ -1,4 +1,4 @@
-# YMYL Primary-Source Watcher Report — 2026-06-08
+# YMYL Primary-Source Watcher Report — 2026-06-15
 
 ## OK  IRS Section 25C Energy Efficient Home Improvement Credit
   URL: https://www.irs.gov/credits-deductions/energy-efficient-home-improvement-credit
@@ -16,43 +16,32 @@
   URL: https://www.epa.gov/section608
   No change.
 
-## CHANGE  EPA AIM Act Technology Transitions Program
+## OK  EPA AIM Act Technology Transitions Program
   URL: https://www.epa.gov/climate-hfcs-reduction/regulatory-actions-technology-transitions
-  Material delta: 10 line(s).
-  + Added (5 line(s)):
-      +Rules May 2026 – Reconsideration of Certain Regulatory Requirements Promulgated Under the Technology Transitions Provisions of the AIM Act&nbsp; This&nbsp;final&nbsp;rule&nbsp;addresses&nbsp;petition
-      +The EPA granted an extension and provided four additional days for public comment.
-      +Enforcement Statement EPA issued the following enforcement statement on December 22, 2025: EPA is aware of the circumstances and equities created by the Agency’s decision to reconsider the 2023 Techn
-      +The final rule also allows until January 1, 2028, for the installation of such VRF equipment that are intended for construction projects that were issued an approved building permit prior to October 
-      +Notices of Determination Notices of Determination alert the public of the Agency’s decision and consideration of negotiated rulemaking to grant, partially grant, or deny petitions under subsection (i
-  - Removed (5 line(s)):
-      -Rules May 2026 – Reconsideration of Certain Regulatory Requirements Promulgated Under the Technology Transitions Provisions of the AIM Act&nbsp; This&nbsp;final&nbsp;rule&nbsp;addresses&nbsp;petition
-      -The&nbsp;final&nbsp;rule is linked below and can also be found on &nbsp; Regulations.gov &nbsp; in Docket Number &nbsp; EPA-HQ-OAR-2025-0005.
-      -&nbsp; &nbsp; Federal Register Link to Technology Transitions Reconsideration Final Rule &nbsp; Additional Information &nbsp; Technology Transitions Reconsideration Rule Technical Fact Sheet (pdf) (2
-      -The final rule also allows until January 1, 2028, for the installation of such VRF equipment that are intended for construction projects that were issued an approved building permit prior to October 
-      -Notices of Determination Notices of Determination alert the public of the Agency’s decision and consideration of negotiated rulemaking to grant, partially grant, or deny petitions under subsection (i
+  No change.
 
 ## CHANGE  DOE Heat Pump Systems
   URL: https://www.energy.gov/energysaver/heat-pump-systems
-  Material delta: 6 line(s).
-  + Added (3 line(s)):
-      +News &amp; Events Main Menu News &amp; Events View all News &amp; Events June 4, 2026 Energy Department to Use Defense Production Act Funding to Expand Coal Capacity at 13 Plants and Build Export Inf
-      +Department of Energy today announced it will support 13 American coal-fired… Read more View all Press Releases FACT SHEET: The Department of Energy is Ensuring Affordable Energy Access in Ohio While 
-      +For more information and to explore your options, visit the ENERGY STAR® certified heat pumps page .&nbsp; Related Resources Buildings Heating &amp; Cooling Air-Source Heat Pumps May 14, 2026 Buildin
-  - Removed (3 line(s)):
-      -News &amp; Events Main Menu News &amp; Events View all News &amp; Events May 29, 2026 NNSA Removes High-Risk Cesium from Lebanon Through Strong Interagency and International Partnerships, Strengtheni
-      -and Global Security NNSA removed the last cesium-137 blood irradiator from Lebanon, marking an important… Read more View all Press Releases FACT SHEET: The Department of Energy is Ensuring Affordable
-      -For more information and to explore your options, visit the ENERGY STAR® certified heat pumps page .&nbsp; Related Resources Buildings Heating &amp; Cooling Air-Source Heat Pumps May 14, 2026 Buildin
+  Material delta: 3 line(s).
+  + Added (1 line(s)):
+      +News &amp; Events Main Menu News &amp; Events View all News &amp; Events June 10, 2026 Energy Department Issues RFP to Advance President Trump’s 172-Million-Barrel Strategic Petroleum Reserve Exchang
+  - Removed (2 line(s)):
+      -News &amp; Events Main Menu News &amp; Events View all News &amp; Events June 4, 2026 Energy Department to Use Defense Production Act Funding to Expand Coal Capacity at 13 Plants and Build Export Inf
+      -Department of Energy today announced it will support 13 American coal-fired… Read more View all Press Releases FACT SHEET: The Department of Energy is Ensuring Affordable Energy Access in Ohio While 
 
 ## CHANGE  DOE Home Upgrades / HEAR Portal
   URL: https://www.energy.gov/save/home-upgrades
-  Material delta: 4 line(s).
-  + Added (2 line(s)):
-      +News &amp; Events Main Menu News &amp; Events View all News &amp; Events June 4, 2026 Energy Department to Use Defense Production Act Funding to Expand Coal Capacity at 13 Plants and Build Export Inf
-      +Department of Energy today announced it will support 13 American coal-fired… Read more View all Press Releases FACT SHEET: The Department of Energy is Ensuring Affordable Energy Access in Ohio While 
-  - Removed (2 line(s)):
-      -News &amp; Events Main Menu News &amp; Events View all News &amp; Events May 29, 2026 NNSA Removes High-Risk Cesium from Lebanon Through Strong Interagency and International Partnerships, Strengtheni
-      -and Global Security NNSA removed the last cesium-137 blood irradiator from Lebanon, marking an important… Read more View all Press Releases FACT SHEET: The Department of Energy is Ensuring Affordable
+  Material delta: 8 line(s).
+  + Added (4 line(s)):
+      +News &amp; Events Main Menu News &amp; Events View all News &amp; Events June 10, 2026 Energy Department Issues RFP to Advance President Trump’s 172-Million-Barrel Strategic Petroleum Reserve Exchang
+      +Visit our Home Energy Rebates webpage .
+      +to check the status of your locality’s program.
+      +Home Energy Rebates Search for eligible appliances and home upgrades Filters Reset Search Filters Type to search.
+  - Removed (4 line(s)):
+      -News &amp; Events Main Menu News &amp; Events View all News &amp; Events June 4, 2026 Energy Department to Use Defense Production Act Funding to Expand Coal Capacity at 13 Plants and Build Export Inf
+      -Department of Energy today announced it will support 13 American coal-fired… Read more View all Press Releases FACT SHEET: The Department of Energy is Ensuring Affordable Energy Access in Ohio While 
+      -Visit our Home Energy Rebates Portal to check the status of your locality’s program.
+      -Check Status Search for eligible appliances and home upgrades Filters Reset Search Filters Type to search.
 
 ## OK  PACENation PACE Programs (industry advocacy — watch for MO SB736 framing)
   URL: https://www.pacenation.org/pace-programs/
@@ -60,5 +49,5 @@
 
 ---
 Sources monitored: 8
-Material changes: 3
+Material changes: 2
 Fetch errors: 0
