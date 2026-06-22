@@ -1,4 +1,4 @@
-# YMYL Primary-Source Watcher Report — 2026-06-15
+# YMYL Primary-Source Watcher Report — 2026-06-22
 
 ## OK  IRS Section 25C Energy Efficient Home Improvement Credit
   URL: https://www.irs.gov/credits-deductions/energy-efficient-home-improvement-credit
@@ -14,7 +14,7 @@
 
 ## OK  EPA Section 608 Refrigerant Handling
   URL: https://www.epa.gov/section608
-  No change.
+  Hash differs but no material text delta (likely whitespace).
 
 ## OK  EPA AIM Act Technology Transitions Program
   URL: https://www.epa.gov/climate-hfcs-reduction/regulatory-actions-technology-transitions
@@ -23,25 +23,20 @@
 ## CHANGE  DOE Heat Pump Systems
   URL: https://www.energy.gov/energysaver/heat-pump-systems
   Material delta: 3 line(s).
-  + Added (1 line(s)):
-      +News &amp; Events Main Menu News &amp; Events View all News &amp; Events June 10, 2026 Energy Department Issues RFP to Advance President Trump’s 172-Million-Barrel Strategic Petroleum Reserve Exchang
-  - Removed (2 line(s)):
-      -News &amp; Events Main Menu News &amp; Events View all News &amp; Events June 4, 2026 Energy Department to Use Defense Production Act Funding to Expand Coal Capacity at 13 Plants and Build Export Inf
-      -Department of Energy today announced it will support 13 American coal-fired… Read more View all Press Releases FACT SHEET: The Department of Energy is Ensuring Affordable Energy Access in Ohio While 
+  + Added (2 line(s)):
+      +News &amp; Events Main Menu News &amp; Events View all News &amp; Events June 17, 2026 Save the Date for AFFO&#039;s 2027 Peer Review Meeting The U.S.
+      +Department of Energy&#039;s Alternative Fuels and Feedstocks Office (AFFO)… Read more View all Press Releases FACT SHEET: The Department of Energy is Ensuring Affordable Energy Access in Ohio While P
+  - Removed (1 line(s)):
+      -News &amp; Events Main Menu News &amp; Events View all News &amp; Events June 10, 2026 Energy Department Issues RFP to Advance President Trump’s 172-Million-Barrel Strategic Petroleum Reserve Exchang
 
 ## CHANGE  DOE Home Upgrades / HEAR Portal
   URL: https://www.energy.gov/save/home-upgrades
-  Material delta: 8 line(s).
-  + Added (4 line(s)):
-      +News &amp; Events Main Menu News &amp; Events View all News &amp; Events June 10, 2026 Energy Department Issues RFP to Advance President Trump’s 172-Million-Barrel Strategic Petroleum Reserve Exchang
-      +Visit our Home Energy Rebates webpage .
-      +to check the status of your locality’s program.
-      +Home Energy Rebates Search for eligible appliances and home upgrades Filters Reset Search Filters Type to search.
-  - Removed (4 line(s)):
-      -News &amp; Events Main Menu News &amp; Events View all News &amp; Events June 4, 2026 Energy Department to Use Defense Production Act Funding to Expand Coal Capacity at 13 Plants and Build Export Inf
-      -Department of Energy today announced it will support 13 American coal-fired… Read more View all Press Releases FACT SHEET: The Department of Energy is Ensuring Affordable Energy Access in Ohio While 
-      -Visit our Home Energy Rebates Portal to check the status of your locality’s program.
-      -Check Status Search for eligible appliances and home upgrades Filters Reset Search Filters Type to search.
+  Material delta: 3 line(s).
+  + Added (2 line(s)):
+      +News &amp; Events Main Menu News &amp; Events View all News &amp; Events June 17, 2026 Save the Date for AFFO&#039;s 2027 Peer Review Meeting The U.S.
+      +Department of Energy&#039;s Alternative Fuels and Feedstocks Office (AFFO)… Read more View all Press Releases FACT SHEET: The Department of Energy is Ensuring Affordable Energy Access in Ohio While P
+  - Removed (1 line(s)):
+      -News &amp; Events Main Menu News &amp; Events View all News &amp; Events June 10, 2026 Energy Department Issues RFP to Advance President Trump’s 172-Million-Barrel Strategic Petroleum Reserve Exchang
 
 ## OK  PACENation PACE Programs (industry advocacy — watch for MO SB736 framing)
   URL: https://www.pacenation.org/pace-programs/
