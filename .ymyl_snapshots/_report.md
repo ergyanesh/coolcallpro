@@ -1,16 +1,12 @@
-# YMYL Primary-Source Watcher Report — 2026-07-06
+# YMYL Primary-Source Watcher Report — 2026-07-13
 
 ## OK  IRS Section 25C Energy Efficient Home Improvement Credit
   URL: https://www.irs.gov/credits-deductions/energy-efficient-home-improvement-credit
   No change.
 
-## CHANGE  IRS Section 25D Residential Clean Energy Credit
+## OK  IRS Section 25D Residential Clean Energy Credit
   URL: https://www.irs.gov/credits-deductions/residential-clean-energy-credit
-  Material delta: 2 line(s).
-  + Added (1 line(s)):
-      +Related resources Home Energy Efficiency Credit IRS releases frequently asked questions about energy efficient home improvements and residential clean energy property credits About Form 5695, Residen
-  - Removed (1 line(s)):
-      -Related resources Home Energy Efficiency Credit IRS releases frequently asked questions about energy efficient home improvements and residential clean energy property credits About Form 5695, Residen
+  No change.
 
 ## OK  ENERGY STAR Federal Tax Credits
   URL: https://www.energystar.gov/about/federal-tax-credits
@@ -30,15 +26,22 @@
 
 ## CHANGE  DOE Home Upgrades / HEAR Portal
   URL: https://www.energy.gov/save/home-upgrades
-  Material delta: 2 line(s).
-  + Added (1 line(s)):
-      +News &amp; Events Main Menu News &amp; Events View all News &amp; Events June 30, 2026 NNSA launches Secret/Restricted Data Enterprise Cloud Environment in Collaboration with Amazon Web Services NNSA
+  Material delta: 3 line(s).
+  + Added (2 line(s)):
+      +News &amp; Events Main Menu News &amp; Events View all News &amp; Events July 9, 2026 Secretary of Energy Chris Wright Announces Newly Appointed Members of the Secretary of Energy Advisory Board The 
+      +Department of Energy (DOE) today announced the newly appointed members of… Read more View all Press Releases FACT SHEET: The Department of Energy is Ensuring Affordable Energy Access in Ohio While Po
   - Removed (1 line(s)):
-      -News &amp; Events Main Menu News &amp; Events View all News &amp; Events June 26, 2026 The West End Protected Area Reduction Project is Complete at NNSA’s Y-12 National Security Complex NNSA complete
+      -News &amp; Events Main Menu News &amp; Events View all News &amp; Events June 30, 2026 NNSA launches Secret/Restricted Data Enterprise Cloud Environment in Collaboration with Amazon Web Services NNSA
 
-## OK  PACENation PACE Programs (industry advocacy — watch for MO SB736 framing)
+## CHANGE  PACENation PACE Programs (industry advocacy — watch for MO SB736 framing)
   URL: https://www.pacenation.org/pace-programs/
-  No change.
+  Material delta: 5 line(s).
+  - Removed (5 line(s)):
+      -PACE Programs - PACENation Skip links Skip to primary navigation Skip to content PACE Programs PACE-enabling legislation is active in 40 states plus D.C., and PACE programs are now active (launched a
+      -Residential PACE is currently offered in California, Florida, and Missouri.
+      -Click your state to find PACE programs operating in your area.
+      -Active program(s) Program in development PACE-enabled This is a community-curated list.
+      -Add your own updates to keep the PACE community up to date!
 
 ---
 Sources monitored: 8
