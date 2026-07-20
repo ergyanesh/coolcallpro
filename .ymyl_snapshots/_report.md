@@ -1,4 +1,4 @@
-# YMYL Primary-Source Watcher Report — 2026-07-13
+# YMYL Primary-Source Watcher Report — 2026-07-20
 
 ## OK  IRS Section 25C Energy Efficient Home Improvement Credit
   URL: https://www.irs.gov/credits-deductions/energy-efficient-home-improvement-credit
@@ -26,22 +26,23 @@
 
 ## CHANGE  DOE Home Upgrades / HEAR Portal
   URL: https://www.energy.gov/save/home-upgrades
-  Material delta: 3 line(s).
+  Material delta: 4 line(s).
   + Added (2 line(s)):
-      +News &amp; Events Main Menu News &amp; Events View all News &amp; Events July 9, 2026 Secretary of Energy Chris Wright Announces Newly Appointed Members of the Secretary of Energy Advisory Board The 
-      +Department of Energy (DOE) today announced the newly appointed members of… Read more View all Press Releases FACT SHEET: The Department of Energy is Ensuring Affordable Energy Access in Ohio While Po
-  - Removed (1 line(s)):
-      -News &amp; Events Main Menu News &amp; Events View all News &amp; Events June 30, 2026 NNSA launches Secret/Restricted Data Enterprise Cloud Environment in Collaboration with Amazon Web Services NNSA
+      +News &amp; Events Main Menu News &amp; Events View all News &amp; Events July 16, 2026 NNSA, LANL Codesign Next-Gen Supercomputers with Tech Partners NNSA unveiled plans for two new supercomputers, M
+      +Both… Read more Nuclear Security Legacy View all Press Releases FACT SHEET: The Department of Energy is Ensuring Affordable Energy Access in Ohio While Powering the Future of AI FACT SHEET: The Energ
+  - Removed (2 line(s)):
+      -News &amp; Events Main Menu News &amp; Events View all News &amp; Events July 9, 2026 Secretary of Energy Chris Wright Announces Newly Appointed Members of the Secretary of Energy Advisory Board The 
+      -Department of Energy (DOE) today announced the newly appointed members of… Read more View all Press Releases FACT SHEET: The Department of Energy is Ensuring Affordable Energy Access in Ohio While Po
 
 ## CHANGE  PACENation PACE Programs (industry advocacy — watch for MO SB736 framing)
   URL: https://www.pacenation.org/pace-programs/
   Material delta: 5 line(s).
-  - Removed (5 line(s)):
-      -PACE Programs - PACENation Skip links Skip to primary navigation Skip to content PACE Programs PACE-enabling legislation is active in 40 states plus D.C., and PACE programs are now active (launched a
-      -Residential PACE is currently offered in California, Florida, and Missouri.
-      -Click your state to find PACE programs operating in your area.
-      -Active program(s) Program in development PACE-enabled This is a community-curated list.
-      -Add your own updates to keep the PACE community up to date!
+  + Added (5 line(s)):
+      +PACE Programs - PACENation Skip links Skip to primary navigation Skip to content PACE Programs PACE-enabling legislation is active in 40 states plus D.C., and PACE programs are now active (launched a
+      +Residential PACE is currently offered in California, Florida, and Missouri.
+      +Click your state to find PACE programs operating in your area.
+      +Active program(s) Program in development PACE-enabled This is a community-curated list.
+      +Add your own updates to keep the PACE community up to date!
 
 ---
 Sources monitored: 8
