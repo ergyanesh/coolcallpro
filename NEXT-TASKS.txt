@@ -44,18 +44,32 @@ Already done — do not redo:
 PRIORITY 0 — STILL DUE (carried from 2026-05-22)
 ==================================================================
 
-[1] DMARC POLICY UPGRADE (p=none -> p=quarantine)
-    Status: Due ~2026-05-22 (1 day overdue)
-    Effort: 15 min review + 5 min DNS update
+[1] DMARC POLICY UPGRADE -- SUPERSEDED 2026-08-07
+    Status: rolled into the Workspace cancellation work
+    See: docs/workspace-cancellation-runbook.md (Part 2)
 
-    a) Check admin@coolcallpro.com inbox for DMARC aggregate reports
-       (XML attachments from Google/Microsoft/Yahoo)
-    b) Scan for unauthorized "From: @coolcallpro.com" sender activity
-    c) If clean, update DMARC TXT record at DNS host to:
-       v=DMARC1; p=quarantine; rua=mailto:admin@coolcallpro.com;
-       ruf=mailto:admin@coolcallpro.com; fo=1; aspf=s; adkim=s
-    d) Update memory project_dmarc_posture.md with new posture +
-       30-day review date for next step (-> p=reject)
+    The original plan was: read DMARC aggregate reports in the
+    admin@coolcallpro.com inbox, confirm no unauthorized senders, then
+    step p=none -> p=quarantine -> p=reject.
+
+    That staging existed to identify legitimate senders before tightening.
+    Google Workspace is being cancelled (2026-08-07), which removes the
+    admin@ mailbox AND the only thing that ever sent mail as
+    @coolcallpro.com. Verified 2026-08-07: no GitHub workflow sends mail;
+    the YMYL/GSC alert routines send from Anthropic infra to
+    gyanesh.gulshan@gmail.com, not from this domain.
+
+    With zero legitimate senders there is nothing to monitor for, so go
+    straight to p=reject -- any mail claiming to be from @coolcallpro.com
+    is forged. Do NOT spend the 15 min reading reports first.
+
+       v=DMARC1; p=reject; rua=mailto:gyanesh.gulshan@gmail.com;
+       fo=1; aspf=s; adkim=s
+
+    Sequencing, prerequisites (domain registrar + GA4 + GCP project
+    ownership migration), SPF/DKIM/MX cleanup, and the free Cloudflare
+    Email Routing option all live in the runbook. Read it first --
+    several steps must happen BEFORE cancellation.
 
 [2] CSP FLIP (REPORT-ONLY -> ENFORCING)
     Status: Due ~2026-05-22 (1 day overdue)

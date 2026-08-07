@@ -108,11 +108,22 @@ either:
   account: https://github.com/notifications/profile → ensure "Participating
   notifications" is set to "Email."
 - **(more configurable)** Add a step to the workflow that calls an SMTP
-  action with your existing `admin@coolcallpro.com` mailbox. Pattern: see
-  `.github/workflows/ymyl-source-watcher.yml` for an existing SMTP example
-  (if present); otherwise the
-  [`dawidd6/action-send-mail`](https://github.com/dawidd6/action-send-mail)
+  action — the [`dawidd6/action-send-mail`](https://github.com/dawidd6/action-send-mail)
   action is the standard.
+
+  **Do NOT use an `@coolcallpro.com` mailbox as the sender.** Google
+  Workspace for this domain is being cancelled (2026-08-07) and the domain
+  is moving to an SPF `-all` / DMARC `p=reject` posture, meaning no server
+  is authorized to send as `@coolcallpro.com` — mail sent from it will be
+  rejected outright. Use a Gmail app password, or a transactional provider
+  on its own sending domain. See
+  [workspace-cancellation-runbook.md](workspace-cancellation-runbook.md).
+
+**Ownership warning:** the Cloud project and service account created in
+Steps 1-4 must not be owned solely by a `@coolcallpro.com` Google account.
+If they are, cancelling Workspace deletes them and this monitor silently
+stops running. See Part 1 §4 of the
+[cancellation runbook](workspace-cancellation-runbook.md).
 
 ---
 
