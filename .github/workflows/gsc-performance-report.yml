@@ -1,0 +1,53 @@
+name: GSC Performance Report
+
+# Manual-only. Pulls Search Analytics (rankings, queries, page-type breakdown)
+# and uploads the markdown report as an artifact.
+#
+# Separate from gsc-index-monitor.yml on purpose: that one answers "are our
+# pages IN the index?" on a daily schedule. This one answers "are they RANKING
+# and for what?" — a strategic question you ask occasionally, not daily. Also
+# read-only: it commits nothing, so it can never race the daily monitor's push.
+#
+# Auth: reuses the same GSC_SERVICE_ACCOUNT_JSON repository secret.
+# See docs/gsc-monitor-setup.md.
+
+on:
+  workflow_dispatch:
+    inputs:
+      days:
+        description: 'Window length in days (compared against the preceding equal window)'
+        required: false
+        default: '28'
+
+permissions:
+  contents: read
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install google-auth google-api-python-client
+
+      - name: Generate performance report
+        env:
+          GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
+          PYTHONUNBUFFERED: "1"
+        run: |
+          python -u scripts/gsc_performance_report.py \
+            --days "${{ inputs.days }}" \
+            --out gsc-performance-report.md
+
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: gsc-performance-report
+          path: gsc-performance-report.md
