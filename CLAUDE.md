@@ -817,7 +817,12 @@ Indexing" on the clean URL — but don't do it for all 17 at once (quota).
 
 **Scheduled article publishing:** Drop article in `_drafts/YYYY-MM-DD-slug.html`. GitHub Actions (`.github/workflows/publish-scheduled-articles.yml`) runs daily 9am EST and auto-publishes on the scheduled date.
 
-**Pending workflow update — Node.js 20 deprecation (deadline 2 June 2026):** GitHub flagged on 2026-05-05 that `actions/checkout@v4` and `actions/setup-python@v5` in our workflow run on Node.js 20, which becomes the default-disabled runtime on **June 2, 2026** (Node.js 20 fully removed September 16, 2026). Both actions are pinned to major-version tags (`@v4`, `@v5`), so the maintainers' point-release updates to Node 24 will land automatically — but if for any reason auto-update doesn't kick in, manually re-pin to a known-Node-24 release before June 2. A scheduled remote agent has been queued for late May 2026 to verify and execute the bump if needed. If you read this section AFTER 2 June 2026 and the workflow is still green, the auto-update worked and this note can be deleted.
+**Node.js 20 deprecation — RESOLVED, no action needed.** Verified 2026-08-07 on a
+live Actions run: `actions/checkout@v4`, `actions/setup-python@v5`, and
+`actions/upload-artifact@v4` are annotated "target Node.js 20 but are being forced
+to run on Node.js 24" and complete successfully. Pinning to major-version tags was
+enough — the runner substitutes Node 24 automatically. Expect that yellow
+annotation on every run; it is informational, not a failure. Nothing to re-pin.
 
 **Do NOT:** create `deploy {date}/` folders, upload via Cloudflare dashboard manually, or use `wrangler deploy`. Those workflows are obsolete.
 
