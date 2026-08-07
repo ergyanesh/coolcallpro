@@ -27,21 +27,54 @@ old Google Domains business, migrated to Squarespace in 2023) and **expires
 `katelyn.ns.cloudflare.com`), but Cloudflare is only the DNS host — Squarespace
 still controls the registration.
 
-If the Squarespace account login, or the registrant contact email, is a
-@coolcallpro.com address, then after cancellation you cannot log in to renew or
-transfer, and renewal notices bounce. **Losing the domain is the one failure on
-this list that is not recoverable** — the site, all 182 indexed pages, and the
-entire SEO history go with it.
+**CONFIRMED 2026-08-07 — this is a real dependency, not a hypothetical.** The
+Squarespace domain overview shows, verbatim, under the March 4 2027 renewal date:
 
-- [ ] Log in at https://account.squarespace.com/domains — note which email you
-      used. If it's @coolcallpro.com, change the account email to
-      `gyanesh.gulshan@gmail.com` **now**.
-- [ ] Check the domain's registrant/admin/tech contact email in the domain's
-      contact settings. Change any @coolcallpro.com address to the Gmail one.
-- [ ] Confirm auto-renew is ON and the card on file is current.
-- [ ] Optional but worth it: transfer the domain to **Cloudflare Registrar**
-      (at-cost pricing, and consolidates it with the DNS you already run there).
-      Requires the domain to be unlocked and >60 days since last transfer.
+> **Auto-renews at Google Workspace**
+
+So the domain is coupled to Workspace in **two** independent ways:
+
+1. **Login** — the Squarespace account is `admin@coolcallpro.com`, which is
+   deleted with Workspace. No login → no ability to renew or transfer.
+2. **Billing** — the renewal payment path *is* the Workspace subscription. This
+   is a Google Domains → Squarespace migration artifact (domains bought during
+   Workspace signup billed through Workspace). Cancel Workspace and auto-renew
+   has no payment method.
+
+The registrant contact **is** already `gyanesh.gulshan@gmail.com` (good — transfer
+and renewal notices survive the cancellation). It's the account login and the
+billing path that are the problem, not the registrant.
+
+Whether the registration itself survives to 2027-03-04 after Workspace is
+cancelled is **unverified**. Standard registrar behaviour is that a domain runs
+to its expiry regardless of billing-account state, but Google-linked domain
+billing has enough edge cases that this must not be assumed. Losing the domain
+is the one failure on this list that is not recoverable.
+
+**Fix (recommended): transfer to Cloudflare Registrar before cancelling.** Severs
+both the login and billing dependency at once, at-cost pricing, consolidates with
+the DNS and Pages project already there, and extends expiry ~1 year.
+
+- [ ] Squarespace domain overview → **Domain Lock → Off** (currently On).
+- [ ] **REQUEST TRANSFER CODE** (button at the bottom of the overview page). The
+      auth/EPP code goes to the registrant Gmail.
+- [ ] Cloudflare dashboard → Domain Registration → Transfer Domains → paste the
+      code, pay one year. The zone is already on Cloudflare nameservers
+      (`christian`/`katelyn.ns.cloudflare.com`), which Cloudflare Registrar
+      requires.
+- [ ] Approve the transfer-confirmation email (goes to the Gmail).
+- [ ] Wait 5-7 days for the transfer to complete. **Only then cancel Workspace.**
+
+**Minimum alternative if the transfer fee is unwanted:** change the Squarespace
+*account* email to the Gmail address AND attach a card directly at Squarespace so
+the domain stops billing through Workspace. Caveat: if that account is a "Sign in
+with Google" SSO login bound to `admin@coolcallpro.com`, the email cannot simply
+be swapped and the transfer becomes the only clean path. Check Billing/Account
+settings.
+
+**Ordering is not optional:** never cancel Workspace before the domain is
+decoupled. Losing the Squarespace login mid-transfer means recovering your own
+domain through support.
 
 ### 2. Google Analytics 4 — data is unrecoverable
 
