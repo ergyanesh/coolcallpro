@@ -571,6 +571,15 @@ Cloudflare Pages reads `_headers` at the root of `_dist/` (copied by `build.sh`)
 
 **When you flip CSP to enforcing:** rename the header from `Content-Security-Policy-Report-Only:` to `Content-Security-Policy:` AND append `; upgrade-insecure-requests` at the end (the directive is silently ignored in Report-Only mode and was removed from the policy on 24 April after Chrome warned about it).
 
+**`connect-src` must list every origin the site fetches.** Adding a `fetch()` to a
+new external origin without adding that origin to `connect-src` gets the request
+silently blocked in production while working fine on `localhost` (serve.py sends
+no `_headers`). This bit us once: `script.google.com` (the /contact form endpoint)
+was missing from `connect-src` when CSP flipped to enforcing on 2026-05-28, so
+every form submission was blocked for ~10 weeks — and the handler's `catch` block
+showed "✅ Message Sent!" anyway. Any change that adds an external fetch must
+touch `_headers` in the same commit, and must have a user-visible failure branch.
+
 **Do NOT add hostname-based redirects (e.g., www → apex) to `_redirects`** — Cloudflare Pages explicitly does not support domain-level redirects in `_redirects` (per official docs). Those must be configured in the Cloudflare dashboard (DNS A record + Bulk Redirect Rule). The www → apex redirect is already in place there as of 24 April 2026.
 
 ## City Page Design System (since 25 April 2026 — pilot live on locations/houston-tx.html)
@@ -811,6 +820,33 @@ Indexing" on the clean URL — but don't do it for all 17 at once (quota).
 **Pending workflow update — Node.js 20 deprecation (deadline 2 June 2026):** GitHub flagged on 2026-05-05 that `actions/checkout@v4` and `actions/setup-python@v5` in our workflow run on Node.js 20, which becomes the default-disabled runtime on **June 2, 2026** (Node.js 20 fully removed September 16, 2026). Both actions are pinned to major-version tags (`@v4`, `@v5`), so the maintainers' point-release updates to Node 24 will land automatically — but if for any reason auto-update doesn't kick in, manually re-pin to a known-Node-24 release before June 2. A scheduled remote agent has been queued for late May 2026 to verify and execute the bump if needed. If you read this section AFTER 2 June 2026 and the workflow is still green, the auto-update worked and this note can be deleted.
 
 **Do NOT:** create `deploy {date}/` folders, upload via Cloudflare dashboard manually, or use `wrangler deploy`. Those workflows are obsolete.
+
+## Contact Channel — No Public Email (since 7 August 2026)
+
+Google Workspace for coolcallpro.com is being cancelled. `hello@coolcallpro.com`
+and `admin@coolcallpro.com` are **removed from every visitor-facing surface** and
+must not be re-added. The `/contact` form is the only written channel; the phone
+number (844) 582-1795 remains the primary one.
+
+- **Do NOT add a `mailto:` link or a bare email address** to any HTML page,
+  `llms.txt`, or schema. When a page needs a written contact route, link to
+  `/contact`. (The `mailto:?subject=` share buttons in articles are fine — they
+  have no recipient and open the *reader's* mail client.)
+- **The form posts to a Google Apps Script Web App** that appends rows to a Google
+  Sheet on a personal Google account. Endpoint lives in one place:
+  `CONTACT_FORM_ENDPOINT` at the top of `js/main.js`. Script source + deploy
+  instructions: [scripts/contact-form-apps-script.gs](scripts/contact-form-apps-script.gs).
+- **Two ways this breaks silently — check both after any change:**
+  1. `script.google.com` missing from `connect-src` in `_headers` → CSP blocks
+     every POST (see the Security Headers section).
+  2. Endpoint URL changed in `js/main.js` but `js/main.min.js` not re-minified →
+     the live site keeps posting to the old URL. Always run
+     `npx --yes terser js/main.js -o js/main.min.js --compress --mangle`.
+- **The form collects the visitor's email** (`#email`, required). Without it there
+  is no way to reply to anyone, since we no longer publish an address. Do not
+  remove that field.
+- `#website` is a honeypot input — hidden off-screen, `aria-hidden`. Bots fill it
+  and get dropped before the fetch. Leave it in place.
 
 ## Design System (CSS Variables)
 
