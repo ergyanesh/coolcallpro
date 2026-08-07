@@ -23,4 +23,8 @@
   # enforcing (the directive is ignored in Report-Only mode).
   # If a CSP violation surfaces post-flip, the failing resource is the cause —
   # add its origin to the relevant src directive rather than rolling back.
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://www.google-analytics.com https://www.googletagmanager.com; font-src 'self' data:; connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://*.analytics.google.com https://cloudflareinsights.com https://static.cloudflareinsights.com; frame-ancestors 'self'; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests
+  # script.google.com in connect-src is required by the /contact form, which
+  # POSTs to a Google Apps Script Web App that appends rows to a Google Sheet.
+  # Omitting it silently blocks every submission (this happened between the
+  # 2026-05-28 CSP flip and 2026-08-07 — ~10 weeks of lost messages).
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://www.google-analytics.com https://www.googletagmanager.com; font-src 'self' data:; connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://*.analytics.google.com https://cloudflareinsights.com https://static.cloudflareinsights.com https://script.google.com https://script.googleusercontent.com; frame-ancestors 'self'; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests

@@ -32,35 +32,65 @@ if (hamburger) {
 }
 
 // Contact form
+// Google Apps Script Web App endpoint that appends each submission to a Google
+// Sheet. To repoint at a different Sheet: redeploy the Apps Script (see
+// scripts/contact-form-apps-script.gs) and paste the new /exec URL here, then
+// re-minify with the terser command in CLAUDE.md > Build Commands.
+// NOTE: script.google.com must also be listed in connect-src in `_headers`, or
+// the browser CSP blocks the POST silently.
+const CONTACT_FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbz76gpDMfqJ6fDIxcS8lSCyhmnxMBAVikDMpIuC4qRRfeoOrsZlEeNxN8h1ADiKbZGL5w/exec';
+
 async function handleContactSubmit(e) {
     e.preventDefault();
     const btn = e.target.querySelector('button[type="submit"]');
+    const formStatus = document.getElementById('form-status');
+
+    // Honeypot: real users never see this field, bots fill everything. Silently
+    // fake success so the bot doesn't retry with a different strategy.
+    const honeypot = document.getElementById('website');
+    if (honeypot && honeypot.value !== '') {
+        btn.textContent = '✅ Message Sent!';
+        e.target.reset();
+        return;
+    }
+
     btn.textContent = 'Sending…';
     btn.disabled = true;
 
     const data = {
         firstName: document.getElementById('firstName').value.trim(),
         lastName:  document.getElementById('lastName').value.trim(),
+        email:     document.getElementById('email').value.trim(),
         zip:       document.getElementById('zip').value.trim(),
         subject:   document.getElementById('subject').value,
         message:   document.getElementById('message').value.trim()
     };
 
     try {
-        await fetch('https://script.google.com/macros/s/AKfycbz76gpDMfqJ6fDIxcS8lSCyhmnxMBAVikDMpIuC4qRRfeoOrsZlEeNxN8h1ADiKbZGL5w/exec', {
+        // no-cors means we can't read the response, but a CSP block, DNS
+        // failure or offline device still throws — that's what we surface.
+        await fetch(CONTACT_FORM_ENDPOINT, {
             method: 'POST',
             mode: 'no-cors',
             headers: { 'Content-Type': 'text/plain' },
             body: JSON.stringify(data)
         });
     } catch (err) {
-        // no-cors fetch always resolves; true network failures land here
+        btn.textContent = 'Send Message';
+        btn.disabled = false;
+        if (formStatus) {
+            formStatus.classList.remove('sr-only');
+            formStatus.innerHTML = '<p style="color:#c53030;font-size:0.85rem;margin-top:12px;text-align:center;">We couldn\'t send your message. Please call <a href="tel:+18445821795" style="color:#c53030;text-decoration:underline;white-space:nowrap;">(844) 582-1795</a> instead.</p>';
+        }
+        return;
     }
 
     btn.textContent = '✅ Message Sent!';
     btn.style.background = '#38a169';
-    const formStatus = document.getElementById('form-status');
-    if (formStatus) formStatus.textContent = 'Message sent successfully!';
+    if (formStatus) {
+        formStatus.classList.add('sr-only');
+        formStatus.textContent = 'Message sent successfully!';
+    }
     e.target.reset();
 
     setTimeout(() => {
