@@ -150,10 +150,47 @@ question.
 
 ---
 
-## Part 2 — Email DNS, after cancellation
+## Part 2 — Email DNS — ✅ DONE 2026-08-10 (completed BEFORE cancellation)
+
+Executed ahead of the cancellation rather than after, which is the better order —
+there was never a window where mail had nowhere to go. Verified live on two
+independent resolvers (1.1.1.1 and 8.8.8.8):
+
+| Record | Final state |
+|---|---|
+| `MX` | `route1/2/3.mx.cloudflare.net` — Cloudflare Email Routing active |
+| `TXT` apex SPF | `v=spf1 include:_spf.mx.cloudflare.net ~all` — exactly ONE spf1 record |
+| `TXT cf2024-1._domainkey` | Cloudflare DKIM, present |
+| `TXT _dmarc` | `v=DMARC1; p=reject;` — no `rua`, so zero report email to anyone |
+| `TXT google-site-verification=JcMB8fi…` | **preserved** — GSC ownership proof, never delete |
+
+Routing: `admin@coolcallpro.com` + catch-all → `gyanesh.gulshan@gmail.com`,
+verified with a live test message. Receive-only; sending as @coolcallpro.com is
+gone with Workspace.
+
+Two gotchas hit on the way through, recorded for next time:
+
+1. **Cloudflare does NOT auto-remove conflicting MX records.** The activation step
+   fails with "Existing non-Cloudflare MX records conflict with Email Routing."
+   The Google `smtp.google.com` MX must be deleted by hand in the DNS tab first.
+2. **Delete the old Google SPF at the same time.** Cloudflare adds its own spf1
+   record and does not remove Google's; two spf1 records on one domain is a spec
+   violation (permerror). Only `google-site-verification` and `_dmarc` must be
+   left alone among the Google-ish TXT records.
+
+`p=reject` with no reporting address is correct here: nothing sends as the domain
+any more, and forwarded mail is judged against the *original* sender's DMARC, not
+ours. Leaving a `rua=` would have turned the working forwarder into a daily
+XML-attachment feed. This **supersedes the p=none → p=quarantine → p=reject
+staging** that was planned in `NEXT-TASKS.txt`.
+
+Residual cosmetic item: `google._domainkey` TXT still present. Dead signing key,
+harmless, delete whenever.
+
+### Original pre-cancellation state (kept for reference)
 
 Once Workspace is gone, the current records describe a mail setup that no longer
-exists. Current state:
+exists. State before the 2026-08-10 work:
 
 | Record | Current value | Problem |
 |---|---|---|
