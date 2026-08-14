@@ -19,7 +19,32 @@ If it's already the Gmail account, tick the box and move on.
 
 ## Part 1 — Must be done BEFORE cancelling
 
-### 1. Domain registration — Squarespace Domains ⚠ most severe
+### 1. Domain registration — ✅ RESOLVED 2026-08-14, transferred to Cloudflare
+
+Transfer completed. Verified at the Verisign registry:
+
+```
+REGISTRAR : Cloudflare, Inc.       (was Squarespace Domains II LLC)
+EXPIRATION: 2028-03-04             (was 2027-03-04 — transfer added a year)
+STATUS    : client transfer prohibited   ← Cloudflare's automatic registrar lock, expected
+NS        : christian/katelyn.ns.cloudflare.com   (unchanged)
+```
+
+The domain is now fully independent of Google Workspace: no Squarespace login, no
+Workspace billing path. Both coupling mechanisms are severed. Total cost $10.46.
+
+Sequence that worked: unlock at Squarespace → disable WHOIS privacy → request auth
+code → Cloudflare Domain Registration → Transfer Domains → pay. Squarespace then
+emailed a **deny**-style notice ("if you want to proceed you do not need to respond;
+if we do not hear from you by Aug 13 the transfer will proceed") — passive consent,
+**not** an approve-to-accelerate step. There was nothing to click, and clicking
+"REVIEW REQUEST" would have led to the cancellation flow. Took ~5 days end to end.
+Cloudflare re-applied its own free WHOIS privacy on completion. Website served 200
+throughout; a registrar transfer never touches DNS.
+
+The original analysis is kept below for reference.
+
+### 1b. Original finding — Squarespace Domains ⚠ was most severe
 
 `coolcallpro.com` is registered with **Squarespace Domains II LLC** (this is the
 old Google Domains business, migrated to Squarespace in 2023) and **expires
