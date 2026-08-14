@@ -38,7 +38,10 @@ if (hamburger) {
 // re-minify with the terser command in CLAUDE.md > Build Commands.
 // NOTE: script.google.com must also be listed in connect-src in `_headers`, or
 // the browser CSP blocks the POST silently.
-const CONTACT_FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbz76gpDMfqJ6fDIxcS8lSCyhmnxMBAVikDMpIuC4qRRfeoOrsZlEeNxN8h1ADiKbZGL5w/exec';
+// Repointed 2026-08-14 to a Sheet on the personal Google account (the previous
+// endpoint lived on the coolcallpro.com Workspace account, which is being
+// cancelled — it would have died with it).
+const CONTACT_FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbz2ZCUo4KOTqH8bqqLTHshaiqXWceM3KluujV3b9mB3OhQpXm74xT0EtXzPq227HkeukA/exec';
 
 async function handleContactSubmit(e) {
     e.preventDefault();
