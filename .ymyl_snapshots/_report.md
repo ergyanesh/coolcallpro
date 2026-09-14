@@ -1,4 +1,4 @@
-# YMYL Primary-Source Watcher Report — 2026-09-07
+# YMYL Primary-Source Watcher Report — 2026-09-14
 
 ## OK  IRS Section 25C Energy Efficient Home Improvement Credit
   URL: https://www.irs.gov/credits-deductions/energy-efficient-home-improvement-credit
@@ -12,11 +12,9 @@
   URL: https://www.energystar.gov/about/federal-tax-credits
   No change.
 
-## CHANGE  EPA Section 608 Refrigerant Handling
+## OK  EPA Section 608 Refrigerant Handling
   URL: https://www.epa.gov/section608
-  Material delta: 1 line(s).
-  + Added (1 line(s)):
-      +Last updated on September 3, 2026
+  No change.
 
 ## OK  EPA AIM Act Technology Transitions Program
   URL: https://www.epa.gov/climate-hfcs-reduction/regulatory-actions-technology-transitions
@@ -30,9 +28,9 @@
   URL: https://www.energy.gov/save/home-upgrades
   Material delta: 2 line(s).
   + Added (1 line(s)):
-      +News &amp; Events Main Menu News &amp; Events View all News &amp; Events September 3, 2026 President Trump’s Energy Dominance Agenda is Delivering for American Energy Workers Annual Report Highlights
+      +News &amp; Events Main Menu News &amp; Events View all News &amp; Events September 10, 2026 Hydrocarbons and Geothermal Energy Office Announces $300,000 to Help Identify Hidden Geothermal Systems Com
   - Removed (1 line(s)):
-      -News &amp; Events Main Menu News &amp; Events View all News &amp; Events August 27, 2026 NNSA and DTRA Remove High-Risk Radioactive Source from Guatemala Working together, NNSA and DTRA removed a rad
+      -News &amp; Events Main Menu News &amp; Events View all News &amp; Events September 3, 2026 President Trump’s Energy Dominance Agenda is Delivering for American Energy Workers Annual Report Highlights
 
 ## OK  PACENation PACE Programs (industry advocacy — watch for MO SB736 framing)
   URL: https://www.pacenation.org/pace-programs/
@@ -40,5 +38,5 @@
 
 ---
 Sources monitored: 8
-Material changes: 2
+Material changes: 1
 Fetch errors: 1
